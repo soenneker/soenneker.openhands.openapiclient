@@ -3,9 +3,10 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
-    /// <summary>Current sandbox status. Will be MISSING if the sandbox does not exist.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public enum SandboxStatus
+    #pragma warning restore CS1591
     {
         [EnumMember(Value = "STARTING")]
         #pragma warning disable CS1591

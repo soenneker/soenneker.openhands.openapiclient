@@ -16,30 +16,30 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The git_provider property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? GitProvider { get; set; }
-        /// <summary>The public property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_public? Public { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType_Wrapper? GitProvider { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_public Public { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType_Wrapper GitProvider { get; set; }
 #endif
+        /// <summary>The public property</summary>
+        public bool? Public { get; set; }
         /// <summary>The selected_branch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_selected_branch? SelectedBranch { get; set; }
+        public string? SelectedBranch { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_selected_branch SelectedBranch { get; set; }
+        public string SelectedBranch { get; set; }
 #endif
         /// <summary>The selected_repository property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_selected_repository? SelectedRepository { get; set; }
+        public string? SelectedRepository { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_selected_repository SelectedRepository { get; set; }
+        public string SelectedRepository { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest"/> and sets the default values.
@@ -66,10 +66,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "git_provider", n => { GitProvider = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>(); } },
-                { "public", n => { Public = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_public>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_public.CreateFromDiscriminatorValue); } },
-                { "selected_branch", n => { SelectedBranch = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_selected_branch>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_selected_branch.CreateFromDiscriminatorValue); } },
-                { "selected_repository", n => { SelectedRepository = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_selected_repository>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_selected_repository.CreateFromDiscriminatorValue); } },
+                { "git_provider", n => { GitProvider = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType_Wrapper>(global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType_Wrapper.CreateFromDiscriminatorValue); } },
+                { "public", n => { Public = n.GetBoolValue(); } },
+                { "selected_branch", n => { SelectedBranch = n.GetStringValue(); } },
+                { "selected_repository", n => { SelectedRepository = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -79,209 +79,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>("git_provider", GitProvider);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_public>("public", Public);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_selected_branch>("selected_branch", SelectedBranch);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_selected_repository>("selected_repository", SelectedRepository);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType_Wrapper>("git_provider", GitProvider);
+            writer.WriteBoolValue("public", Public);
+            writer.WriteStringValue("selected_branch", SelectedBranch);
+            writer.WriteStringValue("selected_repository", SelectedRepository);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="bool"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_publicMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AppConversationUpdateRequest_public : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_publicMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_publicMember1? AppConversationUpdateRequestPublicMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_publicMember1 AppConversationUpdateRequestPublicMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="bool"/></summary>
-            public bool? Boolean { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_public"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_public CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_public();
-                if(parseNode.GetBoolValue() is bool booleanValue)
-                {
-                    result.Boolean = booleanValue;
-                }
-                else {
-                    result.AppConversationUpdateRequestPublicMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_publicMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AppConversationUpdateRequestPublicMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AppConversationUpdateRequestPublicMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Boolean != null)
-                {
-                    writer.WriteBoolValue(null, Boolean);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_publicMember1>(null, AppConversationUpdateRequestPublicMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_selected_branchMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AppConversationUpdateRequest_selected_branch : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_selected_branchMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_selected_branchMember1? AppConversationUpdateRequestSelectedBranchMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_selected_branchMember1 AppConversationUpdateRequestSelectedBranchMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_selected_branch"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_selected_branch CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_selected_branch();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.AppConversationUpdateRequestSelectedBranchMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_selected_branchMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AppConversationUpdateRequestSelectedBranchMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AppConversationUpdateRequestSelectedBranchMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_selected_branchMember1>(null, AppConversationUpdateRequestSelectedBranchMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_selected_repositoryMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AppConversationUpdateRequest_selected_repository : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_selected_repositoryMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_selected_repositoryMember1? AppConversationUpdateRequestSelectedRepositoryMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_selected_repositoryMember1 AppConversationUpdateRequestSelectedRepositoryMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_selected_repository"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_selected_repository CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest.AppConversationUpdateRequest_selected_repository();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.AppConversationUpdateRequestSelectedRepositoryMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_selected_repositoryMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AppConversationUpdateRequestSelectedRepositoryMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AppConversationUpdateRequestSelectedRepositoryMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest_selected_repositoryMember1>(null, AppConversationUpdateRequestSelectedRepositoryMember1);
-                }
-            }
         }
     }
 }

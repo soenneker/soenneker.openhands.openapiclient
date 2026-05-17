@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.App
         {
         }
         /// <summary>
-        /// Get organization app settings for the user&apos;s current organization.This endpoint retrieves application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found
+        /// &quot;Get organization app settings for the user&apos;s current organization.This endpoint retrieves application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.App
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update organization app settings for the user&apos;s current organization.This endpoint updates application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    update_data: App settings update data    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found    HTTPException: 422 if validation errors occur (handled by FastAPI)    HTTPException: 500 if update fails
+        /// &quot;Update organization app settings for the user&apos;s current organization.This endpoint updates application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    update_data: App settings update data    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found    HTTPException: 422 if validation errors occur (handled by FastAPI)    HTTPException: 500 if update fails&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse"/></returns>
         /// <param name="body">Request model for updating organization app settings.</param>
@@ -82,7 +82,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.App
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get organization app settings for the user&apos;s current organization.This endpoint retrieves application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found
+        /// &quot;Get organization app settings for the user&apos;s current organization.This endpoint retrieves application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +101,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.App
             return requestInfo;
         }
         /// <summary>
-        /// Update organization app settings for the user&apos;s current organization.This endpoint updates application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    update_data: App settings update data    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found    HTTPException: 422 if validation errors occur (handled by FastAPI)    HTTPException: 500 if update fails
+        /// &quot;Update organization app settings for the user&apos;s current organization.This endpoint updates application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    update_data: App settings update data    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found    HTTPException: 422 if validation errors occur (handled by FastAPI)    HTTPException: 500 if update fails&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request model for updating organization app settings.</param>
@@ -132,36 +132,22 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.App
             return new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.App.AppRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get organization app settings for the user&apos;s current organization.This endpoint retrieves application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found
+        /// &quot;Get organization app settings for the user&apos;s current organization.This endpoint retrieves application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AppRequestBuilderGetQueryParameters 
         {
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("org_id")]
-            public string? OrgId { get; set; }
-#nullable restore
-#else
-            [QueryParameter("org_id")]
-            public string OrgId { get; set; }
-#endif
+            public Guid? OrgId { get; set; }
         }
         /// <summary>
-        /// Update organization app settings for the user&apos;s current organization.This endpoint updates application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    update_data: App settings update data    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found    HTTPException: 422 if validation errors occur (handled by FastAPI)    HTTPException: 500 if update fails
+        /// &quot;Update organization app settings for the user&apos;s current organization.This endpoint updates application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    update_data: App settings update data    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found    HTTPException: 422 if validation errors occur (handled by FastAPI)    HTTPException: 500 if update fails&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AppRequestBuilderPostQueryParameters 
         {
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("org_id")]
-            public string? OrgId { get; set; }
-#nullable restore
-#else
-            [QueryParameter("org_id")]
-            public string OrgId { get; set; }
-#endif
+            public Guid? OrgId { get; set; }
         }
     }
 }

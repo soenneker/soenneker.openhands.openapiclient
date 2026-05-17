@@ -7,20 +7,76 @@ using System.IO;
 using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorInput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorInput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LoggingCallbackProcessorInput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SetTitleCallbackProcessorInput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInput"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class EventCallbackProcessorInput : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class EventCallbackProcessorInput : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInput"/> and sets the default values.
-        /// </summary>
-        public EventCallbackProcessorInput()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInput"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInput? BitbucketV1CallbackProcessorInput { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInput BitbucketV1CallbackProcessorInput { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInput"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInput? GithubV1CallbackProcessorInput { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInput GithubV1CallbackProcessorInput { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInput"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInput? GitlabV1CallbackProcessorInput { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInput GitlabV1CallbackProcessorInput { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorInput"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorInput? JiraDcV1CallbackProcessorInput { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorInput JiraDcV1CallbackProcessorInput { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorInput"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorInput? JiraV1CallbackProcessorInput { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorInput JiraV1CallbackProcessorInput { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LoggingCallbackProcessorInput"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LoggingCallbackProcessorInput? LoggingCallbackProcessorInput { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LoggingCallbackProcessorInput LoggingCallbackProcessorInput { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SetTitleCallbackProcessorInput"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SetTitleCallbackProcessorInput? SetTitleCallbackProcessorInput { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SetTitleCallbackProcessorInput SetTitleCallbackProcessorInput { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInput"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInput? SlackV1CallbackProcessorInput { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInput SlackV1CallbackProcessorInput { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -29,7 +85,41 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInput();
+            var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
+            var result = new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInput();
+            if("BitbucketV1CallbackProcessorInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.BitbucketV1CallbackProcessorInput = new global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInput();
+            }
+            else if("GithubV1CallbackProcessorInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GithubV1CallbackProcessorInput = new global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInput();
+            }
+            else if("GitlabV1CallbackProcessorInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GitlabV1CallbackProcessorInput = new global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInput();
+            }
+            else if("integrations__jira_dc__jira_dc_v1_callback_processor__JiraDcV1CallbackProcessor-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.JiraDcV1CallbackProcessorInput = new global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorInput();
+            }
+            else if("integrations__jira__jira_v1_callback_processor__JiraV1CallbackProcessor-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.JiraV1CallbackProcessorInput = new global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorInput();
+            }
+            else if("LoggingCallbackProcessorInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.LoggingCallbackProcessorInput = new global::Soenneker.OpenHands.OpenApiClient.Models.LoggingCallbackProcessorInput();
+            }
+            else if("openhands__app_server__event_callback__set_title_callback_processor__SetTitleCallbackProcessor-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SetTitleCallbackProcessorInput = new global::Soenneker.OpenHands.OpenApiClient.Models.SetTitleCallbackProcessorInput();
+            }
+            else if("integrations__slack__slack_v1_callback_processor__SlackV1CallbackProcessor-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SlackV1CallbackProcessorInput = new global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInput();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,9 +127,39 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(BitbucketV1CallbackProcessorInput != null)
             {
-            };
+                return BitbucketV1CallbackProcessorInput.GetFieldDeserializers();
+            }
+            else if(GithubV1CallbackProcessorInput != null)
+            {
+                return GithubV1CallbackProcessorInput.GetFieldDeserializers();
+            }
+            else if(GitlabV1CallbackProcessorInput != null)
+            {
+                return GitlabV1CallbackProcessorInput.GetFieldDeserializers();
+            }
+            else if(JiraDcV1CallbackProcessorInput != null)
+            {
+                return JiraDcV1CallbackProcessorInput.GetFieldDeserializers();
+            }
+            else if(JiraV1CallbackProcessorInput != null)
+            {
+                return JiraV1CallbackProcessorInput.GetFieldDeserializers();
+            }
+            else if(LoggingCallbackProcessorInput != null)
+            {
+                return LoggingCallbackProcessorInput.GetFieldDeserializers();
+            }
+            else if(SetTitleCallbackProcessorInput != null)
+            {
+                return SetTitleCallbackProcessorInput.GetFieldDeserializers();
+            }
+            else if(SlackV1CallbackProcessorInput != null)
+            {
+                return SlackV1CallbackProcessorInput.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -48,7 +168,38 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            if(BitbucketV1CallbackProcessorInput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInput>(null, BitbucketV1CallbackProcessorInput);
+            }
+            else if(GithubV1CallbackProcessorInput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInput>(null, GithubV1CallbackProcessorInput);
+            }
+            else if(GitlabV1CallbackProcessorInput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInput>(null, GitlabV1CallbackProcessorInput);
+            }
+            else if(JiraDcV1CallbackProcessorInput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorInput>(null, JiraDcV1CallbackProcessorInput);
+            }
+            else if(JiraV1CallbackProcessorInput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorInput>(null, JiraV1CallbackProcessorInput);
+            }
+            else if(LoggingCallbackProcessorInput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LoggingCallbackProcessorInput>(null, LoggingCallbackProcessorInput);
+            }
+            else if(SetTitleCallbackProcessorInput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SetTitleCallbackProcessorInput>(null, SetTitleCallbackProcessorInput);
+            }
+            else if(SlackV1CallbackProcessorInput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInput>(null, SlackV1CallbackProcessorInput);
+            }
         }
     }
 }

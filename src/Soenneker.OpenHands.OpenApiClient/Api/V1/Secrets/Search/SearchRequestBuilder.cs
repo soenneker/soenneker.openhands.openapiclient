@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Search
         {
         }
         /// <summary>
-        /// Search / List custom secrets.Retrieves the names and descriptions of custom secrets for the authenticated user.Results are paginated and can be filtered by name.In SaaS mode, includes the system-generated OPENHANDS_API_KEY which cannot be deleted.Returns:    CustomSecretPage: Paginated list of custom secrets (without values)
+        /// &quot;Search / List custom secrets.Retrieves the names and descriptions of custom secrets for the authenticated user.Results are paginated and can be filtered by name.In SaaS mode, includes the system-generated OPENHANDS_API_KEY which cannot be deleted.Returns:    CustomSecretPage: Paginated list of custom secrets (without values)&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Search
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretPage>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Search / List custom secrets.Retrieves the names and descriptions of custom secrets for the authenticated user.Results are paginated and can be filtered by name.In SaaS mode, includes the system-generated OPENHANDS_API_KEY which cannot be deleted.Returns:    CustomSecretPage: Paginated list of custom secrets (without values)
+        /// &quot;Search / List custom secrets.Retrieves the names and descriptions of custom secrets for the authenticated user.Results are paginated and can be filtered by name.In SaaS mode, includes the system-generated OPENHANDS_API_KEY which cannot be deleted.Returns:    CustomSecretPage: Paginated list of custom secrets (without values)&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Search
             return new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Search.SearchRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Search / List custom secrets.Retrieves the names and descriptions of custom secrets for the authenticated user.Results are paginated and can be filtered by name.In SaaS mode, includes the system-generated OPENHANDS_API_KEY which cannot be deleted.Returns:    CustomSecretPage: Paginated list of custom secrets (without values)
+        /// &quot;Search / List custom secrets.Retrieves the names and descriptions of custom secrets for the authenticated user.Results are paginated and can be filtered by name.In SaaS mode, includes the system-generated OPENHANDS_API_KEY which cannot be deleted.Returns:    CustomSecretPage: Paginated list of custom secrets (without values)&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SearchRequestBuilderGetQueryParameters 

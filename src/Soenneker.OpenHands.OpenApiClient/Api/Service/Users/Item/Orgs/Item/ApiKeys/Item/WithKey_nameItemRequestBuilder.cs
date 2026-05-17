@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.Api
         {
         }
         /// <summary>
-        /// Delete a system API key created by the service.This endpoint allows the automations service to clean up API keysit previously created for users.Args:    user_id: The user ID    org_id: The organization ID    key_name: The name of the key to delete (without __SYSTEM__: prefix)    x_service_api_key: Service API key header for authenticationReturns:    dict: Success messageRaises:    HTTPException: 401 if service key is invalid    HTTPException: 404 if key not found
+        /// &quot;Delete a system API key created by the service.This endpoint allows the automations service to clean up API keysit previously created for users.Args:    user_id: The user ID    org_id: The organization ID    key_name: The name of the key to delete (without __SYSTEM__: prefix)    x_service_api_key: Service API key header for authenticationReturns:    dict: Success messageRaises:    HTTPException: 401 if service key is invalid    HTTPException: 404 if key not found&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.ApiKeys.Item.WithKey_nameDeleteResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.Api
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.ApiKeys.Item.WithKey_nameDeleteResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.ApiKeys.Item.WithKey_nameDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a system API key created by the service.This endpoint allows the automations service to clean up API keysit previously created for users.Args:    user_id: The user ID    org_id: The organization ID    key_name: The name of the key to delete (without __SYSTEM__: prefix)    x_service_api_key: Service API key header for authenticationReturns:    dict: Success messageRaises:    HTTPException: 401 if service key is invalid    HTTPException: 404 if key not found
+        /// &quot;Delete a system API key created by the service.This endpoint allows the automations service to clean up API keysit previously created for users.Args:    user_id: The user ID    org_id: The organization ID    key_name: The name of the key to delete (without __SYSTEM__: prefix)    x_service_api_key: Service API key header for authenticationReturns:    dict: Success messageRaises:    HTTPException: 401 if service key is invalid    HTTPException: 404 if key not found&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

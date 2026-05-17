@@ -34,19 +34,19 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Acc
         {
         }
         /// <summary>
-        /// Redirect invitation acceptance to frontend.This endpoint is accessed via the link in the invitation email.It always redirects to the home page with the invitation token,allowing the frontend to handle the acceptance flow via a modal.This approach works with SameSite=&apos;strict&apos; cookies because:- Cross-site navigation (clicking email link) doesn&apos;t send cookies- But same-origin POST requests (from frontend) DO send cookiesArgs:    token: The invitation token from the email link    request: FastAPI requestReturns:    RedirectResponse: Redirect to home page with invitation_token query param
+        /// &quot;Redirect invitation acceptance to frontend.This endpoint is accessed via the link in the invitation email.It always redirects to the home page with the invitation token,allowing the frontend to handle the acceptance flow via a modal.This approach works with SameSite=&apos;strict&apos; cookies because:- Cross-site navigation (clicking email link) doesn&apos;t send cookies- But same-origin POST requests (from frontend) DO send cookiesArgs:    token: The invitation token from the email link    request: FastAPI requestReturns:    RedirectResponse: Redirect to home page with invitation_token query param&quot;
         /// </summary>
-        /// <returns>A <see cref="UntypedNode"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<UntypedNode?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptRequestBuilder.AcceptRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptRequestBuilder.AcceptRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<UntypedNode> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptRequestBuilder.AcceptRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptRequestBuilder.AcceptRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,10 +54,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Acc
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptGetResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Accept an organization invitation via authenticated POST request.This endpoint is called by the frontend after displaying the acceptance modal.Requires authentication - cookies are sent because this is a same-origin request.Args:    request_data: Contains the invitation token    user_id: Authenticated user ID (from dependency)Returns:    AcceptInvitationResponse: Success response with organization detailsRaises:    HTTPException 400: Invalid or expired token    HTTPException 403: Email mismatch    HTTPException 409: User already a member
+        /// &quot;Accept an organization invitation via authenticated POST request.This endpoint is called by the frontend after displaying the acceptance modal.Requires authentication - cookies are sent because this is a same-origin request.Args:    request_data: Contains the invitation token    user_id: Authenticated user ID (from dependency)Returns:    AcceptInvitationResponse: Success response with organization detailsRaises:    HTTPException 400: Invalid or expired token    HTTPException 403: Email mismatch    HTTPException 409: User already a member&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AcceptInvitationResponse"/></returns>
         /// <param name="body">Request model for accepting an invitation via POST.</param>
@@ -82,7 +82,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Acc
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.AcceptInvitationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.AcceptInvitationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Redirect invitation acceptance to frontend.This endpoint is accessed via the link in the invitation email.It always redirects to the home page with the invitation token,allowing the frontend to handle the acceptance flow via a modal.This approach works with SameSite=&apos;strict&apos; cookies because:- Cross-site navigation (clicking email link) doesn&apos;t send cookies- But same-origin POST requests (from frontend) DO send cookiesArgs:    token: The invitation token from the email link    request: FastAPI requestReturns:    RedirectResponse: Redirect to home page with invitation_token query param
+        /// &quot;Redirect invitation acceptance to frontend.This endpoint is accessed via the link in the invitation email.It always redirects to the home page with the invitation token,allowing the frontend to handle the acceptance flow via a modal.This approach works with SameSite=&apos;strict&apos; cookies because:- Cross-site navigation (clicking email link) doesn&apos;t send cookies- But same-origin POST requests (from frontend) DO send cookiesArgs:    token: The invitation token from the email link    request: FastAPI requestReturns:    RedirectResponse: Redirect to home page with invitation_token query param&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +101,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Acc
             return requestInfo;
         }
         /// <summary>
-        /// Accept an organization invitation via authenticated POST request.This endpoint is called by the frontend after displaying the acceptance modal.Requires authentication - cookies are sent because this is a same-origin request.Args:    request_data: Contains the invitation token    user_id: Authenticated user ID (from dependency)Returns:    AcceptInvitationResponse: Success response with organization detailsRaises:    HTTPException 400: Invalid or expired token    HTTPException 403: Email mismatch    HTTPException 409: User already a member
+        /// &quot;Accept an organization invitation via authenticated POST request.This endpoint is called by the frontend after displaying the acceptance modal.Requires authentication - cookies are sent because this is a same-origin request.Args:    request_data: Contains the invitation token    user_id: Authenticated user ID (from dependency)Returns:    AcceptInvitationResponse: Success response with organization detailsRaises:    HTTPException 400: Invalid or expired token    HTTPException 403: Email mismatch    HTTPException 409: User already a member&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request model for accepting an invitation via POST.</param>
@@ -132,7 +132,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Acc
             return new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Redirect invitation acceptance to frontend.This endpoint is accessed via the link in the invitation email.It always redirects to the home page with the invitation token,allowing the frontend to handle the acceptance flow via a modal.This approach works with SameSite=&apos;strict&apos; cookies because:- Cross-site navigation (clicking email link) doesn&apos;t send cookies- But same-origin POST requests (from frontend) DO send cookiesArgs:    token: The invitation token from the email link    request: FastAPI requestReturns:    RedirectResponse: Redirect to home page with invitation_token query param
+        /// &quot;Redirect invitation acceptance to frontend.This endpoint is accessed via the link in the invitation email.It always redirects to the home page with the invitation token,allowing the frontend to handle the acceptance flow via a modal.This approach works with SameSite=&apos;strict&apos; cookies because:- Cross-site navigation (clicking email link) doesn&apos;t send cookies- But same-origin POST requests (from frontend) DO send cookiesArgs:    token: The invitation token from the email link    request: FastAPI requestReturns:    RedirectResponse: Redirect to home page with invitation_token query param&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AcceptRequestBuilderGetQueryParameters 

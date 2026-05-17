@@ -25,18 +25,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The input property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Input { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ValidationError_input? Input { get; set; }
 #nullable restore
 #else
-        public UntypedNode Input { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ValidationError_input Input { get; set; }
 #endif
         /// <summary>The loc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Loc { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.UnionBranch>? Loc { get; set; }
 #nullable restore
 #else
-        public List<string> Loc { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.UnionBranch> Loc { get; set; }
 #endif
         /// <summary>The msg property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -80,8 +80,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "ctx", n => { Ctx = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ValidationError_ctx>(global::Soenneker.OpenHands.OpenApiClient.Models.ValidationError_ctx.CreateFromDiscriminatorValue); } },
-                { "input", n => { Input = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "loc", n => { Loc = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "input", n => { Input = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ValidationError_input>(global::Soenneker.OpenHands.OpenApiClient.Models.ValidationError_input.CreateFromDiscriminatorValue); } },
+                { "loc", n => { Loc = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.UnionBranch>(global::Soenneker.OpenHands.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "msg", n => { Msg = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -94,8 +94,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ValidationError_ctx>("ctx", Ctx);
-            writer.WriteObjectValue<UntypedNode>("input", Input);
-            writer.WriteCollectionOfPrimitiveValues<string>("loc", Loc);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ValidationError_input>("input", Input);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.UnionBranch>("loc", Loc);
             writer.WriteStringValue("msg", Msg);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);

@@ -14,13 +14,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     public partial class ConsultTomObservationInput : IParsable
     {
         /// <summary>Confidence score from Tom agent (0-1)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_confidence? Confidence { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_confidence Confidence { get; set; }
-#endif
+        public double? Confidence { get; set; }
         /// <summary>Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,20 +26,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Whether the observation indicates an error</summary>
         public bool? IsError { get; set; }
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput_kind? Kind { get; set; }
         /// <summary>Tom agent&apos;s reasoning for the suggestions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_reasoning? Reasoning { get; set; }
+        public string? Reasoning { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_reasoning Reasoning { get; set; }
+        public string Reasoning { get; set; }
 #endif
         /// <summary>Tom agent&apos;s suggestions or guidance</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,11 +61,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "confidence", n => { Confidence = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_confidence>(global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_confidence.CreateFromDiscriminatorValue); } },
+                { "confidence", n => { Confidence = n.GetDoubleValue(); } },
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_content>(global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_content.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "is_error", n => { IsError = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
-                { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_reasoning>(global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_reasoning.CreateFromDiscriminatorValue); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput_kind>(); } },
+                { "reasoning", n => { Reasoning = n.GetStringValue(); } },
                 { "suggestions", n => { Suggestions = n.GetStringValue(); } },
             };
         }
@@ -88,74 +76,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_confidence>("confidence", Confidence);
+            writer.WriteDoubleValue("confidence", Confidence);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_content>("content", Content);
             writer.WriteBoolValue("is_error", IsError);
-            writer.WriteStringValue("kind", Kind);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_reasoning>("reasoning", Reasoning);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput_kind>("kind", Kind);
+            writer.WriteStringValue("reasoning", Reasoning);
             writer.WriteStringValue("suggestions", Suggestions);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="double"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput_confidenceMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ConsultTomObservationInput_confidence : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput_confidenceMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput_confidenceMember1? ConsultTomObservationInputConfidenceMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput_confidenceMember1 ConsultTomObservationInputConfidenceMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="double"/></summary>
-            public double? Double { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_confidence"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_confidence CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_confidence();
-                if(parseNode.GetDoubleValue() is double doubleValue)
-                {
-                    result.Double = doubleValue;
-                }
-                else {
-                    result.ConsultTomObservationInputConfidenceMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput_confidenceMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ConsultTomObservationInputConfidenceMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ConsultTomObservationInputConfidenceMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Double != null)
-                {
-                    writer.WriteDoubleValue(null, Double);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput_confidenceMember1>(null, ConsultTomObservationInputConfidenceMember1);
-                }
-            }
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TextContent"/>
@@ -212,74 +138,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent>(null, ImageContent, TextContent);
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput_reasoningMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ConsultTomObservationInput_reasoning : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput_reasoningMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput_reasoningMember1? ConsultTomObservationInputReasoningMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput_reasoningMember1 ConsultTomObservationInputReasoningMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_reasoning"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_reasoning CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput.ConsultTomObservationInput_reasoning();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ConsultTomObservationInputReasoningMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput_reasoningMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ConsultTomObservationInputReasoningMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ConsultTomObservationInputReasoningMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput_reasoningMember1>(null, ConsultTomObservationInputReasoningMember1);
-                }
             }
         }
     }

@@ -33,10 +33,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The last_synced property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus.ResourceWithWebhookStatus_last_synced? LastSynced { get; set; }
+        public string? LastSynced { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus.ResourceWithWebhookStatus_last_synced LastSynced { get; set; }
+        public string LastSynced { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,10 +59,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The webhook_uuid property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus.ResourceWithWebhookStatus_webhook_uuid? WebhookUuid { get; set; }
+        public string? WebhookUuid { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus.ResourceWithWebhookStatus_webhook_uuid WebhookUuid { get; set; }
+        public string WebhookUuid { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus"/> and sets the default values.
@@ -91,11 +91,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "full_path", n => { FullPath = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "last_synced", n => { LastSynced = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus.ResourceWithWebhookStatus_last_synced>(global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus.ResourceWithWebhookStatus_last_synced.CreateFromDiscriminatorValue); } },
+                { "last_synced", n => { LastSynced = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
                 { "webhook_installed", n => { WebhookInstalled = n.GetBoolValue(); } },
-                { "webhook_uuid", n => { WebhookUuid = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus.ResourceWithWebhookStatus_webhook_uuid>(global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus.ResourceWithWebhookStatus_webhook_uuid.CreateFromDiscriminatorValue); } },
+                { "webhook_uuid", n => { WebhookUuid = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -107,148 +107,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("full_path", FullPath);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus.ResourceWithWebhookStatus_last_synced>("last_synced", LastSynced);
+            writer.WriteStringValue("last_synced", LastSynced);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("type", Type);
             writer.WriteBoolValue("webhook_installed", WebhookInstalled);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus.ResourceWithWebhookStatus_webhook_uuid>("webhook_uuid", WebhookUuid);
+            writer.WriteStringValue("webhook_uuid", WebhookUuid);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus_last_syncedMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ResourceWithWebhookStatus_last_synced : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus_last_syncedMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus_last_syncedMember1? ResourceWithWebhookStatusLastSyncedMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus_last_syncedMember1 ResourceWithWebhookStatusLastSyncedMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus.ResourceWithWebhookStatus_last_synced"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus.ResourceWithWebhookStatus_last_synced CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus.ResourceWithWebhookStatus_last_synced();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ResourceWithWebhookStatusLastSyncedMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus_last_syncedMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ResourceWithWebhookStatusLastSyncedMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ResourceWithWebhookStatusLastSyncedMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus_last_syncedMember1>(null, ResourceWithWebhookStatusLastSyncedMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus_webhook_uuidMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ResourceWithWebhookStatus_webhook_uuid : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus_webhook_uuidMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus_webhook_uuidMember1? ResourceWithWebhookStatusWebhookUuidMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus_webhook_uuidMember1 ResourceWithWebhookStatusWebhookUuidMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus.ResourceWithWebhookStatus_webhook_uuid"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus.ResourceWithWebhookStatus_webhook_uuid CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus.ResourceWithWebhookStatus_webhook_uuid();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ResourceWithWebhookStatusWebhookUuidMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus_webhook_uuidMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ResourceWithWebhookStatusWebhookUuidMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ResourceWithWebhookStatusWebhookUuidMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ResourceWithWebhookStatus_webhook_uuidMember1>(null, ResourceWithWebhookStatusWebhookUuidMember1);
-                }
-            }
         }
     }
 }

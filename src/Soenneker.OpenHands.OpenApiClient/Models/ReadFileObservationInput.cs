@@ -42,29 +42,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Whether the content was truncated due to size limits.</summary>
         public bool? IsTruncated { get; set; }
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_kind? Kind { get; set; }
         /// <summary>If truncated, the range of lines shown (start, end) - 1-indexed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput.ReadFileObservationInput_lines_shown? LinesShown { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Lines_Shown? LinesShown { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput.ReadFileObservationInput_lines_shown LinesShown { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Lines_Shown LinesShown { get; set; }
 #endif
         /// <summary>Total number of lines in the file.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput.ReadFileObservationInput_total_lines? TotalLines { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput.ReadFileObservationInput_total_lines TotalLines { get; set; }
-#endif
+        public int? TotalLines { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -88,9 +76,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "file_path", n => { FilePath = n.GetStringValue(); } },
                 { "is_error", n => { IsError = n.GetBoolValue(); } },
                 { "is_truncated", n => { IsTruncated = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
-                { "lines_shown", n => { LinesShown = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput.ReadFileObservationInput_lines_shown>(global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput.ReadFileObservationInput_lines_shown.CreateFromDiscriminatorValue); } },
-                { "total_lines", n => { TotalLines = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput.ReadFileObservationInput_total_lines>(global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput.ReadFileObservationInput_total_lines.CreateFromDiscriminatorValue); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_kind>(); } },
+                { "lines_shown", n => { LinesShown = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Lines_Shown>(global::Soenneker.OpenHands.OpenApiClient.Models.Lines_Shown.CreateFromDiscriminatorValue); } },
+                { "total_lines", n => { TotalLines = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -105,9 +93,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("file_path", FilePath);
             writer.WriteBoolValue("is_error", IsError);
             writer.WriteBoolValue("is_truncated", IsTruncated);
-            writer.WriteStringValue("kind", Kind);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput.ReadFileObservationInput_lines_shown>("lines_shown", LinesShown);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput.ReadFileObservationInput_total_lines>("total_lines", TotalLines);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_kind>("kind", Kind);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Lines_Shown>("lines_shown", LinesShown);
+            writer.WriteIntValue("total_lines", TotalLines);
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TextContent"/>
@@ -164,125 +152,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent>(null, ImageContent, TextContent);
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_lines_shownMember1"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_lines_shownMember2"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ReadFileObservationInput_lines_shown : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_lines_shownMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_lines_shownMember1? ReadFileObservationInputLinesShownMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_lines_shownMember1 ReadFileObservationInputLinesShownMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_lines_shownMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_lines_shownMember2? ReadFileObservationInputLinesShownMember2 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_lines_shownMember2 ReadFileObservationInputLinesShownMember2 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput.ReadFileObservationInput_lines_shown"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput.ReadFileObservationInput_lines_shown CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput.ReadFileObservationInput_lines_shown();
-                result.ReadFileObservationInputLinesShownMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_lines_shownMember1();
-                result.ReadFileObservationInputLinesShownMember2 = new global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_lines_shownMember2();
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ReadFileObservationInputLinesShownMember1 != null || ReadFileObservationInputLinesShownMember2 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ReadFileObservationInputLinesShownMember1, ReadFileObservationInputLinesShownMember2);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_lines_shownMember1>(null, ReadFileObservationInputLinesShownMember1, ReadFileObservationInputLinesShownMember2);
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_total_linesMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ReadFileObservationInput_total_lines : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_total_linesMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_total_linesMember1? ReadFileObservationInputTotalLinesMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_total_linesMember1 ReadFileObservationInputTotalLinesMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput.ReadFileObservationInput_total_lines"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput.ReadFileObservationInput_total_lines CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput.ReadFileObservationInput_total_lines();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.ReadFileObservationInputTotalLinesMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_total_linesMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ReadFileObservationInputTotalLinesMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ReadFileObservationInputTotalLinesMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationInput_total_linesMember1>(null, ReadFileObservationInputTotalLinesMember1);
-                }
             }
         }
     }

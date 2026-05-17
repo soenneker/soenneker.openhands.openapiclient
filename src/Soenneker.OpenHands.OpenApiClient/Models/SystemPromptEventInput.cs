@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// System prompt added by the agent.The system prompt can optionally include dynamic context that varies betweenconversations. When ``dynamic_context`` is provided, it is included as asecond content block in the same system message. Cache markers are NOTapplied here - they are applied by ``LLM._apply_prompt_caching()`` whencaching is enabled, ensuring provider-specific cache control is only addedwhen appropriate.Attributes:    system_prompt: The static system prompt text (cacheable across conversations)    tools: List of available tools    dynamic_context: Optional per-conversation context (hosts, repo info, etc.)        Sent as a second TextContent block inside the system message.
+    /// &quot;System prompt added by the agent.The system prompt can optionally include dynamic context that varies betweenconversations. When ``dynamic_context`` is provided, it is included as asecond content block in the same system message. Cache markers are NOTapplied here - they are applied by ``LLM._apply_prompt_caching()`` whencaching is enabled, ensuring provider-specific cache control is only addedwhen appropriate.Attributes:    system_prompt: The static system prompt text (cacheable across conversations)    tools: List of available tools    dynamic_context: Optional per-conversation context (hosts, repo info, etc.)        Sent as a second TextContent block inside the system message.&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SystemPromptEventInput : IParsable
@@ -30,16 +30,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventInput_kind? Kind { get; set; }
         /// <summary>The source property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventInput_source? Source { get; set; }
-        /// <summary>The system prompt text</summary>
+        /// <summary>The system_prompt property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.TextContent? SystemPrompt { get; set; }
@@ -90,7 +84,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "dynamic_context", n => { DynamicContext = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>(global::Soenneker.OpenHands.OpenApiClient.Models.TextContent.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventInput_kind>(); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventInput_source>(); } },
                 { "system_prompt", n => { SystemPrompt = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>(global::Soenneker.OpenHands.OpenApiClient.Models.TextContent.CreateFromDiscriminatorValue); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
@@ -106,7 +100,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>("dynamic_context", DynamicContext);
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventInput_kind>("kind", Kind);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventInput_source>("source", Source);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>("system_prompt", SystemPrompt);
             writer.WriteStringValue("timestamp", Timestamp);

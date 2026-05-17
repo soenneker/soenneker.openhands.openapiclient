@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// LLM variant that rejects unknown fields.The base ``LLM`` model has ``extra=&apos;ignore&apos;``, so typos and renamed keyssilently disappear. For API input we want to fail loud, otherwise userscan POST ``{&quot;llm&quot;: {&quot;custom_header&quot;: &quot;x&quot;}}`` and get a 201 with thefield quietly dropped.
+    /// &quot;LLM variant that rejects unknown fields.The base ``LLM`` model has ``extra=&apos;ignore&apos;``, so typos and renamed keyssilently disappear. For API input we want to fail loud, otherwise userscan POST ``{\&quot;llm\&quot;: {\&quot;custom_header\&quot;: \&quot;x\&quot;}}`` and get a 201 with thefield quietly dropped.&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class StrictLLM : IParsable
@@ -16,136 +16,118 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_api_key? ApiKey { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Api_Key? ApiKey { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_api_key ApiKey { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Api_Key ApiKey { get; set; }
 #endif
         /// <summary>API version (e.g., Azure).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_api_version? ApiVersion { get; set; }
+        public string? ApiVersion { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_api_version ApiVersion { get; set; }
+        public string ApiVersion { get; set; }
 #endif
         /// <summary>The aws_access_key_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_access_key_id? AwsAccessKeyId { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Aws_Access_Key_Id? AwsAccessKeyId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_access_key_id AwsAccessKeyId { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Aws_Access_Key_Id AwsAccessKeyId { get; set; }
 #endif
         /// <summary>The aws_bedrock_runtime_endpoint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_bedrock_runtime_endpoint? AwsBedrockRuntimeEndpoint { get; set; }
+        public string? AwsBedrockRuntimeEndpoint { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_bedrock_runtime_endpoint AwsBedrockRuntimeEndpoint { get; set; }
+        public string AwsBedrockRuntimeEndpoint { get; set; }
 #endif
         /// <summary>The aws_profile_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_profile_name? AwsProfileName { get; set; }
+        public string? AwsProfileName { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_profile_name AwsProfileName { get; set; }
+        public string AwsProfileName { get; set; }
 #endif
         /// <summary>The aws_region_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_region_name? AwsRegionName { get; set; }
+        public string? AwsRegionName { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_region_name AwsRegionName { get; set; }
+        public string AwsRegionName { get; set; }
 #endif
         /// <summary>The aws_role_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_role_name? AwsRoleName { get; set; }
+        public string? AwsRoleName { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_role_name AwsRoleName { get; set; }
+        public string AwsRoleName { get; set; }
 #endif
         /// <summary>The aws_secret_access_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_secret_access_key? AwsSecretAccessKey { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Aws_Secret_Access_Key? AwsSecretAccessKey { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_secret_access_key AwsSecretAccessKey { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Aws_Secret_Access_Key AwsSecretAccessKey { get; set; }
 #endif
         /// <summary>The aws_session_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_session_name? AwsSessionName { get; set; }
+        public string? AwsSessionName { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_session_name AwsSessionName { get; set; }
+        public string AwsSessionName { get; set; }
 #endif
         /// <summary>The aws_session_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_session_token? AwsSessionToken { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Aws_Session_Token? AwsSessionToken { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_session_token AwsSessionToken { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Aws_Session_Token AwsSessionToken { get; set; }
 #endif
         /// <summary>Custom base URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_base_url? BaseUrl { get; set; }
+        public string? BaseUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_base_url BaseUrl { get; set; }
+        public string BaseUrl { get; set; }
 #endif
         /// <summary>Enable caching of prompts.</summary>
         public bool? CachingPrompt { get; set; }
         /// <summary>A custom tokenizer to use for token counting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_custom_tokenizer? CustomTokenizer { get; set; }
+        public string? CustomTokenizer { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_custom_tokenizer CustomTokenizer { get; set; }
+        public string CustomTokenizer { get; set; }
 #endif
         /// <summary>Disable using of stop word.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_disable_stop_word? DisableStopWord { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_disable_stop_word DisableStopWord { get; set; }
-#endif
+        public bool? DisableStopWord { get; set; }
         /// <summary>If model is vision capable, this option allows to disable image processing (useful for cost reduction).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_disable_vision? DisableVision { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_disable_vision DisableVision { get; set; }
-#endif
+        public bool? DisableVision { get; set; }
         /// <summary>The drop_params property</summary>
         public bool? DropParams { get; set; }
         /// <summary>If True, ask for [&apos;reasoning.encrypted_content&apos;] in Responses API include.</summary>
         public bool? EnableEncryptedReasoning { get; set; }
         /// <summary>The budget tokens for extended thinking, supported by Anthropic models.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_extended_thinking_budget? ExtendedThinkingBudget { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_extended_thinking_budget ExtendedThinkingBudget { get; set; }
-#endif
+        public int? ExtendedThinkingBudget { get; set; }
         /// <summary>Optional HTTP headers to forward to LiteLLM requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? ExtraHeaders { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLMExtraHeaders? ExtraHeaders { get; set; }
 #nullable restore
 #else
-        public UntypedNode ExtraHeaders { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLMExtraHeaders ExtraHeaders { get; set; }
 #endif
         /// <summary>Optional fallback strategy for trying alternate LLMs on transient failure. Construct with FallbackStrategy(fallback_llms=[...]).Excluded from serialization; must be reconfigured after load.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -156,22 +138,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy FallbackStrategy { get; set; }
 #endif
         /// <summary>Force using string content serializer when sending to LLM API. If None (default), auto-detect based on model. Useful for providers that do not support list content, like HuggingFace and Groq.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_force_string_serializer? ForceStringSerializer { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_force_string_serializer ForceStringSerializer { get; set; }
-#endif
+        public bool? ForceStringSerializer { get; set; }
         /// <summary>The cost per input token. This will available in logs for user.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_input_cost_per_token? InputCostPerToken { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_input_cost_per_token InputCostPerToken { get; set; }
-#endif
-        /// <summary>Additional key-value pairs to pass to litellm&apos;s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {&apos;trace_version&apos;: &apos;1.0.0&apos;, &apos;tags&apos;: [&apos;agent:my-agent&apos;]} - vLLM features: {&apos;return_token_ids&apos;: True}</summary>
+        public double? InputCostPerToken { get; set; }
+        /// <summary>&quot;Additional key-value pairs to pass to litellm&apos;s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {&apos;trace_version&apos;: &apos;1.0.0&apos;, &apos;tags&apos;: [&apos;agent:my-agent&apos;]} - vLLM features: {&apos;return_token_ids&apos;: true}&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_litellm_extra_body? LitellmExtraBody { get; set; }
@@ -190,23 +160,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string LogCompletionsFolder { get; set; }
 #endif
         /// <summary>The maximum number of input tokens. Note that this is currently unused, and the value at runtime is actually the total tokens in OpenAI (e.g. 128,000 tokens for GPT-4).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_max_input_tokens? MaxInputTokens { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_max_input_tokens MaxInputTokens { get; set; }
-#endif
+        public int? MaxInputTokens { get; set; }
         /// <summary>Approx max chars in each event/content sent to the LLM.</summary>
         public int? MaxMessageChars { get; set; }
         /// <summary>The maximum number of output tokens. This is sent to the LLM.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_max_output_tokens? MaxOutputTokens { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_max_output_tokens MaxOutputTokens { get; set; }
-#endif
+        public int? MaxOutputTokens { get; set; }
         /// <summary>Model name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -218,10 +176,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Optional canonical model name for feature registry lookups. The OpenHands SDK maintains a model feature registry that maps model names to capabilities (e.g., vision support, prompt caching, responses API support). When using proxied or aliased model identifiers, set this field to the canonical model name (e.g., &apos;openai/gpt-4o&apos;) to ensure correct capability detection. If not provided, the &apos;model&apos; field will be used for capability lookups.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_model_canonical_name? ModelCanonicalName { get; set; }
+        public string? ModelCanonicalName { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_model_canonical_name ModelCanonicalName { get; set; }
+        public string ModelCanonicalName { get; set; }
 #endif
         /// <summary>Modify params allows litellm to do transformations like adding a default message, when a message is empty.</summary>
         public bool? ModifyParams { get; set; }
@@ -232,10 +190,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The ollama_base_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_ollama_base_url? OllamaBaseUrl { get; set; }
+        public string? OllamaBaseUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_ollama_base_url OllamaBaseUrl { get; set; }
+        public string OllamaBaseUrl { get; set; }
 #endif
         /// <summary>The openrouter_app_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -254,37 +212,19 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string OpenrouterSiteUrl { get; set; }
 #endif
         /// <summary>The cost per output token. This will available in logs for user.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_output_cost_per_token? OutputCostPerToken { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_output_cost_per_token OutputCostPerToken { get; set; }
-#endif
+        public double? OutputCostPerToken { get; set; }
         /// <summary>Retention policy for prompt cache. Only sent for supported models (GPT-5+ and GPT-4.1, excluding Azure deployments); explicitly stripped for all others.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_prompt_cache_retention? PromptCacheRetention { get; set; }
+        public string? PromptCacheRetention { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_prompt_cache_retention PromptCacheRetention { get; set; }
+        public string PromptCacheRetention { get; set; }
 #endif
         /// <summary>The effort to put into reasoning. This is a string that can be one of &apos;low&apos;, &apos;medium&apos;, &apos;high&apos;, &apos;xhigh&apos;, or &apos;none&apos;. Can apply to all reasoning models.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_reasoning_effort? ReasoningEffort { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_reasoning_effort ReasoningEffort { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_effort? ReasoningEffort { get; set; }
         /// <summary>The level of detail for reasoning summaries. This is a string that can be one of &apos;auto&apos;, &apos;concise&apos;, or &apos;detailed&apos;. Requires verified OpenAI organization. Only sent when explicitly set.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_reasoning_summary? ReasoningSummary { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_reasoning_summary ReasoningSummary { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_summary? ReasoningSummary { get; set; }
         /// <summary>The retry_max_wait property</summary>
         public int? RetryMaxWait { get; set; }
         /// <summary>The retry_min_wait property</summary>
@@ -295,53 +235,23 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_safety_settings? SafetySettings { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Safety_Settings? SafetySettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_safety_settings SafetySettings { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Safety_Settings SafetySettings { get; set; }
 #endif
         /// <summary>The seed to use for random number generation.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_seed? Seed { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_seed Seed { get; set; }
-#endif
+        public int? Seed { get; set; }
         /// <summary>Enable streaming responses from the LLM. When enabled, the provided `on_token` callback in .completions and .responses will be invoked for each chunk of tokens.</summary>
         public bool? Stream { get; set; }
         /// <summary>Sampling temperature for response generation. Defaults to None (uses provider default temperature). Set to 0.0 for deterministic outputs, or higher values (0.7-1.0) for more creative responses.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_temperature? Temperature { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_temperature Temperature { get; set; }
-#endif
+        public double? Temperature { get; set; }
         /// <summary>HTTP timeout in seconds. Default is 300s (5 minutes). Set to None to disable timeout (not recommended for production).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_timeout? Timeout { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_timeout Timeout { get; set; }
-#endif
+        public int? Timeout { get; set; }
         /// <summary>The top_k property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_top_k? TopK { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_top_k TopK { get; set; }
-#endif
+        public double? TopK { get; set; }
         /// <summary>Nucleus sampling parameter. Defaults to None (uses provider default). Set to a value between 0 and 1 to control diversity of outputs.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_top_p? TopP { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_top_p TopP { get; set; }
-#endif
+        public double? TopP { get; set; }
         /// <summary>Unique usage identifier for the LLM. Used for registry lookups, telemetry, and spend tracking.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -359,6 +269,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             Model = "claude-sonnet-4-20250514";
             OpenrouterAppName = "OpenHands";
             OpenrouterSiteUrl = "https://docs.all-hands.dev/";
+            PromptCacheRetention = "24h";
+            ReasoningEffort = global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_effort.High;
             UsageId = "default";
         }
         /// <summary>
@@ -379,56 +291,56 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "api_key", n => { ApiKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_api_key>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_api_key.CreateFromDiscriminatorValue); } },
-                { "api_version", n => { ApiVersion = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_api_version>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_api_version.CreateFromDiscriminatorValue); } },
-                { "aws_access_key_id", n => { AwsAccessKeyId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_access_key_id>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_access_key_id.CreateFromDiscriminatorValue); } },
-                { "aws_bedrock_runtime_endpoint", n => { AwsBedrockRuntimeEndpoint = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_bedrock_runtime_endpoint>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_bedrock_runtime_endpoint.CreateFromDiscriminatorValue); } },
-                { "aws_profile_name", n => { AwsProfileName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_profile_name>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_profile_name.CreateFromDiscriminatorValue); } },
-                { "aws_region_name", n => { AwsRegionName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_region_name>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_region_name.CreateFromDiscriminatorValue); } },
-                { "aws_role_name", n => { AwsRoleName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_role_name>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_role_name.CreateFromDiscriminatorValue); } },
-                { "aws_secret_access_key", n => { AwsSecretAccessKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_secret_access_key>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_secret_access_key.CreateFromDiscriminatorValue); } },
-                { "aws_session_name", n => { AwsSessionName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_session_name>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_session_name.CreateFromDiscriminatorValue); } },
-                { "aws_session_token", n => { AwsSessionToken = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_session_token>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_session_token.CreateFromDiscriminatorValue); } },
-                { "base_url", n => { BaseUrl = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_base_url>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_base_url.CreateFromDiscriminatorValue); } },
+                { "api_key", n => { ApiKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Api_Key>(global::Soenneker.OpenHands.OpenApiClient.Models.Api_Key.CreateFromDiscriminatorValue); } },
+                { "api_version", n => { ApiVersion = n.GetStringValue(); } },
+                { "aws_access_key_id", n => { AwsAccessKeyId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Aws_Access_Key_Id>(global::Soenneker.OpenHands.OpenApiClient.Models.Aws_Access_Key_Id.CreateFromDiscriminatorValue); } },
+                { "aws_bedrock_runtime_endpoint", n => { AwsBedrockRuntimeEndpoint = n.GetStringValue(); } },
+                { "aws_profile_name", n => { AwsProfileName = n.GetStringValue(); } },
+                { "aws_region_name", n => { AwsRegionName = n.GetStringValue(); } },
+                { "aws_role_name", n => { AwsRoleName = n.GetStringValue(); } },
+                { "aws_secret_access_key", n => { AwsSecretAccessKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Aws_Secret_Access_Key>(global::Soenneker.OpenHands.OpenApiClient.Models.Aws_Secret_Access_Key.CreateFromDiscriminatorValue); } },
+                { "aws_session_name", n => { AwsSessionName = n.GetStringValue(); } },
+                { "aws_session_token", n => { AwsSessionToken = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Aws_Session_Token>(global::Soenneker.OpenHands.OpenApiClient.Models.Aws_Session_Token.CreateFromDiscriminatorValue); } },
+                { "base_url", n => { BaseUrl = n.GetStringValue(); } },
                 { "caching_prompt", n => { CachingPrompt = n.GetBoolValue(); } },
-                { "custom_tokenizer", n => { CustomTokenizer = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_custom_tokenizer>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_custom_tokenizer.CreateFromDiscriminatorValue); } },
-                { "disable_stop_word", n => { DisableStopWord = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_disable_stop_word>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_disable_stop_word.CreateFromDiscriminatorValue); } },
-                { "disable_vision", n => { DisableVision = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_disable_vision>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_disable_vision.CreateFromDiscriminatorValue); } },
+                { "custom_tokenizer", n => { CustomTokenizer = n.GetStringValue(); } },
+                { "disable_stop_word", n => { DisableStopWord = n.GetBoolValue(); } },
+                { "disable_vision", n => { DisableVision = n.GetBoolValue(); } },
                 { "drop_params", n => { DropParams = n.GetBoolValue(); } },
                 { "enable_encrypted_reasoning", n => { EnableEncryptedReasoning = n.GetBoolValue(); } },
-                { "extended_thinking_budget", n => { ExtendedThinkingBudget = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_extended_thinking_budget>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_extended_thinking_budget.CreateFromDiscriminatorValue); } },
-                { "extra_headers", n => { ExtraHeaders = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "extended_thinking_budget", n => { ExtendedThinkingBudget = n.GetIntValue(); } },
+                { "extra_headers", n => { ExtraHeaders = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLMExtraHeaders>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLMExtraHeaders.CreateFromDiscriminatorValue); } },
                 { "fallback_strategy", n => { FallbackStrategy = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy>(global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy.CreateFromDiscriminatorValue); } },
-                { "force_string_serializer", n => { ForceStringSerializer = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_force_string_serializer>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_force_string_serializer.CreateFromDiscriminatorValue); } },
-                { "input_cost_per_token", n => { InputCostPerToken = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_input_cost_per_token>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_input_cost_per_token.CreateFromDiscriminatorValue); } },
+                { "force_string_serializer", n => { ForceStringSerializer = n.GetBoolValue(); } },
+                { "input_cost_per_token", n => { InputCostPerToken = n.GetDoubleValue(); } },
                 { "litellm_extra_body", n => { LitellmExtraBody = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_litellm_extra_body>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_litellm_extra_body.CreateFromDiscriminatorValue); } },
                 { "log_completions", n => { LogCompletions = n.GetBoolValue(); } },
                 { "log_completions_folder", n => { LogCompletionsFolder = n.GetStringValue(); } },
-                { "max_input_tokens", n => { MaxInputTokens = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_max_input_tokens>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_max_input_tokens.CreateFromDiscriminatorValue); } },
+                { "max_input_tokens", n => { MaxInputTokens = n.GetIntValue(); } },
                 { "max_message_chars", n => { MaxMessageChars = n.GetIntValue(); } },
-                { "max_output_tokens", n => { MaxOutputTokens = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_max_output_tokens>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_max_output_tokens.CreateFromDiscriminatorValue); } },
+                { "max_output_tokens", n => { MaxOutputTokens = n.GetIntValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "model_canonical_name", n => { ModelCanonicalName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_model_canonical_name>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_model_canonical_name.CreateFromDiscriminatorValue); } },
+                { "model_canonical_name", n => { ModelCanonicalName = n.GetStringValue(); } },
                 { "modify_params", n => { ModifyParams = n.GetBoolValue(); } },
                 { "native_tool_calling", n => { NativeToolCalling = n.GetBoolValue(); } },
                 { "num_retries", n => { NumRetries = n.GetIntValue(); } },
-                { "ollama_base_url", n => { OllamaBaseUrl = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_ollama_base_url>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_ollama_base_url.CreateFromDiscriminatorValue); } },
+                { "ollama_base_url", n => { OllamaBaseUrl = n.GetStringValue(); } },
                 { "openrouter_app_name", n => { OpenrouterAppName = n.GetStringValue(); } },
                 { "openrouter_site_url", n => { OpenrouterSiteUrl = n.GetStringValue(); } },
-                { "output_cost_per_token", n => { OutputCostPerToken = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_output_cost_per_token>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_output_cost_per_token.CreateFromDiscriminatorValue); } },
-                { "prompt_cache_retention", n => { PromptCacheRetention = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_prompt_cache_retention>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_prompt_cache_retention.CreateFromDiscriminatorValue); } },
-                { "reasoning_effort", n => { ReasoningEffort = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_reasoning_effort>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_reasoning_effort.CreateFromDiscriminatorValue); } },
-                { "reasoning_summary", n => { ReasoningSummary = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_reasoning_summary>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_reasoning_summary.CreateFromDiscriminatorValue); } },
+                { "output_cost_per_token", n => { OutputCostPerToken = n.GetDoubleValue(); } },
+                { "prompt_cache_retention", n => { PromptCacheRetention = n.GetStringValue(); } },
+                { "reasoning_effort", n => { ReasoningEffort = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_effort>(); } },
+                { "reasoning_summary", n => { ReasoningSummary = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_summary>(); } },
                 { "retry_max_wait", n => { RetryMaxWait = n.GetIntValue(); } },
                 { "retry_min_wait", n => { RetryMinWait = n.GetIntValue(); } },
                 { "retry_multiplier", n => { RetryMultiplier = n.GetDoubleValue(); } },
-                { "safety_settings", n => { SafetySettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_safety_settings>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_safety_settings.CreateFromDiscriminatorValue); } },
-                { "seed", n => { Seed = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_seed>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_seed.CreateFromDiscriminatorValue); } },
+                { "safety_settings", n => { SafetySettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Safety_Settings>(global::Soenneker.OpenHands.OpenApiClient.Models.Safety_Settings.CreateFromDiscriminatorValue); } },
+                { "seed", n => { Seed = n.GetIntValue(); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
-                { "temperature", n => { Temperature = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_temperature>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_temperature.CreateFromDiscriminatorValue); } },
-                { "timeout", n => { Timeout = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_timeout>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_timeout.CreateFromDiscriminatorValue); } },
-                { "top_k", n => { TopK = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_top_k>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_top_k.CreateFromDiscriminatorValue); } },
-                { "top_p", n => { TopP = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_top_p>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_top_p.CreateFromDiscriminatorValue); } },
+                { "temperature", n => { Temperature = n.GetDoubleValue(); } },
+                { "timeout", n => { Timeout = n.GetIntValue(); } },
+                { "top_k", n => { TopK = n.GetDoubleValue(); } },
+                { "top_p", n => { TopP = n.GetDoubleValue(); } },
                 { "usage_id", n => { UsageId = n.GetStringValue(); } },
             };
         }
@@ -439,2087 +351,57 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_api_key>("api_key", ApiKey);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_api_version>("api_version", ApiVersion);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_access_key_id>("aws_access_key_id", AwsAccessKeyId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_bedrock_runtime_endpoint>("aws_bedrock_runtime_endpoint", AwsBedrockRuntimeEndpoint);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_profile_name>("aws_profile_name", AwsProfileName);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_region_name>("aws_region_name", AwsRegionName);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_role_name>("aws_role_name", AwsRoleName);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_secret_access_key>("aws_secret_access_key", AwsSecretAccessKey);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_session_name>("aws_session_name", AwsSessionName);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_session_token>("aws_session_token", AwsSessionToken);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_base_url>("base_url", BaseUrl);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Api_Key>("api_key", ApiKey);
+            writer.WriteStringValue("api_version", ApiVersion);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Aws_Access_Key_Id>("aws_access_key_id", AwsAccessKeyId);
+            writer.WriteStringValue("aws_bedrock_runtime_endpoint", AwsBedrockRuntimeEndpoint);
+            writer.WriteStringValue("aws_profile_name", AwsProfileName);
+            writer.WriteStringValue("aws_region_name", AwsRegionName);
+            writer.WriteStringValue("aws_role_name", AwsRoleName);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Aws_Secret_Access_Key>("aws_secret_access_key", AwsSecretAccessKey);
+            writer.WriteStringValue("aws_session_name", AwsSessionName);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Aws_Session_Token>("aws_session_token", AwsSessionToken);
+            writer.WriteStringValue("base_url", BaseUrl);
             writer.WriteBoolValue("caching_prompt", CachingPrompt);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_custom_tokenizer>("custom_tokenizer", CustomTokenizer);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_disable_stop_word>("disable_stop_word", DisableStopWord);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_disable_vision>("disable_vision", DisableVision);
+            writer.WriteStringValue("custom_tokenizer", CustomTokenizer);
+            writer.WriteBoolValue("disable_stop_word", DisableStopWord);
+            writer.WriteBoolValue("disable_vision", DisableVision);
             writer.WriteBoolValue("drop_params", DropParams);
             writer.WriteBoolValue("enable_encrypted_reasoning", EnableEncryptedReasoning);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_extended_thinking_budget>("extended_thinking_budget", ExtendedThinkingBudget);
-            writer.WriteObjectValue<UntypedNode>("extra_headers", ExtraHeaders);
+            writer.WriteIntValue("extended_thinking_budget", ExtendedThinkingBudget);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLMExtraHeaders>("extra_headers", ExtraHeaders);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy>("fallback_strategy", FallbackStrategy);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_force_string_serializer>("force_string_serializer", ForceStringSerializer);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_input_cost_per_token>("input_cost_per_token", InputCostPerToken);
+            writer.WriteBoolValue("force_string_serializer", ForceStringSerializer);
+            writer.WriteDoubleValue("input_cost_per_token", InputCostPerToken);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_litellm_extra_body>("litellm_extra_body", LitellmExtraBody);
             writer.WriteBoolValue("log_completions", LogCompletions);
             writer.WriteStringValue("log_completions_folder", LogCompletionsFolder);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_max_input_tokens>("max_input_tokens", MaxInputTokens);
+            writer.WriteIntValue("max_input_tokens", MaxInputTokens);
             writer.WriteIntValue("max_message_chars", MaxMessageChars);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_max_output_tokens>("max_output_tokens", MaxOutputTokens);
+            writer.WriteIntValue("max_output_tokens", MaxOutputTokens);
             writer.WriteStringValue("model", Model);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_model_canonical_name>("model_canonical_name", ModelCanonicalName);
+            writer.WriteStringValue("model_canonical_name", ModelCanonicalName);
             writer.WriteBoolValue("modify_params", ModifyParams);
             writer.WriteBoolValue("native_tool_calling", NativeToolCalling);
             writer.WriteIntValue("num_retries", NumRetries);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_ollama_base_url>("ollama_base_url", OllamaBaseUrl);
+            writer.WriteStringValue("ollama_base_url", OllamaBaseUrl);
             writer.WriteStringValue("openrouter_app_name", OpenrouterAppName);
             writer.WriteStringValue("openrouter_site_url", OpenrouterSiteUrl);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_output_cost_per_token>("output_cost_per_token", OutputCostPerToken);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_prompt_cache_retention>("prompt_cache_retention", PromptCacheRetention);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_reasoning_effort>("reasoning_effort", ReasoningEffort);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_reasoning_summary>("reasoning_summary", ReasoningSummary);
+            writer.WriteDoubleValue("output_cost_per_token", OutputCostPerToken);
+            writer.WriteStringValue("prompt_cache_retention", PromptCacheRetention);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_effort>("reasoning_effort", ReasoningEffort);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_summary>("reasoning_summary", ReasoningSummary);
             writer.WriteIntValue("retry_max_wait", RetryMaxWait);
             writer.WriteIntValue("retry_min_wait", RetryMinWait);
             writer.WriteDoubleValue("retry_multiplier", RetryMultiplier);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_safety_settings>("safety_settings", SafetySettings);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_seed>("seed", Seed);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Safety_Settings>("safety_settings", SafetySettings);
+            writer.WriteIntValue("seed", Seed);
             writer.WriteBoolValue("stream", Stream);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_temperature>("temperature", Temperature);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_timeout>("timeout", Timeout);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_top_k>("top_k", TopK);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_top_p>("top_p", TopP);
+            writer.WriteDoubleValue("temperature", Temperature);
+            writer.WriteIntValue("timeout", Timeout);
+            writer.WriteDoubleValue("top_k", TopK);
+            writer.WriteDoubleValue("top_p", TopP);
             writer.WriteStringValue("usage_id", UsageId);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_api_keyMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_api_key : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_api_keyMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_api_keyMember1? StrictLLMApiKeyMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_api_keyMember1 StrictLLMApiKeyMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_api_key"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_api_key CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_api_key();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StrictLLMApiKeyMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_api_keyMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMApiKeyMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMApiKeyMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_api_keyMember1>(null, StrictLLMApiKeyMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_api_versionMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_api_version : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_api_versionMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_api_versionMember1? StrictLLMApiVersionMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_api_versionMember1 StrictLLMApiVersionMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_api_version"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_api_version CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_api_version();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StrictLLMApiVersionMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_api_versionMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMApiVersionMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMApiVersionMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_api_versionMember1>(null, StrictLLMApiVersionMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_access_key_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_aws_access_key_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_access_key_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_access_key_idMember1? StrictLLMAwsAccessKeyIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_access_key_idMember1 StrictLLMAwsAccessKeyIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_access_key_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_access_key_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_access_key_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StrictLLMAwsAccessKeyIdMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_access_key_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMAwsAccessKeyIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMAwsAccessKeyIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_access_key_idMember1>(null, StrictLLMAwsAccessKeyIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_bedrock_runtime_endpointMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_aws_bedrock_runtime_endpoint : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_bedrock_runtime_endpointMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_bedrock_runtime_endpointMember1? StrictLLMAwsBedrockRuntimeEndpointMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_bedrock_runtime_endpointMember1 StrictLLMAwsBedrockRuntimeEndpointMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_bedrock_runtime_endpoint"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_bedrock_runtime_endpoint CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_bedrock_runtime_endpoint();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StrictLLMAwsBedrockRuntimeEndpointMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_bedrock_runtime_endpointMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMAwsBedrockRuntimeEndpointMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMAwsBedrockRuntimeEndpointMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_bedrock_runtime_endpointMember1>(null, StrictLLMAwsBedrockRuntimeEndpointMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_profile_nameMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_aws_profile_name : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_profile_nameMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_profile_nameMember1? StrictLLMAwsProfileNameMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_profile_nameMember1 StrictLLMAwsProfileNameMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_profile_name"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_profile_name CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_profile_name();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StrictLLMAwsProfileNameMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_profile_nameMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMAwsProfileNameMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMAwsProfileNameMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_profile_nameMember1>(null, StrictLLMAwsProfileNameMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_region_nameMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_aws_region_name : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_region_nameMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_region_nameMember1? StrictLLMAwsRegionNameMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_region_nameMember1 StrictLLMAwsRegionNameMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_region_name"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_region_name CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_region_name();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StrictLLMAwsRegionNameMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_region_nameMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMAwsRegionNameMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMAwsRegionNameMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_region_nameMember1>(null, StrictLLMAwsRegionNameMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_role_nameMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_aws_role_name : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_role_nameMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_role_nameMember1? StrictLLMAwsRoleNameMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_role_nameMember1 StrictLLMAwsRoleNameMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_role_name"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_role_name CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_role_name();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StrictLLMAwsRoleNameMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_role_nameMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMAwsRoleNameMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMAwsRoleNameMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_role_nameMember1>(null, StrictLLMAwsRoleNameMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_secret_access_keyMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_aws_secret_access_key : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_secret_access_keyMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_secret_access_keyMember1? StrictLLMAwsSecretAccessKeyMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_secret_access_keyMember1 StrictLLMAwsSecretAccessKeyMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_secret_access_key"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_secret_access_key CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_secret_access_key();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StrictLLMAwsSecretAccessKeyMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_secret_access_keyMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMAwsSecretAccessKeyMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMAwsSecretAccessKeyMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_secret_access_keyMember1>(null, StrictLLMAwsSecretAccessKeyMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_session_nameMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_aws_session_name : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_session_nameMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_session_nameMember1? StrictLLMAwsSessionNameMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_session_nameMember1 StrictLLMAwsSessionNameMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_session_name"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_session_name CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_session_name();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StrictLLMAwsSessionNameMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_session_nameMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMAwsSessionNameMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMAwsSessionNameMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_session_nameMember1>(null, StrictLLMAwsSessionNameMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_session_tokenMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_aws_session_token : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_session_tokenMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_session_tokenMember1? StrictLLMAwsSessionTokenMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_session_tokenMember1 StrictLLMAwsSessionTokenMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_session_token"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_session_token CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_aws_session_token();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StrictLLMAwsSessionTokenMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_session_tokenMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMAwsSessionTokenMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMAwsSessionTokenMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_aws_session_tokenMember1>(null, StrictLLMAwsSessionTokenMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_base_urlMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_base_url : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_base_urlMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_base_urlMember1? StrictLLMBaseUrlMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_base_urlMember1 StrictLLMBaseUrlMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_base_url"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_base_url CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_base_url();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StrictLLMBaseUrlMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_base_urlMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMBaseUrlMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMBaseUrlMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_base_urlMember1>(null, StrictLLMBaseUrlMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_custom_tokenizerMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_custom_tokenizer : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_custom_tokenizerMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_custom_tokenizerMember1? StrictLLMCustomTokenizerMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_custom_tokenizerMember1 StrictLLMCustomTokenizerMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_custom_tokenizer"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_custom_tokenizer CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_custom_tokenizer();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StrictLLMCustomTokenizerMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_custom_tokenizerMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMCustomTokenizerMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMCustomTokenizerMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_custom_tokenizerMember1>(null, StrictLLMCustomTokenizerMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="bool"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_disable_stop_wordMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_disable_stop_word : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="bool"/></summary>
-            public bool? Boolean { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_disable_stop_wordMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_disable_stop_wordMember1? StrictLLMDisableStopWordMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_disable_stop_wordMember1 StrictLLMDisableStopWordMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_disable_stop_word"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_disable_stop_word CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_disable_stop_word();
-                if(parseNode.GetBoolValue() is bool booleanValue)
-                {
-                    result.Boolean = booleanValue;
-                }
-                else {
-                    result.StrictLLMDisableStopWordMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_disable_stop_wordMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMDisableStopWordMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMDisableStopWordMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Boolean != null)
-                {
-                    writer.WriteBoolValue(null, Boolean);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_disable_stop_wordMember1>(null, StrictLLMDisableStopWordMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="bool"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_disable_visionMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_disable_vision : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="bool"/></summary>
-            public bool? Boolean { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_disable_visionMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_disable_visionMember1? StrictLLMDisableVisionMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_disable_visionMember1 StrictLLMDisableVisionMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_disable_vision"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_disable_vision CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_disable_vision();
-                if(parseNode.GetBoolValue() is bool booleanValue)
-                {
-                    result.Boolean = booleanValue;
-                }
-                else {
-                    result.StrictLLMDisableVisionMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_disable_visionMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMDisableVisionMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMDisableVisionMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Boolean != null)
-                {
-                    writer.WriteBoolValue(null, Boolean);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_disable_visionMember1>(null, StrictLLMDisableVisionMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_extended_thinking_budgetMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_extended_thinking_budget : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_extended_thinking_budgetMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_extended_thinking_budgetMember1? StrictLLMExtendedThinkingBudgetMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_extended_thinking_budgetMember1 StrictLLMExtendedThinkingBudgetMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_extended_thinking_budget"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_extended_thinking_budget CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_extended_thinking_budget();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.StrictLLMExtendedThinkingBudgetMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_extended_thinking_budgetMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMExtendedThinkingBudgetMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMExtendedThinkingBudgetMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_extended_thinking_budgetMember1>(null, StrictLLMExtendedThinkingBudgetMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="bool"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_force_string_serializerMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_force_string_serializer : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="bool"/></summary>
-            public bool? Boolean { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_force_string_serializerMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_force_string_serializerMember1? StrictLLMForceStringSerializerMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_force_string_serializerMember1 StrictLLMForceStringSerializerMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_force_string_serializer"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_force_string_serializer CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_force_string_serializer();
-                if(parseNode.GetBoolValue() is bool booleanValue)
-                {
-                    result.Boolean = booleanValue;
-                }
-                else {
-                    result.StrictLLMForceStringSerializerMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_force_string_serializerMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMForceStringSerializerMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMForceStringSerializerMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Boolean != null)
-                {
-                    writer.WriteBoolValue(null, Boolean);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_force_string_serializerMember1>(null, StrictLLMForceStringSerializerMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="double"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_input_cost_per_tokenMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_input_cost_per_token : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="double"/></summary>
-            public double? Double { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_input_cost_per_tokenMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_input_cost_per_tokenMember1? StrictLLMInputCostPerTokenMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_input_cost_per_tokenMember1 StrictLLMInputCostPerTokenMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_input_cost_per_token"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_input_cost_per_token CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_input_cost_per_token();
-                if(parseNode.GetDoubleValue() is double doubleValue)
-                {
-                    result.Double = doubleValue;
-                }
-                else {
-                    result.StrictLLMInputCostPerTokenMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_input_cost_per_tokenMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMInputCostPerTokenMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMInputCostPerTokenMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Double != null)
-                {
-                    writer.WriteDoubleValue(null, Double);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_input_cost_per_tokenMember1>(null, StrictLLMInputCostPerTokenMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_max_input_tokensMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_max_input_tokens : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_max_input_tokensMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_max_input_tokensMember1? StrictLLMMaxInputTokensMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_max_input_tokensMember1 StrictLLMMaxInputTokensMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_max_input_tokens"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_max_input_tokens CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_max_input_tokens();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.StrictLLMMaxInputTokensMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_max_input_tokensMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMMaxInputTokensMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMMaxInputTokensMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_max_input_tokensMember1>(null, StrictLLMMaxInputTokensMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_max_output_tokensMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_max_output_tokens : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_max_output_tokensMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_max_output_tokensMember1? StrictLLMMaxOutputTokensMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_max_output_tokensMember1 StrictLLMMaxOutputTokensMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_max_output_tokens"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_max_output_tokens CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_max_output_tokens();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.StrictLLMMaxOutputTokensMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_max_output_tokensMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMMaxOutputTokensMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMMaxOutputTokensMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_max_output_tokensMember1>(null, StrictLLMMaxOutputTokensMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_model_canonical_nameMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_model_canonical_name : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_model_canonical_nameMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_model_canonical_nameMember1? StrictLLMModelCanonicalNameMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_model_canonical_nameMember1 StrictLLMModelCanonicalNameMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_model_canonical_name"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_model_canonical_name CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_model_canonical_name();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StrictLLMModelCanonicalNameMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_model_canonical_nameMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMModelCanonicalNameMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMModelCanonicalNameMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_model_canonical_nameMember1>(null, StrictLLMModelCanonicalNameMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_ollama_base_urlMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_ollama_base_url : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_ollama_base_urlMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_ollama_base_urlMember1? StrictLLMOllamaBaseUrlMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_ollama_base_urlMember1 StrictLLMOllamaBaseUrlMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_ollama_base_url"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_ollama_base_url CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_ollama_base_url();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StrictLLMOllamaBaseUrlMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_ollama_base_urlMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMOllamaBaseUrlMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMOllamaBaseUrlMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_ollama_base_urlMember1>(null, StrictLLMOllamaBaseUrlMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="double"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_output_cost_per_tokenMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_output_cost_per_token : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="double"/></summary>
-            public double? Double { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_output_cost_per_tokenMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_output_cost_per_tokenMember1? StrictLLMOutputCostPerTokenMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_output_cost_per_tokenMember1 StrictLLMOutputCostPerTokenMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_output_cost_per_token"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_output_cost_per_token CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_output_cost_per_token();
-                if(parseNode.GetDoubleValue() is double doubleValue)
-                {
-                    result.Double = doubleValue;
-                }
-                else {
-                    result.StrictLLMOutputCostPerTokenMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_output_cost_per_tokenMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMOutputCostPerTokenMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMOutputCostPerTokenMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Double != null)
-                {
-                    writer.WriteDoubleValue(null, Double);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_output_cost_per_tokenMember1>(null, StrictLLMOutputCostPerTokenMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_prompt_cache_retentionMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_prompt_cache_retention : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_prompt_cache_retentionMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_prompt_cache_retentionMember1? StrictLLMPromptCacheRetentionMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_prompt_cache_retentionMember1 StrictLLMPromptCacheRetentionMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_prompt_cache_retention"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_prompt_cache_retention CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_prompt_cache_retention();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StrictLLMPromptCacheRetentionMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_prompt_cache_retentionMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMPromptCacheRetentionMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMPromptCacheRetentionMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_prompt_cache_retentionMember1>(null, StrictLLMPromptCacheRetentionMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_effortMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_reasoning_effort : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_effortMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_effortMember1? StrictLLMReasoningEffortMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_effortMember1 StrictLLMReasoningEffortMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_reasoning_effort"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_reasoning_effort CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_reasoning_effort();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StrictLLMReasoningEffortMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_effortMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMReasoningEffortMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMReasoningEffortMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_effortMember1>(null, StrictLLMReasoningEffortMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_summaryMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_reasoning_summary : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_summaryMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_summaryMember1? StrictLLMReasoningSummaryMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_summaryMember1 StrictLLMReasoningSummaryMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_reasoning_summary"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_reasoning_summary CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_reasoning_summary();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.StrictLLMReasoningSummaryMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_summaryMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMReasoningSummaryMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMReasoningSummaryMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_reasoning_summaryMember1>(null, StrictLLMReasoningSummaryMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_safety_settingsMember2"/>, List&lt;global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_safety_settingsMember1&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_safety_settings : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type List&lt;global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_safety_settingsMember1&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_safety_settingsMember1>? StrictLLMSafetySettingsMember1 { get; set; }
-#nullable restore
-#else
-            public List<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_safety_settingsMember1> StrictLLMSafetySettingsMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_safety_settingsMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_safety_settingsMember2? StrictLLMSafetySettingsMember2 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_safety_settingsMember2 StrictLLMSafetySettingsMember2 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_safety_settings"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_safety_settings CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_safety_settings();
-                if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_safety_settingsMember1>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_safety_settingsMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_safety_settingsMember1> strictLLMSafetySettingsMember1Value)
-                {
-                    result.StrictLLMSafetySettingsMember1 = strictLLMSafetySettingsMember1Value;
-                }
-                else {
-                    result.StrictLLMSafetySettingsMember2 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_safety_settingsMember2();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMSafetySettingsMember2 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMSafetySettingsMember2);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(StrictLLMSafetySettingsMember1 != null)
-                {
-                    writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_safety_settingsMember1>(null, StrictLLMSafetySettingsMember1);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_safety_settingsMember2>(null, StrictLLMSafetySettingsMember2);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_seedMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_seed : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_seedMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_seedMember1? StrictLLMSeedMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_seedMember1 StrictLLMSeedMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_seed"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_seed CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_seed();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.StrictLLMSeedMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_seedMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMSeedMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMSeedMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_seedMember1>(null, StrictLLMSeedMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="double"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_temperatureMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_temperature : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="double"/></summary>
-            public double? Double { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_temperatureMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_temperatureMember1? StrictLLMTemperatureMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_temperatureMember1 StrictLLMTemperatureMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_temperature"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_temperature CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_temperature();
-                if(parseNode.GetDoubleValue() is double doubleValue)
-                {
-                    result.Double = doubleValue;
-                }
-                else {
-                    result.StrictLLMTemperatureMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_temperatureMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMTemperatureMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMTemperatureMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Double != null)
-                {
-                    writer.WriteDoubleValue(null, Double);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_temperatureMember1>(null, StrictLLMTemperatureMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_timeoutMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_timeout : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_timeoutMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_timeoutMember1? StrictLLMTimeoutMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_timeoutMember1 StrictLLMTimeoutMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_timeout"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_timeout CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_timeout();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.StrictLLMTimeoutMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_timeoutMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMTimeoutMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMTimeoutMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_timeoutMember1>(null, StrictLLMTimeoutMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="double"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_top_kMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_top_k : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="double"/></summary>
-            public double? Double { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_top_kMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_top_kMember1? StrictLLMTopKMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_top_kMember1 StrictLLMTopKMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_top_k"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_top_k CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_top_k();
-                if(parseNode.GetDoubleValue() is double doubleValue)
-                {
-                    result.Double = doubleValue;
-                }
-                else {
-                    result.StrictLLMTopKMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_top_kMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMTopKMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMTopKMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Double != null)
-                {
-                    writer.WriteDoubleValue(null, Double);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_top_kMember1>(null, StrictLLMTopKMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="double"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_top_pMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StrictLLM_top_p : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="double"/></summary>
-            public double? Double { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_top_pMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_top_pMember1? StrictLLMTopPMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_top_pMember1 StrictLLMTopPMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_top_p"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_top_p CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.StrictLLM_top_p();
-                if(parseNode.GetDoubleValue() is double doubleValue)
-                {
-                    result.Double = doubleValue;
-                }
-                else {
-                    result.StrictLLMTopPMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_top_pMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(StrictLLMTopPMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(StrictLLMTopPMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Double != null)
-                {
-                    writer.WriteDoubleValue(null, Double);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM_top_pMember1>(null, StrictLLMTopPMember1);
-                }
-            }
         }
     }
 }

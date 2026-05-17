@@ -26,10 +26,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The annotations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Openhands__sdk__tool__tool__ToolAnnotations? Annotations { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations? Annotations { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Openhands__sdk__tool__tool__ToolAnnotations Annotations { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations Annotations { get; set; }
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,28 +40,22 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Description { get; set; }
 #endif
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput_kind? Kind { get; set; }
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Meta { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput_meta? Meta { get; set; }
 #nullable restore
 #else
-        public UntypedNode Meta { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput_meta Meta { get; set; }
 #endif
         /// <summary>The observation_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput.ListDirectoryToolOutput_observation_type? ObservationType { get; set; }
+        public string? ObservationType { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput.ListDirectoryToolOutput_observation_type ObservationType { get; set; }
+        public string ObservationType { get; set; }
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -97,11 +91,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "action_type", n => { ActionType = n.GetStringValue(); } },
-                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Openhands__sdk__tool__tool__ToolAnnotations>(global::Soenneker.OpenHands.OpenApiClient.Models.Openhands__sdk__tool__tool__ToolAnnotations.CreateFromDiscriminatorValue); } },
+                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
-                { "meta", n => { Meta = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "observation_type", n => { ObservationType = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput.ListDirectoryToolOutput_observation_type>(global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput.ListDirectoryToolOutput_observation_type.CreateFromDiscriminatorValue); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput_kind>(); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput_meta>(global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput_meta.CreateFromDiscriminatorValue); } },
+                { "observation_type", n => { ObservationType = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -113,80 +107,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("action_type", ActionType);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Openhands__sdk__tool__tool__ToolAnnotations>("annotations", Annotations);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations>("annotations", Annotations);
             writer.WriteStringValue("description", Description);
-            writer.WriteStringValue("kind", Kind);
-            writer.WriteObjectValue<UntypedNode>("meta", Meta);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput.ListDirectoryToolOutput_observation_type>("observation_type", ObservationType);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput_kind>("kind", Kind);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput_meta>("meta", Meta);
+            writer.WriteStringValue("observation_type", ObservationType);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput_observation_typeMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ListDirectoryToolOutput_observation_type : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput_observation_typeMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput_observation_typeMember1? ListDirectoryToolOutputObservationTypeMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput_observation_typeMember1 ListDirectoryToolOutputObservationTypeMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput.ListDirectoryToolOutput_observation_type"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput.ListDirectoryToolOutput_observation_type CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput.ListDirectoryToolOutput_observation_type();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ListDirectoryToolOutputObservationTypeMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput_observation_typeMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ListDirectoryToolOutputObservationTypeMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ListDirectoryToolOutputObservationTypeMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput_observation_typeMember1>(null, ListDirectoryToolOutputObservationTypeMember1);
-                }
-            }
         }
     }
 }

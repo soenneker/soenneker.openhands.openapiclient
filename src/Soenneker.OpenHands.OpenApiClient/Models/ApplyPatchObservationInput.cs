@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Result of applying a patch.- message: human-readable summary of the changes or error- fuzz: number of lines of fuzz used when applying hunks (0 means exact)- commit: structured summary of the applied operations
+    /// &quot;Result of applying a patch.- message: human-readable summary of the changes or error- fuzz: number of lines of fuzz used when applying hunks (0 means exact)- commit: structured summary of the applied operations&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApplyPatchObservationInput : IParsable
@@ -34,13 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Whether the observation indicates an error</summary>
         public bool? IsError { get; set; }
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchObservationInput_kind? Kind { get; set; }
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,7 +65,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchObservationInput.ApplyPatchObservationInput_content>(global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchObservationInput.ApplyPatchObservationInput_content.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "fuzz", n => { Fuzz = n.GetIntValue(); } },
                 { "is_error", n => { IsError = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchObservationInput_kind>(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
             };
         }
@@ -86,7 +80,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchObservationInput.ApplyPatchObservationInput_content>("content", Content);
             writer.WriteIntValue("fuzz", Fuzz);
             writer.WriteBoolValue("is_error", IsError);
-            writer.WriteStringValue("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchObservationInput_kind>("kind", Kind);
             writer.WriteStringValue("message", Message);
         }
         /// <summary>

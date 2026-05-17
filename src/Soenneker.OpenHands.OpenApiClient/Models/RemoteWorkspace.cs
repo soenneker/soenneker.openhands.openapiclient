@@ -18,10 +18,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>API key for authenticating with the remote host.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace.RemoteWorkspace_api_key? ApiKey { get; set; }
+        public string? ApiKey { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace.RemoteWorkspace_api_key ApiKey { get; set; }
+        public string ApiKey { get; set; }
 #endif
         /// <summary>The remote host URL for the workspace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,21 +32,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Host { get; set; }
 #endif
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_kind? Kind { get; set; }
         /// <summary>Maximum number of connections for httpx.Client. None means no limit, useful for running many conversations in parallel.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace.RemoteWorkspace_max_connections? MaxConnections { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace.RemoteWorkspace_max_connections MaxConnections { get; set; }
-#endif
+        public int? MaxConnections { get; set; }
         /// <summary>Timeout in seconds for reading operations of httpx.Client.</summary>
         public double? ReadTimeout { get; set; }
         /// <summary>The working directory for agent operations and tool execution.</summary>
@@ -82,10 +70,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "api_key", n => { ApiKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace.RemoteWorkspace_api_key>(global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace.RemoteWorkspace_api_key.CreateFromDiscriminatorValue); } },
+                { "api_key", n => { ApiKey = n.GetStringValue(); } },
                 { "host", n => { Host = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
-                { "max_connections", n => { MaxConnections = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace.RemoteWorkspace_max_connections>(global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace.RemoteWorkspace_max_connections.CreateFromDiscriminatorValue); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_kind>(); } },
+                { "max_connections", n => { MaxConnections = n.GetIntValue(); } },
                 { "read_timeout", n => { ReadTimeout = n.GetDoubleValue(); } },
                 { "working_dir", n => { WorkingDir = n.GetStringValue(); } },
             };
@@ -97,143 +85,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace.RemoteWorkspace_api_key>("api_key", ApiKey);
+            writer.WriteStringValue("api_key", ApiKey);
             writer.WriteStringValue("host", Host);
-            writer.WriteStringValue("kind", Kind);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace.RemoteWorkspace_max_connections>("max_connections", MaxConnections);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_kind>("kind", Kind);
+            writer.WriteIntValue("max_connections", MaxConnections);
             writer.WriteDoubleValue("read_timeout", ReadTimeout);
             writer.WriteStringValue("working_dir", WorkingDir);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_api_keyMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RemoteWorkspace_api_key : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_api_keyMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_api_keyMember1? RemoteWorkspaceApiKeyMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_api_keyMember1 RemoteWorkspaceApiKeyMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace.RemoteWorkspace_api_key"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace.RemoteWorkspace_api_key CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace.RemoteWorkspace_api_key();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.RemoteWorkspaceApiKeyMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_api_keyMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(RemoteWorkspaceApiKeyMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(RemoteWorkspaceApiKeyMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_api_keyMember1>(null, RemoteWorkspaceApiKeyMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_max_connectionsMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RemoteWorkspace_max_connections : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_max_connectionsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_max_connectionsMember1? RemoteWorkspaceMaxConnectionsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_max_connectionsMember1 RemoteWorkspaceMaxConnectionsMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace.RemoteWorkspace_max_connections"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace.RemoteWorkspace_max_connections CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace.RemoteWorkspace_max_connections();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.RemoteWorkspaceMaxConnectionsMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_max_connectionsMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(RemoteWorkspaceMaxConnectionsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(RemoteWorkspaceMaxConnectionsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_max_connectionsMember1>(null, RemoteWorkspaceMaxConnectionsMember1);
-                }
-            }
         }
     }
 }

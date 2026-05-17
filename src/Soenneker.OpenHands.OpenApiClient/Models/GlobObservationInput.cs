@@ -32,13 +32,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Whether the observation indicates an error</summary>
         public bool? IsError { get; set; }
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GlobObservationInput_kind? Kind { get; set; }
         /// <summary>The glob pattern that was used</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,7 +72,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.GlobObservationInput.GlobObservationInput_content>(global::Soenneker.OpenHands.OpenApiClient.Models.GlobObservationInput.GlobObservationInput_content.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "files", n => { Files = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "is_error", n => { IsError = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.GlobObservationInput_kind>(); } },
                 { "pattern", n => { Pattern = n.GetStringValue(); } },
                 { "search_path", n => { SearchPath = n.GetStringValue(); } },
                 { "truncated", n => { Truncated = n.GetBoolValue(); } },
@@ -94,7 +88,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.GlobObservationInput.GlobObservationInput_content>("content", Content);
             writer.WriteCollectionOfPrimitiveValues<string>("files", Files);
             writer.WriteBoolValue("is_error", IsError);
-            writer.WriteStringValue("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.GlobObservationInput_kind>("kind", Kind);
             writer.WriteStringValue("pattern", Pattern);
             writer.WriteStringValue("search_path", SearchPath);
             writer.WriteBoolValue("truncated", Truncated);

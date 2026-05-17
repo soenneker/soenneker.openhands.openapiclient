@@ -36,20 +36,20 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Billing.SubscriptionAccess
         /// <summary>
         /// Get details of the currently valid subscription for the user.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SubscriptionAccessResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResponseGetSubscriptionAccessApiBillingSubscriptionAccessGet"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.SubscriptionAccessResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseGetSubscriptionAccessApiBillingSubscriptionAccessGet?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.SubscriptionAccessResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseGetSubscriptionAccessApiBillingSubscriptionAccessGet> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SubscriptionAccessResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SubscriptionAccessResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseGetSubscriptionAccessApiBillingSubscriptionAccessGet>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ResponseGetSubscriptionAccessApiBillingSubscriptionAccessGet.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get details of the currently valid subscription for the user.

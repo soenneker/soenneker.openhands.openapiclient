@@ -37,37 +37,37 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The link_header property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_link_header? LinkHeader { get; set; }
+        public string? LinkHeader { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_link_header LinkHeader { get; set; }
+        public string LinkHeader { get; set; }
 #endif
         /// <summary>The main_branch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_main_branch? MainBranch { get; set; }
+        public string? MainBranch { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_main_branch MainBranch { get; set; }
+        public string MainBranch { get; set; }
 #endif
         /// <summary>The owner_type property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType? OwnerType { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType_Wrapper? OwnerType { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType_Wrapper OwnerType { get; set; }
+#endif
         /// <summary>The pushed_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_pushed_at? PushedAt { get; set; }
+        public string? PushedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_pushed_at PushedAt { get; set; }
+        public string PushedAt { get; set; }
 #endif
         /// <summary>The stargazers_count property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_stargazers_count? StargazersCount { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_stargazers_count StargazersCount { get; set; }
-#endif
+        public int? StargazersCount { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Repository"/> and sets the default values.
         /// </summary>
@@ -97,11 +97,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "git_provider", n => { GitProvider = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_public", n => { IsPublic = n.GetBoolValue(); } },
-                { "link_header", n => { LinkHeader = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_link_header>(global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_link_header.CreateFromDiscriminatorValue); } },
-                { "main_branch", n => { MainBranch = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_main_branch>(global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_main_branch.CreateFromDiscriminatorValue); } },
-                { "owner_type", n => { OwnerType = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType>(); } },
-                { "pushed_at", n => { PushedAt = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_pushed_at>(global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_pushed_at.CreateFromDiscriminatorValue); } },
-                { "stargazers_count", n => { StargazersCount = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_stargazers_count>(global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_stargazers_count.CreateFromDiscriminatorValue); } },
+                { "link_header", n => { LinkHeader = n.GetStringValue(); } },
+                { "main_branch", n => { MainBranch = n.GetStringValue(); } },
+                { "owner_type", n => { OwnerType = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType_Wrapper>(global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType_Wrapper.CreateFromDiscriminatorValue); } },
+                { "pushed_at", n => { PushedAt = n.GetStringValue(); } },
+                { "stargazers_count", n => { StargazersCount = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -115,278 +115,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>("git_provider", GitProvider);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_public", IsPublic);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_link_header>("link_header", LinkHeader);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_main_branch>("main_branch", MainBranch);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType>("owner_type", OwnerType);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_pushed_at>("pushed_at", PushedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_stargazers_count>("stargazers_count", StargazersCount);
+            writer.WriteStringValue("link_header", LinkHeader);
+            writer.WriteStringValue("main_branch", MainBranch);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType_Wrapper>("owner_type", OwnerType);
+            writer.WriteStringValue("pushed_at", PushedAt);
+            writer.WriteIntValue("stargazers_count", StargazersCount);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Repository_link_headerMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Repository_link_header : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Repository_link_headerMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Repository_link_headerMember1? RepositoryLinkHeaderMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Repository_link_headerMember1 RepositoryLinkHeaderMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_link_header"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_link_header CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_link_header();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.RepositoryLinkHeaderMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.Repository_link_headerMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(RepositoryLinkHeaderMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(RepositoryLinkHeaderMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Repository_link_headerMember1>(null, RepositoryLinkHeaderMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Repository_main_branchMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Repository_main_branch : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Repository_main_branchMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Repository_main_branchMember1? RepositoryMainBranchMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Repository_main_branchMember1 RepositoryMainBranchMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_main_branch"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_main_branch CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_main_branch();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.RepositoryMainBranchMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.Repository_main_branchMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(RepositoryMainBranchMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(RepositoryMainBranchMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Repository_main_branchMember1>(null, RepositoryMainBranchMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Repository_pushed_atMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Repository_pushed_at : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Repository_pushed_atMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Repository_pushed_atMember1? RepositoryPushedAtMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Repository_pushed_atMember1 RepositoryPushedAtMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_pushed_at"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_pushed_at CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_pushed_at();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.RepositoryPushedAtMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.Repository_pushed_atMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(RepositoryPushedAtMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(RepositoryPushedAtMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Repository_pushed_atMember1>(null, RepositoryPushedAtMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Repository_stargazers_countMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Repository_stargazers_count : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Repository_stargazers_countMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Repository_stargazers_countMember1? RepositoryStargazersCountMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Repository_stargazers_countMember1 RepositoryStargazersCountMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_stargazers_count"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_stargazers_count CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.Repository.Repository_stargazers_count();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.RepositoryStargazersCountMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.Repository_stargazers_countMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(RepositoryStargazersCountMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(RepositoryStargazersCountMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Repository_stargazers_countMember1>(null, RepositoryStargazersCountMember1);
-                }
-            }
         }
     }
 }

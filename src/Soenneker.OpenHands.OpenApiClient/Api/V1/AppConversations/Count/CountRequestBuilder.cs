@@ -90,24 +90,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Count
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CountRequestBuilderGetQueryParameters 
         {
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("created_at__gte")]
-            public string? CreatedAtGte { get; set; }
-#nullable restore
-#else
-            [QueryParameter("created_at__gte")]
-            public string CreatedAtGte { get; set; }
-#endif
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+            public DateTimeOffset? CreatedAtGte { get; set; }
             [QueryParameter("created_at__lt")]
-            public string? CreatedAtLt { get; set; }
-#nullable restore
-#else
-            [QueryParameter("created_at__lt")]
-            public string CreatedAtLt { get; set; }
-#endif
+            public DateTimeOffset? CreatedAtLt { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sandbox_id__eq")]
@@ -126,24 +112,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Count
             [QueryParameter("title__contains")]
             public string TitleContains { get; set; }
 #endif
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("updated_at__gte")]
-            public string? UpdatedAtGte { get; set; }
-#nullable restore
-#else
-            [QueryParameter("updated_at__gte")]
-            public string UpdatedAtGte { get; set; }
-#endif
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+            public DateTimeOffset? UpdatedAtGte { get; set; }
             [QueryParameter("updated_at__lt")]
-            public string? UpdatedAtLt { get; set; }
-#nullable restore
-#else
-            [QueryParameter("updated_at__lt")]
-            public string UpdatedAtLt { get; set; }
-#endif
+            public DateTimeOffset? UpdatedAtLt { get; set; }
         }
     }
 }

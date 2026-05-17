@@ -24,28 +24,22 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Directory where full output files are saved</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_full_output_save_dir? FullOutputSaveDir { get; set; }
+        public string? FullOutputSaveDir { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_full_output_save_dir FullOutputSaveDir { get; set; }
+        public string FullOutputSaveDir { get; set; }
 #endif
         /// <summary>Whether the observation indicates an error</summary>
         public bool? IsError { get; set; }
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput_kind? Kind { get; set; }
         /// <summary>Base64 screenshot data if available</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_screenshot_data? ScreenshotData { get; set; }
+        public string? ScreenshotData { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_screenshot_data ScreenshotData { get; set; }
+        public string ScreenshotData { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -66,10 +60,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_content>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_content.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "full_output_save_dir", n => { FullOutputSaveDir = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_full_output_save_dir>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_full_output_save_dir.CreateFromDiscriminatorValue); } },
+                { "full_output_save_dir", n => { FullOutputSaveDir = n.GetStringValue(); } },
                 { "is_error", n => { IsError = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
-                { "screenshot_data", n => { ScreenshotData = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_screenshot_data>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_screenshot_data.CreateFromDiscriminatorValue); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput_kind>(); } },
+                { "screenshot_data", n => { ScreenshotData = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -80,10 +74,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_content>("content", Content);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_full_output_save_dir>("full_output_save_dir", FullOutputSaveDir);
+            writer.WriteStringValue("full_output_save_dir", FullOutputSaveDir);
             writer.WriteBoolValue("is_error", IsError);
-            writer.WriteStringValue("kind", Kind);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_screenshot_data>("screenshot_data", ScreenshotData);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput_kind>("kind", Kind);
+            writer.WriteStringValue("screenshot_data", ScreenshotData);
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TextContent"/>
@@ -140,142 +134,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent>(null, ImageContent, TextContent);
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput_full_output_save_dirMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class BrowserObservationOutput_full_output_save_dir : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput_full_output_save_dirMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput_full_output_save_dirMember1? BrowserObservationOutputFullOutputSaveDirMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput_full_output_save_dirMember1 BrowserObservationOutputFullOutputSaveDirMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_full_output_save_dir"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_full_output_save_dir CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_full_output_save_dir();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.BrowserObservationOutputFullOutputSaveDirMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput_full_output_save_dirMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(BrowserObservationOutputFullOutputSaveDirMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(BrowserObservationOutputFullOutputSaveDirMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput_full_output_save_dirMember1>(null, BrowserObservationOutputFullOutputSaveDirMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput_screenshot_dataMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class BrowserObservationOutput_screenshot_data : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput_screenshot_dataMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput_screenshot_dataMember1? BrowserObservationOutputScreenshotDataMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput_screenshot_dataMember1 BrowserObservationOutputScreenshotDataMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_screenshot_data"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_screenshot_data CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput.BrowserObservationOutput_screenshot_data();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.BrowserObservationOutputScreenshotDataMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput_screenshot_dataMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(BrowserObservationOutputScreenshotDataMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(BrowserObservationOutputScreenshotDataMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput_screenshot_dataMember1>(null, BrowserObservationOutputScreenshotDataMember1);
-                }
             }
         }
     }

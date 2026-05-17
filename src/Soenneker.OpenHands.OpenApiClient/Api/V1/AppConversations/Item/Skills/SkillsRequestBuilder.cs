@@ -34,19 +34,19 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Skills
         {
         }
         /// <summary>
-        /// Get all skills associated with the conversation.This endpoint returns all skills that are loaded for the v1 conversation.Skills are loaded from multiple sources:- Sandbox skills (exposed URLs)- Global skills (OpenHands/skills/)- User skills (~/.openhands/skills/)- Organization skills (org/.openhands repository)- Repository skills (repo .agents/skills/, .openhands/microagents/, and legacy .openhands/skills/)Returns:    JSONResponse: A JSON response containing the list of skills.    Returns an empty list if the sandbox is not running.
+        /// &quot;Get all skills associated with the conversation.This endpoint returns all skills that are loaded for the v1 conversation.Skills are loaded from multiple sources:- Sandbox skills (exposed URLs)- Global skills (OpenHands/skills/)- User skills (~/.openhands/skills/)- Organization skills (org/.openhands repository)- Repository skills (repo .agents/skills/, .openhands/microagents/, and legacy .openhands/skills/)Returns:    JSONResponse: A JSON response containing the list of skills.    Returns an empty list if the sandbox is not running.&quot;
         /// </summary>
-        /// <returns>A <see cref="UntypedNode"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Skills.SkillsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<UntypedNode?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Skills.SkillsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<UntypedNode> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Skills.SkillsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,10 +54,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Skills
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Skills.SkillsGetResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Skills.SkillsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get all skills associated with the conversation.This endpoint returns all skills that are loaded for the v1 conversation.Skills are loaded from multiple sources:- Sandbox skills (exposed URLs)- Global skills (OpenHands/skills/)- User skills (~/.openhands/skills/)- Organization skills (org/.openhands repository)- Repository skills (repo .agents/skills/, .openhands/microagents/, and legacy .openhands/skills/)Returns:    JSONResponse: A JSON response containing the list of skills.    Returns an empty list if the sandbox is not running.
+        /// &quot;Get all skills associated with the conversation.This endpoint returns all skills that are loaded for the v1 conversation.Skills are loaded from multiple sources:- Sandbox skills (exposed URLs)- Global skills (OpenHands/skills/)- User skills (~/.openhands/skills/)- Organization skills (org/.openhands repository)- Repository skills (repo .agents/skills/, .openhands/microagents/, and legacy .openhands/skills/)Returns:    JSONResponse: A JSON response containing the list of skills.    Returns an empty list if the sandbox is not running.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

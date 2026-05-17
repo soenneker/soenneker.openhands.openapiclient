@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
-    /// <summary>Source of the rejection: &apos;user&apos; for confirmation mode rejections, &apos;hook&apos; for PreToolUse hook blocks</summary>
+    /// <summary>&quot;Source of the rejection: &apos;user&apos; for confirmation mode rejections, &apos;hook&apos; for PreToolUse hook blocks&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum UserRejectObservationInput_rejection_source
     {

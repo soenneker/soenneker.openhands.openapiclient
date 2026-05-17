@@ -22,13 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.TokenEventInput_kind? Kind { get; set; }
         /// <summary>The exact prompt token IDs for this message event</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,7 +68,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TokenEventInput_kind>(); } },
                 { "prompt_token_ids", n => { PromptTokenIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "response_token_ids", n => { ResponseTokenIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TokenEventInput_source>(); } },
@@ -89,7 +83,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TokenEventInput_kind>("kind", Kind);
             writer.WriteCollectionOfPrimitiveValues<int?>("prompt_token_ids", PromptTokenIds);
             writer.WriteCollectionOfPrimitiveValues<int?>("response_token_ids", ResponseTokenIds);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TokenEventInput_source>("source", Source);

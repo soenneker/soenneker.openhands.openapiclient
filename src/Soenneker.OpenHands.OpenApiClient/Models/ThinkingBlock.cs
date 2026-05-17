@@ -18,10 +18,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Cryptographic signature for the thinking block</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock.ThinkingBlock_signature? Signature { get; set; }
+        public string? Signature { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock.ThinkingBlock_signature Signature { get; set; }
+        public string Signature { get; set; }
 #endif
         /// <summary>The thinking content</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,20 +32,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Thinking { get; set; }
 #endif
         /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock_type? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock"/> and sets the default values.
         /// </summary>
         public ThinkingBlock()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = "thinking";
+            Type = global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock_type.Thinking;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -65,9 +59,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "signature", n => { Signature = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock.ThinkingBlock_signature>(global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock.ThinkingBlock_signature.CreateFromDiscriminatorValue); } },
+                { "signature", n => { Signature = n.GetStringValue(); } },
                 { "thinking", n => { Thinking = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock_type>(); } },
             };
         }
         /// <summary>
@@ -77,78 +71,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock.ThinkingBlock_signature>("signature", Signature);
+            writer.WriteStringValue("signature", Signature);
             writer.WriteStringValue("thinking", Thinking);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock_signatureMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ThinkingBlock_signature : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock_signatureMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock_signatureMember1? ThinkingBlockSignatureMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock_signatureMember1 ThinkingBlockSignatureMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock.ThinkingBlock_signature"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock.ThinkingBlock_signature CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock.ThinkingBlock_signature();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ThinkingBlockSignatureMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock_signatureMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ThinkingBlockSignatureMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ThinkingBlockSignatureMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock_signatureMember1>(null, ThinkingBlockSignatureMember1);
-                }
-            }
         }
     }
 }

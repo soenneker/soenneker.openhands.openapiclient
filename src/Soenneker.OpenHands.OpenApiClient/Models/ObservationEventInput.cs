@@ -29,14 +29,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
-        /// <summary>The observation (tool call) sent to LLM</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventInput_kind? Kind { get; set; }
+        /// <summary>The observation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.ObservationInput? Observation { get; set; }
@@ -97,7 +91,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "action_id", n => { ActionId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventInput_kind>(); } },
                 { "observation", n => { Observation = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ObservationInput>(global::Soenneker.OpenHands.OpenApiClient.Models.ObservationInput.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventInput_source>(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
@@ -114,7 +108,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("action_id", ActionId);
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventInput_kind>("kind", Kind);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ObservationInput>("observation", Observation);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventInput_source>("source", Source);
             writer.WriteStringValue("timestamp", Timestamp);

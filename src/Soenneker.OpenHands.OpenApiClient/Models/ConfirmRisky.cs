@@ -17,13 +17,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The confirm_unknown property</summary>
         public bool? ConfirmUnknown { get; set; }
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmRisky_kind? Kind { get; set; }
         /// <summary>Security risk levels for actions.Based on OpenHands security risk levels but adapted for agent-sdk.Integer values allow for easy comparison and ordering.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityRisk? Threshold { get; set; }
         /// <summary>
@@ -32,7 +26,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public ConfirmRisky()
         {
             AdditionalData = new Dictionary<string, object>();
-            Threshold = global::Soenneker.OpenHands.OpenApiClient.Models.SecurityRisk.HIGH;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -53,7 +46,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "confirm_unknown", n => { ConfirmUnknown = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmRisky_kind>(); } },
                 { "threshold", n => { Threshold = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityRisk>(); } },
             };
         }
@@ -65,7 +58,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("confirm_unknown", ConfirmUnknown);
-            writer.WriteStringValue("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmRisky_kind>("kind", Kind);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityRisk>("threshold", Threshold);
             writer.WriteAdditionalData(AdditionalData);
         }

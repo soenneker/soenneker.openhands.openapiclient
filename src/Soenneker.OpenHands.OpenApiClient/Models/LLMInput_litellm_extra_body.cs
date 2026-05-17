@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Additional key-value pairs to pass to litellm&apos;s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {&apos;trace_version&apos;: &apos;1.0.0&apos;, &apos;tags&apos;: [&apos;agent:my-agent&apos;]} - vLLM features: {&apos;return_token_ids&apos;: True}
+    /// &quot;Additional key-value pairs to pass to litellm&apos;s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {&apos;trace_version&apos;: &apos;1.0.0&apos;, &apos;tags&apos;: [&apos;agent:my-agent&apos;]} - vLLM features: {&apos;return_token_ids&apos;: true}&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LLMInput_litellm_extra_body : IAdditionalDataHolder, IParsable

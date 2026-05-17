@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Additional metadata captured from PS1 after command execution.
+    /// Additional metadata captured from PS1
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CmdOutputMetadata : IAdditionalDataHolder, IParsable
@@ -20,10 +20,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The hostname of the machine.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_hostname? Hostname { get; set; }
+        public string? Hostname { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_hostname Hostname { get; set; }
+        public string Hostname { get; set; }
 #endif
         /// <summary>The process ID of the last executed command.</summary>
         public int? Pid { get; set; }
@@ -38,10 +38,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The path to the current Python interpreter, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_py_interpreter_path? PyInterpreterPath { get; set; }
+        public string? PyInterpreterPath { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_py_interpreter_path PyInterpreterPath { get; set; }
+        public string PyInterpreterPath { get; set; }
 #endif
         /// <summary>Suffix to add to command output</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,18 +54,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The username of the current user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_username? Username { get; set; }
+        public string? Username { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_username Username { get; set; }
+        public string Username { get; set; }
 #endif
         /// <summary>The current working directory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_working_dir? WorkingDir { get; set; }
+        public string? WorkingDir { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_working_dir WorkingDir { get; set; }
+        public string WorkingDir { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata"/> and sets the default values.
@@ -93,13 +93,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "exit_code", n => { ExitCode = n.GetIntValue(); } },
-                { "hostname", n => { Hostname = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_hostname>(global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_hostname.CreateFromDiscriminatorValue); } },
+                { "hostname", n => { Hostname = n.GetStringValue(); } },
                 { "pid", n => { Pid = n.GetIntValue(); } },
                 { "prefix", n => { Prefix = n.GetStringValue(); } },
-                { "py_interpreter_path", n => { PyInterpreterPath = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_py_interpreter_path>(global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_py_interpreter_path.CreateFromDiscriminatorValue); } },
+                { "py_interpreter_path", n => { PyInterpreterPath = n.GetStringValue(); } },
                 { "suffix", n => { Suffix = n.GetStringValue(); } },
-                { "username", n => { Username = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_username>(global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_username.CreateFromDiscriminatorValue); } },
-                { "working_dir", n => { WorkingDir = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_working_dir>(global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_working_dir.CreateFromDiscriminatorValue); } },
+                { "username", n => { Username = n.GetStringValue(); } },
+                { "working_dir", n => { WorkingDir = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -110,286 +110,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("exit_code", ExitCode);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_hostname>("hostname", Hostname);
+            writer.WriteStringValue("hostname", Hostname);
             writer.WriteIntValue("pid", Pid);
             writer.WriteStringValue("prefix", Prefix);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_py_interpreter_path>("py_interpreter_path", PyInterpreterPath);
+            writer.WriteStringValue("py_interpreter_path", PyInterpreterPath);
             writer.WriteStringValue("suffix", Suffix);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_username>("username", Username);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_working_dir>("working_dir", WorkingDir);
+            writer.WriteStringValue("username", Username);
+            writer.WriteStringValue("working_dir", WorkingDir);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_hostnameMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CmdOutputMetadata_hostname : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_hostnameMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_hostnameMember1? CmdOutputMetadataHostnameMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_hostnameMember1 CmdOutputMetadataHostnameMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_hostname"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_hostname CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_hostname();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.CmdOutputMetadataHostnameMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_hostnameMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(CmdOutputMetadataHostnameMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CmdOutputMetadataHostnameMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_hostnameMember1>(null, CmdOutputMetadataHostnameMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_py_interpreter_pathMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CmdOutputMetadata_py_interpreter_path : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_py_interpreter_pathMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_py_interpreter_pathMember1? CmdOutputMetadataPyInterpreterPathMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_py_interpreter_pathMember1 CmdOutputMetadataPyInterpreterPathMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_py_interpreter_path"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_py_interpreter_path CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_py_interpreter_path();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.CmdOutputMetadataPyInterpreterPathMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_py_interpreter_pathMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(CmdOutputMetadataPyInterpreterPathMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CmdOutputMetadataPyInterpreterPathMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_py_interpreter_pathMember1>(null, CmdOutputMetadataPyInterpreterPathMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_usernameMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CmdOutputMetadata_username : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_usernameMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_usernameMember1? CmdOutputMetadataUsernameMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_usernameMember1 CmdOutputMetadataUsernameMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_username"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_username CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_username();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.CmdOutputMetadataUsernameMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_usernameMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(CmdOutputMetadataUsernameMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CmdOutputMetadataUsernameMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_usernameMember1>(null, CmdOutputMetadataUsernameMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_working_dirMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CmdOutputMetadata_working_dir : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_working_dirMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_working_dirMember1? CmdOutputMetadataWorkingDirMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_working_dirMember1 CmdOutputMetadataWorkingDirMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_working_dir"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_working_dir CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CmdOutputMetadata_working_dir();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.CmdOutputMetadataWorkingDirMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_working_dirMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(CmdOutputMetadataWorkingDirMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CmdOutputMetadataWorkingDirMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata_working_dirMember1>(null, CmdOutputMetadataWorkingDirMember1);
-                }
-            }
         }
     }
 }

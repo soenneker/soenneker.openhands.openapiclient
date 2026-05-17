@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.FileNam
         {
         }
         /// <summary>
-        /// Read a file from a specific conversation&apos;s sandbox workspace.Returns the content of the file at the specified path if it exists, otherwise returns an empty string.Args:    conversation_id: The UUID of the conversation    file_path: Path to the file to read within the sandbox workspaceReturns:    The content of the file or an empty string if the file doesn&apos;t exist
+        /// &quot;Read a file from a specific conversation&apos;s sandbox workspace.Returns the content of the file at the specified path if it exists, otherwise returns an empty string.Args:    conversation_id: The UUID of the conversation    file_path: Path to the file to read within the sandbox workspaceReturns:    The content of the file or an empty string if the file doesn&apos;t exist&quot;
         /// </summary>
         /// <returns>A <see cref="string"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.FileNam
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Read a file from a specific conversation&apos;s sandbox workspace.Returns the content of the file at the specified path if it exists, otherwise returns an empty string.Args:    conversation_id: The UUID of the conversation    file_path: Path to the file to read within the sandbox workspaceReturns:    The content of the file or an empty string if the file doesn&apos;t exist
+        /// &quot;Read a file from a specific conversation&apos;s sandbox workspace.Returns the content of the file at the specified path if it exists, otherwise returns an empty string.Args:    conversation_id: The UUID of the conversation    file_path: Path to the file to read within the sandbox workspaceReturns:    The content of the file or an empty string if the file doesn&apos;t exist&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.FileNam
             return new global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.FileNamespace.FileRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Read a file from a specific conversation&apos;s sandbox workspace.Returns the content of the file at the specified path if it exists, otherwise returns an empty string.Args:    conversation_id: The UUID of the conversation    file_path: Path to the file to read within the sandbox workspaceReturns:    The content of the file or an empty string if the file doesn&apos;t exist
+        /// &quot;Read a file from a specific conversation&apos;s sandbox workspace.Returns the content of the file at the specified path if it exists, otherwise returns an empty string.Args:    conversation_id: The UUID of the conversation    file_path: Path to the file to read within the sandbox workspaceReturns:    The content of the file or an empty string if the file doesn&apos;t exist&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class FileRequestBuilderGetQueryParameters 

@@ -24,21 +24,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The file pattern filter that was used</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput.GrepObservationInput_include_pattern? IncludePattern { get; set; }
+        public string? IncludePattern { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput.GrepObservationInput_include_pattern IncludePattern { get; set; }
+        public string IncludePattern { get; set; }
 #endif
         /// <summary>Whether the observation indicates an error</summary>
         public bool? IsError { get; set; }
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput_kind? Kind { get; set; }
         /// <summary>List of file paths containing the pattern</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,9 +78,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput.GrepObservationInput_content>(global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput.GrepObservationInput_content.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "include_pattern", n => { IncludePattern = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput.GrepObservationInput_include_pattern>(global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput.GrepObservationInput_include_pattern.CreateFromDiscriminatorValue); } },
+                { "include_pattern", n => { IncludePattern = n.GetStringValue(); } },
                 { "is_error", n => { IsError = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput_kind>(); } },
                 { "matches", n => { Matches = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "pattern", n => { Pattern = n.GetStringValue(); } },
                 { "search_path", n => { SearchPath = n.GetStringValue(); } },
@@ -101,9 +95,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput.GrepObservationInput_content>("content", Content);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput.GrepObservationInput_include_pattern>("include_pattern", IncludePattern);
+            writer.WriteStringValue("include_pattern", IncludePattern);
             writer.WriteBoolValue("is_error", IsError);
-            writer.WriteStringValue("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput_kind>("kind", Kind);
             writer.WriteCollectionOfPrimitiveValues<string>("matches", Matches);
             writer.WriteStringValue("pattern", Pattern);
             writer.WriteStringValue("search_path", SearchPath);
@@ -164,74 +158,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent>(null, ImageContent, TextContent);
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput_include_patternMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GrepObservationInput_include_pattern : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput_include_patternMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput_include_patternMember1? GrepObservationInputIncludePatternMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput_include_patternMember1 GrepObservationInputIncludePatternMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput.GrepObservationInput_include_pattern"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput.GrepObservationInput_include_pattern CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput.GrepObservationInput_include_pattern();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.GrepObservationInputIncludePatternMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput_include_patternMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(GrepObservationInputIncludePatternMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(GrepObservationInputIncludePatternMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput_include_patternMember1>(null, GrepObservationInputIncludePatternMember1);
-                }
             }
         }
     }

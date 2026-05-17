@@ -24,13 +24,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Whether the observation indicates an error</summary>
         public bool? IsError { get; set; }
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.TaskObservationOutput_kind? Kind { get; set; }
         /// <summary>The status of the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,7 +69,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TaskObservationOutput.TaskObservationOutput_content>(global::Soenneker.OpenHands.OpenApiClient.Models.TaskObservationOutput.TaskObservationOutput_content.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "is_error", n => { IsError = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TaskObservationOutput_kind>(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "subagent", n => { Subagent = n.GetStringValue(); } },
                 { "task_id", n => { TaskId = n.GetStringValue(); } },
@@ -90,7 +84,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TaskObservationOutput.TaskObservationOutput_content>("content", Content);
             writer.WriteBoolValue("is_error", IsError);
-            writer.WriteStringValue("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TaskObservationOutput_kind>("kind", Kind);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("subagent", Subagent);
             writer.WriteStringValue("task_id", TaskId);

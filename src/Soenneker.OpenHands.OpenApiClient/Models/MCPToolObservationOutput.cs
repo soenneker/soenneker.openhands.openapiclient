@@ -24,13 +24,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Whether the observation indicates an error</summary>
         public bool? IsError { get; set; }
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolObservationOutput_kind? Kind { get; set; }
         /// <summary>Name of the tool that was called</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,7 +53,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolObservationOutput.MCPToolObservationOutput_content>(global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolObservationOutput.MCPToolObservationOutput_content.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "is_error", n => { IsError = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolObservationOutput_kind>(); } },
                 { "tool_name", n => { ToolName = n.GetStringValue(); } },
             };
         }
@@ -72,7 +66,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolObservationOutput.MCPToolObservationOutput_content>("content", Content);
             writer.WriteBoolValue("is_error", IsError);
-            writer.WriteStringValue("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolObservationOutput_kind>("kind", Kind);
             writer.WriteStringValue("tool_name", ToolName);
         }
         /// <summary>

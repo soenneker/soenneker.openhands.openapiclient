@@ -16,20 +16,20 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The action_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? ActionType { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_action_type? ActionType { get; set; }
 #nullable restore
 #else
-        public UntypedNode ActionType { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_action_type ActionType { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The annotations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Openhands__sdk__tool__tool__ToolAnnotations? Annotations { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations? Annotations { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Openhands__sdk__tool__tool__ToolAnnotations Annotations { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations Annotations { get; set; }
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,36 +40,30 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Description { get; set; }
 #endif
         /// <summary>The kind property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_kind? Kind { get; set; }
+        /// <summary>Definition for a tool the client can call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Kind { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTool? McpTool { get; set; }
 #nullable restore
 #else
-        public string Kind { get; set; }
-#endif
-        /// <summary>The MCP tool definition.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Mcp__types__Tool? McpTool { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Mcp__types__Tool McpTool { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTool McpTool { get; set; }
 #endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Meta { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_meta? Meta { get; set; }
 #nullable restore
 #else
-        public UntypedNode Meta { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_meta Meta { get; set; }
 #endif
         /// <summary>The observation_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? ObservationType { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_observation_type? ObservationType { get; set; }
 #nullable restore
 #else
-        public UntypedNode ObservationType { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_observation_type ObservationType { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput"/> and sets the default values.
@@ -96,13 +90,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action_type", n => { ActionType = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Openhands__sdk__tool__tool__ToolAnnotations>(global::Soenneker.OpenHands.OpenApiClient.Models.Openhands__sdk__tool__tool__ToolAnnotations.CreateFromDiscriminatorValue); } },
+                { "action_type", n => { ActionType = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_action_type>(global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_action_type.CreateFromDiscriminatorValue); } },
+                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
-                { "mcp_tool", n => { McpTool = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Mcp__types__Tool>(global::Soenneker.OpenHands.OpenApiClient.Models.Mcp__types__Tool.CreateFromDiscriminatorValue); } },
-                { "meta", n => { Meta = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "observation_type", n => { ObservationType = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_kind>(); } },
+                { "mcp_tool", n => { McpTool = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTool>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTool.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_meta>(global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_meta.CreateFromDiscriminatorValue); } },
+                { "observation_type", n => { ObservationType = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_observation_type>(global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_observation_type.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -112,13 +106,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<UntypedNode>("action_type", ActionType);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Openhands__sdk__tool__tool__ToolAnnotations>("annotations", Annotations);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_action_type>("action_type", ActionType);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations>("annotations", Annotations);
             writer.WriteStringValue("description", Description);
-            writer.WriteStringValue("kind", Kind);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Mcp__types__Tool>("mcp_tool", McpTool);
-            writer.WriteObjectValue<UntypedNode>("meta", Meta);
-            writer.WriteObjectValue<UntypedNode>("observation_type", ObservationType);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_kind>("kind", Kind);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTool>("mcp_tool", McpTool);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_meta>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionInput_observation_type>("observation_type", ObservationType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

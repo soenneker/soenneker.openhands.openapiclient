@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Resource directories for a skill (AgentSkills standard).Per the AgentSkills specification, skills can include:- scripts/: Executable scripts the agent can run- references/: Reference documentation and examples- assets/: Static assets (images, data files, etc.)
+    /// &quot;Resource directories for a skill (AgentSkills standard).Per the AgentSkills specification, skills can include:- scripts/: Executable scripts the agent can run- references/: Reference documentation and examples- assets/: Static assets (images, data files, etc.)&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SkillResources : IAdditionalDataHolder, IParsable

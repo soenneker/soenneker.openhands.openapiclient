@@ -30,13 +30,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Key { get; set; }
 #endif
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_kind? Kind { get; set; }
         /// <summary>The source property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_source? Source { get; set; }
         /// <summary>Event timestamp</summary>
@@ -50,10 +44,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Serialized conversation state updates</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Value { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_value? Value { get; set; }
 #nullable restore
 #else
-        public UntypedNode Value { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_value Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput"/> and sets the default values.
@@ -82,10 +76,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_kind>(); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_source>(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_value>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_value.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -97,10 +91,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("key", Key);
-            writer.WriteStringValue("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_kind>("kind", Kind);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_source>("source", Source);
             writer.WriteStringValue("timestamp", Timestamp);
-            writer.WriteObjectValue<UntypedNode>("value", Value);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_value>("value", Value);
         }
     }
 }

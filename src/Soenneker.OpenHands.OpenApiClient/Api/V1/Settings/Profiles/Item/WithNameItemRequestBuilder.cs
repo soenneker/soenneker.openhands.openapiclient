@@ -46,7 +46,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings.Profiles.Item
         {
         }
         /// <summary>
-        /// Delete a saved profile.Idempotent: returns success even if the profile didn&apos;t exist.
+        /// &quot;Delete a saved profile.Idempotent: returns success even if the profile didn&apos;t exist.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ProfileMutationResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -101,11 +101,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings.Profiles.Item
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileMutationResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.SaveProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileMutationResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.SaveProfileApiV1SettingsProfilesNamePost body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileMutationResponse> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.SaveProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileMutationResponse> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.SaveProfileApiV1SettingsProfilesNamePost body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -117,7 +117,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings.Profiles.Item
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileMutationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ProfileMutationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a saved profile.Idempotent: returns success even if the profile didn&apos;t exist.
+        /// &quot;Delete a saved profile.Idempotent: returns success even if the profile didn&apos;t exist.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -162,11 +162,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings.Profiles.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.SaveProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.SaveProfileApiV1SettingsProfilesNamePost body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.SaveProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.SaveProfileApiV1SettingsProfilesNamePost body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Conversation statistics for tracking LLM metrics
+    /// Track per-LLM usage metrics observed during conversations.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConversationStats : IAdditionalDataHolder, IParsable

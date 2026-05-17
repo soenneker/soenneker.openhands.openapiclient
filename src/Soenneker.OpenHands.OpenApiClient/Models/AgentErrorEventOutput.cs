@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Error triggered by the agent.Note: This event should not contain model &quot;thought&quot; or &quot;reasoning_content&quot;. Itrepresents an error produced by the agent/scaffold, not model output.
+    /// &quot;Error triggered by the agent.Note: This event should not contain model \&quot;thought\&quot; or \&quot;reasoning_content\&quot;. Itrepresents an error produced by the agent/scaffold, not model output.&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentErrorEventOutput : IParsable
@@ -30,13 +30,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventOutput_kind? Kind { get; set; }
         /// <summary>The source property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventOutput_source? Source { get; set; }
         /// <summary>Event timestamp</summary>
@@ -90,7 +84,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventOutput_kind>(); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventOutput_source>(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
                 { "tool_call_id", n => { ToolCallId = n.GetStringValue(); } },
@@ -106,7 +100,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("error", Error);
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventOutput_kind>("kind", Kind);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventOutput_source>("source", Source);
             writer.WriteStringValue("timestamp", Timestamp);
             writer.WriteStringValue("tool_call_id", ToolCallId);

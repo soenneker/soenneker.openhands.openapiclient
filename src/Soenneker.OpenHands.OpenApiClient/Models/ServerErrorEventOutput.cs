@@ -38,13 +38,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ServerErrorEventOutput_kind? Kind { get; set; }
         /// <summary>The source of this event</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.ServerErrorEventOutput_source? Source { get; set; }
         /// <summary>Event timestamp</summary>
@@ -76,7 +70,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "detail", n => { Detail = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ServerErrorEventOutput_kind>(); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ServerErrorEventOutput_source>(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
             };
@@ -91,7 +85,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("detail", Detail);
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ServerErrorEventOutput_kind>("kind", Kind);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ServerErrorEventOutput_source>("source", Source);
             writer.WriteStringValue("timestamp", Timestamp);
         }

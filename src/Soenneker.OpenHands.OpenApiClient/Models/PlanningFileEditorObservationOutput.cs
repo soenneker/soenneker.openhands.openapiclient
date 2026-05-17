@@ -13,7 +13,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PlanningFileEditorObservationOutput : IParsable
     {
-        /// <summary>The command that was run: `view`, `create`, `str_replace`, `insert`, or `undo_edit`.</summary>
+        /// <summary>&quot;The command that was run: `view`, `create`, `str_replace`, `insert`, or `undo_edit`.&quot;</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_command? Command { get; set; }
         /// <summary>Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -26,36 +26,30 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Whether the observation indicates an error</summary>
         public bool? IsError { get; set; }
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_kind? Kind { get; set; }
         /// <summary>The content of the file after the edit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_new_content? NewContent { get; set; }
+        public string? NewContent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_new_content NewContent { get; set; }
+        public string NewContent { get; set; }
 #endif
         /// <summary>The content of the file before the edit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_old_content? OldContent { get; set; }
+        public string? OldContent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_old_content OldContent { get; set; }
+        public string OldContent { get; set; }
 #endif
         /// <summary>The file path that was edited.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_path? Path { get; set; }
+        public string? Path { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_path Path { get; set; }
+        public string Path { get; set; }
 #endif
         /// <summary>Indicates if the file previously existed. If not, it was created.</summary>
         public bool? PrevExist { get; set; }
@@ -80,10 +74,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "command", n => { Command = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_command>(); } },
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_content>(global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_content.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "is_error", n => { IsError = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
-                { "new_content", n => { NewContent = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_new_content>(global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_new_content.CreateFromDiscriminatorValue); } },
-                { "old_content", n => { OldContent = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_old_content>(global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_old_content.CreateFromDiscriminatorValue); } },
-                { "path", n => { Path = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_path>(global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_path.CreateFromDiscriminatorValue); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_kind>(); } },
+                { "new_content", n => { NewContent = n.GetStringValue(); } },
+                { "old_content", n => { OldContent = n.GetStringValue(); } },
+                { "path", n => { Path = n.GetStringValue(); } },
                 { "prev_exist", n => { PrevExist = n.GetBoolValue(); } },
             };
         }
@@ -97,10 +91,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_command>("command", Command);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_content>("content", Content);
             writer.WriteBoolValue("is_error", IsError);
-            writer.WriteStringValue("kind", Kind);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_new_content>("new_content", NewContent);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_old_content>("old_content", OldContent);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_path>("path", Path);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_kind>("kind", Kind);
+            writer.WriteStringValue("new_content", NewContent);
+            writer.WriteStringValue("old_content", OldContent);
+            writer.WriteStringValue("path", Path);
             writer.WriteBoolValue("prev_exist", PrevExist);
         }
         /// <summary>
@@ -158,210 +152,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent>(null, ImageContent, TextContent);
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_new_contentMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PlanningFileEditorObservationOutput_new_content : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_new_contentMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_new_contentMember1? PlanningFileEditorObservationOutputNewContentMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_new_contentMember1 PlanningFileEditorObservationOutputNewContentMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_new_content"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_new_content CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_new_content();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.PlanningFileEditorObservationOutputNewContentMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_new_contentMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(PlanningFileEditorObservationOutputNewContentMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PlanningFileEditorObservationOutputNewContentMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_new_contentMember1>(null, PlanningFileEditorObservationOutputNewContentMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_old_contentMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PlanningFileEditorObservationOutput_old_content : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_old_contentMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_old_contentMember1? PlanningFileEditorObservationOutputOldContentMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_old_contentMember1 PlanningFileEditorObservationOutputOldContentMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_old_content"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_old_content CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_old_content();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.PlanningFileEditorObservationOutputOldContentMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_old_contentMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(PlanningFileEditorObservationOutputOldContentMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PlanningFileEditorObservationOutputOldContentMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_old_contentMember1>(null, PlanningFileEditorObservationOutputOldContentMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_pathMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PlanningFileEditorObservationOutput_path : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_pathMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_pathMember1? PlanningFileEditorObservationOutputPathMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_pathMember1 PlanningFileEditorObservationOutputPathMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_path"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_path CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_path();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.PlanningFileEditorObservationOutputPathMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_pathMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(PlanningFileEditorObservationOutputPathMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PlanningFileEditorObservationOutputPathMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_pathMember1>(null, PlanningFileEditorObservationOutputPathMember1);
-                }
             }
         }
     }

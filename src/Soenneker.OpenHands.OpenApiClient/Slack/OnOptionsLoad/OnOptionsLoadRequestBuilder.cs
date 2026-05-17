@@ -33,25 +33,25 @@ namespace Soenneker.OpenHands.OpenApiClient.Slack.OnOptionsLoad
         {
         }
         /// <summary>
-        /// Handle external_select options loading (block_suggestion payload).This endpoint is called by Slack when a user interacts with an external_selectelement. It supports dynamic repository search with pagination.The endpoint:1. Authenticates the Slack user2. Searches for repositories matching the user&apos;s query3. Returns up to 100 options for the dropdownNote: &quot;No Repository&quot; is handled by a separate button in the form, so it&apos;snot included in the dropdown options. Error cases return an empty list.Configuration: Set the Options Load URL in Slack App settings to:https://your-domain/slack/on-options-load
+        /// &quot;Handle external_select options loading (block_suggestion payload).This endpoint is called by Slack when a user interacts with an external_selectelement. It supports dynamic repository search with pagination.The endpoint:1. Authenticates the Slack user2. Searches for repositories matching the user&apos;s query3. Returns up to 100 options for the dropdownNote: \&quot;No Repository\&quot; is handled by a separate button in the form, so it&apos;snot included in the dropdown options. Error cases return an empty list.Configuration: Set the Options Load URL in Slack App settings to:https://your-domain/slack/on-options-load&quot;
         /// </summary>
-        /// <returns>A <see cref="UntypedNode"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Slack.OnOptionsLoad.OnOptionsLoadPostResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<UntypedNode?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Slack.OnOptionsLoad.OnOptionsLoadPostResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<UntypedNode> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Slack.OnOptionsLoad.OnOptionsLoadPostResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Slack.OnOptionsLoad.OnOptionsLoadPostResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Slack.OnOptionsLoad.OnOptionsLoadPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Handle external_select options loading (block_suggestion payload).This endpoint is called by Slack when a user interacts with an external_selectelement. It supports dynamic repository search with pagination.The endpoint:1. Authenticates the Slack user2. Searches for repositories matching the user&apos;s query3. Returns up to 100 options for the dropdownNote: &quot;No Repository&quot; is handled by a separate button in the form, so it&apos;snot included in the dropdown options. Error cases return an empty list.Configuration: Set the Options Load URL in Slack App settings to:https://your-domain/slack/on-options-load
+        /// &quot;Handle external_select options loading (block_suggestion payload).This endpoint is called by Slack when a user interacts with an external_selectelement. It supports dynamic repository search with pagination.The endpoint:1. Authenticates the Slack user2. Searches for repositories matching the user&apos;s query3. Returns up to 100 options for the dropdownNote: \&quot;No Repository\&quot; is handled by a separate button in the form, so it&apos;snot included in the dropdown options. Error cases return an empty list.Configuration: Set the Options Load URL in Slack App settings to:https://your-domain/slack/on-options-load&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

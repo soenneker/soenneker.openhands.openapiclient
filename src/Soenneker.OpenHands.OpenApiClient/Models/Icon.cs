@@ -7,13 +7,38 @@ using System.IO;
 using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
+    /// <summary>
+    /// An icon for display in user interfaces.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class Icon : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The mimeType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MimeType { get; set; }
+#nullable restore
+#else
+        public string MimeType { get; set; }
+#endif
+        /// <summary>The sizes property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Sizes? Sizes { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Sizes Sizes { get; set; }
+#endif
+        /// <summary>The src property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Src { get; set; }
+#nullable restore
+#else
+        public string Src { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Icon"/> and sets the default values.
         /// </summary>
@@ -39,6 +64,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "mimeType", n => { MimeType = n.GetStringValue(); } },
+                { "sizes", n => { Sizes = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Sizes>(global::Soenneker.OpenHands.OpenApiClient.Models.Sizes.CreateFromDiscriminatorValue); } },
+                { "src", n => { Src = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -48,6 +76,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("mimeType", MimeType);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Sizes>("sizes", Sizes);
+            writer.WriteStringValue("src", Src);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

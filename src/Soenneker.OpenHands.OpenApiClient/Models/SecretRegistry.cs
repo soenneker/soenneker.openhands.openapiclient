@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Registry for handling secrets and sensitive data
+    /// Manages secrets and injects them into bash commands when needed.The secret registry stores a mapping of secret keys to SecretSourcesthat retrieve the actual secret values. When a bash command is about to beexecuted, it scans the command for any secret keys and injects the correspondingenvironment variables.Secret sources will redact / encrypt their sensitive values as appropriate whenserializing, depending on the content of the context. If a context is presentand contains a &apos;cipher&apos; object, this is used for encryption. If it contains aboolean &apos;expose_secrets&apos; flag set to True, secrets are dunped in plain text.Otherwise secrets are redacted.Additionally, it tracks the latest exported values to enable consistent maskingeven when callable secrets fail on subsequent calls.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SecretRegistry : IAdditionalDataHolder, IParsable

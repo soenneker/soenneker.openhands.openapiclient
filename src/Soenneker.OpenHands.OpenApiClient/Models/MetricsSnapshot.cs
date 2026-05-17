@@ -26,13 +26,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Maximum budget per task</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot.MetricsSnapshot_max_budget_per_task? MaxBudgetPerTask { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot.MetricsSnapshot_max_budget_per_task MaxBudgetPerTask { get; set; }
-#endif
+        public double? MaxBudgetPerTask { get; set; }
         /// <summary>Name of the model</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,7 +63,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "accumulated_cost", n => { AccumulatedCost = n.GetDoubleValue(); } },
                 { "accumulated_token_usage", n => { AccumulatedTokenUsage = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TokenUsage>(global::Soenneker.OpenHands.OpenApiClient.Models.TokenUsage.CreateFromDiscriminatorValue); } },
-                { "max_budget_per_task", n => { MaxBudgetPerTask = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot.MetricsSnapshot_max_budget_per_task>(global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot.MetricsSnapshot_max_budget_per_task.CreateFromDiscriminatorValue); } },
+                { "max_budget_per_task", n => { MaxBudgetPerTask = n.GetDoubleValue(); } },
                 { "model_name", n => { ModelName = n.GetStringValue(); } },
             };
         }
@@ -82,71 +76,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("accumulated_cost", AccumulatedCost);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TokenUsage>("accumulated_token_usage", AccumulatedTokenUsage);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot.MetricsSnapshot_max_budget_per_task>("max_budget_per_task", MaxBudgetPerTask);
+            writer.WriteDoubleValue("max_budget_per_task", MaxBudgetPerTask);
             writer.WriteStringValue("model_name", ModelName);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="double"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot_max_budget_per_taskMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class MetricsSnapshot_max_budget_per_task : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="double"/></summary>
-            public double? Double { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot_max_budget_per_taskMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot_max_budget_per_taskMember1? MetricsSnapshotMaxBudgetPerTaskMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot_max_budget_per_taskMember1 MetricsSnapshotMaxBudgetPerTaskMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot.MetricsSnapshot_max_budget_per_task"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot.MetricsSnapshot_max_budget_per_task CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot.MetricsSnapshot_max_budget_per_task();
-                if(parseNode.GetDoubleValue() is double doubleValue)
-                {
-                    result.Double = doubleValue;
-                }
-                else {
-                    result.MetricsSnapshotMaxBudgetPerTaskMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot_max_budget_per_taskMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(MetricsSnapshotMaxBudgetPerTaskMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(MetricsSnapshotMaxBudgetPerTaskMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Double != null)
-                {
-                    writer.WriteDoubleValue(null, Double);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot_max_budget_per_taskMember1>(null, MetricsSnapshotMaxBudgetPerTaskMember1);
-                }
-            }
         }
     }
 }

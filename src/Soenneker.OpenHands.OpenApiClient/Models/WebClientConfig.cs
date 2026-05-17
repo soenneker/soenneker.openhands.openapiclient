@@ -19,18 +19,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The auth_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_auth_url? AuthUrl { get; set; }
+        public string? AuthUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_auth_url AuthUrl { get; set; }
+        public string AuthUrl { get; set; }
 #endif
         /// <summary>The error_message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_error_message? ErrorMessage { get; set; }
+        public string? ErrorMessage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_error_message ErrorMessage { get; set; }
+        public string ErrorMessage { get; set; }
 #endif
         /// <summary>The faulty_models property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,36 +51,24 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The github_app_slug property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_github_app_slug? GithubAppSlug { get; set; }
+        public string? GithubAppSlug { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_github_app_slug GithubAppSlug { get; set; }
+        public string GithubAppSlug { get; set; }
 #endif
         /// <summary>The gitlab_enabled property</summary>
         public bool? GitlabEnabled { get; set; }
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_kind? Kind { get; set; }
         /// <summary>The maintenance_start_time property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_maintenance_start_time? MaintenanceStartTime { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_maintenance_start_time MaintenanceStartTime { get; set; }
-#endif
+        public DateTimeOffset? MaintenanceStartTime { get; set; }
         /// <summary>The posthog_client_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_posthog_client_key? PosthogClientKey { get; set; }
+        public string? PosthogClientKey { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_posthog_client_key PosthogClientKey { get; set; }
+        public string PosthogClientKey { get; set; }
 #endif
         /// <summary>The provider_default_hosts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -101,10 +89,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The recaptcha_site_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_recaptcha_site_key? RecaptchaSiteKey { get; set; }
+        public string? RecaptchaSiteKey { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_recaptcha_site_key RecaptchaSiteKey { get; set; }
+        public string RecaptchaSiteKey { get; set; }
 #endif
         /// <summary>The slack_enabled property</summary>
         public bool? SlackEnabled { get; set; }
@@ -136,18 +124,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "app_mode", n => { AppMode = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppMode>(); } },
-                { "auth_url", n => { AuthUrl = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_auth_url>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_auth_url.CreateFromDiscriminatorValue); } },
-                { "error_message", n => { ErrorMessage = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_error_message>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_error_message.CreateFromDiscriminatorValue); } },
+                { "auth_url", n => { AuthUrl = n.GetStringValue(); } },
+                { "error_message", n => { ErrorMessage = n.GetStringValue(); } },
                 { "faulty_models", n => { FaultyModels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "feature_flags", n => { FeatureFlags = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags.CreateFromDiscriminatorValue); } },
-                { "github_app_slug", n => { GithubAppSlug = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_github_app_slug>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_github_app_slug.CreateFromDiscriminatorValue); } },
+                { "github_app_slug", n => { GithubAppSlug = n.GetStringValue(); } },
                 { "gitlab_enabled", n => { GitlabEnabled = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
-                { "maintenance_start_time", n => { MaintenanceStartTime = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_maintenance_start_time>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_maintenance_start_time.CreateFromDiscriminatorValue); } },
-                { "posthog_client_key", n => { PosthogClientKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_posthog_client_key>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_posthog_client_key.CreateFromDiscriminatorValue); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_kind>(); } },
+                { "maintenance_start_time", n => { MaintenanceStartTime = n.GetDateTimeOffsetValue(); } },
+                { "posthog_client_key", n => { PosthogClientKey = n.GetStringValue(); } },
                 { "provider_default_hosts", n => { ProviderDefaultHosts = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_provider_default_hosts>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_provider_default_hosts.CreateFromDiscriminatorValue); } },
                 { "providers_configured", n => { ProvidersConfigured = n.GetCollectionOfEnumValues<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>()?.AsList(); } },
-                { "recaptcha_site_key", n => { RecaptchaSiteKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_recaptcha_site_key>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_recaptcha_site_key.CreateFromDiscriminatorValue); } },
+                { "recaptcha_site_key", n => { RecaptchaSiteKey = n.GetStringValue(); } },
                 { "slack_enabled", n => { SlackEnabled = n.GetBoolValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -160,423 +148,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppMode>("app_mode", AppMode);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_auth_url>("auth_url", AuthUrl);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_error_message>("error_message", ErrorMessage);
+            writer.WriteStringValue("auth_url", AuthUrl);
+            writer.WriteStringValue("error_message", ErrorMessage);
             writer.WriteCollectionOfPrimitiveValues<string>("faulty_models", FaultyModels);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags>("feature_flags", FeatureFlags);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_github_app_slug>("github_app_slug", GithubAppSlug);
+            writer.WriteStringValue("github_app_slug", GithubAppSlug);
             writer.WriteBoolValue("gitlab_enabled", GitlabEnabled);
-            writer.WriteStringValue("kind", Kind);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_maintenance_start_time>("maintenance_start_time", MaintenanceStartTime);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_posthog_client_key>("posthog_client_key", PosthogClientKey);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_kind>("kind", Kind);
+            writer.WriteDateTimeOffsetValue("maintenance_start_time", MaintenanceStartTime);
+            writer.WriteStringValue("posthog_client_key", PosthogClientKey);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_provider_default_hosts>("provider_default_hosts", ProviderDefaultHosts);
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>("providers_configured", ProvidersConfigured);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_recaptcha_site_key>("recaptcha_site_key", RecaptchaSiteKey);
+            writer.WriteStringValue("recaptcha_site_key", RecaptchaSiteKey);
             writer.WriteBoolValue("slack_enabled", SlackEnabled);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_auth_urlMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WebClientConfig_auth_url : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_auth_urlMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_auth_urlMember1? WebClientConfigAuthUrlMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_auth_urlMember1 WebClientConfigAuthUrlMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_auth_url"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_auth_url CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_auth_url();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.WebClientConfigAuthUrlMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_auth_urlMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WebClientConfigAuthUrlMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WebClientConfigAuthUrlMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_auth_urlMember1>(null, WebClientConfigAuthUrlMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_error_messageMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WebClientConfig_error_message : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_error_messageMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_error_messageMember1? WebClientConfigErrorMessageMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_error_messageMember1 WebClientConfigErrorMessageMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_error_message"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_error_message CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_error_message();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.WebClientConfigErrorMessageMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_error_messageMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WebClientConfigErrorMessageMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WebClientConfigErrorMessageMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_error_messageMember1>(null, WebClientConfigErrorMessageMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_github_app_slugMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WebClientConfig_github_app_slug : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_github_app_slugMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_github_app_slugMember1? WebClientConfigGithubAppSlugMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_github_app_slugMember1 WebClientConfigGithubAppSlugMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_github_app_slug"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_github_app_slug CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_github_app_slug();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.WebClientConfigGithubAppSlugMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_github_app_slugMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WebClientConfigGithubAppSlugMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WebClientConfigGithubAppSlugMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_github_app_slugMember1>(null, WebClientConfigGithubAppSlugMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="DateTimeOffset"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_maintenance_start_timeMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WebClientConfig_maintenance_start_time : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="DateTimeOffset"/></summary>
-            public DateTimeOffset? DateTimeOffset { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_maintenance_start_timeMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_maintenance_start_timeMember1? WebClientConfigMaintenanceStartTimeMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_maintenance_start_timeMember1 WebClientConfigMaintenanceStartTimeMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_maintenance_start_time"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_maintenance_start_time CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_maintenance_start_time();
-                if(parseNode.GetDateTimeOffsetValue() is DateTimeOffset dateTimeOffsetValue)
-                {
-                    result.DateTimeOffset = dateTimeOffsetValue;
-                }
-                else {
-                    result.WebClientConfigMaintenanceStartTimeMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_maintenance_start_timeMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WebClientConfigMaintenanceStartTimeMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WebClientConfigMaintenanceStartTimeMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(DateTimeOffset != null)
-                {
-                    writer.WriteDateTimeOffsetValue(null, DateTimeOffset);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_maintenance_start_timeMember1>(null, WebClientConfigMaintenanceStartTimeMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_posthog_client_keyMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WebClientConfig_posthog_client_key : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_posthog_client_keyMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_posthog_client_keyMember1? WebClientConfigPosthogClientKeyMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_posthog_client_keyMember1 WebClientConfigPosthogClientKeyMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_posthog_client_key"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_posthog_client_key CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_posthog_client_key();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.WebClientConfigPosthogClientKeyMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_posthog_client_keyMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WebClientConfigPosthogClientKeyMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WebClientConfigPosthogClientKeyMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_posthog_client_keyMember1>(null, WebClientConfigPosthogClientKeyMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_recaptcha_site_keyMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WebClientConfig_recaptcha_site_key : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_recaptcha_site_keyMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_recaptcha_site_keyMember1? WebClientConfigRecaptchaSiteKeyMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_recaptcha_site_keyMember1 WebClientConfigRecaptchaSiteKeyMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_recaptcha_site_key"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_recaptcha_site_key CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.WebClientConfig_recaptcha_site_key();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.WebClientConfigRecaptchaSiteKeyMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_recaptcha_site_keyMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WebClientConfigRecaptchaSiteKeyMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WebClientConfigRecaptchaSiteKeyMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_recaptcha_site_keyMember1>(null, WebClientConfigRecaptchaSiteKeyMember1);
-                }
-            }
         }
     }
 }

@@ -16,10 +16,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The shell command that was executed. Can be empty string if the observation is from a previous command that hit soft timeout and is not yet finished.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_command? Command { get; set; }
+        public string? Command { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_command Command { get; set; }
+        public string Command { get; set; }
 #endif
         /// <summary>Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,32 +30,20 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public List<global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_content> Content { get; set; }
 #endif
         /// <summary>The exit code of the command. -1 indicates the process hit the soft timeout and is not yet finished.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_exit_code? ExitCode { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_exit_code ExitCode { get; set; }
-#endif
+        public int? ExitCode { get; set; }
         /// <summary>Directory where full output files are saved</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_full_output_save_dir? FullOutputSaveDir { get; set; }
+        public string? FullOutputSaveDir { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_full_output_save_dir FullOutputSaveDir { get; set; }
+        public string FullOutputSaveDir { get; set; }
 #endif
         /// <summary>Whether the observation indicates an error</summary>
         public bool? IsError { get; set; }
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
-        /// <summary>Additional metadata captured from PS1 after command execution.</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_kind? Kind { get; set; }
+        /// <summary>Additional metadata captured from PS1</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata? Metadata { get; set; }
@@ -83,12 +71,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "command", n => { Command = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_command>(global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_command.CreateFromDiscriminatorValue); } },
+                { "command", n => { Command = n.GetStringValue(); } },
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_content>(global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_content.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "exit_code", n => { ExitCode = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_exit_code>(global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_exit_code.CreateFromDiscriminatorValue); } },
-                { "full_output_save_dir", n => { FullOutputSaveDir = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_full_output_save_dir>(global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_full_output_save_dir.CreateFromDiscriminatorValue); } },
+                { "exit_code", n => { ExitCode = n.GetIntValue(); } },
+                { "full_output_save_dir", n => { FullOutputSaveDir = n.GetStringValue(); } },
                 { "is_error", n => { IsError = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_kind>(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata>(global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata.CreateFromDiscriminatorValue); } },
                 { "timeout", n => { Timeout = n.GetBoolValue(); } },
             };
@@ -100,82 +88,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_command>("command", Command);
+            writer.WriteStringValue("command", Command);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_content>("content", Content);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_exit_code>("exit_code", ExitCode);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_full_output_save_dir>("full_output_save_dir", FullOutputSaveDir);
+            writer.WriteIntValue("exit_code", ExitCode);
+            writer.WriteStringValue("full_output_save_dir", FullOutputSaveDir);
             writer.WriteBoolValue("is_error", IsError);
-            writer.WriteStringValue("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_kind>("kind", Kind);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CmdOutputMetadata>("metadata", Metadata);
             writer.WriteBoolValue("timeout", Timeout);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_commandMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class TerminalObservationOutput_command : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_commandMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_commandMember1? TerminalObservationOutputCommandMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_commandMember1 TerminalObservationOutputCommandMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_command"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_command CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_command();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.TerminalObservationOutputCommandMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_commandMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(TerminalObservationOutputCommandMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(TerminalObservationOutputCommandMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_commandMember1>(null, TerminalObservationOutputCommandMember1);
-                }
-            }
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TextContent"/>
@@ -232,136 +152,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent>(null, ImageContent, TextContent);
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_exit_codeMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class TerminalObservationOutput_exit_code : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_exit_codeMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_exit_codeMember1? TerminalObservationOutputExitCodeMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_exit_codeMember1 TerminalObservationOutputExitCodeMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_exit_code"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_exit_code CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_exit_code();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.TerminalObservationOutputExitCodeMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_exit_codeMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(TerminalObservationOutputExitCodeMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(TerminalObservationOutputExitCodeMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_exit_codeMember1>(null, TerminalObservationOutputExitCodeMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_full_output_save_dirMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class TerminalObservationOutput_full_output_save_dir : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_full_output_save_dirMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_full_output_save_dirMember1? TerminalObservationOutputFullOutputSaveDirMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_full_output_save_dirMember1 TerminalObservationOutputFullOutputSaveDirMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_full_output_save_dir"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_full_output_save_dir CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput.TerminalObservationOutput_full_output_save_dir();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.TerminalObservationOutputFullOutputSaveDirMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_full_output_save_dirMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(TerminalObservationOutputFullOutputSaveDirMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(TerminalObservationOutputFullOutputSaveDirMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput_full_output_save_dirMember1>(null, TerminalObservationOutputFullOutputSaveDirMember1);
-                }
             }
         }
     }

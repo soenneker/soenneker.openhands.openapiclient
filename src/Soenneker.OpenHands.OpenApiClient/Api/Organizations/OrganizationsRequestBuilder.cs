@@ -5,7 +5,6 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.App;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item;
-using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Llm;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members;
 using Soenneker.OpenHands.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -26,11 +25,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.App.AppRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The llm property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Llm.LlmRequestBuilder Llm
-        {
-            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Llm.LlmRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The members property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.MembersRequestBuilder Members
         {
@@ -39,7 +33,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
         /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.api.organizations.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.WithOrg_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.WithOrg_ItemRequestBuilder this[string position]
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.WithOrg_ItemRequestBuilder this[Guid position]
         {
             get
             {
@@ -65,7 +59,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
         {
         }
         /// <summary>
-        /// List organizations for the authenticated user.This endpoint returns a paginated list of all organizations that theauthenticated user is a member of.Args:    page_id: Optional page ID (offset) for pagination    limit: Maximum number of organizations to return (1-100, default 100)    user_id: Authenticated user ID (injected by dependency)Returns:    OrgPage: Paginated list of organizationsRaises:    HTTPException: 500 if retrieval fails
+        /// &quot;List organizations for the authenticated user.This endpoint returns a paginated list of all organizations that theauthenticated user is a member of.Args:    page_id: Optional page ID (offset) for pagination    limit: Maximum number of organizations to return (1-100, default 100)    user_id: Authenticated user ID (injected by dependency)Returns:    OrgPage: Paginated list of organizationsRaises:    HTTPException: 500 if retrieval fails&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -88,7 +82,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgPage>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new organization.This endpoint allows authenticated users with @openhands.dev email to createa new organization. The user who creates the organization automatically becomesits owner.Args:    org_data: Organization creation data    user_id: Authenticated user ID (injected by dependency)Returns:    OrgResponse: The created organization detailsRaises:    HTTPException: 403 if user email domain is not @openhands.dev    HTTPException: 409 if organization name already exists    HTTPException: 500 if creation fails
+        /// &quot;Create a new organization.This endpoint allows authenticated users with @openhands.dev email to createa new organization. The user who creates the organization automatically becomesits owner.Args:    org_data: Organization creation data    user_id: Authenticated user ID (injected by dependency)Returns:    OrgResponse: The created organization detailsRaises:    HTTPException: 403 if user email domain is not @openhands.dev    HTTPException: 409 if organization name already exists    HTTPException: 500 if creation fails&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse"/></returns>
         /// <param name="body">Request model for creating a new organization.</param>
@@ -113,7 +107,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List organizations for the authenticated user.This endpoint returns a paginated list of all organizations that theauthenticated user is a member of.Args:    page_id: Optional page ID (offset) for pagination    limit: Maximum number of organizations to return (1-100, default 100)    user_id: Authenticated user ID (injected by dependency)Returns:    OrgPage: Paginated list of organizationsRaises:    HTTPException: 500 if retrieval fails
+        /// &quot;List organizations for the authenticated user.This endpoint returns a paginated list of all organizations that theauthenticated user is a member of.Args:    page_id: Optional page ID (offset) for pagination    limit: Maximum number of organizations to return (1-100, default 100)    user_id: Authenticated user ID (injected by dependency)Returns:    OrgPage: Paginated list of organizationsRaises:    HTTPException: 500 if retrieval fails&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -132,7 +126,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
             return requestInfo;
         }
         /// <summary>
-        /// Create a new organization.This endpoint allows authenticated users with @openhands.dev email to createa new organization. The user who creates the organization automatically becomesits owner.Args:    org_data: Organization creation data    user_id: Authenticated user ID (injected by dependency)Returns:    OrgResponse: The created organization detailsRaises:    HTTPException: 403 if user email domain is not @openhands.dev    HTTPException: 409 if organization name already exists    HTTPException: 500 if creation fails
+        /// &quot;Create a new organization.This endpoint allows authenticated users with @openhands.dev email to createa new organization. The user who creates the organization automatically becomesits owner.Args:    org_data: Organization creation data    user_id: Authenticated user ID (injected by dependency)Returns:    OrgResponse: The created organization detailsRaises:    HTTPException: 403 if user email domain is not @openhands.dev    HTTPException: 409 if organization name already exists    HTTPException: 500 if creation fails&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request model for creating a new organization.</param>
@@ -163,7 +157,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
             return new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.OrganizationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List organizations for the authenticated user.This endpoint returns a paginated list of all organizations that theauthenticated user is a member of.Args:    page_id: Optional page ID (offset) for pagination    limit: Maximum number of organizations to return (1-100, default 100)    user_id: Authenticated user ID (injected by dependency)Returns:    OrgPage: Paginated list of organizationsRaises:    HTTPException: 500 if retrieval fails
+        /// &quot;List organizations for the authenticated user.This endpoint returns a paginated list of all organizations that theauthenticated user is a member of.Args:    page_id: Optional page ID (offset) for pagination    limit: Maximum number of organizations to return (1-100, default 100)    user_id: Authenticated user ID (injected by dependency)Returns:    OrgPage: Paginated list of organizationsRaises:    HTTPException: 500 if retrieval fails&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class OrganizationsRequestBuilderGetQueryParameters 

@@ -13,7 +13,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TaskTrackerObservationInput : IParsable
     {
-        /// <summary>The command that was executed: &quot;view&quot; or &quot;plan&quot;.</summary>
+        /// <summary>&quot;The command that was executed: \&quot;view\&quot; or \&quot;plan\&quot;.&quot;</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.TaskTrackerObservationInput_command? Command { get; set; }
         /// <summary>Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -26,13 +26,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Whether the observation indicates an error</summary>
         public bool? IsError { get; set; }
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.TaskTrackerObservationInput_kind? Kind { get; set; }
         /// <summary>The current task list</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,7 +56,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "command", n => { Command = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TaskTrackerObservationInput_command>(); } },
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TaskTrackerObservationInput.TaskTrackerObservationInput_content>(global::Soenneker.OpenHands.OpenApiClient.Models.TaskTrackerObservationInput.TaskTrackerObservationInput_content.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "is_error", n => { IsError = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TaskTrackerObservationInput_kind>(); } },
                 { "task_list", n => { TaskList = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TaskItem>(global::Soenneker.OpenHands.OpenApiClient.Models.TaskItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -76,7 +70,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TaskTrackerObservationInput_command>("command", Command);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TaskTrackerObservationInput.TaskTrackerObservationInput_content>("content", Content);
             writer.WriteBoolValue("is_error", IsError);
-            writer.WriteStringValue("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TaskTrackerObservationInput_kind>("kind", Kind);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TaskItem>("task_list", TaskList);
         }
         /// <summary>

@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Users.App
         {
         }
         /// <summary>
-        /// Get the current user&apos;s app settings.Returns language, analytics consent, sound notifications, and git config.Args:    service: UserAppSettingsService (injected by dependency)Returns:    UserAppSettingsResponse: The user&apos;s app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 404 if user not found    HTTPException: 500 if retrieval fails
+        /// &quot;Get the current user&apos;s app settings.Returns language, analytics consent, sound notifications, and git config.Args:    service: UserAppSettingsService (injected by dependency)Returns:    UserAppSettingsResponse: The user&apos;s app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 404 if user not found    HTTPException: 500 if retrieval fails&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.UserAppSettingsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Users.App
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.UserAppSettingsResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.UserAppSettingsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update the current user&apos;s app settings (partial update).Only provided fields will be updated. Pass null to clear a field.Args:    update_data: Fields to update    service: UserAppSettingsService (injected by dependency)Returns:    UserAppSettingsResponse: The updated user&apos;s app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 404 if user not found    HTTPException: 500 if update fails
+        /// &quot;Update the current user&apos;s app settings (partial update).Only provided fields will be updated. Pass null to clear a field.Args:    update_data: Fields to update    service: UserAppSettingsService (injected by dependency)Returns:    UserAppSettingsResponse: The updated user&apos;s app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 404 if user not found    HTTPException: 500 if update fails&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.UserAppSettingsResponse"/></returns>
         /// <param name="body">Request model for updating user app settings (partial update).</param>
@@ -77,7 +77,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Users.App
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.UserAppSettingsResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.UserAppSettingsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get the current user&apos;s app settings.Returns language, analytics consent, sound notifications, and git config.Args:    service: UserAppSettingsService (injected by dependency)Returns:    UserAppSettingsResponse: The user&apos;s app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 404 if user not found    HTTPException: 500 if retrieval fails
+        /// &quot;Get the current user&apos;s app settings.Returns language, analytics consent, sound notifications, and git config.Args:    service: UserAppSettingsService (injected by dependency)Returns:    UserAppSettingsResponse: The user&apos;s app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 404 if user not found    HTTPException: 500 if retrieval fails&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -96,7 +96,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Users.App
             return requestInfo;
         }
         /// <summary>
-        /// Update the current user&apos;s app settings (partial update).Only provided fields will be updated. Pass null to clear a field.Args:    update_data: Fields to update    service: UserAppSettingsService (injected by dependency)Returns:    UserAppSettingsResponse: The updated user&apos;s app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 404 if user not found    HTTPException: 500 if update fails
+        /// &quot;Update the current user&apos;s app settings (partial update).Only provided fields will be updated. Pass null to clear a field.Args:    update_data: Fields to update    service: UserAppSettingsService (injected by dependency)Returns:    UserAppSettingsResponse: The updated user&apos;s app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 404 if user not found    HTTPException: 500 if update fails&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request model for updating user app settings (partial update).</param>

@@ -47,7 +47,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims
         {
         }
         /// <summary>
-        /// Get all Git organization claims for an OpenHands organization.Only admin and owner roles can view Git organization claims.Args:    org_id: OpenHands organization UUID    user_id: Authenticated user ID (injected by permission check)Returns:    List of GitOrgClaimResponse with claim details
+        /// &quot;Get all Git organization claims for an OpenHands organization.Only admin and owner roles can view Git organization claims.Args:    org_id: OpenHands organization UUID    user_id: Authenticated user ID (injected by permission check)Returns:    List of GitOrgClaimResponse with claim details&quot;
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.OpenHands.OpenApiClient.Models.GitOrgClaimResponse&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -71,7 +71,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Claim a Git organization for an OpenHands organization.Only admin and owner roles can claim Git organizations.A Git organization can only be claimed by one OpenHands organization at a time.Args:    org_id: OpenHands organization UUID    request: Claim request with provider and git_organization    user_id: Authenticated user ID (injected by permission check)Returns:    GitOrgClaimResponse with the created claim detailsRaises:    HTTPException 409: If the Git organization is already claimed    HTTPException 403: If user lacks permission
+        /// &quot;Claim a Git organization for an OpenHands organization.Only admin and owner roles can claim Git organizations.A Git organization can only be claimed by one OpenHands organization at a time.Args:    org_id: OpenHands organization UUID    request: Claim request with provider and git_organization    user_id: Authenticated user ID (injected by permission check)Returns:    GitOrgClaimResponse with the created claim detailsRaises:    HTTPException 409: If the Git organization is already claimed    HTTPException 403: If user lacks permission&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GitOrgClaimResponse"/></returns>
         /// <param name="body">Request model for claiming a Git organization.</param>
@@ -96,7 +96,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.GitOrgClaimResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.GitOrgClaimResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get all Git organization claims for an OpenHands organization.Only admin and owner roles can view Git organization claims.Args:    org_id: OpenHands organization UUID    user_id: Authenticated user ID (injected by permission check)Returns:    List of GitOrgClaimResponse with claim details
+        /// &quot;Get all Git organization claims for an OpenHands organization.Only admin and owner roles can view Git organization claims.Args:    org_id: OpenHands organization UUID    user_id: Authenticated user ID (injected by permission check)Returns:    List of GitOrgClaimResponse with claim details&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -115,7 +115,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims
             return requestInfo;
         }
         /// <summary>
-        /// Claim a Git organization for an OpenHands organization.Only admin and owner roles can claim Git organizations.A Git organization can only be claimed by one OpenHands organization at a time.Args:    org_id: OpenHands organization UUID    request: Claim request with provider and git_organization    user_id: Authenticated user ID (injected by permission check)Returns:    GitOrgClaimResponse with the created claim detailsRaises:    HTTPException 409: If the Git organization is already claimed    HTTPException 403: If user lacks permission
+        /// &quot;Claim a Git organization for an OpenHands organization.Only admin and owner roles can claim Git organizations.A Git organization can only be claimed by one OpenHands organization at a time.Args:    org_id: OpenHands organization UUID    request: Claim request with provider and git_organization    user_id: Authenticated user ID (injected by permission check)Returns:    GitOrgClaimResponse with the created claim detailsRaises:    HTTPException 409: If the Git organization is already claimed    HTTPException 403: If user lacks permission&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request model for claiming a Git organization.</param>

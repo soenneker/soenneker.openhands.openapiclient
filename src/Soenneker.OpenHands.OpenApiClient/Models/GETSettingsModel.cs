@@ -34,27 +34,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The disabled_skills property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_disabled_skills? DisabledSkills { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Disabled_Skills? DisabledSkills { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_disabled_skills DisabledSkills { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Disabled_Skills DisabledSkills { get; set; }
 #endif
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_email? Email { get; set; }
+        public string? Email { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_email Email { get; set; }
+        public string Email { get; set; }
 #endif
         /// <summary>The email_verified property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_email_verified? EmailVerified { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_email_verified EmailVerified { get; set; }
-#endif
+        public bool? EmailVerified { get; set; }
         /// <summary>The enable_proactive_conversation_starters property</summary>
         public bool? EnableProactiveConversationStarters { get; set; }
         /// <summary>The enable_sound_notifications property</summary>
@@ -62,30 +56,30 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The git_user_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_git_user_email? GitUserEmail { get; set; }
+        public string? GitUserEmail { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_git_user_email GitUserEmail { get; set; }
+        public string GitUserEmail { get; set; }
 #endif
         /// <summary>The git_user_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_git_user_name? GitUserName { get; set; }
+        public string? GitUserName { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_git_user_name GitUserName { get; set; }
+        public string GitUserName { get; set; }
 #endif
         /// <summary>The language property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_language? Language { get; set; }
+        public string? Language { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_language Language { get; set; }
+        public string Language { get; set; }
 #endif
         /// <summary>The llm_api_key_set property</summary>
         public bool? LlmApiKeySet { get; set; }
-        /// <summary>Saved LLM profiles and the currently active profile name. See ``LLMProfiles`` for the profile-management API.</summary>
+        /// <summary>Container for saved LLM configurations.Stores a named collection of ``LLM`` configurations plus the name of thecurrently active one (if any). All profile-management logic lives here;``Settings`` holds a single ``LLMProfiles`` instance and delegates to it.Invariants (enforced on validate + assignment):- ``active`` is either ``None`` or a key of ``profiles``.- Individual profiles that fail to parse (schema drift) are dropped with  a warning rather than failing the whole ``Settings`` load.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.LLMProfiles? LlmProfiles { get; set; }
@@ -94,89 +88,65 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public global::Soenneker.OpenHands.OpenApiClient.Models.LLMProfiles LlmProfiles { get; set; }
 #endif
         /// <summary>The max_budget_per_task property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_max_budget_per_task? MaxBudgetPerTask { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_max_budget_per_task MaxBudgetPerTask { get; set; }
-#endif
+        public double? MaxBudgetPerTask { get; set; }
         /// <summary>The provider_tokens_set property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? ProviderTokensSet { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModelProviderTokensSet? ProviderTokensSet { get; set; }
 #nullable restore
 #else
-        public UntypedNode ProviderTokensSet { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModelProviderTokensSet ProviderTokensSet { get; set; }
 #endif
         /// <summary>The remote_runtime_resource_factor property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_remote_runtime_resource_factor? RemoteRuntimeResourceFactor { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_remote_runtime_resource_factor RemoteRuntimeResourceFactor { get; set; }
-#endif
+        public int? RemoteRuntimeResourceFactor { get; set; }
         /// <summary>The sandbox_api_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_api_key? SandboxApiKey { get; set; }
+        public string? SandboxApiKey { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_api_key SandboxApiKey { get; set; }
+        public string SandboxApiKey { get; set; }
 #endif
         /// <summary>The sandbox_base_container_image property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_base_container_image? SandboxBaseContainerImage { get; set; }
+        public string? SandboxBaseContainerImage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_base_container_image SandboxBaseContainerImage { get; set; }
+        public string SandboxBaseContainerImage { get; set; }
 #endif
         /// <summary>Strategy for grouping conversations within sandboxes.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxGroupingStrategy? SandboxGroupingStrategy { get; set; }
         /// <summary>The sandbox_runtime_container_image property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_runtime_container_image? SandboxRuntimeContainerImage { get; set; }
+        public string? SandboxRuntimeContainerImage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_runtime_container_image SandboxRuntimeContainerImage { get; set; }
+        public string SandboxRuntimeContainerImage { get; set; }
 #endif
         /// <summary>The search_api_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_search_api_key? SearchApiKey { get; set; }
+        public string? SearchApiKey { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_search_api_key SearchApiKey { get; set; }
+        public string SearchApiKey { get; set; }
 #endif
         /// <summary>The search_api_key_set property</summary>
         public bool? SearchApiKeySet { get; set; }
         /// <summary>The secrets_store property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? SecretsStore { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_secrets_store? SecretsStore { get; set; }
 #nullable restore
 #else
-        public UntypedNode SecretsStore { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_secrets_store SecretsStore { get; set; }
 #endif
         /// <summary>The user_consents_to_analytics property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_user_consents_to_analytics? UserConsentsToAnalytics { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_user_consents_to_analytics UserConsentsToAnalytics { get; set; }
-#endif
+        public bool? UserConsentsToAnalytics { get; set; }
         /// <summary>The user_version property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_user_version? UserVersion { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_user_version UserVersion { get; set; }
-#endif
+        public int? UserVersion { get; set; }
         /// <summary>The v1_enabled property</summary>
         public bool? V1Enabled { get; set; }
         /// <summary>
@@ -185,7 +155,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public GETSettingsModel()
         {
             AdditionalData = new Dictionary<string, object>();
-            SandboxGroupingStrategy = global::Soenneker.OpenHands.OpenApiClient.Models.SandboxGroupingStrategy.NO_GROUPING;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -207,28 +176,28 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "agent_settings", n => { AgentSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_agent_settings>(global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_agent_settings.CreateFromDiscriminatorValue); } },
                 { "conversation_settings", n => { ConversationSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings.CreateFromDiscriminatorValue); } },
-                { "disabled_skills", n => { DisabledSkills = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_disabled_skills>(global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_disabled_skills.CreateFromDiscriminatorValue); } },
-                { "email", n => { Email = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_email>(global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_email.CreateFromDiscriminatorValue); } },
-                { "email_verified", n => { EmailVerified = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_email_verified>(global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_email_verified.CreateFromDiscriminatorValue); } },
+                { "disabled_skills", n => { DisabledSkills = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Disabled_Skills>(global::Soenneker.OpenHands.OpenApiClient.Models.Disabled_Skills.CreateFromDiscriminatorValue); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "email_verified", n => { EmailVerified = n.GetBoolValue(); } },
                 { "enable_proactive_conversation_starters", n => { EnableProactiveConversationStarters = n.GetBoolValue(); } },
                 { "enable_sound_notifications", n => { EnableSoundNotifications = n.GetBoolValue(); } },
-                { "git_user_email", n => { GitUserEmail = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_git_user_email>(global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_git_user_email.CreateFromDiscriminatorValue); } },
-                { "git_user_name", n => { GitUserName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_git_user_name>(global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_git_user_name.CreateFromDiscriminatorValue); } },
-                { "language", n => { Language = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_language>(global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_language.CreateFromDiscriminatorValue); } },
+                { "git_user_email", n => { GitUserEmail = n.GetStringValue(); } },
+                { "git_user_name", n => { GitUserName = n.GetStringValue(); } },
+                { "language", n => { Language = n.GetStringValue(); } },
                 { "llm_api_key_set", n => { LlmApiKeySet = n.GetBoolValue(); } },
                 { "llm_profiles", n => { LlmProfiles = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LLMProfiles>(global::Soenneker.OpenHands.OpenApiClient.Models.LLMProfiles.CreateFromDiscriminatorValue); } },
-                { "max_budget_per_task", n => { MaxBudgetPerTask = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_max_budget_per_task>(global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_max_budget_per_task.CreateFromDiscriminatorValue); } },
-                { "provider_tokens_set", n => { ProviderTokensSet = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "remote_runtime_resource_factor", n => { RemoteRuntimeResourceFactor = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_remote_runtime_resource_factor>(global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_remote_runtime_resource_factor.CreateFromDiscriminatorValue); } },
-                { "sandbox_api_key", n => { SandboxApiKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_api_key>(global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_api_key.CreateFromDiscriminatorValue); } },
-                { "sandbox_base_container_image", n => { SandboxBaseContainerImage = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_base_container_image>(global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_base_container_image.CreateFromDiscriminatorValue); } },
+                { "max_budget_per_task", n => { MaxBudgetPerTask = n.GetDoubleValue(); } },
+                { "provider_tokens_set", n => { ProviderTokensSet = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModelProviderTokensSet>(global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModelProviderTokensSet.CreateFromDiscriminatorValue); } },
+                { "remote_runtime_resource_factor", n => { RemoteRuntimeResourceFactor = n.GetIntValue(); } },
+                { "sandbox_api_key", n => { SandboxApiKey = n.GetStringValue(); } },
+                { "sandbox_base_container_image", n => { SandboxBaseContainerImage = n.GetStringValue(); } },
                 { "sandbox_grouping_strategy", n => { SandboxGroupingStrategy = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxGroupingStrategy>(); } },
-                { "sandbox_runtime_container_image", n => { SandboxRuntimeContainerImage = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_runtime_container_image>(global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_runtime_container_image.CreateFromDiscriminatorValue); } },
-                { "search_api_key", n => { SearchApiKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_search_api_key>(global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_search_api_key.CreateFromDiscriminatorValue); } },
+                { "sandbox_runtime_container_image", n => { SandboxRuntimeContainerImage = n.GetStringValue(); } },
+                { "search_api_key", n => { SearchApiKey = n.GetStringValue(); } },
                 { "search_api_key_set", n => { SearchApiKeySet = n.GetBoolValue(); } },
-                { "secrets_store", n => { SecretsStore = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "user_consents_to_analytics", n => { UserConsentsToAnalytics = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_user_consents_to_analytics>(global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_user_consents_to_analytics.CreateFromDiscriminatorValue); } },
-                { "user_version", n => { UserVersion = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_user_version>(global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_user_version.CreateFromDiscriminatorValue); } },
+                { "secrets_store", n => { SecretsStore = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_secrets_store>(global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_secrets_store.CreateFromDiscriminatorValue); } },
+                { "user_consents_to_analytics", n => { UserConsentsToAnalytics = n.GetBoolValue(); } },
+                { "user_version", n => { UserVersion = n.GetIntValue(); } },
                 { "v1_enabled", n => { V1Enabled = n.GetBoolValue(); } },
             };
         }
@@ -241,952 +210,30 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_agent_settings>("agent_settings", AgentSettings);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings>("conversation_settings", ConversationSettings);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_disabled_skills>("disabled_skills", DisabledSkills);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_email>("email", Email);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_email_verified>("email_verified", EmailVerified);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Disabled_Skills>("disabled_skills", DisabledSkills);
+            writer.WriteStringValue("email", Email);
+            writer.WriteBoolValue("email_verified", EmailVerified);
             writer.WriteBoolValue("enable_proactive_conversation_starters", EnableProactiveConversationStarters);
             writer.WriteBoolValue("enable_sound_notifications", EnableSoundNotifications);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_git_user_email>("git_user_email", GitUserEmail);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_git_user_name>("git_user_name", GitUserName);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_language>("language", Language);
+            writer.WriteStringValue("git_user_email", GitUserEmail);
+            writer.WriteStringValue("git_user_name", GitUserName);
+            writer.WriteStringValue("language", Language);
             writer.WriteBoolValue("llm_api_key_set", LlmApiKeySet);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LLMProfiles>("llm_profiles", LlmProfiles);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_max_budget_per_task>("max_budget_per_task", MaxBudgetPerTask);
-            writer.WriteObjectValue<UntypedNode>("provider_tokens_set", ProviderTokensSet);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_remote_runtime_resource_factor>("remote_runtime_resource_factor", RemoteRuntimeResourceFactor);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_api_key>("sandbox_api_key", SandboxApiKey);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_base_container_image>("sandbox_base_container_image", SandboxBaseContainerImage);
+            writer.WriteDoubleValue("max_budget_per_task", MaxBudgetPerTask);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModelProviderTokensSet>("provider_tokens_set", ProviderTokensSet);
+            writer.WriteIntValue("remote_runtime_resource_factor", RemoteRuntimeResourceFactor);
+            writer.WriteStringValue("sandbox_api_key", SandboxApiKey);
+            writer.WriteStringValue("sandbox_base_container_image", SandboxBaseContainerImage);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxGroupingStrategy>("sandbox_grouping_strategy", SandboxGroupingStrategy);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_runtime_container_image>("sandbox_runtime_container_image", SandboxRuntimeContainerImage);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_search_api_key>("search_api_key", SearchApiKey);
+            writer.WriteStringValue("sandbox_runtime_container_image", SandboxRuntimeContainerImage);
+            writer.WriteStringValue("search_api_key", SearchApiKey);
             writer.WriteBoolValue("search_api_key_set", SearchApiKeySet);
-            writer.WriteObjectValue<UntypedNode>("secrets_store", SecretsStore);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_user_consents_to_analytics>("user_consents_to_analytics", UserConsentsToAnalytics);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_user_version>("user_version", UserVersion);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_secrets_store>("secrets_store", SecretsStore);
+            writer.WriteBoolValue("user_consents_to_analytics", UserConsentsToAnalytics);
+            writer.WriteIntValue("user_version", UserVersion);
             writer.WriteBoolValue("v1_enabled", V1Enabled);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_disabled_skillsMember1"/>, List&lt;string&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GETSettingsModel_disabled_skills : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_disabled_skillsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_disabled_skillsMember1? GETSettingsModelDisabledSkillsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_disabled_skillsMember1 GETSettingsModelDisabledSkillsMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<string>? String { get; set; }
-#nullable restore
-#else
-            public List<string> String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_disabled_skills"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_disabled_skills CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_disabled_skills();
-                if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.GETSettingsModelDisabledSkillsMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_disabled_skillsMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(GETSettingsModelDisabledSkillsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(GETSettingsModelDisabledSkillsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_disabled_skillsMember1>(null, GETSettingsModelDisabledSkillsMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_emailMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GETSettingsModel_email : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_emailMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_emailMember1? GETSettingsModelEmailMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_emailMember1 GETSettingsModelEmailMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_email"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_email CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_email();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.GETSettingsModelEmailMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_emailMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(GETSettingsModelEmailMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(GETSettingsModelEmailMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_emailMember1>(null, GETSettingsModelEmailMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="bool"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_email_verifiedMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GETSettingsModel_email_verified : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="bool"/></summary>
-            public bool? Boolean { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_email_verifiedMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_email_verifiedMember1? GETSettingsModelEmailVerifiedMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_email_verifiedMember1 GETSettingsModelEmailVerifiedMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_email_verified"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_email_verified CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_email_verified();
-                if(parseNode.GetBoolValue() is bool booleanValue)
-                {
-                    result.Boolean = booleanValue;
-                }
-                else {
-                    result.GETSettingsModelEmailVerifiedMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_email_verifiedMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(GETSettingsModelEmailVerifiedMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(GETSettingsModelEmailVerifiedMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Boolean != null)
-                {
-                    writer.WriteBoolValue(null, Boolean);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_email_verifiedMember1>(null, GETSettingsModelEmailVerifiedMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_git_user_emailMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GETSettingsModel_git_user_email : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_git_user_emailMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_git_user_emailMember1? GETSettingsModelGitUserEmailMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_git_user_emailMember1 GETSettingsModelGitUserEmailMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_git_user_email"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_git_user_email CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_git_user_email();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.GETSettingsModelGitUserEmailMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_git_user_emailMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(GETSettingsModelGitUserEmailMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(GETSettingsModelGitUserEmailMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_git_user_emailMember1>(null, GETSettingsModelGitUserEmailMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_git_user_nameMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GETSettingsModel_git_user_name : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_git_user_nameMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_git_user_nameMember1? GETSettingsModelGitUserNameMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_git_user_nameMember1 GETSettingsModelGitUserNameMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_git_user_name"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_git_user_name CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_git_user_name();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.GETSettingsModelGitUserNameMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_git_user_nameMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(GETSettingsModelGitUserNameMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(GETSettingsModelGitUserNameMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_git_user_nameMember1>(null, GETSettingsModelGitUserNameMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_languageMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GETSettingsModel_language : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_languageMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_languageMember1? GETSettingsModelLanguageMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_languageMember1 GETSettingsModelLanguageMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_language"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_language CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_language();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.GETSettingsModelLanguageMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_languageMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(GETSettingsModelLanguageMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(GETSettingsModelLanguageMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_languageMember1>(null, GETSettingsModelLanguageMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="double"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_max_budget_per_taskMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GETSettingsModel_max_budget_per_task : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="double"/></summary>
-            public double? Double { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_max_budget_per_taskMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_max_budget_per_taskMember1? GETSettingsModelMaxBudgetPerTaskMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_max_budget_per_taskMember1 GETSettingsModelMaxBudgetPerTaskMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_max_budget_per_task"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_max_budget_per_task CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_max_budget_per_task();
-                if(parseNode.GetDoubleValue() is double doubleValue)
-                {
-                    result.Double = doubleValue;
-                }
-                else {
-                    result.GETSettingsModelMaxBudgetPerTaskMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_max_budget_per_taskMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(GETSettingsModelMaxBudgetPerTaskMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(GETSettingsModelMaxBudgetPerTaskMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Double != null)
-                {
-                    writer.WriteDoubleValue(null, Double);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_max_budget_per_taskMember1>(null, GETSettingsModelMaxBudgetPerTaskMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_remote_runtime_resource_factorMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GETSettingsModel_remote_runtime_resource_factor : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_remote_runtime_resource_factorMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_remote_runtime_resource_factorMember1? GETSettingsModelRemoteRuntimeResourceFactorMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_remote_runtime_resource_factorMember1 GETSettingsModelRemoteRuntimeResourceFactorMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_remote_runtime_resource_factor"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_remote_runtime_resource_factor CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_remote_runtime_resource_factor();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.GETSettingsModelRemoteRuntimeResourceFactorMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_remote_runtime_resource_factorMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(GETSettingsModelRemoteRuntimeResourceFactorMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(GETSettingsModelRemoteRuntimeResourceFactorMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_remote_runtime_resource_factorMember1>(null, GETSettingsModelRemoteRuntimeResourceFactorMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_api_keyMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GETSettingsModel_sandbox_api_key : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_api_keyMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_api_keyMember1? GETSettingsModelSandboxApiKeyMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_api_keyMember1 GETSettingsModelSandboxApiKeyMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_api_key"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_api_key CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_api_key();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.GETSettingsModelSandboxApiKeyMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_api_keyMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(GETSettingsModelSandboxApiKeyMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(GETSettingsModelSandboxApiKeyMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_api_keyMember1>(null, GETSettingsModelSandboxApiKeyMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_base_container_imageMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GETSettingsModel_sandbox_base_container_image : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_base_container_imageMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_base_container_imageMember1? GETSettingsModelSandboxBaseContainerImageMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_base_container_imageMember1 GETSettingsModelSandboxBaseContainerImageMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_base_container_image"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_base_container_image CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_base_container_image();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.GETSettingsModelSandboxBaseContainerImageMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_base_container_imageMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(GETSettingsModelSandboxBaseContainerImageMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(GETSettingsModelSandboxBaseContainerImageMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_base_container_imageMember1>(null, GETSettingsModelSandboxBaseContainerImageMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_runtime_container_imageMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GETSettingsModel_sandbox_runtime_container_image : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_runtime_container_imageMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_runtime_container_imageMember1? GETSettingsModelSandboxRuntimeContainerImageMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_runtime_container_imageMember1 GETSettingsModelSandboxRuntimeContainerImageMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_runtime_container_image"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_runtime_container_image CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_sandbox_runtime_container_image();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.GETSettingsModelSandboxRuntimeContainerImageMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_runtime_container_imageMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(GETSettingsModelSandboxRuntimeContainerImageMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(GETSettingsModelSandboxRuntimeContainerImageMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_sandbox_runtime_container_imageMember1>(null, GETSettingsModelSandboxRuntimeContainerImageMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_search_api_keyMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GETSettingsModel_search_api_key : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_search_api_keyMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_search_api_keyMember1? GETSettingsModelSearchApiKeyMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_search_api_keyMember1 GETSettingsModelSearchApiKeyMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_search_api_key"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_search_api_key CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_search_api_key();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.GETSettingsModelSearchApiKeyMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_search_api_keyMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(GETSettingsModelSearchApiKeyMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(GETSettingsModelSearchApiKeyMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_search_api_keyMember1>(null, GETSettingsModelSearchApiKeyMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="bool"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_user_consents_to_analyticsMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GETSettingsModel_user_consents_to_analytics : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="bool"/></summary>
-            public bool? Boolean { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_user_consents_to_analyticsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_user_consents_to_analyticsMember1? GETSettingsModelUserConsentsToAnalyticsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_user_consents_to_analyticsMember1 GETSettingsModelUserConsentsToAnalyticsMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_user_consents_to_analytics"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_user_consents_to_analytics CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_user_consents_to_analytics();
-                if(parseNode.GetBoolValue() is bool booleanValue)
-                {
-                    result.Boolean = booleanValue;
-                }
-                else {
-                    result.GETSettingsModelUserConsentsToAnalyticsMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_user_consents_to_analyticsMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(GETSettingsModelUserConsentsToAnalyticsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(GETSettingsModelUserConsentsToAnalyticsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Boolean != null)
-                {
-                    writer.WriteBoolValue(null, Boolean);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_user_consents_to_analyticsMember1>(null, GETSettingsModelUserConsentsToAnalyticsMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_user_versionMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GETSettingsModel_user_version : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_user_versionMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_user_versionMember1? GETSettingsModelUserVersionMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_user_versionMember1 GETSettingsModelUserVersionMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_user_version"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_user_version CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.GETSettingsModel_user_version();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.GETSettingsModelUserVersionMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_user_versionMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(GETSettingsModelUserVersionMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(GETSettingsModelUserVersionMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel_user_versionMember1>(null, GETSettingsModelUserVersionMember1);
-                }
-            }
         }
     }
 }

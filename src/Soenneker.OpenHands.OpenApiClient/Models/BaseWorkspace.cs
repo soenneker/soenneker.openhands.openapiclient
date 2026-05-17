@@ -39,7 +39,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace();
-            if("openhands__sdk__workspace__local__LocalWorkspace-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("LocalWorkspaceInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.LocalWorkspaceInput = new global::Soenneker.OpenHands.OpenApiClient.Models.LocalWorkspaceInput();
             }

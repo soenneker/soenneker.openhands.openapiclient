@@ -52,7 +52,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings
         {
         }
         /// <summary>
-        /// Load user settings.Retrieves the settings for the authenticated user, including LLM configuration,provider tokens, and other user preferences.Returns:    GETSettingsModel: The user settings with token dataRaises:    404: Settings not found    401: Invalid token
+        /// &quot;Load user settings.Retrieves the settings for the authenticated user, including LLM configuration,provider tokens, and other user preferences.Returns:    GETSettingsModel: The user settings with token dataRaises:    404: Settings not found    401: Invalid token&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -77,7 +77,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.GETSettingsModel.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Store user settings.Accepts a partial payload and deep-merges ``agent_settings_diff`` and``conversation_settings_diff`` with the existing persisted values so thatsaving one settings page never overwrites fields owned by another.Returns:    200: Settings stored successfully    422: Legacy nested settings keys are rejected    500: Error storing settings
+        /// &quot;Store user settings.Accepts a partial payload and deep-merges ``agent_settings_diff`` and``conversation_settings_diff`` with the existing persisted values so thatsaving one settings page never overwrites fields owned by another.Returns:    200: Settings stored successfully    422: Legacy nested settings keys are rejected    500: Error storing settings&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.V1.Settings.SettingsPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -104,7 +104,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Api.V1.Settings.SettingsPostResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Api.V1.Settings.SettingsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Load user settings.Retrieves the settings for the authenticated user, including LLM configuration,provider tokens, and other user preferences.Returns:    GETSettingsModel: The user settings with token dataRaises:    404: Settings not found    401: Invalid token
+        /// &quot;Load user settings.Retrieves the settings for the authenticated user, including LLM configuration,provider tokens, and other user preferences.Returns:    GETSettingsModel: The user settings with token dataRaises:    404: Settings not found    401: Invalid token&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -123,7 +123,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings
             return requestInfo;
         }
         /// <summary>
-        /// Store user settings.Accepts a partial payload and deep-merges ``agent_settings_diff`` and``conversation_settings_diff`` with the existing persisted values so thatsaving one settings page never overwrites fields owned by another.Returns:    200: Settings stored successfully    422: Legacy nested settings keys are rejected    500: Error storing settings
+        /// &quot;Store user settings.Accepts a partial payload and deep-merges ``agent_settings_diff`` and``conversation_settings_diff`` with the existing persisted values so thatsaving one settings page never overwrites fields owned by another.Returns:    200: Settings stored successfully    422: Legacy nested settings keys are rejected    500: Error storing settings&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

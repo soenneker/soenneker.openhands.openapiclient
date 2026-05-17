@@ -50,10 +50,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The llm_api_key_for_byor property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse.MeResponse_llm_api_key_for_byor? LlmApiKeyForByor { get; set; }
+        public string? LlmApiKeyForByor { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse.MeResponse_llm_api_key_for_byor LlmApiKeyForByor { get; set; }
+        public string LlmApiKeyForByor { get; set; }
 #endif
         /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,10 +74,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse.MeResponse_status? Status { get; set; }
+        public string? Status { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse.MeResponse_status Status { get; set; }
+        public string Status { get; set; }
 #endif
         /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -116,10 +116,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "conversation_settings_diff", n => { ConversationSettingsDiff = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_conversation_settings_diff>(global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_conversation_settings_diff.CreateFromDiscriminatorValue); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "llm_api_key", n => { LlmApiKey = n.GetStringValue(); } },
-                { "llm_api_key_for_byor", n => { LlmApiKeyForByor = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse.MeResponse_llm_api_key_for_byor>(global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse.MeResponse_llm_api_key_for_byor.CreateFromDiscriminatorValue); } },
+                { "llm_api_key_for_byor", n => { LlmApiKeyForByor = n.GetStringValue(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "role", n => { Role = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse.MeResponse_status>(global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse.MeResponse_status.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
@@ -134,148 +134,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_conversation_settings_diff>("conversation_settings_diff", ConversationSettingsDiff);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("llm_api_key", LlmApiKey);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse.MeResponse_llm_api_key_for_byor>("llm_api_key_for_byor", LlmApiKeyForByor);
+            writer.WriteStringValue("llm_api_key_for_byor", LlmApiKeyForByor);
             writer.WriteStringValue("org_id", OrgId);
             writer.WriteStringValue("role", Role);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse.MeResponse_status>("status", Status);
+            writer.WriteStringValue("status", Status);
             writer.WriteStringValue("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_llm_api_key_for_byorMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class MeResponse_llm_api_key_for_byor : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_llm_api_key_for_byorMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_llm_api_key_for_byorMember1? MeResponseLlmApiKeyForByorMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_llm_api_key_for_byorMember1 MeResponseLlmApiKeyForByorMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse.MeResponse_llm_api_key_for_byor"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse.MeResponse_llm_api_key_for_byor CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse.MeResponse_llm_api_key_for_byor();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.MeResponseLlmApiKeyForByorMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_llm_api_key_for_byorMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(MeResponseLlmApiKeyForByorMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(MeResponseLlmApiKeyForByorMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_llm_api_key_for_byorMember1>(null, MeResponseLlmApiKeyForByorMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_statusMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class MeResponse_status : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_statusMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_statusMember1? MeResponseStatusMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_statusMember1 MeResponseStatusMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse.MeResponse_status"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse.MeResponse_status CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse.MeResponse_status();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.MeResponseStatusMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_statusMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(MeResponseStatusMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(MeResponseStatusMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_statusMember1>(null, MeResponseStatusMember1);
-                }
-            }
         }
     }
 }

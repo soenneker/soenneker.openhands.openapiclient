@@ -16,28 +16,28 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>ID of the action this hook is associated with (PreToolUse/PostToolUse)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_action_id? ActionId { get; set; }
+        public string? ActionId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_action_id ActionId { get; set; }
+        public string ActionId { get; set; }
 #endif
         /// <summary>Additional context injected by hook (e.g., for UserPromptSubmit)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_additional_context? AdditionalContext { get; set; }
+        public string? AdditionalContext { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_additional_context AdditionalContext { get; set; }
+        public string AdditionalContext { get; set; }
 #endif
         /// <summary>Whether the hook blocked the operation (exit code 2 or deny)</summary>
         public bool? Blocked { get; set; }
         /// <summary>Error message if hook execution failed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_error? Error { get; set; }
+        public string? Error { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_error Error { get; set; }
+        public string Error { get; set; }
 #endif
         /// <summary>Exit code from the hook command</summary>
         public int? ExitCode { get; set; }
@@ -54,10 +54,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The input data that was passed to the hook</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? HookInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_hook_input? HookInput { get; set; }
 #nullable restore
 #else
-        public UntypedNode HookInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_hook_input HookInput { get; set; }
 #endif
         /// <summary>Unique event id (ULID/UUID)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,28 +68,22 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_kind? Kind { get; set; }
         /// <summary>ID of the message this hook is associated with (UserPromptSubmit)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_message_id? MessageId { get; set; }
+        public string? MessageId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_message_id MessageId { get; set; }
+        public string MessageId { get; set; }
 #endif
         /// <summary>Reason provided by hook (for blocking)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_reason? Reason { get; set; }
+        public string? Reason { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_reason Reason { get; set; }
+        public string Reason { get; set; }
 #endif
         /// <summary>Source is always &apos;hook&apos; for hook execution events</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_source? Source { get; set; }
@@ -122,10 +116,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Tool name for PreToolUse/PostToolUse hooks</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_tool_name? ToolName { get; set; }
+        public string? ToolName { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_tool_name ToolName { get; set; }
+        public string ToolName { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput"/> and sets the default values.
@@ -152,24 +146,24 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action_id", n => { ActionId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_action_id>(global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_action_id.CreateFromDiscriminatorValue); } },
-                { "additional_context", n => { AdditionalContext = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_additional_context>(global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_additional_context.CreateFromDiscriminatorValue); } },
+                { "action_id", n => { ActionId = n.GetStringValue(); } },
+                { "additional_context", n => { AdditionalContext = n.GetStringValue(); } },
                 { "blocked", n => { Blocked = n.GetBoolValue(); } },
-                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_error>(global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_error.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetStringValue(); } },
                 { "exit_code", n => { ExitCode = n.GetIntValue(); } },
                 { "hook_command", n => { HookCommand = n.GetStringValue(); } },
                 { "hook_event_type", n => { HookEventType = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_hook_event_type>(); } },
-                { "hook_input", n => { HookInput = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "hook_input", n => { HookInput = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_hook_input>(global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_hook_input.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
-                { "message_id", n => { MessageId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_message_id>(global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_message_id.CreateFromDiscriminatorValue); } },
-                { "reason", n => { Reason = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_reason>(global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_reason.CreateFromDiscriminatorValue); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_kind>(); } },
+                { "message_id", n => { MessageId = n.GetStringValue(); } },
+                { "reason", n => { Reason = n.GetStringValue(); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_source>(); } },
                 { "stderr", n => { Stderr = n.GetStringValue(); } },
                 { "stdout", n => { Stdout = n.GetStringValue(); } },
                 { "success", n => { Success = n.GetBoolValue(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
-                { "tool_name", n => { ToolName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_tool_name>(global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_tool_name.CreateFromDiscriminatorValue); } },
+                { "tool_name", n => { ToolName = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -179,432 +173,24 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_action_id>("action_id", ActionId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_additional_context>("additional_context", AdditionalContext);
+            writer.WriteStringValue("action_id", ActionId);
+            writer.WriteStringValue("additional_context", AdditionalContext);
             writer.WriteBoolValue("blocked", Blocked);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_error>("error", Error);
+            writer.WriteStringValue("error", Error);
             writer.WriteIntValue("exit_code", ExitCode);
             writer.WriteStringValue("hook_command", HookCommand);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_hook_event_type>("hook_event_type", HookEventType);
-            writer.WriteObjectValue<UntypedNode>("hook_input", HookInput);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_hook_input>("hook_input", HookInput);
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("kind", Kind);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_message_id>("message_id", MessageId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_reason>("reason", Reason);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_kind>("kind", Kind);
+            writer.WriteStringValue("message_id", MessageId);
+            writer.WriteStringValue("reason", Reason);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_source>("source", Source);
             writer.WriteStringValue("stderr", Stderr);
             writer.WriteStringValue("stdout", Stdout);
             writer.WriteBoolValue("success", Success);
             writer.WriteStringValue("timestamp", Timestamp);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_tool_name>("tool_name", ToolName);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_action_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class HookExecutionEventOutput_action_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_action_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_action_idMember1? HookExecutionEventOutputActionIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_action_idMember1 HookExecutionEventOutputActionIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_action_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_action_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_action_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.HookExecutionEventOutputActionIdMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_action_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(HookExecutionEventOutputActionIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(HookExecutionEventOutputActionIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_action_idMember1>(null, HookExecutionEventOutputActionIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_additional_contextMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class HookExecutionEventOutput_additional_context : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_additional_contextMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_additional_contextMember1? HookExecutionEventOutputAdditionalContextMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_additional_contextMember1 HookExecutionEventOutputAdditionalContextMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_additional_context"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_additional_context CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_additional_context();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.HookExecutionEventOutputAdditionalContextMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_additional_contextMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(HookExecutionEventOutputAdditionalContextMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(HookExecutionEventOutputAdditionalContextMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_additional_contextMember1>(null, HookExecutionEventOutputAdditionalContextMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_errorMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class HookExecutionEventOutput_error : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_errorMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_errorMember1? HookExecutionEventOutputErrorMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_errorMember1 HookExecutionEventOutputErrorMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_error"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_error CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_error();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.HookExecutionEventOutputErrorMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_errorMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(HookExecutionEventOutputErrorMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(HookExecutionEventOutputErrorMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_errorMember1>(null, HookExecutionEventOutputErrorMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_message_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class HookExecutionEventOutput_message_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_message_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_message_idMember1? HookExecutionEventOutputMessageIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_message_idMember1 HookExecutionEventOutputMessageIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_message_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_message_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_message_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.HookExecutionEventOutputMessageIdMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_message_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(HookExecutionEventOutputMessageIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(HookExecutionEventOutputMessageIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_message_idMember1>(null, HookExecutionEventOutputMessageIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_reasonMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class HookExecutionEventOutput_reason : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_reasonMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_reasonMember1? HookExecutionEventOutputReasonMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_reasonMember1 HookExecutionEventOutputReasonMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_reason"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_reason CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_reason();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.HookExecutionEventOutputReasonMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_reasonMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(HookExecutionEventOutputReasonMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(HookExecutionEventOutputReasonMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_reasonMember1>(null, HookExecutionEventOutputReasonMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_tool_nameMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class HookExecutionEventOutput_tool_name : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_tool_nameMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_tool_nameMember1? HookExecutionEventOutputToolNameMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_tool_nameMember1 HookExecutionEventOutputToolNameMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_tool_name"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_tool_name CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput.HookExecutionEventOutput_tool_name();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.HookExecutionEventOutputToolNameMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_tool_nameMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(HookExecutionEventOutputToolNameMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(HookExecutionEventOutputToolNameMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput_tool_nameMember1>(null, HookExecutionEventOutputToolNameMember1);
-                }
-            }
+            writer.WriteStringValue("tool_name", ToolName);
         }
     }
 }

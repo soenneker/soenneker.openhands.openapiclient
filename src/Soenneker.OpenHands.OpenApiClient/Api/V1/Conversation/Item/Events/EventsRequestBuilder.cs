@@ -48,17 +48,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events
         /// <summary>
         /// Get a batch of events given their ids, returning null for any missing event.
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.OpenHands.OpenApiClient.Models.EventOutput&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.Events&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.OpenHands.OpenApiClient.Models.EventOutput>?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.EventsRequestBuilder.EventsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.Events>?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.EventsRequestBuilder.EventsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.OpenHands.OpenApiClient.Models.EventOutput>> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.EventsRequestBuilder.EventsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.Events>> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.EventsRequestBuilder.EventsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -66,7 +66,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
             };
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.OpenHands.OpenApiClient.Models.EventOutput>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.EventOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.Events>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.Events.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

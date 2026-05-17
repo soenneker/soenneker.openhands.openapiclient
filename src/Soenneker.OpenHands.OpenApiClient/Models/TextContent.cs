@@ -23,19 +23,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Text { get; set; }
 #endif
         /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.TextContent_type? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TextContent"/> and sets the default values.
         /// </summary>
         public TextContent()
         {
-            Type = "text";
+            Type = global::Soenneker.OpenHands.OpenApiClient.Models.TextContent_type.Text;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -57,7 +51,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "cache_prompt", n => { CachePrompt = n.GetBoolValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent_type>(); } },
             };
         }
         /// <summary>
@@ -69,7 +63,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("cache_prompt", CachePrompt);
             writer.WriteStringValue("text", Text);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent_type>("type", Type);
         }
     }
 }

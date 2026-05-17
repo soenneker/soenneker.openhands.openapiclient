@@ -7,11 +7,10 @@ using System.IO;
 using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
-    /// <summary>
-    /// The exact LLM message for this message event
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public partial class Message : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -26,18 +25,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_name? Name { get; set; }
+        public string? Name { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_name Name { get; set; }
+        public string Name { get; set; }
 #endif
         /// <summary>Intermediate reasoning/thinking content from reasoning models</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_reasoning_content? ReasoningContent { get; set; }
+        public string? ReasoningContent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_reasoning_content ReasoningContent { get; set; }
+        public string ReasoningContent { get; set; }
 #endif
         /// <summary>OpenAI Responses reasoning item from model output</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -60,18 +59,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The tool_call_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_tool_call_id? ToolCallId { get; set; }
+        public string? ToolCallId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_tool_call_id ToolCallId { get; set; }
+        public string ToolCallId { get; set; }
 #endif
         /// <summary>The tool_calls property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall>? ToolCalls { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Tool_Calls? ToolCalls { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall> ToolCalls { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Tool_Calls ToolCalls { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Message"/> and sets the default values.
@@ -99,13 +98,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_content>(global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_content.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_name>(global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_name.CreateFromDiscriminatorValue); } },
-                { "reasoning_content", n => { ReasoningContent = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_reasoning_content>(global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_reasoning_content.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "reasoning_content", n => { ReasoningContent = n.GetStringValue(); } },
                 { "responses_reasoning_item", n => { ResponsesReasoningItem = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel>(global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.Message_role>(); } },
                 { "thinking_blocks", n => { ThinkingBlocks = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_thinking_blocks>(global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_thinking_blocks.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "tool_call_id", n => { ToolCallId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_tool_call_id>(global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_tool_call_id.CreateFromDiscriminatorValue); } },
-                { "tool_calls", n => { ToolCalls = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall>(global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "tool_call_id", n => { ToolCallId = n.GetStringValue(); } },
+                { "tool_calls", n => { ToolCalls = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Tool_Calls>(global::Soenneker.OpenHands.OpenApiClient.Models.Tool_Calls.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -116,13 +115,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_content>("content", Content);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_name>("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_reasoning_content>("reasoning_content", ReasoningContent);
+            writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("reasoning_content", ReasoningContent);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel>("responses_reasoning_item", ResponsesReasoningItem);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.Message_role>("role", Role);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_thinking_blocks>("thinking_blocks", ThinkingBlocks);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_tool_call_id>("tool_call_id", ToolCallId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall>("tool_calls", ToolCalls);
+            writer.WriteStringValue("tool_call_id", ToolCallId);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Tool_Calls>("tool_calls", ToolCalls);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
@@ -183,142 +182,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             }
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Message_nameMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Message_name : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Message_nameMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Message_nameMember1? MessageNameMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Message_nameMember1 MessageNameMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_name"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_name CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_name();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.MessageNameMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.Message_nameMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(MessageNameMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(MessageNameMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Message_nameMember1>(null, MessageNameMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Message_reasoning_contentMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Message_reasoning_content : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Message_reasoning_contentMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Message_reasoning_contentMember1? MessageReasoningContentMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Message_reasoning_contentMember1 MessageReasoningContentMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_reasoning_content"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_reasoning_content CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_reasoning_content();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.MessageReasoningContentMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.Message_reasoning_contentMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(MessageReasoningContentMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(MessageReasoningContentMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Message_reasoning_contentMember1>(null, MessageReasoningContentMember1);
-                }
-            }
-        }
-        /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.RedactedThinkingBlock"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
@@ -373,74 +236,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.RedactedThinkingBlock>(null, RedactedThinkingBlock, ThinkingBlock);
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Message_tool_call_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Message_tool_call_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Message_tool_call_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Message_tool_call_idMember1? MessageToolCallIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Message_tool_call_idMember1 MessageToolCallIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_tool_call_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_tool_call_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.Message.Message_tool_call_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.MessageToolCallIdMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.Message_tool_call_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(MessageToolCallIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(MessageToolCallIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Message_tool_call_idMember1>(null, MessageToolCallIdMember1);
-                }
             }
         }
     }

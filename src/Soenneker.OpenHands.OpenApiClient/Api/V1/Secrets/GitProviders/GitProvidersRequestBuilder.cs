@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.GitProviders
         {
         }
         /// <summary>
-        /// Unset (delete) all git provider tokens.Removes all git provider tokens for the authenticated user.Returns:    200: Git provider tokens unset successfully    500: Error unsetting git provider tokens
+        /// &quot;Unset (delete) all git provider tokens.Removes all git provider tokens for the authenticated user.Returns:    200: Git provider tokens unset successfully    500: Error unsetting git provider tokens&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.GitProviders
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Store git provider tokens.Saves the git provider tokens (GitHub, GitLab, Bitbucket, etc.) for the authenticated user.Returns:    200: Git providers stored successfully    401: Invalid token    500: Error storing git providers
+        /// &quot;Store git provider tokens.Saves the git provider tokens (GitHub, GitLab, Bitbucket, etc.) for the authenticated user.Returns:    200: Git providers stored successfully    401: Invalid token    500: Error storing git providers&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse"/></returns>
         /// <param name="body">Settings for POST requests</param>
@@ -77,7 +77,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.GitProviders
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Unset (delete) all git provider tokens.Removes all git provider tokens for the authenticated user.Returns:    200: Git provider tokens unset successfully    500: Error unsetting git provider tokens
+        /// &quot;Unset (delete) all git provider tokens.Removes all git provider tokens for the authenticated user.Returns:    200: Git provider tokens unset successfully    500: Error unsetting git provider tokens&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -96,7 +96,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.GitProviders
             return requestInfo;
         }
         /// <summary>
-        /// Store git provider tokens.Saves the git provider tokens (GitHub, GitLab, Bitbucket, etc.) for the authenticated user.Returns:    200: Git providers stored successfully    401: Invalid token    500: Error storing git providers
+        /// &quot;Store git provider tokens.Saves the git provider tokens (GitHub, GitLab, Bitbucket, etc.) for the authenticated user.Returns:    200: Git providers stored successfully    401: Invalid token    500: Error storing git providers&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Settings for POST requests</param>

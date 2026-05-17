@@ -34,19 +34,19 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks
         {
         }
         /// <summary>
-        /// Get hooks currently configured in the workspace for this conversation.This endpoint loads hooks from the conversation&apos;s project directory in theworkspace (i.e. `{project_dir}/.openhands/hooks.json`) at request time.Note:    This is intentionally a &quot;live&quot; view of the workspace configuration.    If `.openhands/hooks.json` changes over time, this endpoint reflects the    latest file content and may not match the hooks that were used when the    conversation originally started.Returns:    JSONResponse: A JSON response containing the list of hook event types.    Returns an empty list if the sandbox is not running.
+        /// &quot;Get hooks currently configured in the workspace for this conversation.This endpoint loads hooks from the conversation&apos;s project directory in theworkspace (i.e. `{project_dir}/.openhands/hooks.json`) at request time.Note:    This is intentionally a \&quot;live\&quot; view of the workspace configuration.    If `.openhands/hooks.json` changes over time, this endpoint reflects the    latest file content and may not match the hooks that were used when the    conversation originally started.Returns:    JSONResponse: A JSON response containing the list of hook event types.    Returns an empty list if the sandbox is not running.&quot;
         /// </summary>
-        /// <returns>A <see cref="UntypedNode"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks.HooksGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<UntypedNode?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks.HooksGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<UntypedNode> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks.HooksGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,10 +54,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks.HooksGetResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks.HooksGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get hooks currently configured in the workspace for this conversation.This endpoint loads hooks from the conversation&apos;s project directory in theworkspace (i.e. `{project_dir}/.openhands/hooks.json`) at request time.Note:    This is intentionally a &quot;live&quot; view of the workspace configuration.    If `.openhands/hooks.json` changes over time, this endpoint reflects the    latest file content and may not match the hooks that were used when the    conversation originally started.Returns:    JSONResponse: A JSON response containing the list of hook event types.    Returns an empty list if the sandbox is not running.
+        /// &quot;Get hooks currently configured in the workspace for this conversation.This endpoint loads hooks from the conversation&apos;s project directory in theworkspace (i.e. `{project_dir}/.openhands/hooks.json`) at request time.Note:    This is intentionally a \&quot;live\&quot; view of the workspace configuration.    If `.openhands/hooks.json` changes over time, this endpoint reflects the    latest file content and may not match the hooks that were used when the    conversation originally started.Returns:    JSONResponse: A JSON response containing the list of hook event types.    Returns an empty list if the sandbox is not running.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

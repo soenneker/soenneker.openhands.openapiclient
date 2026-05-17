@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
-    /// <summary>The command that was executed: &quot;view&quot; or &quot;plan&quot;.</summary>
+    /// <summary>&quot;The command that was executed: \&quot;view\&quot; or \&quot;plan\&quot;.&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TaskTrackerObservationOutput_command
     {

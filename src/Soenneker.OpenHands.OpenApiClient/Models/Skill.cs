@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// A skill provides specialized knowledge or functionality.Skill behavior depends on format (is_agentskills_format) and trigger:AgentSkills format (SKILL.md files):- Always listed in &lt;available_skills&gt; with name, description, location- Agent reads full content on demand (progressive disclosure)- If has triggers: content is ALSO auto-injected when triggeredLegacy OpenHands format:- With triggers: Listed in &lt;available_skills&gt;, content injected on trigger- Without triggers (None): Full content in &lt;REPO_CONTEXT&gt;, always activeThis model supports both OpenHands-specific fields and AgentSkills standardfields (https://agentskills.io/specification) for cross-platform compatibility.
+    /// &quot;A skill provides specialized knowledge or functionality.Skill behavior depends on format (is_agentskills_format) and trigger:AgentSkills format (SKILL.md files):- Always listed in &lt;available_skills&gt; with name, description, location- Agent reads full content on demand (progressive disclosure)- If has triggers: content is ALSO auto-injected when triggeredLegacy OpenHands format:- With triggers: Listed in &lt;available_skills&gt;, content injected on trigger- Without triggers (None): Full content in &lt;REPO_CONTEXT&gt;, always activeThis model supports both OpenHands-specific fields and AgentSkills standardfields (https://agentskills.io/specification) for cross-platform compatibility.&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Skill : IAdditionalDataHolder, IParsable
@@ -18,18 +18,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>List of pre-approved tools for this skill. AgentSkills standard field (parsed from space-delimited string).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_allowed_tools? AllowedTools { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Allowed_Tools? AllowedTools { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_allowed_tools AllowedTools { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Allowed_Tools AllowedTools { get; set; }
 #endif
         /// <summary>Environment requirements or compatibility notes for the skill. AgentSkills standard field (e.g., &apos;Requires git and docker&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_compatibility? Compatibility { get; set; }
+        public string? Compatibility { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_compatibility Compatibility { get; set; }
+        public string Compatibility { get; set; }
 #endif
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -42,10 +42,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>A brief description of what the skill does and when to use it. Descriptions exceeding MAX_DESCRIPTION_LENGTH are truncated with a notice pointing to the skill&apos;s source path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_description? Description { get; set; }
+        public string? Description { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_description Description { get; set; }
+        public string Description { get; set; }
 #endif
         /// <summary>Input metadata for the skill (task skills only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,31 +55,31 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenHands.OpenApiClient.Models.InputMetadata> Inputs { get; set; }
 #endif
-        /// <summary>Whether this skill was loaded from a SKILL.md file following the AgentSkills standard. AgentSkills-format skills use progressive disclosure: always listed in &lt;available_skills&gt; with name, description, and location. If the skill also has triggers, content is auto-injected when triggered AND agent can read file anytime.</summary>
+        /// <summary>&quot;Whether this skill was loaded from a SKILL.md file following the AgentSkills standard. AgentSkills-format skills use progressive disclosure: always listed in &lt;available_skills&gt; with name, description, and location. If the skill also has triggers, content is auto-injected when triggered AND agent can read file anytime.&quot;</summary>
         public bool? IsAgentskillsFormat { get; set; }
         /// <summary>The license under which the skill is distributed. AgentSkills standard field (e.g., &apos;Apache-2.0&apos;, &apos;MIT&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_license? License { get; set; }
+        public string? License { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_license License { get; set; }
+        public string License { get; set; }
 #endif
-        /// <summary>MCP tools configuration for the skill (repo skills only). It should conform to the MCPConfig schema: https://gofastmcp.com/clients/client#configuration-format</summary>
+        /// <summary>&quot;MCP tools configuration for the skill (repo skills only). It should conform to the MCPConfig schema: https://gofastmcp.com/clients/client#configuration-format&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? McpTools { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Skill_mcp_tools? McpTools { get; set; }
 #nullable restore
 #else
-        public UntypedNode McpTools { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Skill_mcp_tools McpTools { get; set; }
 #endif
         /// <summary>Arbitrary key-value metadata for the skill. AgentSkills standard field for extensibility.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Metadata { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public UntypedNode Metadata { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillMetadata Metadata { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -100,18 +100,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The source path or identifier of the skill. When it is None, it is treated as a programmatically defined skill.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_source? Source { get; set; }
+        public string? Source { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_source Source { get; set; }
+        public string Source { get; set; }
 #endif
-        /// <summary>Trigger determines when skill content is auto-injected. None = no auto-injection (for AgentSkills: agent reads on demand; for legacy: full content always in system prompt). KeywordTrigger = auto-inject when keywords appear in user messages. TaskTrigger = auto-inject for specific tasks, may require user input.</summary>
+        /// <summary>&quot;Trigger determines when skill content is auto-injected. None = no auto-injection (for AgentSkills: agent reads on demand; for legacy: full content always in system prompt). KeywordTrigger = auto-inject when keywords appear in user messages. TaskTrigger = auto-inject for specific tasks, may require user input.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Trigger { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Skill_trigger? Trigger { get; set; }
 #nullable restore
 #else
-        public UntypedNode Trigger { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Skill_trigger Trigger { get; set; }
 #endif
         /// <summary>Skill version (AgentSkills standard field).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -147,19 +147,19 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowed_tools", n => { AllowedTools = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_allowed_tools>(global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_allowed_tools.CreateFromDiscriminatorValue); } },
-                { "compatibility", n => { Compatibility = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_compatibility>(global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_compatibility.CreateFromDiscriminatorValue); } },
+                { "allowed_tools", n => { AllowedTools = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Allowed_Tools>(global::Soenneker.OpenHands.OpenApiClient.Models.Allowed_Tools.CreateFromDiscriminatorValue); } },
+                { "compatibility", n => { Compatibility = n.GetStringValue(); } },
                 { "content", n => { Content = n.GetStringValue(); } },
-                { "description", n => { Description = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_description>(global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_description.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetStringValue(); } },
                 { "inputs", n => { Inputs = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.InputMetadata>(global::Soenneker.OpenHands.OpenApiClient.Models.InputMetadata.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "is_agentskills_format", n => { IsAgentskillsFormat = n.GetBoolValue(); } },
-                { "license", n => { License = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_license>(global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_license.CreateFromDiscriminatorValue); } },
-                { "mcp_tools", n => { McpTools = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "license", n => { License = n.GetStringValue(); } },
+                { "mcp_tools", n => { McpTools = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill_mcp_tools>(global::Soenneker.OpenHands.OpenApiClient.Models.Skill_mcp_tools.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillMetadata>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillMetadata.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "resources", n => { Resources = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_source>(global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_source.CreateFromDiscriminatorValue); } },
-                { "trigger", n => { Trigger = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetStringValue(); } },
+                { "trigger", n => { Trigger = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill_trigger>(global::Soenneker.OpenHands.OpenApiClient.Models.Skill_trigger.CreateFromDiscriminatorValue); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -170,361 +170,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_allowed_tools>("allowed_tools", AllowedTools);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_compatibility>("compatibility", Compatibility);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Allowed_Tools>("allowed_tools", AllowedTools);
+            writer.WriteStringValue("compatibility", Compatibility);
             writer.WriteStringValue("content", Content);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_description>("description", Description);
+            writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.InputMetadata>("inputs", Inputs);
             writer.WriteBoolValue("is_agentskills_format", IsAgentskillsFormat);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_license>("license", License);
-            writer.WriteObjectValue<UntypedNode>("mcp_tools", McpTools);
-            writer.WriteObjectValue<UntypedNode>("metadata", Metadata);
+            writer.WriteStringValue("license", License);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill_mcp_tools>("mcp_tools", McpTools);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillMetadata>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources>("resources", Resources);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_source>("source", Source);
-            writer.WriteObjectValue<UntypedNode>("trigger", Trigger);
+            writer.WriteStringValue("source", Source);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill_trigger>("trigger", Trigger);
             writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Skill_allowed_toolsMember1"/>, List&lt;string&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Skill_allowed_tools : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Skill_allowed_toolsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Skill_allowed_toolsMember1? SkillAllowedToolsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Skill_allowed_toolsMember1 SkillAllowedToolsMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<string>? String { get; set; }
-#nullable restore
-#else
-            public List<string> String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_allowed_tools"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_allowed_tools CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_allowed_tools();
-                if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SkillAllowedToolsMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.Skill_allowed_toolsMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SkillAllowedToolsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SkillAllowedToolsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill_allowed_toolsMember1>(null, SkillAllowedToolsMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Skill_compatibilityMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Skill_compatibility : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Skill_compatibilityMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Skill_compatibilityMember1? SkillCompatibilityMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Skill_compatibilityMember1 SkillCompatibilityMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_compatibility"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_compatibility CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_compatibility();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SkillCompatibilityMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.Skill_compatibilityMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SkillCompatibilityMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SkillCompatibilityMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill_compatibilityMember1>(null, SkillCompatibilityMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Skill_descriptionMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Skill_description : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Skill_descriptionMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Skill_descriptionMember1? SkillDescriptionMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Skill_descriptionMember1 SkillDescriptionMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_description"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_description CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_description();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SkillDescriptionMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.Skill_descriptionMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SkillDescriptionMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SkillDescriptionMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill_descriptionMember1>(null, SkillDescriptionMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Skill_licenseMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Skill_license : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Skill_licenseMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Skill_licenseMember1? SkillLicenseMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Skill_licenseMember1 SkillLicenseMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_license"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_license CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_license();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SkillLicenseMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.Skill_licenseMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SkillLicenseMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SkillLicenseMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill_licenseMember1>(null, SkillLicenseMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Skill_sourceMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Skill_source : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Skill_sourceMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Skill_sourceMember1? SkillSourceMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.Skill_sourceMember1 SkillSourceMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_source"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_source CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.Skill.Skill_source();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SkillSourceMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.Skill_sourceMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SkillSourceMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SkillSourceMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Skill_sourceMember1>(null, SkillSourceMember1);
-                }
-            }
         }
     }
 }

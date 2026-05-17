@@ -47,15 +47,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBase();
-            if("openhands__sdk__security__confirmation_policy__AlwaysConfirm-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("AlwaysConfirm".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AlwaysConfirm = new global::Soenneker.OpenHands.OpenApiClient.Models.AlwaysConfirm();
             }
-            else if("openhands__sdk__security__confirmation_policy__ConfirmRisky-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ConfirmRisky".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ConfirmRisky = new global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmRisky();
             }
-            else if("openhands__sdk__security__confirmation_policy__NeverConfirm-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("NeverConfirm".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.NeverConfirm = new global::Soenneker.OpenHands.OpenApiClient.Models.NeverConfirm();
             }

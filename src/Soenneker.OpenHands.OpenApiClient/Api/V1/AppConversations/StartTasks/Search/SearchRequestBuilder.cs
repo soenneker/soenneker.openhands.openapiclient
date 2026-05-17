@@ -90,24 +90,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.StartTasks.S
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SearchRequestBuilderGetQueryParameters 
         {
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("conversation_id__eq")]
-            public string? ConversationIdEq { get; set; }
-#nullable restore
-#else
-            [QueryParameter("conversation_id__eq")]
-            public string ConversationIdEq { get; set; }
-#endif
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+            public Guid? ConversationIdEq { get; set; }
             [QueryParameter("created_at__gte")]
-            public string? CreatedAtGte { get; set; }
-#nullable restore
-#else
-            [QueryParameter("created_at__gte")]
-            public string CreatedAtGte { get; set; }
-#endif
+            public DateTimeOffset? CreatedAtGte { get; set; }
             [QueryParameter("limit")]
             public int? Limit { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

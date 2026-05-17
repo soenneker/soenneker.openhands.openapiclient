@@ -183,51 +183,51 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ObservationInput();
-            if("openhands__tools__apply_patch__definition__ApplyPatchObservation-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ApplyPatchObservationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ApplyPatchObservationInput = new global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchObservationInput();
             }
-            else if("openhands__tools__browser_use__definition__BrowserObservation-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BrowserObservationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BrowserObservationInput = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationInput();
             }
-            else if("openhands__tools__tom_consult__definition__ConsultTomObservation-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ConsultTomObservationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ConsultTomObservationInput = new global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationInput();
             }
-            else if("openhands__tools__delegate__definition__DelegateObservation-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("DelegateObservationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.DelegateObservationInput = new global::Soenneker.OpenHands.OpenApiClient.Models.DelegateObservationInput();
             }
-            else if("openhands__tools__gemini__edit__definition__EditObservation-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("EditObservationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EditObservationInput = new global::Soenneker.OpenHands.OpenApiClient.Models.EditObservationInput();
             }
-            else if("openhands__tools__file_editor__definition__FileEditorObservation-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("FileEditorObservationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.FileEditorObservationInput = new global::Soenneker.OpenHands.OpenApiClient.Models.FileEditorObservationInput();
             }
-            else if("openhands__sdk__tool__builtins__finish__FinishObservation-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("FinishObservationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.FinishObservationInput = new global::Soenneker.OpenHands.OpenApiClient.Models.FinishObservationInput();
             }
-            else if("openhands__tools__glob__definition__GlobObservation-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("GlobObservationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.GlobObservationInput = new global::Soenneker.OpenHands.OpenApiClient.Models.GlobObservationInput();
             }
-            else if("openhands__tools__grep__definition__GrepObservation-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("GrepObservationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.GrepObservationInput = new global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationInput();
             }
-            else if("openhands__sdk__tool__builtins__invoke_skill__InvokeSkillObservation-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("InvokeSkillObservationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InvokeSkillObservationInput = new global::Soenneker.OpenHands.OpenApiClient.Models.InvokeSkillObservationInput();
             }
-            else if("openhands__tools__gemini__list_directory__definition__ListDirectoryObservation-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListDirectoryObservationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ListDirectoryObservationInput = new global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryObservationInput();
             }
-            else if("openhands__sdk__mcp__definition__MCPToolObservation-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("MCPToolObservationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MCPToolObservationInput = new global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolObservationInput();
             }

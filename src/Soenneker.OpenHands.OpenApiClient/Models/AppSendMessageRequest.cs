@@ -24,13 +24,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public List<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequest.AppSendMessageRequest_content> Content { get; set; }
 #endif
         /// <summary>The role of the message sender. Currently only &quot;user&quot; is supported.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Role { get; set; }
-#nullable restore
-#else
-        public string Role { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequest_role? Role { get; set; }
         /// <summary>Whether to automatically run the agent after sending the message.</summary>
         public bool? Run { get; set; }
         /// <summary>
@@ -39,7 +33,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public AppSendMessageRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            Role = "user";
+            Role = global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequest_role.User;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -60,7 +54,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequest.AppSendMessageRequest_content>(global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequest.AppSendMessageRequest_content.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "role", n => { Role = n.GetStringValue(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequest_role>(); } },
                 { "run", n => { Run = n.GetBoolValue(); } },
             };
         }
@@ -72,7 +66,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequest.AppSendMessageRequest_content>("content", Content);
-            writer.WriteStringValue("role", Role);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequest_role>("role", Role);
             writer.WriteBoolValue("run", Run);
             writer.WriteAdditionalData(AdditionalData);
         }

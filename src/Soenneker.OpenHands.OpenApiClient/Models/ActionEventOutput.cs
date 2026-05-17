@@ -15,10 +15,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Single tool call returned by LLM (None when non-executable)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ActionOutput? Action { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_action? Action { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ActionOutput Action { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_action Action { get; set; }
 #endif
         /// <summary>Optional critic evaluation of this action and preceding history.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,13 +37,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_kind? Kind { get; set; }
         /// <summary>Completion or Response ID of the LLM response that generated this eventE.g., Can be used to group related actions from same LLM response. This helps in tracking and managing results of parallel function calling from the same LLM response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,10 +49,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Intermediate reasoning/thinking content from reasoning models</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_reasoning_content? ReasoningContent { get; set; }
+        public string? ReasoningContent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_reasoning_content ReasoningContent { get; set; }
+        public string ReasoningContent { get; set; }
 #endif
         /// <summary>OpenAI Responses reasoning item from model output</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,17 +62,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel ResponsesReasoningItem { get; set; }
 #endif
-        /// <summary>The LLM&apos;s assessment of the safety risk of this action.</summary>
+        /// <summary>Security risk levels for actions.Based on OpenHands security risk levels but adapted for agent-sdk.Integer values allow for easy comparison and ordering.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityRisk? SecurityRisk { get; set; }
         /// <summary>The source property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_source? Source { get; set; }
-        /// <summary>A concise summary (approximately 10 words) of what this action does, provided by the LLM for explainability and debugging. Examples of good summaries: &apos;editing configuration file for deployment settings&apos; | &apos;searching codebase for authentication function definitions&apos; | &apos;installing required dependencies from package manifest&apos; | &apos;running tests to verify bug fix&apos; | &apos;viewing directory structure to locate source files&apos;</summary>
+        /// <summary>&quot;A concise summary (approximately 10 words) of what this action does, provided by the LLM for explainability and debugging. Examples of good summaries: &apos;editing configuration file for deployment settings&apos; | &apos;searching codebase for authentication function definitions&apos; | &apos;installing required dependencies from package manifest&apos; | &apos;running tests to verify bug fix&apos; | &apos;viewing directory structure to locate source files&apos;&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_summary? Summary { get; set; }
+        public string? Summary { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_summary Summary { get; set; }
+        public string Summary { get; set; }
 #endif
         /// <summary>Anthropic thinking blocks from the LLM response</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -104,7 +98,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Timestamp { get; set; }
 #endif
-        /// <summary>The tool call received from the LLM response. We keep a copy of it so it is easier to construct it into LLM messageThis could be different from `action`: e.g., `tool_call` may contain `security_risk` field predicted by LLM when LLM risk analyzer is enabled, while `action` does not.</summary>
+        /// <summary>Transport-agnostic tool call representation.One canonical id is used for linking across actions/observations andfor Responses function_call_output call_id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall? ToolCall { get; set; }
@@ -133,7 +127,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// </summary>
         public ActionEventOutput()
         {
-            SecurityRisk = global::Soenneker.OpenHands.OpenApiClient.Models.SecurityRisk.UNKNOWN;
             Source = global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_source.Agent;
         }
         /// <summary>
@@ -154,16 +147,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ActionOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.ActionOutput.CreateFromDiscriminatorValue); } },
+                { "action", n => { Action = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_action>(global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_action.CreateFromDiscriminatorValue); } },
                 { "critic_result", n => { CriticResult = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CriticResult>(global::Soenneker.OpenHands.OpenApiClient.Models.CriticResult.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_kind>(); } },
                 { "llm_response_id", n => { LlmResponseId = n.GetStringValue(); } },
-                { "reasoning_content", n => { ReasoningContent = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_reasoning_content>(global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_reasoning_content.CreateFromDiscriminatorValue); } },
+                { "reasoning_content", n => { ReasoningContent = n.GetStringValue(); } },
                 { "responses_reasoning_item", n => { ResponsesReasoningItem = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel>(global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel.CreateFromDiscriminatorValue); } },
                 { "security_risk", n => { SecurityRisk = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityRisk>(); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_source>(); } },
-                { "summary", n => { Summary = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_summary>(global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_summary.CreateFromDiscriminatorValue); } },
+                { "summary", n => { Summary = n.GetStringValue(); } },
                 { "thinking_blocks", n => { ThinkingBlocks = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_thinking_blocks>(global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_thinking_blocks.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "thought", n => { Thought = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>(global::Soenneker.OpenHands.OpenApiClient.Models.TextContent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
@@ -179,158 +172,22 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ActionOutput>("action", Action);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_action>("action", Action);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CriticResult>("critic_result", CriticResult);
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_kind>("kind", Kind);
             writer.WriteStringValue("llm_response_id", LlmResponseId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_reasoning_content>("reasoning_content", ReasoningContent);
+            writer.WriteStringValue("reasoning_content", ReasoningContent);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel>("responses_reasoning_item", ResponsesReasoningItem);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityRisk>("security_risk", SecurityRisk);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_source>("source", Source);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_summary>("summary", Summary);
+            writer.WriteStringValue("summary", Summary);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_thinking_blocks>("thinking_blocks", ThinkingBlocks);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>("thought", Thought);
             writer.WriteStringValue("timestamp", Timestamp);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall>("tool_call", ToolCall);
             writer.WriteStringValue("tool_call_id", ToolCallId);
             writer.WriteStringValue("tool_name", ToolName);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_reasoning_contentMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ActionEventOutput_reasoning_content : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_reasoning_contentMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_reasoning_contentMember1? ActionEventOutputReasoningContentMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_reasoning_contentMember1 ActionEventOutputReasoningContentMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_reasoning_content"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_reasoning_content CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_reasoning_content();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ActionEventOutputReasoningContentMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_reasoning_contentMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ActionEventOutputReasoningContentMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ActionEventOutputReasoningContentMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_reasoning_contentMember1>(null, ActionEventOutputReasoningContentMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_summaryMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ActionEventOutput_summary : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_summaryMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_summaryMember1? ActionEventOutputSummaryMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_summaryMember1 ActionEventOutputSummaryMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_summary"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_summary CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput.ActionEventOutput_summary();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ActionEventOutputSummaryMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_summaryMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ActionEventOutputSummaryMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ActionEventOutputSummaryMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput_summaryMember1>(null, ActionEventOutputSummaryMember1);
-                }
-            }
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.RedactedThinkingBlock"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock"/>

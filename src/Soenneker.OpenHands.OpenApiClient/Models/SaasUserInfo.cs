@@ -34,27 +34,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The disabled_skills property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_disabled_skills? DisabledSkills { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Disabled_Skills? DisabledSkills { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_disabled_skills DisabledSkills { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Disabled_Skills DisabledSkills { get; set; }
 #endif
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_email? Email { get; set; }
+        public string? Email { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_email Email { get; set; }
+        public string Email { get; set; }
 #endif
         /// <summary>The email_verified property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_email_verified? EmailVerified { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_email_verified EmailVerified { get; set; }
-#endif
+        public bool? EmailVerified { get; set; }
         /// <summary>The enable_proactive_conversation_starters property</summary>
         public bool? EnableProactiveConversationStarters { get; set; }
         /// <summary>The enable_sound_notifications property</summary>
@@ -62,36 +56,36 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The git_user_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_git_user_email? GitUserEmail { get; set; }
+        public string? GitUserEmail { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_git_user_email GitUserEmail { get; set; }
+        public string GitUserEmail { get; set; }
 #endif
         /// <summary>The git_user_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_git_user_name? GitUserName { get; set; }
+        public string? GitUserName { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_git_user_name GitUserName { get; set; }
+        public string GitUserName { get; set; }
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_id? Id { get; set; }
+        public string? Id { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_id Id { get; set; }
+        public string Id { get; set; }
 #endif
         /// <summary>The language property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_language? Language { get; set; }
+        public string? Language { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_language Language { get; set; }
+        public string Language { get; set; }
 #endif
-        /// <summary>Saved LLM profiles and the currently active profile name. See ``LLMProfiles`` for the profile-management API.</summary>
+        /// <summary>Container for saved LLM configurations.Stores a named collection of ``LLM`` configurations plus the name of thecurrently active one (if any). All profile-management logic lives here;``Settings`` holds a single ``LLMProfiles`` instance and delegates to it.Invariants (enforced on validate + assignment):- ``active`` is either ``None`` or a key of ``profiles``.- Individual profiles that fail to parse (schema drift) are dropped with  a warning rather than failing the whole ``Settings`` load.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.LLMProfiles? LlmProfiles { get; set; }
@@ -100,111 +94,87 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public global::Soenneker.OpenHands.OpenApiClient.Models.LLMProfiles LlmProfiles { get; set; }
 #endif
         /// <summary>The max_budget_per_task property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_max_budget_per_task? MaxBudgetPerTask { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_max_budget_per_task MaxBudgetPerTask { get; set; }
-#endif
+        public double? MaxBudgetPerTask { get; set; }
         /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_org_id? OrgId { get; set; }
+        public string? OrgId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_org_id OrgId { get; set; }
+        public string OrgId { get; set; }
 #endif
         /// <summary>The org_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_org_name? OrgName { get; set; }
+        public string? OrgName { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_org_name OrgName { get; set; }
+        public string OrgName { get; set; }
 #endif
         /// <summary>The permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_permissions? Permissions { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Permissions? Permissions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_permissions Permissions { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Permissions Permissions { get; set; }
 #endif
         /// <summary>The remote_runtime_resource_factor property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_remote_runtime_resource_factor? RemoteRuntimeResourceFactor { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_remote_runtime_resource_factor RemoteRuntimeResourceFactor { get; set; }
-#endif
+        public int? RemoteRuntimeResourceFactor { get; set; }
         /// <summary>The role property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_role? Role { get; set; }
+        public string? Role { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_role Role { get; set; }
+        public string Role { get; set; }
 #endif
         /// <summary>The sandbox_api_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_api_key? SandboxApiKey { get; set; }
+        public string? SandboxApiKey { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_api_key SandboxApiKey { get; set; }
+        public string SandboxApiKey { get; set; }
 #endif
         /// <summary>The sandbox_base_container_image property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_base_container_image? SandboxBaseContainerImage { get; set; }
+        public string? SandboxBaseContainerImage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_base_container_image SandboxBaseContainerImage { get; set; }
+        public string SandboxBaseContainerImage { get; set; }
 #endif
         /// <summary>Strategy for grouping conversations within sandboxes.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxGroupingStrategy? SandboxGroupingStrategy { get; set; }
         /// <summary>The sandbox_runtime_container_image property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_runtime_container_image? SandboxRuntimeContainerImage { get; set; }
+        public string? SandboxRuntimeContainerImage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_runtime_container_image SandboxRuntimeContainerImage { get; set; }
+        public string SandboxRuntimeContainerImage { get; set; }
 #endif
         /// <summary>The search_api_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_search_api_key? SearchApiKey { get; set; }
+        public string? SearchApiKey { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_search_api_key SearchApiKey { get; set; }
+        public string SearchApiKey { get; set; }
 #endif
         /// <summary>The secrets_store property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? SecretsStore { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_secrets_store? SecretsStore { get; set; }
 #nullable restore
 #else
-        public UntypedNode SecretsStore { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_secrets_store SecretsStore { get; set; }
 #endif
         /// <summary>The user_consents_to_analytics property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_user_consents_to_analytics? UserConsentsToAnalytics { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_user_consents_to_analytics UserConsentsToAnalytics { get; set; }
-#endif
+        public bool? UserConsentsToAnalytics { get; set; }
         /// <summary>The user_version property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_user_version? UserVersion { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_user_version UserVersion { get; set; }
-#endif
+        public int? UserVersion { get; set; }
         /// <summary>The v1_enabled property</summary>
         public bool? V1Enabled { get; set; }
         /// <summary>
@@ -213,7 +183,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public SaasUserInfo()
         {
             AdditionalData = new Dictionary<string, object>();
-            SandboxGroupingStrategy = global::Soenneker.OpenHands.OpenApiClient.Models.SandboxGroupingStrategy.NO_GROUPING;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -235,30 +204,30 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "agent_settings", n => { AgentSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_agent_settings>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_agent_settings.CreateFromDiscriminatorValue); } },
                 { "conversation_settings", n => { ConversationSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings.CreateFromDiscriminatorValue); } },
-                { "disabled_skills", n => { DisabledSkills = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_disabled_skills>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_disabled_skills.CreateFromDiscriminatorValue); } },
-                { "email", n => { Email = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_email>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_email.CreateFromDiscriminatorValue); } },
-                { "email_verified", n => { EmailVerified = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_email_verified>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_email_verified.CreateFromDiscriminatorValue); } },
+                { "disabled_skills", n => { DisabledSkills = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Disabled_Skills>(global::Soenneker.OpenHands.OpenApiClient.Models.Disabled_Skills.CreateFromDiscriminatorValue); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "email_verified", n => { EmailVerified = n.GetBoolValue(); } },
                 { "enable_proactive_conversation_starters", n => { EnableProactiveConversationStarters = n.GetBoolValue(); } },
                 { "enable_sound_notifications", n => { EnableSoundNotifications = n.GetBoolValue(); } },
-                { "git_user_email", n => { GitUserEmail = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_git_user_email>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_git_user_email.CreateFromDiscriminatorValue); } },
-                { "git_user_name", n => { GitUserName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_git_user_name>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_git_user_name.CreateFromDiscriminatorValue); } },
-                { "id", n => { Id = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_id>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_id.CreateFromDiscriminatorValue); } },
-                { "language", n => { Language = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_language>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_language.CreateFromDiscriminatorValue); } },
+                { "git_user_email", n => { GitUserEmail = n.GetStringValue(); } },
+                { "git_user_name", n => { GitUserName = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "language", n => { Language = n.GetStringValue(); } },
                 { "llm_profiles", n => { LlmProfiles = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LLMProfiles>(global::Soenneker.OpenHands.OpenApiClient.Models.LLMProfiles.CreateFromDiscriminatorValue); } },
-                { "max_budget_per_task", n => { MaxBudgetPerTask = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_max_budget_per_task>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_max_budget_per_task.CreateFromDiscriminatorValue); } },
-                { "org_id", n => { OrgId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_org_id>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_org_id.CreateFromDiscriminatorValue); } },
-                { "org_name", n => { OrgName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_org_name>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_org_name.CreateFromDiscriminatorValue); } },
-                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_permissions>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_permissions.CreateFromDiscriminatorValue); } },
-                { "remote_runtime_resource_factor", n => { RemoteRuntimeResourceFactor = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_remote_runtime_resource_factor>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_remote_runtime_resource_factor.CreateFromDiscriminatorValue); } },
-                { "role", n => { Role = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_role>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_role.CreateFromDiscriminatorValue); } },
-                { "sandbox_api_key", n => { SandboxApiKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_api_key>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_api_key.CreateFromDiscriminatorValue); } },
-                { "sandbox_base_container_image", n => { SandboxBaseContainerImage = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_base_container_image>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_base_container_image.CreateFromDiscriminatorValue); } },
+                { "max_budget_per_task", n => { MaxBudgetPerTask = n.GetDoubleValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
+                { "org_name", n => { OrgName = n.GetStringValue(); } },
+                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Permissions>(global::Soenneker.OpenHands.OpenApiClient.Models.Permissions.CreateFromDiscriminatorValue); } },
+                { "remote_runtime_resource_factor", n => { RemoteRuntimeResourceFactor = n.GetIntValue(); } },
+                { "role", n => { Role = n.GetStringValue(); } },
+                { "sandbox_api_key", n => { SandboxApiKey = n.GetStringValue(); } },
+                { "sandbox_base_container_image", n => { SandboxBaseContainerImage = n.GetStringValue(); } },
                 { "sandbox_grouping_strategy", n => { SandboxGroupingStrategy = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxGroupingStrategy>(); } },
-                { "sandbox_runtime_container_image", n => { SandboxRuntimeContainerImage = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_runtime_container_image>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_runtime_container_image.CreateFromDiscriminatorValue); } },
-                { "search_api_key", n => { SearchApiKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_search_api_key>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_search_api_key.CreateFromDiscriminatorValue); } },
-                { "secrets_store", n => { SecretsStore = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "user_consents_to_analytics", n => { UserConsentsToAnalytics = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_user_consents_to_analytics>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_user_consents_to_analytics.CreateFromDiscriminatorValue); } },
-                { "user_version", n => { UserVersion = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_user_version>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_user_version.CreateFromDiscriminatorValue); } },
+                { "sandbox_runtime_container_image", n => { SandboxRuntimeContainerImage = n.GetStringValue(); } },
+                { "search_api_key", n => { SearchApiKey = n.GetStringValue(); } },
+                { "secrets_store", n => { SecretsStore = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_secrets_store>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_secrets_store.CreateFromDiscriminatorValue); } },
+                { "user_consents_to_analytics", n => { UserConsentsToAnalytics = n.GetBoolValue(); } },
+                { "user_version", n => { UserVersion = n.GetIntValue(); } },
                 { "v1_enabled", n => { V1Enabled = n.GetBoolValue(); } },
             };
         }
@@ -271,1294 +240,32 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_agent_settings>("agent_settings", AgentSettings);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings>("conversation_settings", ConversationSettings);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_disabled_skills>("disabled_skills", DisabledSkills);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_email>("email", Email);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_email_verified>("email_verified", EmailVerified);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Disabled_Skills>("disabled_skills", DisabledSkills);
+            writer.WriteStringValue("email", Email);
+            writer.WriteBoolValue("email_verified", EmailVerified);
             writer.WriteBoolValue("enable_proactive_conversation_starters", EnableProactiveConversationStarters);
             writer.WriteBoolValue("enable_sound_notifications", EnableSoundNotifications);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_git_user_email>("git_user_email", GitUserEmail);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_git_user_name>("git_user_name", GitUserName);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_id>("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_language>("language", Language);
+            writer.WriteStringValue("git_user_email", GitUserEmail);
+            writer.WriteStringValue("git_user_name", GitUserName);
+            writer.WriteStringValue("id", Id);
+            writer.WriteStringValue("language", Language);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LLMProfiles>("llm_profiles", LlmProfiles);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_max_budget_per_task>("max_budget_per_task", MaxBudgetPerTask);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_org_id>("org_id", OrgId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_org_name>("org_name", OrgName);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_permissions>("permissions", Permissions);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_remote_runtime_resource_factor>("remote_runtime_resource_factor", RemoteRuntimeResourceFactor);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_role>("role", Role);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_api_key>("sandbox_api_key", SandboxApiKey);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_base_container_image>("sandbox_base_container_image", SandboxBaseContainerImage);
+            writer.WriteDoubleValue("max_budget_per_task", MaxBudgetPerTask);
+            writer.WriteStringValue("org_id", OrgId);
+            writer.WriteStringValue("org_name", OrgName);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Permissions>("permissions", Permissions);
+            writer.WriteIntValue("remote_runtime_resource_factor", RemoteRuntimeResourceFactor);
+            writer.WriteStringValue("role", Role);
+            writer.WriteStringValue("sandbox_api_key", SandboxApiKey);
+            writer.WriteStringValue("sandbox_base_container_image", SandboxBaseContainerImage);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxGroupingStrategy>("sandbox_grouping_strategy", SandboxGroupingStrategy);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_runtime_container_image>("sandbox_runtime_container_image", SandboxRuntimeContainerImage);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_search_api_key>("search_api_key", SearchApiKey);
-            writer.WriteObjectValue<UntypedNode>("secrets_store", SecretsStore);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_user_consents_to_analytics>("user_consents_to_analytics", UserConsentsToAnalytics);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_user_version>("user_version", UserVersion);
+            writer.WriteStringValue("sandbox_runtime_container_image", SandboxRuntimeContainerImage);
+            writer.WriteStringValue("search_api_key", SearchApiKey);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_secrets_store>("secrets_store", SecretsStore);
+            writer.WriteBoolValue("user_consents_to_analytics", UserConsentsToAnalytics);
+            writer.WriteIntValue("user_version", UserVersion);
             writer.WriteBoolValue("v1_enabled", V1Enabled);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_disabled_skillsMember1"/>, List&lt;string&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_disabled_skills : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_disabled_skillsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_disabled_skillsMember1? SaasUserInfoDisabledSkillsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_disabled_skillsMember1 SaasUserInfoDisabledSkillsMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<string>? String { get; set; }
-#nullable restore
-#else
-            public List<string> String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_disabled_skills"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_disabled_skills CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_disabled_skills();
-                if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SaasUserInfoDisabledSkillsMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_disabled_skillsMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoDisabledSkillsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoDisabledSkillsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_disabled_skillsMember1>(null, SaasUserInfoDisabledSkillsMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_emailMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_email : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_emailMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_emailMember1? SaasUserInfoEmailMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_emailMember1 SaasUserInfoEmailMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_email"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_email CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_email();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SaasUserInfoEmailMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_emailMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoEmailMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoEmailMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_emailMember1>(null, SaasUserInfoEmailMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="bool"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_email_verifiedMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_email_verified : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="bool"/></summary>
-            public bool? Boolean { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_email_verifiedMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_email_verifiedMember1? SaasUserInfoEmailVerifiedMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_email_verifiedMember1 SaasUserInfoEmailVerifiedMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_email_verified"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_email_verified CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_email_verified();
-                if(parseNode.GetBoolValue() is bool booleanValue)
-                {
-                    result.Boolean = booleanValue;
-                }
-                else {
-                    result.SaasUserInfoEmailVerifiedMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_email_verifiedMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoEmailVerifiedMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoEmailVerifiedMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Boolean != null)
-                {
-                    writer.WriteBoolValue(null, Boolean);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_email_verifiedMember1>(null, SaasUserInfoEmailVerifiedMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_git_user_emailMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_git_user_email : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_git_user_emailMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_git_user_emailMember1? SaasUserInfoGitUserEmailMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_git_user_emailMember1 SaasUserInfoGitUserEmailMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_git_user_email"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_git_user_email CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_git_user_email();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SaasUserInfoGitUserEmailMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_git_user_emailMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoGitUserEmailMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoGitUserEmailMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_git_user_emailMember1>(null, SaasUserInfoGitUserEmailMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_git_user_nameMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_git_user_name : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_git_user_nameMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_git_user_nameMember1? SaasUserInfoGitUserNameMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_git_user_nameMember1 SaasUserInfoGitUserNameMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_git_user_name"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_git_user_name CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_git_user_name();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SaasUserInfoGitUserNameMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_git_user_nameMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoGitUserNameMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoGitUserNameMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_git_user_nameMember1>(null, SaasUserInfoGitUserNameMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_idMember1? SaasUserInfoIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_idMember1 SaasUserInfoIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SaasUserInfoIdMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_idMember1>(null, SaasUserInfoIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_languageMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_language : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_languageMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_languageMember1? SaasUserInfoLanguageMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_languageMember1 SaasUserInfoLanguageMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_language"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_language CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_language();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SaasUserInfoLanguageMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_languageMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoLanguageMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoLanguageMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_languageMember1>(null, SaasUserInfoLanguageMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="double"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_max_budget_per_taskMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_max_budget_per_task : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="double"/></summary>
-            public double? Double { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_max_budget_per_taskMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_max_budget_per_taskMember1? SaasUserInfoMaxBudgetPerTaskMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_max_budget_per_taskMember1 SaasUserInfoMaxBudgetPerTaskMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_max_budget_per_task"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_max_budget_per_task CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_max_budget_per_task();
-                if(parseNode.GetDoubleValue() is double doubleValue)
-                {
-                    result.Double = doubleValue;
-                }
-                else {
-                    result.SaasUserInfoMaxBudgetPerTaskMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_max_budget_per_taskMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoMaxBudgetPerTaskMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoMaxBudgetPerTaskMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Double != null)
-                {
-                    writer.WriteDoubleValue(null, Double);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_max_budget_per_taskMember1>(null, SaasUserInfoMaxBudgetPerTaskMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_org_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_org_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_org_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_org_idMember1? SaasUserInfoOrgIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_org_idMember1 SaasUserInfoOrgIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_org_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_org_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_org_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SaasUserInfoOrgIdMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_org_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoOrgIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoOrgIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_org_idMember1>(null, SaasUserInfoOrgIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_org_nameMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_org_name : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_org_nameMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_org_nameMember1? SaasUserInfoOrgNameMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_org_nameMember1 SaasUserInfoOrgNameMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_org_name"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_org_name CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_org_name();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SaasUserInfoOrgNameMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_org_nameMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoOrgNameMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoOrgNameMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_org_nameMember1>(null, SaasUserInfoOrgNameMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_permissionsMember1"/>, List&lt;string&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_permissions : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_permissionsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_permissionsMember1? SaasUserInfoPermissionsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_permissionsMember1 SaasUserInfoPermissionsMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<string>? String { get; set; }
-#nullable restore
-#else
-            public List<string> String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_permissions"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_permissions CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_permissions();
-                if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SaasUserInfoPermissionsMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_permissionsMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoPermissionsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoPermissionsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_permissionsMember1>(null, SaasUserInfoPermissionsMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_remote_runtime_resource_factorMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_remote_runtime_resource_factor : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_remote_runtime_resource_factorMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_remote_runtime_resource_factorMember1? SaasUserInfoRemoteRuntimeResourceFactorMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_remote_runtime_resource_factorMember1 SaasUserInfoRemoteRuntimeResourceFactorMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_remote_runtime_resource_factor"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_remote_runtime_resource_factor CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_remote_runtime_resource_factor();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.SaasUserInfoRemoteRuntimeResourceFactorMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_remote_runtime_resource_factorMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoRemoteRuntimeResourceFactorMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoRemoteRuntimeResourceFactorMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_remote_runtime_resource_factorMember1>(null, SaasUserInfoRemoteRuntimeResourceFactorMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_roleMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_role : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_roleMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_roleMember1? SaasUserInfoRoleMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_roleMember1 SaasUserInfoRoleMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_role"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_role CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_role();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SaasUserInfoRoleMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_roleMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoRoleMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoRoleMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_roleMember1>(null, SaasUserInfoRoleMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_api_keyMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_sandbox_api_key : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_api_keyMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_api_keyMember1? SaasUserInfoSandboxApiKeyMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_api_keyMember1 SaasUserInfoSandboxApiKeyMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_api_key"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_api_key CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_api_key();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SaasUserInfoSandboxApiKeyMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_api_keyMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoSandboxApiKeyMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoSandboxApiKeyMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_api_keyMember1>(null, SaasUserInfoSandboxApiKeyMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_base_container_imageMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_sandbox_base_container_image : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_base_container_imageMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_base_container_imageMember1? SaasUserInfoSandboxBaseContainerImageMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_base_container_imageMember1 SaasUserInfoSandboxBaseContainerImageMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_base_container_image"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_base_container_image CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_base_container_image();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SaasUserInfoSandboxBaseContainerImageMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_base_container_imageMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoSandboxBaseContainerImageMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoSandboxBaseContainerImageMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_base_container_imageMember1>(null, SaasUserInfoSandboxBaseContainerImageMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_runtime_container_imageMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_sandbox_runtime_container_image : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_runtime_container_imageMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_runtime_container_imageMember1? SaasUserInfoSandboxRuntimeContainerImageMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_runtime_container_imageMember1 SaasUserInfoSandboxRuntimeContainerImageMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_runtime_container_image"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_runtime_container_image CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_sandbox_runtime_container_image();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SaasUserInfoSandboxRuntimeContainerImageMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_runtime_container_imageMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoSandboxRuntimeContainerImageMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoSandboxRuntimeContainerImageMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_sandbox_runtime_container_imageMember1>(null, SaasUserInfoSandboxRuntimeContainerImageMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_search_api_keyMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_search_api_key : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_search_api_keyMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_search_api_keyMember1? SaasUserInfoSearchApiKeyMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_search_api_keyMember1 SaasUserInfoSearchApiKeyMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_search_api_key"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_search_api_key CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_search_api_key();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SaasUserInfoSearchApiKeyMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_search_api_keyMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoSearchApiKeyMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoSearchApiKeyMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_search_api_keyMember1>(null, SaasUserInfoSearchApiKeyMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="bool"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_user_consents_to_analyticsMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_user_consents_to_analytics : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="bool"/></summary>
-            public bool? Boolean { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_user_consents_to_analyticsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_user_consents_to_analyticsMember1? SaasUserInfoUserConsentsToAnalyticsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_user_consents_to_analyticsMember1 SaasUserInfoUserConsentsToAnalyticsMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_user_consents_to_analytics"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_user_consents_to_analytics CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_user_consents_to_analytics();
-                if(parseNode.GetBoolValue() is bool booleanValue)
-                {
-                    result.Boolean = booleanValue;
-                }
-                else {
-                    result.SaasUserInfoUserConsentsToAnalyticsMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_user_consents_to_analyticsMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoUserConsentsToAnalyticsMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoUserConsentsToAnalyticsMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Boolean != null)
-                {
-                    writer.WriteBoolValue(null, Boolean);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_user_consents_to_analyticsMember1>(null, SaasUserInfoUserConsentsToAnalyticsMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_user_versionMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SaasUserInfo_user_version : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_user_versionMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_user_versionMember1? SaasUserInfoUserVersionMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_user_versionMember1 SaasUserInfoUserVersionMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_user_version"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_user_version CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.SaasUserInfo_user_version();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.SaasUserInfoUserVersionMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_user_versionMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SaasUserInfoUserVersionMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SaasUserInfoUserVersionMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo_user_versionMember1>(null, SaasUserInfoUserVersionMember1);
-                }
-            }
         }
     }
 }

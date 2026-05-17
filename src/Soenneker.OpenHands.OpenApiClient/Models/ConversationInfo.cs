@@ -23,7 +23,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The legacy v1 agent configuration. This endpoint remains pinned to the standard Agent contract.</summary>
+        /// <summary>&quot;Main agent implementation for OpenHands.The Agent class provides the core functionality for running AI agents that caninteract with tools, process messages, and execute actions. It inherits fromAgentBase and implements the agent execution logic. Critic-related functionalityis provided by CriticMixin.Attributes:    llm: The language model instance used for reasoning.    tools: List of tools available to the agent.    system_prompt: Inline system prompt string. When provided the agent        uses this text verbatim instead of rendering from a template.        Mutually exclusive with a non-default ``system_prompt_filename``.        **Not recommended** unless you know what you are doing (e.g.        customising agent behaviour for a completely different task) —        this will override OpenHands&apos; built-in system instructions.    system_prompt_filename: Jinja2 template filename resolved relative to        the agent&apos;s prompts directory, or an absolute path. Defaults to        ``\&quot;system_prompt.j2\&quot;``.    system_prompt_kwargs: Extra kwargs forwarded to the Jinja2 template.Example:    ```python    from openhands.sdk import LLM, Agent, Tool    from pydantic import SecretStr    llm = LLM(model=\&quot;claude-sonnet-4-20250514\&quot;, api_key=SecretStr(\&quot;key\&quot;))    tools = [Tool(name=\&quot;TerminalTool\&quot;), Tool(name=\&quot;FileEditorTool\&quot;)]    agent = Agent(llm=llm, tools=tools)    ```    To override the system prompt entirely::        agent = Agent(            llm=llm,            tools=tools,            system_prompt=\&quot;You are a helpful coding assistant.\&quot;,        )&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.Agent? Agent { get; set; }
@@ -88,10 +88,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Most recent user MessageEvent id for hook block checks. Updated when user messages are emitted so Agent.step can pop blocked_messages without scanning the event log. If None, hook-blocked checks are skipped (legacy conversations).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_last_user_message_id? LastUserMessageId { get; set; }
+        public string? LastUserMessageId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_last_user_message_id LastUserMessageId { get; set; }
+        public string LastUserMessageId { get; set; }
 #endif
         /// <summary>Maximum number of iterations the agent can perform in a single run.</summary>
         public int? MaxIterations { get; set; }
@@ -106,12 +106,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Directory for persisting conversation state and events. If None, conversation will not be persisted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_persistence_dir? PersistenceDir { get; set; }
+        public string? PersistenceDir { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_persistence_dir PersistenceDir { get; set; }
+        public string PersistenceDir { get; set; }
 #endif
-        /// <summary>Registry for handling secrets and sensitive data</summary>
+        /// <summary>Manages secrets and injects them into bash commands when needed.The secret registry stores a mapping of secret keys to SecretSourcesthat retrieve the actual secret values. When a bash command is about to beexecuted, it scans the command for any secret keys and injects the correspondingenvironment variables.Secret sources will redact / encrypt their sensitive values as appropriate whenserializing, depending on the content of the context. If a context is presentand contains a &apos;cipher&apos; object, this is used for encryption. If it contains aboolean &apos;expose_secrets&apos; flag set to True, secrets are dunped in plain text.Otherwise secrets are redacted.Additionally, it tracks the latest exported values to enable consistent maskingeven when callable secrets fail on subsequent calls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry? SecretRegistry { get; set; }
@@ -122,12 +122,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Optional security analyzer to evaluate action risks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase? SecurityAnalyzer { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_security_analyzer? SecurityAnalyzer { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase SecurityAnalyzer { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_security_analyzer SecurityAnalyzer { get; set; }
 #endif
-        /// <summary>Conversation statistics for tracking LLM metrics</summary>
+        /// <summary>Track per-LLM usage metrics observed during conversations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats? Stats { get; set; }
@@ -148,14 +148,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>User-defined title for the conversation</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_title? Title { get; set; }
+        public string? Title { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_title Title { get; set; }
+        public string Title { get; set; }
 #endif
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>Workspace used by the agent to execute commands and read/write files. Not the process working directory.</summary>
+        /// <summary>The workspace property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace? Workspace { get; set; }
@@ -169,7 +169,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public ConversationInfo()
         {
             AdditionalData = new Dictionary<string, object>();
-            ExecutionStatus = global::Soenneker.OpenHands.OpenApiClient.Models.ConversationExecutionStatus.Idle;
+            PersistenceDir = "workspace/conversations";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -200,16 +200,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "hook_config", n => { HookConfig = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookConfigInput>(global::Soenneker.OpenHands.OpenApiClient.Models.HookConfigInput.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "invoked_skills", n => { InvokedSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "last_user_message_id", n => { LastUserMessageId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_last_user_message_id>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_last_user_message_id.CreateFromDiscriminatorValue); } },
+                { "last_user_message_id", n => { LastUserMessageId = n.GetStringValue(); } },
                 { "max_iterations", n => { MaxIterations = n.GetIntValue(); } },
                 { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot>(global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot.CreateFromDiscriminatorValue); } },
-                { "persistence_dir", n => { PersistenceDir = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_persistence_dir>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_persistence_dir.CreateFromDiscriminatorValue); } },
+                { "persistence_dir", n => { PersistenceDir = n.GetStringValue(); } },
                 { "secret_registry", n => { SecretRegistry = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry>(global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry.CreateFromDiscriminatorValue); } },
-                { "security_analyzer", n => { SecurityAnalyzer = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase>(global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase.CreateFromDiscriminatorValue); } },
+                { "security_analyzer", n => { SecurityAnalyzer = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_security_analyzer>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_security_analyzer.CreateFromDiscriminatorValue); } },
                 { "stats", n => { Stats = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats.CreateFromDiscriminatorValue); } },
                 { "stuck_detection", n => { StuckDetection = n.GetBoolValue(); } },
                 { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_tags>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_tags.CreateFromDiscriminatorValue); } },
-                { "title", n => { Title = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_title>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_title.CreateFromDiscriminatorValue); } },
+                { "title", n => { Title = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "workspace", n => { Workspace = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace>(global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace.CreateFromDiscriminatorValue); } },
             };
@@ -232,223 +232,19 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookConfigInput>("hook_config", HookConfig);
             writer.WriteGuidValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<string>("invoked_skills", InvokedSkills);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_last_user_message_id>("last_user_message_id", LastUserMessageId);
+            writer.WriteStringValue("last_user_message_id", LastUserMessageId);
             writer.WriteIntValue("max_iterations", MaxIterations);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot>("metrics", Metrics);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_persistence_dir>("persistence_dir", PersistenceDir);
+            writer.WriteStringValue("persistence_dir", PersistenceDir);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry>("secret_registry", SecretRegistry);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase>("security_analyzer", SecurityAnalyzer);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_security_analyzer>("security_analyzer", SecurityAnalyzer);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats>("stats", Stats);
             writer.WriteBoolValue("stuck_detection", StuckDetection);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_tags>("tags", Tags);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_title>("title", Title);
+            writer.WriteStringValue("title", Title);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace>("workspace", Workspace);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_last_user_message_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ConversationInfo_last_user_message_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_last_user_message_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_last_user_message_idMember1? ConversationInfoLastUserMessageIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_last_user_message_idMember1 ConversationInfoLastUserMessageIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_last_user_message_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_last_user_message_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_last_user_message_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ConversationInfoLastUserMessageIdMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_last_user_message_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ConversationInfoLastUserMessageIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ConversationInfoLastUserMessageIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_last_user_message_idMember1>(null, ConversationInfoLastUserMessageIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_persistence_dirMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ConversationInfo_persistence_dir : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_persistence_dirMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_persistence_dirMember1? ConversationInfoPersistenceDirMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_persistence_dirMember1 ConversationInfoPersistenceDirMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_persistence_dir"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_persistence_dir CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_persistence_dir();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ConversationInfoPersistenceDirMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_persistence_dirMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ConversationInfoPersistenceDirMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ConversationInfoPersistenceDirMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_persistence_dirMember1>(null, ConversationInfoPersistenceDirMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_titleMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ConversationInfo_title : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_titleMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_titleMember1? ConversationInfoTitleMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_titleMember1 ConversationInfoTitleMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_title"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_title CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo.ConversationInfo_title();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ConversationInfoTitleMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_titleMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ConversationInfoTitleMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ConversationInfoTitleMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_titleMember1>(null, ConversationInfoTitleMember1);
-                }
-            }
         }
     }
 }

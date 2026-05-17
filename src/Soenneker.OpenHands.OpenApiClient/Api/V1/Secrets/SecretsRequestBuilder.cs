@@ -59,7 +59,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets
         {
         }
         /// <summary>
-        /// Create a custom secret.Creates a new custom secret for the authenticated user.Returns:    201: Secret created successfully    400: Secret already exists    500: Error creating secret
+        /// &quot;Create a custom secret.Creates a new custom secret for the authenticated user.Returns:    201: Secret created successfully    400: Secret already exists    500: Error creating secret&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse"/></returns>
         /// <param name="body">Custom secret model with value (for creating secrets).</param>
@@ -84,7 +84,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a custom secret.Creates a new custom secret for the authenticated user.Returns:    201: Secret created successfully    400: Secret already exists    500: Error creating secret
+        /// &quot;Create a custom secret.Creates a new custom secret for the authenticated user.Returns:    201: Secret created successfully    400: Secret already exists    500: Error creating secret&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Custom secret model with value (for creating secrets).</param>

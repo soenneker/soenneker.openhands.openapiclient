@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Item
         {
         }
         /// <summary>
-        /// Delete a custom secret.Removes a custom secret for the authenticated user.Returns:    200: Secret deleted successfully    404: Secret not found    500: Error deleting secret
+        /// &quot;Delete a custom secret.Removes a custom secret for the authenticated user.Returns:    200: Secret deleted successfully    404: Secret not found    500: Error deleting secret&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Item
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a custom secret.Updates the name and/or description of an existing custom secret.Returns:    200: Secret updated successfully    400: Secret name already exists    404: Secret not found    500: Error updating secret
+        /// &quot;Update a custom secret.Updates the name and/or description of an existing custom secret.Returns:    200: Secret updated successfully    400: Secret name already exists    404: Secret not found    500: Error updating secret&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse"/></returns>
         /// <param name="body">Custom secret model without value (for listing secrets).</param>
@@ -82,7 +82,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Item
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a custom secret.Removes a custom secret for the authenticated user.Returns:    200: Secret deleted successfully    404: Secret not found    500: Error deleting secret
+        /// &quot;Delete a custom secret.Removes a custom secret for the authenticated user.Returns:    200: Secret deleted successfully    404: Secret not found    500: Error deleting secret&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +101,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a custom secret.Updates the name and/or description of an existing custom secret.Returns:    200: Secret updated successfully    400: Secret name already exists    404: Secret not found    500: Error updating secret
+        /// &quot;Update a custom secret.Updates the name and/or description of an existing custom secret.Returns:    200: Secret updated successfully    400: Secret name already exists    404: Secret not found    500: Error updating secret&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Custom secret model without value (for listing secrets).</param>

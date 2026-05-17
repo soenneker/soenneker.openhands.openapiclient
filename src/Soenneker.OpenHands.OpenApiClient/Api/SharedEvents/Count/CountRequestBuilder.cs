@@ -99,33 +99,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.SharedEvents.Count
             [QueryParameter("conversation_id")]
             public string ConversationId { get; set; }
 #endif
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("kind__eq")]
-            public string? KindEq { get; set; }
-#nullable restore
-#else
-            [QueryParameter("kind__eq")]
-            public string KindEq { get; set; }
-#endif
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+            public global::Soenneker.OpenHands.OpenApiClient.Api.SharedEvents.Count.GetKind__eqQueryParameterType? KindEq { get; set; }
             [QueryParameter("timestamp__gte")]
-            public string? TimestampGte { get; set; }
-#nullable restore
-#else
-            [QueryParameter("timestamp__gte")]
-            public string TimestampGte { get; set; }
-#endif
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+            public DateTimeOffset? TimestampGte { get; set; }
             [QueryParameter("timestamp__lt")]
-            public string? TimestampLt { get; set; }
-#nullable restore
-#else
-            [QueryParameter("timestamp__lt")]
-            public string TimestampLt { get; set; }
-#endif
+            public DateTimeOffset? TimestampLt { get; set; }
         }
     }
 }

@@ -18,36 +18,36 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The agent server url, if READY</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_agent_server_url? AgentServerUrl { get; set; }
+        public string? AgentServerUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_agent_server_url AgentServerUrl { get; set; }
+        public string AgentServerUrl { get; set; }
 #endif
         /// <summary>The id of the app_conversation, if READY</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_app_conversation_id? AppConversationId { get; set; }
+        public string? AppConversationId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_app_conversation_id AppConversationId { get; set; }
+        public string AppConversationId { get; set; }
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The created_by_user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_created_by_user_id? CreatedByUserId { get; set; }
+        public string? CreatedByUserId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_created_by_user_id CreatedByUserId { get; set; }
+        public string CreatedByUserId { get; set; }
 #endif
         /// <summary>The detail property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_detail? Detail { get; set; }
+        public string? Detail { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_detail Detail { get; set; }
+        public string Detail { get; set; }
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,10 +68,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The id of the sandbox, if READY</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_sandbox_id? SandboxId { get; set; }
+        public string? SandboxId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_sandbox_id SandboxId { get; set; }
+        public string SandboxId { get; set; }
 #endif
         /// <summary>The status property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskStatus? Status { get; set; }
@@ -83,7 +83,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public AppConversationStartTask()
         {
             AdditionalData = new Dictionary<string, object>();
-            Status = global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskStatus.WORKING;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -103,14 +102,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "agent_server_url", n => { AgentServerUrl = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_agent_server_url>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_agent_server_url.CreateFromDiscriminatorValue); } },
-                { "app_conversation_id", n => { AppConversationId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_app_conversation_id>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_app_conversation_id.CreateFromDiscriminatorValue); } },
+                { "agent_server_url", n => { AgentServerUrl = n.GetStringValue(); } },
+                { "app_conversation_id", n => { AppConversationId = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "created_by_user_id", n => { CreatedByUserId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_created_by_user_id>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_created_by_user_id.CreateFromDiscriminatorValue); } },
-                { "detail", n => { Detail = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_detail>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_detail.CreateFromDiscriminatorValue); } },
+                { "created_by_user_id", n => { CreatedByUserId = n.GetStringValue(); } },
+                { "detail", n => { Detail = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "request", n => { Request = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestOutput.CreateFromDiscriminatorValue); } },
-                { "sandbox_id", n => { SandboxId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_sandbox_id>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_sandbox_id.CreateFromDiscriminatorValue); } },
+                { "sandbox_id", n => { SandboxId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -122,357 +121,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_agent_server_url>("agent_server_url", AgentServerUrl);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_app_conversation_id>("app_conversation_id", AppConversationId);
+            writer.WriteStringValue("agent_server_url", AgentServerUrl);
+            writer.WriteStringValue("app_conversation_id", AppConversationId);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_created_by_user_id>("created_by_user_id", CreatedByUserId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_detail>("detail", Detail);
+            writer.WriteStringValue("created_by_user_id", CreatedByUserId);
+            writer.WriteStringValue("detail", Detail);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestOutput>("request", Request);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_sandbox_id>("sandbox_id", SandboxId);
+            writer.WriteStringValue("sandbox_id", SandboxId);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_agent_server_urlMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AppConversationStartTask_agent_server_url : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_agent_server_urlMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_agent_server_urlMember1? AppConversationStartTaskAgentServerUrlMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_agent_server_urlMember1 AppConversationStartTaskAgentServerUrlMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_agent_server_url"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_agent_server_url CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_agent_server_url();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.AppConversationStartTaskAgentServerUrlMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_agent_server_urlMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AppConversationStartTaskAgentServerUrlMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AppConversationStartTaskAgentServerUrlMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_agent_server_urlMember1>(null, AppConversationStartTaskAgentServerUrlMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_app_conversation_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AppConversationStartTask_app_conversation_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_app_conversation_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_app_conversation_idMember1? AppConversationStartTaskAppConversationIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_app_conversation_idMember1 AppConversationStartTaskAppConversationIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_app_conversation_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_app_conversation_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_app_conversation_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.AppConversationStartTaskAppConversationIdMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_app_conversation_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AppConversationStartTaskAppConversationIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AppConversationStartTaskAppConversationIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_app_conversation_idMember1>(null, AppConversationStartTaskAppConversationIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_created_by_user_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AppConversationStartTask_created_by_user_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_created_by_user_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_created_by_user_idMember1? AppConversationStartTaskCreatedByUserIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_created_by_user_idMember1 AppConversationStartTaskCreatedByUserIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_created_by_user_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_created_by_user_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_created_by_user_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.AppConversationStartTaskCreatedByUserIdMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_created_by_user_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AppConversationStartTaskCreatedByUserIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AppConversationStartTaskCreatedByUserIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_created_by_user_idMember1>(null, AppConversationStartTaskCreatedByUserIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_detailMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AppConversationStartTask_detail : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_detailMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_detailMember1? AppConversationStartTaskDetailMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_detailMember1 AppConversationStartTaskDetailMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_detail"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_detail CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_detail();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.AppConversationStartTaskDetailMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_detailMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AppConversationStartTaskDetailMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AppConversationStartTaskDetailMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_detailMember1>(null, AppConversationStartTaskDetailMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_sandbox_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AppConversationStartTask_sandbox_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_sandbox_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_sandbox_idMember1? AppConversationStartTaskSandboxIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_sandbox_idMember1 AppConversationStartTaskSandboxIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_sandbox_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_sandbox_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask.AppConversationStartTask_sandbox_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.AppConversationStartTaskSandboxIdMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_sandbox_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AppConversationStartTaskSandboxIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AppConversationStartTaskSandboxIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTask_sandbox_idMember1>(null, AppConversationStartTaskSandboxIdMember1);
-                }
-            }
         }
     }
 }

@@ -16,10 +16,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_content? Content { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Content? Content { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_content Content { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Content Content { get; set; }
 #endif
         /// <summary>Unique event id (ULID/UUID)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,38 +32,32 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The is_error property</summary>
         public bool? IsError { get; set; }
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_kind? Kind { get; set; }
         /// <summary>The raw_input property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? RawInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_raw_input? RawInput { get; set; }
 #nullable restore
 #else
-        public UntypedNode RawInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_raw_input RawInput { get; set; }
 #endif
         /// <summary>The raw_output property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? RawOutput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_raw_output? RawOutput { get; set; }
 #nullable restore
 #else
-        public UntypedNode RawOutput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_raw_output RawOutput { get; set; }
 #endif
         /// <summary>The source property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_source? Source { get; set; }
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_status? Status { get; set; }
+        public string? Status { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_status Status { get; set; }
+        public string Status { get; set; }
 #endif
         /// <summary>Event timestamp</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -92,10 +86,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The tool_kind property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_tool_kind? ToolKind { get; set; }
+        public string? ToolKind { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_tool_kind ToolKind { get; set; }
+        public string ToolKind { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput"/> and sets the default values.
@@ -122,18 +116,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_content>(global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_content.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Content>(global::Soenneker.OpenHands.OpenApiClient.Models.Content.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_error", n => { IsError = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
-                { "raw_input", n => { RawInput = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "raw_output", n => { RawOutput = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_kind>(); } },
+                { "raw_input", n => { RawInput = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_raw_input>(global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_raw_input.CreateFromDiscriminatorValue); } },
+                { "raw_output", n => { RawOutput = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_raw_output>(global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_raw_output.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_source>(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_status>(global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_status.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetStringValue(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "tool_call_id", n => { ToolCallId = n.GetStringValue(); } },
-                { "tool_kind", n => { ToolKind = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_tool_kind>(global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_tool_kind.CreateFromDiscriminatorValue); } },
+                { "tool_kind", n => { ToolKind = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -143,211 +137,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_content>("content", Content);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Content>("content", Content);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_error", IsError);
-            writer.WriteStringValue("kind", Kind);
-            writer.WriteObjectValue<UntypedNode>("raw_input", RawInput);
-            writer.WriteObjectValue<UntypedNode>("raw_output", RawOutput);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_kind>("kind", Kind);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_raw_input>("raw_input", RawInput);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_raw_output>("raw_output", RawOutput);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_source>("source", Source);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_status>("status", Status);
+            writer.WriteStringValue("status", Status);
             writer.WriteStringValue("timestamp", Timestamp);
             writer.WriteStringValue("title", Title);
             writer.WriteStringValue("tool_call_id", ToolCallId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_tool_kind>("tool_kind", ToolKind);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_contentMember1"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_contentMember2"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ACPToolCallEventOutput_content : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_contentMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_contentMember1? ACPToolCallEventOutputContentMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_contentMember1 ACPToolCallEventOutputContentMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_contentMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_contentMember2? ACPToolCallEventOutputContentMember2 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_contentMember2 ACPToolCallEventOutputContentMember2 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_content"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_content CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_content();
-                result.ACPToolCallEventOutputContentMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_contentMember1();
-                result.ACPToolCallEventOutputContentMember2 = new global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_contentMember2();
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ACPToolCallEventOutputContentMember1 != null || ACPToolCallEventOutputContentMember2 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ACPToolCallEventOutputContentMember1, ACPToolCallEventOutputContentMember2);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_contentMember1>(null, ACPToolCallEventOutputContentMember1, ACPToolCallEventOutputContentMember2);
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_statusMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ACPToolCallEventOutput_status : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_statusMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_statusMember1? ACPToolCallEventOutputStatusMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_statusMember1 ACPToolCallEventOutputStatusMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_status"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_status CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_status();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ACPToolCallEventOutputStatusMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_statusMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ACPToolCallEventOutputStatusMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ACPToolCallEventOutputStatusMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_statusMember1>(null, ACPToolCallEventOutputStatusMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_tool_kindMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ACPToolCallEventOutput_tool_kind : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_tool_kindMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_tool_kindMember1? ACPToolCallEventOutputToolKindMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_tool_kindMember1 ACPToolCallEventOutputToolKindMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_tool_kind"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_tool_kind CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput.ACPToolCallEventOutput_tool_kind();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ACPToolCallEventOutputToolKindMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_tool_kindMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ACPToolCallEventOutputToolKindMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ACPToolCallEventOutputToolKindMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput_tool_kindMember1>(null, ACPToolCallEventOutputToolKindMember1);
-                }
-            }
+            writer.WriteStringValue("tool_kind", ToolKind);
         }
     }
 }

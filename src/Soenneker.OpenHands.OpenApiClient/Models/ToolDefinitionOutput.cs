@@ -303,103 +303,103 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ToolDefinitionOutput();
-            if("openhands__tools__apply_patch__definition__ApplyPatchTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ApplyPatchToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ApplyPatchToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchToolOutput();
             }
-            else if("openhands__tools__browser_use__definition__BrowserClickTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BrowserClickToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BrowserClickToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserClickToolOutput();
             }
-            else if("openhands__tools__browser_use__definition__BrowserCloseTabTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BrowserCloseTabToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BrowserCloseTabToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolOutput();
             }
-            else if("openhands__tools__browser_use__definition__BrowserGetContentTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BrowserGetContentToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BrowserGetContentToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGetContentToolOutput();
             }
-            else if("openhands__tools__browser_use__definition__BrowserGetStateTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BrowserGetStateToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BrowserGetStateToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGetStateToolOutput();
             }
-            else if("openhands__tools__browser_use__definition__BrowserGetStorageTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BrowserGetStorageToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BrowserGetStorageToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGetStorageToolOutput();
             }
-            else if("openhands__tools__browser_use__definition__BrowserGoBackTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BrowserGoBackToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BrowserGoBackToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGoBackToolOutput();
             }
-            else if("openhands__tools__browser_use__definition__BrowserListTabsTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BrowserListTabsToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BrowserListTabsToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserListTabsToolOutput();
             }
-            else if("openhands__tools__browser_use__definition__BrowserNavigateTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BrowserNavigateToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BrowserNavigateToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserNavigateToolOutput();
             }
-            else if("openhands__tools__browser_use__definition__BrowserScrollTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BrowserScrollToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BrowserScrollToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserScrollToolOutput();
             }
-            else if("openhands__tools__browser_use__definition__BrowserSetStorageTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BrowserSetStorageToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BrowserSetStorageToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutput();
             }
-            else if("openhands__tools__browser_use__definition__BrowserStartRecordingTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BrowserStartRecordingToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BrowserStartRecordingToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStartRecordingToolOutput();
             }
-            else if("openhands__tools__browser_use__definition__BrowserStopRecordingTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BrowserStopRecordingToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BrowserStopRecordingToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolOutput();
             }
-            else if("openhands__tools__browser_use__definition__BrowserSwitchTabTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BrowserSwitchTabToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BrowserSwitchTabToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSwitchTabToolOutput();
             }
-            else if("openhands__tools__browser_use__definition__BrowserToolSet-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BrowserToolSetOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BrowserToolSetOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserToolSetOutput();
             }
-            else if("openhands__tools__browser_use__definition__BrowserTypeTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BrowserTypeToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BrowserTypeToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserTypeToolOutput();
             }
-            else if("openhands__tools__delegate__definition__DelegateTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("DelegateToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.DelegateToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.DelegateToolOutput();
             }
-            else if("openhands__tools__gemini__edit__definition__EditTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("EditToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EditToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.EditToolOutput();
             }
-            else if("openhands__tools__file_editor__definition__FileEditorTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("FileEditorToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.FileEditorToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.FileEditorToolOutput();
             }
-            else if("openhands__sdk__tool__builtins__finish__FinishTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("FinishToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.FinishToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.FinishToolOutput();
             }
-            else if("openhands__tools__glob__definition__GlobTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("GlobToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.GlobToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.GlobToolOutput();
             }
-            else if("openhands__tools__grep__definition__GrepTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("GrepToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.GrepToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.GrepToolOutput();
             }
-            else if("openhands__sdk__tool__builtins__invoke_skill__InvokeSkillTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("InvokeSkillToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InvokeSkillToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.InvokeSkillToolOutput();
             }
-            else if("openhands__tools__gemini__list_directory__definition__ListDirectoryTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListDirectoryToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ListDirectoryToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput();
             }
-            else if("openhands__sdk__mcp__tool__MCPToolDefinition-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("MCPToolDefinitionOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MCPToolDefinitionOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionOutput();
             }

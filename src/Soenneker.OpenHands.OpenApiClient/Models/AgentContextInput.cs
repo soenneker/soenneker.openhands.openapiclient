@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Central structure for managing prompt extension.AgentContext unifies all the contextual inputs that shape how the systemextends and interprets user prompts. It combines both static environmentdetails and dynamic, user-activated extensions from skills.Specifically, it provides:- **Repository context / Repo Skills**: Information about the active codebase,  branches, and repo-specific instructions contributed by repo skills.- **Runtime context**: Current execution environment (hosts, working  directory, secrets, date, etc.).- **Conversation instructions**: Optional task- or channel-specific rules  that constrain or guide the agent’s behavior across the session.- **Knowledge Skills**: Extensible components that can be triggered by user input  to inject knowledge or domain-specific guidance.Together, these elements make AgentContext the primary container responsiblefor assembling, formatting, and injecting all prompt-relevant context intoLLM interactions.
+    /// &quot;Central structure for managing prompt extension.AgentContext unifies all the contextual inputs that shape how the systemextends and interprets user prompts. It combines both static environmentdetails and dynamic, user-activated extensions from skills.Specifically, it provides:- **Repository context / Repo Skills**: Information about the active codebase,  branches, and repo-specific instructions contributed by repo skills.- **Runtime context**: Current execution environment (hosts, working  directory, secrets, date, etc.).- **Conversation instructions**: Optional task- or channel-specific rules  that constrain or guide the agent’s behavior across the session.- **Knowledge Skills**: Extensible components that can be triggered by user input  to inject knowledge or domain-specific guidance.Together, these elements make AgentContext the primary container responsiblefor assembling, formatting, and injecting all prompt-relevant context intoLLM interactions.&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentContextInput : IAdditionalDataHolder, IParsable
@@ -18,10 +18,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Current date and time information to provide to the agent. Can be a datetime object (which will be formatted as ISO 8601) or a pre-formatted string. When provided, this information is included in the system prompt to give the agent awareness of the current time context. Defaults to the current datetime.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_current_datetime? CurrentDatetime { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Current_Datetime? CurrentDatetime { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_current_datetime CurrentDatetime { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Current_Datetime CurrentDatetime { get; set; }
 #endif
         /// <summary>Whether to automatically load skills from the public OpenHands skills repository at https://github.com/OpenHands/extensions. This allows you to get the latest skills without SDK updates.</summary>
         public bool? LoadPublicSkills { get; set; }
@@ -30,18 +30,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Relative marketplace JSON path within the public skills repository. Set to None to load all public skills without marketplace filtering.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_marketplace_path? MarketplacePath { get; set; }
+        public string? MarketplacePath { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_marketplace_path MarketplacePath { get; set; }
+        public string MarketplacePath { get; set; }
 #endif
         /// <summary>Dictionary mapping secret keys to values or secret sources. Secrets are used for authentication and sensitive data handling. Values can be either strings or SecretSource instances (str | SecretSource).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Secrets { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSecrets? Secrets { get; set; }
 #nullable restore
 #else
-        public UntypedNode Secrets { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSecrets Secrets { get; set; }
 #endif
         /// <summary>List of available skills that can extend the user&apos;s input.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,18 +54,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Optional suffix to append to the system prompt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_system_message_suffix? SystemMessageSuffix { get; set; }
+        public string? SystemMessageSuffix { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_system_message_suffix SystemMessageSuffix { get; set; }
+        public string SystemMessageSuffix { get; set; }
 #endif
         /// <summary>Optional suffix to append to the user&apos;s message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_user_message_suffix? UserMessageSuffix { get; set; }
+        public string? UserMessageSuffix { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_user_message_suffix UserMessageSuffix { get; set; }
+        public string UserMessageSuffix { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput"/> and sets the default values.
@@ -73,6 +73,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public AgentContextInput()
         {
             AdditionalData = new Dictionary<string, object>();
+            MarketplacePath = "marketplaces/default.json";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -92,14 +93,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "current_datetime", n => { CurrentDatetime = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_current_datetime>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_current_datetime.CreateFromDiscriminatorValue); } },
+                { "current_datetime", n => { CurrentDatetime = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Current_Datetime>(global::Soenneker.OpenHands.OpenApiClient.Models.Current_Datetime.CreateFromDiscriminatorValue); } },
                 { "load_public_skills", n => { LoadPublicSkills = n.GetBoolValue(); } },
                 { "load_user_skills", n => { LoadUserSkills = n.GetBoolValue(); } },
-                { "marketplace_path", n => { MarketplacePath = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_marketplace_path>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_marketplace_path.CreateFromDiscriminatorValue); } },
-                { "secrets", n => { Secrets = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "marketplace_path", n => { MarketplacePath = n.GetStringValue(); } },
+                { "secrets", n => { Secrets = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSecrets>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSecrets.CreateFromDiscriminatorValue); } },
                 { "skills", n => { Skills = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.Skill>(global::Soenneker.OpenHands.OpenApiClient.Models.Skill.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "system_message_suffix", n => { SystemMessageSuffix = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_system_message_suffix>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_system_message_suffix.CreateFromDiscriminatorValue); } },
-                { "user_message_suffix", n => { UserMessageSuffix = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_user_message_suffix>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_user_message_suffix.CreateFromDiscriminatorValue); } },
+                { "system_message_suffix", n => { SystemMessageSuffix = n.GetStringValue(); } },
+                { "user_message_suffix", n => { UserMessageSuffix = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -109,297 +110,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_current_datetime>("current_datetime", CurrentDatetime);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Current_Datetime>("current_datetime", CurrentDatetime);
             writer.WriteBoolValue("load_public_skills", LoadPublicSkills);
             writer.WriteBoolValue("load_user_skills", LoadUserSkills);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_marketplace_path>("marketplace_path", MarketplacePath);
-            writer.WriteObjectValue<UntypedNode>("secrets", Secrets);
+            writer.WriteStringValue("marketplace_path", MarketplacePath);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSecrets>("secrets", Secrets);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.Skill>("skills", Skills);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_system_message_suffix>("system_message_suffix", SystemMessageSuffix);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_user_message_suffix>("user_message_suffix", UserMessageSuffix);
+            writer.WriteStringValue("system_message_suffix", SystemMessageSuffix);
+            writer.WriteStringValue("user_message_suffix", UserMessageSuffix);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="DateTimeOffset"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_current_datetimeMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AgentContextInput_current_datetime : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_current_datetimeMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_current_datetimeMember1? AgentContextInputCurrentDatetimeMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_current_datetimeMember1 AgentContextInputCurrentDatetimeMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="DateTimeOffset"/></summary>
-            public DateTimeOffset? DateTimeOffset { get; set; }
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_current_datetime"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_current_datetime CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_current_datetime();
-                if(parseNode.GetDateTimeOffsetValue() is DateTimeOffset dateTimeOffsetValue)
-                {
-                    result.DateTimeOffset = dateTimeOffsetValue;
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.AgentContextInputCurrentDatetimeMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_current_datetimeMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AgentContextInputCurrentDatetimeMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AgentContextInputCurrentDatetimeMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(DateTimeOffset != null)
-                {
-                    writer.WriteDateTimeOffsetValue(null, DateTimeOffset);
-                }
-                else if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_current_datetimeMember1>(null, AgentContextInputCurrentDatetimeMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_marketplace_pathMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AgentContextInput_marketplace_path : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_marketplace_pathMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_marketplace_pathMember1? AgentContextInputMarketplacePathMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_marketplace_pathMember1 AgentContextInputMarketplacePathMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_marketplace_path"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_marketplace_path CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_marketplace_path();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.AgentContextInputMarketplacePathMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_marketplace_pathMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AgentContextInputMarketplacePathMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AgentContextInputMarketplacePathMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_marketplace_pathMember1>(null, AgentContextInputMarketplacePathMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_system_message_suffixMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AgentContextInput_system_message_suffix : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_system_message_suffixMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_system_message_suffixMember1? AgentContextInputSystemMessageSuffixMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_system_message_suffixMember1 AgentContextInputSystemMessageSuffixMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_system_message_suffix"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_system_message_suffix CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_system_message_suffix();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.AgentContextInputSystemMessageSuffixMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_system_message_suffixMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AgentContextInputSystemMessageSuffixMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AgentContextInputSystemMessageSuffixMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_system_message_suffixMember1>(null, AgentContextInputSystemMessageSuffixMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_user_message_suffixMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AgentContextInput_user_message_suffix : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_user_message_suffixMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_user_message_suffixMember1? AgentContextInputUserMessageSuffixMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_user_message_suffixMember1 AgentContextInputUserMessageSuffixMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_user_message_suffix"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_user_message_suffix CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.AgentContextInput_user_message_suffix();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.AgentContextInputUserMessageSuffixMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_user_message_suffixMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AgentContextInputUserMessageSuffixMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AgentContextInputUserMessageSuffixMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput_user_message_suffixMember1>(null, AgentContextInputUserMessageSuffixMember1);
-                }
-            }
         }
     }
 }

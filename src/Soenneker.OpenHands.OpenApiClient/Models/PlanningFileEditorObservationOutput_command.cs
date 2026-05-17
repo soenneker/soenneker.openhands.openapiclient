@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
-    /// <summary>The command that was run: `view`, `create`, `str_replace`, `insert`, or `undo_edit`.</summary>
+    /// <summary>&quot;The command that was run: `view`, `create`, `str_replace`, `insert`, or `undo_edit`.&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum PlanningFileEditorObservationOutput_command
     {

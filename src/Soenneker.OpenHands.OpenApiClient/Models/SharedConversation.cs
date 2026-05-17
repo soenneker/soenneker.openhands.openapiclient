@@ -20,18 +20,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The created_by_user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_created_by_user_id? CreatedByUserId { get; set; }
+        public string? CreatedByUserId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_created_by_user_id CreatedByUserId { get; set; }
+        public string CreatedByUserId { get; set; }
 #endif
         /// <summary>The git_provider property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? GitProvider { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_git_provider? GitProvider { get; set; }
 #nullable restore
 #else
-        public UntypedNode GitProvider { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_git_provider GitProvider { get; set; }
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,26 +44,26 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The llm_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_llm_model? LlmModel { get; set; }
+        public string? LlmModel { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_llm_model LlmModel { get; set; }
+        public string LlmModel { get; set; }
 #endif
         /// <summary>The metrics property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Metrics { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_metrics? Metrics { get; set; }
 #nullable restore
 #else
-        public UntypedNode Metrics { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_metrics Metrics { get; set; }
 #endif
         /// <summary>The parent_conversation_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_parent_conversation_id? ParentConversationId { get; set; }
+        public string? ParentConversationId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_parent_conversation_id ParentConversationId { get; set; }
+        public string ParentConversationId { get; set; }
 #endif
         /// <summary>The pr_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -84,18 +84,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The selected_branch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_selected_branch? SelectedBranch { get; set; }
+        public string? SelectedBranch { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_selected_branch SelectedBranch { get; set; }
+        public string SelectedBranch { get; set; }
 #endif
         /// <summary>The selected_repository property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_selected_repository? SelectedRepository { get; set; }
+        public string? SelectedRepository { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_selected_repository SelectedRepository { get; set; }
+        public string SelectedRepository { get; set; }
 #endif
         /// <summary>The sub_conversation_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,10 +108,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_title? Title { get; set; }
+        public string? Title { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_title Title { get; set; }
+        public string Title { get; set; }
 #endif
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -141,18 +141,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "created_by_user_id", n => { CreatedByUserId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_created_by_user_id>(global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_created_by_user_id.CreateFromDiscriminatorValue); } },
-                { "git_provider", n => { GitProvider = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "created_by_user_id", n => { CreatedByUserId = n.GetStringValue(); } },
+                { "git_provider", n => { GitProvider = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_git_provider>(global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_git_provider.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "llm_model", n => { LlmModel = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_llm_model>(global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_llm_model.CreateFromDiscriminatorValue); } },
-                { "metrics", n => { Metrics = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "parent_conversation_id", n => { ParentConversationId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_parent_conversation_id>(global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_parent_conversation_id.CreateFromDiscriminatorValue); } },
+                { "llm_model", n => { LlmModel = n.GetStringValue(); } },
+                { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_metrics>(global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_metrics.CreateFromDiscriminatorValue); } },
+                { "parent_conversation_id", n => { ParentConversationId = n.GetStringValue(); } },
                 { "pr_number", n => { PrNumber = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "sandbox_id", n => { SandboxId = n.GetStringValue(); } },
-                { "selected_branch", n => { SelectedBranch = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_selected_branch>(global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_selected_branch.CreateFromDiscriminatorValue); } },
-                { "selected_repository", n => { SelectedRepository = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_selected_repository>(global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_selected_repository.CreateFromDiscriminatorValue); } },
+                { "selected_branch", n => { SelectedBranch = n.GetStringValue(); } },
+                { "selected_repository", n => { SelectedRepository = n.GetStringValue(); } },
                 { "sub_conversation_ids", n => { SubConversationIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "title", n => { Title = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_title>(global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_title.CreateFromDiscriminatorValue); } },
+                { "title", n => { Title = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -164,428 +164,20 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_created_by_user_id>("created_by_user_id", CreatedByUserId);
-            writer.WriteObjectValue<UntypedNode>("git_provider", GitProvider);
+            writer.WriteStringValue("created_by_user_id", CreatedByUserId);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_git_provider>("git_provider", GitProvider);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_llm_model>("llm_model", LlmModel);
-            writer.WriteObjectValue<UntypedNode>("metrics", Metrics);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_parent_conversation_id>("parent_conversation_id", ParentConversationId);
+            writer.WriteStringValue("llm_model", LlmModel);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_metrics>("metrics", Metrics);
+            writer.WriteStringValue("parent_conversation_id", ParentConversationId);
             writer.WriteCollectionOfPrimitiveValues<int?>("pr_number", PrNumber);
             writer.WriteStringValue("sandbox_id", SandboxId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_selected_branch>("selected_branch", SelectedBranch);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_selected_repository>("selected_repository", SelectedRepository);
+            writer.WriteStringValue("selected_branch", SelectedBranch);
+            writer.WriteStringValue("selected_repository", SelectedRepository);
             writer.WriteCollectionOfPrimitiveValues<string>("sub_conversation_ids", SubConversationIds);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_title>("title", Title);
+            writer.WriteStringValue("title", Title);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_created_by_user_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SharedConversation_created_by_user_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_created_by_user_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_created_by_user_idMember1? SharedConversationCreatedByUserIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_created_by_user_idMember1 SharedConversationCreatedByUserIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_created_by_user_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_created_by_user_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_created_by_user_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SharedConversationCreatedByUserIdMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_created_by_user_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SharedConversationCreatedByUserIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SharedConversationCreatedByUserIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_created_by_user_idMember1>(null, SharedConversationCreatedByUserIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_llm_modelMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SharedConversation_llm_model : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_llm_modelMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_llm_modelMember1? SharedConversationLlmModelMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_llm_modelMember1 SharedConversationLlmModelMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_llm_model"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_llm_model CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_llm_model();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SharedConversationLlmModelMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_llm_modelMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SharedConversationLlmModelMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SharedConversationLlmModelMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_llm_modelMember1>(null, SharedConversationLlmModelMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_parent_conversation_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SharedConversation_parent_conversation_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_parent_conversation_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_parent_conversation_idMember1? SharedConversationParentConversationIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_parent_conversation_idMember1 SharedConversationParentConversationIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_parent_conversation_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_parent_conversation_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_parent_conversation_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SharedConversationParentConversationIdMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_parent_conversation_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SharedConversationParentConversationIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SharedConversationParentConversationIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_parent_conversation_idMember1>(null, SharedConversationParentConversationIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_selected_branchMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SharedConversation_selected_branch : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_selected_branchMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_selected_branchMember1? SharedConversationSelectedBranchMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_selected_branchMember1 SharedConversationSelectedBranchMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_selected_branch"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_selected_branch CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_selected_branch();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SharedConversationSelectedBranchMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_selected_branchMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SharedConversationSelectedBranchMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SharedConversationSelectedBranchMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_selected_branchMember1>(null, SharedConversationSelectedBranchMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_selected_repositoryMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SharedConversation_selected_repository : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_selected_repositoryMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_selected_repositoryMember1? SharedConversationSelectedRepositoryMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_selected_repositoryMember1 SharedConversationSelectedRepositoryMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_selected_repository"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_selected_repository CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_selected_repository();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SharedConversationSelectedRepositoryMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_selected_repositoryMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SharedConversationSelectedRepositoryMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SharedConversationSelectedRepositoryMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_selected_repositoryMember1>(null, SharedConversationSelectedRepositoryMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_titleMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SharedConversation_title : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_titleMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_titleMember1? SharedConversationTitleMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_titleMember1 SharedConversationTitleMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_title"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_title CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.SharedConversation_title();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.SharedConversationTitleMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_titleMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SharedConversationTitleMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SharedConversationTitleMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_titleMember1>(null, SharedConversationTitleMember1);
-                }
-            }
         }
     }
 }

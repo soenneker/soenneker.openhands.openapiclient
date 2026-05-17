@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Users.Me
         {
         }
         /// <summary>
-        /// Get the current authenticated user with SAAS-specific org info.Returns user settings along with organization context:- org_id: Current organization ID- org_name: Current organization name- role: User&apos;s role in the organization- permissions: List of permission strings for the role
+        /// &quot;Get the current authenticated user with SAAS-specific org info.Returns user settings along with organization context:- org_id: Current organization ID- org_name: Current organization name- role: User&apos;s role in the organization- permissions: List of permission strings for the role&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Users.Me
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfo.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get the current authenticated user with SAAS-specific org info.Returns user settings along with organization context:- org_id: Current organization ID- org_name: Current organization name- role: User&apos;s role in the organization- permissions: List of permission strings for the role
+        /// &quot;Get the current authenticated user with SAAS-specific org info.Returns user settings along with organization context:- org_id: Current organization ID- org_name: Current organization name- role: User&apos;s role in the organization- permissions: List of permission strings for the role&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Users.Me
             return new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Users.Me.MeRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get the current authenticated user with SAAS-specific org info.Returns user settings along with organization context:- org_id: Current organization ID- org_name: Current organization name- role: User&apos;s role in the organization- permissions: List of permission strings for the role
+        /// &quot;Get the current authenticated user with SAAS-specific org info.Returns user settings along with organization context:- org_id: Current organization ID- org_name: Current organization name- role: User&apos;s role in the organization- permissions: List of permission strings for the role&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MeRequestBuilderGetQueryParameters 

@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Switch
         {
         }
         /// <summary>
-        /// Switch to a different organization.This endpoint allows authenticated users to switch their current activeorganization. The user must be a member of the target organization.Args:    org_id: Organization ID to switch to (UUID)    user_id: Authenticated user ID (injected by dependency)Returns:    OrgResponse: The organization details that was switched toRaises:    HTTPException: 422 if org_id is not a valid UUID (handled by FastAPI)    HTTPException: 403 if user is not a member of the organization    HTTPException: 404 if organization not found    HTTPException: 500 if switch fails
+        /// &quot;Switch to a different organization.This endpoint allows authenticated users to switch their current activeorganization. The user must be a member of the target organization.Args:    org_id: Organization ID to switch to (UUID)    user_id: Authenticated user ID (injected by dependency)Returns:    OrgResponse: The organization details that was switched toRaises:    HTTPException: 422 if org_id is not a valid UUID (handled by FastAPI)    HTTPException: 403 if user is not a member of the organization    HTTPException: 404 if organization not found    HTTPException: 500 if switch fails&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Switch
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Switch to a different organization.This endpoint allows authenticated users to switch their current activeorganization. The user must be a member of the target organization.Args:    org_id: Organization ID to switch to (UUID)    user_id: Authenticated user ID (injected by dependency)Returns:    OrgResponse: The organization details that was switched toRaises:    HTTPException: 422 if org_id is not a valid UUID (handled by FastAPI)    HTTPException: 403 if user is not a member of the organization    HTTPException: 404 if organization not found    HTTPException: 500 if switch fails
+        /// &quot;Switch to a different organization.This endpoint allows authenticated users to switch their current activeorganization. The user must be a member of the target organization.Args:    org_id: Organization ID to switch to (UUID)    user_id: Authenticated user ID (injected by dependency)Returns:    OrgResponse: The organization details that was switched toRaises:    HTTPException: 422 if org_id is not a valid UUID (handled by FastAPI)    HTTPException: 403 if user is not a member of the organization    HTTPException: 404 if organization not found    HTTPException: 500 if switch fails&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

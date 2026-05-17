@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Me
         {
         }
         /// <summary>
-        /// Get the current user&apos;s membership record for an organization.Returns the authenticated user&apos;s role, status, email, and LLM overridefields (with masked API keys) within the specified organization.Args:    org_id: Organization ID (UUID)    user_id: Authenticated user ID (injected by dependency)Returns:    MeResponse: The user&apos;s membership dataRaises:    HTTPException: 404 if user is not a member or org doesn&apos;t exist    HTTPException: 500 if retrieval fails
+        /// &quot;Get the current user&apos;s membership record for an organization.Returns the authenticated user&apos;s role, status, email, and LLM overridefields (with masked API keys) within the specified organization.Args:    org_id: Organization ID (UUID)    user_id: Authenticated user ID (injected by dependency)Returns:    MeResponse: The user&apos;s membership dataRaises:    HTTPException: 404 if user is not a member or org doesn&apos;t exist    HTTPException: 500 if retrieval fails&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Me
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get the current user&apos;s membership record for an organization.Returns the authenticated user&apos;s role, status, email, and LLM overridefields (with masked API keys) within the specified organization.Args:    org_id: Organization ID (UUID)    user_id: Authenticated user ID (injected by dependency)Returns:    MeResponse: The user&apos;s membership dataRaises:    HTTPException: 404 if user is not a member or org doesn&apos;t exist    HTTPException: 500 if retrieval fails
+        /// &quot;Get the current user&apos;s membership record for an organization.Returns the authenticated user&apos;s role, status, email, and LLM overridefields (with masked API keys) within the specified organization.Args:    org_id: Organization ID (UUID)    user_id: Authenticated user ID (injected by dependency)Returns:    MeResponse: The user&apos;s membership dataRaises:    HTTPException: 404 if user is not a member or org doesn&apos;t exist    HTTPException: 500 if retrieval fails&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
