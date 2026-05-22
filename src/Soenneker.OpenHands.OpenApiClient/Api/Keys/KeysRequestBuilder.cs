@@ -59,7 +59,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys
         {
         }
         /// <summary>
-        /// List all API keys for the authenticated user.
+        /// List API keys for the authenticated user in the effective org.
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.OpenHands.OpenApiClient.Models.ApiKeyResponse&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -78,7 +78,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Create a new API key for the authenticated user.
+        /// Create a new API key bound to the request&apos;s effective org.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ApiKeyCreateResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -103,7 +103,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ApiKeyCreateResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ApiKeyCreateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all API keys for the authenticated user.
+        /// List API keys for the authenticated user in the effective org.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -122,7 +122,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys
             return requestInfo;
         }
         /// <summary>
-        /// Create a new API key for the authenticated user.
+        /// Create a new API key bound to the request&apos;s effective org.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

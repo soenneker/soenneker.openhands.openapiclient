@@ -15,9 +15,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Require user confirmation before executing risky actions.</summary>
-        [Obsolete("")]
-        public bool? ConfirmationMode { get; set; }
         /// <summary>Enable critic evaluation for the agent.</summary>
         public bool? CriticEnabled { get; set; }
         /// <summary>When critic evaluation should run.</summary>
@@ -44,9 +41,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public bool? EnableIterativeRefinement { get; set; }
         /// <summary>Maximum number of refinement attempts after critic feedback.</summary>
         public int? MaxRefinementIterations { get; set; }
-        /// <summary>Security analyzer that evaluates actions before execution.</summary>
-        [Obsolete("")]
-        public global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings_security_analyzer? SecurityAnalyzer { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings"/> and sets the default values.
         /// </summary>
@@ -73,7 +67,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "confirmation_mode", n => { ConfirmationMode = n.GetBoolValue(); } },
                 { "critic_enabled", n => { CriticEnabled = n.GetBoolValue(); } },
                 { "critic_mode", n => { CriticMode = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings_critic_mode>(); } },
                 { "critic_model_name", n => { CriticModelName = n.GetStringValue(); } },
@@ -81,7 +74,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "critic_threshold", n => { CriticThreshold = n.GetDoubleValue(); } },
                 { "enable_iterative_refinement", n => { EnableIterativeRefinement = n.GetBoolValue(); } },
                 { "max_refinement_iterations", n => { MaxRefinementIterations = n.GetIntValue(); } },
-                { "security_analyzer", n => { SecurityAnalyzer = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings_security_analyzer>(); } },
             };
         }
         /// <summary>
@@ -91,7 +83,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("confirmation_mode", ConfirmationMode);
             writer.WriteBoolValue("critic_enabled", CriticEnabled);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings_critic_mode>("critic_mode", CriticMode);
             writer.WriteStringValue("critic_model_name", CriticModelName);
@@ -99,7 +90,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteDoubleValue("critic_threshold", CriticThreshold);
             writer.WriteBoolValue("enable_iterative_refinement", EnableIterativeRefinement);
             writer.WriteIntValue("max_refinement_iterations", MaxRefinementIterations);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings_security_analyzer>("security_analyzer", SecurityAnalyzer);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

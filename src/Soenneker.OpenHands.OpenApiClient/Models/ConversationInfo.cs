@@ -23,13 +23,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Main agent implementation for OpenHands.The Agent class provides the core functionality for running AI agents that caninteract with tools, process messages, and execute actions. It inherits fromAgentBase and implements the agent execution logic. Critic-related functionalityis provided by CriticMixin.Attributes:    llm: The language model instance used for reasoning.    tools: List of tools available to the agent.    system_prompt: Inline system prompt string. When provided the agent        uses this text verbatim instead of rendering from a template.        Mutually exclusive with a non-default ``system_prompt_filename``.        **Not recommended** unless you know what you are doing (e.g.        customising agent behaviour for a completely different task) —        this will override OpenHands&apos; built-in system instructions.    system_prompt_filename: Jinja2 template filename resolved relative to        the agent&apos;s prompts directory, or an absolute path. Defaults to        ``\&quot;system_prompt.j2\&quot;``.    system_prompt_kwargs: Extra kwargs forwarded to the Jinja2 template.Example:    ```python    from openhands.sdk import LLM, Agent, Tool    from pydantic import SecretStr    llm = LLM(model=\&quot;claude-sonnet-4-20250514\&quot;, api_key=SecretStr(\&quot;key\&quot;))    tools = [Tool(name=\&quot;TerminalTool\&quot;), Tool(name=\&quot;FileEditorTool\&quot;)]    agent = Agent(llm=llm, tools=tools)    ```    To override the system prompt entirely::        agent = Agent(            llm=llm,            tools=tools,            system_prompt=\&quot;You are a helpful coding assistant.\&quot;,        )&quot;</summary>
+        /// <summary>The agent property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Agent? Agent { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase? Agent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Agent Agent { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase Agent { get; set; }
 #endif
         /// <summary>Dictionary for agent-specific runtime state that persists across iterations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -190,7 +190,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "activated_knowledge_skills", n => { ActivatedKnowledgeSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Agent>(global::Soenneker.OpenHands.OpenApiClient.Models.Agent.CreateFromDiscriminatorValue); } },
+                { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase.CreateFromDiscriminatorValue); } },
                 { "agent_state", n => { AgentState = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_agent_state>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_agent_state.CreateFromDiscriminatorValue); } },
                 { "blocked_actions", n => { BlockedActions = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_blocked_actions>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_blocked_actions.CreateFromDiscriminatorValue); } },
                 { "blocked_messages", n => { BlockedMessages = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_blocked_messages>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_blocked_messages.CreateFromDiscriminatorValue); } },
@@ -222,7 +222,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("activated_knowledge_skills", ActivatedKnowledgeSkills);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Agent>("agent", Agent);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase>("agent", Agent);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_agent_state>("agent_state", AgentState);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_blocked_actions>("blocked_actions", BlockedActions);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_blocked_messages>("blocked_messages", BlockedMessages);

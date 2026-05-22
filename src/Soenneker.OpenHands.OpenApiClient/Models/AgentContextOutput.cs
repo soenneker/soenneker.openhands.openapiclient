@@ -38,10 +38,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Dictionary mapping secret keys to values or secret sources. Secrets are used for authentication and sensitive data handling. Values can be either strings or SecretSource instances (str | SecretSource).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSecrets? Secrets { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput_secrets? Secrets { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSecrets Secrets { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput_secrets Secrets { get; set; }
 #endif
         /// <summary>List of available skills that can extend the user&apos;s input.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -97,7 +97,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "load_public_skills", n => { LoadPublicSkills = n.GetBoolValue(); } },
                 { "load_user_skills", n => { LoadUserSkills = n.GetBoolValue(); } },
                 { "marketplace_path", n => { MarketplacePath = n.GetStringValue(); } },
-                { "secrets", n => { Secrets = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSecrets>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSecrets.CreateFromDiscriminatorValue); } },
+                { "secrets", n => { Secrets = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput_secrets>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput_secrets.CreateFromDiscriminatorValue); } },
                 { "skills", n => { Skills = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.Skill>(global::Soenneker.OpenHands.OpenApiClient.Models.Skill.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "system_message_suffix", n => { SystemMessageSuffix = n.GetStringValue(); } },
                 { "user_message_suffix", n => { UserMessageSuffix = n.GetStringValue(); } },
@@ -114,7 +114,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("load_public_skills", LoadPublicSkills);
             writer.WriteBoolValue("load_user_skills", LoadUserSkills);
             writer.WriteStringValue("marketplace_path", MarketplacePath);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSecrets>("secrets", Secrets);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput_secrets>("secrets", Secrets);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.Skill>("skills", Skills);
             writer.WriteStringValue("system_message_suffix", SystemMessageSuffix);
             writer.WriteStringValue("user_message_suffix", UserMessageSuffix);

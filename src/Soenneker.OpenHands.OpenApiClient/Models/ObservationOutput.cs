@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.DelegateObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EditObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.FileEditorObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.FinishObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GlobObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.InvokeSkillObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SleeptimeComputeObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskTrackerObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ThinkObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WriteFileObservationOutput"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.DelegateObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EditObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.FileEditorObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.FinishObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GlobObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.InvokeSkillObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SleeptimeComputeObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskTrackerObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ThinkObservationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WriteFileObservationOutput"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ObservationOutput : IComposedTypeWrapper, IParsable
@@ -133,6 +133,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.SleeptimeComputeObservationOutput SleeptimeComputeObservationOutput { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMObservationOutput"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMObservationOutput? SwitchLLMObservationOutput { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMObservationOutput SwitchLLMObservationOutput { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskObservationOutput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -243,6 +251,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 result.SleeptimeComputeObservationOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.SleeptimeComputeObservationOutput();
             }
+            else if("openhands__sdk__tool__builtins__switch_llm__SwitchLLMObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SwitchLLMObservationOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMObservationOutput();
+            }
             else if("openhands__tools__task__definition__TaskObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.TaskObservationOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.TaskObservationOutput();
@@ -330,6 +342,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if(SleeptimeComputeObservationOutput != null)
             {
                 return SleeptimeComputeObservationOutput.GetFieldDeserializers();
+            }
+            else if(SwitchLLMObservationOutput != null)
+            {
+                return SwitchLLMObservationOutput.GetFieldDeserializers();
             }
             else if(TaskObservationOutput != null)
             {
@@ -419,6 +435,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if(SleeptimeComputeObservationOutput != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SleeptimeComputeObservationOutput>(null, SleeptimeComputeObservationOutput);
+            }
+            else if(SwitchLLMObservationOutput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMObservationOutput>(null, SwitchLLMObservationOutput);
             }
             else if(TaskObservationOutput != null)
             {

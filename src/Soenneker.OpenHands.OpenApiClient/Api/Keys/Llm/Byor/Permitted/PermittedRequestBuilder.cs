@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys.Llm.Byor.Permitted
         {
         }
         /// <summary>
-        /// Check if BYOR key export is permitted for the user&apos;s current org.
+        /// Check if BYOR key export is permitted for the request&apos;s effective org.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ByorPermittedResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys.Llm.Byor.Permitted
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ByorPermittedResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ByorPermittedResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Check if BYOR key export is permitted for the user&apos;s current org.
+        /// Check if BYOR key export is permitted for the request&apos;s effective org.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

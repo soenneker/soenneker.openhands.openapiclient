@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Conversations
         {
         }
         /// <summary>
-        /// Webhook callback for when a conversation starts, pauses, resumes, or deletes.
+        /// Webhook callback for when a conversation starts, pauses, resumes, or deletes.The ``ConversationInfo.agent`` field is an ``AgentBase`` discriminatedunion so both OpenHands (``Agent``) and ACP (``ACPAgent``) payloads areaccepted on this single endpoint.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Success"/></returns>
         /// <param name="body">Information about a conversation running locally without a Runtime sandbox.</param>
@@ -59,7 +59,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Conversations
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.Success>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.Success.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Webhook callback for when a conversation starts, pauses, resumes, or deletes.
+        /// Webhook callback for when a conversation starts, pauses, resumes, or deletes.The ``ConversationInfo.agent`` field is an ``AgentBase`` discriminatedunion so both OpenHands (``Agent``) and ACP (``ACPAgent``) payloads areaccepted on this single endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Information about a conversation running locally without a Runtime sandbox.</param>

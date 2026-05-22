@@ -47,6 +47,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>Whether this skill can only be activated by trigger matching and should not be advertised to the model for direct invocation.</summary>
+        public bool? DisableModelInvocation { get; set; }
         /// <summary>Input metadata for the skill (task skills only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -151,6 +153,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "compatibility", n => { Compatibility = n.GetStringValue(); } },
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "disable_model_invocation", n => { DisableModelInvocation = n.GetBoolValue(); } },
                 { "inputs", n => { Inputs = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.InputMetadata>(global::Soenneker.OpenHands.OpenApiClient.Models.InputMetadata.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "is_agentskills_format", n => { IsAgentskillsFormat = n.GetBoolValue(); } },
                 { "license", n => { License = n.GetStringValue(); } },
@@ -174,6 +177,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("compatibility", Compatibility);
             writer.WriteStringValue("content", Content);
             writer.WriteStringValue("description", Description);
+            writer.WriteBoolValue("disable_model_invocation", DisableModelInvocation);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.InputMetadata>("inputs", Inputs);
             writer.WriteBoolValue("is_agentskills_format", IsAgentskillsFormat);
             writer.WriteStringValue("license", License);

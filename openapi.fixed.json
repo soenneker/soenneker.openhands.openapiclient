@@ -2719,7 +2719,7 @@
           "Webhooks"
         ],
         "summary": "On Conversation Update",
-        "description": "Webhook callback for when a conversation starts, pauses, resumes, or deletes.",
+        "description": "Webhook callback for when a conversation starts, pauses, resumes, or deletes.\n\nThe ``ConversationInfo.agent`` field is an ``AgentBase`` discriminated\nunion so both OpenHands (``Agent``) and ACP (``ACPAgent``) payloads are\naccepted on this single endpoint.",
         "operationId": "on-conversation-update-api-v1-webhooks-conversations-post",
         "requestBody": {
           "content": {
@@ -4746,7 +4746,7 @@
           "Keys"
         ],
         "summary": "Check Byor Permitted",
-        "description": "Check if BYOR key export is permitted for the user's current org.",
+        "description": "Check if BYOR key export is permitted for the request's effective org.",
         "operationId": "check-byor-permitted-api-keys-llm-byor-permitted-get",
         "responses": {
           "200": {
@@ -4773,7 +4773,7 @@
           "Keys"
         ],
         "summary": "List Api Keys",
-        "description": "List all API keys for the authenticated user.",
+        "description": "List API keys for the authenticated user in the effective org.",
         "operationId": "list-api-keys-api-keys-get",
         "responses": {
           "200": {
@@ -4801,7 +4801,7 @@
           "Keys"
         ],
         "summary": "Create Api Key",
-        "description": "Create a new API key for the authenticated user.",
+        "description": "Create a new API key bound to the request's effective org.",
         "operationId": "create-api-key-api-keys-post",
         "requestBody": {
           "content": {
@@ -4847,7 +4847,7 @@
           "Keys"
         ],
         "summary": "Delete Api Key",
-        "description": "Delete an API key.",
+        "description": "Delete an API key, scoped to the effective org.",
         "operationId": "delete-api-key-api-keys-key-id-delete",
         "parameters": [
           {
@@ -4922,7 +4922,7 @@
           "Keys"
         ],
         "summary": "Get Llm Api Key For Byor",
-        "description": "Get the LLM API key for BYOR (Bring Your Own Runtime) for the authenticated user.\n\nThis endpoint validates that the key exists in LiteLLM before returning it.\nIf validation fails, it automatically generates a new key to ensure users\nalways receive a working key.\n\nReturns 402 Payment Required if BYOR export is not enabled for the user's org.",
+        "description": "Get the LLM API key for BYOR (Bring Your Own Runtime).\n\nThis endpoint validates that the key exists in LiteLLM before returning it.\nIf validation fails, it automatically generates a new key to ensure users\nalways receive a working key.\n\nReturns 402 Payment Required if BYOR export is not enabled for the\nrequest's effective org.",
         "operationId": "get-llm-api-key-for-byor-api-keys-llm-byor-get",
         "responses": {
           "200": {
@@ -4949,7 +4949,7 @@
           "Keys"
         ],
         "summary": "Refresh Llm Api Key For Byor",
-        "description": "Refresh the LLM API key for BYOR (Bring Your Own Runtime) for the authenticated user.\n\nReturns 402 Payment Required if BYOR export is not enabled for the user's org.",
+        "description": "Refresh the LLM API key for BYOR (Bring Your Own Runtime).\n\nReturns 402 Payment Required if BYOR export is not enabled for the\nrequest's effective org.",
         "operationId": "refresh-llm-api-key-for-byor-api-keys-llm-byor-refresh-post",
         "responses": {
           "200": {
@@ -5163,6 +5163,15 @@
               "type": "integer",
               "default": 100
             }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
+              "nullable": true
+            }
           }
         ],
         "responses": {
@@ -5200,6 +5209,17 @@
         "summary": "Create Org",
         "description": "\"Create a new organization.\n\nThis endpoint allows authenticated users with @openhands.dev email to create\na new organization. The user who creates the organization automatically becomes\nits owner.\n\nArgs:\n    org_data: Organization creation data\n    user_id: Authenticated user ID (injected by dependency)\n\nReturns:\n    OrgResponse: The created organization details\n\nRaises:\n    HTTPException: 403 if user email domain is not @openhands.dev\n    HTTPException: 409 if organization name already exists\n    HTTPException: 500 if creation fails\"",
         "operationId": "create-org-api-organizations-post",
+        "parameters": [
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -5257,6 +5277,15 @@
               "format": "uuid",
               "nullable": true
             }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
+              "nullable": true
+            }
           }
         ],
         "responses": {
@@ -5303,6 +5332,15 @@
               "title": "Org Id",
               "type": "string",
               "format": "uuid",
+              "nullable": true
+            }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
               "nullable": true
             }
           }
@@ -5363,6 +5401,15 @@
               "format": "uuid",
               "nullable": true
             }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
+              "nullable": true
+            }
           }
         ],
         "responses": {
@@ -5408,6 +5455,15 @@
               "title": "Org Id",
               "type": "string",
               "format": "uuid",
+              "nullable": true
+            }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
               "nullable": true
             }
           }
@@ -5469,6 +5525,15 @@
               "format": "uuid",
               "nullable": true
             }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
+              "nullable": true
+            }
           }
         ],
         "responses": {
@@ -5515,6 +5580,15 @@
               "title": "Org Id",
               "type": "string",
               "format": "uuid",
+              "nullable": true
+            }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
               "nullable": true
             }
           }
@@ -5574,6 +5648,15 @@
               "title": "Org Id",
               "type": "string",
               "format": "uuid"
+            }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
+              "nullable": true
             }
           }
         ],
@@ -5657,6 +5740,15 @@
               "type": "string",
               "nullable": true
             }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
+              "nullable": true
+            }
           }
         ],
         "responses": {
@@ -5715,6 +5807,15 @@
               "title": "Filter members by email (case-insensitive partial match)",
               "maxLength": 255,
               "minLength": 1,
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
               "type": "string",
               "nullable": true
             }
@@ -5801,6 +5902,15 @@
               "type": "string",
               "nullable": true
             }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
+              "nullable": true
+            }
           }
         ],
         "responses": {
@@ -5859,6 +5969,15 @@
               "title": "User Id",
               "type": "string"
             }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
+              "nullable": true
+            }
           }
         ],
         "responses": {
@@ -5914,6 +6033,15 @@
             "schema": {
               "title": "User Id",
               "type": "string"
+            }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
+              "nullable": true
             }
           }
         ],
@@ -5973,6 +6101,15 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
+              "nullable": true
+            }
           }
         ],
         "responses": {
@@ -6021,6 +6158,15 @@
               "title": "Org Id",
               "type": "string",
               "format": "uuid",
+              "nullable": true
+            }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
               "nullable": true
             }
           }
@@ -6072,6 +6218,15 @@
               "title": "Org Id",
               "type": "string",
               "format": "uuid",
+              "nullable": true
+            }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
               "nullable": true
             }
           }
@@ -6142,6 +6297,15 @@
               "title": "Claim Id",
               "type": "string",
               "format": "uuid"
+            }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
+              "nullable": true
             }
           }
         ],
@@ -6508,6 +6672,15 @@
               "title": "Org Id",
               "type": "string",
               "format": "uuid"
+            }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": "string",
+              "nullable": true
             }
           }
         ],
@@ -7180,6 +7353,152 @@
   },
   "components": {
     "schemas": {
+      "ACPAgent": {
+        "title": "ACPAgent",
+        "required": [
+          "acp_command"
+        ],
+        "type": "object",
+        "properties": {
+          "llm": {
+            "$ref": "#/components/schemas/LLMInput"
+          },
+          "tools": {
+            "title": "Tools",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OpenhandsSdkToolSpecTool"
+            }
+          },
+          "mcp_config": {
+            "title": "Mcp Config",
+            "type": "object",
+            "description": "Optional MCP configuration dictionary to create MCP tools."
+          },
+          "filter_tools_regex": {
+            "title": "Filter Tools Regex",
+            "type": "string",
+            "description": "Optional regex to filter the tools available to the agent by name. This is applied after any tools provided in `tools` and any MCP tools are added.",
+            "nullable": true
+          },
+          "include_default_tools": {
+            "title": "Include Default Tools",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "agent_context": {
+            "type": "object",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentContextInput"
+              }
+            ],
+            "description": "Optional AgentContext to initialize the agent with specific context.",
+            "nullable": true
+          },
+          "system_prompt": {
+            "title": "System Prompt",
+            "type": "string",
+            "description": "\"Inline system prompt string.  When provided, the agent uses this text verbatim as the system message instead of rendering from `system_prompt_filename`.  Mutually exclusive with a non-default `system_prompt_filename`.\n\n**Warning**: This is not recommended unless you know what you are doing (e.g. customising agent behaviour for a completely different task).  Setting this will override OpenHands' built-in system instructions that govern default agent behaviour.\"",
+            "nullable": true
+          },
+          "system_prompt_filename": {
+            "title": "System Prompt Filename",
+            "type": "string",
+            "description": "System prompt template filename. Can be either:\n- A relative filename (e.g., 'system_prompt.j2') loaded from the agent's prompts directory\n- An absolute path (e.g., '/path/to/custom_prompt.j2')",
+            "default": "system_prompt.j2"
+          },
+          "security_policy_filename": {
+            "title": "Security Policy Filename",
+            "type": "string",
+            "description": "Security policy template filename. Can be either:\n- A relative filename (e.g., 'security_policy.j2') loaded from the agent's prompts directory\n- An absolute path (e.g., '/path/to/custom_security_policy.j2')\n- Empty string to disable security policy",
+            "default": "security_policy.j2"
+          },
+          "system_prompt_kwargs": {
+            "title": "System Prompt Kwargs",
+            "type": "object",
+            "description": "Optional kwargs to pass to the system prompt Jinja2 template."
+          },
+          "condenser": {
+            "type": "object",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CondenserBase"
+              }
+            ],
+            "description": "Optional condenser to use for condensing conversation history.",
+            "nullable": true
+          },
+          "critic": {
+            "type": "object",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CriticBase"
+              }
+            ],
+            "description": "\"EXPERIMENTAL: Optional critic to evaluate agent actions and messages in real-time. API and behavior may change without notice. May impact performance, especially in 'all_actions' mode.\"",
+            "nullable": true
+          },
+          "tool_concurrency_limit": {
+            "title": "Tool Concurrency Limit",
+            "minimum": 1.0,
+            "type": "integer",
+            "description": "Maximum number of tool calls to execute concurrently within a single agent step. Default is 1 (sequential). Values > 1 enable parallel execution; concurrent tools share the conversation object, filesystem, and working directory, so mutations to shared state may race.",
+            "default": 1
+          },
+          "acp_command": {
+            "title": "Acp Command",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Command to start the ACP server, e.g. ['npx', '-y', '@agentclientprotocol/claude-agent-acp']"
+          },
+          "acp_args": {
+            "title": "Acp Args",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Additional arguments for the ACP server command"
+          },
+          "acp_env": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Additional environment variables for the ACP server process"
+          },
+          "acp_session_mode": {
+            "title": "Acp Session Mode",
+            "type": "string",
+            "description": "\"Session mode ID to set after creating a session. If None (default), auto-detected from the ACP server type: 'bypassPermissions' for claude-agent-acp, 'full-access' for codex-acp.\"",
+            "nullable": true
+          },
+          "acp_prompt_timeout": {
+            "title": "Acp Prompt Timeout",
+            "type": "number",
+            "description": "Timeout in seconds for a single ACP prompt() call. Prevents indefinite hangs when the ACP server fails to respond.",
+            "default": 1800.0
+          },
+          "acp_model": {
+            "title": "Acp Model",
+            "type": "string",
+            "description": "Model for the ACP server to use (e.g. 'claude-opus-4-6' or 'gpt-5.4'). For Claude ACP, passed via session _meta. For Codex ACP, applied via the protocol-level set_session_model call. If None, the server picks its default.",
+            "nullable": true
+          },
+          "kind": {
+            "title": "Kind",
+            "enum": [
+              "ACPAgent"
+            ],
+            "type": "string"
+          }
+        },
+        "description": "Agent that delegates to an ACP-compatible subprocess server."
+      },
       "ACPAgentSettings": {
         "title": "ACPAgentSettings",
         "type": "object",
@@ -7188,7 +7507,7 @@
             "title": "Schema Version",
             "minimum": 1.0,
             "type": "integer",
-            "default": 1
+            "default": 3
           },
           "agent_kind": {
             "title": "Agent Kind",
@@ -7329,9 +7648,45 @@
           },
           "llm": {
             "$ref": "#/components/schemas/LLMOutput"
+          },
+          "agent_context": {
+            "type": "object",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentContextOutput"
+              }
+            ],
+            "description": "Prompt-only context for the ACP server. Secrets are injected into the subprocess environment by ACPAgent.",
+            "nullable": true
           }
         },
         "description": "Settings for an ACP (Agent Client Protocol) agent.\n\n``create_agent()`` returns an :class:`ACPAgent` that delegates to a\nsubprocess ACP server.  The ACP server manages its own system prompt,\ntools, MCP, and (primary) LLM calls; those fields from\n:class:`OpenHandsAgentSettings` do not apply here.\n\nThe :attr:`llm` field is kept (optional) so that cost/token metrics\ncan be attributed to a real model — ``ACPAgent`` uses this purely for\nbookkeeping and pricing lookups, not for making LLM requests."
+      },
+      "ACPProviderConfig": {
+        "title": "ACPProviderConfig",
+        "required": [
+          "key",
+          "display_name",
+          "default_command"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "display_name": {
+            "title": "Display Name",
+            "type": "string"
+          },
+          "default_command": {
+            "title": "Default Command",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
       },
       "ACPToolCallEventInput": {
         "title": "ACPToolCallEvent",
@@ -7533,7 +7888,7 @@
             "title": "Server Url",
             "type": "string",
             "description": "Base URL of the vLLM classification service",
-            "default": "https://all-hands-ai--critic-qwen3-4b-serve.modal.run"
+            "default": "https://llm-proxy.app.all-hands.dev/vllm"
           },
           "api_key": {
             "title": "Api Key",
@@ -7549,7 +7904,7 @@
             "title": "Model Name",
             "type": "string",
             "description": "Name of the model to use",
-            "default": "critic-qwen3-4b"
+            "default": "critic"
           },
           "tokenizer_name": {
             "title": "Tokenizer Name",
@@ -7664,6 +8019,14 @@
             "description": "Optional configuration for iterative refinement. When set, Conversation.run() will automatically retry the task if the critic score is below the success_threshold, up to max_iterations.",
             "nullable": true
           },
+          "issue_threshold": {
+            "title": "Issue Threshold",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "type": "number",
+            "description": "APIBasedCritic-specific probability threshold for agent issue labels that should trigger iterative refinement.",
+            "default": 0.75
+          },
           "kind": {
             "title": "Kind",
             "enum": [
@@ -7730,6 +8093,9 @@
           },
           {
             "$ref": "#/components/schemas/InvokeSkillActionInput"
+          },
+          {
+            "$ref": "#/components/schemas/SwitchLLMActionInput"
           },
           {
             "$ref": "#/components/schemas/ThinkActionInput"
@@ -7838,6 +8204,7 @@
             "openhands__sdk__mcp__definition__MCPToolAction-Input__1": "#/components/schemas/MCPToolActionInput",
             "openhands__sdk__tool__builtins__finish__FinishAction-Input__1": "#/components/schemas/FinishActionInput",
             "openhands__sdk__tool__builtins__invoke_skill__InvokeSkillAction-Input__1": "#/components/schemas/InvokeSkillActionInput",
+            "openhands__sdk__tool__builtins__switch_llm__SwitchLLMAction-Input__1": "#/components/schemas/SwitchLLMActionInput",
             "openhands__sdk__tool__builtins__think__ThinkAction-Input__1": "#/components/schemas/ThinkActionInput",
             "openhands__tools__apply_patch__definition__ApplyPatchAction-Input__1": "#/components/schemas/ApplyPatchActionInput",
             "openhands__tools__browser_use__definition__BrowserAction-Input__1": "#/components/schemas/BrowserActionInput",
@@ -7872,6 +8239,7 @@
             "MCPToolActionInput": "#/components/schemas/MCPToolActionInput",
             "FinishActionInput": "#/components/schemas/FinishActionInput",
             "InvokeSkillActionInput": "#/components/schemas/InvokeSkillActionInput",
+            "SwitchLLMActionInput": "#/components/schemas/SwitchLLMActionInput",
             "ThinkActionInput": "#/components/schemas/ThinkActionInput",
             "ApplyPatchActionInput": "#/components/schemas/ApplyPatchActionInput",
             "BrowserActionInput": "#/components/schemas/BrowserActionInput",
@@ -7920,6 +8288,9 @@
           },
           {
             "$ref": "#/components/schemas/InvokeSkillActionOutput"
+          },
+          {
+            "$ref": "#/components/schemas/SwitchLLMActionOutput"
           },
           {
             "$ref": "#/components/schemas/ThinkActionOutput"
@@ -8028,6 +8399,7 @@
             "openhands__sdk__mcp__definition__MCPToolAction-Output__1": "#/components/schemas/MCPToolActionOutput",
             "openhands__sdk__tool__builtins__finish__FinishAction-Output__1": "#/components/schemas/FinishActionOutput",
             "openhands__sdk__tool__builtins__invoke_skill__InvokeSkillAction-Output__1": "#/components/schemas/InvokeSkillActionOutput",
+            "openhands__sdk__tool__builtins__switch_llm__SwitchLLMAction-Output__1": "#/components/schemas/SwitchLLMActionOutput",
             "openhands__sdk__tool__builtins__think__ThinkAction-Output__1": "#/components/schemas/ThinkActionOutput",
             "openhands__tools__apply_patch__definition__ApplyPatchAction-Output__1": "#/components/schemas/ApplyPatchActionOutput",
             "openhands__tools__browser_use__definition__BrowserAction-Output__1": "#/components/schemas/BrowserActionOutput",
@@ -8062,6 +8434,7 @@
             "MCPToolActionOutput": "#/components/schemas/MCPToolActionOutput",
             "FinishActionOutput": "#/components/schemas/FinishActionOutput",
             "InvokeSkillActionOutput": "#/components/schemas/InvokeSkillActionOutput",
+            "SwitchLLMActionOutput": "#/components/schemas/SwitchLLMActionOutput",
             "ThinkActionOutput": "#/components/schemas/ThinkActionOutput",
             "ApplyPatchActionOutput": "#/components/schemas/ApplyPatchActionOutput",
             "BrowserActionOutput": "#/components/schemas/BrowserActionOutput",
@@ -8498,6 +8871,36 @@
         },
         "description": "\"Main agent implementation for OpenHands.\n\nThe Agent class provides the core functionality for running AI agents that can\ninteract with tools, process messages, and execute actions. It inherits from\nAgentBase and implements the agent execution logic. Critic-related functionality\nis provided by CriticMixin.\n\nAttributes:\n    llm: The language model instance used for reasoning.\n    tools: List of tools available to the agent.\n    system_prompt: Inline system prompt string. When provided the agent\n        uses this text verbatim instead of rendering from a template.\n        Mutually exclusive with a non-default ``system_prompt_filename``.\n        **Not recommended** unless you know what you are doing (e.g.\n        customising agent behaviour for a completely different task) —\n        this will override OpenHands' built-in system instructions.\n    system_prompt_filename: Jinja2 template filename resolved relative to\n        the agent's prompts directory, or an absolute path. Defaults to\n        ``\\\"system_prompt.j2\\\"``.\n    system_prompt_kwargs: Extra kwargs forwarded to the Jinja2 template.\n\nExample:\n    ```python\n    from openhands.sdk import LLM, Agent, Tool\n    from pydantic import SecretStr\n\n    llm = LLM(model=\\\"claude-sonnet-4-20250514\\\", api_key=SecretStr(\\\"key\\\"))\n    tools = [Tool(name=\\\"TerminalTool\\\"), Tool(name=\\\"FileEditorTool\\\")]\n    agent = Agent(llm=llm, tools=tools)\n    ```\n\n    To override the system prompt entirely::\n\n        agent = Agent(\n            llm=llm,\n            tools=tools,\n            system_prompt=\\\"You are a helpful coding assistant.\\\",\n        )\""
       },
+      "AgentBase": {
+        "required": [
+          "kind"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ACPAgent"
+          },
+          {
+            "$ref": "#/components/schemas/Agent"
+          }
+        ],
+        "properties": {
+          "kind": {
+            "title": "kind",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "openhands__sdk__agent__acp_agent__ACPAgent-Input__1": "#/components/schemas/ACPAgent",
+            "openhands__sdk__agent__agent__Agent-Input__1": "#/components/schemas/Agent",
+            "ACPAgent": "#/components/schemas/ACPAgent",
+            "Agent": "#/components/schemas/Agent"
+          }
+        }
+      },
       "AgentContextInput": {
         "title": "AgentContext",
         "type": "object",
@@ -8641,7 +9044,18 @@
             }
           },
           "secrets": {
-            "$ref": "#/components/schemas/AgentContextOutputSecrets"
+            "title": "Secrets",
+            "type": "object",
+            "anyOf": [
+              {
+                "type": "object"
+              }
+            ],
+            "description": "Dictionary mapping secret keys to values or secret sources. Secrets are used for authentication and sensitive data handling. Values can be either strings or SecretSource instances (str | SecretSource).",
+            "nullable": true,
+            "unrecognizedKeywords": {
+              "acp_compatible": true
+            }
           },
           "current_datetime": {
             "title": "Current Datetime",
@@ -9559,6 +9973,11 @@
         "title": "AppConversationUpdateRequest",
         "type": "object",
         "properties": {
+          "title": {
+            "title": "Title",
+            "type": "string",
+            "nullable": true
+          },
           "public": {
             "title": "Public",
             "type": "boolean",
@@ -12751,6 +13170,7 @@
           },
           "forgotten_event_ids": {
             "title": "Forgotten Event Ids",
+            "uniqueItems": true,
             "type": "array",
             "items": {
               "type": "string"
@@ -12819,6 +13239,7 @@
           },
           "forgotten_event_ids": {
             "title": "Forgotten Event Ids",
+            "uniqueItems": true,
             "type": "array",
             "items": {
               "type": "string"
@@ -13595,7 +14016,7 @@
             "description": "Key-value tags for the conversation. Keys must be lowercase alphanumeric. Values are arbitrary strings up to 256 characters."
           },
           "agent": {
-            "$ref": "#/components/schemas/Agent"
+            "$ref": "#/components/schemas/AgentBase"
           }
         },
         "description": "Information about a conversation running locally without a Runtime sandbox."
@@ -17195,6 +17616,11 @@
             "title": "Command",
             "type": "string"
           },
+          "prompt": {
+            "title": "Prompt",
+            "type": "string",
+            "nullable": true
+          },
           "timeout": {
             "title": "Timeout",
             "type": "integer",
@@ -18682,18 +19108,6 @@
             "description": "The seed to use for random number generation.",
             "nullable": true
           },
-          "safety_settings": {
-            "title": "Safety Settings",
-            "type": "object",
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Safety_Settings"
-              }
-            ],
-            "description": "No-op. Safety settings are no longer applied. Deprecated since v1.15.0 and scheduled for removal in v1.20.0.",
-            "nullable": true,
-            "deprecated": true
-          },
           "usage_id": {
             "title": "Usage Id",
             "type": "string",
@@ -19065,18 +19479,6 @@
             "description": "The seed to use for random number generation.",
             "nullable": true
           },
-          "safety_settings": {
-            "title": "Safety Settings",
-            "type": "object",
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Safety_Settings"
-              }
-            ],
-            "description": "No-op. Safety settings are no longer applied. Deprecated since v1.15.0 and scheduled for removal in v1.20.0.",
-            "nullable": true,
-            "deprecated": true
-          },
           "usage_id": {
             "title": "Usage Id",
             "type": "string",
@@ -19099,7 +19501,7 @@
             "title": "Schema Version",
             "minimum": 1.0,
             "type": "integer",
-            "default": 1
+            "default": 3
           },
           "agent_kind": {
             "title": "Agent Kind",
@@ -19157,6 +19559,20 @@
               }
             }
           },
+          "enable_switch_llm_tool": {
+            "title": "Enable Switch Llm Tool",
+            "type": "boolean",
+            "description": "Enable the built-in switch_llm tool when saved LLM profiles are available. The tool is omitted when no profiles exist.",
+            "default": true,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [ ],
+                "label": "Enable LLM switching tool",
+                "prominence": "minor",
+                "variant": "openhands"
+              }
+            }
+          },
           "mcp_config": {
             "type": "object",
             "description": "MCP server configuration for the agent.",
@@ -19179,7 +19595,7 @@
             "$ref": "#/components/schemas/VerificationSettings"
           }
         },
-        "description": "Deprecated name for :class:`OpenHandsAgentSettings`.\n\n``LLMAgentSettings`` was the public class name before the v1.19.0 rename.\nIt is kept as a :class:`OpenHandsAgentSettings` subclass so existing\ncallers keep working. Importing this name from ``openhands.sdk.settings``\n(or ``openhands.sdk``) emits a :class:`DeprecationWarning` via the\nmodule-level ``__getattr__`` — no construction-time overhead.\n\nUse :class:`OpenHandsAgentSettings` for all new code.\n\nScheduled for removal in v1.22.0."
+        "description": "Deprecated name for :class:`OpenHandsAgentSettings`.\n\n``LLMAgentSettings`` was the public class name before the v1.19.0 rename.\nIt is kept as a :class:`OpenHandsAgentSettings` subclass so existing\ncallers keep working. Importing this name from ``openhands.sdk.settings``\n(or ``openhands.sdk``) emits a :class:`DeprecationWarning` via the\nmodule-level ``__getattr__`` — no construction-time overhead.\n\nUse :class:`OpenHandsAgentSettings` for all new code.\n\nScheduled for removal in v1.24.0."
       },
       "LLMCompletionLogEventInput": {
         "title": "LLMCompletionLogEvent",
@@ -20711,6 +21127,9 @@
             "$ref": "#/components/schemas/InvokeSkillObservationInput"
           },
           {
+            "$ref": "#/components/schemas/SwitchLLMObservationInput"
+          },
+          {
             "$ref": "#/components/schemas/ThinkObservationInput"
           },
           {
@@ -20775,6 +21194,7 @@
             "openhands__sdk__mcp__definition__MCPToolObservation-Input__1": "#/components/schemas/MCPToolObservationInput",
             "openhands__sdk__tool__builtins__finish__FinishObservation-Input__1": "#/components/schemas/FinishObservationInput",
             "openhands__sdk__tool__builtins__invoke_skill__InvokeSkillObservation-Input__1": "#/components/schemas/InvokeSkillObservationInput",
+            "openhands__sdk__tool__builtins__switch_llm__SwitchLLMObservation-Input__1": "#/components/schemas/SwitchLLMObservationInput",
             "openhands__sdk__tool__builtins__think__ThinkObservation-Input__1": "#/components/schemas/ThinkObservationInput",
             "openhands__tools__apply_patch__definition__ApplyPatchObservation-Input__1": "#/components/schemas/ApplyPatchObservationInput",
             "openhands__tools__browser_use__definition__BrowserObservation-Input__1": "#/components/schemas/BrowserObservationInput",
@@ -20795,6 +21215,7 @@
             "MCPToolObservationInput": "#/components/schemas/MCPToolObservationInput",
             "FinishObservationInput": "#/components/schemas/FinishObservationInput",
             "InvokeSkillObservationInput": "#/components/schemas/InvokeSkillObservationInput",
+            "SwitchLLMObservationInput": "#/components/schemas/SwitchLLMObservationInput",
             "ThinkObservationInput": "#/components/schemas/ThinkObservationInput",
             "ApplyPatchObservationInput": "#/components/schemas/ApplyPatchObservationInput",
             "BrowserObservationInput": "#/components/schemas/BrowserObservationInput",
@@ -20829,6 +21250,9 @@
           },
           {
             "$ref": "#/components/schemas/InvokeSkillObservationOutput"
+          },
+          {
+            "$ref": "#/components/schemas/SwitchLLMObservationOutput"
           },
           {
             "$ref": "#/components/schemas/ThinkObservationOutput"
@@ -20895,6 +21319,7 @@
             "openhands__sdk__mcp__definition__MCPToolObservation-Output__1": "#/components/schemas/MCPToolObservationOutput",
             "openhands__sdk__tool__builtins__finish__FinishObservation-Output__1": "#/components/schemas/FinishObservationOutput",
             "openhands__sdk__tool__builtins__invoke_skill__InvokeSkillObservation-Output__1": "#/components/schemas/InvokeSkillObservationOutput",
+            "openhands__sdk__tool__builtins__switch_llm__SwitchLLMObservation-Output__1": "#/components/schemas/SwitchLLMObservationOutput",
             "openhands__sdk__tool__builtins__think__ThinkObservation-Output__1": "#/components/schemas/ThinkObservationOutput",
             "openhands__tools__apply_patch__definition__ApplyPatchObservation-Output__1": "#/components/schemas/ApplyPatchObservationOutput",
             "openhands__tools__browser_use__definition__BrowserObservation-Output__1": "#/components/schemas/BrowserObservationOutput",
@@ -20915,6 +21340,7 @@
             "MCPToolObservationOutput": "#/components/schemas/MCPToolObservationOutput",
             "FinishObservationOutput": "#/components/schemas/FinishObservationOutput",
             "InvokeSkillObservationOutput": "#/components/schemas/InvokeSkillObservationOutput",
+            "SwitchLLMObservationOutput": "#/components/schemas/SwitchLLMObservationOutput",
             "ThinkObservationOutput": "#/components/schemas/ThinkObservationOutput",
             "ApplyPatchObservationOutput": "#/components/schemas/ApplyPatchObservationOutput",
             "BrowserObservationOutput": "#/components/schemas/BrowserObservationOutput",
@@ -21064,7 +21490,7 @@
             "title": "Schema Version",
             "minimum": 1.0,
             "type": "integer",
-            "default": 1
+            "default": 3
           },
           "agent_kind": {
             "title": "Agent Kind",
@@ -21118,6 +21544,20 @@
                 "depends_on": [ ],
                 "label": "Enable sub-agents",
                 "prominence": "major",
+                "variant": "openhands"
+              }
+            }
+          },
+          "enable_switch_llm_tool": {
+            "title": "Enable Switch Llm Tool",
+            "type": "boolean",
+            "description": "Enable the built-in switch_llm tool when saved LLM profiles are available. The tool is omitted when no profiles exist.",
+            "default": true,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [ ],
+                "label": "Enable LLM switching tool",
+                "prominence": "minor",
                 "variant": "openhands"
               }
             }
@@ -23134,7 +23574,7 @@
             "type": "string"
           }
         },
-        "description": "Remote workspace implementation that connects to an OpenHands agent server.\n\nRemoteWorkspace provides access to a sandboxed environment running on a remote\nOpenHands agent server. This is the recommended approach for production deployments\nas it provides better isolation and security.\n\nExample:\n    >>> workspace = RemoteWorkspace(\n    ...     host=\"https://agent-server.example.com\",\n    ...     working_dir=\"/workspace\"\n    ... )\n    >>> with workspace:\n    ...     result = workspace.execute_command(\"ls -la\")\n    ...     content = workspace.read_file(\"README.md\")"
+        "description": "Remote workspace implementation that connects to an OpenHands agent server.\n\nRemoteWorkspace provides access to a sandboxed environment running on a remote\nOpenHands agent server. This is the recommended approach for production deployments\nas it provides better isolation and security.\n\nSupports optional completion callbacks on exit via environment variables:\n  - ``AUTOMATION_CALLBACK_URL`` — URL to POST completion status to\n  - ``AUTOMATION_CALLBACK_API_KEY`` — Bearer token for callback auth (optional)\n  - ``AUTOMATION_RUN_ID`` — Run ID to include in callback payload (optional)\n\nExample:\n    >>> workspace = RemoteWorkspace(\n    ...     host=\"https://agent-server.example.com\",\n    ...     working_dir=\"/workspace\"\n    ... )\n    >>> with workspace:\n    ...     result = workspace.execute_command(\"ls -la\")\n    ...     content = workspace.read_file(\"README.md\")"
       },
       "RenameProfileRequest": {
         "title": "RenameProfileRequest",
@@ -24247,6 +24687,12 @@
             "description": "List of pre-approved tools for this skill. AgentSkills standard field (parsed from space-delimited string).",
             "nullable": true
           },
+          "disable_model_invocation": {
+            "title": "Disable Model Invocation",
+            "type": "boolean",
+            "description": "Whether this skill can only be activated by trigger matching and should not be advertised to the model for direct invocation.",
+            "default": false
+          },
           "resources": {
             "type": "object",
             "anyOf": [
@@ -25230,18 +25676,6 @@
             "description": "The seed to use for random number generation.",
             "nullable": true
           },
-          "safety_settings": {
-            "title": "Safety Settings",
-            "type": "object",
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Safety_Settings"
-              }
-            ],
-            "description": "No-op. Safety settings are no longer applied. Deprecated since v1.15.0 and scheduled for removal in v1.20.0.",
-            "nullable": true,
-            "deprecated": true
-          },
           "usage_id": {
             "title": "Usage Id",
             "type": "string",
@@ -25367,6 +25801,292 @@
           }
         },
         "description": "\"Paginated response for suggested tasks.\n\nAttributes:\n    items: List of suggested tasks in the current page.\n    next_page_id: ID for the next page, or None if there are no more pages.\""
+      },
+      "SwitchLLMActionInput": {
+        "title": "SwitchLLMAction",
+        "required": [
+          "profile_name",
+          "reason"
+        ],
+        "type": "object",
+        "properties": {
+          "profile_name": {
+            "title": "Profile Name",
+            "type": "string",
+            "description": "Name of the saved LLM profile to use for future agent steps."
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string",
+            "description": "Brief reason why this profile is a better fit for the next step."
+          },
+          "kind": {
+            "title": "Kind",
+            "enum": [
+              "SwitchLLMAction"
+            ],
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Action for switching this conversation to a saved LLM profile."
+      },
+      "SwitchLLMActionOutput": {
+        "title": "SwitchLLMAction",
+        "required": [
+          "profile_name",
+          "reason",
+          "kind"
+        ],
+        "type": "object",
+        "properties": {
+          "profile_name": {
+            "title": "Profile Name",
+            "type": "string",
+            "description": "Name of the saved LLM profile to use for future agent steps."
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string",
+            "description": "Brief reason why this profile is a better fit for the next step."
+          },
+          "kind": {
+            "title": "Kind",
+            "enum": [
+              "SwitchLLMAction"
+            ],
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Action for switching this conversation to a saved LLM profile."
+      },
+      "SwitchLLMObservationInput": {
+        "title": "SwitchLLMObservation",
+        "required": [
+          "profile_name"
+        ],
+        "type": "object",
+        "properties": {
+          "content": {
+            "title": "Content",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/TextContent"
+                },
+                {
+                  "$ref": "#/components/schemas/ImageContent"
+                }
+              ]
+            },
+            "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
+          },
+          "is_error": {
+            "title": "Is Error",
+            "type": "boolean",
+            "description": "Whether the observation indicates an error",
+            "default": false
+          },
+          "profile_name": {
+            "title": "Profile Name",
+            "type": "string",
+            "description": "Name of the profile that the tool attempted to activate."
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string",
+            "description": "Reason the agent gave for attempting this LLM profile switch.",
+            "nullable": true
+          },
+          "active_model": {
+            "title": "Active Model",
+            "type": "string",
+            "description": "Model configured by the activated profile, when available.",
+            "nullable": true
+          },
+          "kind": {
+            "title": "Kind",
+            "enum": [
+              "SwitchLLMObservation"
+            ],
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Observation returned after switching this conversation's LLM profile."
+      },
+      "SwitchLLMObservationOutput": {
+        "title": "SwitchLLMObservation",
+        "required": [
+          "profile_name",
+          "kind"
+        ],
+        "type": "object",
+        "properties": {
+          "content": {
+            "title": "Content",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/TextContent"
+                },
+                {
+                  "$ref": "#/components/schemas/ImageContent"
+                }
+              ]
+            },
+            "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
+          },
+          "is_error": {
+            "title": "Is Error",
+            "type": "boolean",
+            "description": "Whether the observation indicates an error",
+            "default": false
+          },
+          "profile_name": {
+            "title": "Profile Name",
+            "type": "string",
+            "description": "Name of the profile that the tool attempted to activate."
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string",
+            "description": "Reason the agent gave for attempting this LLM profile switch.",
+            "nullable": true
+          },
+          "active_model": {
+            "title": "Active Model",
+            "type": "string",
+            "description": "Model configured by the activated profile, when available.",
+            "nullable": true
+          },
+          "kind": {
+            "title": "Kind",
+            "enum": [
+              "SwitchLLMObservation"
+            ],
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Observation returned after switching this conversation's LLM profile."
+      },
+      "SwitchLLMToolInput": {
+        "title": "SwitchLLMTool",
+        "required": [
+          "description",
+          "action_type"
+        ],
+        "type": "object",
+        "properties": {
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "action_type": {
+            "title": "Action Type",
+            "type": "object"
+          },
+          "observation_type": {
+            "title": "Observation Type",
+            "type": "object",
+            "anyOf": [
+              {
+                "type": "object"
+              }
+            ],
+            "nullable": true
+          },
+          "annotations": {
+            "type": "object",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+              }
+            ],
+            "nullable": true
+          },
+          "meta": {
+            "title": "Meta",
+            "type": "object",
+            "anyOf": [
+              {
+                "type": "object"
+              }
+            ],
+            "nullable": true
+          },
+          "kind": {
+            "title": "Kind",
+            "enum": [
+              "SwitchLLMTool"
+            ],
+            "type": "string"
+          }
+        },
+        "description": "Tool for switching a conversation to a saved LLM profile."
+      },
+      "SwitchLLMToolOutput": {
+        "title": "SwitchLLMTool",
+        "required": [
+          "description",
+          "action_type",
+          "kind",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "action_type": {
+            "title": "Action Type",
+            "type": "string"
+          },
+          "observation_type": {
+            "title": "Observation Type",
+            "type": "string",
+            "nullable": true
+          },
+          "annotations": {
+            "type": "object",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+              }
+            ],
+            "nullable": true
+          },
+          "meta": {
+            "title": "Meta",
+            "type": "object",
+            "anyOf": [
+              {
+                "type": "object"
+              }
+            ],
+            "nullable": true
+          },
+          "kind": {
+            "title": "Kind",
+            "enum": [
+              "SwitchLLMTool"
+            ],
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "description": "Tool for switching a conversation to a saved LLM profile."
       },
       "SwitchProfileRequest": {
         "title": "SwitchProfileRequest",
@@ -27245,6 +27965,9 @@
             "$ref": "#/components/schemas/InvokeSkillToolInput"
           },
           {
+            "$ref": "#/components/schemas/SwitchLLMToolInput"
+          },
+          {
             "$ref": "#/components/schemas/ThinkToolInput"
           },
           {
@@ -27354,6 +28077,7 @@
             "openhands__sdk__mcp__tool__MCPToolDefinition-Input__1": "#/components/schemas/MCPToolDefinitionInput",
             "openhands__sdk__tool__builtins__finish__FinishTool-Input__1": "#/components/schemas/FinishToolInput",
             "openhands__sdk__tool__builtins__invoke_skill__InvokeSkillTool-Input__1": "#/components/schemas/InvokeSkillToolInput",
+            "openhands__sdk__tool__builtins__switch_llm__SwitchLLMTool-Input__1": "#/components/schemas/SwitchLLMToolInput",
             "openhands__sdk__tool__builtins__think__ThinkTool-Input__1": "#/components/schemas/ThinkToolInput",
             "openhands__tools__apply_patch__definition__ApplyPatchTool-Input__1": "#/components/schemas/ApplyPatchToolInput",
             "openhands__tools__browser_use__definition__BrowserClickTool-Input__1": "#/components/schemas/BrowserClickToolInput",
@@ -27389,6 +28113,7 @@
             "MCPToolDefinitionInput": "#/components/schemas/MCPToolDefinitionInput",
             "FinishToolInput": "#/components/schemas/FinishToolInput",
             "InvokeSkillToolInput": "#/components/schemas/InvokeSkillToolInput",
+            "SwitchLLMToolInput": "#/components/schemas/SwitchLLMToolInput",
             "ThinkToolInput": "#/components/schemas/ThinkToolInput",
             "ApplyPatchToolInput": "#/components/schemas/ApplyPatchToolInput",
             "BrowserClickToolInput": "#/components/schemas/BrowserClickToolInput",
@@ -27438,6 +28163,9 @@
           },
           {
             "$ref": "#/components/schemas/InvokeSkillToolOutput"
+          },
+          {
+            "$ref": "#/components/schemas/SwitchLLMToolOutput"
           },
           {
             "$ref": "#/components/schemas/ThinkToolOutput"
@@ -27549,6 +28277,7 @@
             "openhands__sdk__mcp__tool__MCPToolDefinition-Output__1": "#/components/schemas/MCPToolDefinitionOutput",
             "openhands__sdk__tool__builtins__finish__FinishTool-Output__1": "#/components/schemas/FinishToolOutput",
             "openhands__sdk__tool__builtins__invoke_skill__InvokeSkillTool-Output__1": "#/components/schemas/InvokeSkillToolOutput",
+            "openhands__sdk__tool__builtins__switch_llm__SwitchLLMTool-Output__1": "#/components/schemas/SwitchLLMToolOutput",
             "openhands__sdk__tool__builtins__think__ThinkTool-Output__1": "#/components/schemas/ThinkToolOutput",
             "openhands__tools__apply_patch__definition__ApplyPatchTool-Output__1": "#/components/schemas/ApplyPatchToolOutput",
             "openhands__tools__browser_use__definition__BrowserClickTool-Output__1": "#/components/schemas/BrowserClickToolOutput",
@@ -27584,6 +28313,7 @@
             "MCPToolDefinitionOutput": "#/components/schemas/MCPToolDefinitionOutput",
             "FinishToolOutput": "#/components/schemas/FinishToolOutput",
             "InvokeSkillToolOutput": "#/components/schemas/InvokeSkillToolOutput",
+            "SwitchLLMToolOutput": "#/components/schemas/SwitchLLMToolOutput",
             "ThinkToolOutput": "#/components/schemas/ThinkToolOutput",
             "ApplyPatchToolOutput": "#/components/schemas/ApplyPatchToolOutput",
             "BrowserClickToolOutput": "#/components/schemas/BrowserClickToolOutput",
@@ -28459,7 +29189,7 @@
                   "critic_enabled"
                 ],
                 "label": "Enable iterative refinement",
-                "prominence": "minor"
+                "prominence": "critical"
               }
             }
           },
@@ -28525,41 +29255,6 @@
                 ],
                 "label": "Critic model name",
                 "prominence": "minor"
-              }
-            }
-          },
-          "confirmation_mode": {
-            "title": "Confirmation Mode",
-            "type": "boolean",
-            "description": "Require user confirmation before executing risky actions.",
-            "default": false,
-            "deprecated": true,
-            "unrecognizedKeywords": {
-              "openhands_settings": {
-                "depends_on": [ ],
-                "label": "Confirmation mode",
-                "prominence": "major"
-              }
-            }
-          },
-          "security_analyzer": {
-            "title": "Security Analyzer",
-            "enum": [
-              "llm",
-              "none"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "Security analyzer that evaluates actions before execution.",
-            "nullable": true,
-            "deprecated": true,
-            "unrecognizedKeywords": {
-              "openhands_settings": {
-                "depends_on": [
-                  "confirmation_mode"
-                ],
-                "label": "Security analyzer",
-                "prominence": "major"
               }
             }
           }
@@ -28756,6 +29451,13 @@
             "type": "boolean",
             "default": false
           },
+          "acp_providers": {
+            "title": "Acp Providers",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ACPProviderConfig"
+            }
+          },
           "kind": {
             "title": "Kind",
             "enum": [
@@ -28806,6 +29508,11 @@
           },
           "hide_integrations_page": {
             "title": "Hide Integrations Page",
+            "type": "boolean",
+            "default": false
+          },
+          "enable_acp": {
+            "title": "Enable Acp",
             "type": "boolean",
             "default": false
           },
@@ -29288,6 +29995,14 @@
         },
         "description": "Annotations to provide hints about the tool's behavior.\n\nBased on Model Context Protocol (MCP) spec:\nhttps://github.com/modelcontextprotocol/modelcontextprotocol/blob/caf3424488b10b4a7b1f8cb634244a450a1f4400/schema/2025-06-18/schema.ts#L838"
       },
+      "ACPAgentAcpEnv": {
+        "title": "Acp Env",
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Additional environment variables for the ACP server process"
+      },
       "ACPAgentSettingsAcpEnv": {
         "title": "Acp Env",
         "type": "object",
@@ -29337,43 +30052,6 @@
                 },
                 {
                   "$ref": "#/components/schemas/SecretSourceInput"
-                }
-              ]
-            }
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "Dictionary mapping secret keys to values or secret sources. Secrets are used for authentication and sensitive data handling. Values can be either strings or SecretSource instances (str | SecretSource).",
-        "nullable": true,
-        "discriminator": {
-          "propertyName": "type"
-        },
-        "unrecognizedKeywords": {
-          "acp_compatible": true
-        }
-      },
-      "AgentContextOutputSecrets": {
-        "title": "Secrets",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object",
-              "anyOf": [
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
-                },
-                {
-                  "$ref": "#/components/schemas/SecretSourceOutput"
                 }
               ]
             }
@@ -30423,23 +31101,6 @@
         "properties": {
           "value": {
             "type": "string"
-          }
-        }
-      },
-      "Safety_Settings": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            }
           }
         }
       },

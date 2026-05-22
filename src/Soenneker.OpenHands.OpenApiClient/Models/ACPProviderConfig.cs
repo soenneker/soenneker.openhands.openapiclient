@@ -7,52 +7,53 @@ using System.IO;
 using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
-    /// <summary>
-    /// A single hook definition.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class HookDefinition : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class ACPProviderConfig : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The async property</summary>
-        public bool? Async { get; set; }
-        /// <summary>The command property</summary>
+        /// <summary>The default_command property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Command { get; set; }
+        public List<string>? DefaultCommand { get; set; }
 #nullable restore
 #else
-        public string Command { get; set; }
+        public List<string> DefaultCommand { get; set; }
 #endif
-        /// <summary>The prompt property</summary>
+        /// <summary>The display_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Prompt { get; set; }
+        public string? DisplayName { get; set; }
 #nullable restore
 #else
-        public string Prompt { get; set; }
+        public string DisplayName { get; set; }
 #endif
-        /// <summary>The timeout property</summary>
-        public int? Timeout { get; set; }
-        /// <summary>Types of hooks that can be executed.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookType? Type { get; set; }
+        /// <summary>The key property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Key { get; set; }
+#nullable restore
+#else
+        public string Key { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookDefinition"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPProviderConfig"/> and sets the default values.
         /// </summary>
-        public HookDefinition()
+        public ACPProviderConfig()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookDefinition"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPProviderConfig"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenHands.OpenApiClient.Models.HookDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenHands.OpenApiClient.Models.ACPProviderConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.HookDefinition();
+            return new global::Soenneker.OpenHands.OpenApiClient.Models.ACPProviderConfig();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,11 +63,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "async", n => { Async = n.GetBoolValue(); } },
-                { "command", n => { Command = n.GetStringValue(); } },
-                { "prompt", n => { Prompt = n.GetStringValue(); } },
-                { "timeout", n => { Timeout = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookType>(); } },
+                { "default_command", n => { DefaultCommand = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "display_name", n => { DisplayName = n.GetStringValue(); } },
+                { "key", n => { Key = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -76,11 +75,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("async", Async);
-            writer.WriteStringValue("command", Command);
-            writer.WriteStringValue("prompt", Prompt);
-            writer.WriteIntValue("timeout", Timeout);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookType>("type", Type);
+            writer.WriteCollectionOfPrimitiveValues<string>("default_command", DefaultCommand);
+            writer.WriteStringValue("display_name", DisplayName);
+            writer.WriteStringValue("key", Key);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

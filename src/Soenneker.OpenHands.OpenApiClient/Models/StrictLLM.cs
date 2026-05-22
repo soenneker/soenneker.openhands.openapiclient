@@ -231,15 +231,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public int? RetryMinWait { get; set; }
         /// <summary>The retry_multiplier property</summary>
         public double? RetryMultiplier { get; set; }
-        /// <summary>No-op. Safety settings are no longer applied. Deprecated since v1.15.0 and scheduled for removal in v1.20.0.</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Safety_Settings? SafetySettings { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Safety_Settings SafetySettings { get; set; }
-#endif
         /// <summary>The seed to use for random number generation.</summary>
         public int? Seed { get; set; }
         /// <summary>Enable streaming responses from the LLM. When enabled, the provided `on_token` callback in .completions and .responses will be invoked for each chunk of tokens.</summary>
@@ -334,7 +325,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "retry_max_wait", n => { RetryMaxWait = n.GetIntValue(); } },
                 { "retry_min_wait", n => { RetryMinWait = n.GetIntValue(); } },
                 { "retry_multiplier", n => { RetryMultiplier = n.GetDoubleValue(); } },
-                { "safety_settings", n => { SafetySettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Safety_Settings>(global::Soenneker.OpenHands.OpenApiClient.Models.Safety_Settings.CreateFromDiscriminatorValue); } },
                 { "seed", n => { Seed = n.GetIntValue(); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
@@ -394,7 +384,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteIntValue("retry_max_wait", RetryMaxWait);
             writer.WriteIntValue("retry_min_wait", RetryMinWait);
             writer.WriteDoubleValue("retry_multiplier", RetryMultiplier);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Safety_Settings>("safety_settings", SafetySettings);
             writer.WriteIntValue("seed", Seed);
             writer.WriteBoolValue("stream", Stream);
             writer.WriteDoubleValue("temperature", Temperature);

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserClickToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGetContentToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGetStateToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGetStorageToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGoBackToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserListTabsToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserNavigateToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserScrollToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStartRecordingToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSwitchTabToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserToolSetOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserTypeToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.DelegateToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EditToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.FileEditorToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.FinishToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GlobToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GrepToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.InvokeSkillToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SleeptimeComputeToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskToolSetOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskTrackerToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TerminalToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ThinkToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TomConsultToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WriteFileToolOutput"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserClickToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGetContentToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGetStateToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGetStorageToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGoBackToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserListTabsToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserNavigateToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserScrollToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStartRecordingToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSwitchTabToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserToolSetOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserTypeToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.DelegateToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EditToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.FileEditorToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.FinishToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GlobToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GrepToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.InvokeSkillToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SleeptimeComputeToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskToolSetOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskTrackerToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TerminalToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ThinkToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TomConsultToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WriteFileToolOutput"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ToolDefinitionOutput : IComposedTypeWrapper, IParsable
@@ -237,6 +237,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.SleeptimeComputeToolOutput SleeptimeComputeToolOutput { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMToolOutput"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMToolOutput? SwitchLLMToolOutput { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMToolOutput SwitchLLMToolOutput { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskToolOutput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -415,6 +423,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 result.SleeptimeComputeToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.SleeptimeComputeToolOutput();
             }
+            else if("openhands__sdk__tool__builtins__switch_llm__SwitchLLMTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SwitchLLMToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMToolOutput();
+            }
             else if("openhands__tools__task__definition__TaskTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.TaskToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.TaskToolOutput();
@@ -562,6 +574,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if(SleeptimeComputeToolOutput != null)
             {
                 return SleeptimeComputeToolOutput.GetFieldDeserializers();
+            }
+            else if(SwitchLLMToolOutput != null)
+            {
+                return SwitchLLMToolOutput.GetFieldDeserializers();
             }
             else if(TaskToolOutput != null)
             {
@@ -711,6 +727,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if(SleeptimeComputeToolOutput != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SleeptimeComputeToolOutput>(null, SleeptimeComputeToolOutput);
+            }
+            else if(SwitchLLMToolOutput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMToolOutput>(null, SwitchLLMToolOutput);
             }
             else if(TaskToolOutput != null)
             {

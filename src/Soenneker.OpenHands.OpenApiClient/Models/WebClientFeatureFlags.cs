@@ -16,6 +16,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The deployment_mode property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags_deployment_mode? DeploymentMode { get; set; }
+        /// <summary>The enable_acp property</summary>
+        public bool? EnableAcp { get; set; }
         /// <summary>The enable_billing property</summary>
         public bool? EnableBilling { get; set; }
         /// <summary>The enable_jira property</summary>
@@ -60,6 +62,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "deployment_mode", n => { DeploymentMode = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags_deployment_mode>(); } },
+                { "enable_acp", n => { EnableAcp = n.GetBoolValue(); } },
                 { "enable_billing", n => { EnableBilling = n.GetBoolValue(); } },
                 { "enable_jira", n => { EnableJira = n.GetBoolValue(); } },
                 { "enable_jira_dc", n => { EnableJiraDc = n.GetBoolValue(); } },
@@ -79,6 +82,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags_deployment_mode>("deployment_mode", DeploymentMode);
+            writer.WriteBoolValue("enable_acp", EnableAcp);
             writer.WriteBoolValue("enable_billing", EnableBilling);
             writer.WriteBoolValue("enable_jira", EnableJira);
             writer.WriteBoolValue("enable_jira_dc", EnableJiraDc);

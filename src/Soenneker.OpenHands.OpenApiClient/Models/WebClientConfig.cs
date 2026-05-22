@@ -12,6 +12,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     public partial class WebClientConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The acp_providers property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ACPProviderConfig>? AcpProviders { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ACPProviderConfig> AcpProviders { get; set; }
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The app_mode property</summary>
@@ -123,6 +131,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "acp_providers", n => { AcpProviders = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ACPProviderConfig>(global::Soenneker.OpenHands.OpenApiClient.Models.ACPProviderConfig.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "app_mode", n => { AppMode = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppMode>(); } },
                 { "auth_url", n => { AuthUrl = n.GetStringValue(); } },
                 { "error_message", n => { ErrorMessage = n.GetStringValue(); } },
@@ -147,6 +156,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ACPProviderConfig>("acp_providers", AcpProviders);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppMode>("app_mode", AppMode);
             writer.WriteStringValue("auth_url", AuthUrl);
             writer.WriteStringValue("error_message", ErrorMessage);

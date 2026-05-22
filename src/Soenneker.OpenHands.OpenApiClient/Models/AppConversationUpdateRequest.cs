@@ -41,6 +41,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string SelectedRepository { get; set; }
 #endif
+        /// <summary>The title property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Title { get; set; }
+#nullable restore
+#else
+        public string Title { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequest"/> and sets the default values.
         /// </summary>
@@ -70,6 +78,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "public", n => { Public = n.GetBoolValue(); } },
                 { "selected_branch", n => { SelectedBranch = n.GetStringValue(); } },
                 { "selected_repository", n => { SelectedRepository = n.GetStringValue(); } },
+                { "title", n => { Title = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -83,6 +92,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("public", Public);
             writer.WriteStringValue("selected_branch", SelectedBranch);
             writer.WriteStringValue("selected_repository", SelectedRepository);
+            writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

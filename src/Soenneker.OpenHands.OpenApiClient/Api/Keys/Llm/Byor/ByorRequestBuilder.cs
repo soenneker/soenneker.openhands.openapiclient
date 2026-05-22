@@ -46,7 +46,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys.Llm.Byor
         {
         }
         /// <summary>
-        /// Get the LLM API key for BYOR (Bring Your Own Runtime) for the authenticated user.This endpoint validates that the key exists in LiteLLM before returning it.If validation fails, it automatically generates a new key to ensure usersalways receive a working key.Returns 402 Payment Required if BYOR export is not enabled for the user&apos;s org.
+        /// Get the LLM API key for BYOR (Bring Your Own Runtime).This endpoint validates that the key exists in LiteLLM before returning it.If validation fails, it automatically generates a new key to ensure usersalways receive a working key.Returns 402 Payment Required if BYOR export is not enabled for therequest&apos;s effective org.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LlmApiKeyResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -64,7 +64,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys.Llm.Byor
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.LlmApiKeyResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.LlmApiKeyResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get the LLM API key for BYOR (Bring Your Own Runtime) for the authenticated user.This endpoint validates that the key exists in LiteLLM before returning it.If validation fails, it automatically generates a new key to ensure usersalways receive a working key.Returns 402 Payment Required if BYOR export is not enabled for the user&apos;s org.
+        /// Get the LLM API key for BYOR (Bring Your Own Runtime).This endpoint validates that the key exists in LiteLLM before returning it.If validation fails, it automatically generates a new key to ensure usersalways receive a working key.Returns 402 Payment Required if BYOR export is not enabled for therequest&apos;s effective org.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
