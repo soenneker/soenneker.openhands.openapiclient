@@ -35,14 +35,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorInput_kind? Kind { get; set; }
         /// <summary>The should_request_summary property</summary>
         public bool? ShouldRequestSummary { get; set; }
-        /// <summary>The svc_acc_api_key property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SvcAccApiKey { get; set; }
-#nullable restore
-#else
-        public string SvcAccApiKey { get; set; }
-#endif
         /// <summary>The workspace_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -80,7 +72,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "issue_key", n => { IssueKey = n.GetStringValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorInput_kind>(); } },
                 { "should_request_summary", n => { ShouldRequestSummary = n.GetBoolValue(); } },
-                { "svc_acc_api_key", n => { SvcAccApiKey = n.GetStringValue(); } },
                 { "workspace_name", n => { WorkspaceName = n.GetStringValue(); } },
             };
         }
@@ -95,7 +86,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("issue_key", IssueKey);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorInput_kind>("kind", Kind);
             writer.WriteBoolValue("should_request_summary", ShouldRequestSummary);
-            writer.WriteStringValue("svc_acc_api_key", SvcAccApiKey);
             writer.WriteStringValue("workspace_name", WorkspaceName);
             writer.WriteAdditionalData(AdditionalData);
         }

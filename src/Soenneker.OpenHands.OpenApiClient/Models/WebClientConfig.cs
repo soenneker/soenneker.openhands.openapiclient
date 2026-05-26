@@ -66,6 +66,32 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The gitlab_enabled property</summary>
         public bool? GitlabEnabled { get; set; }
+        /// <summary>The jira_dc_oauth_host property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JiraDcOauthHost { get; set; }
+#nullable restore
+#else
+        public string JiraDcOauthHost { get; set; }
+#endif
+        /// <summary>The jira_dc_service_account_config_error property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JiraDcServiceAccountConfigError { get; set; }
+#nullable restore
+#else
+        public string JiraDcServiceAccountConfigError { get; set; }
+#endif
+        /// <summary>The jira_dc_service_account_email property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JiraDcServiceAccountEmail { get; set; }
+#nullable restore
+#else
+        public string JiraDcServiceAccountEmail { get; set; }
+#endif
+        /// <summary>The jira_dc_service_account_managed property</summary>
+        public bool? JiraDcServiceAccountManaged { get; set; }
         /// <summary>The kind property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_kind? Kind { get; set; }
         /// <summary>The maintenance_start_time property</summary>
@@ -139,6 +165,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "feature_flags", n => { FeatureFlags = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags.CreateFromDiscriminatorValue); } },
                 { "github_app_slug", n => { GithubAppSlug = n.GetStringValue(); } },
                 { "gitlab_enabled", n => { GitlabEnabled = n.GetBoolValue(); } },
+                { "jira_dc_oauth_host", n => { JiraDcOauthHost = n.GetStringValue(); } },
+                { "jira_dc_service_account_config_error", n => { JiraDcServiceAccountConfigError = n.GetStringValue(); } },
+                { "jira_dc_service_account_email", n => { JiraDcServiceAccountEmail = n.GetStringValue(); } },
+                { "jira_dc_service_account_managed", n => { JiraDcServiceAccountManaged = n.GetBoolValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_kind>(); } },
                 { "maintenance_start_time", n => { MaintenanceStartTime = n.GetDateTimeOffsetValue(); } },
                 { "posthog_client_key", n => { PosthogClientKey = n.GetStringValue(); } },
@@ -164,6 +194,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags>("feature_flags", FeatureFlags);
             writer.WriteStringValue("github_app_slug", GithubAppSlug);
             writer.WriteBoolValue("gitlab_enabled", GitlabEnabled);
+            writer.WriteStringValue("jira_dc_oauth_host", JiraDcOauthHost);
+            writer.WriteStringValue("jira_dc_service_account_config_error", JiraDcServiceAccountConfigError);
+            writer.WriteStringValue("jira_dc_service_account_email", JiraDcServiceAccountEmail);
+            writer.WriteBoolValue("jira_dc_service_account_managed", JiraDcServiceAccountManaged);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_kind>("kind", Kind);
             writer.WriteDateTimeOffsetValue("maintenance_start_time", MaintenanceStartTime);
             writer.WriteStringValue("posthog_client_key", PosthogClientKey);

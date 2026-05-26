@@ -18415,8 +18415,7 @@
         "required": [
           "issue_key",
           "workspace_name",
-          "base_api_url",
-          "svc_acc_api_key"
+          "base_api_url"
         ],
         "type": "object",
         "properties": {
@@ -18437,10 +18436,6 @@
             "title": "Base Api Url",
             "type": "string"
           },
-          "svc_acc_api_key": {
-            "title": "Svc Acc Api Key",
-            "type": "string"
-          },
           "kind": {
             "title": "Kind",
             "enum": [
@@ -18457,7 +18452,6 @@
           "issue_key",
           "workspace_name",
           "base_api_url",
-          "svc_acc_api_key",
           "kind"
         ],
         "type": "object",
@@ -18477,10 +18471,6 @@
           },
           "base_api_url": {
             "title": "Base Api Url",
-            "type": "string"
-          },
-          "svc_acc_api_key": {
-            "title": "Svc Acc Api Key",
             "type": "string"
           },
           "kind": {
@@ -29457,6 +29447,26 @@
             "items": {
               "$ref": "#/components/schemas/ACPProviderConfig"
             }
+          },
+          "jira_dc_oauth_host": {
+            "title": "Jira Dc Oauth Host",
+            "type": "string",
+            "nullable": true
+          },
+          "jira_dc_service_account_managed": {
+            "title": "Jira Dc Service Account Managed",
+            "type": "boolean",
+            "default": false
+          },
+          "jira_dc_service_account_email": {
+            "title": "Jira Dc Service Account Email",
+            "type": "string",
+            "nullable": true
+          },
+          "jira_dc_service_account_config_error": {
+            "title": "Jira Dc Service Account Config Error",
+            "type": "string",
+            "nullable": true
           },
           "kind": {
             "title": "Kind",
