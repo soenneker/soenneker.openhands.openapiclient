@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Me;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members;
+using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Settings;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Switch;
 using Soenneker.OpenHands.OpenApiClient.Models;
@@ -36,6 +37,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.MembersRequestBuilder Members
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.MembersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The profiles property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.ProfilesRequestBuilder Profiles
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.ProfilesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The settings property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Settings.SettingsRequestBuilder Settings

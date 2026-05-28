@@ -8,22 +8,30 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Response body for fetching a single profile.``config.api_key`` is always ``None`` in the response; the sibling``api_key_set`` bool reports whether a key is stored. This matchesthe ``/api/v1/settings`` convention and prevents the &quot;GET → edit →POST&quot; flow from poisoning the stored key with a mask string.
+    /// Summary info for a profile (no secrets).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ProfileDetailResponse : IAdditionalDataHolder, IParsable
+    public partial class ServerRoutesOrgProfilesProfileInfo : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The api_key_set property</summary>
         public bool? ApiKeySet { get; set; }
-        /// <summary>The config property</summary>
+        /// <summary>The base_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ProfileDetailResponse_config? Config { get; set; }
+        public string? BaseUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ProfileDetailResponse_config Config { get; set; }
+        public string BaseUrl { get; set; }
+#endif
+        /// <summary>The model property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Model { get; set; }
+#nullable restore
+#else
+        public string Model { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -34,21 +42,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ProfileDetailResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileInfo"/> and sets the default values.
         /// </summary>
-        public ProfileDetailResponse()
+        public ServerRoutesOrgProfilesProfileInfo()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ProfileDetailResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileInfo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenHands.OpenApiClient.Models.ProfileDetailResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.ProfileDetailResponse();
+            return new global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileInfo();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +67,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "api_key_set", n => { ApiKeySet = n.GetBoolValue(); } },
-                { "config", n => { Config = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileDetailResponse_config>(global::Soenneker.OpenHands.OpenApiClient.Models.ProfileDetailResponse_config.CreateFromDiscriminatorValue); } },
+                { "base_url", n => { BaseUrl = n.GetStringValue(); } },
+                { "model", n => { Model = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -71,7 +80,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("api_key_set", ApiKeySet);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileDetailResponse_config>("config", Config);
+            writer.WriteStringValue("base_url", BaseUrl);
+            writer.WriteStringValue("model", Model);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }

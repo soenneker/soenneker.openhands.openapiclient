@@ -36,17 +36,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings.Profiles.Item.Activa
         /// <summary>
         /// Switch ``agent_settings.llm`` to use a saved profile.Applies the same ``base_url`` fixups as ``POST /api/v1/settings``, soactivating a profile that omits ``base_url`` still points at theprovider&apos;s default endpoint.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ActivateProfileResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterActivateProfileResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ActivateProfileResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterActivateProfileResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ActivateProfileResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterActivateProfileResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings.Profiles.Item.Activa
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ActivateProfileResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ActivateProfileResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterActivateProfileResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterActivateProfileResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Switch ``agent_settings.llm`` to use a saved profile.Applies the same ``base_url`` fixups as ``POST /api/v1/settings``, soactivating a profile that omits ``base_url`` still points at theprovider&apos;s default endpoint.

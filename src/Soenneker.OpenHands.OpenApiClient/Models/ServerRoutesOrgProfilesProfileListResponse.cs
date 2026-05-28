@@ -8,37 +8,45 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Request body for renaming a profile.``new_name`` is validated against the same regex as the path-level``{name}`` param so the two stay in sync.
+    /// Response for listing profiles.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class RenameProfileRequest : IAdditionalDataHolder, IParsable
+    public partial class ServerRoutesOrgProfilesProfileListResponse : IAdditionalDataHolder, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The new_name property</summary>
+        /// <summary>The active_profile property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewName { get; set; }
+        public string? ActiveProfile { get; set; }
 #nullable restore
 #else
-        public string NewName { get; set; }
+        public string ActiveProfile { get; set; }
+#endif
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The profiles property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileInfo>? Profiles { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileInfo> Profiles { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.RenameProfileRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileListResponse"/> and sets the default values.
         /// </summary>
-        public RenameProfileRequest()
+        public ServerRoutesOrgProfilesProfileListResponse()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.RenameProfileRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileListResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenHands.OpenApiClient.Models.RenameProfileRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileListResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.RenameProfileRequest();
+            return new global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileListResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +56,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "new_name", n => { NewName = n.GetStringValue(); } },
+                { "active_profile", n => { ActiveProfile = n.GetStringValue(); } },
+                { "profiles", n => { Profiles = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileInfo>(global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileInfo.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,7 +67,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("new_name", NewName);
+            writer.WriteStringValue("active_profile", ActiveProfile);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileInfo>("profiles", Profiles);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

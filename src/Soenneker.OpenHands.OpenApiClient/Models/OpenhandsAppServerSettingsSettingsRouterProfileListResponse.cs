@@ -11,7 +11,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// Response body for listing profiles.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ProfileListResponse : IAdditionalDataHolder, IParsable
+    public partial class OpenhandsAppServerSettingsSettingsRouterProfileListResponse : IAdditionalDataHolder, IParsable
     {
         /// <summary>The active_profile property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -26,27 +26,27 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The profiles property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileInfo>? Profiles { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileInfo>? Profiles { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileInfo> Profiles { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileInfo> Profiles { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ProfileListResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileListResponse"/> and sets the default values.
         /// </summary>
-        public ProfileListResponse()
+        public OpenhandsAppServerSettingsSettingsRouterProfileListResponse()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ProfileListResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileListResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenHands.OpenApiClient.Models.ProfileListResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileListResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.ProfileListResponse();
+            return new global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileListResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "active_profile", n => { ActiveProfile = n.GetStringValue(); } },
-                { "profiles", n => { Profiles = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileInfo>(global::Soenneker.OpenHands.OpenApiClient.Models.ProfileInfo.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "profiles", n => { Profiles = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileInfo>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileInfo.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("active_profile", ActiveProfile);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileInfo>("profiles", Profiles);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileInfo>("profiles", Profiles);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

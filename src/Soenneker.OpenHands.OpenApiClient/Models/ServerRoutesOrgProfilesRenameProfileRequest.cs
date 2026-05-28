@@ -8,55 +8,37 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Profile summary returned by the list endpoint.``api_key_set`` follows the same convention as ``llm_api_key_set`` onthe main settings response — the frontend uses it to show &quot;key stored&quot;without exposing (or accidentally round-tripping) a mask string.
+    /// Request body for renaming a profile.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ProfileInfo : IAdditionalDataHolder, IParsable
+    public partial class ServerRoutesOrgProfilesRenameProfileRequest : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The api_key_set property</summary>
-        public bool? ApiKeySet { get; set; }
-        /// <summary>The base_url property</summary>
+        /// <summary>The new_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BaseUrl { get; set; }
+        public string? NewName { get; set; }
 #nullable restore
 #else
-        public string BaseUrl { get; set; }
-#endif
-        /// <summary>The model property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Model { get; set; }
-#nullable restore
-#else
-        public string Model { get; set; }
-#endif
-        /// <summary>The name property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Name { get; set; }
-#nullable restore
-#else
-        public string Name { get; set; }
+        public string NewName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ProfileInfo"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesRenameProfileRequest"/> and sets the default values.
         /// </summary>
-        public ProfileInfo()
+        public ServerRoutesOrgProfilesRenameProfileRequest()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ProfileInfo"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesRenameProfileRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenHands.OpenApiClient.Models.ProfileInfo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesRenameProfileRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.ProfileInfo();
+            return new global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesRenameProfileRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,10 +48,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "api_key_set", n => { ApiKeySet = n.GetBoolValue(); } },
-                { "base_url", n => { BaseUrl = n.GetStringValue(); } },
-                { "model", n => { Model = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
+                { "new_name", n => { NewName = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -79,10 +58,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("api_key_set", ApiKeySet);
-            writer.WriteStringValue("base_url", BaseUrl);
-            writer.WriteStringValue("model", Model);
-            writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("new_name", NewName);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

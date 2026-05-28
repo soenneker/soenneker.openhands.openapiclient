@@ -2053,7 +2053,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProfileListResponse"
+                  "$ref": "#/components/schemas/OpenhandsAppServerSettingsSettingsRouterProfileListResponse"
                 }
               }
             }
@@ -2094,7 +2094,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProfileDetailResponse"
+                  "$ref": "#/components/schemas/OpenhandsAppServerSettingsSettingsRouterProfileDetailResponse"
                 }
               }
             }
@@ -2152,7 +2152,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProfileMutationResponse"
+                  "$ref": "#/components/schemas/OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse"
                 }
               }
             }
@@ -2201,7 +2201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProfileMutationResponse"
+                  "$ref": "#/components/schemas/OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse"
                 }
               }
             }
@@ -2252,7 +2252,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActivateProfileResponse"
+                  "$ref": "#/components/schemas/OpenhandsAppServerSettingsSettingsRouterActivateProfileResponse"
                 }
               }
             }
@@ -2301,7 +2301,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/RenameProfileRequest"
+                "$ref": "#/components/schemas/OpenhandsAppServerSettingsSettingsRouterRenameProfileRequest"
               }
             }
           }
@@ -2312,7 +2312,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProfileMutationResponse"
+                  "$ref": "#/components/schemas/OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse"
                 }
               }
             }
@@ -6338,6 +6338,371 @@
         ]
       }
     },
+    "/api/organizations/{org_id}/profiles": {
+      "get": {
+        "tags": [
+          "Organization Profiles"
+        ],
+        "summary": "List Profiles",
+        "description": "List all LLM profiles for this organization.",
+        "operationId": "list-profiles-api-organizations-org-id-profiles-get",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerRoutesOrgProfilesProfileListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": [ ]
+          }
+        ]
+      }
+    },
+    "/api/organizations/{org_id}/profiles/{name}": {
+      "get": {
+        "tags": [
+          "Organization Profiles"
+        ],
+        "summary": "Get Profile",
+        "description": "Get details of a specific profile.",
+        "operationId": "get-profile-api-organizations-org-id-profiles-name-get",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Name",
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerRoutesOrgProfilesProfileDetailResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": [ ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Organization Profiles"
+        ],
+        "summary": "Save Profile",
+        "description": "Create or update an LLM profile.\n\nIf ``llm`` is omitted, saves a copy of the current org LLM defaults.",
+        "operationId": "save-profile-api-organizations-org-id-profiles-name-post",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Name",
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ServerRoutesOrgProfilesSaveProfileRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerRoutesOrgProfilesProfileMutationResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": [ ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Organization Profiles"
+        ],
+        "summary": "Delete Profile",
+        "description": "Delete an LLM profile.",
+        "operationId": "delete-profile-api-organizations-org-id-profiles-name-delete",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Name",
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerRoutesOrgProfilesProfileMutationResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": [ ]
+          }
+        ]
+      }
+    },
+    "/api/organizations/{org_id}/profiles/{name}/activate": {
+      "post": {
+        "tags": [
+          "Organization Profiles"
+        ],
+        "summary": "Activate Profile",
+        "description": "\"Activate a profile for the current user.\n\nTwo side effects: updates the org-wide ``profiles.active`` marker and\nwrites the profile's LLM into the calling member's\n``agent_settings_diff``. Both writes share a single transaction so a\nfailure in the second can't leave the org marker advanced without the\nmember's settings catching up. Because the first effect is org-level\nstate, this requires ``EDIT_ORG_SETTINGS`` — matching the CRUD endpoints\nrather than the read-only listing. For personal orgs the owner has the\npermission natively; for team orgs this scopes \\\"set org default profile\\\"\nto admins.\"",
+        "operationId": "activate-profile-api-organizations-org-id-profiles-name-activate-post",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Name",
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerRoutesOrgProfilesActivateProfileResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": [ ]
+          }
+        ]
+      }
+    },
+    "/api/organizations/{org_id}/profiles/{name}/rename": {
+      "post": {
+        "tags": [
+          "Organization Profiles"
+        ],
+        "summary": "Rename Profile",
+        "description": "Rename an LLM profile.",
+        "operationId": "rename-profile-api-organizations-org-id-profiles-name-rename-post",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Name",
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ServerRoutesOrgProfilesRenameProfileRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerRoutesOrgProfilesProfileMutationResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": [ ]
+          }
+        ]
+      }
+    },
     "/api/admin/verified-models": {
       "get": {
         "tags": [
@@ -8739,30 +9104,6 @@
         ],
         "type": "string",
         "additionalProperties": false
-      },
-      "ActivateProfileResponse": {
-        "title": "ActivateProfileResponse",
-        "required": [
-          "name",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "Name",
-            "type": "string"
-          },
-          "message": {
-            "title": "Message",
-            "type": "string"
-          },
-          "model": {
-            "title": "Model",
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "description": "Response body for activating a profile."
       },
       "Agent": {
         "title": "Agent",
@@ -22858,100 +23199,6 @@
         },
         "description": "\"Catch composed threats that plain regex signatures would miss.\n\nUse this when you need to detect threats defined by *combinations*\nof tokens (e.g., ``curl`` piped to ``bash``) rather than individual\nsignatures. While these rails *could* each be expressed as a single\nregex, keeping them as named rules with per-segment evaluation makes\nthe threat model more interpretable, the rules easier to maintain,\nand the audit trail clearer than a flat pattern list.\n\nEvaluates normalized executable segments only -- reasoning text is\nnever scanned.\n\nReturns ``SecurityRisk.HIGH`` when a rail fires, ``LOW`` otherwise.\nPair with ``ConfirmRisky`` and compose via ``EnsembleSecurityAnalyzer``.\n\nv1 rails: fetch-to-exec, raw-disk-op, catastrophic-delete.\n\nExample::\n\n    from openhands.sdk.security import PolicyRailSecurityAnalyzer\n\n    analyzer = PolicyRailSecurityAnalyzer()\n    # risk = analyzer.security_risk(action)\""
       },
-      "ProfileDetailResponse": {
-        "title": "ProfileDetailResponse",
-        "required": [
-          "name",
-          "config"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "Name",
-            "type": "string"
-          },
-          "config": {
-            "title": "Config",
-            "type": "object"
-          },
-          "api_key_set": {
-            "title": "Api Key Set",
-            "type": "boolean",
-            "default": false
-          }
-        },
-        "description": "Response body for fetching a single profile.\n\n``config.api_key`` is always ``None`` in the response; the sibling\n``api_key_set`` bool reports whether a key is stored. This matches\nthe ``/api/v1/settings`` convention and prevents the \"GET → edit →\nPOST\" flow from poisoning the stored key with a mask string."
-      },
-      "ProfileInfo": {
-        "title": "ProfileInfo",
-        "required": [
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "Name",
-            "type": "string"
-          },
-          "model": {
-            "title": "Model",
-            "type": "string",
-            "nullable": true
-          },
-          "base_url": {
-            "title": "Base Url",
-            "type": "string",
-            "nullable": true
-          },
-          "api_key_set": {
-            "title": "Api Key Set",
-            "type": "boolean",
-            "default": false
-          }
-        },
-        "description": "Profile summary returned by the list endpoint.\n\n``api_key_set`` follows the same convention as ``llm_api_key_set`` on\nthe main settings response — the frontend uses it to show \"key stored\"\nwithout exposing (or accidentally round-tripping) a mask string."
-      },
-      "ProfileListResponse": {
-        "title": "ProfileListResponse",
-        "required": [
-          "profiles"
-        ],
-        "type": "object",
-        "properties": {
-          "profiles": {
-            "title": "Profiles",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProfileInfo"
-            }
-          },
-          "active_profile": {
-            "title": "Active Profile",
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "description": "Response body for listing profiles."
-      },
-      "ProfileMutationResponse": {
-        "title": "ProfileMutationResponse",
-        "required": [
-          "name",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "Name",
-            "type": "string"
-          },
-          "message": {
-            "title": "Message",
-            "type": "string"
-          }
-        },
-        "description": "Response body for save/delete operations."
-      },
       "Provider": {
         "title": "Provider",
         "required": [
@@ -23566,23 +23813,6 @@
         },
         "description": "Remote workspace implementation that connects to an OpenHands agent server.\n\nRemoteWorkspace provides access to a sandboxed environment running on a remote\nOpenHands agent server. This is the recommended approach for production deployments\nas it provides better isolation and security.\n\nSupports optional completion callbacks on exit via environment variables:\n  - ``AUTOMATION_CALLBACK_URL`` — URL to POST completion status to\n  - ``AUTOMATION_CALLBACK_API_KEY`` — Bearer token for callback auth (optional)\n  - ``AUTOMATION_RUN_ID`` — Run ID to include in callback payload (optional)\n\nExample:\n    >>> workspace = RemoteWorkspace(\n    ...     host=\"https://agent-server.example.com\",\n    ...     working_dir=\"/workspace\"\n    ... )\n    >>> with workspace:\n    ...     result = workspace.execute_command(\"ls -la\")\n    ...     content = workspace.read_file(\"README.md\")"
       },
-      "RenameProfileRequest": {
-        "title": "RenameProfileRequest",
-        "required": [
-          "new_name"
-        ],
-        "type": "object",
-        "properties": {
-          "new_name": {
-            "title": "New Name",
-            "maxLength": 64,
-            "minLength": 1,
-            "pattern": "^[A-Za-z0-9._-]{1,64}$",
-            "type": "string"
-          }
-        },
-        "description": "Request body for renaming a profile.\n\n``new_name`` is validated against the same regex as the path-level\n``{name}`` param so the two stay in sync."
-      },
       "Repository": {
         "title": "Repository",
         "required": [
@@ -24100,27 +24330,6 @@
         ],
         "type": "string",
         "additionalProperties": false
-      },
-      "SaveProfileRequest": {
-        "title": "SaveProfileRequest",
-        "type": "object",
-        "properties": {
-          "include_secrets": {
-            "title": "Include Secrets",
-            "type": "boolean",
-            "default": true
-          },
-          "llm": {
-            "type": "object",
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/StrictLLM"
-              }
-            ],
-            "nullable": true
-          }
-        },
-        "description": "\"Request body for saving a profile.\n\nIf ``llm`` is provided, it is used as the profile config; otherwise the\ncurrent ``agent_settings.llm`` is saved. The ``llm`` field is typed as\n:class:`StrictLLM`, which forbids unknown keys — so a typo like\n``{\\\"llm\\\": {\\\"custom_header\\\": \\\"x\\\"}}`` returns 422 instead of being silently\ndropped.\n\n**Security note:** when ``llm.api_key`` is included in the request body,\nit is transmitted in plaintext over the wire and present in any request\nlog or error trace that captures request bodies. ``SecretStr`` masks it\nin Pydantic reprs, but callers and operators should still avoid logging\nraw request bodies on this endpoint.\""
       },
       "SecretNameItem": {
         "title": "SecretNameItem",
@@ -29948,6 +30157,162 @@
         },
         "description": "\"Additional properties describing a Tool to clients.\n\nNOTE: all properties in ToolAnnotations are **hints**.\nThey are not guaranteed to provide a faithful description of\ntool behavior (including descriptive properties like `title`).\n\nClients should never make tool use decisions based on ToolAnnotations\nreceived from untrusted servers.\""
       },
+      "OpenhandsAppServerSettingsSettingsRouterActivateProfileResponse": {
+        "title": "ActivateProfileResponse",
+        "required": [
+          "name",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          },
+          "model": {
+            "title": "Model",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "description": "Response body for activating a profile."
+      },
+      "OpenhandsAppServerSettingsSettingsRouterProfileDetailResponse": {
+        "title": "ProfileDetailResponse",
+        "required": [
+          "name",
+          "config"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "config": {
+            "title": "Config",
+            "type": "object"
+          },
+          "api_key_set": {
+            "title": "Api Key Set",
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "description": "Response body for fetching a single profile.\n\n``config.api_key`` is always ``None`` in the response; the sibling\n``api_key_set`` bool reports whether a key is stored. This matches\nthe ``/api/v1/settings`` convention and prevents the \"GET → edit →\nPOST\" flow from poisoning the stored key with a mask string."
+      },
+      "OpenhandsAppServerSettingsSettingsRouterProfileInfo": {
+        "title": "ProfileInfo",
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "model": {
+            "title": "Model",
+            "type": "string",
+            "nullable": true
+          },
+          "base_url": {
+            "title": "Base Url",
+            "type": "string",
+            "nullable": true
+          },
+          "api_key_set": {
+            "title": "Api Key Set",
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "description": "Profile summary returned by the list endpoint.\n\n``api_key_set`` follows the same convention as ``llm_api_key_set`` on\nthe main settings response — the frontend uses it to show \"key stored\"\nwithout exposing (or accidentally round-tripping) a mask string."
+      },
+      "OpenhandsAppServerSettingsSettingsRouterProfileListResponse": {
+        "title": "ProfileListResponse",
+        "required": [
+          "profiles"
+        ],
+        "type": "object",
+        "properties": {
+          "profiles": {
+            "title": "Profiles",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OpenhandsAppServerSettingsSettingsRouterProfileInfo"
+            }
+          },
+          "active_profile": {
+            "title": "Active Profile",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "description": "Response body for listing profiles."
+      },
+      "OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse": {
+        "title": "ProfileMutationResponse",
+        "required": [
+          "name",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          }
+        },
+        "description": "Response body for save/delete operations."
+      },
+      "OpenhandsAppServerSettingsSettingsRouterRenameProfileRequest": {
+        "title": "RenameProfileRequest",
+        "required": [
+          "new_name"
+        ],
+        "type": "object",
+        "properties": {
+          "new_name": {
+            "title": "New Name",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9._-]{1,64}$",
+            "type": "string"
+          }
+        },
+        "description": "Request body for renaming a profile.\n\n``new_name`` is validated against the same regex as the path-level\n``{name}`` param so the two stay in sync."
+      },
+      "OpenhandsAppServerSettingsSettingsRouterSaveProfileRequest": {
+        "title": "SaveProfileRequest",
+        "type": "object",
+        "properties": {
+          "include_secrets": {
+            "title": "Include Secrets",
+            "type": "boolean",
+            "default": true
+          },
+          "llm": {
+            "type": "object",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StrictLLM"
+              }
+            ],
+            "nullable": true
+          }
+        },
+        "description": "\"Request body for saving a profile.\n\nIf ``llm`` is provided, it is used as the profile config; otherwise the\ncurrent ``agent_settings.llm`` is saved. The ``llm`` field is typed as\n:class:`StrictLLM`, which forbids unknown keys — so a typo like\n``{\\\"llm\\\": {\\\"custom_header\\\": \\\"x\\\"}}`` returns 422 instead of being silently\ndropped.\n\n**Security note:** when ``llm.api_key`` is included in the request body,\nit is transmitted in plaintext over the wire and present in any request\nlog or error trace that captures request bodies. ``SecretStr`` masks it\nin Pydantic reprs, but callers and operators should still avoid logging\nraw request bodies on this endpoint.\""
+      },
       "OpenhandsSdkToolSpecTool": {
         "title": "Tool",
         "required": [
@@ -30004,6 +30369,159 @@
           }
         },
         "description": "Annotations to provide hints about the tool's behavior.\n\nBased on Model Context Protocol (MCP) spec:\nhttps://github.com/modelcontextprotocol/modelcontextprotocol/blob/caf3424488b10b4a7b1f8cb634244a450a1f4400/schema/2025-06-18/schema.ts#L838"
+      },
+      "ServerRoutesOrgProfilesActivateProfileResponse": {
+        "title": "ActivateProfileResponse",
+        "required": [
+          "name",
+          "message",
+          "llm"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          },
+          "llm": {
+            "title": "Llm",
+            "type": "object"
+          }
+        },
+        "description": "Response for activating a profile."
+      },
+      "ServerRoutesOrgProfilesProfileDetailResponse": {
+        "title": "ProfileDetailResponse",
+        "required": [
+          "name",
+          "llm"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "llm": {
+            "title": "Llm",
+            "type": "object"
+          }
+        },
+        "description": "Response for getting a single profile's details."
+      },
+      "ServerRoutesOrgProfilesProfileInfo": {
+        "title": "ProfileInfo",
+        "required": [
+          "name",
+          "model",
+          "base_url",
+          "api_key_set"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "model": {
+            "title": "Model",
+            "type": "string",
+            "nullable": true
+          },
+          "base_url": {
+            "title": "Base Url",
+            "type": "string",
+            "nullable": true
+          },
+          "api_key_set": {
+            "title": "Api Key Set",
+            "type": "boolean"
+          }
+        },
+        "description": "Summary info for a profile (no secrets)."
+      },
+      "ServerRoutesOrgProfilesProfileListResponse": {
+        "title": "ProfileListResponse",
+        "required": [
+          "profiles",
+          "active_profile"
+        ],
+        "type": "object",
+        "properties": {
+          "profiles": {
+            "title": "Profiles",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ServerRoutesOrgProfilesProfileInfo"
+            }
+          },
+          "active_profile": {
+            "title": "Active Profile",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "description": "Response for listing profiles."
+      },
+      "ServerRoutesOrgProfilesProfileMutationResponse": {
+        "title": "ProfileMutationResponse",
+        "required": [
+          "name",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          }
+        },
+        "description": "Response for profile mutations (save, delete, rename)."
+      },
+      "ServerRoutesOrgProfilesRenameProfileRequest": {
+        "title": "RenameProfileRequest",
+        "required": [
+          "new_name"
+        ],
+        "type": "object",
+        "properties": {
+          "new_name": {
+            "title": "New Name",
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "description": "Request body for renaming a profile."
+      },
+      "ServerRoutesOrgProfilesSaveProfileRequest": {
+        "title": "SaveProfileRequest",
+        "type": "object",
+        "properties": {
+          "include_secrets": {
+            "title": "Include Secrets",
+            "type": "boolean",
+            "default": true
+          },
+          "llm": {
+            "type": "object",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StrictLLM"
+              }
+            ],
+            "nullable": true
+          }
+        },
+        "description": "Request body for saving a profile."
       },
       "ACPAgentAcpEnv": {
         "title": "Acp Env",
@@ -30604,7 +31122,7 @@
         "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/SaveProfileRequest"
+            "$ref": "#/components/schemas/OpenhandsAppServerSettingsSettingsRouterSaveProfileRequest"
           }
         ],
         "properties": {
@@ -30617,7 +31135,7 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "SaveProfileRequest": "#/components/schemas/SaveProfileRequest"
+            "OpenhandsAppServerSettingsSettingsRouterSaveProfileRequest": "#/components/schemas/OpenhandsAppServerSettingsSettingsRouterSaveProfileRequest"
           }
         }
       },

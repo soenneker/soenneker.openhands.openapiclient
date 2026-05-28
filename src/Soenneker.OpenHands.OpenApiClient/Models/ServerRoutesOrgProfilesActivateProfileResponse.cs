@@ -8,13 +8,21 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Response body for activating a profile.
+    /// Response for activating a profile.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ActivateProfileResponse : IAdditionalDataHolder, IParsable
+    public partial class ServerRoutesOrgProfilesActivateProfileResponse : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The llm property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponse_llm? Llm { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponse_llm Llm { get; set; }
+#endif
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,14 +30,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #nullable restore
 #else
         public string Message { get; set; }
-#endif
-        /// <summary>The model property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Model { get; set; }
-#nullable restore
-#else
-        public string Model { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,21 +40,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ActivateProfileResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponse"/> and sets the default values.
         /// </summary>
-        public ActivateProfileResponse()
+        public ServerRoutesOrgProfilesActivateProfileResponse()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ActivateProfileResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenHands.OpenApiClient.Models.ActivateProfileResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.ActivateProfileResponse();
+            return new global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,8 +64,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "llm", n => { Llm = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponse_llm>(global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponse_llm.CreateFromDiscriminatorValue); } },
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "model", n => { Model = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -76,8 +76,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponse_llm>("llm", Llm);
             writer.WriteStringValue("message", Message);
-            writer.WriteStringValue("model", Model);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -48,17 +48,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings.Profiles.Item
         /// <summary>
         /// &quot;Delete a saved profile.Idempotent: returns success even if the profile didn&apos;t exist.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ProfileMutationResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileMutationResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileMutationResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -66,22 +66,22 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings.Profiles.Item
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileMutationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ProfileMutationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a specific profile&apos;s configuration.Returns the full LLM config with ``api_key`` nulled out; the sibling``api_key_set`` flag reports whether a key is stored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ProfileDetailResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileDetailResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileDetailResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileDetailResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileDetailResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileDetailResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -89,23 +89,23 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings.Profiles.Item
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileDetailResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ProfileDetailResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileDetailResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileDetailResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Save an LLM configuration as a named profile.If ``request.llm`` is supplied, it is saved as the profile&apos;s config.Otherwise the current ``agent_settings.llm`` is snapshotted. Existingprofiles with the same name are overwritten.Runs inside a per-user lock to prevent lost updates between concurrentprofile writes. Returns 409 if the user is already at the profilecap (:data:`MAX_PROFILES_PER_USER`).
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ProfileMutationResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileMutationResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.SaveProfileApiV1SettingsProfilesNamePost body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.SaveProfileApiV1SettingsProfilesNamePost body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileMutationResponse> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.SaveProfileApiV1SettingsProfilesNamePost body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.SaveProfileApiV1SettingsProfilesNamePost body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -114,7 +114,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings.Profiles.Item
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileMutationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ProfileMutationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Delete a saved profile.Idempotent: returns success even if the profile didn&apos;t exist.&quot;
