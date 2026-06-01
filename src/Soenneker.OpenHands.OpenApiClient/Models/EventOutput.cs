@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CondensationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CondensationRequestOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CondensationSummaryEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationErrorEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LLMCompletionLogEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MessageEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PauseEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerErrorEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StreamingDeltaEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TokenEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationOutput"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPToolCallEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CondensationOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CondensationRequestOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CondensationSummaryEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationErrorEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.InterruptEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LLMCompletionLogEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MessageEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PauseEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerErrorEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StreamingDeltaEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TokenEventOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationOutput"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EventOutput : IComposedTypeWrapper, IParsable
@@ -84,6 +84,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput HookExecutionEventOutput { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.InterruptEventOutput"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.InterruptEventOutput? InterruptEventOutput { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.InterruptEventOutput InterruptEventOutput { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LLMCompletionLogEventOutput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -203,6 +211,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 result.HookExecutionEventOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput();
             }
+            else if("InterruptEventOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.InterruptEventOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.InterruptEventOutput();
+            }
             else if("LLMCompletionLogEventOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.LLMCompletionLogEventOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.LLMCompletionLogEventOutput();
@@ -282,6 +294,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if(HookExecutionEventOutput != null)
             {
                 return HookExecutionEventOutput.GetFieldDeserializers();
+            }
+            else if(InterruptEventOutput != null)
+            {
+                return InterruptEventOutput.GetFieldDeserializers();
             }
             else if(LLMCompletionLogEventOutput != null)
             {
@@ -363,6 +379,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if(HookExecutionEventOutput != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventOutput>(null, HookExecutionEventOutput);
+            }
+            else if(InterruptEventOutput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.InterruptEventOutput>(null, InterruptEventOutput);
             }
             else if(LLMCompletionLogEventOutput != null)
             {

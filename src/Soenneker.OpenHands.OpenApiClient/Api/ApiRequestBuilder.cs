@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.Accept_tos;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin;
+using Soenneker.OpenHands.OpenApiClient.Api.Analytics;
 using Soenneker.OpenHands.OpenApiClient.Api.Authenticate;
 using Soenneker.OpenHands.OpenApiClient.Api.Billing;
 using Soenneker.OpenHands.OpenApiClient.Api.Complete_onboarding;
@@ -39,6 +40,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api
         public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.AdminRequestBuilder Admin
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.AdminRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The analytics property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Analytics.AnalyticsRequestBuilder Analytics
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Analytics.AnalyticsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The authenticate property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Authenticate.AuthenticateRequestBuilder Authenticate

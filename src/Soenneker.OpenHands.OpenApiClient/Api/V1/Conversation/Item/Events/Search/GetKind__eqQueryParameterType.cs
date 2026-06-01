@@ -76,6 +76,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.Sear
         #pragma warning disable CS1591
         TokenEvent,
         #pragma warning restore CS1591
+        [EnumMember(Value = "InterruptEvent")]
+        #pragma warning disable CS1591
+        InterruptEvent,
+        #pragma warning restore CS1591
         [EnumMember(Value = "PauseEvent")]
         #pragma warning disable CS1591
         PauseEvent,

@@ -257,7 +257,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public StrictLLM()
         {
             LogCompletionsFolder = "logs/completions";
-            Model = "claude-sonnet-4-20250514";
+            Model = "gpt-5.5";
             OpenrouterAppName = "OpenHands";
             OpenrouterSiteUrl = "https://docs.all-hands.dev/";
             PromptCacheRetention = "24h";

@@ -43,9 +43,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>Enable sub-agent delegation via TaskToolSet.</summary>
         public bool? EnableSubAgents { get; set; }
-        /// <summary>Enable the built-in switch_llm tool when saved LLM profiles are available. The tool is omitted when no profiles exist.</summary>
+        /// <summary>Enable the built-in switch_llm tool for switching between saved LLM profiles.</summary>
         public bool? EnableSwitchLlmTool { get; set; }
-        /// <summary>&quot;Language model interface for OpenHands agents.The LLM class provides a unified interface for interacting with variouslanguage models through the litellm library. It handles model configuration,API authentication, retry logic, and tool calling capabilities.Attributes:    model: Model name (e.g., \&quot;claude-sonnet-4-20250514\&quot;).    api_key: API key for authentication.    base_url: Custom API base URL.    num_retries: Number of retry attempts for failed requests.    timeout: Request timeout in seconds.Example:    ```python    from openhands.sdk import LLM    from pydantic import SecretStr    llm = LLM(        model=\&quot;claude-sonnet-4-20250514\&quot;,        api_key=SecretStr(\&quot;your-api-key\&quot;),        usage_id=\&quot;my-agent\&quot;    )    # Use with agent or conversation    ```&quot;</summary>
+        /// <summary>&quot;Language model interface for OpenHands agents.The LLM class provides a unified interface for interacting with variouslanguage models through the litellm library. It handles model configuration,API authentication, retry logic, and tool calling capabilities.Attributes:    model: Model name (e.g., \&quot;gpt-5.5\&quot;).    api_key: API key for authentication.    base_url: Custom API base URL.    num_retries: Number of retry attempts for failed requests.    timeout: Request timeout in seconds.Example:    ```python    from openhands.sdk import LLM    from pydantic import SecretStr    llm = LLM(        model=\&quot;gpt-5.5\&quot;,        api_key=SecretStr(\&quot;your-api-key\&quot;),        usage_id=\&quot;my-agent\&quot;    )    # Use with agent or conversation    ```&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.LLMOutput? Llm { get; set; }

@@ -5,12 +5,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum DelegateToolInput_kind
+    public enum InterruptEventInput_kind
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "DelegateTool")]
+        [EnumMember(Value = "InterruptEvent")]
         #pragma warning disable CS1591
-        DelegateTool,
+        InterruptEvent,
         #pragma warning restore CS1591
     }
 }

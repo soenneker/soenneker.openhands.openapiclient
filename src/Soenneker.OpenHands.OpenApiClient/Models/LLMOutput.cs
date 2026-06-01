@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Language model interface for OpenHands agents.The LLM class provides a unified interface for interacting with variouslanguage models through the litellm library. It handles model configuration,API authentication, retry logic, and tool calling capabilities.Attributes:    model: Model name (e.g., \&quot;claude-sonnet-4-20250514\&quot;).    api_key: API key for authentication.    base_url: Custom API base URL.    num_retries: Number of retry attempts for failed requests.    timeout: Request timeout in seconds.Example:    ```python    from openhands.sdk import LLM    from pydantic import SecretStr    llm = LLM(        model=\&quot;claude-sonnet-4-20250514\&quot;,        api_key=SecretStr(\&quot;your-api-key\&quot;),        usage_id=\&quot;my-agent\&quot;    )    # Use with agent or conversation    ```&quot;
+    /// &quot;Language model interface for OpenHands agents.The LLM class provides a unified interface for interacting with variouslanguage models through the litellm library. It handles model configuration,API authentication, retry logic, and tool calling capabilities.Attributes:    model: Model name (e.g., \&quot;gpt-5.5\&quot;).    api_key: API key for authentication.    base_url: Custom API base URL.    num_retries: Number of retry attempts for failed requests.    timeout: Request timeout in seconds.Example:    ```python    from openhands.sdk import LLM    from pydantic import SecretStr    llm = LLM(        model=\&quot;gpt-5.5\&quot;,        api_key=SecretStr(\&quot;your-api-key\&quot;),        usage_id=\&quot;my-agent\&quot;    )    # Use with agent or conversation    ```&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LLMOutput : IAdditionalDataHolder, IParsable
@@ -252,7 +252,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             LogCompletionsFolder = "logs/completions";
-            Model = "claude-sonnet-4-20250514";
+            Model = "gpt-5.5";
             OpenrouterAppName = "OpenHands";
             OpenrouterSiteUrl = "https://docs.all-hands.dev/";
             PromptCacheRetention = "24h";

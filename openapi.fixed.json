@@ -47,6 +47,7 @@
                 "SystemPromptEvent",
                 "StreamingDeltaEvent",
                 "TokenEvent",
+                "InterruptEvent",
                 "PauseEvent"
               ],
               "type": "string",
@@ -173,6 +174,7 @@
                 "SystemPromptEvent",
                 "StreamingDeltaEvent",
                 "TokenEvent",
+                "InterruptEvent",
                 "PauseEvent"
               ],
               "type": "string",
@@ -3508,8 +3510,17 @@
     "/api/complete_onboarding": {
       "post": {
         "summary": "Complete Onboarding",
-        "description": "Mark onboarding as completed for the current user.",
+        "description": "Mark onboarding as completed for the current user and fire analytics.\n\nPersists ``user.onboarding_completed = True`` and emits the\n``onboarding completed`` PostHog event (plus an org ``group_identify`` to\nstamp ``onboarding_completed_at``). Analytics failures are swallowed so\nthey never block the user from leaving the onboarding flow.",
         "operationId": "complete-onboarding-api-complete-onboarding-post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompleteOnboardingApiCompleteOnboardingPost"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -3517,6 +3528,16 @@
               "application/json": {
                 "schema": {
                   "type": "object"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
                 }
               }
             }
@@ -4218,6 +4239,7 @@
                 "SystemPromptEvent",
                 "StreamingDeltaEvent",
                 "TokenEvent",
+                "InterruptEvent",
                 "PauseEvent"
               ],
               "type": "string",
@@ -4339,6 +4361,7 @@
                 "SystemPromptEvent",
                 "StreamingDeltaEvent",
                 "TokenEvent",
+                "InterruptEvent",
                 "PauseEvent"
               ],
               "type": "string",
@@ -7714,6 +7737,52 @@
           }
         }
       }
+    },
+    "/api/analytics/events": {
+      "post": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Track Frontend Event",
+        "description": "Capture a frontend-initiated analytics event.\n\n``body.event_type`` selects the PostHog event name; the remaining fields\non the validated model become the event's properties. Telemetry failures\nare isolated so they never bubble up to the user's primary action.",
+        "operationId": "track-frontend-event-api-analytics-events-post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePrButtonClickedEvent"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyticsEventResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": [ ]
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -9210,7 +9279,7 @@
             "type": "string"
           }
         },
-        "description": "\"Main agent implementation for OpenHands.\n\nThe Agent class provides the core functionality for running AI agents that can\ninteract with tools, process messages, and execute actions. It inherits from\nAgentBase and implements the agent execution logic. Critic-related functionality\nis provided by CriticMixin.\n\nAttributes:\n    llm: The language model instance used for reasoning.\n    tools: List of tools available to the agent.\n    system_prompt: Inline system prompt string. When provided the agent\n        uses this text verbatim instead of rendering from a template.\n        Mutually exclusive with a non-default ``system_prompt_filename``.\n        **Not recommended** unless you know what you are doing (e.g.\n        customising agent behaviour for a completely different task) —\n        this will override OpenHands' built-in system instructions.\n    system_prompt_filename: Jinja2 template filename resolved relative to\n        the agent's prompts directory, or an absolute path. Defaults to\n        ``\\\"system_prompt.j2\\\"``.\n    system_prompt_kwargs: Extra kwargs forwarded to the Jinja2 template.\n\nExample:\n    ```python\n    from openhands.sdk import LLM, Agent, Tool\n    from pydantic import SecretStr\n\n    llm = LLM(model=\\\"claude-sonnet-4-20250514\\\", api_key=SecretStr(\\\"key\\\"))\n    tools = [Tool(name=\\\"TerminalTool\\\"), Tool(name=\\\"FileEditorTool\\\")]\n    agent = Agent(llm=llm, tools=tools)\n    ```\n\n    To override the system prompt entirely::\n\n        agent = Agent(\n            llm=llm,\n            tools=tools,\n            system_prompt=\\\"You are a helpful coding assistant.\\\",\n        )\""
+        "description": "\"Main agent implementation for OpenHands.\n\nThe Agent class provides the core functionality for running AI agents that can\ninteract with tools, process messages, and execute actions. It inherits from\nAgentBase and implements the agent execution logic. Critic-related functionality\nis provided by CriticMixin.\n\nAttributes:\n    llm: The language model instance used for reasoning.\n    tools: List of tools available to the agent.\n    system_prompt: Inline system prompt string. When provided the agent\n        uses this text verbatim instead of rendering from a template.\n        Mutually exclusive with a non-default ``system_prompt_filename``.\n        **Not recommended** unless you know what you are doing (e.g.\n        customising agent behaviour for a completely different task) —\n        this will override OpenHands' built-in system instructions.\n    system_prompt_filename: Jinja2 template filename resolved relative to\n        the agent's prompts directory, or an absolute path. Defaults to\n        ``\\\"system_prompt.j2\\\"``.\n    system_prompt_kwargs: Extra kwargs forwarded to the Jinja2 template.\n\nExample:\n    ```python\n    from openhands.sdk import LLM, Agent, Tool\n    from pydantic import SecretStr\n\n    llm = LLM(model=\\\"gpt-5.5\\\", api_key=SecretStr(\\\"key\\\"))\n    tools = [Tool(name=\\\"TerminalTool\\\"), Tool(name=\\\"FileEditorTool\\\")]\n    agent = Agent(llm=llm, tools=tools)\n    ```\n\n    To override the system prompt entirely::\n\n        agent = Agent(\n            llm=llm,\n            tools=tools,\n            system_prompt=\\\"You are a helpful coding assistant.\\\",\n        )\""
       },
       "AgentBase": {
         "required": [
@@ -9697,6 +9766,19 @@
             "enum": [
               "AlwaysConfirm"
             ],
+            "type": "string"
+          }
+        }
+      },
+      "AnalyticsEventResponse": {
+        "title": "AnalyticsEventResponse",
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "title": "Status",
             "type": "string"
           }
         }
@@ -14610,6 +14692,38 @@
           }
         }
       },
+      "CreatePrButtonClickedEvent": {
+        "title": "CreatePrButtonClickedEvent",
+        "required": [
+          "event_type"
+        ],
+        "type": "object",
+        "properties": {
+          "event_type": {
+            "title": "Event Type",
+            "enum": [
+              "create pr button clicked"
+            ],
+            "type": "string"
+          },
+          "git_provider": {
+            "title": "Git Provider",
+            "enum": [
+              "github",
+              "gitlab",
+              "bitbucket",
+              "bitbucket_data_center",
+              "azure_devops",
+              "forgejo",
+              "enterprise_sso"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "nullable": true
+          }
+        },
+        "description": "\"``create pr button clicked``: Pull Request button click in chat UI.\n\nDrives PostHog surveys (e.g. NPS) keyed off the PR action. The event\nname uses the lowercase-with-spaces convention shared by every other\nPostHog event in ``openhands/analytics/analytics_constants.py``.\""
+      },
       "CreateUserApiKeyRequest": {
         "title": "CreateUserApiKeyRequest",
         "required": [
@@ -15037,118 +15151,6 @@
         },
         "additionalProperties": false,
         "description": "Observation from delegation operations."
-      },
-      "DelegateToolInput": {
-        "title": "DelegateTool",
-        "required": [
-          "description",
-          "action_type"
-        ],
-        "type": "object",
-        "properties": {
-          "description": {
-            "title": "Description",
-            "type": "string"
-          },
-          "action_type": {
-            "title": "Action Type",
-            "type": "object"
-          },
-          "observation_type": {
-            "title": "Observation Type",
-            "type": "object",
-            "anyOf": [
-              {
-                "type": "object"
-              }
-            ],
-            "nullable": true
-          },
-          "annotations": {
-            "type": "object",
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
-              }
-            ],
-            "nullable": true
-          },
-          "meta": {
-            "title": "Meta",
-            "type": "object",
-            "anyOf": [
-              {
-                "type": "object"
-              }
-            ],
-            "nullable": true
-          },
-          "kind": {
-            "title": "Kind",
-            "enum": [
-              "DelegateTool"
-            ],
-            "type": "string"
-          }
-        },
-        "description": "\"A ToolDefinition subclass that automatically initializes a DelegateExecutor.\n\n.. deprecated:: 1.16.0\n    DelegateTool is deprecated in favor of TaskToolSet. Use TaskToolSet for\n    sub-agent delegation. DelegateTool will be removed in version 1.23.0.\""
-      },
-      "DelegateToolOutput": {
-        "title": "DelegateTool",
-        "required": [
-          "description",
-          "action_type",
-          "kind",
-          "title"
-        ],
-        "type": "object",
-        "properties": {
-          "description": {
-            "title": "Description",
-            "type": "string"
-          },
-          "action_type": {
-            "title": "Action Type",
-            "type": "string"
-          },
-          "observation_type": {
-            "title": "Observation Type",
-            "type": "string",
-            "nullable": true
-          },
-          "annotations": {
-            "type": "object",
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
-              }
-            ],
-            "nullable": true
-          },
-          "meta": {
-            "title": "Meta",
-            "type": "object",
-            "anyOf": [
-              {
-                "type": "object"
-              }
-            ],
-            "nullable": true
-          },
-          "kind": {
-            "title": "Kind",
-            "enum": [
-              "DelegateTool"
-            ],
-            "type": "string"
-          },
-          "title": {
-            "title": "Title",
-            "type": "string",
-            "readOnly": true
-          }
-        },
-        "description": "\"A ToolDefinition subclass that automatically initializes a DelegateExecutor.\n\n.. deprecated:: 1.16.0\n    DelegateTool is deprecated in favor of TaskToolSet. Use TaskToolSet for\n    sub-agent delegation. DelegateTool will be removed in version 1.23.0.\""
       },
       "DeviceAuthorizationResponse": {
         "title": "DeviceAuthorizationResponse",
@@ -15674,6 +15676,9 @@
             "$ref": "#/components/schemas/TokenEventInput"
           },
           {
+            "$ref": "#/components/schemas/InterruptEventInput"
+          },
+          {
             "$ref": "#/components/schemas/PauseEventInput"
           }
         ],
@@ -15704,6 +15709,7 @@
             "openhands__sdk__event__llm_convertible__system__SystemPromptEvent-Input__1": "#/components/schemas/SystemPromptEventInput",
             "openhands__sdk__event__streaming_delta__StreamingDeltaEvent-Input__1": "#/components/schemas/StreamingDeltaEventInput",
             "openhands__sdk__event__token__TokenEvent-Input__1": "#/components/schemas/TokenEventInput",
+            "openhands__sdk__event__user_action__InterruptEvent-Input__1": "#/components/schemas/InterruptEventInput",
             "openhands__sdk__event__user_action__PauseEvent-Input__1": "#/components/schemas/PauseEventInput",
             "ServerErrorEventInput": "#/components/schemas/ServerErrorEventInput",
             "ACPToolCallEventInput": "#/components/schemas/ACPToolCallEventInput",
@@ -15722,6 +15728,7 @@
             "SystemPromptEventInput": "#/components/schemas/SystemPromptEventInput",
             "StreamingDeltaEventInput": "#/components/schemas/StreamingDeltaEventInput",
             "TokenEventInput": "#/components/schemas/TokenEventInput",
+            "InterruptEventInput": "#/components/schemas/InterruptEventInput",
             "PauseEventInput": "#/components/schemas/PauseEventInput"
           }
         }
@@ -15784,6 +15791,9 @@
             "$ref": "#/components/schemas/TokenEventOutput"
           },
           {
+            "$ref": "#/components/schemas/InterruptEventOutput"
+          },
+          {
             "$ref": "#/components/schemas/PauseEventOutput"
           }
         ],
@@ -15814,6 +15824,7 @@
             "openhands__sdk__event__llm_convertible__system__SystemPromptEvent-Output__1": "#/components/schemas/SystemPromptEventOutput",
             "openhands__sdk__event__streaming_delta__StreamingDeltaEvent-Output__1": "#/components/schemas/StreamingDeltaEventOutput",
             "openhands__sdk__event__token__TokenEvent-Output__1": "#/components/schemas/TokenEventOutput",
+            "openhands__sdk__event__user_action__InterruptEvent-Output__1": "#/components/schemas/InterruptEventOutput",
             "openhands__sdk__event__user_action__PauseEvent-Output__1": "#/components/schemas/PauseEventOutput",
             "ServerErrorEventOutput": "#/components/schemas/ServerErrorEventOutput",
             "ACPToolCallEventOutput": "#/components/schemas/ACPToolCallEventOutput",
@@ -15832,6 +15843,7 @@
             "SystemPromptEventOutput": "#/components/schemas/SystemPromptEventOutput",
             "StreamingDeltaEventOutput": "#/components/schemas/StreamingDeltaEventOutput",
             "TokenEventOutput": "#/components/schemas/TokenEventOutput",
+            "InterruptEventOutput": "#/components/schemas/InterruptEventOutput",
             "PauseEventOutput": "#/components/schemas/PauseEventOutput"
           }
         }
@@ -18397,6 +18409,83 @@
         },
         "description": "\"Paginated response for installations.\n\nAttributes:\n    items: List of installation IDs.\n    next_page_id: ID for the next page, or None if there are no more pages.\""
       },
+      "InterruptEventInput": {
+        "title": "InterruptEvent",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "Unique event id (ULID/UUID)"
+          },
+          "timestamp": {
+            "title": "Timestamp",
+            "type": "string",
+            "description": "Event timestamp"
+          },
+          "source": {
+            "title": "Source",
+            "enum": [
+              "agent",
+              "user",
+              "environment",
+              "hook"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "default": "user"
+          },
+          "kind": {
+            "title": "Kind",
+            "enum": [
+              "InterruptEvent"
+            ],
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Event indicating the agent was interrupted mid-operation.\n\nUnlike :class:`PauseEvent` which takes effect between agent steps,\nan interrupt cancels the in-flight LLM call immediately.  The\nconversation state is set to PAUSED so it can be resumed later."
+      },
+      "InterruptEventOutput": {
+        "title": "InterruptEvent",
+        "required": [
+          "kind"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "Unique event id (ULID/UUID)"
+          },
+          "timestamp": {
+            "title": "Timestamp",
+            "type": "string",
+            "description": "Event timestamp"
+          },
+          "source": {
+            "title": "Source",
+            "enum": [
+              "agent",
+              "user",
+              "environment",
+              "hook"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "default": "user"
+          },
+          "kind": {
+            "title": "Kind",
+            "enum": [
+              "InterruptEvent"
+            ],
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Event indicating the agent was interrupted mid-operation.\n\nUnlike :class:`PauseEvent` which takes effect between agent steps,\nan interrupt cancels the in-flight LLM call immediately.  The\nconversation state is set to PAUSED so it can be resumed later."
+      },
       "InvitationCreate": {
         "title": "InvitationCreate",
         "required": [
@@ -19100,7 +19189,7 @@
             "title": "Model",
             "type": "string",
             "description": "Model name.",
-            "default": "claude-sonnet-4-20250514",
+            "default": "gpt-5.5",
             "unrecognizedKeywords": {
               "openhands_settings": {
                 "depends_on": [ ],
@@ -19461,7 +19550,7 @@
             "nullable": true
           }
         },
-        "description": "\"Language model interface for OpenHands agents.\n\nThe LLM class provides a unified interface for interacting with various\nlanguage models through the litellm library. It handles model configuration,\nAPI authentication, retry logic, and tool calling capabilities.\n\nAttributes:\n    model: Model name (e.g., \\\"claude-sonnet-4-20250514\\\").\n    api_key: API key for authentication.\n    base_url: Custom API base URL.\n    num_retries: Number of retry attempts for failed requests.\n    timeout: Request timeout in seconds.\n\nExample:\n    ```python\n    from openhands.sdk import LLM\n    from pydantic import SecretStr\n\n    llm = LLM(\n        model=\\\"claude-sonnet-4-20250514\\\",\n        api_key=SecretStr(\\\"your-api-key\\\"),\n        usage_id=\\\"my-agent\\\"\n    )\n    # Use with agent or conversation\n    ```\""
+        "description": "\"Language model interface for OpenHands agents.\n\nThe LLM class provides a unified interface for interacting with various\nlanguage models through the litellm library. It handles model configuration,\nAPI authentication, retry logic, and tool calling capabilities.\n\nAttributes:\n    model: Model name (e.g., \\\"gpt-5.5\\\").\n    api_key: API key for authentication.\n    base_url: Custom API base URL.\n    num_retries: Number of retry attempts for failed requests.\n    timeout: Request timeout in seconds.\n\nExample:\n    ```python\n    from openhands.sdk import LLM\n    from pydantic import SecretStr\n\n    llm = LLM(\n        model=\\\"gpt-5.5\\\",\n        api_key=SecretStr(\\\"your-api-key\\\"),\n        usage_id=\\\"my-agent\\\"\n    )\n    # Use with agent or conversation\n    ```\""
       },
       "LLMOutput": {
         "title": "LLM",
@@ -19471,7 +19560,7 @@
             "title": "Model",
             "type": "string",
             "description": "Model name.",
-            "default": "claude-sonnet-4-20250514",
+            "default": "gpt-5.5",
             "unrecognizedKeywords": {
               "openhands_settings": {
                 "depends_on": [ ],
@@ -19822,7 +19911,7 @@
             "description": "\"Additional key-value pairs to pass to litellm's extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {'trace_version': '1.0.0', 'tags': ['agent:my-agent']} - vLLM features: {'return_token_ids': true}\""
           }
         },
-        "description": "\"Language model interface for OpenHands agents.\n\nThe LLM class provides a unified interface for interacting with various\nlanguage models through the litellm library. It handles model configuration,\nAPI authentication, retry logic, and tool calling capabilities.\n\nAttributes:\n    model: Model name (e.g., \\\"claude-sonnet-4-20250514\\\").\n    api_key: API key for authentication.\n    base_url: Custom API base URL.\n    num_retries: Number of retry attempts for failed requests.\n    timeout: Request timeout in seconds.\n\nExample:\n    ```python\n    from openhands.sdk import LLM\n    from pydantic import SecretStr\n\n    llm = LLM(\n        model=\\\"claude-sonnet-4-20250514\\\",\n        api_key=SecretStr(\\\"your-api-key\\\"),\n        usage_id=\\\"my-agent\\\"\n    )\n    # Use with agent or conversation\n    ```\""
+        "description": "\"Language model interface for OpenHands agents.\n\nThe LLM class provides a unified interface for interacting with various\nlanguage models through the litellm library. It handles model configuration,\nAPI authentication, retry logic, and tool calling capabilities.\n\nAttributes:\n    model: Model name (e.g., \\\"gpt-5.5\\\").\n    api_key: API key for authentication.\n    base_url: Custom API base URL.\n    num_retries: Number of retry attempts for failed requests.\n    timeout: Request timeout in seconds.\n\nExample:\n    ```python\n    from openhands.sdk import LLM\n    from pydantic import SecretStr\n\n    llm = LLM(\n        model=\\\"gpt-5.5\\\",\n        api_key=SecretStr(\\\"your-api-key\\\"),\n        usage_id=\\\"my-agent\\\"\n    )\n    # Use with agent or conversation\n    ```\""
       },
       "LLMAgentSettings": {
         "title": "LLMAgentSettings",
@@ -19893,7 +19982,7 @@
           "enable_switch_llm_tool": {
             "title": "Enable Switch Llm Tool",
             "type": "boolean",
-            "description": "Enable the built-in switch_llm tool when saved LLM profiles are available. The tool is omitted when no profiles exist.",
+            "description": "Enable the built-in switch_llm tool for switching between saved LLM profiles.",
             "default": true,
             "unrecognizedKeywords": {
               "openhands_settings": {
@@ -21813,6 +21902,24 @@
         },
         "additionalProperties": false
       },
+      "OnboardingSubmission": {
+        "title": "OnboardingSubmission",
+        "type": "object",
+        "properties": {
+          "selections": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/UnionBranch"
+                }
+              ]
+            }
+          }
+        },
+        "description": "\"Payload posted from the onboarding form.\n\n``selections`` maps onboarding question_id -> selected option(s), e.g.\n``{\\\"role\\\": \\\"software_engineer\\\", \\\"org_size\\\": \\\"solo\\\",\n   \\\"use_case\\\": [\\\"new_features\\\", \\\"fixing_bugs\\\"]}``.\n\nThe field is optional so the endpoint stays backwards-compatible with any\nclient that previously called it with an empty body, but the current\nfrontend always submits a populated mapping.\""
+      },
       "OpenHandsAgentSettings": {
         "title": "OpenHandsAgentSettings",
         "type": "object",
@@ -21882,7 +21989,7 @@
           "enable_switch_llm_tool": {
             "title": "Enable Switch Llm Tool",
             "type": "boolean",
-            "description": "Enable the built-in switch_llm tool when saved LLM profiles are available. The tool is omitted when no profiles exist.",
+            "description": "Enable the built-in switch_llm tool for switching between saved LLM profiles.",
             "default": true,
             "unrecognizedKeywords": {
               "openhands_settings": {
@@ -25536,7 +25643,7 @@
             "title": "Model",
             "type": "string",
             "description": "Model name.",
-            "default": "claude-sonnet-4-20250514",
+            "default": "gpt-5.5",
             "unrecognizedKeywords": {
               "openhands_settings": {
                 "depends_on": [ ],
@@ -28218,9 +28325,6 @@
             "$ref": "#/components/schemas/BrowserTypeToolInput"
           },
           {
-            "$ref": "#/components/schemas/DelegateToolInput"
-          },
-          {
             "$ref": "#/components/schemas/FileEditorToolInput"
           },
           {
@@ -28294,7 +28398,6 @@
             "openhands__tools__browser_use__definition__BrowserSwitchTabTool-Input__1": "#/components/schemas/BrowserSwitchTabToolInput",
             "openhands__tools__browser_use__definition__BrowserToolSet-Input__1": "#/components/schemas/BrowserToolSetInput",
             "openhands__tools__browser_use__definition__BrowserTypeTool-Input__1": "#/components/schemas/BrowserTypeToolInput",
-            "openhands__tools__delegate__definition__DelegateTool-Input__1": "#/components/schemas/DelegateToolInput",
             "openhands__tools__file_editor__definition__FileEditorTool-Input__1": "#/components/schemas/FileEditorToolInput",
             "openhands__tools__gemini__edit__definition__EditTool-Input__1": "#/components/schemas/EditToolInput",
             "openhands__tools__gemini__list_directory__definition__ListDirectoryTool-Input__1": "#/components/schemas/ListDirectoryToolInput",
@@ -28330,7 +28433,6 @@
             "BrowserSwitchTabToolInput": "#/components/schemas/BrowserSwitchTabToolInput",
             "BrowserToolSetInput": "#/components/schemas/BrowserToolSetInput",
             "BrowserTypeToolInput": "#/components/schemas/BrowserTypeToolInput",
-            "DelegateToolInput": "#/components/schemas/DelegateToolInput",
             "FileEditorToolInput": "#/components/schemas/FileEditorToolInput",
             "EditToolInput": "#/components/schemas/EditToolInput",
             "ListDirectoryToolInput": "#/components/schemas/ListDirectoryToolInput",
@@ -28418,9 +28520,6 @@
             "$ref": "#/components/schemas/BrowserTypeToolOutput"
           },
           {
-            "$ref": "#/components/schemas/DelegateToolOutput"
-          },
-          {
             "$ref": "#/components/schemas/FileEditorToolOutput"
           },
           {
@@ -28494,7 +28593,6 @@
             "openhands__tools__browser_use__definition__BrowserSwitchTabTool-Output__1": "#/components/schemas/BrowserSwitchTabToolOutput",
             "openhands__tools__browser_use__definition__BrowserToolSet-Output__1": "#/components/schemas/BrowserToolSetOutput",
             "openhands__tools__browser_use__definition__BrowserTypeTool-Output__1": "#/components/schemas/BrowserTypeToolOutput",
-            "openhands__tools__delegate__definition__DelegateTool-Output__1": "#/components/schemas/DelegateToolOutput",
             "openhands__tools__file_editor__definition__FileEditorTool-Output__1": "#/components/schemas/FileEditorToolOutput",
             "openhands__tools__gemini__edit__definition__EditTool-Output__1": "#/components/schemas/EditToolOutput",
             "openhands__tools__gemini__list_directory__definition__ListDirectoryTool-Output__1": "#/components/schemas/ListDirectoryToolOutput",
@@ -28530,7 +28628,6 @@
             "BrowserSwitchTabToolOutput": "#/components/schemas/BrowserSwitchTabToolOutput",
             "BrowserToolSetOutput": "#/components/schemas/BrowserToolSetOutput",
             "BrowserTypeToolOutput": "#/components/schemas/BrowserTypeToolOutput",
-            "DelegateToolOutput": "#/components/schemas/DelegateToolOutput",
             "FileEditorToolOutput": "#/components/schemas/FileEditorToolOutput",
             "EditToolOutput": "#/components/schemas/EditToolOutput",
             "ListDirectoryToolOutput": "#/components/schemas/ListDirectoryToolOutput",
@@ -30878,6 +30975,18 @@
           ]
         }
       },
+      "OnboardingSubmissionSelections": {
+        "title": "Selections",
+        "type": "object",
+        "additionalProperties": {
+          "type": "object",
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/UnionBranch"
+            }
+          ]
+        }
+      },
       "RemoteMCPServerHeaders": {
         "title": "Headers",
         "type": "object",
@@ -31173,6 +31282,31 @@
       },
       "OnboardingStatusApiOnboardingStatusGet200": {
         "type": "object"
+      },
+      "CompleteOnboardingApiCompleteOnboardingPost": {
+        "title": "Body",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/OnboardingSubmission"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "nullable": true,
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "OnboardingSubmission": "#/components/schemas/OnboardingSubmission"
+          }
+        }
       },
       "CompleteOnboardingApiCompleteOnboardingPost200": {
         "type": "object"
