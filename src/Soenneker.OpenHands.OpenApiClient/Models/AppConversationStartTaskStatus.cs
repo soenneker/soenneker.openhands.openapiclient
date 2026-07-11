@@ -10,39 +10,39 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         [EnumMember(Value = "WORKING")]
         #pragma warning disable CS1591
-        WORKING,
+        Working,
         #pragma warning restore CS1591
         [EnumMember(Value = "WAITING_FOR_SANDBOX")]
         #pragma warning disable CS1591
-        WAITING_FOR_SANDBOX,
+        WaitingForSandbox,
         #pragma warning restore CS1591
         [EnumMember(Value = "PREPARING_REPOSITORY")]
         #pragma warning disable CS1591
-        PREPARING_REPOSITORY,
+        PreparingRepository,
         #pragma warning restore CS1591
         [EnumMember(Value = "RUNNING_SETUP_SCRIPT")]
         #pragma warning disable CS1591
-        RUNNING_SETUP_SCRIPT,
+        RunningSetupScript,
         #pragma warning restore CS1591
         [EnumMember(Value = "SETTING_UP_GIT_HOOKS")]
         #pragma warning disable CS1591
-        SETTING_UP_GIT_HOOKS,
+        SettingUpGitHooks,
         #pragma warning restore CS1591
         [EnumMember(Value = "SETTING_UP_SKILLS")]
         #pragma warning disable CS1591
-        SETTING_UP_SKILLS,
+        SettingUpSkills,
         #pragma warning restore CS1591
         [EnumMember(Value = "STARTING_CONVERSATION")]
         #pragma warning disable CS1591
-        STARTING_CONVERSATION,
+        StartingConversation,
         #pragma warning restore CS1591
         [EnumMember(Value = "READY")]
         #pragma warning disable CS1591
-        READY,
+        Ready,
         #pragma warning restore CS1591
         [EnumMember(Value = "ERROR")]
         #pragma warning disable CS1591
-        ERROR,
+        Error,
         #pragma warning restore CS1591
     }
 }

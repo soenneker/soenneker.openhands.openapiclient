@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys.Current
         {
         }
         /// <summary>
-        /// Get information about the currently authenticated API key.This endpoint returns metadata about the API key used for the current request,including the org_id associated with the key. This is useful for API keycallers who need to know which organization context their key operates in.Returns 400 if not authenticated via API key (e.g., using cookie auth).
+        /// Get information about the currently authenticated API key.Returns the key&apos;s bound org (``bound_org_id``, ``None`` for unboundkeys) and the request&apos;s effective org (``org_id``, resolved from the``X-Org-Id`` header or ``user.current_org_id`` for unbound keys).Returns 400 if not authenticated via API key (e.g., using cookie auth).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CurrentApiKeyResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys.Current
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.CurrentApiKeyResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.CurrentApiKeyResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get information about the currently authenticated API key.This endpoint returns metadata about the API key used for the current request,including the org_id associated with the key. This is useful for API keycallers who need to know which organization context their key operates in.Returns 400 if not authenticated via API key (e.g., using cookie auth).
+        /// Get information about the currently authenticated API key.Returns the key&apos;s bound org (``bound_org_id``, ``None`` for unboundkeys) and the request&apos;s effective org (``org_id``, resolved from the``X-Org-Id`` header or ``user.current_org_id`` for unbound keys).Returns 400 if not authenticated via API key (e.g., using cookie auth).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

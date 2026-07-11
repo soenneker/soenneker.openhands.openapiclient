@@ -32,14 +32,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys
         }
         /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.api.keys.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Keys.Item.WithKey_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenHands.OpenApiClient.Api.Keys.Item.WithKey_ItemRequestBuilder this[int position]
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Keys.Item.WithKeyItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Keys.Item.WithKeyItemRequestBuilder this[int position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("key_id", position);
-                return new global::Soenneker.OpenHands.OpenApiClient.Api.Keys.Item.WithKey_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("keyId", position);
+                return new global::Soenneker.OpenHands.OpenApiClient.Api.Keys.Item.WithKeyItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -78,13 +78,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Create a new API key bound to the request&apos;s effective org.
+        /// &quot;Create a new API key for the authenticated user.The new key is bound to ``key_data.org_id`` when provided. An *omitted*``org_id`` falls back to the request&apos;s effective org (preserving thepre-existing API). An *explicit* ``org_id: null`` creates an unboundkey whose effective org is resolved per-request via the ``X-Org-Id``header or, as a fallback, the caller&apos;s ``user.current_org_id``. When aspecific ``org_id`` is supplied, the caller must be a member of thatorg (or hold a super role).&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ApiKeyCreateResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ApiKeyCreateResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.ApiKeyCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -98,7 +98,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ApiKeyCreateResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ApiKeyCreateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -122,7 +122,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys
             return requestInfo;
         }
         /// <summary>
-        /// Create a new API key bound to the request&apos;s effective org.
+        /// &quot;Create a new API key for the authenticated user.The new key is bound to ``key_data.org_id`` when provided. An *omitted*``org_id`` falls back to the request&apos;s effective org (preserving thepre-existing API). An *explicit* ``org_id: null`` creates an unboundkey whose effective org is resolved per-request via the ``X-Org-Id``header or, as a fallback, the caller&apos;s ``user.current_org_id``. When aspecific ``org_id`` is supplied, the caller must be a member of thatorg (or hold a super role).&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

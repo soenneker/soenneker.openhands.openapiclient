@@ -32,14 +32,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
         }
         /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.api.organizations.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.WithOrg_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.WithOrg_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.WithOrgItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.WithOrgItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("org_id", position);
-                return new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.WithOrg_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("orgId", position);
+                return new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.WithOrgItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OrganizationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations{?limit*,page_id*}", pathParameters)
+        public OrganizationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations{?limit*,org_id*,page_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OrganizationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations{?limit*,page_id*}", rawUrl)
+        public OrganizationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations{?limit*,org_id*,page_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OrgPage?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.OrganizationsRequestBuilder.OrganizationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -77,32 +77,32 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgPage>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Create a new organization.This endpoint allows authenticated users with @openhands.dev email to createa new organization. The user who creates the organization automatically becomesits owner.Args:    org_data: Organization creation data    user_id: Authenticated user ID (injected by dependency)Returns:    OrgResponse: The created organization detailsRaises:    HTTPException: 403 if user email domain is not @openhands.dev    HTTPException: 409 if organization name already exists    HTTPException: 500 if creation fails&quot;
+        /// &quot;Create a new organization.This endpoint allows authenticated users that hold the``CREATE_ORGANIZATION`` permission to create a new organization. Inpractice this permission is only granted via the ``superadmin``role; no regular,org-scoped role carries it. The creator is not automatically addedas a member; a superadmin can provision the initial org users separately.Args:    org_data: Organization creation data    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgResponse: The created organization detailsRaises:    HTTPException: 401 if the user is not authenticated    HTTPException: 403 if the user lacks ``CREATE_ORGANIZATION``    HTTPException: 409 if organization name already exists    HTTPException: 500 if creation fails&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse"/></returns>
         /// <param name="body">Request model for creating a new organization.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.OrgCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.OrgCreate body, Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.OrganizationsRequestBuilder.OrganizationsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.OrgCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.OrgCreate body, Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.OrganizationsRequestBuilder.OrganizationsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -126,18 +126,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Create a new organization.This endpoint allows authenticated users with @openhands.dev email to createa new organization. The user who creates the organization automatically becomesits owner.Args:    org_data: Organization creation data    user_id: Authenticated user ID (injected by dependency)Returns:    OrgResponse: The created organization detailsRaises:    HTTPException: 403 if user email domain is not @openhands.dev    HTTPException: 409 if organization name already exists    HTTPException: 500 if creation fails&quot;
+        /// &quot;Create a new organization.This endpoint allows authenticated users that hold the``CREATE_ORGANIZATION`` permission to create a new organization. Inpractice this permission is only granted via the ``superadmin``role; no regular,org-scoped role carries it. The creator is not automatically addedas a member; a superadmin can provision the initial org users separately.Args:    org_data: Organization creation data    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgResponse: The created organization detailsRaises:    HTTPException: 401 if the user is not authenticated    HTTPException: 403 if the user lacks ``CREATE_ORGANIZATION``    HTTPException: 409 if organization name already exists    HTTPException: 500 if creation fails&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request model for creating a new organization.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.OrgCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.OrgCreate body, Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.OrganizationsRequestBuilder.OrganizationsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.OrgCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.OrgCreate body, Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.OrganizationsRequestBuilder.OrganizationsRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -173,6 +173,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
             [QueryParameter("page_id")]
             public string PageId { get; set; }
 #endif
+        }
+        /// <summary>
+        /// &quot;Create a new organization.This endpoint allows authenticated users that hold the``CREATE_ORGANIZATION`` permission to create a new organization. Inpractice this permission is only granted via the ``superadmin``role; no regular,org-scoped role carries it. The creator is not automatically addedas a member; a superadmin can provision the initial org users separately.Args:    org_data: Organization creation data    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgResponse: The created organization detailsRaises:    HTTPException: 401 if the user is not authenticated    HTTPException: 403 if the user lacks ``CREATE_ORGANIZATION``    HTTPException: 409 if organization name already exists    HTTPException: 500 if creation fails&quot;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class OrganizationsRequestBuilderPostQueryParameters 
+        {
+            [QueryParameter("org_id")]
+            public Guid? OrgId { get; set; }
         }
     }
 }

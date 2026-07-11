@@ -16,20 +16,20 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The action_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput_action_type? ActionType { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputActionType? ActionType { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput_action_type ActionType { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputActionType ActionType { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The annotations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations? Annotations { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputAnnotations? Annotations { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations Annotations { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputAnnotations Annotations { get; set; }
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,18 +44,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput_meta? Meta { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputMeta? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput_meta Meta { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputMeta Meta { get; set; }
 #endif
         /// <summary>The observation_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput_observation_type? ObservationType { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputObservationType? ObservationType { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput_observation_type ObservationType { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputObservationType ObservationType { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput"/> and sets the default values.
@@ -82,12 +82,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action_type", n => { ActionType = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput_action_type>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput_action_type.CreateFromDiscriminatorValue); } },
-                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations.CreateFromDiscriminatorValue); } },
+                { "action_type", n => { ActionType = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputActionType>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputActionType.CreateFromDiscriminatorValue); } },
+                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputAnnotations>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputAnnotations.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput_kind>(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput_meta>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput_meta.CreateFromDiscriminatorValue); } },
-                { "observation_type", n => { ObservationType = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput_observation_type>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput_observation_type.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputMeta>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputMeta.CreateFromDiscriminatorValue); } },
+                { "observation_type", n => { ObservationType = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputObservationType>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputObservationType.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -97,12 +97,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput_action_type>("action_type", ActionType);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations>("annotations", Annotations);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputActionType>("action_type", ActionType);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputAnnotations>("annotations", Annotations);
             writer.WriteStringValue("description", Description);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput_kind>("kind", Kind);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput_meta>("meta", Meta);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInput_observation_type>("observation_type", ObservationType);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputMeta>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolInputObservationType>("observation_type", ObservationType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

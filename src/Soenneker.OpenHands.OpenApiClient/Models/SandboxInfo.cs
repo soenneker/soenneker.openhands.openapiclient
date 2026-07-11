@@ -28,10 +28,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>URLs exposed by the sandbox (App server, Vscode, etc...)Sandboxes with a status STARTING / PAUSED / ERROR may not return urls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Exposed_Urls? ExposedUrls { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfoExposedUrls? ExposedUrls { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Exposed_Urls ExposedUrls { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfoExposedUrls ExposedUrls { get; set; }
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -86,7 +86,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created_by_user_id", n => { CreatedByUserId = n.GetStringValue(); } },
-                { "exposed_urls", n => { ExposedUrls = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Exposed_Urls>(global::Soenneker.OpenHands.OpenApiClient.Models.Exposed_Urls.CreateFromDiscriminatorValue); } },
+                { "exposed_urls", n => { ExposedUrls = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfoExposedUrls>(global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfoExposedUrls.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "sandbox_spec_id", n => { SandboxSpecId = n.GetStringValue(); } },
                 { "session_api_key", n => { SessionApiKey = n.GetStringValue(); } },
@@ -102,7 +102,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("created_by_user_id", CreatedByUserId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Exposed_Urls>("exposed_urls", ExposedUrls);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfoExposedUrls>("exposed_urls", ExposedUrls);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("sandbox_spec_id", SandboxSpecId);
             writer.WriteStringValue("session_api_key", SessionApiKey);

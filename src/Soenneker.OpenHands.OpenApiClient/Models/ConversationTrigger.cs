@@ -18,11 +18,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "suggested_task")]
         #pragma warning disable CS1591
-        Suggested_task,
+        SuggestedTask,
         #pragma warning restore CS1591
         [EnumMember(Value = "openhands_api")]
         #pragma warning disable CS1591
-        Openhands_api,
+        OpenhandsApi,
         #pragma warning restore CS1591
         [EnumMember(Value = "slack")]
         #pragma warning disable CS1591
@@ -30,7 +30,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "microagent_management")]
         #pragma warning disable CS1591
-        Microagent_management,
+        MicroagentManagement,
         #pragma warning restore CS1591
         [EnumMember(Value = "jira")]
         #pragma warning disable CS1591
@@ -38,7 +38,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "jira_dc")]
         #pragma warning disable CS1591
-        Jira_dc,
+        JiraDc,
         #pragma warning restore CS1591
         [EnumMember(Value = "linear")]
         #pragma warning disable CS1591

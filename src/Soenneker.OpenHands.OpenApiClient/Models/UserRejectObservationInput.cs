@@ -31,6 +31,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The kind property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationInput_kind? Kind { get; set; }
+        /// <summary>Parent event id in the conversation tree. None for the root, or for legacy events predating the tree (see EventLog&apos;s effective-parent rule). Events sharing a parent_id are sibling branches.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentId { get; set; }
+#nullable restore
+#else
+        public string ParentId { get; set; }
+#endif
         /// <summary>Reason for rejecting the action</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,9 +48,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string RejectionReason { get; set; }
 #endif
         /// <summary>&quot;Source of the rejection: &apos;user&apos; for confirmation mode rejections, &apos;hook&apos; for PreToolUse hook blocks&quot;</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationInput_rejection_source? RejectionSource { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationInputRejectionSource? RejectionSource { get; set; }
         /// <summary>The source property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationInput_source? Source { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationInputSource? Source { get; set; }
         /// <summary>Event timestamp</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,8 +81,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public UserRejectObservationInput()
         {
             RejectionReason = "User rejected the action";
-            RejectionSource = global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationInput_rejection_source.User;
-            Source = global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationInput_source.Environment;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -97,9 +103,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "action_id", n => { ActionId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationInput_kind>(); } },
+                { "parent_id", n => { ParentId = n.GetStringValue(); } },
                 { "rejection_reason", n => { RejectionReason = n.GetStringValue(); } },
-                { "rejection_source", n => { RejectionSource = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationInput_rejection_source>(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationInput_source>(); } },
+                { "rejection_source", n => { RejectionSource = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationInputRejectionSource>(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationInputSource>(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
                 { "tool_call_id", n => { ToolCallId = n.GetStringValue(); } },
                 { "tool_name", n => { ToolName = n.GetStringValue(); } },
@@ -115,9 +122,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("action_id", ActionId);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationInput_kind>("kind", Kind);
+            writer.WriteStringValue("parent_id", ParentId);
             writer.WriteStringValue("rejection_reason", RejectionReason);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationInput_rejection_source>("rejection_source", RejectionSource);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationInput_source>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationInputRejectionSource>("rejection_source", RejectionSource);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.UserRejectObservationInputSource>("source", Source);
             writer.WriteStringValue("timestamp", Timestamp);
             writer.WriteStringValue("tool_call_id", ToolCallId);
             writer.WriteStringValue("tool_name", ToolName);

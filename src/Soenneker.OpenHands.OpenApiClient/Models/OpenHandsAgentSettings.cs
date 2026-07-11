@@ -33,13 +33,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>Discriminator for the ``AgentSettings`` union. ``&apos;openhands&apos;`` selects the standard built-in OpenHands agent.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings_agent_kind? AgentKind { get; set; }
-        /// <summary>The condenser property</summary>
+        /// <summary>Condenser settings for the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.CondenserSettings? Condenser { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettingsCondenser? Condenser { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.CondenserSettings Condenser { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettingsCondenser Condenser { get; set; }
 #endif
         /// <summary>Enable sub-agent delegation via TaskToolSet.</summary>
         public bool? EnableSubAgents { get; set; }
@@ -48,28 +48,30 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>&quot;Language model interface for OpenHands agents.The LLM class provides a unified interface for interacting with variouslanguage models through the litellm library. It handles model configuration,API authentication, retry logic, and tool calling capabilities.Attributes:    model: Model name (e.g., \&quot;gpt-5.5\&quot;).    api_key: API key for authentication.    base_url: Custom API base URL.    num_retries: Number of retry attempts for failed requests.    timeout: Request timeout in seconds.Example:    ```python    from openhands.sdk import LLM    from pydantic import SecretStr    llm = LLM(        model=\&quot;gpt-5.5\&quot;,        api_key=SecretStr(\&quot;your-api-key\&quot;),        usage_id=\&quot;my-agent\&quot;    )    # Use with agent or conversation    ```&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LLMOutput? Llm { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput? Llm { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LLMOutput Llm { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput Llm { get; set; }
 #endif
-        /// <summary>MCP server configuration for the agent.</summary>
+        /// <summary>MCP servers available to the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings_mcp_config? McpConfig { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettingsMcpConfigProperty? McpConfig { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings_mcp_config McpConfig { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettingsMcpConfigProperty McpConfig { get; set; }
 #endif
         /// <summary>The schema_version property</summary>
         public int? SchemaVersion { get; set; }
-        /// <summary>Tools available to the agent.</summary>
+        /// <summary>Maximum number of tool calls to execute concurrently per agent step. 1 = sequential (default). Values &gt; 1 enable parallel tool calls; concurrent tools share the conversation object, filesystem, and working directory, so mutations to shared state may race.</summary>
+        public int? ToolConcurrencyLimit { get; set; }
+        /// <summary>Tools available to the agent. None (the default) resolves to the standard exec set (see openhands.sdk.tool.defaults), plus the sub-agent tool set when enable_sub_agents is set; [] is an explicitly bare agent; a non-empty list is used exactly as given. Environment-dependent tools (browser) are injected by the serving layer, not the default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool>? Tools { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettingsTools? Tools { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool> Tools { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettingsTools Tools { get; set; }
 #endif
         /// <summary>Critic and iterative-refinement settings for the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -86,7 +88,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             Agent = "CodeActAgent";
-            AgentKind = global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings_agent_kind.Openhands;
+            EnableSubAgents = false;
+            EnableSwitchLlmTool = true;
+            SchemaVersion = 4;
+            ToolConcurrencyLimit = 1;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -109,13 +114,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "agent", n => { Agent = n.GetStringValue(); } },
                 { "agent_context", n => { AgentContext = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput.CreateFromDiscriminatorValue); } },
                 { "agent_kind", n => { AgentKind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings_agent_kind>(); } },
-                { "condenser", n => { Condenser = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CondenserSettings>(global::Soenneker.OpenHands.OpenApiClient.Models.CondenserSettings.CreateFromDiscriminatorValue); } },
+                { "condenser", n => { Condenser = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettingsCondenser>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettingsCondenser.CreateFromDiscriminatorValue); } },
                 { "enable_sub_agents", n => { EnableSubAgents = n.GetBoolValue(); } },
                 { "enable_switch_llm_tool", n => { EnableSwitchLlmTool = n.GetBoolValue(); } },
-                { "llm", n => { Llm = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LLMOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.LLMOutput.CreateFromDiscriminatorValue); } },
-                { "mcp_config", n => { McpConfig = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings_mcp_config>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings_mcp_config.CreateFromDiscriminatorValue); } },
+                { "llm", n => { Llm = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput.CreateFromDiscriminatorValue); } },
+                { "mcp_config", n => { McpConfig = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettingsMcpConfigProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettingsMcpConfigProperty.CreateFromDiscriminatorValue); } },
                 { "schema_version", n => { SchemaVersion = n.GetIntValue(); } },
-                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "tool_concurrency_limit", n => { ToolConcurrencyLimit = n.GetIntValue(); } },
+                { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettingsTools>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettingsTools.CreateFromDiscriminatorValue); } },
                 { "verification", n => { Verification = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings>(global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings.CreateFromDiscriminatorValue); } },
             };
         }
@@ -129,13 +135,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("agent", Agent);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput>("agent_context", AgentContext);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings_agent_kind>("agent_kind", AgentKind);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CondenserSettings>("condenser", Condenser);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettingsCondenser>("condenser", Condenser);
             writer.WriteBoolValue("enable_sub_agents", EnableSubAgents);
             writer.WriteBoolValue("enable_switch_llm_tool", EnableSwitchLlmTool);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LLMOutput>("llm", Llm);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings_mcp_config>("mcp_config", McpConfig);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput>("llm", Llm);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettingsMcpConfigProperty>("mcp_config", McpConfig);
             writer.WriteIntValue("schema_version", SchemaVersion);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool>("tools", Tools);
+            writer.WriteIntValue("tool_concurrency_limit", ToolConcurrencyLimit);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettingsTools>("tools", Tools);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings>("verification", Verification);
             writer.WriteAdditionalData(AdditionalData);
         }

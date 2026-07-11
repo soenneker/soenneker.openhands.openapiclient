@@ -36,25 +36,25 @@ namespace Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Offline.Callback
         /// <summary>
         /// Keycloak Offline Callback
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Offline.Callback.CallbackGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.KeycloakOfflineCallbackOAuthKeycloakOfflineCallbackGet200ResponseResponseJson"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Offline.Callback.CallbackGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Offline.Callback.CallbackRequestBuilder.CallbackRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.KeycloakOfflineCallbackOAuthKeycloakOfflineCallbackGet200ResponseResponseJson?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Offline.Callback.CallbackRequestBuilder.CallbackRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Offline.Callback.CallbackGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Offline.Callback.CallbackRequestBuilder.CallbackRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.KeycloakOfflineCallbackOAuthKeycloakOfflineCallbackGet200ResponseResponseJson> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Offline.Callback.CallbackRequestBuilder.CallbackRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Offline.Callback.CallbackGetResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Offline.Callback.CallbackGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.KeycloakOfflineCallbackOAuthKeycloakOfflineCallbackGet200ResponseResponseJson>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.KeycloakOfflineCallbackOAuthKeycloakOfflineCallbackGet200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Keycloak Offline Callback

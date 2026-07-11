@@ -21,7 +21,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "waiting_for_confirmation")]
         #pragma warning disable CS1591
-        Waiting_for_confirmation,
+        WaitingForConfirmation,
         #pragma warning restore CS1591
         [EnumMember(Value = "finished")]
         #pragma warning disable CS1591

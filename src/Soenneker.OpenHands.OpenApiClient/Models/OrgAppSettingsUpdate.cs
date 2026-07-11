@@ -17,8 +17,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The enable_proactive_conversation_starters property</summary>
         public bool? EnableProactiveConversationStarters { get; set; }
+        /// <summary>The last_known_updated_at property</summary>
+        public DateTimeOffset? LastKnownUpdatedAt { get; set; }
         /// <summary>The max_budget_per_task property</summary>
         public double? MaxBudgetPerTask { get; set; }
+        /// <summary>The registered_marketplaces property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateRegisteredMarketplaces? RegisteredMarketplaces { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateRegisteredMarketplaces RegisteredMarketplaces { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdate"/> and sets the default values.
         /// </summary>
@@ -45,7 +55,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enable_proactive_conversation_starters", n => { EnableProactiveConversationStarters = n.GetBoolValue(); } },
+                { "last_known_updated_at", n => { LastKnownUpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "max_budget_per_task", n => { MaxBudgetPerTask = n.GetDoubleValue(); } },
+                { "registered_marketplaces", n => { RegisteredMarketplaces = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateRegisteredMarketplaces>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateRegisteredMarketplaces.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -56,7 +68,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enable_proactive_conversation_starters", EnableProactiveConversationStarters);
+            writer.WriteDateTimeOffsetValue("last_known_updated_at", LastKnownUpdatedAt);
             writer.WriteDoubleValue("max_budget_per_task", MaxBudgetPerTask);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateRegisteredMarketplaces>("registered_marketplaces", RegisteredMarketplaces);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

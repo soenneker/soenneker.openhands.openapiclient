@@ -14,7 +14,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \api\organizations\{org_id}\profiles\{name}
+    /// Builds and executes requests for operations under \api\organizations\{orgId}\profiles\{name}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithNameItemRequestBuilder : BaseRequestBuilder
@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithNameItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{org_id}/profiles/{name}", pathParameters)
+        public WithNameItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{orgId}/profiles/{name}", pathParameters)
         {
         }
         /// <summary>
@@ -42,16 +42,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithNameItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{org_id}/profiles/{name}", rawUrl)
+        public WithNameItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{orgId}/profiles/{name}", rawUrl)
         {
         }
         /// <summary>
-        /// Delete an LLM profile.
+        /// Delete an LLM profile.Blocked with 409 if any of the org&apos;s Agent Profiles still reference this LLMprofile by ``llm_profile_ref`` (the SDK ``find_referrers`` FK guard) — bothcollections live on the same org row, so the ``SELECT ... FOR UPDATE`` lockmakes the referrer check and the delete atomic.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileMutationResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileMutationResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -64,7 +64,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.Item
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileMutationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileMutationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -74,7 +74,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.Item
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileDetailResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileDetailResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -87,7 +87,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileDetailResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileDetailResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -98,7 +98,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.Item
         /// <param name="body">Request body for saving a profile.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileMutationResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesSaveProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -112,12 +112,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.Item
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileMutationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileMutationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete an LLM profile.
+        /// Delete an LLM profile.Blocked with 409 if any of the org&apos;s Agent Profiles still reference this LLMprofile by ``llm_profile_ref`` (the SDK ``find_referrers`` FK guard) — bothcollections live on the same org row, so the ``SELECT ... FOR UPDATE`` lockmakes the referrer check and the delete atomic.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

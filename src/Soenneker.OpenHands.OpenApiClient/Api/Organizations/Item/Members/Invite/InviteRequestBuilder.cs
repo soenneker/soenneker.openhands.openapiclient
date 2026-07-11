@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Invite.Item;
 using Soenneker.OpenHands.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -12,17 +13,29 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Invite
 {
     /// <summary>
-    /// Builds and executes requests for operations under \api\organizations\{org_id}\members\invite
+    /// Builds and executes requests for operations under \api\organizations\{orgId}\members\invite
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InviteRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.api.organizations.item.members.invite.item collection</summary>
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Invite.Item.WithInvitationItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Invite.Item.WithInvitationItemRequestBuilder this[int position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("invitationId", position);
+                return new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Invite.Item.WithInvitationItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Invite.InviteRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InviteRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{org_id}/members/invite", pathParameters)
+        public InviteRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{orgId}/members/invite", pathParameters)
         {
         }
         /// <summary>
@@ -30,8 +43,31 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Invit
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InviteRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{org_id}/members/invite", rawUrl)
+        public InviteRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{orgId}/members/invite", rawUrl)
         {
+        }
+        /// <summary>
+        /// &quot;List an organization&apos;s pending invitations, including invite links.Gated on the invite permission (admins/owners): responses include eachinvitation&apos;s acceptance link so inviters can share it directly when noemail provider is configured.&quot;
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PendingInvitationsResponse"/></returns>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.PendingInvitationsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.PendingInvitationsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToGetRequestInformation(requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.PendingInvitationsResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.PendingInvitationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Create organization invitations for multiple email addresses.Sends emails to invitees with secure links to join the organization.Supports batch invitations - some may succeed while others fail.Permission rules:- Only owners and admins can create invitations- Admins can only invite with &apos;member&apos; or &apos;admin&apos; role (not &apos;owner&apos;)- Owners can invite with any roleArgs:    org_id: Organization UUID    invitation_data: Invitation details (emails array, role)    request: FastAPI request    user_id: Authenticated user ID (from dependency)Returns:    BatchInvitationResponse: Lists of successful and failed invitationsRaises:    HTTPException 400: Invalid role or organization not found    HTTPException 403: User lacks permission to invite    HTTPException 429: Rate limit exceeded&quot;
@@ -40,7 +76,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Invit
         /// <param name="body">Request model for creating invitation(s).</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.BatchInvitationResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.InvitationCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -54,9 +90,28 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Invit
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.BatchInvitationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.BatchInvitationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// &quot;List an organization&apos;s pending invitations, including invite links.Gated on the invite permission (admins/owners): responses include eachinvitation&apos;s acceptance link so inviters can share it directly when noemail provider is configured.&quot;
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
         }
         /// <summary>
         /// &quot;Create organization invitations for multiple email addresses.Sends emails to invitees with secure links to join the organization.Supports batch invitations - some may succeed while others fail.Permission rules:- Only owners and admins can create invitations- Admins can only invite with &apos;member&apos; or &apos;admin&apos; role (not &apos;owner&apos;)- Owners can invite with any roleArgs:    org_id: Organization UUID    invitation_data: Invitation details (emails array, role)    request: FastAPI request    user_id: Authenticated user ID (from dependency)Returns:    BatchInvitationResponse: Lists of successful and failed invitationsRaises:    HTTPException 400: Invalid role or organization not found    HTTPException 403: User lacks permission to invite    HTTPException 429: Rate limit exceeded&quot;

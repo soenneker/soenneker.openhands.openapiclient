@@ -32,14 +32,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets
         }
         /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.api.v1.secrets.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Item.WithSecret_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Item.WithSecret_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Item.WithSecretItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Item.WithSecretItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("secret_id", position);
-                return new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Item.WithSecret_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("secretId", position);
+                return new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Item.WithSecretItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -59,13 +59,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets
         {
         }
         /// <summary>
-        /// &quot;Create a custom secret.Creates a new custom secret for the authenticated user.Returns:    201: Secret created successfully    400: Secret already exists    500: Error creating secret&quot;
+        /// &quot;Create or update a custom secret.Creates a new custom secret, or overwrites it if it already exists.Returns:    201: Secret saved successfully    500: Error saving secret&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse"/></returns>
         /// <param name="body">Custom secret model with value (for creating secrets).</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -79,12 +79,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Create a custom secret.Creates a new custom secret for the authenticated user.Returns:    201: Secret created successfully    400: Secret already exists    500: Error creating secret&quot;
+        /// &quot;Create or update a custom secret.Creates a new custom secret, or overwrites it if it already exists.Returns:    201: Secret saved successfully    500: Error saving secret&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Custom secret model with value (for creating secrets).</param>

@@ -15,13 +15,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Settings for a standard LLM-backed :class:`Agent`.This is the long-standing ``AgentSettings`` shape; fields here buildthe default ``Agent`` (LLM + tools + MCP + condenser + critic).</summary>
+        /// <summary>The agent_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings? AgentSettings { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponseAgentSettings? AgentSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings AgentSettings { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponseAgentSettings AgentSettings { get; set; }
 #endif
         /// <summary>The billing_margin property</summary>
         public double? BillingMargin { get; set; }
@@ -119,6 +119,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public OrgResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            EnableProactiveConversationStarters = true;
+            IsPersonal = false;
+            OrgVersion = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -138,7 +141,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "agent_settings", n => { AgentSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings.CreateFromDiscriminatorValue); } },
+                { "agent_settings", n => { AgentSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponseAgentSettings>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponseAgentSettings.CreateFromDiscriminatorValue); } },
                 { "billing_margin", n => { BillingMargin = n.GetDoubleValue(); } },
                 { "contact_email", n => { ContactEmail = n.GetStringValue(); } },
                 { "contact_name", n => { ContactName = n.GetStringValue(); } },
@@ -166,7 +169,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings>("agent_settings", AgentSettings);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponseAgentSettings>("agent_settings", AgentSettings);
             writer.WriteDoubleValue("billing_margin", BillingMargin);
             writer.WriteStringValue("contact_email", ContactEmail);
             writer.WriteStringValue("contact_name", ContactName);

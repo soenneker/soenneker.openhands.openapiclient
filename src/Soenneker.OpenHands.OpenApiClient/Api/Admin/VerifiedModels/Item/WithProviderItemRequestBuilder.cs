@@ -17,14 +17,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels.Item
     {
         /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.api.admin.verifiedModels.item.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels.Item.Item.WithModel_nameItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels.Item.Item.WithModel_nameItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels.Item.Item.WithModelNameItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels.Item.Item.WithModelNameItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("model_name", position);
-                return new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels.Item.Item.WithModel_nameItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("modelName", position);
+                return new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels.Item.Item.WithModelNameItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

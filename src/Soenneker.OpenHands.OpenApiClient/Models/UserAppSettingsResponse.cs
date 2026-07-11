@@ -17,6 +17,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The enable_sound_notifications property</summary>
         public bool? EnableSoundNotifications { get; set; }
+        /// <summary>The git_full_clone property</summary>
+        public bool? GitFullClone { get; set; }
         /// <summary>The git_user_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,6 +71,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enable_sound_notifications", n => { EnableSoundNotifications = n.GetBoolValue(); } },
+                { "git_full_clone", n => { GitFullClone = n.GetBoolValue(); } },
                 { "git_user_email", n => { GitUserEmail = n.GetStringValue(); } },
                 { "git_user_name", n => { GitUserName = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
@@ -83,6 +86,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enable_sound_notifications", EnableSoundNotifications);
+            writer.WriteBoolValue("git_full_clone", GitFullClone);
             writer.WriteStringValue("git_user_email", GitUserEmail);
             writer.WriteStringValue("git_user_name", GitUserName);
             writer.WriteStringValue("language", Language);

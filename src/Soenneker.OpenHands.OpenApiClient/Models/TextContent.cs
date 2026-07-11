@@ -29,7 +29,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// </summary>
         public TextContent()
         {
-            Type = global::Soenneker.OpenHands.OpenApiClient.Models.TextContent_type.Text;
+            CachePrompt = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

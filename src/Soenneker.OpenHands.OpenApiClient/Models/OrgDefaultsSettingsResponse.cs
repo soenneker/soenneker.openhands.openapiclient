@@ -15,13 +15,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Settings for a standard LLM-backed :class:`Agent`.This is the long-standing ``AgentSettings`` shape; fields here buildthe default ``Agent`` (LLM + tools + MCP + condenser + critic).</summary>
+        /// <summary>The agent_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings? AgentSettings { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgDefaultsSettingsResponseAgentSettings? AgentSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings AgentSettings { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgDefaultsSettingsResponseAgentSettings AgentSettings { get; set; }
 #endif
         /// <summary>The conversation_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,6 +47,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public OrgDefaultsSettingsResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            LlmApiKeySet = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -66,7 +67,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "agent_settings", n => { AgentSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings.CreateFromDiscriminatorValue); } },
+                { "agent_settings", n => { AgentSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgDefaultsSettingsResponseAgentSettings>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgDefaultsSettingsResponseAgentSettings.CreateFromDiscriminatorValue); } },
                 { "conversation_settings", n => { ConversationSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings.CreateFromDiscriminatorValue); } },
                 { "llm_api_key_set", n => { LlmApiKeySet = n.GetBoolValue(); } },
                 { "search_api_key", n => { SearchApiKey = n.GetStringValue(); } },
@@ -79,7 +80,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings>("agent_settings", AgentSettings);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgDefaultsSettingsResponseAgentSettings>("agent_settings", AgentSettings);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings>("conversation_settings", ConversationSettings);
             writer.WriteBoolValue("llm_api_key_set", LlmApiKeySet);
             writer.WriteStringValue("search_api_key", SearchApiKey);

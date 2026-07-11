@@ -23,8 +23,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The kind property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.PauseEventInput_kind? Kind { get; set; }
+        /// <summary>Parent event id in the conversation tree. None for the root, or for legacy events predating the tree (see EventLog&apos;s effective-parent rule). Events sharing a parent_id are sibling branches.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentId { get; set; }
+#nullable restore
+#else
+        public string ParentId { get; set; }
+#endif
         /// <summary>The source property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PauseEventInput_source? Source { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.PauseEventInputSource? Source { get; set; }
         /// <summary>Event timestamp</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,13 +41,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Timestamp { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PauseEventInput"/> and sets the default values.
-        /// </summary>
-        public PauseEventInput()
-        {
-            Source = global::Soenneker.OpenHands.OpenApiClient.Models.PauseEventInput_source.User;
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -60,7 +61,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.PauseEventInput_kind>(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.PauseEventInput_source>(); } },
+                { "parent_id", n => { ParentId = n.GetStringValue(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.PauseEventInputSource>(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
             };
         }
@@ -73,7 +75,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.PauseEventInput_kind>("kind", Kind);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.PauseEventInput_source>("source", Source);
+            writer.WriteStringValue("parent_id", ParentId);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.PauseEventInputSource>("source", Source);
             writer.WriteStringValue("timestamp", Timestamp);
         }
     }

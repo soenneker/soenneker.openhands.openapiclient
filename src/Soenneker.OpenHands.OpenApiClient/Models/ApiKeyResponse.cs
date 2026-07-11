@@ -30,6 +30,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>The not_before property</summary>
+        public DateTimeOffset? NotBefore { get; set; }
+        /// <summary>The org_id property</summary>
+        public Guid? OrgId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ApiKeyResponse"/> and sets the default values.
         /// </summary>
@@ -60,6 +64,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "last_used_at", n => { LastUsedAt = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "not_before", n => { NotBefore = n.GetDateTimeOffsetValue(); } },
+                { "org_id", n => { OrgId = n.GetGuidValue(); } },
             };
         }
         /// <summary>
@@ -74,6 +80,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteIntValue("id", Id);
             writer.WriteDateTimeOffsetValue("last_used_at", LastUsedAt);
             writer.WriteStringValue("name", Name);
+            writer.WriteDateTimeOffsetValue("not_before", NotBefore);
+            writer.WriteGuidValue("org_id", OrgId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "bitbucket_data_center")]
         #pragma warning disable CS1591
-        Bitbucket_data_center,
+        BitbucketDataCenter,
         #pragma warning restore CS1591
         [EnumMember(Value = "forgejo")]
         #pragma warning disable CS1591
@@ -30,11 +30,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "azure_devops")]
         #pragma warning disable CS1591
-        Azure_devops,
+        AzureDevops,
         #pragma warning restore CS1591
         [EnumMember(Value = "enterprise_sso")]
         #pragma warning disable CS1591
-        Enterprise_sso,
+        EnterpriseSso,
         #pragma warning restore CS1591
     }
 }

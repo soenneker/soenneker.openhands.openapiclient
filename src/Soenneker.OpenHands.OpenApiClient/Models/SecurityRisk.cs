@@ -9,19 +9,19 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         [EnumMember(Value = "UNKNOWN")]
         #pragma warning disable CS1591
-        UNKNOWN,
+        Unknown,
         #pragma warning restore CS1591
         [EnumMember(Value = "LOW")]
         #pragma warning disable CS1591
-        LOW,
+        Low,
         #pragma warning restore CS1591
         [EnumMember(Value = "MEDIUM")]
         #pragma warning disable CS1591
-        MEDIUM,
+        Medium,
         #pragma warning restore CS1591
         [EnumMember(Value = "HIGH")]
         #pragma warning disable CS1591
-        HIGH,
+        High,
         #pragma warning restore CS1591
     }
 }

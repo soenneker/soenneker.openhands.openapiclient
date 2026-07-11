@@ -73,6 +73,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public CmdOutputMetadata()
         {
             AdditionalData = new Dictionary<string, object>();
+            ExitCode = -1;
+            Pid = -1;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

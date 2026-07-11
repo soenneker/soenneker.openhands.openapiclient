@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims
 {
     /// <summary>
-    /// Builds and executes requests for operations under \api\organizations\{org_id}\git-claims
+    /// Builds and executes requests for operations under \api\organizations\{orgId}\git-claims
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GitClaimsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.api.organizations.item.gitClaims.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims.Item.WithClaim_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims.Item.WithClaim_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims.Item.WithClaimItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims.Item.WithClaimItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("claim_id", position);
-                return new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims.Item.WithClaim_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("claimId", position);
+                return new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims.Item.WithClaimItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GitClaimsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{org_id}/git-claims", pathParameters)
+        public GitClaimsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{orgId}/git-claims", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GitClaimsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{org_id}/git-claims", rawUrl)
+        public GitClaimsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{orgId}/git-claims", rawUrl)
         {
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims
         /// <returns>A List&lt;global::Soenneker.OpenHands.OpenApiClient.Models.GitOrgClaimResponse&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<List<global::Soenneker.OpenHands.OpenApiClient.Models.GitOrgClaimResponse>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,7 +65,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.OpenHands.OpenApiClient.Models.GitOrgClaimResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.GitOrgClaimResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
@@ -77,7 +77,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims
         /// <param name="body">Request model for claiming a Git organization.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.GitOrgClaimResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.GitOrgClaimRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -91,7 +91,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.GitOrgClaimResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.GitOrgClaimResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

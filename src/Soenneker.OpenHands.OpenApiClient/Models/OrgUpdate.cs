@@ -18,10 +18,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The agent_settings_diff property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdate_agent_settings_diff? AgentSettingsDiff { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateAgentSettingsDiff? AgentSettingsDiff { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdate_agent_settings_diff AgentSettingsDiff { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateAgentSettingsDiff AgentSettingsDiff { get; set; }
 #endif
         /// <summary>The billing_margin property</summary>
         public double? BillingMargin { get; set; }
@@ -46,10 +46,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The conversation_settings_diff property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdate_conversation_settings_diff? ConversationSettingsDiff { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateConversationSettingsDiff? ConversationSettingsDiff { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdate_conversation_settings_diff ConversationSettingsDiff { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateConversationSettingsDiff ConversationSettingsDiff { get; set; }
 #endif
         /// <summary>The enable_proactive_conversation_starters property</summary>
         public bool? EnableProactiveConversationStarters { get; set; }
@@ -132,12 +132,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "agent_settings_diff", n => { AgentSettingsDiff = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdate_agent_settings_diff>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdate_agent_settings_diff.CreateFromDiscriminatorValue); } },
+                { "agent_settings_diff", n => { AgentSettingsDiff = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateAgentSettingsDiff>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateAgentSettingsDiff.CreateFromDiscriminatorValue); } },
                 { "billing_margin", n => { BillingMargin = n.GetDoubleValue(); } },
                 { "contact_email", n => { ContactEmail = n.GetStringValue(); } },
                 { "contact_name", n => { ContactName = n.GetStringValue(); } },
                 { "conversation_expiration", n => { ConversationExpiration = n.GetIntValue(); } },
-                { "conversation_settings_diff", n => { ConversationSettingsDiff = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdate_conversation_settings_diff>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdate_conversation_settings_diff.CreateFromDiscriminatorValue); } },
+                { "conversation_settings_diff", n => { ConversationSettingsDiff = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateConversationSettingsDiff>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateConversationSettingsDiff.CreateFromDiscriminatorValue); } },
                 { "enable_proactive_conversation_starters", n => { EnableProactiveConversationStarters = n.GetBoolValue(); } },
                 { "llm_api_key", n => { LlmApiKey = n.GetStringValue(); } },
                 { "max_budget_per_task", n => { MaxBudgetPerTask = n.GetDoubleValue(); } },
@@ -157,12 +157,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdate_agent_settings_diff>("agent_settings_diff", AgentSettingsDiff);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateAgentSettingsDiff>("agent_settings_diff", AgentSettingsDiff);
             writer.WriteDoubleValue("billing_margin", BillingMargin);
             writer.WriteStringValue("contact_email", ContactEmail);
             writer.WriteStringValue("contact_name", ContactName);
             writer.WriteIntValue("conversation_expiration", ConversationExpiration);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdate_conversation_settings_diff>("conversation_settings_diff", ConversationSettingsDiff);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateConversationSettingsDiff>("conversation_settings_diff", ConversationSettingsDiff);
             writer.WriteBoolValue("enable_proactive_conversation_starters", EnableProactiveConversationStarters);
             writer.WriteStringValue("llm_api_key", LlmApiKey);
             writer.WriteDoubleValue("max_budget_per_task", MaxBudgetPerTask);

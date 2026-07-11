@@ -23,7 +23,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Notes { get; set; }
 #endif
         /// <summary>The current status of the task. One of &apos;todo&apos;, &apos;in_progress&apos;, or &apos;done&apos;.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.TaskItem_status? Status { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.TaskItemStatus? Status { get; set; }
         /// <summary>A brief title for the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,7 +38,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public TaskItem()
         {
             AdditionalData = new Dictionary<string, object>();
-            Status = global::Soenneker.OpenHands.OpenApiClient.Models.TaskItem_status.Todo;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -59,7 +58,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "notes", n => { Notes = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TaskItem_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TaskItemStatus>(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -71,7 +70,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("notes", Notes);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TaskItem_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TaskItemStatus>("status", Status);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -16,10 +16,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Optional dynamic per-conversation context (runtime info, repo context, secrets). When provided, this is included as a second content block in the system message (not cached).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.TextContent? DynamicContext { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutputDynamicContext? DynamicContext { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.TextContent DynamicContext { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutputDynamicContext DynamicContext { get; set; }
 #endif
         /// <summary>Unique event id (ULID/UUID)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,8 +31,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The kind property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutput_kind? Kind { get; set; }
+        /// <summary>Parent event id in the conversation tree. None for the root, or for legacy events predating the tree (see EventLog&apos;s effective-parent rule). Events sharing a parent_id are sibling branches.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentId { get; set; }
+#nullable restore
+#else
+        public string ParentId { get; set; }
+#endif
         /// <summary>The source property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutput_source? Source { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutputSource? Source { get; set; }
         /// <summary>The system_prompt property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,13 +66,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public List<global::Soenneker.OpenHands.OpenApiClient.Models.ToolDefinitionOutput> Tools { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutput"/> and sets the default values.
-        /// </summary>
-        public SystemPromptEventOutput()
-        {
-            Source = global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutput_source.Agent;
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutput"/></returns>
@@ -82,10 +83,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "dynamic_context", n => { DynamicContext = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>(global::Soenneker.OpenHands.OpenApiClient.Models.TextContent.CreateFromDiscriminatorValue); } },
+                { "dynamic_context", n => { DynamicContext = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutputDynamicContext>(global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutputDynamicContext.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutput_kind>(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutput_source>(); } },
+                { "parent_id", n => { ParentId = n.GetStringValue(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutputSource>(); } },
                 { "system_prompt", n => { SystemPrompt = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>(global::Soenneker.OpenHands.OpenApiClient.Models.TextContent.CreateFromDiscriminatorValue); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ToolDefinitionOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.ToolDefinitionOutput.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -98,10 +100,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>("dynamic_context", DynamicContext);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutputDynamicContext>("dynamic_context", DynamicContext);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutput_kind>("kind", Kind);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutput_source>("source", Source);
+            writer.WriteStringValue("parent_id", ParentId);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SystemPromptEventOutputSource>("source", Source);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>("system_prompt", SystemPrompt);
             writer.WriteStringValue("timestamp", Timestamp);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ToolDefinitionOutput>("tools", Tools);

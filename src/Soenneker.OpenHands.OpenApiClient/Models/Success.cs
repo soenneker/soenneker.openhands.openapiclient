@@ -22,6 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public Success()
         {
             AdditionalData = new Dictionary<string, object>();
+            SuccessProp = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

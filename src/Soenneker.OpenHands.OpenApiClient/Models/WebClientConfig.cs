@@ -15,10 +15,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The acp_providers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ACPProviderConfig>? AcpProviders { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig>? AcpProviders { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ACPProviderConfig> AcpProviders { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig> AcpProviders { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -32,6 +32,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string AuthUrl { get; set; }
 #endif
+        /// <summary>The email_enabled property</summary>
+        public bool? EmailEnabled { get; set; }
         /// <summary>The error_message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -107,10 +109,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The provider_default_hosts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_provider_default_hosts? ProviderDefaultHosts { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigProviderDefaultHostsProperty? ProviderDefaultHosts { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_provider_default_hosts ProviderDefaultHosts { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigProviderDefaultHostsProperty ProviderDefaultHosts { get; set; }
 #endif
         /// <summary>The providers_configured property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -138,6 +140,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public WebClientConfig()
         {
             AdditionalData = new Dictionary<string, object>();
+            EmailEnabled = false;
+            GitlabEnabled = false;
+            JiraDcServiceAccountManaged = false;
+            SlackEnabled = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -157,9 +163,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "acp_providers", n => { AcpProviders = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ACPProviderConfig>(global::Soenneker.OpenHands.OpenApiClient.Models.ACPProviderConfig.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "acp_providers", n => { AcpProviders = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "app_mode", n => { AppMode = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppMode>(); } },
                 { "auth_url", n => { AuthUrl = n.GetStringValue(); } },
+                { "email_enabled", n => { EmailEnabled = n.GetBoolValue(); } },
                 { "error_message", n => { ErrorMessage = n.GetStringValue(); } },
                 { "faulty_models", n => { FaultyModels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "feature_flags", n => { FeatureFlags = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags.CreateFromDiscriminatorValue); } },
@@ -172,7 +179,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_kind>(); } },
                 { "maintenance_start_time", n => { MaintenanceStartTime = n.GetDateTimeOffsetValue(); } },
                 { "posthog_client_key", n => { PosthogClientKey = n.GetStringValue(); } },
-                { "provider_default_hosts", n => { ProviderDefaultHosts = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_provider_default_hosts>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_provider_default_hosts.CreateFromDiscriminatorValue); } },
+                { "provider_default_hosts", n => { ProviderDefaultHosts = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigProviderDefaultHostsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigProviderDefaultHostsProperty.CreateFromDiscriminatorValue); } },
                 { "providers_configured", n => { ProvidersConfigured = n.GetCollectionOfEnumValues<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>()?.AsList(); } },
                 { "recaptcha_site_key", n => { RecaptchaSiteKey = n.GetStringValue(); } },
                 { "slack_enabled", n => { SlackEnabled = n.GetBoolValue(); } },
@@ -186,9 +193,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ACPProviderConfig>("acp_providers", AcpProviders);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig>("acp_providers", AcpProviders);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppMode>("app_mode", AppMode);
             writer.WriteStringValue("auth_url", AuthUrl);
+            writer.WriteBoolValue("email_enabled", EmailEnabled);
             writer.WriteStringValue("error_message", ErrorMessage);
             writer.WriteCollectionOfPrimitiveValues<string>("faulty_models", FaultyModels);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags>("feature_flags", FeatureFlags);
@@ -201,7 +209,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_kind>("kind", Kind);
             writer.WriteDateTimeOffsetValue("maintenance_start_time", MaintenanceStartTime);
             writer.WriteStringValue("posthog_client_key", PosthogClientKey);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_provider_default_hosts>("provider_default_hosts", ProviderDefaultHosts);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigProviderDefaultHostsProperty>("provider_default_hosts", ProviderDefaultHosts);
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>("providers_configured", ProvidersConfigured);
             writer.WriteStringValue("recaptcha_site_key", RecaptchaSiteKey);
             writer.WriteBoolValue("slack_enabled", SlackEnabled);

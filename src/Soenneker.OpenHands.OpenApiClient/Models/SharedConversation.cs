@@ -28,10 +28,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The git_provider property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_git_provider? GitProvider { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversationGitProvider? GitProvider { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_git_provider GitProvider { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversationGitProvider GitProvider { get; set; }
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,10 +52,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The metrics property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_metrics? Metrics { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversationMetrics? Metrics { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_metrics Metrics { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversationMetrics Metrics { get; set; }
 #endif
         /// <summary>The parent_conversation_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -142,10 +142,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created_by_user_id", n => { CreatedByUserId = n.GetStringValue(); } },
-                { "git_provider", n => { GitProvider = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_git_provider>(global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_git_provider.CreateFromDiscriminatorValue); } },
+                { "git_provider", n => { GitProvider = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversationGitProvider>(global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversationGitProvider.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "llm_model", n => { LlmModel = n.GetStringValue(); } },
-                { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_metrics>(global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_metrics.CreateFromDiscriminatorValue); } },
+                { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversationMetrics>(global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversationMetrics.CreateFromDiscriminatorValue); } },
                 { "parent_conversation_id", n => { ParentConversationId = n.GetStringValue(); } },
                 { "pr_number", n => { PrNumber = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "sandbox_id", n => { SandboxId = n.GetStringValue(); } },
@@ -165,10 +165,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("created_by_user_id", CreatedByUserId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_git_provider>("git_provider", GitProvider);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversationGitProvider>("git_provider", GitProvider);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("llm_model", LlmModel);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation_metrics>("metrics", Metrics);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversationMetrics>("metrics", Metrics);
             writer.WriteStringValue("parent_conversation_id", ParentConversationId);
             writer.WriteCollectionOfPrimitiveValues<int?>("pr_number", PrNumber);
             writer.WriteStringValue("sandbox_id", SandboxId);

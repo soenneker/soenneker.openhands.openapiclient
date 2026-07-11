@@ -39,7 +39,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.App
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.App.AppRequestBuilder.AppRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -52,18 +52,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.App
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Update organization app settings for the user&apos;s current organization.This endpoint updates application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    update_data: App settings update data    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found    HTTPException: 422 if validation errors occur (handled by FastAPI)    HTTPException: 500 if update fails&quot;
+        /// &quot;Update organization app settings for the user&apos;s current organization.Base access requires MANAGE_APPLICATION_SETTINGS (all members). Editingorg-wide ``registered_marketplaces`` additionally requires EDIT_ORG_SETTINGS(admin/owner), since those defaults apply to every member.Args:    update_data: App settings update data    request: The incoming request (used to resolve the target org for the        marketplace permission check)    service: OrgAppSettingsService (injected by dependency)    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks the required permission    HTTPException: 404 if current organization not found    HTTPException: 409 if a concurrent modification is detected    HTTPException: 400 if validation errors occur (e.g. duplicate names)    HTTPException: 500 if update fails&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse"/></returns>
         /// <param name="body">Request model for updating organization app settings.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdate body, Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.App.AppRequestBuilder.AppRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -77,7 +77,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.App
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -101,7 +101,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.App
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Update organization app settings for the user&apos;s current organization.This endpoint updates application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    update_data: App settings update data    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found    HTTPException: 422 if validation errors occur (handled by FastAPI)    HTTPException: 500 if update fails&quot;
+        /// &quot;Update organization app settings for the user&apos;s current organization.Base access requires MANAGE_APPLICATION_SETTINGS (all members). Editingorg-wide ``registered_marketplaces`` additionally requires EDIT_ORG_SETTINGS(admin/owner), since those defaults apply to every member.Args:    update_data: App settings update data    request: The incoming request (used to resolve the target org for the        marketplace permission check)    service: OrgAppSettingsService (injected by dependency)    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks the required permission    HTTPException: 404 if current organization not found    HTTPException: 409 if a concurrent modification is detected    HTTPException: 400 if validation errors occur (e.g. duplicate names)    HTTPException: 500 if update fails&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request model for updating organization app settings.</param>
@@ -141,7 +141,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.App
             public Guid? OrgId { get; set; }
         }
         /// <summary>
-        /// &quot;Update organization app settings for the user&apos;s current organization.This endpoint updates application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    update_data: App settings update data    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found    HTTPException: 422 if validation errors occur (handled by FastAPI)    HTTPException: 500 if update fails&quot;
+        /// &quot;Update organization app settings for the user&apos;s current organization.Base access requires MANAGE_APPLICATION_SETTINGS (all members). Editingorg-wide ``registered_marketplaces`` additionally requires EDIT_ORG_SETTINGS(admin/owner), since those defaults apply to every member.Args:    update_data: App settings update data    request: The incoming request (used to resolve the target org for the        marketplace permission check)    service: OrgAppSettingsService (injected by dependency)    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks the required permission    HTTPException: 404 if current organization not found    HTTPException: 409 if a concurrent modification is detected    HTTPException: 400 if validation errors occur (e.g. duplicate names)    HTTPException: 500 if update fails&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AppRequestBuilderPostQueryParameters 

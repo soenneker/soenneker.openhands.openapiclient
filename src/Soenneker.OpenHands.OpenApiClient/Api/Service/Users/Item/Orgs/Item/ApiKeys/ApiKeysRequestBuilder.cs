@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.ApiKeys
 {
     /// <summary>
-    /// Builds and executes requests for operations under \api\service\users\{user_id}\orgs\{org_id}\api-keys
+    /// Builds and executes requests for operations under \api\service\users\{userId}\orgs\{orgId}\api-keys
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApiKeysRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.api.service.users.item.orgs.item.apiKeys.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.ApiKeys.Item.WithKey_nameItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.ApiKeys.Item.WithKey_nameItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.ApiKeys.Item.WithKeyNameItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.ApiKeys.Item.WithKeyNameItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("key_name", position);
-                return new global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.ApiKeys.Item.WithKey_nameItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("keyName", position);
+                return new global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.ApiKeys.Item.WithKeyNameItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.Api
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ApiKeysRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/service/users/{user_id}/orgs/{org_id}/api-keys", pathParameters)
+        public ApiKeysRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/service/users/{userId}/orgs/{orgId}/api-keys", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.Api
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ApiKeysRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/service/users/{user_id}/orgs/{org_id}/api-keys", rawUrl)
+        public ApiKeysRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/service/users/{userId}/orgs/{orgId}/api-keys", rawUrl)
         {
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.Api
         /// <param name="body">Request model for creating an API key on behalf of a user.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.CreateUserApiKeyResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.CreateUserApiKeyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -67,7 +67,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.Api
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.CreateUserApiKeyResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.CreateUserApiKeyResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

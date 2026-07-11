@@ -20,10 +20,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileDetailResponse_config? Config { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileDetailResponseConfigProperty? Config { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileDetailResponse_config Config { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileDetailResponseConfigProperty Config { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,6 +39,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public OpenhandsAppServerSettingsSettingsRouterProfileDetailResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            ApiKeySet = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -59,7 +60,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "api_key_set", n => { ApiKeySet = n.GetBoolValue(); } },
-                { "config", n => { Config = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileDetailResponse_config>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileDetailResponse_config.CreateFromDiscriminatorValue); } },
+                { "config", n => { Config = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileDetailResponseConfigProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileDetailResponseConfigProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -71,7 +72,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("api_key_set", ApiKeySet);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileDetailResponse_config>("config", Config);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileDetailResponseConfigProperty>("config", Config);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }

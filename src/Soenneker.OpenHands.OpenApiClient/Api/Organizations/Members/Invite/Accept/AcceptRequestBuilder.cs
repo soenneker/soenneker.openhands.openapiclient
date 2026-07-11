@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Acc
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AcceptRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/members/invite/accept?token={token}", pathParameters)
+        public AcceptRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/members/invite/accept", pathParameters)
         {
         }
         /// <summary>
@@ -30,31 +30,31 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Acc
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AcceptRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/members/invite/accept?token={token}", rawUrl)
+        public AcceptRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/members/invite/accept", rawUrl)
         {
         }
         /// <summary>
         /// &quot;Redirect invitation acceptance to frontend.This endpoint is accessed via the link in the invitation email.It always redirects to the home page with the invitation token,allowing the frontend to handle the acceptance flow via a modal.This approach works with SameSite=&apos;strict&apos; cookies because:- Cross-site navigation (clicking email link) doesn&apos;t send cookies- But same-origin POST requests (from frontend) DO send cookiesArgs:    token: The invitation token from the email link    request: FastAPI requestReturns:    RedirectResponse: Redirect to home page with invitation_token query param&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AcceptInvitationRedirectApiOrganizationsMembersInviteAcceptGet200ResponseResponseJson"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptRequestBuilder.AcceptRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.AcceptInvitationRedirectApiOrganizationsMembersInviteAcceptGet200ResponseResponseJson?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptRequestBuilder.AcceptRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptRequestBuilder.AcceptRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.AcceptInvitationRedirectApiOrganizationsMembersInviteAcceptGet200ResponseResponseJson> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptRequestBuilder.AcceptRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptGetResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.AcceptInvitationRedirectApiOrganizationsMembersInviteAcceptGet200ResponseResponseJson>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.AcceptInvitationRedirectApiOrganizationsMembersInviteAcceptGet200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Accept an organization invitation via authenticated POST request.This endpoint is called by the frontend after displaying the acceptance modal.Requires authentication - cookies are sent because this is a same-origin request.Args:    request_data: Contains the invitation token    user_id: Authenticated user ID (from dependency)Returns:    AcceptInvitationResponse: Success response with organization detailsRaises:    HTTPException 400: Invalid or expired token    HTTPException 403: Email mismatch    HTTPException 409: User already a member&quot;
@@ -63,7 +63,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Acc
         /// <param name="body">Request model for accepting an invitation via POST.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.AcceptInvitationResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.AcceptInvitationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -77,7 +77,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Acc
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.AcceptInvitationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.AcceptInvitationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -95,7 +95,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Acc
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Accept.AcceptRequestBuilder.AcceptRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/api/organizations/members/invite/accept?token={token}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -116,7 +116,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.Invite.Acc
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/api/organizations/members/invite/accept", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

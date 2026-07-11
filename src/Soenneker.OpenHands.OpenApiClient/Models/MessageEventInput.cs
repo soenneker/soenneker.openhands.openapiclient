@@ -24,10 +24,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Optional critic evaluation of this message and preceding history.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.CriticResult? CriticResult { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MessageEventInputCriticResult? CriticResult { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.CriticResult CriticResult { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MessageEventInputCriticResult CriticResult { get; set; }
 #endif
         /// <summary>List of content added by agent context</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,6 +63,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string LlmResponseId { get; set; }
 #endif
+        /// <summary>Parent event id in the conversation tree. None for the root, or for legacy events predating the tree (see EventLog&apos;s effective-parent rule). Events sharing a parent_id are sibling branches.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentId { get; set; }
+#nullable restore
+#else
+        public string ParentId { get; set; }
+#endif
         /// <summary>Optional identifier of the sender. Can be used to track message origin in multi-agent scenarios.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -72,7 +80,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Sender { get; set; }
 #endif
         /// <summary>The source property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MessageEventInput_source? Source { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MessageEventInputSource? Source { get; set; }
         /// <summary>Event timestamp</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,14 +108,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "activated_skills", n => { ActivatedSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "critic_result", n => { CriticResult = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CriticResult>(global::Soenneker.OpenHands.OpenApiClient.Models.CriticResult.CreateFromDiscriminatorValue); } },
+                { "critic_result", n => { CriticResult = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageEventInputCriticResult>(global::Soenneker.OpenHands.OpenApiClient.Models.MessageEventInputCriticResult.CreateFromDiscriminatorValue); } },
                 { "extended_content", n => { ExtendedContent = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>(global::Soenneker.OpenHands.OpenApiClient.Models.TextContent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageEventInput_kind>(); } },
                 { "llm_message", n => { LlmMessage = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Message>(global::Soenneker.OpenHands.OpenApiClient.Models.Message.CreateFromDiscriminatorValue); } },
                 { "llm_response_id", n => { LlmResponseId = n.GetStringValue(); } },
+                { "parent_id", n => { ParentId = n.GetStringValue(); } },
                 { "sender", n => { Sender = n.GetStringValue(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageEventInput_source>(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageEventInputSource>(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
             };
         }
@@ -119,14 +128,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("activated_skills", ActivatedSkills);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CriticResult>("critic_result", CriticResult);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageEventInputCriticResult>("critic_result", CriticResult);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>("extended_content", ExtendedContent);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageEventInput_kind>("kind", Kind);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Message>("llm_message", LlmMessage);
             writer.WriteStringValue("llm_response_id", LlmResponseId);
+            writer.WriteStringValue("parent_id", ParentId);
             writer.WriteStringValue("sender", Sender);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageEventInput_source>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageEventInputSource>("source", Source);
             writer.WriteStringValue("timestamp", Timestamp);
         }
     }

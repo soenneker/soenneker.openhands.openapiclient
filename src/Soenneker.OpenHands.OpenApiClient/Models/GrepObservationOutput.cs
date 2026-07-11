@@ -16,10 +16,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutput.GrepObservationOutput_content>? Content { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutputContentItem>? Content { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutput.GrepObservationOutput_content> Content { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutputContentItem> Content { get; set; }
 #endif
         /// <summary>The file pattern filter that was used</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -60,6 +60,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Whether results were truncated to 100 files</summary>
         public bool? Truncated { get; set; }
         /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutput"/> and sets the default values.
+        /// </summary>
+        public GrepObservationOutput()
+        {
+            IsError = false;
+            Truncated = false;
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutput"/></returns>
@@ -77,7 +85,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutput.GrepObservationOutput_content>(global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutput.GrepObservationOutput_content.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutputContentItem>(global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutputContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "include_pattern", n => { IncludePattern = n.GetStringValue(); } },
                 { "is_error", n => { IsError = n.GetBoolValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutput_kind>(); } },
@@ -94,7 +102,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutput.GrepObservationOutput_content>("content", Content);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutputContentItem>("content", Content);
             writer.WriteStringValue("include_pattern", IncludePattern);
             writer.WriteBoolValue("is_error", IsError);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutput_kind>("kind", Kind);
@@ -102,63 +110,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("pattern", Pattern);
             writer.WriteStringValue("search_path", SearchPath);
             writer.WriteBoolValue("truncated", Truncated);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TextContent"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GrepObservationOutput_content : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent? ImageContent { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent ImageContent { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TextContent"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.TextContent? TextContent { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.TextContent TextContent { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutput.GrepObservationOutput_content"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutput.GrepObservationOutput_content CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservationOutput.GrepObservationOutput_content();
-                result.ImageContent = new global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent();
-                result.TextContent = new global::Soenneker.OpenHands.OpenApiClient.Models.TextContent();
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ImageContent != null || TextContent != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ImageContent, TextContent);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent>(null, ImageContent, TextContent);
-            }
         }
     }
 }

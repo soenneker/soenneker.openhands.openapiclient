@@ -18,10 +18,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The git_provider property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType_Wrapper? GitProvider { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderTypeWrapper4? GitProvider { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType_Wrapper GitProvider { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderTypeWrapper4 GitProvider { get; set; }
 #endif
         /// <summary>The public property</summary>
         public bool? Public { get; set; }
@@ -74,7 +74,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "git_provider", n => { GitProvider = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType_Wrapper>(global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType_Wrapper.CreateFromDiscriminatorValue); } },
+                { "git_provider", n => { GitProvider = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderTypeWrapper4>(global::Soenneker.OpenHands.OpenApiClient.Models.ProviderTypeWrapper4.CreateFromDiscriminatorValue); } },
                 { "public", n => { Public = n.GetBoolValue(); } },
                 { "selected_branch", n => { SelectedBranch = n.GetStringValue(); } },
                 { "selected_repository", n => { SelectedRepository = n.GetStringValue(); } },
@@ -88,7 +88,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType_Wrapper>("git_provider", GitProvider);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderTypeWrapper4>("git_provider", GitProvider);
             writer.WriteBoolValue("public", Public);
             writer.WriteStringValue("selected_branch", SelectedBranch);
             writer.WriteStringValue("selected_repository", SelectedRepository);

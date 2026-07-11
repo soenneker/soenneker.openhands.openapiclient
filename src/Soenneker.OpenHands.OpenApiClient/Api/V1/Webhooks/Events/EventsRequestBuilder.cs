@@ -17,14 +17,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Events
     {
         /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.api.v1.webhooks.events.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Events.Item.WithConversation_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Events.Item.WithConversation_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Events.Item.WithConversationItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Events.Item.WithConversationItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("conversation_id", position);
-                return new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Events.Item.WithConversation_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("conversationId", position);
+                return new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Events.Item.WithConversationItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

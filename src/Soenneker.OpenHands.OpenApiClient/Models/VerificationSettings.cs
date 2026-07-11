@@ -15,10 +15,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>API key used to authenticate with the critic service. When None, the LLM&apos;s ``api_key`` is reused, which preserves the auto-configuration path for the All-Hands LLM proxy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticApiKey? CriticApiKey { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticApiKey CriticApiKey { get; set; }
+#endif
         /// <summary>Enable critic evaluation for the agent.</summary>
         public bool? CriticEnabled { get; set; }
         /// <summary>When critic evaluation should run.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings_critic_mode? CriticMode { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticMode? CriticMode { get; set; }
         /// <summary>Override the critic model name. When None, the APIBasedCritic default is used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,7 +55,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public VerificationSettings()
         {
             AdditionalData = new Dictionary<string, object>();
-            CriticMode = global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings_critic_mode.Finish_and_message;
+            CriticEnabled = false;
+            CriticThreshold = 0.6;
+            EnableIterativeRefinement = false;
+            MaxRefinementIterations = 3;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -67,8 +78,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "critic_api_key", n => { CriticApiKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticApiKey>(global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticApiKey.CreateFromDiscriminatorValue); } },
                 { "critic_enabled", n => { CriticEnabled = n.GetBoolValue(); } },
-                { "critic_mode", n => { CriticMode = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings_critic_mode>(); } },
+                { "critic_mode", n => { CriticMode = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticMode>(); } },
                 { "critic_model_name", n => { CriticModelName = n.GetStringValue(); } },
                 { "critic_server_url", n => { CriticServerUrl = n.GetStringValue(); } },
                 { "critic_threshold", n => { CriticThreshold = n.GetDoubleValue(); } },
@@ -83,8 +95,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticApiKey>("critic_api_key", CriticApiKey);
             writer.WriteBoolValue("critic_enabled", CriticEnabled);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings_critic_mode>("critic_mode", CriticMode);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticMode>("critic_mode", CriticMode);
             writer.WriteStringValue("critic_model_name", CriticModelName);
             writer.WriteStringValue("critic_server_url", CriticServerUrl);
             writer.WriteDoubleValue("critic_threshold", CriticThreshold);

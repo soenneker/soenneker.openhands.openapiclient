@@ -10,19 +10,19 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         [EnumMember(Value = "CREATED_AT")]
         #pragma warning disable CS1591
-        CREATED_AT,
+        CreatedAt,
         #pragma warning restore CS1591
         [EnumMember(Value = "CREATED_AT_DESC")]
         #pragma warning disable CS1591
-        CREATED_AT_DESC,
+        CreatedAtDesc,
         #pragma warning restore CS1591
         [EnumMember(Value = "UPDATED_AT")]
         #pragma warning disable CS1591
-        UPDATED_AT,
+        UpdatedAt,
         #pragma warning restore CS1591
         [EnumMember(Value = "UPDATED_AT_DESC")]
         #pragma warning disable CS1591
-        UPDATED_AT_DESC,
+        UpdatedAtDesc,
         #pragma warning restore CS1591
     }
 }

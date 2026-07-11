@@ -49,6 +49,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string InviterEmail { get; set; }
 #endif
+        /// <summary>The invite_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InviteUrl { get; set; }
+#nullable restore
+#else
+        public string InviteUrl { get; set; }
+#endif
         /// <summary>The role property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -94,6 +102,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
+                { "invite_url", n => { InviteUrl = n.GetStringValue(); } },
                 { "inviter_email", n => { InviterEmail = n.GetStringValue(); } },
                 { "role", n => { Role = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -111,6 +120,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("expires_at", ExpiresAt);
             writer.WriteIntValue("id", Id);
             writer.WriteStringValue("inviter_email", InviterEmail);
+            writer.WriteStringValue("invite_url", InviteUrl);
             writer.WriteStringValue("role", Role);
             writer.WriteStringValue("status", Status);
             writer.WriteAdditionalData(AdditionalData);

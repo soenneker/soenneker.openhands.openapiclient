@@ -41,7 +41,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SandboxesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/sandboxes?id={id}{&sandbox_spec_id*}", pathParameters)
+        public SandboxesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/sandboxes{?sandbox_spec_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SandboxesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/sandboxes?id={id}{&sandbox_spec_id*}", rawUrl)
+        public SandboxesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/sandboxes{?sandbox_spec_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes
         /// <returns>A List&lt;global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfo&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<List<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfo>?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.SandboxesRequestBuilder.SandboxesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -71,7 +71,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfo>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfo.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
@@ -82,7 +82,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfo"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfo?> PostAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.SandboxesRequestBuilder.SandboxesRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -95,7 +95,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfo>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfo.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -132,7 +132,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes
         public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.SandboxesRequestBuilder.SandboxesRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/api/v1/sandboxes{?sandbox_spec_id*}", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

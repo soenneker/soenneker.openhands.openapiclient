@@ -31,8 +31,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The kind property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventInput_kind? Kind { get; set; }
+        /// <summary>Parent event id in the conversation tree. None for the root, or for legacy events predating the tree (see EventLog&apos;s effective-parent rule). Events sharing a parent_id are sibling branches.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentId { get; set; }
+#nullable restore
+#else
+        public string ParentId { get; set; }
+#endif
         /// <summary>The source property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventInput_source? Source { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventInputSource? Source { get; set; }
         /// <summary>Event timestamp</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,13 +66,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string ToolName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventInput"/> and sets the default values.
-        /// </summary>
-        public AgentErrorEventInput()
-        {
-            Source = global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventInput_source.Agent;
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventInput"/></returns>
@@ -85,7 +86,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventInput_kind>(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventInput_source>(); } },
+                { "parent_id", n => { ParentId = n.GetStringValue(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventInputSource>(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
                 { "tool_call_id", n => { ToolCallId = n.GetStringValue(); } },
                 { "tool_name", n => { ToolName = n.GetStringValue(); } },
@@ -101,7 +103,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("error", Error);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventInput_kind>("kind", Kind);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventInput_source>("source", Source);
+            writer.WriteStringValue("parent_id", ParentId);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventInputSource>("source", Source);
             writer.WriteStringValue("timestamp", Timestamp);
             writer.WriteStringValue("tool_call_id", ToolCallId);
             writer.WriteStringValue("tool_name", ToolName);

@@ -15,6 +15,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The email_delivery_configured property</summary>
+        public bool? EmailDeliveryConfigured { get; set; }
         /// <summary>The failed property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,6 +39,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public BatchInvitationResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            EmailDeliveryConfigured = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -56,6 +59,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "email_delivery_configured", n => { EmailDeliveryConfigured = n.GetBoolValue(); } },
                 { "failed", n => { Failed = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationFailure>(global::Soenneker.OpenHands.OpenApiClient.Models.InvitationFailure.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "successful", n => { Successful = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationResponse>(global::Soenneker.OpenHands.OpenApiClient.Models.InvitationResponse.CreateFromDiscriminatorValue)?.AsList(); } },
             };
@@ -67,6 +71,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("email_delivery_configured", EmailDeliveryConfigured);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationFailure>("failed", Failed);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationResponse>("successful", Successful);
             writer.WriteAdditionalData(AdditionalData);

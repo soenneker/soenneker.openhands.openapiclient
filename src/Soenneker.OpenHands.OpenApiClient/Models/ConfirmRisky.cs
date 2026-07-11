@@ -26,6 +26,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public ConfirmRisky()
         {
             AdditionalData = new Dictionary<string, object>();
+            ConfirmUnknown = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

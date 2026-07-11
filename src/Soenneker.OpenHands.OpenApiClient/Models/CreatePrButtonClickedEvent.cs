@@ -18,7 +18,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The event_type property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEvent_event_type? EventType { get; set; }
         /// <summary>The git_provider property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEvent_git_provider? GitProvider { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEventGitProvider? GitProvider { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEvent"/> and sets the default values.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEvent_event_type>(); } },
-                { "git_provider", n => { GitProvider = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEvent_git_provider>(); } },
+                { "git_provider", n => { GitProvider = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEventGitProvider>(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEvent_event_type>("event_type", EventType);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEvent_git_provider>("git_provider", GitProvider);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEventGitProvider>("git_provider", GitProvider);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

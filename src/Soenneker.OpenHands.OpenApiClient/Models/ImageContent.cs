@@ -32,7 +32,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public ImageContent()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent_type.Image;
+            CachePrompt = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

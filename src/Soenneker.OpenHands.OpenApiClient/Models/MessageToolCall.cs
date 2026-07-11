@@ -40,7 +40,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>Originating API family</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall_origin? Origin { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCallOrigin? Origin { get; set; }
         /// <summary>Original Responses function_call.id, echoed verbatim on replay</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,7 +77,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "arguments", n => { Arguments = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "origin", n => { Origin = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall_origin>(); } },
+                { "origin", n => { Origin = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCallOrigin>(); } },
                 { "responses_item_id", n => { ResponsesItemId = n.GetStringValue(); } },
             };
         }
@@ -91,7 +91,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("arguments", Arguments);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall_origin>("origin", Origin);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCallOrigin>("origin", Origin);
             writer.WriteStringValue("responses_item_id", ResponsesItemId);
             writer.WriteAdditionalData(AdditionalData);
         }

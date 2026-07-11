@@ -39,7 +39,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public ThinkingBlock()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock_type.Thinking;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

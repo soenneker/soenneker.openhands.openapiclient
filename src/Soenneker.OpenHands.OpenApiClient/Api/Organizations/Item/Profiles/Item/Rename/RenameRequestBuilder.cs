@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.Item.Rename
 {
     /// <summary>
-    /// Builds and executes requests for operations under \api\organizations\{org_id}\profiles\{name}\rename
+    /// Builds and executes requests for operations under \api\organizations\{orgId}\profiles\{name}\rename
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RenameRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RenameRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{org_id}/profiles/{name}/rename", pathParameters)
+        public RenameRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{orgId}/profiles/{name}/rename", pathParameters)
         {
         }
         /// <summary>
@@ -30,17 +30,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RenameRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{org_id}/profiles/{name}/rename", rawUrl)
+        public RenameRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{orgId}/profiles/{name}/rename", rawUrl)
         {
         }
         /// <summary>
-        /// Rename an LLM profile.
+        /// Rename an LLM profile, cascading the rename to any Agent Profiles thatreference it.The SDK ``rename_llm_profile`` renames the LLM profile and repoints every``agent_profiles.*.llm_profile_ref == name`` to ``new_name`` under the orgrow lock, so a referencing Agent Profile never dangles. Both collections arewritten back in the same transaction.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileMutationResponse"/></returns>
-        /// <param name="body">Request body for renaming a profile.</param>
+        /// <param name="body">&quot;Request body for renaming a profile.``new_name`` is constrained to ``PROFILE_NAME_PATTERN`` because``rename_llm_profile`` (the SDK FK-cascade helper backing this endpoint)validates the new name against that same pattern before renaming andrepointing any referencing Agent Profiles — a name outside it always 422sthere. Declaring the constraint here makes the schema honest and gives afield-level 422 instead of one raised deep inside the handler. ``save``(create/update) is intentionally left permissive: it never calls the FKhelper, so it has no such requirement.&quot;</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileMutationResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesRenameProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -54,15 +54,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.Item
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileMutationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileMutationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Rename an LLM profile.
+        /// Rename an LLM profile, cascading the rename to any Agent Profiles thatreference it.The SDK ``rename_llm_profile`` renames the LLM profile and repoints every``agent_profiles.*.llm_profile_ref == name`` to ``new_name`` under the orgrow lock, so a referencing Agent Profile never dangles. Both collections arewritten back in the same transaction.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Request body for renaming a profile.</param>
+        /// <param name="body">&quot;Request body for renaming a profile.``new_name`` is constrained to ``PROFILE_NAME_PATTERN`` because``rename_llm_profile`` (the SDK FK-cascade helper backing this endpoint)validates the new name against that same pattern before renaming andrepointing any referencing Agent Profiles — a name outside it always 422sthere. Declaring the constraint here makes the schema honest and gives afield-level 422 instead of one raised deep inside the handler. ``save``(create/update) is intentionally left permissive: it never calls the FKhelper, so it has no such requirement.&quot;</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

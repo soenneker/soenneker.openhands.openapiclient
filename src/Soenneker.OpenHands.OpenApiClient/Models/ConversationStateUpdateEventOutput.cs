@@ -31,8 +31,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The kind property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_kind? Kind { get; set; }
+        /// <summary>Parent event id in the conversation tree. None for the root, or for legacy events predating the tree (see EventLog&apos;s effective-parent rule). Events sharing a parent_id are sibling branches.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentId { get; set; }
+#nullable restore
+#else
+        public string ParentId { get; set; }
+#endif
         /// <summary>The source property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_source? Source { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutputSource? Source { get; set; }
         /// <summary>Event timestamp</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -44,18 +52,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Serialized conversation state updates</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_value? Value { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutputValue? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_value Value { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutputValue Value { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput"/> and sets the default values.
-        /// </summary>
-        public ConversationStateUpdateEventOutput()
-        {
-            Source = global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_source.Environment;
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -77,9 +78,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_kind>(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_source>(); } },
+                { "parent_id", n => { ParentId = n.GetStringValue(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutputSource>(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_value>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_value.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutputValue>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutputValue.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -92,9 +94,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("key", Key);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_kind>("kind", Kind);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_source>("source", Source);
+            writer.WriteStringValue("parent_id", ParentId);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutputSource>("source", Source);
             writer.WriteStringValue("timestamp", Timestamp);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutput_value>("value", Value);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStateUpdateEventOutputValue>("value", Value);
         }
     }
 }

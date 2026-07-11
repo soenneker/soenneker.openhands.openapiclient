@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.OpenHands.OpenApiClient.Api.V1.Skills.MarketplaceSkills;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.Skills.Search;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Skills
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SkillsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The marketplaceSkills property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Skills.MarketplaceSkills.MarketplaceSkillsRequestBuilder MarketplaceSkills
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Skills.MarketplaceSkills.MarketplaceSkillsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The search property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Skills.Search.SearchRequestBuilder Search
         {

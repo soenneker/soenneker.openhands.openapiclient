@@ -17,14 +17,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.Validate
     {
         /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.integration.jira.workspaces.validate.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.Validate.Item.WithWorkspace_nameItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.Validate.Item.WithWorkspace_nameItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.Validate.Item.WithWorkspaceNameItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.Validate.Item.WithWorkspaceNameItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("workspace_name", position);
-                return new global::Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.Validate.Item.WithWorkspace_nameItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("workspaceName", position);
+                return new global::Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.Validate.Item.WithWorkspaceNameItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

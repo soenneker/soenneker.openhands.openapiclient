@@ -50,14 +50,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string HookCommand { get; set; }
 #endif
         /// <summary>The type of hook event that triggered this execution</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInput_hook_event_type? HookEventType { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInputHookEventType? HookEventType { get; set; }
         /// <summary>The input data that was passed to the hook</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInput_hook_input? HookInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInputHookInput? HookInput { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInput_hook_input HookInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInputHookInput HookInput { get; set; }
 #endif
         /// <summary>Unique event id (ULID/UUID)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -77,6 +77,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string MessageId { get; set; }
 #endif
+        /// <summary>Parent event id in the conversation tree. None for the root, or for legacy events predating the tree (see EventLog&apos;s effective-parent rule). Events sharing a parent_id are sibling branches.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentId { get; set; }
+#nullable restore
+#else
+        public string ParentId { get; set; }
+#endif
         /// <summary>Reason provided by hook (for blocking)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,7 +94,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Reason { get; set; }
 #endif
         /// <summary>Source is always &apos;hook&apos; for hook execution events</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInput_source? Source { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInputSource? Source { get; set; }
         /// <summary>Standard error from the hook</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -126,7 +134,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// </summary>
         public HookExecutionEventInput()
         {
-            Source = global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInput_source.Hook;
+            Blocked = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -152,13 +160,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "exit_code", n => { ExitCode = n.GetIntValue(); } },
                 { "hook_command", n => { HookCommand = n.GetStringValue(); } },
-                { "hook_event_type", n => { HookEventType = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInput_hook_event_type>(); } },
-                { "hook_input", n => { HookInput = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInput_hook_input>(global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInput_hook_input.CreateFromDiscriminatorValue); } },
+                { "hook_event_type", n => { HookEventType = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInputHookEventType>(); } },
+                { "hook_input", n => { HookInput = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInputHookInput>(global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInputHookInput.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInput_kind>(); } },
                 { "message_id", n => { MessageId = n.GetStringValue(); } },
+                { "parent_id", n => { ParentId = n.GetStringValue(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInput_source>(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInputSource>(); } },
                 { "stderr", n => { Stderr = n.GetStringValue(); } },
                 { "stdout", n => { Stdout = n.GetStringValue(); } },
                 { "success", n => { Success = n.GetBoolValue(); } },
@@ -179,13 +188,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("error", Error);
             writer.WriteIntValue("exit_code", ExitCode);
             writer.WriteStringValue("hook_command", HookCommand);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInput_hook_event_type>("hook_event_type", HookEventType);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInput_hook_input>("hook_input", HookInput);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInputHookEventType>("hook_event_type", HookEventType);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInputHookInput>("hook_input", HookInput);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInput_kind>("kind", Kind);
             writer.WriteStringValue("message_id", MessageId);
+            writer.WriteStringValue("parent_id", ParentId);
             writer.WriteStringValue("reason", Reason);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInput_source>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookExecutionEventInputSource>("source", Source);
             writer.WriteStringValue("stderr", Stderr);
             writer.WriteStringValue("stdout", Stdout);
             writer.WriteBoolValue("success", Success);

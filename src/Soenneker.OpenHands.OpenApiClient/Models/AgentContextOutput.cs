@@ -15,14 +15,24 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Current date and time information to provide to the agent. Can be a datetime object (which will be formatted as ISO 8601) or a pre-formatted string. When provided, this information is included in the system prompt to give the agent awareness of the current time context. Defaults to the current datetime.</summary>
+        /// <summary>Current date and time information to provide to the agent. Can be a datetime object (which will be formatted as ISO 8601) or a pre-formatted string. When provided, this information is included in the system prompt to give the agent awareness of the current time context. Defaults to the current (timezone-aware) datetime.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Current_Datetime? CurrentDatetime { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetime? CurrentDatetime { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Current_Datetime CurrentDatetime { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetime CurrentDatetime { get; set; }
 #endif
+        /// <summary>Names of skills to EXCLUDE from this context — a deny-list applied after every skill source is loaded (auto-loaded user/public, explicit, and lazily-loaded project skills). A listed name absent from the loaded set is a harmless no-op. [] (the default) keeps every skill. This is the single, drift-tolerant skill-selection mechanism (agent profiles set it from their own deny-list; #4017).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? DisabledSkills { get; set; }
+#nullable restore
+#else
+        public List<string> DisabledSkills { get; set; }
+#endif
+        /// <summary>&quot;Whether to automatically load project skills from the conversation workspace (e.g. .openhands/skills/, AGENTS.md). Unlike load_user_skills / load_public_skills, this flag is not resolved by AgentContext itself (the workspace path is unknown at validation time); LocalConversation resolves it lazily on the first send_message() / run(), when the workspace is known. Also unlike load_user_skills / load_public_skills (which yield to explicit skills on a name conflict), resolved project skills are authoritative: a project skill overrides a same-named skill already present in `skills`.&quot;</summary>
+        public bool? LoadProjectSkills { get; set; }
         /// <summary>Whether to automatically load skills from the public OpenHands skills repository at https://github.com/OpenHands/extensions. This allows you to get the latest skills without SDK updates.</summary>
         public bool? LoadPublicSkills { get; set; }
         /// <summary>Whether to automatically load user skills from ~/.openhands/skills/ and ~/.openhands/microagents/ (for backward compatibility). </summary>
@@ -35,21 +45,29 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string MarketplacePath { get; set; }
 #endif
+        /// <summary>Marketplace registrations for plugin resolution. Registrations with auto_load=True or a list of plugin names are resolved by LocalConversation at startup.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration>? RegisteredMarketplaces { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration> RegisteredMarketplaces { get; set; }
+#endif
         /// <summary>Dictionary mapping secret keys to values or secret sources. Secrets are used for authentication and sensitive data handling. Values can be either strings or SecretSource instances (str | SecretSource).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput_secrets? Secrets { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSecrets? Secrets { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput_secrets Secrets { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSecrets Secrets { get; set; }
 #endif
         /// <summary>List of available skills that can extend the user&apos;s input.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.Skill>? Skills { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillOutput>? Skills { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.Skill> Skills { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillOutput> Skills { get; set; }
 #endif
         /// <summary>Optional suffix to append to the system prompt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,6 +91,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public AgentContextOutput()
         {
             AdditionalData = new Dictionary<string, object>();
+            LoadProjectSkills = false;
+            LoadPublicSkills = false;
+            LoadUserSkills = false;
             MarketplacePath = "marketplaces/default.json";
         }
         /// <summary>
@@ -93,12 +114,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "current_datetime", n => { CurrentDatetime = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Current_Datetime>(global::Soenneker.OpenHands.OpenApiClient.Models.Current_Datetime.CreateFromDiscriminatorValue); } },
+                { "current_datetime", n => { CurrentDatetime = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetime>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetime.CreateFromDiscriminatorValue); } },
+                { "disabled_skills", n => { DisabledSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "load_project_skills", n => { LoadProjectSkills = n.GetBoolValue(); } },
                 { "load_public_skills", n => { LoadPublicSkills = n.GetBoolValue(); } },
                 { "load_user_skills", n => { LoadUserSkills = n.GetBoolValue(); } },
                 { "marketplace_path", n => { MarketplacePath = n.GetStringValue(); } },
-                { "secrets", n => { Secrets = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput_secrets>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput_secrets.CreateFromDiscriminatorValue); } },
-                { "skills", n => { Skills = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.Skill>(global::Soenneker.OpenHands.OpenApiClient.Models.Skill.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "registered_marketplaces", n => { RegisteredMarketplaces = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "secrets", n => { Secrets = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSecrets>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSecrets.CreateFromDiscriminatorValue); } },
+                { "skills", n => { Skills = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.SkillOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillOutput.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "system_message_suffix", n => { SystemMessageSuffix = n.GetStringValue(); } },
                 { "user_message_suffix", n => { UserMessageSuffix = n.GetStringValue(); } },
             };
@@ -110,12 +134,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Current_Datetime>("current_datetime", CurrentDatetime);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetime>("current_datetime", CurrentDatetime);
+            writer.WriteCollectionOfPrimitiveValues<string>("disabled_skills", DisabledSkills);
+            writer.WriteBoolValue("load_project_skills", LoadProjectSkills);
             writer.WriteBoolValue("load_public_skills", LoadPublicSkills);
             writer.WriteBoolValue("load_user_skills", LoadUserSkills);
             writer.WriteStringValue("marketplace_path", MarketplacePath);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput_secrets>("secrets", Secrets);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.Skill>("skills", Skills);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration>("registered_marketplaces", RegisteredMarketplaces);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSecrets>("secrets", Secrets);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.SkillOutput>("skills", Skills);
             writer.WriteStringValue("system_message_suffix", SystemMessageSuffix);
             writer.WriteStringValue("user_message_suffix", UserMessageSuffix);
             writer.WriteAdditionalData(AdditionalData);

@@ -21,14 +21,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The schema_version property</summary>
         public int? SchemaVersion { get; set; }
         /// <summary>Security analyzer that evaluates actions before execution.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings_security_analyzer? SecurityAnalyzer { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsSecurityAnalyzer? SecurityAnalyzer { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings"/> and sets the default values.
         /// </summary>
         public ConversationSettings()
         {
             AdditionalData = new Dictionary<string, object>();
-            SecurityAnalyzer = global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings_security_analyzer.Llm;
+            ConfirmationMode = false;
+            MaxIterations = 500;
+            SchemaVersion = 1;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -51,7 +53,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "confirmation_mode", n => { ConfirmationMode = n.GetBoolValue(); } },
                 { "max_iterations", n => { MaxIterations = n.GetIntValue(); } },
                 { "schema_version", n => { SchemaVersion = n.GetIntValue(); } },
-                { "security_analyzer", n => { SecurityAnalyzer = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings_security_analyzer>(); } },
+                { "security_analyzer", n => { SecurityAnalyzer = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsSecurityAnalyzer>(); } },
             };
         }
         /// <summary>
@@ -64,7 +66,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("confirmation_mode", ConfirmationMode);
             writer.WriteIntValue("max_iterations", MaxIterations);
             writer.WriteIntValue("schema_version", SchemaVersion);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings_security_analyzer>("security_analyzer", SecurityAnalyzer);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsSecurityAnalyzer>("security_analyzer", SecurityAnalyzer);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

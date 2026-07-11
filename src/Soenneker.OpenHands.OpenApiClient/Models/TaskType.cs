@@ -10,23 +10,23 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         [EnumMember(Value = "MERGE_CONFLICTS")]
         #pragma warning disable CS1591
-        MERGE_CONFLICTS,
+        MergeConflicts,
         #pragma warning restore CS1591
         [EnumMember(Value = "FAILING_CHECKS")]
         #pragma warning disable CS1591
-        FAILING_CHECKS,
+        FailingChecks,
         #pragma warning restore CS1591
         [EnumMember(Value = "UNRESOLVED_COMMENTS")]
         #pragma warning disable CS1591
-        UNRESOLVED_COMMENTS,
+        UnresolvedComments,
         #pragma warning restore CS1591
         [EnumMember(Value = "OPEN_ISSUE")]
         #pragma warning disable CS1591
-        OPEN_ISSUE,
+        OpenIssue,
         #pragma warning restore CS1591
         [EnumMember(Value = "OPEN_PR")]
         #pragma warning disable CS1591
-        OPEN_PR,
+        OpenPr,
         #pragma warning restore CS1591
     }
 }

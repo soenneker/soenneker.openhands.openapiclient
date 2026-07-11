@@ -10,7 +10,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         [EnumMember(Value = "redacted_thinking")]
         #pragma warning disable CS1591
-        Redacted_thinking,
+        RedactedThinking,
         #pragma warning restore CS1591
     }
 }

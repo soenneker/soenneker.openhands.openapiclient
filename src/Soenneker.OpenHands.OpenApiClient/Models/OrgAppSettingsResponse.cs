@@ -19,12 +19,23 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public bool? EnableProactiveConversationStarters { get; set; }
         /// <summary>The max_budget_per_task property</summary>
         public double? MaxBudgetPerTask { get; set; }
+        /// <summary>The registered_marketplaces property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration>? RegisteredMarketplaces { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration> RegisteredMarketplaces { get; set; }
+#endif
+        /// <summary>The updated_at property</summary>
+        public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse"/> and sets the default values.
         /// </summary>
         public OrgAppSettingsResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            EnableProactiveConversationStarters = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -46,6 +57,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "enable_proactive_conversation_starters", n => { EnableProactiveConversationStarters = n.GetBoolValue(); } },
                 { "max_budget_per_task", n => { MaxBudgetPerTask = n.GetDoubleValue(); } },
+                { "registered_marketplaces", n => { RegisteredMarketplaces = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -57,6 +70,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enable_proactive_conversation_starters", EnableProactiveConversationStarters);
             writer.WriteDoubleValue("max_budget_per_task", MaxBudgetPerTask);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration>("registered_marketplaces", RegisteredMarketplaces);
+            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

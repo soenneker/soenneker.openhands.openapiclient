@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.Search
 {
     /// <summary>
-    /// Builds and executes requests for operations under \api\v1\conversation\{conversation_id}\events\search
+    /// Builds and executes requests for operations under \api\v1\conversation\{conversationId}\events\search
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SearchRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.Sear
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SearchRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/conversation/{conversation_id}/events/search{?kind__eq*,limit*,page_id*,sort_order*,timestamp__gte*,timestamp__lt*}", pathParameters)
+        public SearchRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/conversation/{conversationId}/events/search{?kind__eq*,limit*,page_id*,sort_order*,timestamp__gte*,timestamp__lt*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.Sear
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SearchRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/conversation/{conversation_id}/events/search{?kind__eq*,limit*,page_id*,sort_order*,timestamp__gte*,timestamp__lt*}", rawUrl)
+        public SearchRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/conversation/{conversationId}/events/search{?kind__eq*,limit*,page_id*,sort_order*,timestamp__gte*,timestamp__lt*}", rawUrl)
         {
         }
         /// <summary>
@@ -39,7 +39,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.Sear
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.EventPage?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.Search.SearchRequestBuilder.SearchRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -52,7 +52,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.Sear
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.EventPage>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.EventPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -91,7 +91,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.Sear
         public partial class SearchRequestBuilderGetQueryParameters 
         {
             [QueryParameter("kind__eq")]
-            public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.Search.GetKind__eqQueryParameterType? KindEq { get; set; }
+            public global::Soenneker.OpenHands.OpenApiClient.Models.SearchEventsApiV1ConversationConversationIdEventsSearchGetKindEqParameter? KindEq { get; set; }
             [QueryParameter("limit")]
             public int? Limit { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

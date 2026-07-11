@@ -18,10 +18,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Active usage metrics tracked by the registry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats_usage_to_metrics? UsageToMetrics { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStatsUsageToMetricsProperty? UsageToMetrics { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats_usage_to_metrics UsageToMetrics { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStatsUsageToMetricsProperty UsageToMetrics { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "usage_to_metrics", n => { UsageToMetrics = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats_usage_to_metrics>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats_usage_to_metrics.CreateFromDiscriminatorValue); } },
+                { "usage_to_metrics", n => { UsageToMetrics = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStatsUsageToMetricsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStatsUsageToMetricsProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats_usage_to_metrics>("usage_to_metrics", UsageToMetrics);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStatsUsageToMetricsProperty>("usage_to_metrics", UsageToMetrics);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

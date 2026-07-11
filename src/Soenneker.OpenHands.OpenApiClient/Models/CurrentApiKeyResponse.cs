@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Response model for the current API key endpoint.
+    /// &quot;Response model for the current API key endpoint.``org_id`` is the *effective* org id of the current request: thekey&apos;s bound org for org-bound keys, or the resolved org (from the``X-Org-Id`` header or ``user.current_org_id``) for unbound keys.``bound_org_id`` distinguishes the two cases -- it is the orgpersisted on the key, or ``None`` when the key is unbound.&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CurrentApiKeyResponse : IAdditionalDataHolder, IParsable
@@ -22,6 +22,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #nullable restore
 #else
         public string AuthType { get; set; }
+#endif
+        /// <summary>The bound_org_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? BoundOrgId { get; set; }
+#nullable restore
+#else
+        public string BoundOrgId { get; set; }
 #endif
         /// <summary>The id property</summary>
         public int? Id { get; set; }
@@ -75,6 +83,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "auth_type", n => { AuthType = n.GetStringValue(); } },
+                { "bound_org_id", n => { BoundOrgId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
@@ -89,6 +98,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("auth_type", AuthType);
+            writer.WriteStringValue("bound_org_id", BoundOrgId);
             writer.WriteIntValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("org_id", OrgId);

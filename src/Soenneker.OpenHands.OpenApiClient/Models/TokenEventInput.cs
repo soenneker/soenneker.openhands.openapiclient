@@ -23,6 +23,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The kind property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.TokenEventInput_kind? Kind { get; set; }
+        /// <summary>Parent event id in the conversation tree. None for the root, or for legacy events predating the tree (see EventLog&apos;s effective-parent rule). Events sharing a parent_id are sibling branches.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentId { get; set; }
+#nullable restore
+#else
+        public string ParentId { get; set; }
+#endif
         /// <summary>The exact prompt token IDs for this message event</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,7 +48,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public List<int?> ResponseTokenIds { get; set; }
 #endif
         /// <summary>The source property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.TokenEventInput_source? Source { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.TokenEventInputSource? Source { get; set; }
         /// <summary>Event timestamp</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,9 +77,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TokenEventInput_kind>(); } },
+                { "parent_id", n => { ParentId = n.GetStringValue(); } },
                 { "prompt_token_ids", n => { PromptTokenIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "response_token_ids", n => { ResponseTokenIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TokenEventInput_source>(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TokenEventInputSource>(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
             };
         }
@@ -84,9 +93,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TokenEventInput_kind>("kind", Kind);
+            writer.WriteStringValue("parent_id", ParentId);
             writer.WriteCollectionOfPrimitiveValues<int?>("prompt_token_ids", PromptTokenIds);
             writer.WriteCollectionOfPrimitiveValues<int?>("response_token_ids", ResponseTokenIds);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TokenEventInput_source>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TokenEventInputSource>("source", Source);
             writer.WriteStringValue("timestamp", Timestamp);
         }
     }

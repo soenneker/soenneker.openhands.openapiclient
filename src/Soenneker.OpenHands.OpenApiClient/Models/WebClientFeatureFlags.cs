@@ -14,10 +14,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The allow_user_llm_configuration property</summary>
+        public bool? AllowUserLlmConfiguration { get; set; }
         /// <summary>The deployment_mode property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags_deployment_mode? DeploymentMode { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode? DeploymentMode { get; set; }
         /// <summary>The enable_acp property</summary>
         public bool? EnableAcp { get; set; }
+        /// <summary>The enable_automations property</summary>
+        public bool? EnableAutomations { get; set; }
         /// <summary>The enable_billing property</summary>
         public bool? EnableBilling { get; set; }
         /// <summary>The enable_jira property</summary>
@@ -34,6 +38,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public bool? HideIntegrationsPage { get; set; }
         /// <summary>The hide_llm_settings property</summary>
         public bool? HideLlmSettings { get; set; }
+        /// <summary>The hide_personal_workspaces property</summary>
+        public bool? HidePersonalWorkspaces { get; set; }
         /// <summary>The hide_users_page property</summary>
         public bool? HideUsersPage { get; set; }
         /// <summary>
@@ -42,6 +48,19 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public WebClientFeatureFlags()
         {
             AdditionalData = new Dictionary<string, object>();
+            AllowUserLlmConfiguration = true;
+            EnableAcp = true;
+            EnableAutomations = true;
+            EnableBilling = false;
+            EnableJira = false;
+            EnableJiraDc = false;
+            EnableLinear = false;
+            EnableOnboarding = false;
+            HideBillingPage = false;
+            HideIntegrationsPage = false;
+            HideLlmSettings = false;
+            HidePersonalWorkspaces = false;
+            HideUsersPage = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -61,8 +80,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "deployment_mode", n => { DeploymentMode = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags_deployment_mode>(); } },
+                { "allow_user_llm_configuration", n => { AllowUserLlmConfiguration = n.GetBoolValue(); } },
+                { "deployment_mode", n => { DeploymentMode = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode>(); } },
                 { "enable_acp", n => { EnableAcp = n.GetBoolValue(); } },
+                { "enable_automations", n => { EnableAutomations = n.GetBoolValue(); } },
                 { "enable_billing", n => { EnableBilling = n.GetBoolValue(); } },
                 { "enable_jira", n => { EnableJira = n.GetBoolValue(); } },
                 { "enable_jira_dc", n => { EnableJiraDc = n.GetBoolValue(); } },
@@ -71,6 +92,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "hide_billing_page", n => { HideBillingPage = n.GetBoolValue(); } },
                 { "hide_integrations_page", n => { HideIntegrationsPage = n.GetBoolValue(); } },
                 { "hide_llm_settings", n => { HideLlmSettings = n.GetBoolValue(); } },
+                { "hide_personal_workspaces", n => { HidePersonalWorkspaces = n.GetBoolValue(); } },
                 { "hide_users_page", n => { HideUsersPage = n.GetBoolValue(); } },
             };
         }
@@ -81,8 +103,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags_deployment_mode>("deployment_mode", DeploymentMode);
+            writer.WriteBoolValue("allow_user_llm_configuration", AllowUserLlmConfiguration);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode>("deployment_mode", DeploymentMode);
             writer.WriteBoolValue("enable_acp", EnableAcp);
+            writer.WriteBoolValue("enable_automations", EnableAutomations);
             writer.WriteBoolValue("enable_billing", EnableBilling);
             writer.WriteBoolValue("enable_jira", EnableJira);
             writer.WriteBoolValue("enable_jira_dc", EnableJiraDc);
@@ -91,6 +115,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("hide_billing_page", HideBillingPage);
             writer.WriteBoolValue("hide_integrations_page", HideIntegrationsPage);
             writer.WriteBoolValue("hide_llm_settings", HideLlmSettings);
+            writer.WriteBoolValue("hide_personal_workspaces", HidePersonalWorkspaces);
             writer.WriteBoolValue("hide_users_page", HideUsersPage);
             writer.WriteAdditionalData(AdditionalData);
         }

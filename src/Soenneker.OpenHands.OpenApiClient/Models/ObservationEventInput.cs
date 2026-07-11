@@ -20,6 +20,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string ActionId { get; set; }
 #endif
+        /// <summary>Content added by agent context (e.g. path-scoped rules triggered by the touched file), appended after the tool result in to_llm_message.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>? ExtendedContent { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent> ExtendedContent { get; set; }
+#endif
         /// <summary>Unique event id (ULID/UUID)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,8 +46,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.ObservationInput Observation { get; set; }
 #endif
+        /// <summary>Parent event id in the conversation tree. None for the root, or for legacy events predating the tree (see EventLog&apos;s effective-parent rule). Events sharing a parent_id are sibling branches.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentId { get; set; }
+#nullable restore
+#else
+        public string ParentId { get; set; }
+#endif
         /// <summary>The source property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventInput_source? Source { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventInputSource? Source { get; set; }
         /// <summary>Event timestamp</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,13 +81,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string ToolName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventInput"/> and sets the default values.
-        /// </summary>
-        public ObservationEventInput()
-        {
-            Source = global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventInput_source.Environment;
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventInput"/></returns>
@@ -90,10 +99,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "action_id", n => { ActionId = n.GetStringValue(); } },
+                { "extended_content", n => { ExtendedContent = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>(global::Soenneker.OpenHands.OpenApiClient.Models.TextContent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventInput_kind>(); } },
                 { "observation", n => { Observation = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ObservationInput>(global::Soenneker.OpenHands.OpenApiClient.Models.ObservationInput.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventInput_source>(); } },
+                { "parent_id", n => { ParentId = n.GetStringValue(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventInputSource>(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
                 { "tool_call_id", n => { ToolCallId = n.GetStringValue(); } },
                 { "tool_name", n => { ToolName = n.GetStringValue(); } },
@@ -107,10 +118,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("action_id", ActionId);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>("extended_content", ExtendedContent);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventInput_kind>("kind", Kind);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ObservationInput>("observation", Observation);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventInput_source>("source", Source);
+            writer.WriteStringValue("parent_id", ParentId);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ObservationEventInputSource>("source", Source);
             writer.WriteStringValue("timestamp", Timestamp);
             writer.WriteStringValue("tool_call_id", ToolCallId);
             writer.WriteStringValue("tool_name", ToolName);

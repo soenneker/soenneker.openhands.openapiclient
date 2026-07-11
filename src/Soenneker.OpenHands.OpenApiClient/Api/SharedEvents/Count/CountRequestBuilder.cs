@@ -39,7 +39,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.SharedEvents.Count
         /// <returns>A <see cref="int"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<int?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.SharedEvents.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -52,7 +52,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.SharedEvents.Count
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendPrimitiveAsync<int?>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -100,7 +100,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.SharedEvents.Count
             public string ConversationId { get; set; }
 #endif
             [QueryParameter("kind__eq")]
-            public global::Soenneker.OpenHands.OpenApiClient.Api.SharedEvents.Count.GetKind__eqQueryParameterType? KindEq { get; set; }
+            public global::Soenneker.OpenHands.OpenApiClient.Models.CountSharedEventsApiSharedEventsCountGetKindEqParameter? KindEq { get; set; }
             [QueryParameter("timestamp__gte")]
             public DateTimeOffset? TimestampGte { get; set; }
             [QueryParameter("timestamp__lt")]

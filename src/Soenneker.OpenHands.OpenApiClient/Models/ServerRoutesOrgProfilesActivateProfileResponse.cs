@@ -18,10 +18,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The llm property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponse_llm? Llm { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponseLlmProperty? Llm { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponse_llm Llm { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponseLlmProperty Llm { get; set; }
 #endif
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,7 +64,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "llm", n => { Llm = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponse_llm>(global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponse_llm.CreateFromDiscriminatorValue); } },
+                { "llm", n => { Llm = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponseLlmProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponseLlmProperty.CreateFromDiscriminatorValue); } },
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
@@ -76,7 +76,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponse_llm>("llm", Llm);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesActivateProfileResponseLlmProperty>("llm", Llm);
             writer.WriteStringValue("message", Message);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);

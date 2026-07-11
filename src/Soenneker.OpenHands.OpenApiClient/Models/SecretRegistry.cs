@@ -18,10 +18,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The secret_sources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry_secret_sources? SecretSources { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistrySecretSourcesProperty? SecretSources { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry_secret_sources SecretSources { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistrySecretSourcesProperty SecretSources { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "secret_sources", n => { SecretSources = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry_secret_sources>(global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry_secret_sources.CreateFromDiscriminatorValue); } },
+                { "secret_sources", n => { SecretSources = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistrySecretSourcesProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistrySecretSourcesProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry_secret_sources>("secret_sources", SecretSources);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistrySecretSourcesProperty>("secret_sources", SecretSources);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

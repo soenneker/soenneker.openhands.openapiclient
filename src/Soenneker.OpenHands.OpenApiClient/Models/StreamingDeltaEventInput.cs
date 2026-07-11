@@ -31,6 +31,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The kind property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.StreamingDeltaEventInput_kind? Kind { get; set; }
+        /// <summary>Parent event id in the conversation tree. None for the root, or for legacy events predating the tree (see EventLog&apos;s effective-parent rule). Events sharing a parent_id are sibling branches.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentId { get; set; }
+#nullable restore
+#else
+        public string ParentId { get; set; }
+#endif
         /// <summary>The reasoning_content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,7 +48,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string ReasoningContent { get; set; }
 #endif
         /// <summary>The source property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StreamingDeltaEventInput_source? Source { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.StreamingDeltaEventInputSource? Source { get; set; }
         /// <summary>Event timestamp</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,13 +57,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Timestamp { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StreamingDeltaEventInput"/> and sets the default values.
-        /// </summary>
-        public StreamingDeltaEventInput()
-        {
-            Source = global::Soenneker.OpenHands.OpenApiClient.Models.StreamingDeltaEventInput_source.Agent;
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -77,8 +78,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StreamingDeltaEventInput_kind>(); } },
+                { "parent_id", n => { ParentId = n.GetStringValue(); } },
                 { "reasoning_content", n => { ReasoningContent = n.GetStringValue(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StreamingDeltaEventInput_source>(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StreamingDeltaEventInputSource>(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
             };
         }
@@ -92,8 +94,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("content", Content);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StreamingDeltaEventInput_kind>("kind", Kind);
+            writer.WriteStringValue("parent_id", ParentId);
             writer.WriteStringValue("reasoning_content", ReasoningContent);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StreamingDeltaEventInput_source>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StreamingDeltaEventInputSource>("source", Source);
             writer.WriteStringValue("timestamp", Timestamp);
         }
     }

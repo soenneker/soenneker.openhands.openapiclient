@@ -18,10 +18,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The command property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Command? Command { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfoCommand? Command { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Command Command { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfoCommand Command { get; set; }
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
@@ -36,10 +36,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Initial Environment Variables</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfo_initial_env? InitialEnv { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfoInitialEnvProperty? InitialEnv { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfo_initial_env InitialEnv { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfoInitialEnvProperty InitialEnv { get; set; }
 #endif
         /// <summary>The working_dir property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,10 +75,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "command", n => { Command = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Command>(global::Soenneker.OpenHands.OpenApiClient.Models.Command.CreateFromDiscriminatorValue); } },
+                { "command", n => { Command = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfoCommand>(global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfoCommand.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "initial_env", n => { InitialEnv = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfo_initial_env>(global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfo_initial_env.CreateFromDiscriminatorValue); } },
+                { "initial_env", n => { InitialEnv = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfoInitialEnvProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfoInitialEnvProperty.CreateFromDiscriminatorValue); } },
                 { "working_dir", n => { WorkingDir = n.GetStringValue(); } },
             };
         }
@@ -89,10 +89,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Command>("command", Command);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfoCommand>("command", Command);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfo_initial_env>("initial_env", InitialEnv);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfoInitialEnvProperty>("initial_env", InitialEnv);
             writer.WriteStringValue("working_dir", WorkingDir);
             writer.WriteAdditionalData(AdditionalData);
         }

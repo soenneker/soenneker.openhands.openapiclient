@@ -18,18 +18,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The agent_settings_diff property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_agent_settings_diff? AgentSettingsDiff { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MeResponseAgentSettingsDiffProperty? AgentSettingsDiff { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_agent_settings_diff AgentSettingsDiff { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MeResponseAgentSettingsDiffProperty AgentSettingsDiff { get; set; }
 #endif
         /// <summary>The conversation_settings_diff property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_conversation_settings_diff? ConversationSettingsDiff { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MeResponseConversationSettingsDiffProperty? ConversationSettingsDiff { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_conversation_settings_diff ConversationSettingsDiff { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MeResponseConversationSettingsDiffProperty ConversationSettingsDiff { get; set; }
 #endif
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,6 +62,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #nullable restore
 #else
         public string OrgId { get; set; }
+#endif
+        /// <summary>The permissions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Permissions { get; set; }
+#nullable restore
+#else
+        public List<string> Permissions { get; set; }
 #endif
         /// <summary>The role property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -112,12 +120,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "agent_settings_diff", n => { AgentSettingsDiff = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_agent_settings_diff>(global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_agent_settings_diff.CreateFromDiscriminatorValue); } },
-                { "conversation_settings_diff", n => { ConversationSettingsDiff = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_conversation_settings_diff>(global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_conversation_settings_diff.CreateFromDiscriminatorValue); } },
+                { "agent_settings_diff", n => { AgentSettingsDiff = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MeResponseAgentSettingsDiffProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.MeResponseAgentSettingsDiffProperty.CreateFromDiscriminatorValue); } },
+                { "conversation_settings_diff", n => { ConversationSettingsDiff = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MeResponseConversationSettingsDiffProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.MeResponseConversationSettingsDiffProperty.CreateFromDiscriminatorValue); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "llm_api_key", n => { LlmApiKey = n.GetStringValue(); } },
                 { "llm_api_key_for_byor", n => { LlmApiKeyForByor = n.GetStringValue(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
+                { "permissions", n => { Permissions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "role", n => { Role = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
@@ -130,12 +139,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_agent_settings_diff>("agent_settings_diff", AgentSettingsDiff);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MeResponse_conversation_settings_diff>("conversation_settings_diff", ConversationSettingsDiff);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MeResponseAgentSettingsDiffProperty>("agent_settings_diff", AgentSettingsDiff);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MeResponseConversationSettingsDiffProperty>("conversation_settings_diff", ConversationSettingsDiff);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("llm_api_key", LlmApiKey);
             writer.WriteStringValue("llm_api_key_for_byor", LlmApiKeyForByor);
             writer.WriteStringValue("org_id", OrgId);
+            writer.WriteCollectionOfPrimitiveValues<string>("permissions", Permissions);
             writer.WriteStringValue("role", Role);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("user_id", UserId);

@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AdminRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The superAdmins property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.SuperAdminsRequestBuilder SuperAdmins
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.SuperAdminsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The verifiedModels property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels.VerifiedModelsRequestBuilder VerifiedModels
         {

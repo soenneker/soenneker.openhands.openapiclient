@@ -53,10 +53,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The owner_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType_Wrapper? OwnerType { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OwnerTypeWrapper? OwnerType { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType_Wrapper OwnerType { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OwnerTypeWrapper OwnerType { get; set; }
 #endif
         /// <summary>The pushed_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -99,7 +99,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "is_public", n => { IsPublic = n.GetBoolValue(); } },
                 { "link_header", n => { LinkHeader = n.GetStringValue(); } },
                 { "main_branch", n => { MainBranch = n.GetStringValue(); } },
-                { "owner_type", n => { OwnerType = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType_Wrapper>(global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType_Wrapper.CreateFromDiscriminatorValue); } },
+                { "owner_type", n => { OwnerType = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OwnerTypeWrapper>(global::Soenneker.OpenHands.OpenApiClient.Models.OwnerTypeWrapper.CreateFromDiscriminatorValue); } },
                 { "pushed_at", n => { PushedAt = n.GetStringValue(); } },
                 { "stargazers_count", n => { StargazersCount = n.GetIntValue(); } },
             };
@@ -117,7 +117,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("is_public", IsPublic);
             writer.WriteStringValue("link_header", LinkHeader);
             writer.WriteStringValue("main_branch", MainBranch);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType_Wrapper>("owner_type", OwnerType);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OwnerTypeWrapper>("owner_type", OwnerType);
             writer.WriteStringValue("pushed_at", PushedAt);
             writer.WriteIntValue("stargazers_count", StargazersCount);
             writer.WriteAdditionalData(AdditionalData);

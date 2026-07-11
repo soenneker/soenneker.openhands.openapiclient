@@ -10,23 +10,23 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         [EnumMember(Value = "STARTING")]
         #pragma warning disable CS1591
-        STARTING,
+        Starting,
         #pragma warning restore CS1591
         [EnumMember(Value = "RUNNING")]
         #pragma warning disable CS1591
-        RUNNING,
+        Running,
         #pragma warning restore CS1591
         [EnumMember(Value = "PAUSED")]
         #pragma warning disable CS1591
-        PAUSED,
+        Paused,
         #pragma warning restore CS1591
         [EnumMember(Value = "ERROR")]
         #pragma warning disable CS1591
-        ERROR,
+        Error,
         #pragma warning restore CS1591
         [EnumMember(Value = "MISSING")]
         #pragma warning disable CS1591
-        MISSING,
+        Missing,
         #pragma warning restore CS1591
     }
 }

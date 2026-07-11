@@ -51,6 +51,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public RemoteWorkspace()
         {
             AdditionalData = new Dictionary<string, object>();
+            ReadTimeout = 600.0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

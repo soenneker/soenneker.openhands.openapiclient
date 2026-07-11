@@ -33,6 +33,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public OrgMemberPage()
         {
             AdditionalData = new Dictionary<string, object>();
+            CurrentPage = 1;
+            PerPage = 10;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

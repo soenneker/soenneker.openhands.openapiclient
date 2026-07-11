@@ -9,11 +9,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         [EnumMember(Value = "TIMESTAMP")]
         #pragma warning disable CS1591
-        TIMESTAMP,
+        Timestamp,
         #pragma warning restore CS1591
         [EnumMember(Value = "TIMESTAMP_DESC")]
         #pragma warning disable CS1591
-        TIMESTAMP_DESC,
+        TimestampDesc,
         #pragma warning restore CS1591
     }
 }

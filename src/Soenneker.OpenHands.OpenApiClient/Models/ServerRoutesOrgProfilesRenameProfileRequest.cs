@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Request body for renaming a profile.
+    /// &quot;Request body for renaming a profile.``new_name`` is constrained to ``PROFILE_NAME_PATTERN`` because``rename_llm_profile`` (the SDK FK-cascade helper backing this endpoint)validates the new name against that same pattern before renaming andrepointing any referencing Agent Profiles — a name outside it always 422sthere. Declaring the constraint here makes the schema honest and gives afield-level 422 instead of one raised deep inside the handler. ``save``(create/update) is intentionally left permissive: it never calls the FKhelper, so it has no such requirement.&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ServerRoutesOrgProfilesRenameProfileRequest : IAdditionalDataHolder, IParsable

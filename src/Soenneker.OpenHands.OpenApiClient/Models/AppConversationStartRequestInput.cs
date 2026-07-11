@@ -15,6 +15,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The agent_profile_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AgentProfileId { get; set; }
+#nullable restore
+#else
+        public string AgentProfileId { get; set; }
+#endif
         /// <summary>Agent type for conversation.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.AgentType? AgentType { get; set; }
         /// <summary>The conversation_id property</summary>
@@ -22,18 +30,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The git_provider property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType_Wrapper? GitProvider { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderTypeWrapper2? GitProvider { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType_Wrapper GitProvider { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderTypeWrapper2 GitProvider { get; set; }
 #endif
         /// <summary>The initial_message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SendMessageRequest? InitialMessage { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage? InitialMessage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SendMessageRequest InitialMessage { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage InitialMessage { get; set; }
 #endif
         /// <summary>The llm_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -48,10 +56,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>List of plugins to load for this conversation. Plugins are loaded and their skills/MCP config are merged into the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Plugins? Plugins { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputPlugins? Plugins { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Plugins Plugins { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputPlugins Plugins { get; set; }
 #endif
         /// <summary>The pr_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,10 +72,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The processors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Processors? Processors { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputProcessors? Processors { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Processors Processors { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputProcessors Processors { get; set; }
 #endif
         /// <summary>The public property</summary>
         public bool? Public { get; set; }
@@ -106,10 +114,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The suggested_task property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SuggestedTask? SuggestedTask { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSuggestedTask? SuggestedTask { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SuggestedTask SuggestedTask { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSuggestedTask SuggestedTask { get; set; }
 #endif
         /// <summary>The system_message_suffix property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -130,10 +138,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The trigger property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTrigger_Wrapper? Trigger { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTriggerWrapper2? Trigger { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTrigger_Wrapper Trigger { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTriggerWrapper2 Trigger { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInput"/> and sets the default values.
@@ -160,24 +168,25 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "agent_profile_id", n => { AgentProfileId = n.GetStringValue(); } },
                 { "agent_type", n => { AgentType = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentType>(); } },
                 { "conversation_id", n => { ConversationId = n.GetGuidValue(); } },
-                { "git_provider", n => { GitProvider = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType_Wrapper>(global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType_Wrapper.CreateFromDiscriminatorValue); } },
-                { "initial_message", n => { InitialMessage = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SendMessageRequest>(global::Soenneker.OpenHands.OpenApiClient.Models.SendMessageRequest.CreateFromDiscriminatorValue); } },
+                { "git_provider", n => { GitProvider = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderTypeWrapper2>(global::Soenneker.OpenHands.OpenApiClient.Models.ProviderTypeWrapper2.CreateFromDiscriminatorValue); } },
+                { "initial_message", n => { InitialMessage = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage.CreateFromDiscriminatorValue); } },
                 { "llm_model", n => { LlmModel = n.GetStringValue(); } },
                 { "parent_conversation_id", n => { ParentConversationId = n.GetGuidValue(); } },
-                { "plugins", n => { Plugins = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Plugins>(global::Soenneker.OpenHands.OpenApiClient.Models.Plugins.CreateFromDiscriminatorValue); } },
+                { "plugins", n => { Plugins = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputPlugins>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputPlugins.CreateFromDiscriminatorValue); } },
                 { "pr_number", n => { PrNumber = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
-                { "processors", n => { Processors = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Processors>(global::Soenneker.OpenHands.OpenApiClient.Models.Processors.CreateFromDiscriminatorValue); } },
+                { "processors", n => { Processors = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputProcessors>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputProcessors.CreateFromDiscriminatorValue); } },
                 { "public", n => { Public = n.GetBoolValue(); } },
                 { "sandbox_id", n => { SandboxId = n.GetStringValue(); } },
                 { "secrets", n => { Secrets = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSecrets>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSecrets.CreateFromDiscriminatorValue); } },
                 { "selected_branch", n => { SelectedBranch = n.GetStringValue(); } },
                 { "selected_repository", n => { SelectedRepository = n.GetStringValue(); } },
-                { "suggested_task", n => { SuggestedTask = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SuggestedTask>(global::Soenneker.OpenHands.OpenApiClient.Models.SuggestedTask.CreateFromDiscriminatorValue); } },
+                { "suggested_task", n => { SuggestedTask = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSuggestedTask>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSuggestedTask.CreateFromDiscriminatorValue); } },
                 { "system_message_suffix", n => { SystemMessageSuffix = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
-                { "trigger", n => { Trigger = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTrigger_Wrapper>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTrigger_Wrapper.CreateFromDiscriminatorValue); } },
+                { "trigger", n => { Trigger = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTriggerWrapper2>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTriggerWrapper2.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -187,24 +196,25 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("agent_profile_id", AgentProfileId);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentType>("agent_type", AgentType);
             writer.WriteGuidValue("conversation_id", ConversationId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType_Wrapper>("git_provider", GitProvider);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SendMessageRequest>("initial_message", InitialMessage);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderTypeWrapper2>("git_provider", GitProvider);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage>("initial_message", InitialMessage);
             writer.WriteStringValue("llm_model", LlmModel);
             writer.WriteGuidValue("parent_conversation_id", ParentConversationId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Plugins>("plugins", Plugins);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputPlugins>("plugins", Plugins);
             writer.WriteCollectionOfPrimitiveValues<int?>("pr_number", PrNumber);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.Processors>("processors", Processors);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputProcessors>("processors", Processors);
             writer.WriteBoolValue("public", Public);
             writer.WriteStringValue("sandbox_id", SandboxId);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSecrets>("secrets", Secrets);
             writer.WriteStringValue("selected_branch", SelectedBranch);
             writer.WriteStringValue("selected_repository", SelectedRepository);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SuggestedTask>("suggested_task", SuggestedTask);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSuggestedTask>("suggested_task", SuggestedTask);
             writer.WriteStringValue("system_message_suffix", SystemMessageSuffix);
             writer.WriteStringValue("title", Title);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTrigger_Wrapper>("trigger", Trigger);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTriggerWrapper2>("trigger", Trigger);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

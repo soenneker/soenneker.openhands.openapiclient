@@ -9,23 +9,23 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         [EnumMember(Value = "NO_GROUPING")]
         #pragma warning disable CS1591
-        NO_GROUPING,
+        NoGrouping,
         #pragma warning restore CS1591
         [EnumMember(Value = "GROUP_BY_NEWEST")]
         #pragma warning disable CS1591
-        GROUP_BY_NEWEST,
+        GroupByNewest,
         #pragma warning restore CS1591
         [EnumMember(Value = "LEAST_RECENTLY_USED")]
         #pragma warning disable CS1591
-        LEAST_RECENTLY_USED,
+        LeastRecentlyUsed,
         #pragma warning restore CS1591
         [EnumMember(Value = "FEWEST_CONVERSATIONS")]
         #pragma warning disable CS1591
-        FEWEST_CONVERSATIONS,
+        FewestConversations,
         #pragma warning restore CS1591
         [EnumMember(Value = "ADD_TO_ANY")]
         #pragma warning disable CS1591
-        ADD_TO_ANY,
+        AddToAny,
         #pragma warning restore CS1591
     }
 }

@@ -10,21 +10,21 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs
 {
     /// <summary>
-    /// Builds and executes requests for operations under \api\service\users\{user_id}\orgs
+    /// Builds and executes requests for operations under \api\service\users\{userId}\orgs
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OrgsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.api.service.users.item.orgs.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.WithOrg_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.WithOrg_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.WithOrgItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.WithOrgItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("org_id", position);
-                return new global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.WithOrg_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("orgId", position);
+                return new global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.WithOrgItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OrgsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/service/users/{user_id}/orgs", pathParameters)
+        public OrgsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/service/users/{userId}/orgs", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OrgsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/service/users/{user_id}/orgs", rawUrl)
+        public OrgsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/service/users/{userId}/orgs", rawUrl)
         {
         }
     }

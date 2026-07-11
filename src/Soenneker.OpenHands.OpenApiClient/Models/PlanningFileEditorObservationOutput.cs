@@ -14,14 +14,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     public partial class PlanningFileEditorObservationOutput : IParsable
     {
         /// <summary>&quot;The command that was run: `view`, `create`, `str_replace`, `insert`, or `undo_edit`.&quot;</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_command? Command { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutputCommand? Command { get; set; }
         /// <summary>Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_content>? Content { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutputContentItem>? Content { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_content> Content { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutputContentItem> Content { get; set; }
 #endif
         /// <summary>Whether the observation indicates an error</summary>
         public bool? IsError { get; set; }
@@ -54,6 +54,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Indicates if the file previously existed. If not, it was created.</summary>
         public bool? PrevExist { get; set; }
         /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput"/> and sets the default values.
+        /// </summary>
+        public PlanningFileEditorObservationOutput()
+        {
+            IsError = false;
+            PrevExist = true;
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput"/></returns>
@@ -71,8 +79,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "command", n => { Command = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_command>(); } },
-                { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_content>(global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_content.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "command", n => { Command = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutputCommand>(); } },
+                { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutputContentItem>(global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutputContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "is_error", n => { IsError = n.GetBoolValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_kind>(); } },
                 { "new_content", n => { NewContent = n.GetStringValue(); } },
@@ -88,71 +96,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_command>("command", Command);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_content>("content", Content);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutputCommand>("command", Command);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutputContentItem>("content", Content);
             writer.WriteBoolValue("is_error", IsError);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput_kind>("kind", Kind);
             writer.WriteStringValue("new_content", NewContent);
             writer.WriteStringValue("old_content", OldContent);
             writer.WriteStringValue("path", Path);
             writer.WriteBoolValue("prev_exist", PrevExist);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TextContent"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PlanningFileEditorObservationOutput_content : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent? ImageContent { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent ImageContent { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TextContent"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenHands.OpenApiClient.Models.TextContent? TextContent { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenHands.OpenApiClient.Models.TextContent TextContent { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_content"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_content CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservationOutput.PlanningFileEditorObservationOutput_content();
-                result.ImageContent = new global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent();
-                result.TextContent = new global::Soenneker.OpenHands.OpenApiClient.Models.TextContent();
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ImageContent != null || TextContent != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ImageContent, TextContent);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent>(null, ImageContent, TextContent);
-            }
         }
     }
 }

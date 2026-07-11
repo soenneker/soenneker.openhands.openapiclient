@@ -25,6 +25,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Command { get; set; }
 #endif
+        /// <summary>The max_iterations property</summary>
+        public int? MaxIterations { get; set; }
+        /// <summary>The name property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
+#endif
         /// <summary>The prompt property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,8 +43,24 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Prompt { get; set; }
 #endif
+        /// <summary>The system_prompt property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SystemPrompt { get; set; }
+#nullable restore
+#else
+        public string SystemPrompt { get; set; }
+#endif
         /// <summary>The timeout property</summary>
         public int? Timeout { get; set; }
+        /// <summary>The tools property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tools { get; set; }
+#nullable restore
+#else
+        public List<string> Tools { get; set; }
+#endif
         /// <summary>Types of hooks that can be executed.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.HookType? Type { get; set; }
         /// <summary>
@@ -43,6 +69,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public HookDefinition()
         {
             AdditionalData = new Dictionary<string, object>();
+            Async = false;
+            MaxIterations = 3;
+            Timeout = 60;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -64,8 +93,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "async", n => { Async = n.GetBoolValue(); } },
                 { "command", n => { Command = n.GetStringValue(); } },
+                { "max_iterations", n => { MaxIterations = n.GetIntValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
+                { "system_prompt", n => { SystemPrompt = n.GetStringValue(); } },
                 { "timeout", n => { Timeout = n.GetIntValue(); } },
+                { "tools", n => { Tools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookType>(); } },
             };
         }
@@ -78,8 +111,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("async", Async);
             writer.WriteStringValue("command", Command);
+            writer.WriteIntValue("max_iterations", MaxIterations);
+            writer.WriteStringValue("name", Name);
             writer.WriteStringValue("prompt", Prompt);
+            writer.WriteStringValue("system_prompt", SystemPrompt);
             writer.WriteIntValue("timeout", Timeout);
+            writer.WriteCollectionOfPrimitiveValues<string>("tools", Tools);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

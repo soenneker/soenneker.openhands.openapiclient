@@ -38,6 +38,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public VerifiedModelCreate()
         {
             AdditionalData = new Dictionary<string, object>();
+            IsEnabled = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

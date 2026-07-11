@@ -20,17 +20,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The llm property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM? Llm { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesSaveProfileRequestLlm? Llm { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM Llm { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesSaveProfileRequestLlm Llm { get; set; }
 #endif
+        /// <summary>The preserve_existing_api_key property</summary>
+        public bool? PreserveExistingApiKey { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesSaveProfileRequest"/> and sets the default values.
         /// </summary>
         public ServerRoutesOrgProfilesSaveProfileRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            IncludeSecrets = true;
+            PreserveExistingApiKey = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -51,7 +55,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "include_secrets", n => { IncludeSecrets = n.GetBoolValue(); } },
-                { "llm", n => { Llm = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM.CreateFromDiscriminatorValue); } },
+                { "llm", n => { Llm = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesSaveProfileRequestLlm>(global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesSaveProfileRequestLlm.CreateFromDiscriminatorValue); } },
+                { "preserve_existing_api_key", n => { PreserveExistingApiKey = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -62,7 +67,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("include_secrets", IncludeSecrets);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLLM>("llm", Llm);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesSaveProfileRequestLlm>("llm", Llm);
+            writer.WriteBoolValue("preserve_existing_api_key", PreserveExistingApiKey);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

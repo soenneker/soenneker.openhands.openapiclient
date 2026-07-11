@@ -8,18 +8,18 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPAgent"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Agent"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgent"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Agent"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentBase : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ACPAgent"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgent"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ACPAgent? ACPAgent { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgent? AcpAgent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ACPAgent ACPAgent { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgent AcpAgent { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Agent"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,9 +39,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase();
-            if("ACPAgent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("AcpAgent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ACPAgent = new global::Soenneker.OpenHands.OpenApiClient.Models.ACPAgent();
+                result.AcpAgent = new global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgent();
             }
             else if("Agent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -55,9 +55,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ACPAgent != null)
+            if(AcpAgent != null)
             {
-                return ACPAgent.GetFieldDeserializers();
+                return AcpAgent.GetFieldDeserializers();
             }
             else if(Agent != null)
             {
@@ -72,9 +72,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ACPAgent != null)
+            if(AcpAgent != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ACPAgent>(null, ACPAgent);
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgent>(null, AcpAgent);
             }
             else if(Agent != null)
             {

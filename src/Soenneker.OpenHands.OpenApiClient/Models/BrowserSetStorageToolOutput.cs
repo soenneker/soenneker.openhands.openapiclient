@@ -26,10 +26,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The annotations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations? Annotations { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutputAnnotations? Annotations { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations Annotations { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutputAnnotations Annotations { get; set; }
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,10 +44,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutput_meta? Meta { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutputMeta? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutput_meta Meta { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutputMeta Meta { get; set; }
 #endif
         /// <summary>The observation_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -91,10 +91,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "action_type", n => { ActionType = n.GetStringValue(); } },
-                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations.CreateFromDiscriminatorValue); } },
+                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutputAnnotations>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutputAnnotations.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutput_kind>(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutput_meta>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutput_meta.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutputMeta>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutputMeta.CreateFromDiscriminatorValue); } },
                 { "observation_type", n => { ObservationType = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
@@ -107,10 +107,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("action_type", ActionType);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations>("annotations", Annotations);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutputAnnotations>("annotations", Annotations);
             writer.WriteStringValue("description", Description);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutput_kind>("kind", Kind);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutput_meta>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutputMeta>("meta", Meta);
             writer.WriteStringValue("observation_type", ObservationType);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -16,20 +16,20 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The action_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput_action_type? ActionType { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputActionType? ActionType { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput_action_type ActionType { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputActionType ActionType { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The annotations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations? Annotations { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputAnnotations? Annotations { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations Annotations { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputAnnotations Annotations { get; set; }
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,18 +44,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput_meta? Meta { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputMeta? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput_meta Meta { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputMeta Meta { get; set; }
 #endif
         /// <summary>The observation_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput_observation_type? ObservationType { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputObservationType? ObservationType { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput_observation_type ObservationType { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputObservationType ObservationType { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput"/> and sets the default values.
@@ -82,12 +82,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action_type", n => { ActionType = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput_action_type>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput_action_type.CreateFromDiscriminatorValue); } },
-                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations.CreateFromDiscriminatorValue); } },
+                { "action_type", n => { ActionType = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputActionType>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputActionType.CreateFromDiscriminatorValue); } },
+                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputAnnotations>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputAnnotations.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput_kind>(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput_meta>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput_meta.CreateFromDiscriminatorValue); } },
-                { "observation_type", n => { ObservationType = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput_observation_type>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput_observation_type.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputMeta>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputMeta.CreateFromDiscriminatorValue); } },
+                { "observation_type", n => { ObservationType = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputObservationType>(global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputObservationType.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -97,12 +97,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput_action_type>("action_type", ActionType);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations>("annotations", Annotations);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputActionType>("action_type", ActionType);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputAnnotations>("annotations", Annotations);
             writer.WriteStringValue("description", Description);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput_kind>("kind", Kind);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput_meta>("meta", Meta);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInput_observation_type>("observation_type", ObservationType);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputMeta>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolInputObservationType>("observation_type", ObservationType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

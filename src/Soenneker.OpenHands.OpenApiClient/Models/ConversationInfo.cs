@@ -34,26 +34,42 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Dictionary for agent-specific runtime state that persists across iterations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_agent_state? AgentState { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoAgentStateProperty? AgentState { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_agent_state AgentState { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoAgentStateProperty AgentState { get; set; }
+#endif
+        /// <summary>&quot;Models the ACP server offers for this session, lifted off ``ACPAgent.available_models`` (the ``models.availableModels`` field on the ACP session response). Each entry carries a ``model_id`` plus an optional ``name``/``description``. Surfaced verbatim so clients can render a model picker and resolve ``current_model_id`` to a display label themselves — the server does no name curation. Empty for ACP servers that don&apos;t surface the (UNSTABLE) capability and for native OpenHands agents. Client contract: ``current_model_id`` is NOT guaranteed to be a member — a forced ``acp_model`` override may name a model absent from the list — so treat a miss as &apos;show the raw id&apos;. Some entries are opaque aliases whose human identity lives in ``description`` (e.g. claude-agent-acp&apos;s ``\&quot;default\&quot;`` -&gt; ``\&quot;Opus 4.7 with 1M context · ...\&quot;``).&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo>? AvailableModels { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo> AvailableModels { get; set; }
 #endif
         /// <summary>Actions blocked by PreToolUse hooks, keyed by action ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_blocked_actions? BlockedActions { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedActionsProperty? BlockedActions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_blocked_actions BlockedActions { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedActionsProperty BlockedActions { get; set; }
 #endif
         /// <summary>Messages blocked by UserPromptSubmit hooks, keyed by message ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_blocked_messages? BlockedMessages { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedMessagesProperty? BlockedMessages { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_blocked_messages BlockedMessages { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedMessagesProperty BlockedMessages { get; set; }
+#endif
+        /// <summary>Client-defined tool specs registered for this conversation. Surfaced so that a client re-attaching by conversation id can register the dynamic ClientAction_* action types before syncing persisted events, avoiding &apos;Unknown kind&apos; deserialization errors.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpec>? ClientTools { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpec> ClientTools { get; set; }
 #endif
         /// <summary>The confirmation_policy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,15 +81,33 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>Model the agent is actually using for this session. For ACP agents, this is lifted off ``ACPAgent.current_model_id`` (populated from the ``models.currentModelId`` field on the ACP session response, or from ``acp_model`` when the caller forced an override). May be an opaque alias (e.g. claude-agent-acp&apos;s ``&quot;default&quot;``); match it against ``available_models`` to get a display label. ``None`` for older ACP servers that don&apos;t surface the field, or while the agent is still initializing. Native OpenHands agents leave this ``None`` — consumers should read ``agent.llm.model`` for those.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CurrentModelId { get; set; }
+#nullable restore
+#else
+        public string CurrentModelId { get; set; }
+#endif
         /// <summary>Enum representing the current execution state of the conversation.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationExecutionStatus? ExecutionStatus { get; set; }
+        /// <summary>ID of the conversation this one was forked from. ``None`` for conversations created directly (not via fork).</summary>
+        public Guid? ForkedFromConversationId { get; set; }
+        /// <summary>Event ID this conversation was forked at. ``None`` for non-forked conversations or whole-conversation forks.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ForkedFromEventId { get; set; }
+#nullable restore
+#else
+        public string ForkedFromEventId { get; set; }
+#endif
         /// <summary>Hook configuration for this conversation. Includes definitions for PreToolUse, PostToolUse, UserPromptSubmit, SessionStart, SessionEnd, and Stop hooks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookConfigInput? HookConfig { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoHookConfig? HookConfig { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookConfigInput HookConfig { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoHookConfig HookConfig { get; set; }
 #endif
         /// <summary>Unique conversation ID</summary>
         public Guid? Id { get; set; }
@@ -93,15 +127,31 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string LastUserMessageId { get; set; }
 #endif
+        /// <summary>Provenance snapshot of the agent profile that launched this conversation. Set at creation when the conversation was started via ``agent_profile_id``; ``None`` for conversations started directly with ``agent`` or ``agent_settings``. Clients use this to identify which agent profile is current without fragile settings-comparison.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoLaunchedAgentProfile? LaunchedAgentProfile { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoLaunchedAgentProfile LaunchedAgentProfile { get; set; }
+#endif
+        /// <summary>&quot;HEAD of the conversation tree: the parent of the next appended event. ``None`` means an empty tree (or, for pre-feature conversations, the linear tail). Moving it via ``navigate`` re-roots the active branch the agent runs on.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LeafEventId { get; set; }
+#nullable restore
+#else
+        public string LeafEventId { get; set; }
+#endif
         /// <summary>Maximum number of iterations the agent can perform in a single run.</summary>
         public int? MaxIterations { get; set; }
         /// <summary>The metrics property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot? Metrics { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoMetrics? Metrics { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot Metrics { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoMetrics Metrics { get; set; }
 #endif
         /// <summary>Directory for persisting conversation state and events. If None, conversation will not be persisted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -122,10 +172,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Optional security analyzer to evaluate action risks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_security_analyzer? SecurityAnalyzer { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoSecurityAnalyzer? SecurityAnalyzer { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_security_analyzer SecurityAnalyzer { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoSecurityAnalyzer SecurityAnalyzer { get; set; }
 #endif
         /// <summary>Track per-LLM usage metrics observed during conversations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -137,13 +187,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>Whether to enable stuck detection for the agent.</summary>
         public bool? StuckDetection { get; set; }
+        /// <summary>&quot;Whether a live, mid-conversation model switch will be attempted for this conversation — tells the inline picker whether to offer a live-switch control. Mirrors the SDK&apos;s switch gate: ``True`` for known switch-capable providers; ``False`` for unknown/custom ACP servers because their generic config writes are not guaranteed live-switch primitives. ``False`` for native OpenHands agents, for a known provider that declares no support, and before the conversation has started a session.&quot;</summary>
+        public bool? SupportsRuntimeModelSwitch { get; set; }
         /// <summary>Key-value tags for the conversation. Keys must be lowercase alphanumeric. Values are arbitrary strings up to 256 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_tags? Tags { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoTagsProperty? Tags { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_tags Tags { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoTagsProperty Tags { get; set; }
 #endif
         /// <summary>User-defined title for the conversation</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -169,7 +221,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public ConversationInfo()
         {
             AdditionalData = new Dictionary<string, object>();
+            MaxIterations = 500;
             PersistenceDir = "workspace/conversations";
+            StuckDetection = true;
+            SupportsRuntimeModelSwitch = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -191,24 +246,32 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "activated_knowledge_skills", n => { ActivatedKnowledgeSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase.CreateFromDiscriminatorValue); } },
-                { "agent_state", n => { AgentState = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_agent_state>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_agent_state.CreateFromDiscriminatorValue); } },
-                { "blocked_actions", n => { BlockedActions = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_blocked_actions>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_blocked_actions.CreateFromDiscriminatorValue); } },
-                { "blocked_messages", n => { BlockedMessages = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_blocked_messages>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_blocked_messages.CreateFromDiscriminatorValue); } },
+                { "agent_state", n => { AgentState = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoAgentStateProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoAgentStateProperty.CreateFromDiscriminatorValue); } },
+                { "available_models", n => { AvailableModels = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "blocked_actions", n => { BlockedActions = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedActionsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedActionsProperty.CreateFromDiscriminatorValue); } },
+                { "blocked_messages", n => { BlockedMessages = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedMessagesProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedMessagesProperty.CreateFromDiscriminatorValue); } },
+                { "client_tools", n => { ClientTools = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpec>(global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpec.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "confirmation_policy", n => { ConfirmationPolicy = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBase>(global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBase.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "current_model_id", n => { CurrentModelId = n.GetStringValue(); } },
                 { "execution_status", n => { ExecutionStatus = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationExecutionStatus>(); } },
-                { "hook_config", n => { HookConfig = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookConfigInput>(global::Soenneker.OpenHands.OpenApiClient.Models.HookConfigInput.CreateFromDiscriminatorValue); } },
+                { "forked_from_conversation_id", n => { ForkedFromConversationId = n.GetGuidValue(); } },
+                { "forked_from_event_id", n => { ForkedFromEventId = n.GetStringValue(); } },
+                { "hook_config", n => { HookConfig = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoHookConfig>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoHookConfig.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "invoked_skills", n => { InvokedSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "last_user_message_id", n => { LastUserMessageId = n.GetStringValue(); } },
+                { "launched_agent_profile", n => { LaunchedAgentProfile = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoLaunchedAgentProfile>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoLaunchedAgentProfile.CreateFromDiscriminatorValue); } },
+                { "leaf_event_id", n => { LeafEventId = n.GetStringValue(); } },
                 { "max_iterations", n => { MaxIterations = n.GetIntValue(); } },
-                { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot>(global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot.CreateFromDiscriminatorValue); } },
+                { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoMetrics>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoMetrics.CreateFromDiscriminatorValue); } },
                 { "persistence_dir", n => { PersistenceDir = n.GetStringValue(); } },
                 { "secret_registry", n => { SecretRegistry = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry>(global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry.CreateFromDiscriminatorValue); } },
-                { "security_analyzer", n => { SecurityAnalyzer = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_security_analyzer>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_security_analyzer.CreateFromDiscriminatorValue); } },
+                { "security_analyzer", n => { SecurityAnalyzer = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoSecurityAnalyzer>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoSecurityAnalyzer.CreateFromDiscriminatorValue); } },
                 { "stats", n => { Stats = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats.CreateFromDiscriminatorValue); } },
                 { "stuck_detection", n => { StuckDetection = n.GetBoolValue(); } },
-                { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_tags>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_tags.CreateFromDiscriminatorValue); } },
+                { "supports_runtime_model_switch", n => { SupportsRuntimeModelSwitch = n.GetBoolValue(); } },
+                { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoTagsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoTagsProperty.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "workspace", n => { Workspace = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace>(global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace.CreateFromDiscriminatorValue); } },
@@ -223,24 +286,32 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("activated_knowledge_skills", ActivatedKnowledgeSkills);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase>("agent", Agent);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_agent_state>("agent_state", AgentState);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_blocked_actions>("blocked_actions", BlockedActions);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_blocked_messages>("blocked_messages", BlockedMessages);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoAgentStateProperty>("agent_state", AgentState);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo>("available_models", AvailableModels);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedActionsProperty>("blocked_actions", BlockedActions);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedMessagesProperty>("blocked_messages", BlockedMessages);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpec>("client_tools", ClientTools);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBase>("confirmation_policy", ConfirmationPolicy);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteStringValue("current_model_id", CurrentModelId);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationExecutionStatus>("execution_status", ExecutionStatus);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.HookConfigInput>("hook_config", HookConfig);
+            writer.WriteGuidValue("forked_from_conversation_id", ForkedFromConversationId);
+            writer.WriteStringValue("forked_from_event_id", ForkedFromEventId);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoHookConfig>("hook_config", HookConfig);
             writer.WriteGuidValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<string>("invoked_skills", InvokedSkills);
             writer.WriteStringValue("last_user_message_id", LastUserMessageId);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoLaunchedAgentProfile>("launched_agent_profile", LaunchedAgentProfile);
+            writer.WriteStringValue("leaf_event_id", LeafEventId);
             writer.WriteIntValue("max_iterations", MaxIterations);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot>("metrics", Metrics);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoMetrics>("metrics", Metrics);
             writer.WriteStringValue("persistence_dir", PersistenceDir);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry>("secret_registry", SecretRegistry);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_security_analyzer>("security_analyzer", SecurityAnalyzer);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoSecurityAnalyzer>("security_analyzer", SecurityAnalyzer);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats>("stats", Stats);
             writer.WriteBoolValue("stuck_detection", StuckDetection);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo_tags>("tags", Tags);
+            writer.WriteBoolValue("supports_runtime_model_switch", SupportsRuntimeModelSwitch);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoTagsProperty>("tags", Tags);
             writer.WriteStringValue("title", Title);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace>("workspace", Workspace);

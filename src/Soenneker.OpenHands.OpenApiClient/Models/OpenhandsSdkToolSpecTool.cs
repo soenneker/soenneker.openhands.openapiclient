@@ -26,10 +26,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>&quot;Parameters for the tool&apos;s .create() method, e.g., {&apos;working_dir&apos;: &apos;/app&apos;}&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool_params? Params { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecToolParamsProperty? Params { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool_params Params { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecToolParamsProperty Params { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool"/> and sets the default values.
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "params", n => { Params = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool_params>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool_params.CreateFromDiscriminatorValue); } },
+                { "params", n => { Params = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecToolParamsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecToolParamsProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool_params>("params", Params);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecToolParamsProperty>("params", Params);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

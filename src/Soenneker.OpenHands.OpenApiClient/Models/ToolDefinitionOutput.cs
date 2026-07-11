@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserClickToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGetContentToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGetStateToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGetStorageToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGoBackToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserListTabsToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserNavigateToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserScrollToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStartRecordingToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSwitchTabToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserToolSetOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserTypeToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EditToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.FileEditorToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.FinishToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GlobToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GrepToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.InvokeSkillToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SleeptimeComputeToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskToolSetOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskTrackerToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TerminalToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ThinkToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TomConsultToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WriteFileToolOutput"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserClickToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserCloseTabToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGetContentToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGetStateToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGetStorageToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserGoBackToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserListTabsToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserNavigateToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserScrollToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSetStorageToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStartRecordingToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserStopRecordingToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserSwitchTabToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserToolSetOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserTypeToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EditToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.FileEditorToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.FinishToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GlobToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GrepToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.InvokeSkillToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.McpToolDefinitionOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SleeptimeComputeToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLlmToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskToolSetOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskTrackerToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TerminalToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ThinkToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TomConsultToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.VisionInspectToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WorkflowToolOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WorkflowToolSetOutput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WriteFileToolOutput"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ToolDefinitionOutput : IComposedTypeWrapper, IParsable
@@ -141,6 +141,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.BrowserTypeToolOutput BrowserTypeToolOutput { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolOutput"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolOutput? ClientToolOutput { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolOutput ClientToolOutput { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EditToolOutput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -197,13 +205,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput ListDirectoryToolOutput { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionOutput"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.McpToolDefinitionOutput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionOutput? MCPToolDefinitionOutput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpToolDefinitionOutput? McpToolDefinitionOutput { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionOutput MCPToolDefinitionOutput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpToolDefinitionOutput McpToolDefinitionOutput { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorToolOutput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -229,13 +237,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.SleeptimeComputeToolOutput SleeptimeComputeToolOutput { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMToolOutput"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLlmToolOutput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMToolOutput? SwitchLLMToolOutput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLlmToolOutput? SwitchLlmToolOutput { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMToolOutput SwitchLLMToolOutput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLlmToolOutput SwitchLlmToolOutput { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskToolOutput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -284,6 +292,30 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.TomConsultToolOutput TomConsultToolOutput { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.VisionInspectToolOutput"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.VisionInspectToolOutput? VisionInspectToolOutput { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.VisionInspectToolOutput VisionInspectToolOutput { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WorkflowToolOutput"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WorkflowToolOutput? WorkflowToolOutput { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WorkflowToolOutput WorkflowToolOutput { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WorkflowToolSetOutput"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WorkflowToolSetOutput? WorkflowToolSetOutput { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WorkflowToolSetOutput WorkflowToolSetOutput { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WriteFileToolOutput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -367,6 +399,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 result.BrowserTypeToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.BrowserTypeToolOutput();
             }
+            else if("ClientToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ClientToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolOutput();
+            }
             else if("EditToolOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EditToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.EditToolOutput();
@@ -395,9 +431,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 result.ListDirectoryToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput();
             }
-            else if("MCPToolDefinitionOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("McpToolDefinitionOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MCPToolDefinitionOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionOutput();
+                result.McpToolDefinitionOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.McpToolDefinitionOutput();
             }
             else if("openhands__tools__planning_file_editor__definition__PlanningFileEditorTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -413,7 +449,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             }
             else if("openhands__sdk__tool__builtins__switch_llm__SwitchLLMTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SwitchLLMToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMToolOutput();
+                result.SwitchLlmToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLlmToolOutput();
             }
             else if("openhands__tools__task__definition__TaskTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -438,6 +474,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if("openhands__tools__tom_consult__definition__TomConsultTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.TomConsultToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.TomConsultToolOutput();
+            }
+            else if("openhands__sdk__tool__builtins__vision_inspect__VisionInspectTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.VisionInspectToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.VisionInspectToolOutput();
+            }
+            else if("openhands__tools__workflow__definition__WorkflowTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.WorkflowToolOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.WorkflowToolOutput();
+            }
+            else if("openhands__tools__workflow__definition__WorkflowToolSet-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.WorkflowToolSetOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.WorkflowToolSetOutput();
             }
             else if("openhands__tools__gemini__write_file__definition__WriteFileTool-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -515,6 +563,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 return BrowserTypeToolOutput.GetFieldDeserializers();
             }
+            else if(ClientToolOutput != null)
+            {
+                return ClientToolOutput.GetFieldDeserializers();
+            }
             else if(EditToolOutput != null)
             {
                 return EditToolOutput.GetFieldDeserializers();
@@ -543,9 +595,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 return ListDirectoryToolOutput.GetFieldDeserializers();
             }
-            else if(MCPToolDefinitionOutput != null)
+            else if(McpToolDefinitionOutput != null)
             {
-                return MCPToolDefinitionOutput.GetFieldDeserializers();
+                return McpToolDefinitionOutput.GetFieldDeserializers();
             }
             else if(PlanningFileEditorToolOutput != null)
             {
@@ -559,9 +611,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 return SleeptimeComputeToolOutput.GetFieldDeserializers();
             }
-            else if(SwitchLLMToolOutput != null)
+            else if(SwitchLlmToolOutput != null)
             {
-                return SwitchLLMToolOutput.GetFieldDeserializers();
+                return SwitchLlmToolOutput.GetFieldDeserializers();
             }
             else if(TaskToolOutput != null)
             {
@@ -586,6 +638,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if(TomConsultToolOutput != null)
             {
                 return TomConsultToolOutput.GetFieldDeserializers();
+            }
+            else if(VisionInspectToolOutput != null)
+            {
+                return VisionInspectToolOutput.GetFieldDeserializers();
+            }
+            else if(WorkflowToolOutput != null)
+            {
+                return WorkflowToolOutput.GetFieldDeserializers();
+            }
+            else if(WorkflowToolSetOutput != null)
+            {
+                return WorkflowToolSetOutput.GetFieldDeserializers();
             }
             else if(WriteFileToolOutput != null)
             {
@@ -664,6 +728,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BrowserTypeToolOutput>(null, BrowserTypeToolOutput);
             }
+            else if(ClientToolOutput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolOutput>(null, ClientToolOutput);
+            }
             else if(EditToolOutput != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.EditToolOutput>(null, EditToolOutput);
@@ -692,9 +760,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryToolOutput>(null, ListDirectoryToolOutput);
             }
-            else if(MCPToolDefinitionOutput != null)
+            else if(McpToolDefinitionOutput != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MCPToolDefinitionOutput>(null, MCPToolDefinitionOutput);
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpToolDefinitionOutput>(null, McpToolDefinitionOutput);
             }
             else if(PlanningFileEditorToolOutput != null)
             {
@@ -708,9 +776,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SleeptimeComputeToolOutput>(null, SleeptimeComputeToolOutput);
             }
-            else if(SwitchLLMToolOutput != null)
+            else if(SwitchLlmToolOutput != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLLMToolOutput>(null, SwitchLLMToolOutput);
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLlmToolOutput>(null, SwitchLlmToolOutput);
             }
             else if(TaskToolOutput != null)
             {
@@ -735,6 +803,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if(TomConsultToolOutput != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.TomConsultToolOutput>(null, TomConsultToolOutput);
+            }
+            else if(VisionInspectToolOutput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.VisionInspectToolOutput>(null, VisionInspectToolOutput);
+            }
+            else if(WorkflowToolOutput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WorkflowToolOutput>(null, WorkflowToolOutput);
+            }
+            else if(WorkflowToolSetOutput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WorkflowToolSetOutput>(null, WorkflowToolSetOutput);
             }
             else if(WriteFileToolOutput != null)
             {

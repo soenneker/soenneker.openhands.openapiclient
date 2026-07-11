@@ -17,14 +17,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Conversations
     {
         /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.api.v1.conversations.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.V1.Conversations.Item.WithConversation_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Conversations.Item.WithConversation_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.V1.Conversations.Item.WithConversationItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Conversations.Item.WithConversationItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("conversation_id", position);
-                return new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Conversations.Item.WithConversation_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("conversationId", position);
+                return new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Conversations.Item.WithConversationItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
