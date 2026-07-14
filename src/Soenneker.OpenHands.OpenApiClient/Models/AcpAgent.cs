@@ -65,7 +65,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string AcpServer { get; set; }
 #endif
-        /// <summary>&quot;Session mode ID to set after creating a session. If None (default), auto-detected from the ACP server type: &apos;bypassPermissions&apos; for claude-agent-acp, &apos;full-access&apos; for codex-acp.&quot;</summary>
+        /// <summary>&quot;Session mode ID to set after creating a session. If None (default), auto-detected from the ACP server type: &apos;bypassPermissions&apos; for claude-agent-acp, &apos;agent-full-access&apos; for codex-acp.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AcpSessionMode { get; set; }

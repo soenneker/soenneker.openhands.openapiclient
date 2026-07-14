@@ -25912,6 +25912,9 @@
           },
           {
             "$ref": "#/components/schemas/LlmSecurityAnalyzer"
+          },
+          {
+            "$ref": "#/components/schemas/ToolShieldLlmSecurityAnalyzer"
           }
         ],
         "properties": {
@@ -25929,11 +25932,13 @@
             "openhands__sdk__security__ensemble__EnsembleSecurityAnalyzer-Input__1": "#/components/schemas/EnsembleSecurityAnalyzer",
             "openhands__sdk__security__grayswan__analyzer__GraySwanAnalyzer-Input__1": "#/components/schemas/GraySwanAnalyzer",
             "openhands__sdk__security__llm_analyzer__LLMSecurityAnalyzer-Input__1": "#/components/schemas/LlmSecurityAnalyzer",
+            "openhands__sdk__security__toolshield_llm_analyzer__ToolShieldLLMSecurityAnalyzer-Input__1": "#/components/schemas/ToolShieldLlmSecurityAnalyzer",
             "PatternSecurityAnalyzer": "#/components/schemas/PatternSecurityAnalyzer",
             "PolicyRailSecurityAnalyzer": "#/components/schemas/PolicyRailSecurityAnalyzer",
             "EnsembleSecurityAnalyzer": "#/components/schemas/EnsembleSecurityAnalyzer",
             "GraySwanAnalyzer": "#/components/schemas/GraySwanAnalyzer",
-            "LlmSecurityAnalyzer": "#/components/schemas/LlmSecurityAnalyzer"
+            "LlmSecurityAnalyzer": "#/components/schemas/LlmSecurityAnalyzer",
+            "ToolShieldLlmSecurityAnalyzer": "#/components/schemas/ToolShieldLlmSecurityAnalyzer"
           }
         }
       },
@@ -29509,6 +29514,47 @@
         },
         "description": "Execution-related properties for a tool."
       },
+      "ToolShieldLlmSecurityAnalyzer": {
+        "title": "ToolShieldLLMSecurityAnalyzer",
+        "required": [
+          "llm"
+        ],
+        "type": "object",
+        "properties": {
+          "llm": {
+            "$ref": "#/components/schemas/LlmInput"
+          },
+          "history_window": {
+            "title": "History Window",
+            "type": "integer",
+            "description": "Number of prior actions to include as context.",
+            "default": 20
+          },
+          "safety_experiences": {
+            "title": "Safety Experiences",
+            "type": "string",
+            "description": "\u0022Pre-generated safety guidelines injected into the guardrail\u0027s system prompt.\n- \u0060\u0060\\\u0022\\\u0022\u0060\u0060 (default): bare guardrail -- no experiences. The analyzer still separates actor from judge; it just classifies without distilled tool-specific guidance.\n- Any non-empty string: used as-is. The intended pattern is to call one of the helpers (\u0060\u0060default_safety_experiences()\u0060\u0060, \u0060\u0060load_safety_experiences(tool_names)\u0060\u0060, \u0060\u0060auto_detect_safety_experiences()\u0060\u0060) which require the \u0060\u0060[toolshield]\u0060\u0060 optional extra (\u0060\u0060pip install openhands-sdk[toolshield]\u0060\u0060). Callers with their own source of guidelines can pass any custom string.\u0022"
+          },
+          "kind": {
+            "title": "Kind",
+            "enum": [
+              "ToolShieldLLMSecurityAnalyzer"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "Kind",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "ToolShieldLLMSecurityAnalyzer",
+                  "name": "ToolShieldLlmSecurityAnalyzer"
+                }
+              ]
+            }
+          }
+        },
+        "description": "\u0022Evaluate each action via a separate guardrail LLM.\n\nPairs with the existing \u0060\u0060ConfirmRisky\u0060\u0060 policy unchanged: this\nanalyzer only *assigns* the risk level; \u0060\u0060ConfirmRisky\u0060\u0060 decides\nwhether to pause for user confirmation.\n\nBy default the analyzer runs as a bare guardrail (no distilled\nsafety experiences). To enable the ToolShield seed, install\n\u0060\u0060pip install openhands-sdk[toolshield]\u0060\u0060 and pass the rendered\nexperiences via the \u0060\u0060safety_experiences\u0060\u0060 field -- typically via\none of the helpers (\u0060\u0060default_safety_experiences()\u0060\u0060,\n\u0060\u0060load_safety_experiences(...)\u0060\u0060, \u0060\u0060auto_detect_safety_experiences()\u0060\u0060).\nTested against \u0060\u0060toolshield\u003E=0.1.3,\u003C0.2\u0060\u0060.\n\nNote: \u0060\u0060reasoning_content\u0060\u0060 and \u0060\u0060thinking_blocks\u0060\u0060 from extended-\nthinking models are deliberately excluded from the guardrail\ncontext. The risk signal lives in the tool call\u0027s name and\narguments; including reasoning text would inflate the prompt\nwithout proportional safety gain. Subclasses needing reasoning\nvisibility should override :func:\u0060_format_action_for_guardrail\u0060.\n\nLifecycle: instances maintain a per-conversation deque of recent\nactions (\u0060\u0060history_window\u0060\u0060 items) for guardrail context. Each\ninstance is intended for SINGLE-CONVERSATION use. Reusing one\nanalyzer instance across multiple conversations will leak action\nhistory between them, which is both a privacy issue (conversation\nA\u0027s tool arguments visible in conversation B\u0027s guardrail prompt)\nand a correctness issue (the guardrail evaluates conversation B\u0027s\nactions against irrelevant history). Construct one analyzer per\nconversation, OR call :meth:\u0060reset_history\u0060 at conversation\nboundaries.\n\nThe recent-action-context propagation across analyzers (this one,\n:class:\u0060LLMSecurityAnalyzer\u0060, :class:\u0060GraySwanAnalyzer\u0060) is tracked\nfor convergence in a separate follow-up; until that lands,\nsingle-conversation lifecycle is the contract.\n\nFailure modes are consistent and ensemble-safe -- both an\ninfrastructure error (network, rate limit) and a parse failure\n(the guardrail responded but its output had no parseable\n\u0060\u0060RISK:\u0060\u0060 label) return \u0060\u0060SecurityRisk.UNKNOWN\u0060\u0060. \u0060\u0060ConfirmRisky\u0060\u0060\nwith \u0060\u0060confirm_unknown=True\u0060\u0060 then pauses for user confirmation,\nmatching the conservative posture without dominating \u0060\u0060max()\u0060\u0060 in\nensemble fusion.\u0022"
+      },
       "ToolTransformConfig": {
         "title": "ToolTransformConfig",
         "type": "object",
@@ -31624,7 +31670,7 @@
       "AcpAgentAcpSessionMode": {
         "title": "Acp Session Mode",
         "type": "string",
-        "description": "\u0022Session mode ID to set after creating a session. If None (default), auto-detected from the ACP server type: \u0027bypassPermissions\u0027 for claude-agent-acp, \u0027full-access\u0027 for codex-acp.\u0022",
+        "description": "\u0022Session mode ID to set after creating a session. If None (default), auto-detected from the ACP server type: \u0027bypassPermissions\u0027 for claude-agent-acp, \u0027agent-full-access\u0027 for codex-acp.\u0022",
         "nullable": true
       },
       "AcpAgentAcpModel": {
