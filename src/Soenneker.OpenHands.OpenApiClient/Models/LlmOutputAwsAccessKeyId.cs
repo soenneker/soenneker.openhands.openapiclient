@@ -8,11 +8,19 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="string"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsAccessKeyIdMember1"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LlmOutputAwsAccessKeyId : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsAccessKeyIdMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsAccessKeyIdMember1? LlmOutputAwsAccessKeyIdMember1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsAccessKeyIdMember1 LlmOutputAwsAccessKeyIdMember1 { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,6 +42,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 result.String = stringValue;
             }
+            else {
+                result.LlmOutputAwsAccessKeyIdMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsAccessKeyIdMember1();
+            }
             return result;
         }
         /// <summary>
@@ -42,6 +53,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if(LlmOutputAwsAccessKeyIdMember1 != null)
+            {
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(LlmOutputAwsAccessKeyIdMember1);
+            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -54,6 +69,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(String != null)
             {
                 writer.WriteStringValue(null, String);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsAccessKeyIdMember1>(null, LlmOutputAwsAccessKeyIdMember1);
             }
         }
     }

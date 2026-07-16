@@ -44,10 +44,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>&quot;Scope of this marketplace registration. Set automatically by backend based on storage layer: \&quot;instance\&quot; for system defaults, \&quot;org\&quot; for organization-level, \&quot;personal\&quot; for user-level. Frontend should NOT send this field in save requests.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceScopeWrapper? Scope { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistrationScope? Scope { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceScopeWrapper Scope { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistrationScope Scope { get; set; }
 #endif
         /// <summary>&quot;Marketplace source: &apos;github:owner/repo&apos;, git URL, or local path&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,7 +87,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
                 { "repo_path", n => { RepoPath = n.GetStringValue(); } },
-                { "scope", n => { Scope = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceScopeWrapper>(global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceScopeWrapper.CreateFromDiscriminatorValue); } },
+                { "scope", n => { Scope = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistrationScope>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistrationScope.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetStringValue(); } },
             };
         }
@@ -102,7 +102,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("ref", Ref);
             writer.WriteStringValue("repo_path", RepoPath);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceScopeWrapper>("scope", Scope);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistrationScope>("scope", Scope);
             writer.WriteStringValue("source", Source);
             writer.WriteAdditionalData(AdditionalData);
         }

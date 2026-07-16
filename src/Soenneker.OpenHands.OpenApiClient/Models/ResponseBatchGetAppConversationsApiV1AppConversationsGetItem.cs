@@ -9,7 +9,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class AppConversation : IAdditionalDataHolder, IParsable
+    public partial class ResponseBatchGetAppConversationsApiV1AppConversationsGetItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Active ACP provider key (&apos;claude-code&apos;, &apos;codex&apos;, &apos;gemini-cli&apos;), else None.A typed projection of the ``acpserver`` tag (same as agent-canvas) sothe conversation UI can resolve a provider brand label without a dedicatedcolumn. Riding the tag keeps a single source of truth thatround-trips through the DB ``tags`` column for free. Gated on``agent_kind`` so a stray tag never reports a provider for an OpenHandsconversation.</summary>
@@ -183,9 +183,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversation"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResponseBatchGetAppConversationsApiV1AppConversationsGetItem"/> and sets the default values.
         /// </summary>
-        public AppConversation()
+        public ResponseBatchGetAppConversationsApiV1AppConversationsGetItem()
         {
             AdditionalData = new Dictionary<string, object>();
             AgentKind = "openhands";
@@ -193,12 +193,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversation"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResponseBatchGetAppConversationsApiV1AppConversationsGetItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenHands.OpenApiClient.Models.AppConversation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenHands.OpenApiClient.Models.ResponseBatchGetAppConversationsApiV1AppConversationsGetItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.AppConversation();
+            return new global::Soenneker.OpenHands.OpenApiClient.Models.ResponseBatchGetAppConversationsApiV1AppConversationsGetItem();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -8,11 +8,19 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="DateTimeOffset"/>, <see cref="string"/>
+    /// Composed type wrapper for classes <see cref="DateTimeOffset"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetimeMember1"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentContextOutputCurrentDatetime : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetimeMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetimeMember1? AgentContextOutputCurrentDatetimeMember1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetimeMember1 AgentContextOutputCurrentDatetimeMember1 { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="DateTimeOffset"/></summary>
         public DateTimeOffset? DateTimeOffset { get; set; }
         /// <summary>Composed type representation for type <see cref="string"/></summary>
@@ -40,6 +48,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 result.String = stringValue;
             }
+            else {
+                result.AgentContextOutputCurrentDatetimeMember1 = new global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetimeMember1();
+            }
             return result;
         }
         /// <summary>
@@ -48,6 +59,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if(AgentContextOutputCurrentDatetimeMember1 != null)
+            {
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AgentContextOutputCurrentDatetimeMember1);
+            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -64,6 +79,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if(String != null)
             {
                 writer.WriteStringValue(null, String);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetimeMember1>(null, AgentContextOutputCurrentDatetimeMember1);
             }
         }
     }

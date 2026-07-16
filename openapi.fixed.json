@@ -3151,9 +3151,13 @@
               "anyOf": [
                 {
                   "$ref": "#/components/schemas/SortOrder"
+                },
+                {
+                  "enum": [
+                    null
+                  ]
                 }
-              ],
-              "nullable": true
+              ]
             }
           }
         ],
@@ -6844,10 +6848,14 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                {
+                  "enum": [
+                    null
+                  ]
                 }
               ],
-              "description": "\u0022Comma-separated list: idle, running, paused, finished, error, stuck\u0022",
-              "nullable": true
+              "description": "\u0022Comma-separated list: idle, running, paused, finished, error, stuck\u0022"
             }
           },
           {
@@ -7226,9 +7234,13 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                {
+                  "enum": [
+                    null
+                  ]
                 }
-              ],
-              "nullable": true
+              ]
             }
           },
           {
@@ -31586,6 +31598,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/AgentContextInput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -31595,7 +31612,6 @@
           }
         },
         "description": "Optional AgentContext to initialize the agent with specific context.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -31617,6 +31633,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/CondenserBaseInput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -31627,7 +31648,6 @@
           }
         },
         "description": "Optional condenser to use for condensing conversation history.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -31643,6 +31663,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/CriticBase"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -31653,7 +31678,6 @@
           }
         },
         "description": "\u0022EXPERIMENTAL: Optional critic to evaluate agent actions and messages in real-time. API and behavior may change without notice. May impact performance, especially in \u0027all_actions\u0027 mode.\u0022",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -31694,10 +31718,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Which of the user\u0027s globally configured MCP servers to expose. null = all; [] = none; a non-null list = filter to the named keys.",
-        "nullable": true
+        "description": "Which of the user\u0027s globally configured MCP servers to expose. null = all; [] = none; a non-null list = filter to the named keys."
       },
       "AcpAgentProfileAcpModel": {
         "title": "Acp Model",
@@ -31726,10 +31754,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Additional arguments appended to the ACP server command.",
-        "nullable": true
+        "description": "Additional arguments appended to the ACP server command."
       },
       "AcpAgentSettingsAcpModel": {
         "title": "Acp Model",
@@ -31775,6 +31807,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/AgentContextOutput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -31784,7 +31821,6 @@
           }
         },
         "description": "\u0022Prompt-only context for the ACP server. \u0060\u0060secrets\u0060\u0060 here are advertised to the agent (names/descriptions) and reach the subprocess env through \u0060\u0060state.secret_registry\u0060\u0060: \u0060\u0060LocalConversation\u0060\u0060 seeds \u0060\u0060agent_context.secrets\u0060\u0060 into the registry at conversation init (below \u0060\u0060request.secrets\u0060\u0060), so callers that build the request outside Python (e.g. canvas-local) are covered too, not just the \u0060\u0060create_request\u0060\u0060 path. Provider credentials belong here (or in \u0060\u0060request.secrets\u0060\u0060) keyed by the provider\u0027s env var name.\u0022",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -31841,9 +31877,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "AcpToolCallEventInputRawOutput": {
         "title": "Raw Output",
@@ -31851,9 +31891,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "AcpToolCallEventInputContent": {
         "title": "Content",
@@ -31864,9 +31908,13 @@
             "items": {
               "type": "object"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "AcpToolCallEventOutputParentId": {
         "title": "Parent Id",
@@ -31890,9 +31938,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "AcpToolCallEventOutputRawOutput": {
         "title": "Raw Output",
@@ -31900,9 +31952,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "AcpToolCallEventOutputContent": {
         "title": "Content",
@@ -31913,9 +31969,13 @@
             "items": {
               "type": "object"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "ApiBasedCriticApiKey": {
         "title": "Api Key",
@@ -31940,6 +32000,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/IterativeRefinementConfig"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -31949,7 +32014,6 @@
           }
         },
         "description": "Optional configuration for iterative refinement. When set, Conversation.run() will automatically retry the task if the critic score is below the success_threshold, up to max_iterations.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -32004,6 +32068,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/ReasoningItemModel"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32013,7 +32082,6 @@
           }
         },
         "description": "OpenAI Responses reasoning item from model output",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -32029,6 +32097,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/ActionInput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32039,7 +32112,6 @@
           }
         },
         "description": "Single tool call returned by LLM (None when non-executable)",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -32055,6 +32127,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/CriticResult"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32064,7 +32141,6 @@
           }
         },
         "description": "Optional critic evaluation of this action and preceding history.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -32125,6 +32201,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/ReasoningItemModel"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32134,7 +32215,6 @@
           }
         },
         "description": "OpenAI Responses reasoning item from model output",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -32150,6 +32230,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/ActionOutput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32160,7 +32245,6 @@
           }
         },
         "description": "Single tool call returned by LLM (None when non-executable)",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -32176,6 +32260,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/CriticResult"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32185,7 +32274,6 @@
           }
         },
         "description": "Optional critic evaluation of this action and preceding history.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -32213,6 +32301,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/AgentContextInput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32222,7 +32315,6 @@
           }
         },
         "description": "Optional AgentContext to initialize the agent with specific context.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -32244,6 +32336,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/CondenserBaseInput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32254,7 +32351,6 @@
           }
         },
         "description": "Optional condenser to use for condensing conversation history.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -32270,6 +32366,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/CriticBase"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32280,7 +32381,6 @@
           }
         },
         "description": "\u0022EXPERIMENTAL: Optional critic to evaluate agent actions and messages in real-time. API and behavior may change without notice. May impact performance, especially in \u0027all_actions\u0027 mode.\u0022",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -32328,6 +32428,11 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/AgentContextInputSecretsAnyOf1AdditionalProperties"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32337,7 +32442,6 @@
           }
         },
         "description": "Dictionary mapping secret keys to values or secret sources. Secrets are used for authentication and sensitive data handling. Values can be either strings or SecretSource instances (str | SecretSource).",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         },
@@ -32355,10 +32459,14 @@
           },
           {
             "type": "string"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "description": "Current date and time information to provide to the agent. Can be a datetime object (which will be formatted as ISO 8601) or a pre-formatted string. When provided, this information is included in the system prompt to give the agent awareness of the current time context. Defaults to the current (timezone-aware) datetime.",
-        "nullable": true,
         "unrecognizedKeywords": {
           "acp_compatible": true
         }
@@ -32400,6 +32508,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32409,7 +32522,6 @@
           }
         },
         "description": "Dictionary mapping secret keys to values or secret sources. Secrets are used for authentication and sensitive data handling. Values can be either strings or SecretSource instances (str | SecretSource).",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         },
@@ -32427,10 +32539,14 @@
           },
           {
             "type": "string"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "description": "Current date and time information to provide to the agent. Can be a datetime object (which will be formatted as ISO 8601) or a pre-formatted string. When provided, this information is included in the system prompt to give the agent awareness of the current time context. Defaults to the current (timezone-aware) datetime.",
-        "nullable": true,
         "unrecognizedKeywords": {
           "acp_compatible": true
         }
@@ -32495,6 +32611,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/HookConfigOutput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32504,7 +32625,6 @@
           }
         },
         "description": "Hook configuration for this agent",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -32546,6 +32666,11 @@
             "additionalProperties": {
               "type": "object"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32555,7 +32680,6 @@
           }
         },
         "description": "MCP servers for this agent.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -32569,6 +32693,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32578,7 +32707,6 @@
           }
         },
         "description": "Deprecated compatibility alias for mcp_config. Use mcp_config for new clients.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -32597,6 +32725,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/CondenserBaseOutput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32607,7 +32740,6 @@
           }
         },
         "description": "Context condenser for the sub-agent. None applies a default summarizing condenser; set a NoOpCondenser to disable condensation.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -32635,6 +32767,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/IterativeRefinementConfig"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32644,7 +32781,6 @@
           }
         },
         "description": "Optional configuration for iterative refinement. When set, Conversation.run() will automatically retry the task if the critic score is below the success_threshold, up to max_iterations.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -32694,9 +32830,13 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "AgentProfileDiagnosticsAcpApiKeySecretName": {
         "title": "Acp Api Key Secret Name",
@@ -32717,6 +32857,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32725,7 +32870,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -32754,9 +32898,13 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "AgentProfileListResponseActiveAgentProfileId": {
         "title": "Active Agent Profile Id",
@@ -32864,9 +33012,13 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/ProviderTypeWrapper"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "AppConversationTitle": {
         "title": "Title",
@@ -32878,9 +33030,13 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/ConversationTriggerWrapper"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "AppConversationLlmModel": {
         "title": "Llm Model",
@@ -32895,6 +33051,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/MetricsSnapshot"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32903,7 +33064,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -32926,10 +33086,14 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/ConversationExecutionStatusWrapper"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Current agent status. Will be None if the sandbox_status is not RUNNING",
-        "nullable": true
+        "description": "Current agent status. Will be None if the sandbox_status is not RUNNING"
       },
       "AppConversationConversationUrl": {
         "title": "Conversation Url",
@@ -32958,6 +33122,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/LaunchedAgentProfile"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -32967,7 +33136,6 @@
           }
         },
         "description": "Provenance of the Agent Profile that launched this conversation, else None.\n\nA typed projection of the \u0060\u0060agentprofileid\u0060\u0060 / \u0060\u0060agentprofilerevision\u0060\u0060\ntags (same pattern as \u0060\u0060acp_server\u0060\u0060), so it round-trips through the DB\n\u0060\u0060tags\u0060\u0060 column for free. Canvas reads exactly\n\u0060\u0060launched_agent_profile { agent_profile_id, revision }\u0060\u0060.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -33000,6 +33168,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/SendMessageRequest"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33008,7 +33181,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -33030,9 +33202,13 @@
             "items": {
               "$ref": "#/components/schemas/EventCallbackProcessorInput"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "AppConversationStartRequestInputLlmModel": {
         "title": "Llm Model",
@@ -33059,9 +33235,13 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/ProviderTypeWrapper2"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "AppConversationStartRequestInputSuggestedTask": {
         "required": [
@@ -33071,6 +33251,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/SuggestedTask"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33079,7 +33264,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -33097,9 +33281,13 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/ConversationTriggerWrapper2"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "AppConversationStartRequestInputParentConversationId": {
         "title": "Parent Conversation Id",
@@ -33121,10 +33309,14 @@
             "items": {
               "$ref": "#/components/schemas/PluginSpec"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "List of plugins to load for this conversation. Plugins are loaded and their skills/MCP config are merged into the agent.",
-        "nullable": true
+        "description": "List of plugins to load for this conversation. Plugins are loaded and their skills/MCP config are merged into the agent."
       },
       "AppConversationStartRequestInputSecrets": {
         "title": "Secrets",
@@ -33140,6 +33332,11 @@
               "format": "password",
               "writeOnly": true
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33149,7 +33346,6 @@
           }
         },
         "description": "\u0022Secrets to pass to the conversation. These are merged with any existing secrets (from database or git providers), with API-provided secrets taking precedence (overriding any existing secret with the same name). Keys are secret names (e.g., \\\u0022MY_API_KEY\\\u0022), values are the secret values. Warning: Providing a secret that already exists will silently override it.\u0022",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -33173,6 +33369,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/SendMessageRequest"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33181,7 +33382,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -33203,9 +33403,13 @@
             "items": {
               "$ref": "#/components/schemas/EventCallbackProcessorOutput"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "AppConversationStartRequestOutputLlmModel": {
         "title": "Llm Model",
@@ -33232,9 +33436,13 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/ProviderTypeWrapper3"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "AppConversationStartRequestOutputSuggestedTask": {
         "required": [
@@ -33244,6 +33452,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/SuggestedTask"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33252,7 +33465,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -33270,9 +33482,13 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/ConversationTriggerWrapper3"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "AppConversationStartRequestOutputParentConversationId": {
         "title": "Parent Conversation Id",
@@ -33293,10 +33509,14 @@
             "items": {
               "$ref": "#/components/schemas/PluginSpec"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "List of plugins to load for this conversation. Plugins are loaded and their skills/MCP config are merged into the agent.",
-        "nullable": true
+        "description": "List of plugins to load for this conversation. Plugins are loaded and their skills/MCP config are merged into the agent."
       },
       "AppConversationStartRequestOutputSecrets": {
         "title": "Secrets",
@@ -33312,6 +33532,11 @@
               "format": "password",
               "writeOnly": true
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33321,7 +33546,6 @@
           }
         },
         "description": "\u0022Secrets to pass to the conversation. These are merged with any existing secrets (from database or git providers), with API-provided secrets taking precedence (overriding any existing secret with the same name). Keys are secret names (e.g., \\\u0022MY_API_KEY\\\u0022), values are the secret values. Warning: Providing a secret that already exists will silently override it.\u0022",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -33384,9 +33608,13 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/ProviderTypeWrapper4"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "AppSendMessageRequestContentItem": {
         "required": [
@@ -33456,6 +33684,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/CommitInput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33464,7 +33697,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -33507,6 +33739,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/CommitOutput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33515,7 +33752,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -33529,9 +33765,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "ApplyPatchToolInputAnnotations": {
         "required": [
@@ -33541,6 +33781,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33549,7 +33794,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -33566,6 +33810,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33574,7 +33823,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -33592,6 +33840,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33600,7 +33853,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -33617,6 +33869,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33625,7 +33882,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -33657,10 +33913,14 @@
           },
           {
             "type": "boolean"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "The new default value for the argument.",
-        "nullable": true
+        "description": "The new default value for the argument."
       },
       "ArgTransformConfigRequired": {
         "title": "Required",
@@ -33674,10 +33934,14 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Examples of the argument.",
-        "nullable": true
+        "description": "Examples of the argument."
       },
       "BranchLastPushDate": {
         "title": "Last Push Date",
@@ -33695,9 +33959,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "BrowserClickToolInputAnnotations": {
         "required": [
@@ -33707,6 +33975,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33715,7 +33988,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -33732,6 +34004,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33740,7 +34017,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -33758,6 +34034,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33766,7 +34047,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -33783,6 +34063,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33791,7 +34076,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -33802,9 +34086,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "BrowserCloseTabToolInputAnnotations": {
         "required": [
@@ -33814,6 +34102,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33822,7 +34115,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -33839,6 +34131,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33847,7 +34144,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -33865,6 +34161,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33873,7 +34174,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -33890,6 +34190,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33898,7 +34203,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -33909,9 +34213,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "BrowserGetContentToolInputAnnotations": {
         "required": [
@@ -33921,6 +34229,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33929,7 +34242,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -33946,6 +34258,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33954,7 +34271,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -33972,6 +34288,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -33980,7 +34301,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -33997,6 +34317,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34005,7 +34330,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -34016,9 +34340,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "BrowserGetStateToolInputAnnotations": {
         "required": [
@@ -34028,6 +34356,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34036,7 +34369,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34053,6 +34385,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34061,7 +34398,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -34079,6 +34415,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34087,7 +34428,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34104,6 +34444,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34112,7 +34457,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -34123,9 +34467,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "BrowserGetStorageToolInputAnnotations": {
         "required": [
@@ -34135,6 +34483,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34143,7 +34496,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34160,6 +34512,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34168,7 +34525,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -34186,6 +34542,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34194,7 +34555,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34211,6 +34571,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34219,7 +34584,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -34230,9 +34594,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "BrowserGoBackToolInputAnnotations": {
         "required": [
@@ -34242,6 +34610,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34250,7 +34623,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34267,6 +34639,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34275,7 +34652,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -34293,6 +34669,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34301,7 +34682,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34318,6 +34698,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34326,7 +34711,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -34337,9 +34721,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "BrowserListTabsToolInputAnnotations": {
         "required": [
@@ -34349,6 +34737,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34357,7 +34750,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34374,6 +34766,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34382,7 +34779,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -34400,6 +34796,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34408,7 +34809,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34425,6 +34825,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34433,7 +34838,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -34444,9 +34848,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "BrowserNavigateToolInputAnnotations": {
         "required": [
@@ -34456,6 +34864,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34464,7 +34877,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34481,6 +34893,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34489,7 +34906,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -34507,6 +34923,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34515,7 +34936,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34532,6 +34952,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34540,7 +34965,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -34629,9 +35053,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "BrowserScrollToolInputAnnotations": {
         "required": [
@@ -34641,6 +35069,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34649,7 +35082,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34666,6 +35098,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34674,7 +35111,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -34692,6 +35128,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34700,7 +35141,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34717,6 +35157,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34725,7 +35170,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -34736,9 +35180,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "BrowserSetStorageToolInputAnnotations": {
         "required": [
@@ -34748,6 +35196,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34756,7 +35209,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34773,6 +35225,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34781,7 +35238,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -34799,6 +35255,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34807,7 +35268,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34824,6 +35284,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34832,7 +35297,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -34843,9 +35307,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "BrowserStartRecordingToolInputAnnotations": {
         "required": [
@@ -34855,6 +35323,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34863,7 +35336,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34880,6 +35352,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34888,7 +35365,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -34906,6 +35382,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34914,7 +35395,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34931,6 +35411,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34939,7 +35424,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -34950,9 +35434,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "BrowserStopRecordingToolInputAnnotations": {
         "required": [
@@ -34962,6 +35450,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34970,7 +35463,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34987,6 +35479,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -34995,7 +35492,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -35013,6 +35509,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35021,7 +35522,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35038,6 +35538,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35046,7 +35551,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -35057,9 +35561,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "BrowserSwitchTabToolInputAnnotations": {
         "required": [
@@ -35069,6 +35577,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35077,7 +35590,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35094,6 +35606,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35102,7 +35619,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -35120,6 +35636,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35128,7 +35649,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35145,6 +35665,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35153,7 +35678,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -35164,9 +35688,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "BrowserToolSetInputAnnotations": {
         "required": [
@@ -35176,6 +35704,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35184,7 +35717,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35201,6 +35733,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35209,7 +35746,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -35227,6 +35763,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35235,7 +35776,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35252,6 +35792,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35260,7 +35805,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -35271,9 +35815,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "BrowserTypeToolInputAnnotations": {
         "required": [
@@ -35283,6 +35831,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35291,7 +35844,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35308,6 +35860,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35316,7 +35873,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -35334,6 +35890,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35342,7 +35903,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35359,6 +35919,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35367,7 +35932,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -35378,9 +35942,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "ClientToolInputAnnotations": {
         "required": [
@@ -35390,6 +35958,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35398,7 +35971,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35415,6 +35987,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35423,7 +36000,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -35441,6 +36017,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35449,7 +36030,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35466,6 +36046,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35474,7 +36059,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -35541,6 +36125,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35550,7 +36139,6 @@
           }
         },
         "description": "Optional MCP-style annotations for the tool. When omitted, the tool is treated conservatively (not read-only), so the agent is asked to predict a security risk before calling it.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35763,6 +36351,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/SecurityAnalyzerBase"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35773,7 +36366,6 @@
           }
         },
         "description": "Optional security analyzer to evaluate action risks.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35801,6 +36393,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/HookConfigInput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35810,7 +36407,6 @@
           }
         },
         "description": "Hook configuration for this conversation. Includes definitions for PreToolUse, PostToolUse, UserPromptSubmit, SessionStart, SessionEnd, and Stop hooks.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35832,6 +36428,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/MetricsSnapshot"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35840,7 +36441,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35875,6 +36475,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/LaunchedAgentProfile"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -35884,7 +36489,6 @@
           }
         },
         "description": "Provenance snapshot of the agent profile that launched this conversation. Set at creation when the conversation was started via \u0060\u0060agent_profile_id\u0060\u0060; \u0060\u0060None\u0060\u0060 for conversations started directly with \u0060\u0060agent\u0060\u0060 or \u0060\u0060agent_settings\u0060\u0060. Clients use this to identify which agent profile is current without fragile settings-comparison.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -36006,6 +36610,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -36015,7 +36624,6 @@
           }
         },
         "description": "Optional metadata about the critic evaluation. Can include event_ids and categorized_features for visualization.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -36054,10 +36662,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Required parameter of \u0060spawn\u0060 command. List of identifiers to initialize sub-agents with.",
-        "nullable": true
+        "description": "Required parameter of \u0060spawn\u0060 command. List of identifiers to initialize sub-agents with."
       },
       "DelegateActionInputAgentTypes": {
         "title": "Agent Types",
@@ -36068,10 +36680,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Optional parameter of \u0060spawn\u0060 command. List of agent types for each ID (e.g., [\u0027researcher\u0027, \u0027programmer\u0027]). If omitted or blank for an ID, the default general-purpose agent is used.",
-        "nullable": true
+        "description": "Optional parameter of \u0060spawn\u0060 command. List of agent types for each ID (e.g., [\u0027researcher\u0027, \u0027programmer\u0027]). If omitted or blank for an ID, the default general-purpose agent is used."
       },
       "DelegateActionInputTasks": {
         "title": "Tasks",
@@ -36085,6 +36701,11 @@
             "additionalProperties": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -36094,7 +36715,6 @@
           }
         },
         "description": "Required parameter of \u0060delegate\u0060 command. Dictionary mapping sub-agent identifiers to task descriptions.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -36108,10 +36728,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Required parameter of \u0060spawn\u0060 command. List of identifiers to initialize sub-agents with.",
-        "nullable": true
+        "description": "Required parameter of \u0060spawn\u0060 command. List of identifiers to initialize sub-agents with."
       },
       "DelegateActionOutputAgentTypes": {
         "title": "Agent Types",
@@ -36122,10 +36746,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Optional parameter of \u0060spawn\u0060 command. List of agent types for each ID (e.g., [\u0027researcher\u0027, \u0027programmer\u0027]). If omitted or blank for an ID, the default general-purpose agent is used.",
-        "nullable": true
+        "description": "Optional parameter of \u0060spawn\u0060 command. List of agent types for each ID (e.g., [\u0027researcher\u0027, \u0027programmer\u0027]). If omitted or blank for an ID, the default general-purpose agent is used."
       },
       "DelegateActionOutputTasks": {
         "title": "Tasks",
@@ -36139,6 +36767,11 @@
             "additionalProperties": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -36148,7 +36781,6 @@
           }
         },
         "description": "Required parameter of \u0060delegate\u0060 command. Dictionary mapping sub-agent identifiers to task descriptions.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -36303,9 +36935,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "EditToolInputAnnotations": {
         "required": [
@@ -36315,6 +36951,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -36323,7 +36964,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -36340,6 +36980,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -36348,7 +36993,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -36366,6 +37010,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -36374,7 +37023,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -36391,6 +37039,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -36399,7 +37052,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -36412,6 +37064,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/IterativeRefinementConfig"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -36421,7 +37078,6 @@
           }
         },
         "description": "Optional configuration for iterative refinement. When set, Conversation.run() will automatically retry the task if the critic score is below the success_threshold, up to max_iterations.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -36444,10 +37100,14 @@
           {
             "type": "string",
             "format": "path"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Path to directory containing profiles. If not specified, defaults to \u0060.openhands/profiles\u0060.",
-        "nullable": true
+        "description": "Path to directory containing profiles. If not specified, defaults to \u0060.openhands/profiles\u0060."
       },
       "FileChangeOldContent": {
         "title": "Old Content",
@@ -36499,10 +37159,14 @@
             "items": {
               "type": "integer"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Optional parameter of \u0060view\u0060 command when \u0060path\u0060 points to a file. If none is given, the full file is shown. If provided, the file will be shown in the indicated line number range, e.g. [11, 12] will show lines 11 and 12. Indexing at 1 to start. Setting \u0060[start_line, -1]\u0060 shows all lines from \u0060start_line\u0060 to the end of the file.",
-        "nullable": true
+        "description": "Optional parameter of \u0060view\u0060 command when \u0060path\u0060 points to a file. If none is given, the full file is shown. If provided, the file will be shown in the indicated line number range, e.g. [11, 12] will show lines 11 and 12. Indexing at 1 to start. Setting \u0060[start_line, -1]\u0060 shows all lines from \u0060start_line\u0060 to the end of the file."
       },
       "FileEditorActionOutputFileText": {
         "title": "File Text",
@@ -36539,10 +37203,14 @@
             "items": {
               "type": "integer"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Optional parameter of \u0060view\u0060 command when \u0060path\u0060 points to a file. If none is given, the full file is shown. If provided, the file will be shown in the indicated line number range, e.g. [11, 12] will show lines 11 and 12. Indexing at 1 to start. Setting \u0060[start_line, -1]\u0060 shows all lines from \u0060start_line\u0060 to the end of the file.",
-        "nullable": true
+        "description": "Optional parameter of \u0060view\u0060 command when \u0060path\u0060 points to a file. If none is given, the full file is shown. If provided, the file will be shown in the indicated line number range, e.g. [11, 12] will show lines 11 and 12. Indexing at 1 to start. Setting \u0060[start_line, -1]\u0060 shows all lines from \u0060start_line\u0060 to the end of the file."
       },
       "FileEditorObservationInputContentItem": {
         "required": [
@@ -36640,9 +37308,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "FileEditorToolInputAnnotations": {
         "required": [
@@ -36652,6 +37324,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -36660,7 +37337,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -36677,6 +37353,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -36685,7 +37366,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -36703,6 +37383,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -36711,7 +37396,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -36728,6 +37412,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -36736,7 +37425,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -36801,9 +37489,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "FinishToolInputAnnotations": {
         "required": [
@@ -36813,6 +37505,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -36821,7 +37518,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -36838,6 +37534,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -36846,7 +37547,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -36864,6 +37564,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -36872,7 +37577,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -36889,6 +37593,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -36897,7 +37606,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -36941,9 +37649,13 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "GetSettingsModelSearchApiKey": {
         "title": "Search Api Key",
@@ -37012,6 +37724,11 @@
             "x-jsonschema-propertyNames": {
               "$ref": "#/components/schemas/ProviderType"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -37020,7 +37737,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -37103,9 +37819,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "GlobToolInputAnnotations": {
         "required": [
@@ -37115,6 +37835,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -37123,7 +37848,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -37140,6 +37864,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -37148,7 +37877,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -37166,6 +37894,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -37174,7 +37907,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -37191,6 +37923,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -37199,7 +37936,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -37325,9 +38061,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "GrepToolInputAnnotations": {
         "required": [
@@ -37337,6 +38077,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -37345,7 +38090,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -37362,6 +38106,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -37370,7 +38119,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -37388,6 +38136,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -37396,7 +38149,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -37413,6 +38165,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -37421,7 +38178,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -37492,6 +38248,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -37501,7 +38262,6 @@
           }
         },
         "description": "The input data that was passed to the hook",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -37557,6 +38317,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -37566,7 +38331,6 @@
           }
         },
         "description": "The input data that was passed to the hook",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -37585,9 +38349,13 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "InstallationPageNextPageId": {
         "title": "Next Page Id",
@@ -37676,9 +38444,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "InvokeSkillToolInputAnnotations": {
         "required": [
@@ -37688,6 +38460,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -37696,7 +38473,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -37713,6 +38489,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -37721,7 +38502,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -37739,6 +38519,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -37747,7 +38532,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -37764,6 +38548,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -37772,7 +38561,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -37788,10 +38576,14 @@
             "type": "string",
             "format": "password",
             "writeOnly": true
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "description": "API key.",
-        "nullable": true,
         "unrecognizedKeywords": {
           "openhands_settings": {
             "depends_on": [],
@@ -37844,9 +38636,13 @@
             "type": "string",
             "format": "password",
             "writeOnly": true
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "LlmInputAwsSecretAccessKey": {
         "title": "Aws Secret Access Key",
@@ -37859,9 +38655,13 @@
             "type": "string",
             "format": "password",
             "writeOnly": true
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "LlmInputAwsSessionToken": {
         "title": "Aws Session Token",
@@ -37874,9 +38674,13 @@
             "type": "string",
             "format": "password",
             "writeOnly": true
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "LlmInputAwsRegionName": {
         "title": "Aws Region Name",
@@ -37971,6 +38775,11 @@
             "additionalProperties": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -37980,7 +38789,6 @@
           }
         },
         "description": "Optional HTTP headers to forward to LiteLLM requests.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -38135,6 +38943,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/FallbackStrategy"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -38144,7 +38957,6 @@
           }
         },
         "description": "Optional fallback strategy for trying alternate LLMs on transient failure. Construct with FallbackStrategy(fallback_llms=[...]).Excluded from serialization; must be reconfigured after load.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -38163,10 +38975,14 @@
             "type": "string",
             "format": "password",
             "writeOnly": true
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "description": "API key.",
-        "nullable": true,
         "unrecognizedKeywords": {
           "openhands_settings": {
             "depends_on": [],
@@ -38219,9 +39035,13 @@
             "type": "string",
             "format": "password",
             "writeOnly": true
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "LlmOutputAwsSecretAccessKey": {
         "title": "Aws Secret Access Key",
@@ -38234,9 +39054,13 @@
             "type": "string",
             "format": "password",
             "writeOnly": true
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "LlmOutputAwsSessionToken": {
         "title": "Aws Session Token",
@@ -38249,9 +39073,13 @@
             "type": "string",
             "format": "password",
             "writeOnly": true
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "LlmOutputAwsRegionName": {
         "title": "Aws Region Name",
@@ -38346,6 +39174,11 @@
             "additionalProperties": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -38355,7 +39188,6 @@
           }
         },
         "description": "Optional HTTP headers to forward to LiteLLM requests.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -38511,10 +39343,14 @@
             "items": {
               "$ref": "#/components/schemas/OpenhandsSdkToolSpecTool"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "description": "Tools available to the agent. None (the default) resolves to the standard exec set (see openhands.sdk.tool.defaults), plus the sub-agent tool set when enable_sub_agents is set; [] is an explicitly bare agent; a non-empty list is used exactly as given. Environment-dependent tools (browser) are injected by the serving layer, not the default.",
-        "nullable": true,
         "unrecognizedKeywords": {
           "openhands_settings": {
             "depends_on": [],
@@ -38693,9 +39529,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "ListDirectoryToolInputAnnotations": {
         "required": [
@@ -38705,6 +39545,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -38713,7 +39558,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -38730,6 +39574,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -38738,7 +39587,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -38756,6 +39604,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -38764,7 +39617,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -38781,6 +39633,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -38789,7 +39646,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -38877,6 +39733,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/McpoAuthAuthenticationInput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -38885,7 +39746,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -38901,6 +39761,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/McpoAuthStateInput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -38909,7 +39774,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -38963,9 +39827,13 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "McpoAuthAuthenticationInputClientName": {
         "title": "Client Name",
@@ -38997,6 +39865,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -39005,7 +39878,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -39024,6 +39896,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/McpoAuthTokenStateInput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -39032,7 +39909,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -39048,6 +39924,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/McpoAuthClientInfoStateInput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -39056,7 +39937,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -39136,9 +40016,13 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "McpServerInputEnv": {
         "title": "Env",
@@ -39154,6 +40038,11 @@
               "format": "password",
               "writeOnly": true
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -39162,7 +40051,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -39211,6 +40099,11 @@
               "format": "password",
               "writeOnly": true
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -39219,7 +40112,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -39230,9 +40122,13 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/McpServerInputAuthAnyOf1"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "McpToolDefinitionInputObservationType": {
         "title": "Observation Type",
@@ -39240,9 +40136,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "McpToolDefinitionInputAnnotations": {
         "required": [
@@ -39252,6 +40152,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -39260,7 +40165,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -39277,6 +40181,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -39285,7 +40194,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -39303,6 +40211,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -39311,7 +40224,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -39328,6 +40240,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -39336,7 +40253,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -39446,9 +40362,13 @@
             "items": {
               "$ref": "#/components/schemas/MessageToolCall"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "MessageToolCallId": {
         "title": "Tool Call Id",
@@ -39501,6 +40421,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/ReasoningItemModel"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -39510,7 +40435,6 @@
           }
         },
         "description": "OpenAI Responses reasoning item from model output",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -39544,6 +40468,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/CriticResult"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -39553,7 +40482,6 @@
           }
         },
         "description": "Optional critic evaluation of this message and preceding history.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -39587,6 +40515,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/CriticResult"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -39596,7 +40529,6 @@
           }
         },
         "description": "Optional critic evaluation of this message and preceding history.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -39624,6 +40556,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/TokenUsage"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -39633,7 +40570,6 @@
           }
         },
         "description": "Accumulated token usage across all calls",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -39655,6 +40591,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/TokenUsage"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -39664,7 +40605,6 @@
           }
         },
         "description": "Accumulated token usage across all calls",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -39707,10 +40647,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Which of the user\u0027s globally configured MCP servers to expose. null = all; [] = none; a non-null list = filter to the named keys.",
-        "nullable": true
+        "description": "Which of the user\u0027s globally configured MCP servers to expose. null = all; [] = none; a non-null list = filter to the named keys."
       },
       "OpenHandsAgentProfileTools": {
         "title": "Tools",
@@ -39721,10 +40665,14 @@
             "items": {
               "$ref": "#/components/schemas/OpenhandsSdkToolSpecTool"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Tool selection for the resolved agent. None (the default) = the server\u0027s standard tool set; [] = an explicitly bare agent; a non-empty list is used exactly as given.",
-        "nullable": true
+        "description": "Tool selection for the resolved agent. None (the default) = the server\u0027s standard tool set; [] = an explicitly bare agent; a non-empty list is used exactly as given."
       },
       "OpenHandsAgentProfileSystemMessageSuffix": {
         "title": "System Message Suffix",
@@ -39770,10 +40718,14 @@
             "items": {
               "$ref": "#/components/schemas/OpenhandsSdkToolSpecTool"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "description": "Tools available to the agent. None (the default) resolves to the standard exec set (see openhands.sdk.tool.defaults), plus the sub-agent tool set when enable_sub_agents is set; [] is an explicitly bare agent; a non-empty list is used exactly as given. Environment-dependent tools (browser) are injected by the serving layer, not the default.",
-        "nullable": true,
         "unrecognizedKeywords": {
           "openhands_settings": {
             "depends_on": [],
@@ -39849,9 +40801,13 @@
             "items": {
               "$ref": "#/components/schemas/OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "OrgAppSettingsUpdateLastKnownUpdatedAt": {
         "title": "Last Known Updated At",
@@ -39938,9 +40894,13 @@
             "items": {
               "$ref": "#/components/schemas/OrgBudgetThresholdUpdate"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "OrgBudgetUserOverrideUpdateMonthlyLimit": {
         "title": "Monthly Limit",
@@ -40290,6 +41250,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -40298,7 +41263,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -40312,6 +41276,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -40320,7 +41289,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -40377,6 +41345,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/McpConfig"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -40385,7 +41358,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -40401,6 +41373,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/IterativeRefinementConfig"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -40410,7 +41387,6 @@
           }
         },
         "description": "Optional configuration for iterative refinement. When set, Conversation.run() will automatically retry the task if the critic score is below the success_threshold, up to max_iterations.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -40465,10 +41441,14 @@
             "items": {
               "type": "integer"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Optional parameter of \u0060view\u0060 command when \u0060path\u0060 points to a file. If none is given, the full file is shown. If provided, the file will be shown in the indicated line number range, e.g. [11, 12] will show lines 11 and 12. Indexing at 1 to start. Setting \u0060[start_line, -1]\u0060 shows all lines from \u0060start_line\u0060 to the end of the file.",
-        "nullable": true
+        "description": "Optional parameter of \u0060view\u0060 command when \u0060path\u0060 points to a file. If none is given, the full file is shown. If provided, the file will be shown in the indicated line number range, e.g. [11, 12] will show lines 11 and 12. Indexing at 1 to start. Setting \u0060[start_line, -1]\u0060 shows all lines from \u0060start_line\u0060 to the end of the file."
       },
       "PlanningFileEditorActionOutputFileText": {
         "title": "File Text",
@@ -40505,10 +41485,14 @@
             "items": {
               "type": "integer"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Optional parameter of \u0060view\u0060 command when \u0060path\u0060 points to a file. If none is given, the full file is shown. If provided, the file will be shown in the indicated line number range, e.g. [11, 12] will show lines 11 and 12. Indexing at 1 to start. Setting \u0060[start_line, -1]\u0060 shows all lines from \u0060start_line\u0060 to the end of the file.",
-        "nullable": true
+        "description": "Optional parameter of \u0060view\u0060 command when \u0060path\u0060 points to a file. If none is given, the full file is shown. If provided, the file will be shown in the indicated line number range, e.g. [11, 12] will show lines 11 and 12. Indexing at 1 to start. Setting \u0060[start_line, -1]\u0060 shows all lines from \u0060start_line\u0060 to the end of the file."
       },
       "PlanningFileEditorObservationInputContentItem": {
         "required": [
@@ -40606,9 +41590,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "PlanningFileEditorToolInputAnnotations": {
         "required": [
@@ -40618,6 +41606,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -40626,7 +41619,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -40643,6 +41635,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -40651,7 +41648,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -40669,6 +41665,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -40677,7 +41678,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -40694,6 +41694,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -40702,7 +41707,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -40740,6 +41744,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -40749,7 +41758,6 @@
           }
         },
         "description": "User-provided values for plugin input parameters",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -40866,10 +41874,14 @@
                 }
               ]
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "If truncated, the range of lines shown (start, end) - 1-indexed.",
-        "nullable": true
+        "description": "If truncated, the range of lines shown (start, end) - 1-indexed."
       },
       "ReadFileObservationInputTotalLines": {
         "title": "Total Lines",
@@ -40926,10 +41938,14 @@
                 }
               ]
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "If truncated, the range of lines shown (start, end) - 1-indexed.",
-        "nullable": true
+        "description": "If truncated, the range of lines shown (start, end) - 1-indexed."
       },
       "ReadFileObservationOutputTotalLines": {
         "title": "Total Lines",
@@ -40943,9 +41959,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "ReadFileToolInputAnnotations": {
         "required": [
@@ -40955,6 +41975,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -40963,7 +41988,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -40980,6 +42004,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -40988,7 +42017,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -41006,6 +42034,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -41014,7 +42047,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -41031,6 +42063,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -41039,7 +42076,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -41058,9 +42094,13 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "ReasoningItemModelEncryptedContent": {
         "title": "Encrypted Content",
@@ -41123,10 +42163,14 @@
                 }
               ]
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Either a string representing a Bearer token, the literal \u0022oauth\u0022 to use OAuth authentication, or an httpx.Auth instance for custom authentication.",
-        "nullable": true
+        "description": "Either a string representing a Bearer token, the literal \u0022oauth\u0022 to use OAuth authentication, or an httpx.Auth instance for custom authentication."
       },
       "RemoteMcpServerSseReadTimeout": {
         "title": "Sse Read Timeout",
@@ -41141,9 +42185,13 @@
           },
           {
             "type": "number"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "RemoteMcpServerTimeout": {
         "title": "Timeout",
@@ -41169,6 +42217,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -41177,7 +42230,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -41214,9 +42266,13 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OwnerTypeWrapper"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "RepositoryMainBranch": {
         "title": "Main Branch",
@@ -41287,9 +42343,13 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "SaasUserInfoSearchApiKey": {
         "title": "Search Api Key",
@@ -41372,9 +42432,13 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "SandboxInfoCreatedByUserId": {
         "title": "Created By User Id",
@@ -41396,10 +42460,14 @@
             "items": {
               "$ref": "#/components/schemas/ExposedUrl"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "URLs exposed by the sandbox (App server, Vscode, etc...)Sandboxes with a status STARTING / PAUSED / ERROR may not return urls.",
-        "nullable": true
+        "description": "URLs exposed by the sandbox (App server, Vscode, etc...)Sandboxes with a status STARTING / PAUSED / ERROR may not return urls."
       },
       "SandboxPageNextPageId": {
         "title": "Next Page Id",
@@ -41415,9 +42483,13 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "SandboxSpecInfoPageNextPageId": {
         "title": "Next Page Id",
@@ -41490,9 +42562,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "SharedConversationTitle": {
         "title": "Title",
@@ -41510,9 +42586,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "SharedConversationParentConversationId": {
         "title": "Parent Conversation Id",
@@ -41525,10 +42605,14 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/SkillInputTriggerAnyOf1"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "\u0022Trigger determines when skill content is auto-injected. None = no auto-injection (for AgentSkills: agent reads on demand; for legacy: full content always in system prompt). KeywordTrigger = auto-inject when keywords appear in user messages. TaskTrigger = auto-inject for specific tasks, may require user input.\u0022",
-        "nullable": true
+        "description": "\u0022Trigger determines when skill content is auto-injected. None = no auto-injection (for AgentSkills: agent reads on demand; for legacy: full content always in system prompt). KeywordTrigger = auto-inject when keywords appear in user messages. TaskTrigger = auto-inject for specific tasks, may require user input.\u0022"
       },
       "SkillInputSource": {
         "title": "Source",
@@ -41548,6 +42632,11 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/McpServerInput"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -41557,7 +42646,6 @@
           }
         },
         "description": "MCP servers for the skill (repo skills only).",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -41592,6 +42680,11 @@
             "additionalProperties": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -41601,7 +42694,6 @@
           }
         },
         "description": "Arbitrary key-value metadata for the skill. AgentSkills standard field for extensibility.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -41615,10 +42707,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "List of pre-approved tools for this skill. AgentSkills standard field (parsed from space-delimited string).",
-        "nullable": true
+        "description": "List of pre-approved tools for this skill. AgentSkills standard field (parsed from space-delimited string)."
       },
       "SkillInputResources": {
         "required": [
@@ -41628,6 +42724,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/SkillResources"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -41637,7 +42738,6 @@
           }
         },
         "description": "Resource directories for the skill (scripts/, references/, assets/). AgentSkills standard field. Only populated for SKILL.md directory format.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -41651,10 +42751,14 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/SkillOutputTriggerAnyOf1"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "\u0022Trigger determines when skill content is auto-injected. None = no auto-injection (for AgentSkills: agent reads on demand; for legacy: full content always in system prompt). KeywordTrigger = auto-inject when keywords appear in user messages. TaskTrigger = auto-inject for specific tasks, may require user input.\u0022",
-        "nullable": true
+        "description": "\u0022Trigger determines when skill content is auto-injected. None = no auto-injection (for AgentSkills: agent reads on demand; for legacy: full content always in system prompt). KeywordTrigger = auto-inject when keywords appear in user messages. TaskTrigger = auto-inject for specific tasks, may require user input.\u0022"
       },
       "SkillOutputSource": {
         "title": "Source",
@@ -41674,6 +42778,11 @@
             "additionalProperties": {
               "type": "object"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -41683,7 +42792,6 @@
           }
         },
         "description": "MCP servers for the skill (repo skills only).",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -41718,6 +42826,11 @@
             "additionalProperties": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -41727,7 +42840,6 @@
           }
         },
         "description": "Arbitrary key-value metadata for the skill. AgentSkills standard field for extensibility.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -41741,10 +42853,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "List of pre-approved tools for this skill. AgentSkills standard field (parsed from space-delimited string).",
-        "nullable": true
+        "description": "List of pre-approved tools for this skill. AgentSkills standard field (parsed from space-delimited string)."
       },
       "SkillOutputResources": {
         "required": [
@@ -41754,6 +42870,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/SkillResources"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -41763,7 +42884,6 @@
           }
         },
         "description": "Resource directories for the skill (scripts/, references/, assets/). AgentSkills standard field. Only populated for SKILL.md directory format.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -41780,9 +42900,13 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "SkillPageNextPageId": {
         "title": "Next Page Id",
@@ -41857,9 +42981,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "SleeptimeComputeToolInputAnnotations": {
         "required": [
@@ -41869,6 +42997,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -41877,7 +43010,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -41894,6 +43026,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -41902,7 +43039,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -41920,6 +43056,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -41928,7 +43069,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -41945,6 +43085,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -41953,7 +43098,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -42021,6 +43165,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -42029,7 +43178,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -42077,10 +43225,14 @@
             "type": "string",
             "format": "password",
             "writeOnly": true
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "description": "API key.",
-        "nullable": true,
         "unrecognizedKeywords": {
           "openhands_settings": {
             "depends_on": [],
@@ -42133,9 +43285,13 @@
             "type": "string",
             "format": "password",
             "writeOnly": true
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "StrictLlmAwsSecretAccessKey": {
         "title": "Aws Secret Access Key",
@@ -42148,9 +43304,13 @@
             "type": "string",
             "format": "password",
             "writeOnly": true
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "StrictLlmAwsSessionToken": {
         "title": "Aws Session Token",
@@ -42163,9 +43323,13 @@
             "type": "string",
             "format": "password",
             "writeOnly": true
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "StrictLlmAwsRegionName": {
         "title": "Aws Region Name",
@@ -42260,6 +43424,11 @@
             "additionalProperties": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -42269,7 +43438,6 @@
           }
         },
         "description": "Optional HTTP headers to forward to LiteLLM requests.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -42424,6 +43592,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/FallbackStrategy"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -42433,7 +43606,6 @@
           }
         },
         "description": "Optional fallback strategy for trying alternate LLMs on transient failure. Construct with FallbackStrategy(fallback_llms=[...]).Excluded from serialization; must be reconfigured after load.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -42546,9 +43718,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "SwitchLlmToolInputAnnotations": {
         "required": [
@@ -42558,6 +43734,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -42566,7 +43747,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -42583,6 +43763,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -42591,7 +43776,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -42609,6 +43793,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -42617,7 +43806,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -42634,6 +43822,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -42642,7 +43835,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -42661,6 +43853,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/TextContent"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -42670,7 +43867,6 @@
           }
         },
         "description": "Optional dynamic per-conversation context (runtime info, repo context, secrets). When provided, this is included as a second content block in the system message (not cached).",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -42692,6 +43888,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/TextContent"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -42701,7 +43902,6 @@
           }
         },
         "description": "Optional dynamic per-conversation context (runtime info, repo context, secrets). When provided, this is included as a second content block in the system message (not cached).",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -42793,9 +43993,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "TaskToolInputAnnotations": {
         "required": [
@@ -42805,6 +44009,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -42813,7 +44022,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -42830,6 +44038,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -42838,7 +44051,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -42856,6 +44068,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -42864,7 +44081,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -42881,6 +44097,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -42889,7 +44110,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -42900,9 +44120,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "TaskToolSetInputAnnotations": {
         "required": [
@@ -42912,6 +44136,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -42920,7 +44149,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -42937,6 +44165,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -42945,7 +44178,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -42963,6 +44195,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -42971,7 +44208,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -42988,6 +44224,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -42996,7 +44237,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -43061,9 +44301,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "TaskTrackerToolInputAnnotations": {
         "required": [
@@ -43073,6 +44317,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43081,7 +44330,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -43098,6 +44346,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43106,7 +44359,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -43124,6 +44376,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43132,7 +44389,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -43149,6 +44405,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43157,7 +44418,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -43284,9 +44544,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "TerminalToolInputAnnotations": {
         "required": [
@@ -43296,6 +44560,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43304,7 +44573,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -43321,6 +44589,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43329,7 +44602,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -43347,6 +44619,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43355,7 +44632,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -43372,6 +44648,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43380,7 +44661,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -43445,9 +44725,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "ThinkToolInputAnnotations": {
         "required": [
@@ -43457,6 +44741,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43465,7 +44754,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -43482,6 +44770,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43490,7 +44783,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -43508,6 +44800,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43516,7 +44813,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -43533,6 +44829,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43541,7 +44842,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -43570,9 +44870,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "TomConsultToolInputAnnotations": {
         "required": [
@@ -43582,6 +44886,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43590,7 +44899,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -43607,6 +44915,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43615,7 +44928,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -43633,6 +44945,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43641,7 +44958,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -43658,6 +44974,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43666,7 +44987,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -43733,6 +45053,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43742,7 +45067,6 @@
           }
         },
         "description": "The new meta information for the tool.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -43798,10 +45122,14 @@
                 }
               ]
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "Either a string representing a Bearer token, the literal \u0022oauth\u0022 to use OAuth authentication, or an httpx.Auth instance for custom authentication.",
-        "nullable": true
+        "description": "Either a string representing a Bearer token, the literal \u0022oauth\u0022 to use OAuth authentication, or an httpx.Auth instance for custom authentication."
       },
       "TransformingRemoteMcpServerSseReadTimeout": {
         "title": "Sse Read Timeout",
@@ -43816,9 +45144,13 @@
           },
           {
             "type": "number"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "TransformingRemoteMcpServerTimeout": {
         "title": "Timeout",
@@ -43844,6 +45176,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43852,7 +45189,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -43867,10 +45203,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "The tags to include in the proxy.",
-        "nullable": true
+        "description": "The tags to include in the proxy."
       },
       "TransformingRemoteMcpServerExcludeTags": {
         "title": "Exclude Tags",
@@ -43882,10 +45222,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "The tags to exclude in the proxy.",
-        "nullable": true
+        "description": "The tags to exclude in the proxy."
       },
       "TransformingStdioMcpServerType": {
         "title": "Type",
@@ -43926,6 +45270,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -43934,7 +45283,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -43949,10 +45297,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "The tags to include in the proxy.",
-        "nullable": true
+        "description": "The tags to include in the proxy."
       },
       "TransformingStdioMcpServerExcludeTags": {
         "title": "Exclude Tags",
@@ -43964,10 +45316,14 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "The tags to exclude in the proxy.",
-        "nullable": true
+        "description": "The tags to exclude in the proxy."
       },
       "UserAppSettingsResponseLanguage": {
         "title": "Language",
@@ -44229,9 +45585,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "VisionInspectToolInputAnnotations": {
         "required": [
@@ -44241,6 +45601,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44249,7 +45614,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -44266,6 +45630,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44274,7 +45643,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -44292,6 +45660,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44300,7 +45673,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -44317,6 +45689,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44325,7 +45702,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -44460,9 +45836,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "WorkflowToolInputAnnotations": {
         "required": [
@@ -44472,6 +45852,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44480,7 +45865,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -44497,6 +45881,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44505,7 +45894,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -44523,6 +45911,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44531,7 +45924,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -44548,6 +45940,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44556,7 +45953,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -44567,9 +45963,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "WorkflowToolSetInputAnnotations": {
         "required": [
@@ -44579,6 +45979,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44587,7 +45992,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -44604,6 +46008,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44612,7 +46021,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -44630,6 +46038,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44638,7 +46051,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -44655,6 +46067,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44663,7 +46080,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -44764,9 +46180,13 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "WriteFileToolInputAnnotations": {
         "required": [
@@ -44776,6 +46196,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44784,7 +46209,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -44801,6 +46225,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44809,7 +46238,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -44827,6 +46255,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44835,7 +46268,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -44852,6 +46284,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44860,7 +46297,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -44884,6 +46320,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44892,7 +46333,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -44906,9 +46346,13 @@
             "items": {
               "$ref": "#/components/schemas/Icon"
             }
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "McpTypesToolAnnotationsComposed": {
         "required": [
@@ -44918,6 +46362,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/McpTypesToolAnnotations"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44926,7 +46375,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -44943,6 +46391,11 @@
         "anyOf": [
           {
             "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44951,7 +46404,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type"
         }
@@ -44964,6 +46416,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/ToolExecution"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -44972,7 +46429,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -45022,10 +46478,14 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/MarketplaceScopeWrapper"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
-        "description": "\u0022Scope of this marketplace registration. Set automatically by backend based on storage layer: \\\u0022instance\\\u0022 for system defaults, \\\u0022org\\\u0022 for organization-level, \\\u0022personal\\\u0022 for user-level. Frontend should NOT send this field in save requests.\u0022",
-        "nullable": true
+        "description": "\u0022Scope of this marketplace registration. Set automatically by backend based on storage layer: \\\u0022instance\\\u0022 for system defaults, \\\u0022org\\\u0022 for organization-level, \\\u0022personal\\\u0022 for user-level. Frontend should NOT send this field in save requests.\u0022"
       },
       "OpenhandsAppServerSettingsSettingsRouterActivateProfileResponseModel": {
         "title": "Model",
@@ -45055,6 +46515,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/StrictLlm"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -45063,7 +46528,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -45128,6 +46592,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/StrictLlm"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -45136,7 +46605,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -45706,6 +47174,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OpenhandsAppServerSettingsSettingsRouterSaveProfileRequest"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -45714,7 +47187,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -45773,6 +47245,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/OnboardingSubmission"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -45781,7 +47258,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -45819,6 +47295,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/SubscriptionAccessResponse"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -45827,7 +47308,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -45872,6 +47352,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/EventOutput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -45881,7 +47366,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -45994,6 +47478,11 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/ResendEmailVerificationRequest"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
         ],
         "properties": {
@@ -46002,7 +47491,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -46515,63 +48003,91 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/EventOutput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "ResponseBatchGetAppConversationsApiV1AppConversationsGetItem": {
         "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/AppConversation"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "ResponseBatchGetAppConversationStartTasksApiV1AppConversationsStartTasksGetItem": {
         "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/AppConversationStartTask"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "ResponseBatchGetSandboxesApiV1SandboxesGetItem": {
         "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/SandboxInfo"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "ResponseBatchGetSandboxSpecsApiV1SandboxSpecsGetItem": {
         "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/SandboxSpecInfo"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "ResponseBatchGetSharedConversationsApiSharedConversationsGetItem": {
         "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/SharedConversation"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "ResponseBatchGetSharedEventsApiSharedEventsGetItem": {
         "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/EventOutput"
+          },
+          {
+            "enum": [
+              null
+            ]
           }
-        ],
-        "nullable": true
+        ]
       },
       "AcpAgentMcpConfigProperty": {
         "type": "object",
