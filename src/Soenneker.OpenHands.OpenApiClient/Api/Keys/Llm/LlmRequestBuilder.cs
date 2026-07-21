@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.Keys.Llm.Byor;
+using Soenneker.OpenHands.OpenApiClient.Api.Keys.Llm.Managed;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys.Llm
         public global::Soenneker.OpenHands.OpenApiClient.Api.Keys.Llm.Byor.ByorRequestBuilder Byor
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Keys.Llm.Byor.ByorRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The managed property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Keys.Llm.Managed.ManagedRequestBuilder Managed
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Keys.Llm.Managed.ManagedRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Keys.Llm.LlmRequestBuilder"/> and sets the default values.

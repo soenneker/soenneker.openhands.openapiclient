@@ -5021,6 +5021,33 @@
         ]
       }
     },
+    "/api/keys/llm/managed/refresh": {
+      "post": {
+        "tags": [
+          "Keys"
+        ],
+        "summary": "Refresh Managed Llm Api Key",
+        "description": "Refresh the managed OpenHands LiteLLM key for the current user/org.\n\nDelegates the full managed-key lifecycle (effective-config classification,\nalias cleanup, key generation with OpenHands metadata, and persistence) to\n\u0060\u0060SaasSettingsStore.rotate_managed_llm_key\u0060\u0060 so the route does not\nduplicate the storage-layer machinery. Only managed LiteLLM/OpenHands-\nprovider effective configs are rotated; BYOK/custom and non-managed configs\nare rejected before any key is generated. The previous key token is deleted\nbest-effort only after the replacement is persisted.",
+        "operationId": "RefreshManagedLlmApiKeyApiKeysLlmManagedRefreshPost",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManagedLlmApiKeyRefreshResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
     "/api/keys/llm/byor": {
       "get": {
         "tags": [
@@ -21927,6 +21954,19 @@
         },
         "additionalProperties": false,
         "description": "Observation from MCP tool execution."
+      },
+      "ManagedLlmApiKeyRefreshResponse": {
+        "title": "ManagedLlmApiKeyRefreshResponse",
+        "required": [
+          "refreshed"
+        ],
+        "type": "object",
+        "properties": {
+          "refreshed": {
+            "title": "Refreshed",
+            "type": "boolean"
+          }
+        }
       },
       "MarketplacePluginPreview": {
         "title": "MarketplacePluginPreview",
