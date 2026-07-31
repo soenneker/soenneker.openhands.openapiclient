@@ -153,6 +153,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoMetrics Metrics { get; set; }
 #endif
+        /// <summary>ID of the conversation that owns this one. ``None`` for top-level conversations.</summary>
+        public Guid? ParentConversationId { get; set; }
         /// <summary>Directory for persisting conversation state and events. If None, conversation will not be persisted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -187,6 +189,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>Whether to enable stuck detection for the agent.</summary>
         public bool? StuckDetection { get; set; }
+        /// <summary>IDs of conversations naming this one as their parent. Derived from the server catalog; empty on webhook payloads. Name mirrors the Cloud API field.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Guid?>? SubConversationIds { get; set; }
+#nullable restore
+#else
+        public List<Guid?> SubConversationIds { get; set; }
+#endif
         /// <summary>&quot;Whether a live, mid-conversation model switch will be attempted for this conversation — tells the inline picker whether to offer a live-switch control. Mirrors the SDK&apos;s switch gate: ``True`` for known switch-capable providers; ``False`` for unknown/custom ACP servers because their generic config writes are not guaranteed live-switch primitives. ``False`` for native OpenHands agents, for a known provider that declares no support, and before the conversation has started a session.&quot;</summary>
         public bool? SupportsRuntimeModelSwitch { get; set; }
         /// <summary>Key-value tags for the conversation. Keys must be lowercase alphanumeric. Values are arbitrary strings up to 256 characters.</summary>
@@ -265,11 +275,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "leaf_event_id", n => { LeafEventId = n.GetStringValue(); } },
                 { "max_iterations", n => { MaxIterations = n.GetIntValue(); } },
                 { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoMetrics>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoMetrics.CreateFromDiscriminatorValue); } },
+                { "parent_conversation_id", n => { ParentConversationId = n.GetGuidValue(); } },
                 { "persistence_dir", n => { PersistenceDir = n.GetStringValue(); } },
                 { "secret_registry", n => { SecretRegistry = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry>(global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry.CreateFromDiscriminatorValue); } },
                 { "security_analyzer", n => { SecurityAnalyzer = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoSecurityAnalyzer>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoSecurityAnalyzer.CreateFromDiscriminatorValue); } },
                 { "stats", n => { Stats = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats.CreateFromDiscriminatorValue); } },
                 { "stuck_detection", n => { StuckDetection = n.GetBoolValue(); } },
+                { "sub_conversation_ids", n => { SubConversationIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "supports_runtime_model_switch", n => { SupportsRuntimeModelSwitch = n.GetBoolValue(); } },
                 { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoTagsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoTagsProperty.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
@@ -305,11 +317,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("leaf_event_id", LeafEventId);
             writer.WriteIntValue("max_iterations", MaxIterations);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoMetrics>("metrics", Metrics);
+            writer.WriteGuidValue("parent_conversation_id", ParentConversationId);
             writer.WriteStringValue("persistence_dir", PersistenceDir);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry>("secret_registry", SecretRegistry);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoSecurityAnalyzer>("security_analyzer", SecurityAnalyzer);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats>("stats", Stats);
             writer.WriteBoolValue("stuck_detection", StuckDetection);
+            writer.WriteCollectionOfPrimitiveValues<Guid?>("sub_conversation_ids", SubConversationIds);
             writer.WriteBoolValue("supports_runtime_model_switch", SupportsRuntimeModelSwitch);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoTagsProperty>("tags", Tags);
             writer.WriteStringValue("title", Title);

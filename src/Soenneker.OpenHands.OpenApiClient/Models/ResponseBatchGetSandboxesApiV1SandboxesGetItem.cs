@@ -58,6 +58,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The status property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStatus? Status { get; set; }
+        /// <summary>Last pod/scheduling reason from the runtime (e.g. insufficient kvm, ImagePullBackOff), surfaced when a sandbox is stuck or errored.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? StatusDetail { get; set; }
+#nullable restore
+#else
+        public string StatusDetail { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResponseBatchGetSandboxesApiV1SandboxesGetItem"/> and sets the default values.
         /// </summary>
@@ -90,6 +98,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "sandbox_spec_id", n => { SandboxSpecId = n.GetStringValue(); } },
                 { "session_api_key", n => { SessionApiKey = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStatus>(); } },
+                { "status_detail", n => { StatusDetail = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -106,6 +115,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("sandbox_spec_id", SandboxSpecId);
             writer.WriteStringValue("session_api_key", SessionApiKey);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStatus>("status", Status);
+            writer.WriteStringValue("status_detail", StatusDetail);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

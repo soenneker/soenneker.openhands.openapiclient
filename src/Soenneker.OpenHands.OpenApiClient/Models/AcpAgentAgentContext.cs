@@ -31,6 +31,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public List<string> DisabledSkills { get; set; }
 #endif
+        /// <summary>Whether to load persistent agent memory (MEMORY.md indexes under ~/.openhands/memory/ and &lt;workspace&gt;/.openhands/memory/) into the system prompt. Like load_project_skills, this flag is not resolved by AgentContext itself (the workspace path is unknown at validation time); LocalConversation resolves it lazily on the first send_message() / run() and stores the result in memory_context.</summary>
+        public bool? LoadMemory { get; set; }
         /// <summary>&quot;Whether to automatically load project skills from the conversation workspace (e.g. .openhands/skills/, AGENTS.md). Unlike load_user_skills / load_public_skills, this flag is not resolved by AgentContext itself (the workspace path is unknown at validation time); LocalConversation resolves it lazily on the first send_message() / run(), when the workspace is known. Also unlike load_user_skills / load_public_skills (which yield to explicit skills on a name conflict), resolved project skills are authoritative: a project skill overrides a same-named skill already present in `skills`.&quot;</summary>
         public bool? LoadProjectSkills { get; set; }
         /// <summary>Whether to automatically load skills from the public OpenHands skills repository at https://github.com/OpenHands/extensions. This allows you to get the latest skills without SDK updates.</summary>
@@ -44,6 +46,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #nullable restore
 #else
         public string MarketplacePath { get; set; }
+#endif
+        /// <summary>Resolved memory-index text rendered into the &lt;MEMORY_CONTEXT&gt; prompt block. Populated via model_copy by LocalConversation when load_memory is set; excluded from serialization because it is re-resolved from disk each session and must not bloat persisted conversation state.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MemoryContext { get; set; }
+#nullable restore
+#else
+        public string MemoryContext { get; set; }
 #endif
         /// <summary>Marketplace registrations for plugin resolution. Registrations with auto_load=True or a list of plugin names are resolved by LocalConversation at startup.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -99,6 +109,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public AcpAgentAgentContext()
         {
             AdditionalData = new Dictionary<string, object>();
+            LoadMemory = false;
             LoadProjectSkills = false;
             LoadPublicSkills = false;
             LoadUserSkills = false;
@@ -124,10 +135,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "current_datetime", n => { CurrentDatetime = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime.CreateFromDiscriminatorValue); } },
                 { "disabled_skills", n => { DisabledSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "load_memory", n => { LoadMemory = n.GetBoolValue(); } },
                 { "load_project_skills", n => { LoadProjectSkills = n.GetBoolValue(); } },
                 { "load_public_skills", n => { LoadPublicSkills = n.GetBoolValue(); } },
                 { "load_user_skills", n => { LoadUserSkills = n.GetBoolValue(); } },
                 { "marketplace_path", n => { MarketplacePath = n.GetStringValue(); } },
+                { "memory_context", n => { MemoryContext = n.GetStringValue(); } },
                 { "registered_marketplaces", n => { RegisteredMarketplaces = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "secrets", n => { Secrets = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSecrets>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSecrets.CreateFromDiscriminatorValue); } },
                 { "skills", n => { Skills = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInput>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillInput.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -145,10 +158,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime>("current_datetime", CurrentDatetime);
             writer.WriteCollectionOfPrimitiveValues<string>("disabled_skills", DisabledSkills);
+            writer.WriteBoolValue("load_memory", LoadMemory);
             writer.WriteBoolValue("load_project_skills", LoadProjectSkills);
             writer.WriteBoolValue("load_public_skills", LoadPublicSkills);
             writer.WriteBoolValue("load_user_skills", LoadUserSkills);
             writer.WriteStringValue("marketplace_path", MarketplacePath);
+            writer.WriteStringValue("memory_context", MemoryContext);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration>("registered_marketplaces", RegisteredMarketplaces);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSecrets>("secrets", Secrets);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInput>("skills", Skills);

@@ -23,6 +23,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiKey ApiKey { get; set; }
 #endif
+        /// <summary>LLM API endpoint mode. &apos;auto&apos; resolves from model metadata and SDK fallbacks; use &apos;chat&apos; or &apos;responses&apos; to override endpoint selection for proxy aliases and newly released models.</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiMode? ApiMode { get; set; }
         /// <summary>API version (e.g., Azure).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -107,6 +109,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>Enable caching of prompts.</summary>
         public bool? CachingPrompt { get; set; }
+        /// <summary>Explicit model capability overrides. Supported keys include supports_reasoning_effort, thinking_mode (adaptive, manual, none, or unknown), supports_sampling_params, supports_prompt_cache, supports_stop_words, supports_responses_api, supports_vision, and supports_prompt_cache_retention. Overrides take precedence over LiteLLM metadata and SDK fallbacks.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputCapabilityOverridesProperty? CapabilityOverrides { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputCapabilityOverridesProperty CapabilityOverrides { get; set; }
+#endif
         /// <summary>A custom tokenizer to use for token counting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -123,7 +133,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public bool? DropParams { get; set; }
         /// <summary>If True, ask for [&apos;reasoning.encrypted_content&apos;] in Responses API include.</summary>
         public bool? EnableEncryptedReasoning { get; set; }
-        /// <summary>The budget tokens for extended thinking, supported by Anthropic models.</summary>
+        /// <summary>Legacy token budget for models confirmed to use manual Anthropic extended thinking. Ignored for adaptive-thinking models. Prefer reasoning_effort for new integrations.</summary>
         public int? ExtendedThinkingBudget { get; set; }
         /// <summary>Optional HTTP headers to forward to LiteLLM requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -143,7 +153,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>Force using string content serializer when sending to LLM API. If None (default), auto-detect based on model. Useful for providers that do not support list content, like HuggingFace and Groq.</summary>
         public bool? ForceStringSerializer { get; set; }
-        /// <summary>&quot;If True, fetch any http(s) image URL in outgoing messages and inline it as a base64 ``data:`` URL before sending. If None (default), auto-detect based on model (some APIs such as Moonshot&apos;s public Kimi endpoint reject URL-formatted images and require base64). Set this explicitly when the model is reached through a proxy alias that hides the underlying provider (e.g. ``litellm_proxy/&lt;custom-alias&gt;``). Note: inlining only runs when ``vision_is_active()`` is True, so the alias must still be recognised as vision-capable by litellm — otherwise images are not sent at all and there is nothing to inline.&quot;</summary>
+        /// <summary>&quot;If True, fetch any http(s) image URL in outgoing messages and inline it as a base64 ``data:`` URL before sending. If None (default), auto-detect based on model (some APIs such as Moonshot&apos;s public Kimi endpoint reject URL-formatted images and require base64). Set this explicitly when the model is reached through a proxy alias that hides the underlying provider (e.g. ``litellm_proxy/&lt;custom-alias&gt;``). Note: inlining only runs when ``vision_is_active()`` is True, so the alias must still be recognised as vision-capable by the SDK feature registry or proxy model metadata.&quot;</summary>
         public bool? InlineImageUrls { get; set; }
         /// <summary>The cost per input token. This will available in logs for user.</summary>
         public double? InputCostPerToken { get; set; }
@@ -227,7 +237,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string PromptCacheRetention { get; set; }
 #endif
-        /// <summary>The effort to put into reasoning. This is a string that can be one of &apos;low&apos;, &apos;medium&apos;, &apos;high&apos;, &apos;xhigh&apos;, or &apos;none&apos;. Can apply to all reasoning models.</summary>
+        /// <summary>Provider-neutral reasoning effort. Common values include &apos;none&apos;, &apos;minimal&apos;, &apos;low&apos;, &apos;medium&apos;, &apos;high&apos;, &apos;xhigh&apos;, and &apos;max&apos;. The SDK accepts future provider values and lets LiteLLM translate them.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputReasoningEffort? ReasoningEffort { get; set; }
         /// <summary>The level of detail for reasoning summaries. This is a string that can be one of &apos;auto&apos;, &apos;concise&apos;, or &apos;detailed&apos;. Requires verified OpenAI organization. Only sent when explicitly set.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputReasoningSummary? ReasoningSummary { get; set; }
@@ -312,6 +322,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "api_key", n => { ApiKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiKey>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiKey.CreateFromDiscriminatorValue); } },
+                { "api_mode", n => { ApiMode = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiMode>(); } },
                 { "api_version", n => { ApiVersion = n.GetStringValue(); } },
                 { "auth_type", n => { AuthType = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAuthType>(); } },
                 { "aws_access_key_id", n => { AwsAccessKeyId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsAccessKeyId>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsAccessKeyId.CreateFromDiscriminatorValue); } },
@@ -324,6 +335,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "aws_session_token", n => { AwsSessionToken = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSessionToken>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSessionToken.CreateFromDiscriminatorValue); } },
                 { "base_url", n => { BaseUrl = n.GetStringValue(); } },
                 { "caching_prompt", n => { CachingPrompt = n.GetBoolValue(); } },
+                { "capability_overrides", n => { CapabilityOverrides = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputCapabilityOverridesProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputCapabilityOverridesProperty.CreateFromDiscriminatorValue); } },
                 { "custom_tokenizer", n => { CustomTokenizer = n.GetStringValue(); } },
                 { "disable_stop_word", n => { DisableStopWord = n.GetBoolValue(); } },
                 { "disable_vision", n => { DisableVision = n.GetBoolValue(); } },
@@ -374,6 +386,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiKey>("api_key", ApiKey);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiMode>("api_mode", ApiMode);
             writer.WriteStringValue("api_version", ApiVersion);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAuthType>("auth_type", AuthType);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsAccessKeyId>("aws_access_key_id", AwsAccessKeyId);
@@ -386,6 +399,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSessionToken>("aws_session_token", AwsSessionToken);
             writer.WriteStringValue("base_url", BaseUrl);
             writer.WriteBoolValue("caching_prompt", CachingPrompt);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputCapabilityOverridesProperty>("capability_overrides", CapabilityOverrides);
             writer.WriteStringValue("custom_tokenizer", CustomTokenizer);
             writer.WriteBoolValue("disable_stop_word", DisableStopWord);
             writer.WriteBoolValue("disable_vision", DisableVision);

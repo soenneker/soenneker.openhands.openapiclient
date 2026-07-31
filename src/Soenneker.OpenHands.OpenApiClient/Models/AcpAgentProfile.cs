@@ -49,6 +49,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string AcpSessionMode { get; set; }
 #endif
+        /// <summary>&quot;Timeout (seconds) for ACP server startup: spawn, initialize/authenticate, and new_session()/load_session().&quot;</summary>
+        public double? AcpStartupTimeout { get; set; }
         /// <summary>Discriminator for the ``AgentProfile`` union. ``&apos;acp&apos;`` selects an ACP-delegating agent.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfile_agent_kind? AgentKind { get; set; }
         /// <summary>Stable provenance handle for this profile. Conversations record this UUID; it never changes, even when the profile is renamed.</summary>
@@ -79,8 +81,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public AcpAgentProfile()
         {
             AcpPromptTimeout = 1800.0;
+            AcpStartupTimeout = 90.0;
             Revision = 0;
-            SchemaVersion = 1;
+            SchemaVersion = 2;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -106,6 +109,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "acp_prompt_timeout", n => { AcpPromptTimeout = n.GetDoubleValue(); } },
                 { "acp_server", n => { AcpServer = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileAcpServer>(); } },
                 { "acp_session_mode", n => { AcpSessionMode = n.GetStringValue(); } },
+                { "acp_startup_timeout", n => { AcpStartupTimeout = n.GetDoubleValue(); } },
                 { "agent_kind", n => { AgentKind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfile_agent_kind>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "mcp_server_refs", n => { McpServerRefs = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileMcpServerRefs>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileMcpServerRefs.CreateFromDiscriminatorValue); } },
@@ -127,6 +131,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteDoubleValue("acp_prompt_timeout", AcpPromptTimeout);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileAcpServer>("acp_server", AcpServer);
             writer.WriteStringValue("acp_session_mode", AcpSessionMode);
+            writer.WriteDoubleValue("acp_startup_timeout", AcpStartupTimeout);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfile_agent_kind>("agent_kind", AgentKind);
             writer.WriteGuidValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileMcpServerRefs>("mcp_server_refs", McpServerRefs);

@@ -108,7 +108,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             EnableSubAgents = false;
             EnableSwitchLlmTool = true;
             Revision = 0;
-            SchemaVersion = 1;
+            SchemaVersion = 2;
             ToolConcurrencyLimit = 1;
         }
         /// <summary>

@@ -9680,6 +9680,12 @@
             "description": "Inactivity timeout in seconds for a single ACP prompt() call. The deadline resets on every update from the ACP server (token, thought, tool-call progress, usage), so a steadily-progressing agent runs as long as it keeps making progress; the prompt is only aborted after this many seconds with no activity at all. Prevents indefinite hangs when the ACP server stops responding without killing legitimately long-running work.",
             "default": 1800.0
           },
+          "acp_startup_timeout": {
+            "title": "Acp Startup Timeout",
+            "type": "number",
+            "description": "\u0022Timeout in seconds for ACP server startup: spawning the subprocess, the initialize/authenticate handshake, and new_session()/load_session(). Unlike acp_prompt_timeout, this is a hard deadline rather than an idle deadline, since startup has no intermediate progress signal to reset it against. Prevents an indefinite hang when the ACP server blocks on authentication (e.g. an expired token) without ever raising.\u0022",
+            "default": 90.0
+          },
           "acp_model": {
             "$ref": "#/components/schemas/AcpAgentAcpModel"
           },
@@ -9731,7 +9737,7 @@
             "title": "Schema Version",
             "minimum": 1.0,
             "type": "integer",
-            "default": 1
+            "default": 2
           },
           "id": {
             "title": "Id",
@@ -9790,6 +9796,14 @@
             "description": "Inactivity timeout (seconds) for a single ACP prompt() round-trip; resets on every update from the server.",
             "default": 1800.0
           },
+          "acp_startup_timeout": {
+            "title": "Acp Startup Timeout",
+            "minimum": 0.0,
+            "exclusiveMinimum": true,
+            "type": "number",
+            "description": "\u0022Timeout (seconds) for ACP server startup: spawn, initialize/authenticate, and new_session()/load_session().\u0022",
+            "default": 90.0
+          },
           "acp_command": {
             "$ref": "#/components/schemas/AcpAgentProfileAcpCommand"
           },
@@ -9808,7 +9822,7 @@
             "title": "Schema Version",
             "minimum": 1.0,
             "type": "integer",
-            "default": 4
+            "default": 5
           },
           "agent_kind": {
             "title": "Agent Kind",
@@ -9888,6 +9902,26 @@
               "openhands_settings": {
                 "depends_on": [],
                 "label": "ACP prompt inactivity timeout (seconds)",
+                "prominence": "minor"
+              },
+              "openhands_settings_section": {
+                "key": "acp",
+                "label": "ACP (Agent Client Protocol)",
+                "variant": "acp"
+              }
+            }
+          },
+          "acp_startup_timeout": {
+            "title": "Acp Startup Timeout",
+            "minimum": 0.0,
+            "exclusiveMinimum": true,
+            "type": "number",
+            "description": "\u0022Timeout (seconds) for ACP server startup: spawning the subprocess, the initialize/authenticate handshake, and new_session()/load_session(). A hard deadline, unlike acp_prompt_timeout, since startup has no intermediate progress signal to reset it against.\u0022",
+            "default": 90.0,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "label": "ACP startup timeout (seconds)",
                 "prominence": "minor"
               },
               "openhands_settings_section": {
@@ -11190,6 +11224,23 @@
               "acp_compatible": true
             }
           },
+          "load_memory": {
+            "title": "Load Memory",
+            "type": "boolean",
+            "description": "Whether to load persistent agent memory (MEMORY.md indexes under ~/.openhands/memory/ and \u003Cworkspace\u003E/.openhands/memory/) into the system prompt. Like load_project_skills, this flag is not resolved by AgentContext itself (the workspace path is unknown at validation time); LocalConversation resolves it lazily on the first send_message() / run() and stores the result in memory_context.",
+            "default": false,
+            "unrecognizedKeywords": {
+              "acp_compatible": true,
+              "openhands_settings": {
+                "depends_on": [],
+                "label": "Persistent memory",
+                "prominence": "major"
+              }
+            }
+          },
+          "memory_context": {
+            "$ref": "#/components/schemas/AgentContextInputMemoryContext"
+          },
           "disabled_skills": {
             "title": "Disabled Skills",
             "type": "array",
@@ -11270,6 +11321,20 @@
             "default": false,
             "unrecognizedKeywords": {
               "acp_compatible": true
+            }
+          },
+          "load_memory": {
+            "title": "Load Memory",
+            "type": "boolean",
+            "description": "Whether to load persistent agent memory (MEMORY.md indexes under ~/.openhands/memory/ and \u003Cworkspace\u003E/.openhands/memory/) into the system prompt. Like load_project_skills, this flag is not resolved by AgentContext itself (the workspace path is unknown at validation time); LocalConversation resolves it lazily on the first send_message() / run() and stores the result in memory_context.",
+            "default": false,
+            "unrecognizedKeywords": {
+              "acp_compatible": true,
+              "openhands_settings": {
+                "depends_on": [],
+                "label": "Persistent memory",
+                "prominence": "major"
+              }
             }
           },
           "disabled_skills": {
@@ -15693,6 +15758,18 @@
           "forked_from_event_id": {
             "$ref": "#/components/schemas/ConversationInfoForkedFromEventId"
           },
+          "parent_conversation_id": {
+            "$ref": "#/components/schemas/ConversationInfoParentConversationId"
+          },
+          "sub_conversation_ids": {
+            "title": "Sub Conversation Ids",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "IDs of conversations naming this one as their parent. Derived from the server catalog; empty on webhook payloads. Name mirrors the Cloud API field."
+          },
           "tags": {
             "$ref": "#/components/schemas/ConversationInfoTagsProperty"
           },
@@ -17761,6 +17838,9 @@
           },
           "git_user_email": {
             "$ref": "#/components/schemas/GetSettingsModelGitUserEmail"
+          },
+          "title_llm_profile": {
+            "$ref": "#/components/schemas/GetSettingsModelTitleLlmProfile"
           },
           "git_full_clone": {
             "title": "Git Full Clone",
@@ -19943,36 +20023,72 @@
           "openrouter_site_url": {
             "title": "Openrouter Site Url",
             "type": "string",
-            "default": "https://docs.all-hands.dev/"
+            "default": "https://docs.all-hands.dev/",
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "openrouter_app_name": {
             "title": "Openrouter App Name",
             "type": "string",
-            "default": "OpenHands"
+            "default": "OpenHands",
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "num_retries": {
             "title": "Num Retries",
             "minimum": 0.0,
             "type": "integer",
-            "default": 5
+            "default": 5,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "retry_multiplier": {
             "title": "Retry Multiplier",
             "minimum": 0.0,
             "type": "number",
-            "default": 8.0
+            "default": 8.0,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "retry_min_wait": {
             "title": "Retry Min Wait",
             "minimum": 0.0,
             "type": "integer",
-            "default": 8
+            "default": 8,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "retry_max_wait": {
             "title": "Retry Max Wait",
             "minimum": 0.0,
             "type": "integer",
-            "default": 64
+            "default": 64,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "timeout": {
             "$ref": "#/components/schemas/LlmInputTimeout"
@@ -19982,7 +20098,13 @@
             "minimum": 1.0,
             "type": "integer",
             "description": "Approx max chars in each event/content sent to the LLM.",
-            "default": 30000
+            "default": 30000,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "temperature": {
             "$ref": "#/components/schemas/LlmInputTemperature"
@@ -20002,6 +20124,12 @@
           "model_canonical_name": {
             "$ref": "#/components/schemas/LlmInputModelCanonicalName"
           },
+          "api_mode": {
+            "$ref": "#/components/schemas/LlmInputApiMode"
+          },
+          "capability_overrides": {
+            "$ref": "#/components/schemas/LlmInputCapabilityOverridesProperty"
+          },
           "extra_headers": {
             "$ref": "#/components/schemas/LlmInputExtraHeaders"
           },
@@ -20018,18 +20146,36 @@
             "title": "Stream",
             "type": "boolean",
             "description": "Enable streaming responses from the LLM. When enabled, the provided \u0060on_token\u0060 callback in .completions and .responses will be invoked for each chunk of tokens.",
-            "default": false
+            "default": false,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "drop_params": {
             "title": "Drop Params",
             "type": "boolean",
-            "default": true
+            "default": true,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "modify_params": {
             "title": "Modify Params",
             "type": "boolean",
             "description": "Modify params allows litellm to do transformations like adding a default message, when a message is empty.",
-            "default": true
+            "default": true,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "disable_vision": {
             "$ref": "#/components/schemas/LlmInputDisableVision"
@@ -20041,19 +20187,37 @@
             "title": "Caching Prompt",
             "type": "boolean",
             "description": "Enable caching of prompts.",
-            "default": true
+            "default": true,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "log_completions": {
             "title": "Log Completions",
             "type": "boolean",
             "description": "Enable logging of completions.",
-            "default": false
+            "default": false,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "log_completions_folder": {
             "title": "Log Completions Folder",
             "type": "string",
             "description": "The folder to log LLM completions to. Required if log_completions is True.",
-            "default": "logs/completions"
+            "default": "logs/completions",
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "custom_tokenizer": {
             "$ref": "#/components/schemas/LlmInputCustomTokenizer"
@@ -20062,7 +20226,13 @@
             "title": "Native Tool Calling",
             "type": "boolean",
             "description": "Whether to use native tool calling.",
-            "default": true
+            "default": true,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "force_string_serializer": {
             "$ref": "#/components/schemas/LlmInputForceStringSerializer"
@@ -20080,7 +20250,13 @@
             "title": "Enable Encrypted Reasoning",
             "type": "boolean",
             "description": "If True, ask for [\u0027reasoning.encrypted_content\u0027] in Responses API include.",
-            "default": true
+            "default": true,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "prompt_cache_retention": {
             "$ref": "#/components/schemas/LlmInputPromptCacheRetention"
@@ -20095,7 +20271,13 @@
             "title": "Usage Id",
             "type": "string",
             "description": "Unique usage identifier for the LLM. Used for registry lookups, telemetry, and spend tracking.",
-            "default": "default"
+            "default": "default",
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "litellm_extra_body": {
             "$ref": "#/components/schemas/LlmInputLitellmExtraBodyProperty"
@@ -20167,36 +20349,72 @@
           "openrouter_site_url": {
             "title": "Openrouter Site Url",
             "type": "string",
-            "default": "https://docs.all-hands.dev/"
+            "default": "https://docs.all-hands.dev/",
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "openrouter_app_name": {
             "title": "Openrouter App Name",
             "type": "string",
-            "default": "OpenHands"
+            "default": "OpenHands",
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "num_retries": {
             "title": "Num Retries",
             "minimum": 0.0,
             "type": "integer",
-            "default": 5
+            "default": 5,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "retry_multiplier": {
             "title": "Retry Multiplier",
             "minimum": 0.0,
             "type": "number",
-            "default": 8.0
+            "default": 8.0,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "retry_min_wait": {
             "title": "Retry Min Wait",
             "minimum": 0.0,
             "type": "integer",
-            "default": 8
+            "default": 8,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "retry_max_wait": {
             "title": "Retry Max Wait",
             "minimum": 0.0,
             "type": "integer",
-            "default": 64
+            "default": 64,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "timeout": {
             "$ref": "#/components/schemas/LlmOutputTimeout"
@@ -20206,7 +20424,13 @@
             "minimum": 1.0,
             "type": "integer",
             "description": "Approx max chars in each event/content sent to the LLM.",
-            "default": 30000
+            "default": 30000,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "temperature": {
             "$ref": "#/components/schemas/LlmOutputTemperature"
@@ -20226,6 +20450,12 @@
           "model_canonical_name": {
             "$ref": "#/components/schemas/LlmOutputModelCanonicalName"
           },
+          "api_mode": {
+            "$ref": "#/components/schemas/LlmOutputApiMode"
+          },
+          "capability_overrides": {
+            "$ref": "#/components/schemas/LlmOutputCapabilityOverridesProperty"
+          },
           "extra_headers": {
             "$ref": "#/components/schemas/LlmOutputExtraHeaders"
           },
@@ -20242,18 +20472,36 @@
             "title": "Stream",
             "type": "boolean",
             "description": "Enable streaming responses from the LLM. When enabled, the provided \u0060on_token\u0060 callback in .completions and .responses will be invoked for each chunk of tokens.",
-            "default": false
+            "default": false,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "drop_params": {
             "title": "Drop Params",
             "type": "boolean",
-            "default": true
+            "default": true,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "modify_params": {
             "title": "Modify Params",
             "type": "boolean",
             "description": "Modify params allows litellm to do transformations like adding a default message, when a message is empty.",
-            "default": true
+            "default": true,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "disable_vision": {
             "$ref": "#/components/schemas/LlmOutputDisableVision"
@@ -20265,19 +20513,37 @@
             "title": "Caching Prompt",
             "type": "boolean",
             "description": "Enable caching of prompts.",
-            "default": true
+            "default": true,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "log_completions": {
             "title": "Log Completions",
             "type": "boolean",
             "description": "Enable logging of completions.",
-            "default": false
+            "default": false,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "log_completions_folder": {
             "title": "Log Completions Folder",
             "type": "string",
             "description": "The folder to log LLM completions to. Required if log_completions is True.",
-            "default": "logs/completions"
+            "default": "logs/completions",
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "custom_tokenizer": {
             "$ref": "#/components/schemas/LlmOutputCustomTokenizer"
@@ -20286,7 +20552,13 @@
             "title": "Native Tool Calling",
             "type": "boolean",
             "description": "Whether to use native tool calling.",
-            "default": true
+            "default": true,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "force_string_serializer": {
             "$ref": "#/components/schemas/LlmOutputForceStringSerializer"
@@ -20304,7 +20576,13 @@
             "title": "Enable Encrypted Reasoning",
             "type": "boolean",
             "description": "If True, ask for [\u0027reasoning.encrypted_content\u0027] in Responses API include.",
-            "default": true
+            "default": true,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "prompt_cache_retention": {
             "$ref": "#/components/schemas/LlmOutputPromptCacheRetention"
@@ -20319,7 +20597,13 @@
             "title": "Usage Id",
             "type": "string",
             "description": "Unique usage identifier for the LLM. Used for registry lookups, telemetry, and spend tracking.",
-            "default": "default"
+            "default": "default",
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "litellm_extra_body": {
             "$ref": "#/components/schemas/LlmOutputLitellmExtraBodyProperty"
@@ -20341,7 +20625,7 @@
             "title": "Schema Version",
             "minimum": 1.0,
             "type": "integer",
-            "default": 4
+            "default": 5
           },
           "agent_kind": {
             "title": "Agent Kind",
@@ -20847,6 +21131,12 @@
             ],
             "type": "string",
             "description": "Discriminator for the condenser settings union. \u0060\u0060\u0027llm_summarizing\u0027\u0060\u0060 selects the default LLM summarizing condenser.",
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            },
             "x-ms-enum": {
               "name": "CondenserKind",
               "modelAsString": false,
@@ -21374,7 +21664,36 @@
         }
       },
       "McpApiKeyAuthCredentialOutput": {
-        "type": "object"
+        "title": "MCPApiKeyAuthCredential",
+        "required": [
+          "strategy"
+        ],
+        "type": "object",
+        "properties": {
+          "strategy": {
+            "title": "Strategy",
+            "enum": [
+              "api_key"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "Strategy",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "api_key",
+                  "name": "ApiKey"
+                }
+              ]
+            }
+          },
+          "value": {
+            "$ref": "#/components/schemas/McpApiKeyAuthCredentialOutputValue"
+          },
+          "header_name": {
+            "$ref": "#/components/schemas/McpApiKeyAuthCredentialOutputHeaderName"
+          }
+        }
       },
       "McpBasicAuthCredentialInput": {
         "title": "MCPBasicAuthCredential",
@@ -21411,7 +21730,38 @@
         }
       },
       "McpBasicAuthCredentialOutput": {
-        "type": "object"
+        "title": "MCPBasicAuthCredential",
+        "required": [
+          "strategy",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "strategy": {
+            "title": "Strategy",
+            "enum": [
+              "basic"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "Strategy",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "basic",
+                  "name": "Basic"
+                }
+              ]
+            }
+          },
+          "username": {
+            "title": "Username",
+            "type": "string"
+          },
+          "password": {
+            "$ref": "#/components/schemas/McpBasicAuthCredentialOutputPassword"
+          }
+        }
       },
       "McpBearerAuthCredentialInput": {
         "title": "MCPBearerAuthCredential",
@@ -21443,7 +21793,33 @@
         }
       },
       "McpBearerAuthCredentialOutput": {
-        "type": "object"
+        "title": "MCPBearerAuthCredential",
+        "required": [
+          "strategy"
+        ],
+        "type": "object",
+        "properties": {
+          "strategy": {
+            "title": "Strategy",
+            "enum": [
+              "bearer"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "Strategy",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "bearer",
+                  "name": "Bearer"
+                }
+              ]
+            }
+          },
+          "value": {
+            "$ref": "#/components/schemas/McpBearerAuthCredentialOutputValue"
+          }
+        }
       },
       "McpConfig": {
         "title": "MCPConfig",
@@ -21485,9 +21861,35 @@
         }
       },
       "McpHeaderAuthCredentialOutput": {
-        "type": "object"
+        "title": "MCPHeaderAuthCredential",
+        "required": [
+          "strategy"
+        ],
+        "type": "object",
+        "properties": {
+          "strategy": {
+            "title": "Strategy",
+            "enum": [
+              "header"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "Strategy",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "header",
+                  "name": "Header"
+                }
+              ]
+            }
+          },
+          "headers": {
+            "$ref": "#/components/schemas/McpHeaderAuthCredentialOutputHeadersProperty"
+          }
+        }
       },
-      "McpNoneAuthCredentialInput": {
+      "McpNoneAuthCredential": {
         "title": "MCPNoneAuthCredential",
         "required": [
           "strategy"
@@ -21512,9 +21914,6 @@
             }
           }
         }
-      },
-      "McpNoneAuthCredentialOutput": {
-        "type": "object"
       },
       "McpoAuthAuthCredentialInput": {
         "title": "MCPOAuthAuthCredential",
@@ -21549,7 +21948,36 @@
         }
       },
       "McpoAuthAuthCredentialOutput": {
-        "type": "object"
+        "title": "MCPOAuthAuthCredential",
+        "required": [
+          "strategy"
+        ],
+        "type": "object",
+        "properties": {
+          "strategy": {
+            "title": "Strategy",
+            "enum": [
+              "oauth2"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "Strategy",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "oauth2",
+                  "name": "OAuth2"
+                }
+              ]
+            }
+          },
+          "authentication": {
+            "$ref": "#/components/schemas/McpoAuthAuthCredentialOutputAuthentication"
+          },
+          "state": {
+            "$ref": "#/components/schemas/McpoAuthAuthCredentialOutputState"
+          }
+        }
       },
       "McpoAuthAuthenticationInput": {
         "title": "MCPOAuthAuthentication",
@@ -21600,7 +22028,52 @@
         "additionalProperties": false
       },
       "McpoAuthAuthenticationOutput": {
-        "type": "object"
+        "title": "MCPOAuthAuthentication",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Type",
+            "enum": [
+              "oauth"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "oauth",
+                  "name": "OAuth"
+                }
+              ]
+            }
+          },
+          "client_auth_method": {
+            "$ref": "#/components/schemas/McpoAuthAuthenticationOutputClientAuthMethod"
+          },
+          "scopes": {
+            "$ref": "#/components/schemas/McpoAuthAuthenticationOutputScopes"
+          },
+          "client_name": {
+            "$ref": "#/components/schemas/McpoAuthAuthenticationOutputClientName"
+          },
+          "client_metadata_url": {
+            "$ref": "#/components/schemas/McpoAuthAuthenticationOutputClientMetadataUrl"
+          },
+          "client_id": {
+            "$ref": "#/components/schemas/McpoAuthAuthenticationOutputClientId"
+          },
+          "client_secret": {
+            "$ref": "#/components/schemas/McpoAuthAuthenticationOutputClientSecret"
+          },
+          "additional_client_metadata": {
+            "$ref": "#/components/schemas/McpoAuthAuthenticationOutputAdditionalClientMetadata"
+          }
+        },
+        "additionalProperties": false
       },
       "McpoAuthClientInfoStateInput": {
         "title": "MCPOAuthClientInfoState",
@@ -21612,7 +22085,13 @@
         }
       },
       "McpoAuthClientInfoStateOutput": {
-        "type": "object"
+        "title": "MCPOAuthClientInfoState",
+        "type": "object",
+        "properties": {
+          "client_secret": {
+            "$ref": "#/components/schemas/McpoAuthClientInfoStateOutputClientSecret"
+          }
+        }
       },
       "McpoAuthStateInput": {
         "title": "MCPOAuthState",
@@ -21630,7 +22109,19 @@
         }
       },
       "McpoAuthStateOutput": {
-        "type": "object"
+        "title": "MCPOAuthState",
+        "type": "object",
+        "properties": {
+          "tokens": {
+            "$ref": "#/components/schemas/McpoAuthStateOutputTokens"
+          },
+          "client_info": {
+            "$ref": "#/components/schemas/McpoAuthStateOutputClientInfo"
+          },
+          "token_expires_at": {
+            "$ref": "#/components/schemas/McpoAuthStateOutputTokenExpiresAt"
+          }
+        }
       },
       "McpoAuthTokenStateInput": {
         "title": "MCPOAuthTokenState",
@@ -21645,7 +22136,16 @@
         }
       },
       "McpoAuthTokenStateOutput": {
-        "type": "object"
+        "title": "MCPOAuthTokenState",
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "$ref": "#/components/schemas/McpoAuthTokenStateOutputAccessToken"
+          },
+          "refresh_token": {
+            "$ref": "#/components/schemas/McpoAuthTokenStateOutputRefreshToken"
+          }
+        }
       },
       "McpServerInput": {
         "title": "MCPServer",
@@ -21689,13 +22189,69 @@
           },
           "auth": {
             "$ref": "#/components/schemas/McpServerInputAuth"
+          },
+          "enabled": {
+            "title": "Enabled",
+            "type": "boolean",
+            "description": "Whether this server is exposed to the agent. A disabled server stays fully configured -- including its secrets -- but is skipped when MCP tools are created and when servers are forwarded to an ACP subprocess.",
+            "default": true
           }
         },
         "additionalProperties": false,
         "description": "One MCP server in the settings DataModel."
       },
       "McpServerOutput": {
-        "type": "object"
+        "title": "MCPServer",
+        "type": "object",
+        "properties": {
+          "url": {
+            "$ref": "#/components/schemas/McpServerOutputUrl"
+          },
+          "transport": {
+            "$ref": "#/components/schemas/McpServerOutputTransport"
+          },
+          "command": {
+            "$ref": "#/components/schemas/McpServerOutputCommand"
+          },
+          "args": {
+            "$ref": "#/components/schemas/McpServerOutputArgs"
+          },
+          "env": {
+            "$ref": "#/components/schemas/McpServerOutputEnv"
+          },
+          "cwd": {
+            "$ref": "#/components/schemas/McpServerOutputCwd"
+          },
+          "description": {
+            "$ref": "#/components/schemas/McpServerOutputDescription"
+          },
+          "icon": {
+            "$ref": "#/components/schemas/McpServerOutputIcon"
+          },
+          "timeout": {
+            "$ref": "#/components/schemas/McpServerOutputTimeout"
+          },
+          "sse_read_timeout": {
+            "$ref": "#/components/schemas/McpServerOutputSseReadTimeout"
+          },
+          "keep_alive": {
+            "$ref": "#/components/schemas/McpServerOutputKeepAlive"
+          },
+          "headers": {
+            "$ref": "#/components/schemas/McpServerOutputHeaders"
+          },
+          "auth": {
+            "$ref": "#/components/schemas/McpServerOutputAuth"
+          },
+          "enabled": {
+            "title": "Enabled",
+            "type": "boolean",
+            "description": "Whether this server is exposed to the agent. A disabled server stays fully configured -- including its secrets -- but is skipped when MCP tools are created and when servers are forwarded to an ACP subprocess.",
+            "default": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "One MCP server in the settings DataModel."
       },
       "McpToolActionInput": {
         "title": "MCPToolAction",
@@ -22503,6 +23059,12 @@
             ],
             "type": "string",
             "description": "Discriminator for the condenser settings union. \u0060\u0060\u0027no_op\u0027\u0060\u0060 selects a condenser that leaves conversation views unchanged.",
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            },
             "x-ms-enum": {
               "name": "CondenserKind",
               "modelAsString": false,
@@ -22944,7 +23506,7 @@
             "title": "Schema Version",
             "minimum": 1.0,
             "type": "integer",
-            "default": 1
+            "default": 2
           },
           "id": {
             "title": "Id",
@@ -23049,7 +23611,7 @@
             "title": "Schema Version",
             "minimum": 1.0,
             "type": "integer",
-            "default": 4
+            "default": 5
           },
           "agent_kind": {
             "title": "Agent Kind",
@@ -23969,6 +24531,11 @@
           },
           "agent_runs": {
             "title": "Agent Runs",
+            "type": "integer",
+            "default": 0
+          },
+          "usage_conversation_count": {
+            "title": "Usage Conversation Count",
             "type": "integer",
             "default": 0
           },
@@ -25591,6 +26158,9 @@
           "git_user_email": {
             "$ref": "#/components/schemas/SaasUserInfoGitUserEmail"
           },
+          "title_llm_profile": {
+            "$ref": "#/components/schemas/SaasUserInfoTitleLlmProfile"
+          },
           "git_full_clone": {
             "title": "Git Full Clone",
             "type": "boolean",
@@ -25730,6 +26300,9 @@
             "title": "Created At",
             "type": "string",
             "format": "date-time"
+          },
+          "status_detail": {
+            "$ref": "#/components/schemas/SandboxInfoStatusDetail"
           }
         },
         "description": "Information about a sandbox."
@@ -26985,36 +27558,72 @@
           "openrouter_site_url": {
             "title": "Openrouter Site Url",
             "type": "string",
-            "default": "https://docs.all-hands.dev/"
+            "default": "https://docs.all-hands.dev/",
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "openrouter_app_name": {
             "title": "Openrouter App Name",
             "type": "string",
-            "default": "OpenHands"
+            "default": "OpenHands",
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "num_retries": {
             "title": "Num Retries",
             "minimum": 0.0,
             "type": "integer",
-            "default": 5
+            "default": 5,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "retry_multiplier": {
             "title": "Retry Multiplier",
             "minimum": 0.0,
             "type": "number",
-            "default": 8.0
+            "default": 8.0,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "retry_min_wait": {
             "title": "Retry Min Wait",
             "minimum": 0.0,
             "type": "integer",
-            "default": 8
+            "default": 8,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "retry_max_wait": {
             "title": "Retry Max Wait",
             "minimum": 0.0,
             "type": "integer",
-            "default": 64
+            "default": 64,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "timeout": {
             "$ref": "#/components/schemas/StrictLlmTimeout"
@@ -27024,7 +27633,13 @@
             "minimum": 1.0,
             "type": "integer",
             "description": "Approx max chars in each event/content sent to the LLM.",
-            "default": 30000
+            "default": 30000,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "temperature": {
             "$ref": "#/components/schemas/StrictLlmTemperature"
@@ -27044,6 +27659,12 @@
           "model_canonical_name": {
             "$ref": "#/components/schemas/StrictLlmModelCanonicalName"
           },
+          "api_mode": {
+            "$ref": "#/components/schemas/StrictLlmApiMode"
+          },
+          "capability_overrides": {
+            "$ref": "#/components/schemas/StrictLlmCapabilityOverridesProperty"
+          },
           "extra_headers": {
             "$ref": "#/components/schemas/StrictLlmExtraHeaders"
           },
@@ -27060,18 +27681,36 @@
             "title": "Stream",
             "type": "boolean",
             "description": "Enable streaming responses from the LLM. When enabled, the provided \u0060on_token\u0060 callback in .completions and .responses will be invoked for each chunk of tokens.",
-            "default": false
+            "default": false,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "drop_params": {
             "title": "Drop Params",
             "type": "boolean",
-            "default": true
+            "default": true,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "modify_params": {
             "title": "Modify Params",
             "type": "boolean",
             "description": "Modify params allows litellm to do transformations like adding a default message, when a message is empty.",
-            "default": true
+            "default": true,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "disable_vision": {
             "$ref": "#/components/schemas/StrictLlmDisableVision"
@@ -27083,19 +27722,37 @@
             "title": "Caching Prompt",
             "type": "boolean",
             "description": "Enable caching of prompts.",
-            "default": true
+            "default": true,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "log_completions": {
             "title": "Log Completions",
             "type": "boolean",
             "description": "Enable logging of completions.",
-            "default": false
+            "default": false,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "log_completions_folder": {
             "title": "Log Completions Folder",
             "type": "string",
             "description": "The folder to log LLM completions to. Required if log_completions is True.",
-            "default": "logs/completions"
+            "default": "logs/completions",
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "custom_tokenizer": {
             "$ref": "#/components/schemas/StrictLlmCustomTokenizer"
@@ -27104,7 +27761,13 @@
             "title": "Native Tool Calling",
             "type": "boolean",
             "description": "Whether to use native tool calling.",
-            "default": true
+            "default": true,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "force_string_serializer": {
             "$ref": "#/components/schemas/StrictLlmForceStringSerializer"
@@ -27122,7 +27785,13 @@
             "title": "Enable Encrypted Reasoning",
             "type": "boolean",
             "description": "If True, ask for [\u0027reasoning.encrypted_content\u0027] in Responses API include.",
-            "default": true
+            "default": true,
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "prompt_cache_retention": {
             "$ref": "#/components/schemas/StrictLlmPromptCacheRetention"
@@ -27137,7 +27806,13 @@
             "title": "Usage Id",
             "type": "string",
             "description": "Unique usage identifier for the LLM. Used for registry lookups, telemetry, and spend tracking.",
-            "default": "default"
+            "default": "default",
+            "unrecognizedKeywords": {
+              "openhands_settings": {
+                "depends_on": [],
+                "prominence": "minor"
+              }
+            }
           },
           "litellm_extra_body": {
             "$ref": "#/components/schemas/StrictLlmLitellmExtraBodyProperty"
@@ -29798,9 +30473,6 @@
           "language": {
             "$ref": "#/components/schemas/UserAppSettingsUpdateLanguage"
           },
-          "user_consents_to_analytics": {
-            "$ref": "#/components/schemas/UserAppSettingsUpdateUserConsentsToAnalytics"
-          },
           "enable_sound_notifications": {
             "$ref": "#/components/schemas/UserAppSettingsUpdateEnableSoundNotifications"
           },
@@ -32456,6 +33128,15 @@
           "acp_compatible": true
         }
       },
+      "AgentContextInputMemoryContext": {
+        "title": "Memory Context",
+        "type": "string",
+        "description": "Resolved memory-index text rendered into the \u003CMEMORY_CONTEXT\u003E prompt block. Populated via model_copy by LocalConversation when load_memory is set; excluded from serialization because it is re-resolved from disk each session and must not bloat persisted conversation state.",
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "acp_compatible": true
+        }
+      },
       "AgentContextInputSecrets": {
         "title": "Secrets",
         "required": [
@@ -32704,7 +33385,7 @@
           {
             "type": "object",
             "additionalProperties": {
-              "type": "object"
+              "$ref": "#/components/schemas/McpServerOutput"
             }
           },
           {
@@ -36501,6 +37182,13 @@
         "description": "Event ID this conversation was forked at. \u0060\u0060None\u0060\u0060 for non-forked conversations or whole-conversation forks.",
         "nullable": true
       },
+      "ConversationInfoParentConversationId": {
+        "title": "Parent Conversation Id",
+        "type": "string",
+        "description": "ID of the conversation that owns this one. \u0060\u0060None\u0060\u0060 for top-level conversations.",
+        "format": "uuid",
+        "nullable": true
+      },
       "ConversationInfoCurrentModelId": {
         "title": "Current Model Id",
         "type": "string",
@@ -37734,6 +38422,11 @@
         "type": "string",
         "nullable": true
       },
+      "GetSettingsModelTitleLlmProfile": {
+        "title": "Title Llm Profile",
+        "type": "string",
+        "nullable": true
+      },
       "GetSettingsModelDefaultSandboxSpecId": {
         "title": "Default Sandbox Spec Id",
         "type": "string",
@@ -38663,7 +39356,13 @@
         "title": "Api Version",
         "type": "string",
         "description": "API version (e.g., Azure).",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputAwsAccessKeyId": {
         "title": "Aws Access Key Id",
@@ -38682,7 +39381,13 @@
               null
             ]
           }
-        ]
+        ],
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputAwsSecretAccessKey": {
         "title": "Aws Secret Access Key",
@@ -38701,7 +39406,13 @@
               null
             ]
           }
-        ]
+        ],
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputAwsSessionToken": {
         "title": "Aws Session Token",
@@ -38720,32 +39431,68 @@
               null
             ]
           }
-        ]
+        ],
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputAwsRegionName": {
         "title": "Aws Region Name",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputAwsProfileName": {
         "title": "Aws Profile Name",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputAwsRoleName": {
         "title": "Aws Role Name",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputAwsSessionName": {
         "title": "Aws Session Name",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputAwsBedrockRuntimeEndpoint": {
         "title": "Aws Bedrock Runtime Endpoint",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputTimeout": {
         "title": "Timeout",
@@ -38754,7 +39501,13 @@
         "type": "integer",
         "description": "HTTP timeout in seconds. Default is 300s (5 minutes). Set to None to disable timeout (not recommended for production).",
         "default": 300,
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputTemperature": {
         "title": "Temperature",
@@ -38762,7 +39515,13 @@
         "exclusiveMinimum": false,
         "type": "number",
         "description": "Sampling temperature for response generation. Defaults to None (uses provider default temperature). Set to 0.0 for deterministic outputs, or higher values (0.7-1.0) for more creative responses.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputTopP": {
         "title": "Top P",
@@ -38772,14 +39531,26 @@
         "exclusiveMinimum": false,
         "type": "number",
         "description": "Nucleus sampling parameter. Defaults to None (uses provider default). Set to a value between 0 and 1 to control diversity of outputs.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputTopK": {
         "title": "Top K",
         "minimum": 0.0,
         "exclusiveMinimum": false,
         "type": "number",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputMaxInputTokens": {
         "title": "Max Input Tokens",
@@ -38787,7 +39558,13 @@
         "exclusiveMinimum": false,
         "type": "integer",
         "description": "The maximum number of input tokens. Note that this is currently unused, and the value at runtime is actually the total tokens in OpenAI (e.g. 128,000 tokens for GPT-4).",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputMaxOutputTokens": {
         "title": "Max Output Tokens",
@@ -38795,13 +39572,36 @@
         "exclusiveMinimum": false,
         "type": "integer",
         "description": "The maximum number of output tokens. This is sent to the LLM.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputModelCanonicalName": {
         "title": "Model Canonical Name",
         "type": "string",
         "description": "Optional canonical model name for feature registry lookups. The OpenHands SDK maintains a model feature registry that maps model names to capabilities (e.g., vision support, prompt caching, responses API support). When using proxied or aliased model identifiers, set this field to the canonical model name (e.g., \u0027openai/gpt-4o\u0027) to ensure correct capability detection. If not provided, the \u0027model\u0027 field will be used for capability lookups.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
+      },
+      "LlmInputCapabilityOverridesAdditionalProperties": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "string"
+          }
+        ]
       },
       "LlmInputExtraHeaders": {
         "title": "Extra Headers",
@@ -38831,6 +39631,12 @@
         "description": "Optional HTTP headers to forward to LiteLLM requests.",
         "discriminator": {
           "propertyName": "type"
+        },
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
         }
       },
       "LlmInputInputCostPerToken": {
@@ -38839,7 +39645,13 @@
         "exclusiveMinimum": false,
         "type": "number",
         "description": "The cost per input token. This will available in logs for user.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputOutputCostPerToken": {
         "title": "Output Cost Per Token",
@@ -38847,43 +39659,85 @@
         "exclusiveMinimum": false,
         "type": "number",
         "description": "The cost per output token. This will available in logs for user.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputOllamaBaseUrl": {
         "title": "Ollama Base Url",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputDisableVision": {
         "title": "Disable Vision",
         "type": "boolean",
         "description": "If model is vision capable, this option allows to disable image processing (useful for cost reduction).",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputDisableStopWord": {
         "title": "Disable Stop Word",
         "type": "boolean",
         "description": "Disable using of stop word.",
         "default": false,
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputCustomTokenizer": {
         "title": "Custom Tokenizer",
         "type": "string",
         "description": "A custom tokenizer to use for token counting.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputForceStringSerializer": {
         "title": "Force String Serializer",
         "type": "boolean",
         "description": "Force using string content serializer when sending to LLM API. If None (default), auto-detect based on model. Useful for providers that do not support list content, like HuggingFace and Groq.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputInlineImageUrls": {
         "title": "Inline Image Urls",
         "type": "boolean",
-        "description": "\u0022If True, fetch any http(s) image URL in outgoing messages and inline it as a base64 \u0060\u0060data:\u0060\u0060 URL before sending. If None (default), auto-detect based on model (some APIs such as Moonshot\u0027s public Kimi endpoint reject URL-formatted images and require base64). Set this explicitly when the model is reached through a proxy alias that hides the underlying provider (e.g. \u0060\u0060litellm_proxy/\u003Ccustom-alias\u003E\u0060\u0060). Note: inlining only runs when \u0060\u0060vision_is_active()\u0060\u0060 is True, so the alias must still be recognised as vision-capable by litellm \u2014 otherwise images are not sent at all and there is nothing to inline.\u0022",
-        "nullable": true
+        "description": "\u0022If True, fetch any http(s) image URL in outgoing messages and inline it as a base64 \u0060\u0060data:\u0060\u0060 URL before sending. If None (default), auto-detect based on model (some APIs such as Moonshot\u0027s public Kimi endpoint reject URL-formatted images and require base64). Set this explicitly when the model is reached through a proxy alias that hides the underlying provider (e.g. \u0060\u0060litellm_proxy/\u003Ccustom-alias\u003E\u0060\u0060). Note: inlining only runs when \u0060\u0060vision_is_active()\u0060\u0060 is True, so the alias must still be recognised as vision-capable by the SDK feature registry or proxy model metadata.\u0022",
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputReasoningEffort": {
         "title": "Reasoning Effort",
@@ -38896,8 +39750,14 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The effort to put into reasoning. This is a string that can be one of \u0027low\u0027, \u0027medium\u0027, \u0027high\u0027, \u0027xhigh\u0027, or \u0027none\u0027. Can apply to all reasoning models.",
+        "description": "Provider-neutral reasoning effort. Common values include \u0027none\u0027, \u0027minimal\u0027, \u0027low\u0027, \u0027medium\u0027, \u0027high\u0027, \u0027xhigh\u0027, and \u0027max\u0027. The SDK accepts future provider values and lets LiteLLM translate them.",
         "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        },
         "x-ms-enum": {
           "name": "LlmInputReasoningEffort",
           "modelAsString": false,
@@ -38936,6 +39796,12 @@
         "additionalProperties": false,
         "description": "The level of detail for reasoning summaries. This is a string that can be one of \u0027auto\u0027, \u0027concise\u0027, or \u0027detailed\u0027. Requires verified OpenAI organization. Only sent when explicitly set.",
         "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        },
         "x-ms-enum": {
           "name": "LlmInputReasoningSummary",
           "modelAsString": false,
@@ -38960,20 +39826,38 @@
         "type": "string",
         "description": "Retention policy for prompt cache. Only sent for supported models (GPT-5\u002B and GPT-4.1, excluding Azure deployments); explicitly stripped for all others.",
         "default": "24h",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputExtendedThinkingBudget": {
         "title": "Extended Thinking Budget",
         "type": "integer",
-        "description": "The budget tokens for extended thinking, supported by Anthropic models.",
+        "description": "Legacy token budget for models confirmed to use manual Anthropic extended thinking. Ignored for adaptive-thinking models. Prefer reasoning_effort for new integrations.",
         "default": 200000,
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputSeed": {
         "title": "Seed",
         "type": "integer",
         "description": "The seed to use for random number generation.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmInputFallbackStrategy": {
         "required": [
@@ -39062,7 +39946,13 @@
         "title": "Api Version",
         "type": "string",
         "description": "API version (e.g., Azure).",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputAwsAccessKeyId": {
         "title": "Aws Access Key Id",
@@ -39081,7 +39971,13 @@
               null
             ]
           }
-        ]
+        ],
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputAwsSecretAccessKey": {
         "title": "Aws Secret Access Key",
@@ -39100,7 +39996,13 @@
               null
             ]
           }
-        ]
+        ],
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputAwsSessionToken": {
         "title": "Aws Session Token",
@@ -39119,32 +40021,68 @@
               null
             ]
           }
-        ]
+        ],
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputAwsRegionName": {
         "title": "Aws Region Name",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputAwsProfileName": {
         "title": "Aws Profile Name",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputAwsRoleName": {
         "title": "Aws Role Name",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputAwsSessionName": {
         "title": "Aws Session Name",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputAwsBedrockRuntimeEndpoint": {
         "title": "Aws Bedrock Runtime Endpoint",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputTimeout": {
         "title": "Timeout",
@@ -39153,7 +40091,13 @@
         "type": "integer",
         "description": "HTTP timeout in seconds. Default is 300s (5 minutes). Set to None to disable timeout (not recommended for production).",
         "default": 300,
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputTemperature": {
         "title": "Temperature",
@@ -39161,7 +40105,13 @@
         "exclusiveMinimum": false,
         "type": "number",
         "description": "Sampling temperature for response generation. Defaults to None (uses provider default temperature). Set to 0.0 for deterministic outputs, or higher values (0.7-1.0) for more creative responses.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputTopP": {
         "title": "Top P",
@@ -39171,14 +40121,26 @@
         "exclusiveMinimum": false,
         "type": "number",
         "description": "Nucleus sampling parameter. Defaults to None (uses provider default). Set to a value between 0 and 1 to control diversity of outputs.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputTopK": {
         "title": "Top K",
         "minimum": 0.0,
         "exclusiveMinimum": false,
         "type": "number",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputMaxInputTokens": {
         "title": "Max Input Tokens",
@@ -39186,7 +40148,13 @@
         "exclusiveMinimum": false,
         "type": "integer",
         "description": "The maximum number of input tokens. Note that this is currently unused, and the value at runtime is actually the total tokens in OpenAI (e.g. 128,000 tokens for GPT-4).",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputMaxOutputTokens": {
         "title": "Max Output Tokens",
@@ -39194,13 +40162,36 @@
         "exclusiveMinimum": false,
         "type": "integer",
         "description": "The maximum number of output tokens. This is sent to the LLM.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputModelCanonicalName": {
         "title": "Model Canonical Name",
         "type": "string",
         "description": "Optional canonical model name for feature registry lookups. The OpenHands SDK maintains a model feature registry that maps model names to capabilities (e.g., vision support, prompt caching, responses API support). When using proxied or aliased model identifiers, set this field to the canonical model name (e.g., \u0027openai/gpt-4o\u0027) to ensure correct capability detection. If not provided, the \u0027model\u0027 field will be used for capability lookups.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
+      },
+      "LlmOutputCapabilityOverridesAdditionalProperties": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "string"
+          }
+        ]
       },
       "LlmOutputExtraHeaders": {
         "title": "Extra Headers",
@@ -39230,6 +40221,12 @@
         "description": "Optional HTTP headers to forward to LiteLLM requests.",
         "discriminator": {
           "propertyName": "type"
+        },
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
         }
       },
       "LlmOutputInputCostPerToken": {
@@ -39238,7 +40235,13 @@
         "exclusiveMinimum": false,
         "type": "number",
         "description": "The cost per input token. This will available in logs for user.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputOutputCostPerToken": {
         "title": "Output Cost Per Token",
@@ -39246,43 +40249,85 @@
         "exclusiveMinimum": false,
         "type": "number",
         "description": "The cost per output token. This will available in logs for user.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputOllamaBaseUrl": {
         "title": "Ollama Base Url",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputDisableVision": {
         "title": "Disable Vision",
         "type": "boolean",
         "description": "If model is vision capable, this option allows to disable image processing (useful for cost reduction).",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputDisableStopWord": {
         "title": "Disable Stop Word",
         "type": "boolean",
         "description": "Disable using of stop word.",
         "default": false,
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputCustomTokenizer": {
         "title": "Custom Tokenizer",
         "type": "string",
         "description": "A custom tokenizer to use for token counting.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputForceStringSerializer": {
         "title": "Force String Serializer",
         "type": "boolean",
         "description": "Force using string content serializer when sending to LLM API. If None (default), auto-detect based on model. Useful for providers that do not support list content, like HuggingFace and Groq.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputInlineImageUrls": {
         "title": "Inline Image Urls",
         "type": "boolean",
-        "description": "\u0022If True, fetch any http(s) image URL in outgoing messages and inline it as a base64 \u0060\u0060data:\u0060\u0060 URL before sending. If None (default), auto-detect based on model (some APIs such as Moonshot\u0027s public Kimi endpoint reject URL-formatted images and require base64). Set this explicitly when the model is reached through a proxy alias that hides the underlying provider (e.g. \u0060\u0060litellm_proxy/\u003Ccustom-alias\u003E\u0060\u0060). Note: inlining only runs when \u0060\u0060vision_is_active()\u0060\u0060 is True, so the alias must still be recognised as vision-capable by litellm \u2014 otherwise images are not sent at all and there is nothing to inline.\u0022",
-        "nullable": true
+        "description": "\u0022If True, fetch any http(s) image URL in outgoing messages and inline it as a base64 \u0060\u0060data:\u0060\u0060 URL before sending. If None (default), auto-detect based on model (some APIs such as Moonshot\u0027s public Kimi endpoint reject URL-formatted images and require base64). Set this explicitly when the model is reached through a proxy alias that hides the underlying provider (e.g. \u0060\u0060litellm_proxy/\u003Ccustom-alias\u003E\u0060\u0060). Note: inlining only runs when \u0060\u0060vision_is_active()\u0060\u0060 is True, so the alias must still be recognised as vision-capable by the SDK feature registry or proxy model metadata.\u0022",
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputReasoningEffort": {
         "title": "Reasoning Effort",
@@ -39295,8 +40340,14 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The effort to put into reasoning. This is a string that can be one of \u0027low\u0027, \u0027medium\u0027, \u0027high\u0027, \u0027xhigh\u0027, or \u0027none\u0027. Can apply to all reasoning models.",
+        "description": "Provider-neutral reasoning effort. Common values include \u0027none\u0027, \u0027minimal\u0027, \u0027low\u0027, \u0027medium\u0027, \u0027high\u0027, \u0027xhigh\u0027, and \u0027max\u0027. The SDK accepts future provider values and lets LiteLLM translate them.",
         "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        },
         "x-ms-enum": {
           "name": "LlmOutputReasoningEffort",
           "modelAsString": false,
@@ -39335,6 +40386,12 @@
         "additionalProperties": false,
         "description": "The level of detail for reasoning summaries. This is a string that can be one of \u0027auto\u0027, \u0027concise\u0027, or \u0027detailed\u0027. Requires verified OpenAI organization. Only sent when explicitly set.",
         "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        },
         "x-ms-enum": {
           "name": "LlmOutputReasoningSummary",
           "modelAsString": false,
@@ -39359,20 +40416,38 @@
         "type": "string",
         "description": "Retention policy for prompt cache. Only sent for supported models (GPT-5\u002B and GPT-4.1, excluding Azure deployments); explicitly stripped for all others.",
         "default": "24h",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputExtendedThinkingBudget": {
         "title": "Extended Thinking Budget",
         "type": "integer",
-        "description": "The budget tokens for extended thinking, supported by Anthropic models.",
+        "description": "Legacy token budget for models confirmed to use manual Anthropic extended thinking. Ignored for adaptive-thinking models. Prefer reasoning_effort for new integrations.",
         "default": 200000,
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputSeed": {
         "title": "Seed",
         "type": "integer",
         "description": "The seed to use for random number generation.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmAgentSettingsTools": {
         "title": "Tools",
@@ -39718,16 +40793,36 @@
         "type": "string",
         "nullable": true
       },
+      "McpApiKeyAuthCredentialOutputValue": {
+        "title": "Value",
+        "type": "string",
+        "nullable": true
+      },
+      "McpApiKeyAuthCredentialOutputHeaderName": {
+        "title": "Header Name",
+        "type": "string",
+        "nullable": true
+      },
       "McpBasicAuthCredentialInputPassword": {
         "title": "Password",
         "type": "string",
         "format": "password",
         "nullable": true
       },
+      "McpBasicAuthCredentialOutputPassword": {
+        "title": "Password",
+        "type": "string",
+        "nullable": true
+      },
       "McpBearerAuthCredentialInputValue": {
         "title": "Value",
         "type": "string",
         "format": "password",
+        "nullable": true
+      },
+      "McpBearerAuthCredentialOutputValue": {
+        "title": "Value",
+        "type": "string",
         "nullable": true
       },
       "McpConfigMcpServersAdditionalProperties": {
@@ -39764,6 +40859,10 @@
             "RemoteMcpServer": "#/components/schemas/RemoteMcpServer"
           }
         }
+      },
+      "McpHeaderAuthCredentialOutputHeadersAdditionalProperties": {
+        "type": "string",
+        "nullable": true
       },
       "McpoAuthAuthCredentialInputAuthentication": {
         "required": [
@@ -39818,6 +40917,62 @@
           "propertyName": "type",
           "mapping": {
             "McpoAuthStateInput": "#/components/schemas/McpoAuthStateInput"
+          }
+        }
+      },
+      "McpoAuthAuthCredentialOutputAuthentication": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/McpoAuthAuthenticationOutput"
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "McpoAuthAuthenticationOutput": "#/components/schemas/McpoAuthAuthenticationOutput"
+          }
+        }
+      },
+      "McpoAuthAuthCredentialOutputState": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/McpoAuthStateOutput"
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "McpoAuthStateOutput": "#/components/schemas/McpoAuthStateOutput"
           }
         }
       },
@@ -39922,10 +41077,115 @@
           "propertyName": "type"
         }
       },
+      "McpoAuthAuthenticationOutputClientAuthMethod": {
+        "title": "Client Auth Method",
+        "enum": [
+          "none",
+          "client_secret_post",
+          "client_secret_basic",
+          "private_key_jwt"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "nullable": true,
+        "x-ms-enum": {
+          "name": "McpoAuthAuthenticationOutputClientAuthMethod",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "client_secret_post",
+              "name": "ClientSecretPost"
+            },
+            {
+              "value": "client_secret_basic",
+              "name": "ClientSecretBasic"
+            },
+            {
+              "value": "private_key_jwt",
+              "name": "PrivateKeyJwt"
+            }
+          ]
+        }
+      },
+      "McpoAuthAuthenticationOutputScopes": {
+        "title": "Scopes",
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ]
+      },
+      "McpoAuthAuthenticationOutputClientName": {
+        "title": "Client Name",
+        "type": "string",
+        "nullable": true
+      },
+      "McpoAuthAuthenticationOutputClientMetadataUrl": {
+        "title": "Client Metadata Url",
+        "type": "string",
+        "nullable": true
+      },
+      "McpoAuthAuthenticationOutputClientId": {
+        "title": "Client Id",
+        "type": "string",
+        "nullable": true
+      },
+      "McpoAuthAuthenticationOutputClientSecret": {
+        "title": "Client Secret",
+        "type": "string",
+        "nullable": true
+      },
+      "McpoAuthAuthenticationOutputAdditionalClientMetadata": {
+        "title": "Additional Client Metadata",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "object"
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
       "McpoAuthClientInfoStateInputClientSecret": {
         "title": "Client Secret",
         "type": "string",
         "format": "password",
+        "nullable": true
+      },
+      "McpoAuthClientInfoStateOutputClientSecret": {
+        "title": "Client Secret",
+        "type": "string",
         "nullable": true
       },
       "McpoAuthStateInputTokens": {
@@ -39989,6 +41249,67 @@
         "type": "number",
         "nullable": true
       },
+      "McpoAuthStateOutputTokens": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/McpoAuthTokenStateOutput"
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "McpoAuthTokenStateOutput": "#/components/schemas/McpoAuthTokenStateOutput"
+          }
+        }
+      },
+      "McpoAuthStateOutputClientInfo": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/McpoAuthClientInfoStateOutput"
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "McpoAuthClientInfoStateOutput": "#/components/schemas/McpoAuthClientInfoStateOutput"
+          }
+        }
+      },
+      "McpoAuthStateOutputTokenExpiresAt": {
+        "title": "Token Expires At",
+        "type": "number",
+        "nullable": true
+      },
       "McpoAuthTokenStateInputAccessToken": {
         "title": "Access Token",
         "type": "string",
@@ -39999,6 +41320,16 @@
         "title": "Refresh Token",
         "type": "string",
         "format": "password",
+        "nullable": true
+      },
+      "McpoAuthTokenStateOutputAccessToken": {
+        "title": "Access Token",
+        "type": "string",
+        "nullable": true
+      },
+      "McpoAuthTokenStateOutputRefreshToken": {
+        "title": "Refresh Token",
+        "type": "string",
         "nullable": true
       },
       "McpServerInputUrl": {
@@ -40162,6 +41493,171 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/McpServerInputAuthAnyOf1"
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ]
+      },
+      "McpServerOutputUrl": {
+        "title": "Url",
+        "minLength": 1,
+        "type": "string",
+        "nullable": true
+      },
+      "McpServerOutputTransport": {
+        "title": "Transport",
+        "enum": [
+          "stdio",
+          "http",
+          "sse",
+          "streamable-http"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "nullable": true,
+        "x-ms-enum": {
+          "name": "McpServerOutputTransport",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "stdio",
+              "name": "Stdio"
+            },
+            {
+              "value": "http",
+              "name": "Http"
+            },
+            {
+              "value": "sse",
+              "name": "Sse"
+            },
+            {
+              "value": "streamable-http",
+              "name": "StreamableHttp"
+            }
+          ]
+        }
+      },
+      "McpServerOutputCommand": {
+        "title": "Command",
+        "minLength": 1,
+        "type": "string",
+        "nullable": true
+      },
+      "McpServerOutputArgs": {
+        "title": "Args",
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ]
+      },
+      "McpServerOutputEnv": {
+        "title": "Env",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/McpServerOutputEnvAnyOf1AdditionalProperties"
+            }
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "McpServerOutputCwd": {
+        "title": "Cwd",
+        "type": "string",
+        "nullable": true
+      },
+      "McpServerOutputDescription": {
+        "title": "Description",
+        "type": "string",
+        "nullable": true
+      },
+      "McpServerOutputIcon": {
+        "title": "Icon",
+        "type": "string",
+        "nullable": true
+      },
+      "McpServerOutputTimeout": {
+        "title": "Timeout",
+        "type": "number",
+        "nullable": true
+      },
+      "McpServerOutputSseReadTimeout": {
+        "title": "Sse Read Timeout",
+        "type": "number",
+        "nullable": true
+      },
+      "McpServerOutputKeepAlive": {
+        "title": "Keep Alive",
+        "type": "boolean",
+        "nullable": true
+      },
+      "McpServerOutputHeaders": {
+        "title": "Headers",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/McpServerOutputHeadersAnyOf1AdditionalProperties"
+            }
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "McpServerOutputAuth": {
+        "title": "Auth",
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/McpServerOutputAuthAnyOf1"
           },
           {
             "enum": [
@@ -42428,6 +43924,11 @@
         "type": "string",
         "nullable": true
       },
+      "SaasUserInfoTitleLlmProfile": {
+        "title": "Title Llm Profile",
+        "type": "string",
+        "nullable": true
+      },
       "SaasUserInfoDefaultSandboxSpecId": {
         "title": "Default Sandbox Spec Id",
         "type": "string",
@@ -42508,6 +44009,12 @@
           }
         ],
         "description": "URLs exposed by the sandbox (App server, Vscode, etc...)Sandboxes with a status STARTING / PAUSED / ERROR may not return urls."
+      },
+      "SandboxInfoStatusDetail": {
+        "title": "Status Detail",
+        "type": "string",
+        "description": "Last pod/scheduling reason from the runtime (e.g. insufficient kvm, ImagePullBackOff), surfaced when a sandbox is stuck or errored.",
+        "nullable": true
       },
       "SandboxPageNextPageId": {
         "title": "Next Page Id",
@@ -43312,7 +44819,13 @@
         "title": "Api Version",
         "type": "string",
         "description": "API version (e.g., Azure).",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmAwsAccessKeyId": {
         "title": "Aws Access Key Id",
@@ -43331,7 +44844,13 @@
               null
             ]
           }
-        ]
+        ],
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmAwsSecretAccessKey": {
         "title": "Aws Secret Access Key",
@@ -43350,7 +44869,13 @@
               null
             ]
           }
-        ]
+        ],
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmAwsSessionToken": {
         "title": "Aws Session Token",
@@ -43369,32 +44894,68 @@
               null
             ]
           }
-        ]
+        ],
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmAwsRegionName": {
         "title": "Aws Region Name",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmAwsProfileName": {
         "title": "Aws Profile Name",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmAwsRoleName": {
         "title": "Aws Role Name",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmAwsSessionName": {
         "title": "Aws Session Name",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmAwsBedrockRuntimeEndpoint": {
         "title": "Aws Bedrock Runtime Endpoint",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmTimeout": {
         "title": "Timeout",
@@ -43403,7 +44964,13 @@
         "type": "integer",
         "description": "HTTP timeout in seconds. Default is 300s (5 minutes). Set to None to disable timeout (not recommended for production).",
         "default": 300,
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmTemperature": {
         "title": "Temperature",
@@ -43411,7 +44978,13 @@
         "exclusiveMinimum": false,
         "type": "number",
         "description": "Sampling temperature for response generation. Defaults to None (uses provider default temperature). Set to 0.0 for deterministic outputs, or higher values (0.7-1.0) for more creative responses.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmTopP": {
         "title": "Top P",
@@ -43421,14 +44994,26 @@
         "exclusiveMinimum": false,
         "type": "number",
         "description": "Nucleus sampling parameter. Defaults to None (uses provider default). Set to a value between 0 and 1 to control diversity of outputs.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmTopK": {
         "title": "Top K",
         "minimum": 0.0,
         "exclusiveMinimum": false,
         "type": "number",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmMaxInputTokens": {
         "title": "Max Input Tokens",
@@ -43436,7 +45021,13 @@
         "exclusiveMinimum": false,
         "type": "integer",
         "description": "The maximum number of input tokens. Note that this is currently unused, and the value at runtime is actually the total tokens in OpenAI (e.g. 128,000 tokens for GPT-4).",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmMaxOutputTokens": {
         "title": "Max Output Tokens",
@@ -43444,13 +45035,36 @@
         "exclusiveMinimum": false,
         "type": "integer",
         "description": "The maximum number of output tokens. This is sent to the LLM.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmModelCanonicalName": {
         "title": "Model Canonical Name",
         "type": "string",
         "description": "Optional canonical model name for feature registry lookups. The OpenHands SDK maintains a model feature registry that maps model names to capabilities (e.g., vision support, prompt caching, responses API support). When using proxied or aliased model identifiers, set this field to the canonical model name (e.g., \u0027openai/gpt-4o\u0027) to ensure correct capability detection. If not provided, the \u0027model\u0027 field will be used for capability lookups.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
+      },
+      "StrictLlmCapabilityOverridesAdditionalProperties": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "string"
+          }
+        ]
       },
       "StrictLlmExtraHeaders": {
         "title": "Extra Headers",
@@ -43480,6 +45094,12 @@
         "description": "Optional HTTP headers to forward to LiteLLM requests.",
         "discriminator": {
           "propertyName": "type"
+        },
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
         }
       },
       "StrictLlmInputCostPerToken": {
@@ -43488,7 +45108,13 @@
         "exclusiveMinimum": false,
         "type": "number",
         "description": "The cost per input token. This will available in logs for user.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmOutputCostPerToken": {
         "title": "Output Cost Per Token",
@@ -43496,43 +45122,85 @@
         "exclusiveMinimum": false,
         "type": "number",
         "description": "The cost per output token. This will available in logs for user.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmOllamaBaseUrl": {
         "title": "Ollama Base Url",
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmDisableVision": {
         "title": "Disable Vision",
         "type": "boolean",
         "description": "If model is vision capable, this option allows to disable image processing (useful for cost reduction).",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmDisableStopWord": {
         "title": "Disable Stop Word",
         "type": "boolean",
         "description": "Disable using of stop word.",
         "default": false,
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmCustomTokenizer": {
         "title": "Custom Tokenizer",
         "type": "string",
         "description": "A custom tokenizer to use for token counting.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmForceStringSerializer": {
         "title": "Force String Serializer",
         "type": "boolean",
         "description": "Force using string content serializer when sending to LLM API. If None (default), auto-detect based on model. Useful for providers that do not support list content, like HuggingFace and Groq.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmInlineImageUrls": {
         "title": "Inline Image Urls",
         "type": "boolean",
-        "description": "\u0022If True, fetch any http(s) image URL in outgoing messages and inline it as a base64 \u0060\u0060data:\u0060\u0060 URL before sending. If None (default), auto-detect based on model (some APIs such as Moonshot\u0027s public Kimi endpoint reject URL-formatted images and require base64). Set this explicitly when the model is reached through a proxy alias that hides the underlying provider (e.g. \u0060\u0060litellm_proxy/\u003Ccustom-alias\u003E\u0060\u0060). Note: inlining only runs when \u0060\u0060vision_is_active()\u0060\u0060 is True, so the alias must still be recognised as vision-capable by litellm \u2014 otherwise images are not sent at all and there is nothing to inline.\u0022",
-        "nullable": true
+        "description": "\u0022If True, fetch any http(s) image URL in outgoing messages and inline it as a base64 \u0060\u0060data:\u0060\u0060 URL before sending. If None (default), auto-detect based on model (some APIs such as Moonshot\u0027s public Kimi endpoint reject URL-formatted images and require base64). Set this explicitly when the model is reached through a proxy alias that hides the underlying provider (e.g. \u0060\u0060litellm_proxy/\u003Ccustom-alias\u003E\u0060\u0060). Note: inlining only runs when \u0060\u0060vision_is_active()\u0060\u0060 is True, so the alias must still be recognised as vision-capable by the SDK feature registry or proxy model metadata.\u0022",
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmReasoningEffort": {
         "title": "Reasoning Effort",
@@ -43545,8 +45213,14 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The effort to put into reasoning. This is a string that can be one of \u0027low\u0027, \u0027medium\u0027, \u0027high\u0027, \u0027xhigh\u0027, or \u0027none\u0027. Can apply to all reasoning models.",
+        "description": "Provider-neutral reasoning effort. Common values include \u0027none\u0027, \u0027minimal\u0027, \u0027low\u0027, \u0027medium\u0027, \u0027high\u0027, \u0027xhigh\u0027, and \u0027max\u0027. The SDK accepts future provider values and lets LiteLLM translate them.",
         "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        },
         "x-ms-enum": {
           "name": "StrictLlmReasoningEffort",
           "modelAsString": false,
@@ -43585,6 +45259,12 @@
         "additionalProperties": false,
         "description": "The level of detail for reasoning summaries. This is a string that can be one of \u0027auto\u0027, \u0027concise\u0027, or \u0027detailed\u0027. Requires verified OpenAI organization. Only sent when explicitly set.",
         "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        },
         "x-ms-enum": {
           "name": "StrictLlmReasoningSummary",
           "modelAsString": false,
@@ -43609,20 +45289,38 @@
         "type": "string",
         "description": "Retention policy for prompt cache. Only sent for supported models (GPT-5\u002B and GPT-4.1, excluding Azure deployments); explicitly stripped for all others.",
         "default": "24h",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmExtendedThinkingBudget": {
         "title": "Extended Thinking Budget",
         "type": "integer",
-        "description": "The budget tokens for extended thinking, supported by Anthropic models.",
+        "description": "Legacy token budget for models confirmed to use manual Anthropic extended thinking. Ignored for adaptive-thinking models. Prefer reasoning_effort for new integrations.",
         "default": 200000,
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmSeed": {
         "title": "Seed",
         "type": "integer",
         "description": "The seed to use for random number generation.",
-        "nullable": true
+        "nullable": true,
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "StrictLlmFallbackStrategy": {
         "required": [
@@ -45401,11 +47099,6 @@
         "type": "string",
         "nullable": true
       },
-      "UserAppSettingsUpdateUserConsentsToAnalytics": {
-        "title": "User Consents To Analytics",
-        "type": "boolean",
-        "nullable": true
-      },
       "UserAppSettingsUpdateEnableSoundNotifications": {
         "title": "Enable Sound Notifications",
         "type": "boolean",
@@ -46601,7 +48294,7 @@
             }
           }
         ],
-        "description": "Whether to load marketplace plugins at conversation start. Use True for all plugins, false or [] for none, or a list of plugin names for selective loading."
+        "description": "Whether to load marketplace plugins and standalone skills at conversation start. Use True for all, false or [] for none, or a list of plugin/skill names for selective loading."
       },
       "OpenhandsSdkToolToolToolAnnotationsTitle": {
         "title": "Title",
@@ -46683,6 +48376,14 @@
         "type": "string",
         "nullable": true
       },
+      "McpServerOutputEnvAnyOf1AdditionalProperties": {
+        "type": "string",
+        "nullable": true
+      },
+      "McpServerOutputHeadersAnyOf1AdditionalProperties": {
+        "type": "string",
+        "nullable": true
+      },
       "AcpAgentMcpConfig": {
         "title": "Mcp Config",
         "type": "object",
@@ -46700,7 +48401,7 @@
         "title": "Mcp Config",
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/AcpAgentSettingsMcpConfigAdditionalProperties"
+          "$ref": "#/components/schemas/McpServerOutput"
         },
         "description": "MCP servers to make available to the ACP subprocess. Unlike the OpenHands agent \u2014 where these become in-process MCP tools \u2014 the servers are forwarded to the ACP server at session creation and it owns the connection. Remote (http/sse) servers are only forwarded when the ACP server advertises support for that transport; stdio servers (which run inside the runtime) are always forwarded.",
         "unrecognizedKeywords": {
@@ -46853,21 +48554,61 @@
         "title": "Gitlab View Data",
         "type": "object"
       },
+      "LlmInputCapabilityOverrides": {
+        "title": "Capability Overrides",
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/LlmInputCapabilityOverridesAdditionalProperties"
+        },
+        "description": "Explicit model capability overrides. Supported keys include supports_reasoning_effort, thinking_mode (adaptive, manual, none, or unknown), supports_sampling_params, supports_prompt_cache, supports_stop_words, supports_responses_api, supports_vision, and supports_prompt_cache_retention. Overrides take precedence over LiteLLM metadata and SDK fallbacks.",
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
+      },
       "LlmInputLitellmExtraBody": {
         "title": "Litellm Extra Body",
         "type": "object",
-        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: true}\u0022"
+        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: true}\u0022",
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
+      },
+      "LlmOutputCapabilityOverrides": {
+        "title": "Capability Overrides",
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/LlmOutputCapabilityOverridesAdditionalProperties"
+        },
+        "description": "Explicit model capability overrides. Supported keys include supports_reasoning_effort, thinking_mode (adaptive, manual, none, or unknown), supports_sampling_params, supports_prompt_cache, supports_stop_words, supports_responses_api, supports_vision, and supports_prompt_cache_retention. Overrides take precedence over LiteLLM metadata and SDK fallbacks.",
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmOutputLitellmExtraBody": {
         "title": "Litellm Extra Body",
         "type": "object",
-        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: true}\u0022"
+        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: true}\u0022",
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "LlmAgentSettingsMcpConfig": {
         "title": "Mcp Config",
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/LlmAgentSettingsMcpConfigAdditionalProperties"
+          "$ref": "#/components/schemas/McpServerOutput"
         },
         "description": "MCP servers available to the agent.",
         "unrecognizedKeywords": {
@@ -46913,6 +48654,13 @@
           "writeOnly": true
         }
       },
+      "McpHeaderAuthCredentialOutputHeaders": {
+        "title": "Headers",
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/McpHeaderAuthCredentialOutputHeadersAdditionalProperties"
+        }
+      },
       "McpToolActionInputData": {
         "title": "Data",
         "type": "object",
@@ -46952,7 +48700,7 @@
         "title": "Mcp Config",
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/OpenHandsAgentSettingsMcpConfigAdditionalProperties"
+          "$ref": "#/components/schemas/McpServerOutput"
         },
         "description": "MCP servers available to the agent.",
         "unrecognizedKeywords": {
@@ -47025,10 +48773,30 @@
         "title": "Env",
         "type": "object"
       },
+      "StrictLlmCapabilityOverrides": {
+        "title": "Capability Overrides",
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/StrictLlmCapabilityOverridesAdditionalProperties"
+        },
+        "description": "Explicit model capability overrides. Supported keys include supports_reasoning_effort, thinking_mode (adaptive, manual, none, or unknown), supports_sampling_params, supports_prompt_cache, supports_stop_words, supports_responses_api, supports_vision, and supports_prompt_cache_retention. Overrides take precedence over LiteLLM metadata and SDK fallbacks.",
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
+      },
       "StrictLlmLitellmExtraBody": {
         "title": "Litellm Extra Body",
         "type": "object",
-        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: true}\u0022"
+        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: true}\u0022",
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        }
       },
       "ToolTransformConfigArguments": {
         "title": "Arguments",
@@ -47943,7 +49711,7 @@
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/McpNoneAuthCredentialInput"
+            "$ref": "#/components/schemas/McpNoneAuthCredential"
           },
           {
             "$ref": "#/components/schemas/McpApiKeyAuthCredentialInput"
@@ -47973,8 +49741,50 @@
             "basic": "#/components/schemas/McpBasicAuthCredentialInput",
             "bearer": "#/components/schemas/McpBearerAuthCredentialInput",
             "header": "#/components/schemas/McpHeaderAuthCredentialInput",
-            "none": "#/components/schemas/McpNoneAuthCredentialInput",
+            "none": "#/components/schemas/McpNoneAuthCredential",
             "oauth2": "#/components/schemas/McpoAuthAuthCredentialInput"
+          }
+        }
+      },
+      "McpServerOutputAuthAnyOf1": {
+        "required": [
+          "strategy"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/McpNoneAuthCredential"
+          },
+          {
+            "$ref": "#/components/schemas/McpApiKeyAuthCredentialOutput"
+          },
+          {
+            "$ref": "#/components/schemas/McpBearerAuthCredentialOutput"
+          },
+          {
+            "$ref": "#/components/schemas/McpBasicAuthCredentialOutput"
+          },
+          {
+            "$ref": "#/components/schemas/McpHeaderAuthCredentialOutput"
+          },
+          {
+            "$ref": "#/components/schemas/McpoAuthAuthCredentialOutput"
+          }
+        ],
+        "properties": {
+          "strategy": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "strategy",
+          "mapping": {
+            "api_key": "#/components/schemas/McpApiKeyAuthCredentialOutput",
+            "basic": "#/components/schemas/McpBasicAuthCredentialOutput",
+            "bearer": "#/components/schemas/McpBearerAuthCredentialOutput",
+            "header": "#/components/schemas/McpHeaderAuthCredentialOutput",
+            "none": "#/components/schemas/McpNoneAuthCredential",
+            "oauth2": "#/components/schemas/McpoAuthAuthCredentialOutput"
           }
         }
       },
@@ -48143,7 +49953,7 @@
       "AcpAgentSettingsMcpConfigProperty": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/AcpAgentSettingsMcpConfigPropertyAdditionalProperties"
+          "$ref": "#/components/schemas/McpServerOutput"
         },
         "description": "MCP servers to make available to the ACP subprocess. Unlike the OpenHands agent \u2014 where these become in-process MCP tools \u2014 the servers are forwarded to the ACP server at session creation and it owns the connection. Remote (http/sse) servers are only forwarded when the ACP server advertises support for that transport; stdio servers (which run inside the runtime) are always forwarded."
       },
@@ -48365,9 +50175,23 @@
         "title": "Action Type",
         "type": "object"
       },
+      "LlmInputCapabilityOverridesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/LlmInputCapabilityOverridesAdditionalProperties"
+        },
+        "description": "Explicit model capability overrides. Supported keys include supports_reasoning_effort, thinking_mode (adaptive, manual, none, or unknown), supports_sampling_params, supports_prompt_cache, supports_stop_words, supports_responses_api, supports_vision, and supports_prompt_cache_retention. Overrides take precedence over LiteLLM metadata and SDK fallbacks."
+      },
       "LlmInputLitellmExtraBodyProperty": {
         "type": "object",
         "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: true}\u0022"
+      },
+      "LlmOutputCapabilityOverridesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/LlmOutputCapabilityOverridesAdditionalProperties"
+        },
+        "description": "Explicit model capability overrides. Supported keys include supports_reasoning_effort, thinking_mode (adaptive, manual, none, or unknown), supports_sampling_params, supports_prompt_cache, supports_stop_words, supports_responses_api, supports_vision, and supports_prompt_cache_retention. Overrides take precedence over LiteLLM metadata and SDK fallbacks."
       },
       "LlmOutputLitellmExtraBodyProperty": {
         "type": "object",
@@ -48376,7 +50200,7 @@
       "LlmAgentSettingsMcpConfigProperty": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/LlmAgentSettingsMcpConfigPropertyAdditionalProperties"
+          "$ref": "#/components/schemas/McpServerOutput"
         },
         "description": "MCP servers available to the agent."
       },
@@ -48411,6 +50235,12 @@
           "type": "string",
           "format": "password",
           "writeOnly": true
+        }
+      },
+      "McpHeaderAuthCredentialOutputHeadersProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/McpHeaderAuthCredentialOutputHeadersAdditionalProperties"
         }
       },
       "McpToolActionInputDataProperty": {
@@ -48449,7 +50279,7 @@
       "OpenHandsAgentSettingsMcpConfigProperty": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/OpenHandsAgentSettingsMcpConfigPropertyAdditionalProperties"
+          "$ref": "#/components/schemas/McpServerOutput"
         },
         "description": "MCP servers available to the agent."
       },
@@ -48517,6 +50347,13 @@
       },
       "StdioMcpServerEnvProperty": {
         "type": "object"
+      },
+      "StrictLlmCapabilityOverridesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/StrictLlmCapabilityOverridesAdditionalProperties"
+        },
+        "description": "Explicit model capability overrides. Supported keys include supports_reasoning_effort, thinking_mode (adaptive, manual, none, or unknown), supports_sampling_params, supports_prompt_cache, supports_stop_words, supports_responses_api, supports_vision, and supports_prompt_cache_retention. Overrides take precedence over LiteLLM metadata and SDK fallbacks."
       },
       "StrictLlmLitellmExtraBodyProperty": {
         "type": "object",
@@ -48635,24 +50472,6 @@
         "type": "object"
       },
       "ServerRoutesOrgProfilesProfileDetailResponseLlmProperty": {
-        "type": "object"
-      },
-      "AcpAgentSettingsMcpConfigAdditionalProperties": {
-        "type": "object"
-      },
-      "LlmAgentSettingsMcpConfigAdditionalProperties": {
-        "type": "object"
-      },
-      "OpenHandsAgentSettingsMcpConfigAdditionalProperties": {
-        "type": "object"
-      },
-      "AcpAgentSettingsMcpConfigPropertyAdditionalProperties": {
-        "type": "object"
-      },
-      "LlmAgentSettingsMcpConfigPropertyAdditionalProperties": {
-        "type": "object"
-      },
-      "OpenHandsAgentSettingsMcpConfigPropertyAdditionalProperties": {
         "type": "object"
       },
       "AcpAgentProfileAcpServer": {
@@ -49853,6 +51672,41 @@
           ]
         }
       },
+      "LlmInputApiMode": {
+        "title": "Api Mode",
+        "enum": [
+          "auto",
+          "chat",
+          "responses"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "LLM API endpoint mode. \u0027auto\u0027 resolves from model metadata and SDK fallbacks; use \u0027chat\u0027 or \u0027responses\u0027 to override endpoint selection for proxy aliases and newly released models.",
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        },
+        "x-ms-enum": {
+          "name": "LlmInputApiMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "auto",
+              "name": "Auto"
+            },
+            {
+              "value": "chat",
+              "name": "Chat"
+            },
+            {
+              "value": "responses",
+              "name": "Responses"
+            }
+          ]
+        }
+      },
       "LlmOutputAuthType": {
         "title": "Auth Type",
         "enum": [
@@ -49880,6 +51734,41 @@
             {
               "value": "subscription",
               "name": "Subscription"
+            }
+          ]
+        }
+      },
+      "LlmOutputApiMode": {
+        "title": "Api Mode",
+        "enum": [
+          "auto",
+          "chat",
+          "responses"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "LLM API endpoint mode. \u0027auto\u0027 resolves from model metadata and SDK fallbacks; use \u0027chat\u0027 or \u0027responses\u0027 to override endpoint selection for proxy aliases and newly released models.",
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        },
+        "x-ms-enum": {
+          "name": "LlmOutputApiMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "auto",
+              "name": "Auto"
+            },
+            {
+              "value": "chat",
+              "name": "Chat"
+            },
+            {
+              "value": "responses",
+              "name": "Responses"
             }
           ]
         }
@@ -50602,6 +52491,41 @@
             {
               "value": "subscription",
               "name": "Subscription"
+            }
+          ]
+        }
+      },
+      "StrictLlmApiMode": {
+        "title": "Api Mode",
+        "enum": [
+          "auto",
+          "chat",
+          "responses"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "LLM API endpoint mode. \u0027auto\u0027 resolves from model metadata and SDK fallbacks; use \u0027chat\u0027 or \u0027responses\u0027 to override endpoint selection for proxy aliases and newly released models.",
+        "unrecognizedKeywords": {
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        },
+        "x-ms-enum": {
+          "name": "StrictLlmApiMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "auto",
+              "name": "Auto"
+            },
+            {
+              "value": "chat",
+              "name": "Chat"
+            },
+            {
+              "value": "responses",
+              "name": "Responses"
             }
           ]
         }

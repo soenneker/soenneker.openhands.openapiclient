@@ -90,7 +90,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             Agent = "CodeActAgent";
             EnableSubAgents = false;
             EnableSwitchLlmTool = true;
-            SchemaVersion = 4;
+            SchemaVersion = 5;
             ToolConcurrencyLimit = 1;
         }
         /// <summary>

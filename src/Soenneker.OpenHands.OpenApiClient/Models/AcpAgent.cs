@@ -73,6 +73,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string AcpSessionMode { get; set; }
 #endif
+        /// <summary>&quot;Timeout in seconds for ACP server startup: spawning the subprocess, the initialize/authenticate handshake, and new_session()/load_session(). Unlike acp_prompt_timeout, this is a hard deadline rather than an idle deadline, since startup has no intermediate progress signal to reset it against. Prevents an indefinite hang when the ACP server blocks on authentication (e.g. an expired token) without ever raising.&quot;</summary>
+        public double? AcpStartupTimeout { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Optional AgentContext to initialize the agent with specific context.</summary>
@@ -183,6 +185,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             AdditionalData = new Dictionary<string, object>();
             AcpIsolateDataDir = false;
             AcpPromptTimeout = 1800.0;
+            AcpStartupTimeout = 90.0;
             SecurityPolicyFilename = "security_policy.j2";
             SystemPromptFilename = "system_prompt.j2";
             ToolConcurrencyLimit = 1;
@@ -214,6 +217,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "acp_resume_session_id", n => { AcpResumeSessionId = n.GetStringValue(); } },
                 { "acp_server", n => { AcpServer = n.GetStringValue(); } },
                 { "acp_session_mode", n => { AcpSessionMode = n.GetStringValue(); } },
+                { "acp_startup_timeout", n => { AcpStartupTimeout = n.GetDoubleValue(); } },
                 { "agent_context", n => { AgentContext = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentAgentContext>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentAgentContext.CreateFromDiscriminatorValue); } },
                 { "condenser", n => { Condenser = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentCondenser>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentCondenser.CreateFromDiscriminatorValue); } },
                 { "critic", n => { Critic = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentCritic>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentCritic.CreateFromDiscriminatorValue); } },
@@ -246,6 +250,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("acp_resume_session_id", AcpResumeSessionId);
             writer.WriteStringValue("acp_server", AcpServer);
             writer.WriteStringValue("acp_session_mode", AcpSessionMode);
+            writer.WriteDoubleValue("acp_startup_timeout", AcpStartupTimeout);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentAgentContext>("agent_context", AgentContext);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentCondenser>("condenser", Condenser);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentCritic>("critic", Critic);

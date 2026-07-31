@@ -43,8 +43,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Language { get; set; }
 #endif
-        /// <summary>The user_consents_to_analytics property</summary>
-        public bool? UserConsentsToAnalytics { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.UserAppSettingsUpdate"/> and sets the default values.
         /// </summary>
@@ -75,7 +73,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "git_user_email", n => { GitUserEmail = n.GetStringValue(); } },
                 { "git_user_name", n => { GitUserName = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
-                { "user_consents_to_analytics", n => { UserConsentsToAnalytics = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -90,7 +87,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("git_user_email", GitUserEmail);
             writer.WriteStringValue("git_user_name", GitUserName);
             writer.WriteStringValue("language", Language);
-            writer.WriteBoolValue("user_consents_to_analytics", UserConsentsToAnalytics);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

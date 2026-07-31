@@ -207,6 +207,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoSecretsStore SecretsStore { get; set; }
 #endif
+        /// <summary>The title_llm_profile property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TitleLlmProfile { get; set; }
+#nullable restore
+#else
+        public string TitleLlmProfile { get; set; }
+#endif
         /// <summary>The user_consents_to_analytics property</summary>
         public bool? UserConsentsToAnalytics { get; set; }
         /// <summary>The user_version property</summary>
@@ -272,6 +280,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "sandbox_runtime_container_image", n => { SandboxRuntimeContainerImage = n.GetStringValue(); } },
                 { "search_api_key", n => { SearchApiKey = n.GetStringValue(); } },
                 { "secrets_store", n => { SecretsStore = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoSecretsStore>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoSecretsStore.CreateFromDiscriminatorValue); } },
+                { "title_llm_profile", n => { TitleLlmProfile = n.GetStringValue(); } },
                 { "user_consents_to_analytics", n => { UserConsentsToAnalytics = n.GetBoolValue(); } },
                 { "user_version", n => { UserVersion = n.GetIntValue(); } },
                 { "v1_enabled", n => { V1Enabled = n.GetBoolValue(); } },
@@ -314,6 +323,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("sandbox_runtime_container_image", SandboxRuntimeContainerImage);
             writer.WriteStringValue("search_api_key", SearchApiKey);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoSecretsStore>("secrets_store", SecretsStore);
+            writer.WriteStringValue("title_llm_profile", TitleLlmProfile);
             writer.WriteBoolValue("user_consents_to_analytics", UserConsentsToAnalytics);
             writer.WriteIntValue("user_version", UserVersion);
             writer.WriteBoolValue("v1_enabled", V1Enabled);

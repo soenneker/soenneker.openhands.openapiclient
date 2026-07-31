@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
-    /// <summary>The effort to put into reasoning. This is a string that can be one of &apos;low&apos;, &apos;medium&apos;, &apos;high&apos;, &apos;xhigh&apos;, or &apos;none&apos;. Can apply to all reasoning models.</summary>
+    /// <summary>Provider-neutral reasoning effort. Common values include &apos;none&apos;, &apos;minimal&apos;, &apos;low&apos;, &apos;medium&apos;, &apos;high&apos;, &apos;xhigh&apos;, and &apos;max&apos;. The SDK accepts future provider values and lets LiteLLM translate them.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum LlmInputReasoningEffort
     {

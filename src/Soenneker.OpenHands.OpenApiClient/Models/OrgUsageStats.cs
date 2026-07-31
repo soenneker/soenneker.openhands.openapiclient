@@ -55,6 +55,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The total_tokens property</summary>
         public int? TotalTokens { get; set; }
+        /// <summary>The usage_conversation_count property</summary>
+        public int? UsageConversationCount { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgUsageStats"/> and sets the default values.
         /// </summary>
@@ -65,6 +67,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             AgentRuns = 0;
             EstimatedSpend = 0.0;
             TotalTokens = 0;
+            UsageConversationCount = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -92,6 +95,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "model_usage", n => { ModelUsage = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ModelUsageData>(global::Soenneker.OpenHands.OpenApiClient.Models.ModelUsageData.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "team_usage", n => { TeamUsage = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TeamUsageData>(global::Soenneker.OpenHands.OpenApiClient.Models.TeamUsageData.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "total_tokens", n => { TotalTokens = n.GetIntValue(); } },
+                { "usage_conversation_count", n => { UsageConversationCount = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -109,6 +113,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ModelUsageData>("model_usage", ModelUsage);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TeamUsageData>("team_usage", TeamUsage);
             writer.WriteIntValue("total_tokens", TotalTokens);
+            writer.WriteIntValue("usage_conversation_count", UsageConversationCount);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
