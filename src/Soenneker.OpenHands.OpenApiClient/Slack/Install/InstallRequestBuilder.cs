@@ -36,17 +36,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Slack.Install
         /// <summary>
         /// Forward into Slack OAuth.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.InstallSlackInstallGet200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.InstallSlackInstallGet200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.InstallSlackInstallGet200ResponseResponseJson?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Slack.Install.InstallRequestBuilder.InstallRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.InstallSlackInstallGet200ResponseSchema?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Slack.Install.InstallRequestBuilder.InstallRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.InstallSlackInstallGet200ResponseResponseJson> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Slack.Install.InstallRequestBuilder.InstallRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.InstallSlackInstallGet200ResponseSchema> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Slack.Install.InstallRequestBuilder.InstallRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Slack.Install
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.InstallSlackInstallGet200ResponseResponseJson>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.InstallSlackInstallGet200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.InstallSlackInstallGet200ResponseSchema>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.InstallSlackInstallGet200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Forward into Slack OAuth.

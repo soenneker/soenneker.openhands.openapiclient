@@ -36,17 +36,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Downloa
         /// <summary>
         /// &quot;Download a conversation trajectory as a zip file.Returns a zip file containing all events and metadata for the conversation.Args:    conversation_id: The UUID of the conversation to downloadReturns:    A zip file containing the conversation trajectory&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ExportConversationApiV1AppConversationsConversationIdDownloadGet200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ExportConversationApiV1AppConversationsConversationIdDownloadGet200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ExportConversationApiV1AppConversationsConversationIdDownloadGet200ResponseResponseJson?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ExportConversationApiV1AppConversationsConversationIdDownloadGet200ResponseSchema?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ExportConversationApiV1AppConversationsConversationIdDownloadGet200ResponseResponseJson> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ExportConversationApiV1AppConversationsConversationIdDownloadGet200ResponseSchema> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Downloa
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ExportConversationApiV1AppConversationsConversationIdDownloadGet200ResponseResponseJson>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ExportConversationApiV1AppConversationsConversationIdDownloadGet200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ExportConversationApiV1AppConversationsConversationIdDownloadGet200ResponseSchema>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ExportConversationApiV1AppConversationsConversationIdDownloadGet200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Download a conversation trajectory as a zip file.Returns a zip file containing all events and metadata for the conversation.Args:    conversation_id: The UUID of the conversation to downloadReturns:    A zip file containing the conversation trajectory&quot;

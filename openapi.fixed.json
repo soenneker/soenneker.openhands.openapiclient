@@ -1308,7 +1308,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetConversationSkillsApiV1AppConversationsConversationIdSkillsGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetConversationSkillsApiV1AppConversationsConversationIdSkillsGet200ResponseSchema"
                 }
               }
             }
@@ -1357,7 +1357,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetConversationHooksApiV1AppConversationsConversationIdHooksGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetConversationHooksApiV1AppConversationsConversationIdHooksGet200ResponseSchema"
                 }
               }
             }
@@ -1406,7 +1406,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ExportConversationApiV1AppConversationsConversationIdDownloadGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ExportConversationApiV1AppConversationsConversationIdDownloadGet200ResponseSchema"
                 }
               }
             }
@@ -1856,7 +1856,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetSecretValueApiV1SandboxesSandboxIdSettingsSecretsSecretNameGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetSecretValueApiV1SandboxesSandboxIdSettingsSecretsSecretNameGet200ResponseSchema"
                 }
               }
             }
@@ -2983,7 +2983,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetSecretApiV1WebhooksSecretsGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetSecretApiV1WebhooksSecretsGet200ResponseSchema"
                 }
               }
             }
@@ -3515,7 +3515,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AliveAliveGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/AliveAliveGet200ResponseSchema"
                 }
               }
             }
@@ -3559,7 +3559,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetServerInfoServerInfoGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetServerInfoServerInfoGet200ResponseSchema"
                 }
               }
             }
@@ -3577,7 +3577,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/IsReadyReadyGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/IsReadyReadyGet200ResponseSchema"
                 }
               }
             }
@@ -3595,7 +3595,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/IsSaasSaasGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/IsSaasSaasGet200ResponseSchema"
                 }
               }
             }
@@ -3613,7 +3613,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AuthenticateApiAuthenticatePost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/AuthenticateApiAuthenticatePost200ResponseSchema"
                 }
               }
             }
@@ -3631,7 +3631,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AcceptTosApiAcceptTosPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/AcceptTosApiAcceptTosPost200ResponseSchema"
                 }
               }
             }
@@ -3650,7 +3650,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OnboardingStatusApiOnboardingStatusGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/OnboardingStatusApiOnboardingStatusGet200ResponseSchema"
                 }
               }
             }
@@ -3678,7 +3678,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CompleteOnboardingApiCompleteOnboardingPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/CompleteOnboardingApiCompleteOnboardingPost200ResponseSchema"
                 }
               }
             }
@@ -3706,7 +3706,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LogoutApiLogoutPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/LogoutApiLogoutPost200ResponseSchema"
                 }
               }
             }
@@ -3820,7 +3820,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/KeycloakCallbackOAuthKeycloakCallbackGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/KeycloakCallbackOAuthKeycloakCallbackGet200ResponseSchema"
                 }
               }
             }
@@ -3868,7 +3868,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/KeycloakOfflineCallbackOAuthKeycloakOfflineCallbackGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/KeycloakOfflineCallbackOAuthKeycloakOfflineCallbackGet200ResponseSchema"
                 }
               }
             }
@@ -3897,7 +3897,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GithubDummyCallbackOAuthGithubCallbackGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GithubDummyCallbackOAuthGithubCallbackGet200ResponseSchema"
                 }
               }
             }
@@ -3944,7 +3944,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeviceTokenOAuthDeviceTokenPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/DeviceTokenOAuthDeviceTokenPost200ResponseSchema"
                 }
               }
             }
@@ -3982,7 +3982,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeviceVerificationAuthenticatedOAuthDeviceVerifyAuthenticatedPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/DeviceVerificationAuthenticatedOAuthDeviceVerifyAuthenticatedPost200ResponseSchema"
                 }
               }
             }
@@ -4234,7 +4234,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SuccessCallbackApiBillingSuccessGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/SuccessCallbackApiBillingSuccessGet200ResponseSchema"
                 }
               }
             }
@@ -4276,7 +4276,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CancelCallbackApiBillingCancelGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/CancelCallbackApiBillingCancelGet200ResponseSchema"
                 }
               }
             }
@@ -4643,7 +4643,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GithubEventsIntegrationGithubEventsPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GithubEventsIntegrationGithubEventsPost200ResponseSchema"
                 }
               }
             }
@@ -4697,7 +4697,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GitlabEventsIntegrationGitlabEventsPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GitlabEventsIntegrationGitlabEventsPost200ResponseSchema"
                 }
               }
             }
@@ -4830,7 +4830,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BitbucketEventsIntegrationBitbucketEventsPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/BitbucketEventsIntegrationBitbucketEventsPost200ResponseSchema"
                 }
               }
             }
@@ -6462,7 +6462,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseResponseJson"
+                  "$ref": "#/components/schemas/RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseSchema"
                 }
               }
             }
@@ -7439,7 +7439,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/StopOrgConversationApiOrganizationsOrgIdConversationsConversationIdStopPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/StopOrgConversationApiOrganizationsOrgIdConversationsConversationIdStopPost200ResponseSchema"
                 }
               }
             }
@@ -8933,7 +8933,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AcceptInvitationRedirectApiOrganizationsMembersInviteAcceptGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/AcceptInvitationRedirectApiOrganizationsMembersInviteAcceptGet200ResponseSchema"
                 }
               }
             }
@@ -9014,7 +9014,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/InstallSlackInstallGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/InstallSlackInstallGet200ResponseSchema"
                 }
               }
             }
@@ -9072,7 +9072,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/InstallCallbackSlackInstallCallbackGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/InstallCallbackSlackInstallCallbackGet200ResponseSchema"
                 }
               }
             }
@@ -9129,7 +9129,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/KeycloakCallbackSlackKeycloakCallbackGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/KeycloakCallbackSlackKeycloakCallbackGet200ResponseSchema"
                 }
               }
             }
@@ -9157,7 +9157,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OnEventSlackOnEventPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/OnEventSlackOnEventPost200ResponseSchema"
                 }
               }
             }
@@ -9176,7 +9176,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OnOptionsLoadSlackOnOptionsLoadPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/OnOptionsLoadSlackOnOptionsLoadPost200ResponseSchema"
                 }
               }
             }
@@ -9195,7 +9195,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OnFormInteractionSlackOnFormInteractionPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/OnFormInteractionSlackOnFormInteractionPost200ResponseSchema"
                 }
               }
             }
@@ -9224,7 +9224,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/JiraEventsIntegrationJiraEventsPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/JiraEventsIntegrationJiraEventsPost200ResponseSchema"
                 }
               }
             }
@@ -9262,7 +9262,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateJiraWorkspaceIntegrationJiraWorkspacesPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/CreateJiraWorkspaceIntegrationJiraWorkspacesPost200ResponseSchema"
                 }
               }
             }
@@ -9317,7 +9317,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateWorkspaceLinkIntegrationJiraWorkspacesLinkPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/CreateWorkspaceLinkIntegrationJiraWorkspacesLinkPost200ResponseSchema"
                 }
               }
             }
@@ -9365,7 +9365,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/JiraCallbackIntegrationJiraCallbackGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/JiraCallbackIntegrationJiraCallbackGet200ResponseSchema"
                 }
               }
             }
@@ -9394,7 +9394,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UnlinkWorkspaceIntegrationJiraWorkspacesUnlinkPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/UnlinkWorkspaceIntegrationJiraWorkspacesUnlinkPost200ResponseSchema"
                 }
               }
             }
@@ -9461,7 +9461,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UpdateEmailApiEmailPost200ResponseResponseJson"
+                  "$ref": "#/components/schemas/UpdateEmailApiEmailPost200ResponseSchema"
                 }
               }
             }
@@ -9503,7 +9503,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResendEmailVerificationApiEmailResendPut200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ResendEmailVerificationApiEmailResendPut200ResponseSchema"
                 }
               }
             }
@@ -9531,7 +9531,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VerifiedEmailApiEmailVerifiedGet200ResponseResponseJson"
+                  "$ref": "#/components/schemas/VerifiedEmailApiEmailVerifiedGet200ResponseSchema"
                 }
               }
             }
@@ -49479,13 +49479,13 @@
       "GetConversationGitDiffApiV1AppConversationsConversationIdGitDiffGet200Response": {
         "type": "object"
       },
-      "GetConversationSkillsApiV1AppConversationsConversationIdSkillsGet200ResponseResponseJson": {
+      "GetConversationSkillsApiV1AppConversationsConversationIdSkillsGet200ResponseSchema": {
         "type": "object"
       },
-      "GetConversationHooksApiV1AppConversationsConversationIdHooksGet200ResponseResponseJson": {
+      "GetConversationHooksApiV1AppConversationsConversationIdHooksGet200ResponseSchema": {
         "type": "object"
       },
-      "ExportConversationApiV1AppConversationsConversationIdDownloadGet200ResponseResponseJson": {
+      "ExportConversationApiV1AppConversationsConversationIdDownloadGet200ResponseSchema": {
         "type": "object"
       },
       "BatchGetSandboxesApiV1SandboxesGet200Response": {
@@ -49494,7 +49494,7 @@
           "$ref": "#/components/schemas/ResponseBatchGetSandboxesApiV1SandboxesGetItem"
         }
       },
-      "GetSecretValueApiV1SandboxesSandboxIdSettingsSecretsSecretNameGet200ResponseResponseJson": {
+      "GetSecretValueApiV1SandboxesSandboxIdSettingsSecretsSecretNameGet200ResponseSchema": {
         "type": "object"
       },
       "BatchGetSandboxSpecsApiV1SandboxSpecsGet200Response": {
@@ -49539,61 +49539,61 @@
           "$ref": "#/components/schemas/EventInput"
         }
       },
-      "GetSecretApiV1WebhooksSecretsGet200ResponseResponseJson": {
+      "GetSecretApiV1WebhooksSecretsGet200ResponseSchema": {
         "type": "object"
       },
-      "AliveAliveGet200ResponseResponseJson": {
+      "AliveAliveGet200ResponseSchema": {
         "type": "object"
       },
       "HealthHealthGet200Response": {
         "type": "string"
       },
-      "GetServerInfoServerInfoGet200ResponseResponseJson": {
+      "GetServerInfoServerInfoGet200ResponseSchema": {
         "type": "object"
       },
-      "IsReadyReadyGet200ResponseResponseJson": {
+      "IsReadyReadyGet200ResponseSchema": {
         "type": "object"
       },
-      "IsSaasSaasGet200ResponseResponseJson": {
+      "IsSaasSaasGet200ResponseSchema": {
         "type": "object"
       },
-      "AuthenticateApiAuthenticatePost200ResponseResponseJson": {
+      "AuthenticateApiAuthenticatePost200ResponseSchema": {
         "type": "object"
       },
-      "AcceptTosApiAcceptTosPost200ResponseResponseJson": {
+      "AcceptTosApiAcceptTosPost200ResponseSchema": {
         "type": "object"
       },
-      "OnboardingStatusApiOnboardingStatusGet200ResponseResponseJson": {
+      "OnboardingStatusApiOnboardingStatusGet200ResponseSchema": {
         "type": "object"
       },
-      "CompleteOnboardingApiCompleteOnboardingPost200ResponseResponseJson": {
+      "CompleteOnboardingApiCompleteOnboardingPost200ResponseSchema": {
         "type": "object"
       },
-      "LogoutApiLogoutPost200ResponseResponseJson": {
+      "LogoutApiLogoutPost200ResponseSchema": {
         "type": "object"
       },
-      "KeycloakCallbackOAuthKeycloakCallbackGet200ResponseResponseJson": {
+      "KeycloakCallbackOAuthKeycloakCallbackGet200ResponseSchema": {
         "type": "object"
       },
-      "KeycloakOfflineCallbackOAuthKeycloakOfflineCallbackGet200ResponseResponseJson": {
+      "KeycloakOfflineCallbackOAuthKeycloakOfflineCallbackGet200ResponseSchema": {
         "type": "object"
       },
-      "GithubDummyCallbackOAuthGithubCallbackGet200ResponseResponseJson": {
+      "GithubDummyCallbackOAuthGithubCallbackGet200ResponseSchema": {
         "type": "object"
       },
-      "DeviceTokenOAuthDeviceTokenPost200ResponseResponseJson": {
+      "DeviceTokenOAuthDeviceTokenPost200ResponseSchema": {
         "type": "object"
       },
-      "DeviceVerificationAuthenticatedOAuthDeviceVerifyAuthenticatedPost200ResponseResponseJson": {
+      "DeviceVerificationAuthenticatedOAuthDeviceVerifyAuthenticatedPost200ResponseSchema": {
         "type": "object"
       },
       "HasPaymentMethodApiBillingHasPaymentMethodPost200Response": {
         "type": "boolean"
       },
-      "SuccessCallbackApiBillingSuccessGet200ResponseResponseJson": {
+      "SuccessCallbackApiBillingSuccessGet200ResponseSchema": {
         "type": "object"
       },
-      "CancelCallbackApiBillingCancelGet200ResponseResponseJson": {
+      "CancelCallbackApiBillingCancelGet200ResponseSchema": {
         "type": "object"
       },
       "BatchGetSharedConversationsApiSharedConversationsGet200Response": {
@@ -49611,13 +49611,13 @@
           "$ref": "#/components/schemas/ResponseBatchGetSharedEventsApiSharedEventsGetItem"
         }
       },
-      "GithubEventsIntegrationGithubEventsPost200ResponseResponseJson": {
+      "GithubEventsIntegrationGithubEventsPost200ResponseSchema": {
         "type": "object"
       },
-      "GitlabEventsIntegrationGitlabEventsPost200ResponseResponseJson": {
+      "GitlabEventsIntegrationGitlabEventsPost200ResponseSchema": {
         "type": "object"
       },
-      "BitbucketEventsIntegrationBitbucketEventsPost200ResponseResponseJson": {
+      "BitbucketEventsIntegrationBitbucketEventsPost200ResponseSchema": {
         "type": "object"
       },
       "ListApiKeysApiKeysGet200Response": {
@@ -49638,7 +49638,7 @@
       "GetOrgMembersCountApiOrganizationsOrgIdMembersCountGet200Response": {
         "type": "integer"
       },
-      "RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseResponseJson": {
+      "RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseSchema": {
         "type": "object"
       },
       "GetGitClaimsApiOrganizationsOrgIdGitClaimsGet200Response": {
@@ -49650,7 +49650,7 @@
       "DisconnectGitOrganizationApiOrganizationsOrgIdGitClaimsClaimIdDelete200Response": {
         "type": "object"
       },
-      "StopOrgConversationApiOrganizationsOrgIdConversationsConversationIdStopPost200ResponseResponseJson": {
+      "StopOrgConversationApiOrganizationsOrgIdConversationsConversationIdStopPost200ResponseSchema": {
         "type": "object"
       },
       "SaveAgentProfileApiAgentProfilesNamePostRequestRequestBody": {
@@ -49659,49 +49659,49 @@
       "DeleteVerifiedModelApiAdminVerifiedModelsProviderModelNameDelete200Response": {
         "type": "boolean"
       },
-      "AcceptInvitationRedirectApiOrganizationsMembersInviteAcceptGet200ResponseResponseJson": {
+      "AcceptInvitationRedirectApiOrganizationsMembersInviteAcceptGet200ResponseSchema": {
         "type": "object"
       },
-      "InstallSlackInstallGet200ResponseResponseJson": {
+      "InstallSlackInstallGet200ResponseSchema": {
         "type": "object"
       },
-      "InstallCallbackSlackInstallCallbackGet200ResponseResponseJson": {
+      "InstallCallbackSlackInstallCallbackGet200ResponseSchema": {
         "type": "object"
       },
-      "KeycloakCallbackSlackKeycloakCallbackGet200ResponseResponseJson": {
+      "KeycloakCallbackSlackKeycloakCallbackGet200ResponseSchema": {
         "type": "object"
       },
-      "OnEventSlackOnEventPost200ResponseResponseJson": {
+      "OnEventSlackOnEventPost200ResponseSchema": {
         "type": "object"
       },
-      "OnOptionsLoadSlackOnOptionsLoadPost200ResponseResponseJson": {
+      "OnOptionsLoadSlackOnOptionsLoadPost200ResponseSchema": {
         "type": "object"
       },
-      "OnFormInteractionSlackOnFormInteractionPost200ResponseResponseJson": {
+      "OnFormInteractionSlackOnFormInteractionPost200ResponseSchema": {
         "type": "object"
       },
-      "JiraEventsIntegrationJiraEventsPost200ResponseResponseJson": {
+      "JiraEventsIntegrationJiraEventsPost200ResponseSchema": {
         "type": "object"
       },
-      "CreateJiraWorkspaceIntegrationJiraWorkspacesPost200ResponseResponseJson": {
+      "CreateJiraWorkspaceIntegrationJiraWorkspacesPost200ResponseSchema": {
         "type": "object"
       },
-      "CreateWorkspaceLinkIntegrationJiraWorkspacesLinkPost200ResponseResponseJson": {
+      "CreateWorkspaceLinkIntegrationJiraWorkspacesLinkPost200ResponseSchema": {
         "type": "object"
       },
-      "JiraCallbackIntegrationJiraCallbackGet200ResponseResponseJson": {
+      "JiraCallbackIntegrationJiraCallbackGet200ResponseSchema": {
         "type": "object"
       },
-      "UnlinkWorkspaceIntegrationJiraWorkspacesUnlinkPost200ResponseResponseJson": {
+      "UnlinkWorkspaceIntegrationJiraWorkspacesUnlinkPost200ResponseSchema": {
         "type": "object"
       },
-      "UpdateEmailApiEmailPost200ResponseResponseJson": {
+      "UpdateEmailApiEmailPost200ResponseSchema": {
         "type": "object"
       },
-      "ResendEmailVerificationApiEmailResendPut200ResponseResponseJson": {
+      "ResendEmailVerificationApiEmailResendPut200ResponseSchema": {
         "type": "object"
       },
-      "VerifiedEmailApiEmailVerifiedGet200ResponseResponseJson": {
+      "VerifiedEmailApiEmailVerifiedGet200ResponseSchema": {
         "type": "object"
       },
       "McpServerInputAuthAnyOf1": {

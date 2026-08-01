@@ -36,17 +36,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Item
         /// <summary>
         /// Remove a member from an organization.Only owners and admins can remove members:- Owners can remove admins and regular users- Admins can only remove regular usersUsers cannot remove themselves. The last owner cannot be removed.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseResponseJson?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseSchema?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseResponseJson> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseSchema> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Item
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseResponseJson>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseSchema>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update a member&apos;s role in an organization.Permission rules:- Admins can change roles of regular members to Admin or Member- Admins cannot modify other Admins or Owners- Owners can change roles of Admins and Members to any role (Owner, Admin, Member)- Owners cannot modify other OwnersMembers cannot modify their own role. The last owner cannot be demoted.
