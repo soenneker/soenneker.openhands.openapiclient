@@ -51,6 +51,30 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string LlmModel { get; set; }
 #endif
+        /// <summary>Trace-level metadata to attach to observability backends. Values must be scalars or homogeneous scalar lists supported by OpenTelemetry.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityMetadata? ObservabilityMetadata { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityMetadata ObservabilityMetadata { get; set; }
+#endif
+        /// <summary>Optional named child span to emit under the conversation root. Use stable, low-cardinality names because observability backends may use span names for grouping or signal routing.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ObservabilitySpanName { get; set; }
+#nullable restore
+#else
+        public string ObservabilitySpanName { get; set; }
+#endif
+        /// <summary>Tags to attach to the conversation root observability span.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityTags? ObservabilityTags { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityTags ObservabilityTags { get; set; }
+#endif
         /// <summary>The parent_conversation_id property</summary>
         public Guid? ParentConversationId { get; set; }
         /// <summary>List of plugins to load for this conversation. Plugins are loaded and their skills/MCP config are merged into the agent.</summary>
@@ -174,6 +198,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "git_provider", n => { GitProvider = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputGitProvider>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputGitProvider.CreateFromDiscriminatorValue); } },
                 { "initial_message", n => { InitialMessage = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage.CreateFromDiscriminatorValue); } },
                 { "llm_model", n => { LlmModel = n.GetStringValue(); } },
+                { "observability_metadata", n => { ObservabilityMetadata = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityMetadata>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityMetadata.CreateFromDiscriminatorValue); } },
+                { "observability_span_name", n => { ObservabilitySpanName = n.GetStringValue(); } },
+                { "observability_tags", n => { ObservabilityTags = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityTags>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityTags.CreateFromDiscriminatorValue); } },
                 { "parent_conversation_id", n => { ParentConversationId = n.GetGuidValue(); } },
                 { "plugins", n => { Plugins = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputPlugins>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputPlugins.CreateFromDiscriminatorValue); } },
                 { "pr_number", n => { PrNumber = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
@@ -202,6 +229,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputGitProvider>("git_provider", GitProvider);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage>("initial_message", InitialMessage);
             writer.WriteStringValue("llm_model", LlmModel);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityMetadata>("observability_metadata", ObservabilityMetadata);
+            writer.WriteStringValue("observability_span_name", ObservabilitySpanName);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityTags>("observability_tags", ObservabilityTags);
             writer.WriteGuidValue("parent_conversation_id", ParentConversationId);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputPlugins>("plugins", Plugins);
             writer.WriteCollectionOfPrimitiveValues<int?>("pr_number", PrNumber);

@@ -32,6 +32,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string AuthUrl { get; set; }
 #endif
+        /// <summary>The email_change_enabled property</summary>
+        public bool? EmailChangeEnabled { get; set; }
         /// <summary>The email_enabled property</summary>
         public bool? EmailEnabled { get; set; }
         /// <summary>The error_message property</summary>
@@ -140,6 +142,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public WebClientConfig()
         {
             AdditionalData = new Dictionary<string, object>();
+            EmailChangeEnabled = true;
             EmailEnabled = false;
             GitlabEnabled = false;
             JiraDcServiceAccountManaged = false;
@@ -166,6 +169,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "acp_providers", n => { AcpProviders = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "app_mode", n => { AppMode = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppMode>(); } },
                 { "auth_url", n => { AuthUrl = n.GetStringValue(); } },
+                { "email_change_enabled", n => { EmailChangeEnabled = n.GetBoolValue(); } },
                 { "email_enabled", n => { EmailEnabled = n.GetBoolValue(); } },
                 { "error_message", n => { ErrorMessage = n.GetStringValue(); } },
                 { "faulty_models", n => { FaultyModels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -196,6 +200,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig>("acp_providers", AcpProviders);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppMode>("app_mode", AppMode);
             writer.WriteStringValue("auth_url", AuthUrl);
+            writer.WriteBoolValue("email_change_enabled", EmailChangeEnabled);
             writer.WriteBoolValue("email_enabled", EmailEnabled);
             writer.WriteStringValue("error_message", ErrorMessage);
             writer.WriteCollectionOfPrimitiveValues<string>("faulty_models", FaultyModels);

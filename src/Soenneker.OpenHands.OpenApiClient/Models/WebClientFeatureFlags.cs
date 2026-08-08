@@ -20,6 +20,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode? DeploymentMode { get; set; }
         /// <summary>The enable_acp property</summary>
         public bool? EnableAcp { get; set; }
+        /// <summary>The enable_agent_canvas_banner property</summary>
+        public bool? EnableAgentCanvasBanner { get; set; }
         /// <summary>The enable_automations property</summary>
         public bool? EnableAutomations { get; set; }
         /// <summary>The enable_billing property</summary>
@@ -50,6 +52,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             AdditionalData = new Dictionary<string, object>();
             AllowUserLlmConfiguration = true;
             EnableAcp = true;
+            EnableAgentCanvasBanner = false;
             EnableAutomations = true;
             EnableBilling = false;
             EnableJira = false;
@@ -83,6 +86,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "allow_user_llm_configuration", n => { AllowUserLlmConfiguration = n.GetBoolValue(); } },
                 { "deployment_mode", n => { DeploymentMode = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode>(); } },
                 { "enable_acp", n => { EnableAcp = n.GetBoolValue(); } },
+                { "enable_agent_canvas_banner", n => { EnableAgentCanvasBanner = n.GetBoolValue(); } },
                 { "enable_automations", n => { EnableAutomations = n.GetBoolValue(); } },
                 { "enable_billing", n => { EnableBilling = n.GetBoolValue(); } },
                 { "enable_jira", n => { EnableJira = n.GetBoolValue(); } },
@@ -106,6 +110,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("allow_user_llm_configuration", AllowUserLlmConfiguration);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode>("deployment_mode", DeploymentMode);
             writer.WriteBoolValue("enable_acp", EnableAcp);
+            writer.WriteBoolValue("enable_agent_canvas_banner", EnableAgentCanvasBanner);
             writer.WriteBoolValue("enable_automations", EnableAutomations);
             writer.WriteBoolValue("enable_billing", EnableBilling);
             writer.WriteBoolValue("enable_jira", EnableJira);

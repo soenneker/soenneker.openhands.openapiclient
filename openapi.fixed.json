@@ -12373,6 +12373,18 @@
             "type": "boolean",
             "nullable": true
           },
+          "observability_metadata": {
+            "$ref": "#/components/schemas/AppConversationStartRequestInputObservabilityMetadata"
+          },
+          "observability_tags": {
+            "$ref": "#/components/schemas/AppConversationStartRequestInputObservabilityTags"
+          },
+          "observability_span_name": {
+            "title": "Observability Span Name",
+            "type": "string",
+            "description": "Optional named child span to emit under the conversation root. Use stable, low-cardinality names because observability backends may use span names for grouping or signal routing.",
+            "nullable": true
+          },
           "plugins": {
             "$ref": "#/components/schemas/AppConversationStartRequestInputPlugins"
           },
@@ -12460,6 +12472,18 @@
           "public": {
             "title": "Public",
             "type": "boolean",
+            "nullable": true
+          },
+          "observability_metadata": {
+            "$ref": "#/components/schemas/AppConversationStartRequestOutputObservabilityMetadata"
+          },
+          "observability_tags": {
+            "$ref": "#/components/schemas/AppConversationStartRequestOutputObservabilityTags"
+          },
+          "observability_span_name": {
+            "title": "Observability Span Name",
+            "type": "string",
+            "description": "Optional named child span to emit under the conversation root. Use stable, low-cardinality names because observability backends may use span names for grouping or signal routing.",
             "nullable": true
           },
           "plugins": {
@@ -13243,7 +13267,7 @@
           "new_tab": {
             "title": "New Tab",
             "type": "boolean",
-            "description": "\u0022Whether to open any resulting navigation in a new tab. Default: false\u0022",
+            "description": "\u0022Whether to open any resulting navigation in a new tab. Default: False\u0022",
             "default": false
           },
           "kind": {
@@ -13274,7 +13298,7 @@
           "new_tab": {
             "title": "New Tab",
             "type": "boolean",
-            "description": "\u0022Whether to open any resulting navigation in a new tab. Default: false\u0022",
+            "description": "\u0022Whether to open any resulting navigation in a new tab. Default: False\u0022",
             "default": false
           },
           "kind": {
@@ -13498,7 +13522,7 @@
           "extract_links": {
             "title": "Extract Links",
             "type": "boolean",
-            "description": "\u0022Whether to include links in the content (default: false)\u0022",
+            "description": "\u0022Whether to include links in the content (default: False)\u0022",
             "default": false
           },
           "start_from_char": {
@@ -13529,7 +13553,7 @@
           "extract_links": {
             "title": "Extract Links",
             "type": "boolean",
-            "description": "\u0022Whether to include links in the content (default: false)\u0022",
+            "description": "\u0022Whether to include links in the content (default: False)\u0022",
             "default": false
           },
           "start_from_char": {
@@ -13635,7 +13659,7 @@
           "include_screenshot": {
             "title": "Include Screenshot",
             "type": "boolean",
-            "description": "\u0022Whether to include a screenshot of the current page. Default: false\u0022",
+            "description": "\u0022Whether to include a screenshot of the current page. Default: False\u0022",
             "default": false
           },
           "kind": {
@@ -13659,7 +13683,7 @@
           "include_screenshot": {
             "title": "Include Screenshot",
             "type": "boolean",
-            "description": "\u0022Whether to include a screenshot of the current page. Default: false\u0022",
+            "description": "\u0022Whether to include a screenshot of the current page. Default: False\u0022",
             "default": false
           },
           "kind": {
@@ -14099,7 +14123,7 @@
           "new_tab": {
             "title": "New Tab",
             "type": "boolean",
-            "description": "\u0022Whether to open in a new tab. Default: false\u0022",
+            "description": "\u0022Whether to open in a new tab. Default: False\u0022",
             "default": false
           },
           "kind": {
@@ -14129,7 +14153,7 @@
           "new_tab": {
             "title": "New Tab",
             "type": "boolean",
-            "description": "\u0022Whether to open in a new tab. Default: false\u0022",
+            "description": "\u0022Whether to open in a new tab. Default: False\u0022",
             "default": false
           },
           "kind": {
@@ -32569,6 +32593,47 @@
         "additionalProperties": false,
         "description": "Provides a way to transform a tool."
       },
+      "TraceMetadataValue": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "boolean"
+            }
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          }
+        ]
+      },
       "TransformingRemoteMcpServer": {
         "title": "TransformingRemoteMCPServer",
         "required": [
@@ -33559,6 +33624,11 @@
             "type": "boolean",
             "default": false
           },
+          "email_change_enabled": {
+            "title": "Email Change Enabled",
+            "type": "boolean",
+            "default": true
+          },
           "acp_providers": {
             "title": "Acp Providers",
             "type": "array",
@@ -33666,6 +33736,11 @@
             "title": "Enable Automations",
             "type": "boolean",
             "default": true
+          },
+          "enable_agent_canvas_banner": {
+            "title": "Enable Agent Canvas Banner",
+            "type": "boolean",
+            "default": false
           }
         }
       },
@@ -35767,6 +35842,24 @@
           }
         ]
       },
+      "AppConversationStartRequestInputObservabilityTags": {
+        "title": "Observability Tags",
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ],
+        "description": "Tags to attach to the conversation root observability span."
+      },
       "AppConversationStartRequestInputPlugins": {
         "title": "Plugins",
         "type": "object",
@@ -35883,6 +35976,24 @@
             ]
           }
         ]
+      },
+      "AppConversationStartRequestOutputObservabilityTags": {
+        "title": "Observability Tags",
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "enum": [
+              null
+            ]
+          }
+        ],
+        "description": "Tags to attach to the conversation root observability span."
       },
       "AppConversationStartRequestOutputPlugins": {
         "title": "Plugins",
@@ -42501,7 +42612,7 @@
             }
           }
         ],
-        "description": "Whether to load marketplace plugins and standalone skills at conversation start. Use True for all, false or [] for none, or a list of plugin/skill names for selective loading."
+        "description": "Whether to load marketplace plugins and standalone skills at conversation start. Use True for all, False or [] for none, or a list of plugin/skill names for selective loading."
       },
       "ServerRoutesOrgProfilesSaveProfileRequestLlm": {
         "required": [
@@ -42638,6 +42749,15 @@
           "type": "string"
         }
       },
+      "AppConversationStartRequestInputObservabilityMetadata": {
+        "title": "Observability Metadata",
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/TraceMetadataValue"
+        },
+        "description": "Trace-level metadata to attach to observability backends. Values must be scalars or homogeneous scalar lists supported by OpenTelemetry.",
+        "nullable": true
+      },
       "AppConversationStartRequestInputSecrets": {
         "title": "Secrets",
         "type": "object",
@@ -42647,6 +42767,15 @@
           "writeOnly": true
         },
         "description": "\u0022Secrets to pass to the conversation. These are merged with any existing secrets (from database or git providers), with API-provided secrets taking precedence (overriding any existing secret with the same name). Keys are secret names (e.g., \\\u0022MY_API_KEY\\\u0022), values are the secret values. Warning: Providing a secret that already exists will silently override it.\u0022",
+        "nullable": true
+      },
+      "AppConversationStartRequestOutputObservabilityMetadata": {
+        "title": "Observability Metadata",
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/TraceMetadataValue"
+        },
+        "description": "Trace-level metadata to attach to observability backends. Values must be scalars or homogeneous scalar lists supported by OpenTelemetry.",
         "nullable": true
       },
       "AppConversationStartRequestOutputSecrets": {
@@ -43071,7 +43200,7 @@
       "LlmInputLitellmExtraBody": {
         "title": "Litellm Extra Body",
         "type": "object",
-        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: true}\u0022",
+        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: True}\u0022",
         "unrecognizedKeywords": {
           "openhands_settings": {
             "depends_on": [],
@@ -43111,7 +43240,7 @@
       "LlmOutputLitellmExtraBody": {
         "title": "Litellm Extra Body",
         "type": "object",
-        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: true}\u0022",
+        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: True}\u0022",
         "unrecognizedKeywords": {
           "openhands_settings": {
             "depends_on": [],
@@ -43483,7 +43612,7 @@
       "StrictLlmLitellmExtraBody": {
         "title": "Litellm Extra Body",
         "type": "object",
-        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: true}\u0022",
+        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: True}\u0022",
         "unrecognizedKeywords": {
           "openhands_settings": {
             "depends_on": [],
@@ -45016,7 +45145,7 @@
       },
       "LlmInputLitellmExtraBodyProperty": {
         "type": "object",
-        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: true}\u0022"
+        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: True}\u0022"
       },
       "LlmOutputCapabilityOverridesProperty": {
         "type": "object",
@@ -45027,7 +45156,7 @@
       },
       "LlmOutputLitellmExtraBodyProperty": {
         "type": "object",
-        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: true}\u0022"
+        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: True}\u0022"
       },
       "LlmAgentSettingsMcpConfigProperty": {
         "type": "object",
@@ -45192,7 +45321,7 @@
       },
       "StrictLlmLitellmExtraBodyProperty": {
         "type": "object",
-        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: true}\u0022"
+        "description": "\u0022Additional key-value pairs to pass to litellm\u0027s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {\u0027trace_version\u0027: \u00271.0.0\u0027, \u0027tags\u0027: [\u0027agent:my-agent\u0027]} - vLLM features: {\u0027return_token_ids\u0027: True}\u0022"
       },
       "SwitchLlmToolInputActionType": {
         "title": "Action Type",
