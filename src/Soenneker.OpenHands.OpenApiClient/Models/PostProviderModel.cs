@@ -18,10 +18,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The mcp_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelMcpConfig? McpConfig { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig? McpConfig { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelMcpConfig McpConfig { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig McpConfig { get; set; }
 #endif
         /// <summary>The provider_tokens property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +56,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "mcp_config", n => { McpConfig = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelMcpConfig>(global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelMcpConfig.CreateFromDiscriminatorValue); } },
+                { "mcp_config", n => { McpConfig = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig>(global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig.CreateFromDiscriminatorValue); } },
                 { "provider_tokens", n => { ProviderTokens = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelProviderTokensProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelProviderTokensProperty.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,7 +67,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelMcpConfig>("mcp_config", McpConfig);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig>("mcp_config", McpConfig);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelProviderTokensProperty>("provider_tokens", ProviderTokens);
             writer.WriteAdditionalData(AdditionalData);
         }

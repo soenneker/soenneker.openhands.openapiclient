@@ -26,14 +26,24 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public bool? EnableAutomations { get; set; }
         /// <summary>The enable_billing property</summary>
         public bool? EnableBilling { get; set; }
+        /// <summary>The enable_byor_export property</summary>
+        public bool? EnableByorExport { get; set; }
+        /// <summary>The enable_integrated_idp property</summary>
+        public bool? EnableIntegratedIdp { get; set; }
         /// <summary>The enable_jira property</summary>
         public bool? EnableJira { get; set; }
         /// <summary>The enable_jira_dc property</summary>
         public bool? EnableJiraDc { get; set; }
         /// <summary>The enable_linear property</summary>
         public bool? EnableLinear { get; set; }
+        /// <summary>The enable_litellm property</summary>
+        public bool? EnableLitellm { get; set; }
+        /// <summary>The enable_oauth_v2_login property</summary>
+        public bool? EnableOauthV2Login { get; set; }
         /// <summary>The enable_onboarding property</summary>
         public bool? EnableOnboarding { get; set; }
+        /// <summary>The enable_super_admin property</summary>
+        public bool? EnableSuperAdmin { get; set; }
         /// <summary>The hide_billing_page property</summary>
         public bool? HideBillingPage { get; set; }
         /// <summary>The hide_integrations_page property</summary>
@@ -55,10 +65,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             EnableAgentCanvasBanner = false;
             EnableAutomations = true;
             EnableBilling = false;
+            EnableByorExport = false;
+            EnableIntegratedIdp = false;
             EnableJira = false;
             EnableJiraDc = false;
             EnableLinear = false;
+            EnableLitellm = true;
+            EnableOauthV2Login = false;
             EnableOnboarding = false;
+            EnableSuperAdmin = false;
             HideBillingPage = false;
             HideIntegrationsPage = false;
             HideLlmSettings = false;
@@ -89,10 +104,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "enable_agent_canvas_banner", n => { EnableAgentCanvasBanner = n.GetBoolValue(); } },
                 { "enable_automations", n => { EnableAutomations = n.GetBoolValue(); } },
                 { "enable_billing", n => { EnableBilling = n.GetBoolValue(); } },
+                { "enable_byor_export", n => { EnableByorExport = n.GetBoolValue(); } },
+                { "enable_integrated_idp", n => { EnableIntegratedIdp = n.GetBoolValue(); } },
                 { "enable_jira", n => { EnableJira = n.GetBoolValue(); } },
                 { "enable_jira_dc", n => { EnableJiraDc = n.GetBoolValue(); } },
                 { "enable_linear", n => { EnableLinear = n.GetBoolValue(); } },
+                { "enable_litellm", n => { EnableLitellm = n.GetBoolValue(); } },
+                { "enable_oauth_v2_login", n => { EnableOauthV2Login = n.GetBoolValue(); } },
                 { "enable_onboarding", n => { EnableOnboarding = n.GetBoolValue(); } },
+                { "enable_super_admin", n => { EnableSuperAdmin = n.GetBoolValue(); } },
                 { "hide_billing_page", n => { HideBillingPage = n.GetBoolValue(); } },
                 { "hide_integrations_page", n => { HideIntegrationsPage = n.GetBoolValue(); } },
                 { "hide_llm_settings", n => { HideLlmSettings = n.GetBoolValue(); } },
@@ -113,10 +133,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("enable_agent_canvas_banner", EnableAgentCanvasBanner);
             writer.WriteBoolValue("enable_automations", EnableAutomations);
             writer.WriteBoolValue("enable_billing", EnableBilling);
+            writer.WriteBoolValue("enable_byor_export", EnableByorExport);
+            writer.WriteBoolValue("enable_integrated_idp", EnableIntegratedIdp);
             writer.WriteBoolValue("enable_jira", EnableJira);
             writer.WriteBoolValue("enable_jira_dc", EnableJiraDc);
             writer.WriteBoolValue("enable_linear", EnableLinear);
+            writer.WriteBoolValue("enable_litellm", EnableLitellm);
+            writer.WriteBoolValue("enable_oauth_v2_login", EnableOauthV2Login);
             writer.WriteBoolValue("enable_onboarding", EnableOnboarding);
+            writer.WriteBoolValue("enable_super_admin", EnableSuperAdmin);
             writer.WriteBoolValue("hide_billing_page", HideBillingPage);
             writer.WriteBoolValue("hide_integrations_page", HideIntegrationsPage);
             writer.WriteBoolValue("hide_llm_settings", HideLlmSettings);

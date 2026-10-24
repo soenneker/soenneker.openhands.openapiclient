@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Response model for the current API key endpoint.``org_id`` is the *effective* org id of the current request: thekey&apos;s bound org for org-bound keys, or the resolved org (from the``X-Org-Id`` header or ``user.current_org_id``) for unbound keys.``bound_org_id`` distinguishes the two cases -- it is the orgpersisted on the key, or ``None`` when the key is unbound.&quot;
+    /// Response model for the current API key endpoint.``org_id`` is the *effective* org id of the current request: thekey&apos;s bound org for org-bound keys, or the resolved org (from the``X-Org-Id`` header or ``user.current_org_id``) for unbound keys.``bound_org_id`` distinguishes the two cases -- it is the orgpersisted on the key, or ``None`` when the key is unbound.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CurrentApiKeyResponse : IAdditionalDataHolder, IParsable

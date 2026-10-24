@@ -34,19 +34,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Invit
         {
         }
         /// <summary>
-        /// &quot;Revoke a pending invitation, invalidating its token and invite link.Gated on the invite permission (admins/owners), same as creating andlisting invitations.Raises:    HTTPException 404: Unknown invitation, or it belongs to another org    HTTPException 409: Invitation is not pending (already accepted/expired)&quot;
+        /// Revoke a pending invitation, invalidating its token and invite link.Gated on the invite permission (admins/owners), same as creating andlisting invitations.Raises:    HTTPException 404: Unknown invitation, or it belongs to another org    HTTPException 409: Invitation is not pending (already accepted/expired)
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -54,10 +53,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Invit
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Revoke a pending invitation, invalidating its token and invite link.Gated on the invite permission (admins/owners), same as creating andlisting invitations.Raises:    HTTPException 404: Unknown invitation, or it belongs to another org    HTTPException 409: Invitation is not pending (already accepted/expired)&quot;
+        /// Revoke a pending invitation, invalidating its token and invite link.Gated on the invite permission (admins/owners), same as creating andlisting invitations.Raises:    HTTPException 404: Unknown invitation, or it belongs to another org    HTTPException 409: Invitation is not pending (already accepted/expired)
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

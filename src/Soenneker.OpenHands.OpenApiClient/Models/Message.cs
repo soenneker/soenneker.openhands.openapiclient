@@ -41,10 +41,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>OpenAI Responses reasoning item from model output</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MessageResponsesReasoningItem? ResponsesReasoningItem { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel? ResponsesReasoningItem { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MessageResponsesReasoningItem ResponsesReasoningItem { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel ResponsesReasoningItem { get; set; }
 #endif
         /// <summary>The role property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.MessageRole? Role { get; set; }
@@ -67,10 +67,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The tool_calls property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCalls? ToolCalls { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall>? ToolCalls { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCalls ToolCalls { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall> ToolCalls { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Message"/> and sets the default values.
@@ -100,11 +100,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MessageContentItem>(global::Soenneker.OpenHands.OpenApiClient.Models.MessageContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "reasoning_content", n => { ReasoningContent = n.GetStringValue(); } },
-                { "responses_reasoning_item", n => { ResponsesReasoningItem = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageResponsesReasoningItem>(global::Soenneker.OpenHands.OpenApiClient.Models.MessageResponsesReasoningItem.CreateFromDiscriminatorValue); } },
+                { "responses_reasoning_item", n => { ResponsesReasoningItem = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel>(global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageRole>(); } },
                 { "thinking_blocks", n => { ThinkingBlocks = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MessageThinkingBlocksItem>(global::Soenneker.OpenHands.OpenApiClient.Models.MessageThinkingBlocksItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "tool_call_id", n => { ToolCallId = n.GetStringValue(); } },
-                { "tool_calls", n => { ToolCalls = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCalls>(global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCalls.CreateFromDiscriminatorValue); } },
+                { "tool_calls", n => { ToolCalls = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall>(global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -117,11 +117,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MessageContentItem>("content", Content);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("reasoning_content", ReasoningContent);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageResponsesReasoningItem>("responses_reasoning_item", ResponsesReasoningItem);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel>("responses_reasoning_item", ResponsesReasoningItem);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageRole>("role", Role);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MessageThinkingBlocksItem>("thinking_blocks", ThinkingBlocks);
             writer.WriteStringValue("tool_call_id", ToolCallId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCalls>("tool_calls", ToolCalls);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall>("tool_calls", ToolCalls);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

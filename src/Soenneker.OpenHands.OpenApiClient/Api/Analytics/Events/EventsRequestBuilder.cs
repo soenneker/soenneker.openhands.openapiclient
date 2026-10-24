@@ -37,17 +37,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Analytics.Events
         /// Capture a frontend-initiated analytics event.``body.event_type`` selects the PostHog event name; the remaining fieldson the validated model become the event&apos;s properties. Telemetry failuresare isolated so they never bubble up to the user&apos;s primary action.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AnalyticsEventResponse"/></returns>
-        /// <param name="body">&quot;``create pr button clicked``: Pull Request button click in chat UI.Drives PostHog surveys (e.g. NPS) keyed off the PR action. The eventname uses the lowercase-with-spaces convention shared by every otherPostHog event in ``openhands/analytics/analytics_constants.py``.&quot;</param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.AnalyticsEventResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEvent body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.AnalyticsEventResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.TrackFrontendEventApiAnalyticsEventsPostRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.AnalyticsEventResponse> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEvent body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.AnalyticsEventResponse> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.TrackFrontendEventApiAnalyticsEventsPostRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -62,15 +62,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Analytics.Events
         /// Capture a frontend-initiated analytics event.``body.event_type`` selects the PostHog event name; the remaining fieldson the validated model become the event&apos;s properties. Telemetry failuresare isolated so they never bubble up to the user&apos;s primary action.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">&quot;``create pr button clicked``: Pull Request button click in chat UI.Drives PostHog surveys (e.g. NPS) keyed off the PR action. The eventname uses the lowercase-with-spaces convention shared by every otherPostHog event in ``openhands/analytics/analytics_constants.py``.&quot;</param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEvent body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.TrackFrontendEventApiAnalyticsEventsPostRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEvent body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.TrackFrontendEventApiAnalyticsEventsPostRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -47,7 +47,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string RepoPath { get; set; }
 #endif
-        /// <summary>&quot;Marketplace source: &apos;github:owner/repo&apos;, git URL, or local path&quot;</summary>
+        /// <summary>Marketplace source: &apos;github:owner/repo&apos;, git URL, or local path</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Source { get; set; }

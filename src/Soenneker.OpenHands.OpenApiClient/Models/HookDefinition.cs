@@ -72,6 +72,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             Async = false;
             MaxIterations = 3;
             Timeout = 60;
+            Type = global::Soenneker.OpenHands.OpenApiClient.Models.HookType.Command;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

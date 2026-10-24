@@ -10,11 +10,13 @@ using Soenneker.OpenHands.OpenApiClient.Api.Authenticate;
 using Soenneker.OpenHands.OpenApiClient.Api.Billing;
 using Soenneker.OpenHands.OpenApiClient.Api.Complete_onboarding;
 using Soenneker.OpenHands.OpenApiClient.Api.Email;
+using Soenneker.OpenHands.OpenApiClient.Api.Idp;
+using Soenneker.OpenHands.OpenApiClient.Api.Keycloak;
 using Soenneker.OpenHands.OpenApiClient.Api.Keys;
 using Soenneker.OpenHands.OpenApiClient.Api.Logout;
 using Soenneker.OpenHands.OpenApiClient.Api.Onboarding_status;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations;
-using Soenneker.OpenHands.OpenApiClient.Api.RefreshTokens;
+using Soenneker.OpenHands.OpenApiClient.Api.Quota;
 using Soenneker.OpenHands.OpenApiClient.Api.Service;
 using Soenneker.OpenHands.OpenApiClient.Api.SharedConversations;
 using Soenneker.OpenHands.OpenApiClient.Api.SharedEvents;
@@ -72,6 +74,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Api
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Email.EmailRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The idp property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Idp.IdpRequestBuilder Idp
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Idp.IdpRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The keycloak property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Keycloak.KeycloakRequestBuilder Keycloak
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Keycloak.KeycloakRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The keys property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Keys.KeysRequestBuilder Keys
         {
@@ -92,10 +104,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Api
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.OrganizationsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The refreshTokens property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Api.RefreshTokens.RefreshTokensRequestBuilder RefreshTokens
+        /// <summary>The quota property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Quota.QuotaRequestBuilder Quota
         {
-            get => new global::Soenneker.OpenHands.OpenApiClient.Api.RefreshTokens.RefreshTokensRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Quota.QuotaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The service property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Service.ServiceRequestBuilder Service

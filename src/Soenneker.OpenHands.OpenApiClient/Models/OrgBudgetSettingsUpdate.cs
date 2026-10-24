@@ -41,10 +41,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The thresholds property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsUpdateThresholds? Thresholds { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdUpdate>? Thresholds { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsUpdateThresholds Thresholds { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdUpdate> Thresholds { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsUpdate"/> and sets the default values.
@@ -77,7 +77,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "reset_day", n => { ResetDay = n.GetIntValue(); } },
                 { "slack_channel", n => { SlackChannel = n.GetStringValue(); } },
                 { "slack_team_id", n => { SlackTeamId = n.GetStringValue(); } },
-                { "thresholds", n => { Thresholds = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsUpdateThresholds>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsUpdateThresholds.CreateFromDiscriminatorValue); } },
+                { "thresholds", n => { Thresholds = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdUpdate>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdUpdate.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -93,7 +93,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteIntValue("reset_day", ResetDay);
             writer.WriteStringValue("slack_channel", SlackChannel);
             writer.WriteStringValue("slack_team_id", SlackTeamId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsUpdateThresholds>("thresholds", Thresholds);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdUpdate>("thresholds", Thresholds);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

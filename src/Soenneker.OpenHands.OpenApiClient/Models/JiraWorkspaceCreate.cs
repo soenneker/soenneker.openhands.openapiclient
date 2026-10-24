@@ -16,7 +16,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates if the workspace integration is active</summary>
         public bool? IsActive { get; set; }
-        /// <summary>Service account API token</summary>
+        /// <summary>Service account API token. Required when creating a new workspace; optional on update — omit/leave blank to keep the stored value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SvcAccApiKey { get; set; }
@@ -32,7 +32,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string SvcAccEmail { get; set; }
 #endif
-        /// <summary>Webhook secret for verification</summary>
+        /// <summary>Webhook secret for verification. Required when creating a new workspace; optional on update — omit/leave blank to keep the stored value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WebhookSecret { get; set; }

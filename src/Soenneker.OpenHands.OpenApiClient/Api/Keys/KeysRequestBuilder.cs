@@ -78,7 +78,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// &quot;Create a new API key for the authenticated user.The new key is bound to ``key_data.org_id`` when provided. An *omitted*``org_id`` falls back to the request&apos;s effective org (preserving thepre-existing API). An *explicit* ``org_id: null`` creates an unboundkey whose effective org is resolved per-request via the ``X-Org-Id``header or, as a fallback, the caller&apos;s ``user.current_org_id``. When aspecific ``org_id`` is supplied, the caller must be a member of thatorg (or hold a super role).&quot;
+        /// Create a new API key for the authenticated user.The new key is bound to ``key_data.org_id`` when provided. An *omitted*``org_id`` falls back to the request&apos;s effective org (preserving thepre-existing API). An *explicit* ``org_id: null`` creates an unboundkey whose effective org is resolved per-request via the ``X-Org-Id``header or, as a fallback, the caller&apos;s ``user.current_org_id``. When aspecific ``org_id`` is supplied, the caller must be a member of thatorg (or hold a super role).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ApiKeyCreateResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -122,7 +122,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Create a new API key for the authenticated user.The new key is bound to ``key_data.org_id`` when provided. An *omitted*``org_id`` falls back to the request&apos;s effective org (preserving thepre-existing API). An *explicit* ``org_id: null`` creates an unboundkey whose effective org is resolved per-request via the ``X-Org-Id``header or, as a fallback, the caller&apos;s ``user.current_org_id``. When aspecific ``org_id`` is supplied, the caller must be a member of thatorg (or hold a super role).&quot;
+        /// Create a new API key for the authenticated user.The new key is bound to ``key_data.org_id`` when provided. An *omitted*``org_id`` falls back to the request&apos;s effective org (preserving thepre-existing API). An *explicit* ``org_id: null`` creates an unboundkey whose effective org is resolved per-request via the ``X-Org-Id``header or, as a fallback, the caller&apos;s ``user.current_org_id``. When aspecific ``org_id`` is supplied, the caller must be a member of thatorg (or hold a super role).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

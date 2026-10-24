@@ -26,14 +26,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes
         }
         /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.api.v1.sandboxes.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.Item.ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.Item.ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.Item.WithSandboxItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.Item.WithSandboxItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("%2Did", position);
-                return new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.Item.ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("sandboxId", position);
+                return new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.Item.WithSandboxItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -55,17 +55,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes
         /// <summary>
         /// Get a batch of sandboxes given their ids, returning null for any missing.
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.OpenHands.OpenApiClient.Models.ResponseBatchGetSandboxesApiV1SandboxesGetItem&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfo&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseBatchGetSandboxesApiV1SandboxesGetItem>?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.SandboxesRequestBuilder.SandboxesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfo>?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.SandboxesRequestBuilder.SandboxesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseBatchGetSandboxesApiV1SandboxesGetItem>> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.SandboxesRequestBuilder.SandboxesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfo>> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.SandboxesRequestBuilder.SandboxesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -73,7 +73,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseBatchGetSandboxesApiV1SandboxesGetItem>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ResponseBatchGetSandboxesApiV1SandboxesGetItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfo>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfo.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>
@@ -113,7 +113,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.SandboxesRequestBuilder.SandboxesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/api/v1/sandboxes?id={id}", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/api/v1/sandboxes{?id*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -154,12 +154,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("id")]
             public string[]? Id { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("id")]
             public string[] Id { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
         /// <summary>
@@ -170,12 +174,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("sandbox_spec_id")]
             public string? SandboxSpecId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("sandbox_spec_id")]
             public string SandboxSpecId { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

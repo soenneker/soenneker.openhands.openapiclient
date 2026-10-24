@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Download;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.FileNamespace;
+using Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Files;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Git;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.SendMessage;
@@ -34,6 +35,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item
         public global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.FileNamespace.FileRequestBuilder File
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.FileNamespace.FileRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The files property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Files.FilesRequestBuilder Files
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Files.FilesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The git property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Git.GitRequestBuilder Git

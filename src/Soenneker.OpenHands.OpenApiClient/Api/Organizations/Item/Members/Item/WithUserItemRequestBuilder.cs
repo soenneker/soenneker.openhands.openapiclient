@@ -36,17 +36,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Item
         /// <summary>
         /// Remove a member from an organization.Only owners and admins can remove members:- Owners can remove admins and regular users- Admins can only remove regular usersUsers cannot remove themselves. The last owner cannot be removed.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseSchema"/></returns>
+        /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseSchema?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseSchema> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -54,7 +54,30 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Item
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseSchema>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.RemoveOrgMemberApiOrganizationsOrgIdMembersUserIdDelete200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Get a single member of an organization.Access requires the VIEW_ORG_SETTINGS permission, which is granted to allorganization members (member, admin, and owner roles), the same as themembers list. Resolves a known user id (e.g. the creator an automation runsas) to a member record without paginating through the members list.Args:    org_id: Organization ID (UUID)    user_id: ID of the member to look up    current_user_id: Authenticated user ID (injected by require_permission dependency)Returns:    OrgMemberResponse: The member&apos;s public data (id, email, role, status)Raises:    HTTPException: 400 if user_id is not a valid UUID    HTTPException: 403 if user lacks VIEW_ORG_SETTINGS permission    HTTPException: 404 if user_id is not a member of the organization    HTTPException: 500 if retrieval fails
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberResponse"/></returns>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToGetRequestInformation(requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update a member&apos;s role in an organization.Permission rules:- Admins can change roles of regular members to Admin or Member- Admins cannot modify other Admins or Owners- Owners can change roles of Admins and Members to any role (Owner, Admin, Member)- Owners cannot modify other OwnersMembers cannot modify their own role. The last owner cannot be demoted.
@@ -96,6 +119,25 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Item
         {
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
+        /// Get a single member of an organization.Access requires the VIEW_ORG_SETTINGS permission, which is granted to allorganization members (member, admin, and owner roles), the same as themembers list. Resolves a known user id (e.g. the creator an automation runsas) to a member record without paginating through the members list.Args:    org_id: Organization ID (UUID)    user_id: ID of the member to look up    current_user_id: Authenticated user ID (injected by require_permission dependency)Returns:    OrgMemberResponse: The member&apos;s public data (id, email, role, status)Raises:    HTTPException: 400 if user_id is not a valid UUID    HTTPException: 403 if user lacks VIEW_ORG_SETTINGS permission    HTTPException: 404 if user_id is not a member of the organization    HTTPException: 500 if retrieval fails
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

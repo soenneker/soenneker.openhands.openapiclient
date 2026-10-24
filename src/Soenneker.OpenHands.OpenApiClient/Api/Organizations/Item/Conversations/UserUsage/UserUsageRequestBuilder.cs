@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UserUsageRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{orgId}/conversations/user-usage{?limit*,offset*}", pathParameters)
+        public UserUsageRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{orgId}/conversations/user-usage{?limit*,offset*,time_window*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,11 +30,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UserUsageRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{orgId}/conversations/user-usage{?limit*,offset*}", rawUrl)
+        public UserUsageRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations/{orgId}/conversations/user-usage{?limit*,offset*,time_window*}", rawUrl)
         {
         }
         /// <summary>
-        /// &quot;Get per-user usage metrics for organization dashboard.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: The organization ID    limit: Maximum number of user rows to return    offset: Offset for paginated user rowsReturns:    OrgUserUsageStats: Usage statistics aggregated by user&quot;
+        /// Get per-user usage metrics for organization dashboard.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: The organization ID    limit: Maximum number of user rows to return    offset: Offset for paginated user rows    time_window: Time window for the conversation count (7d, 30d, 90d)Returns:    OrgUserUsageStats: Usage statistics aggregated by user
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgUserUsageStats"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgUserUsageStats>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgUserUsageStats.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Get per-user usage metrics for organization dashboard.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: The organization ID    limit: Maximum number of user rows to return    offset: Offset for paginated user rowsReturns:    OrgUserUsageStats: Usage statistics aggregated by user&quot;
+        /// Get per-user usage metrics for organization dashboard.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: The organization ID    limit: Maximum number of user rows to return    offset: Offset for paginated user rows    time_window: Time window for the conversation count (7d, 30d, 90d)Returns:    OrgUserUsageStats: Usage statistics aggregated by user
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
             return new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.UserUsage.UserUsageRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Get per-user usage metrics for organization dashboard.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: The organization ID    limit: Maximum number of user rows to return    offset: Offset for paginated user rowsReturns:    OrgUserUsageStats: Usage statistics aggregated by user&quot;
+        /// Get per-user usage metrics for organization dashboard.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: The organization ID    limit: Maximum number of user rows to return    offset: Offset for paginated user rows    time_window: Time window for the conversation count (7d, 30d, 90d)Returns:    OrgUserUsageStats: Usage statistics aggregated by user
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class UserUsageRequestBuilderGetQueryParameters 
@@ -96,6 +96,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
             /// <summary>Offset for paginated user rows</summary>
             [QueryParameter("offset")]
             public int? Offset { get; set; }
+            /// <summary>Options: 7d, 30d, 90d. Spend columns keep their own periods.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("time_window")]
+            public string? TimeWindow { get; set; }
+#nullable restore
+#else
+            [QueryParameter("time_window")]
+            public string TimeWindow { get; set; }
+#endif
         }
     }
 }

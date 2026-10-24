@@ -30,6 +30,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string AgentKind { get; set; }
 #endif
+        /// <summary>Browser URL that opens the conversation in Agent Canvas</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ConversationUiUrl { get; set; }
+#nullable restore
+#else
+        public string ConversationUiUrl { get; set; }
+#endif
         /// <summary>The URL where the conversation may be accessed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,21 +57,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string CreatedByUserId { get; set; }
 #endif
         /// <summary>Current agent status. Will be None if the sandbox_status is not RUNNING</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationExecutionStatus? ExecutionStatus { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationExecutionStatus ExecutionStatus { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationExecutionStatus? ExecutionStatus { get; set; }
         /// <summary>The git_provider property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationGitProvider? GitProvider { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationGitProvider GitProvider { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? GitProvider { get; set; }
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,10 +71,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Provenance of the Agent Profile that launched this conversation, else None.A typed projection of the ``agentprofileid`` / ``agentprofilerevision``tags (same pattern as ``acp_server``), so it round-trips through the DB``tags`` column for free. Canvas reads exactly``launched_agent_profile { agent_profile_id, revision }``.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationLaunchedAgentProfile? LaunchedAgentProfile { get; private set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile? LaunchedAgentProfile { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationLaunchedAgentProfile LaunchedAgentProfile { get; private set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile LaunchedAgentProfile { get; private set; }
 #endif
         /// <summary>The llm_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -91,10 +87,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The metrics property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationMetrics? Metrics { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot? Metrics { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationMetrics Metrics { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot Metrics { get; set; }
 #endif
         /// <summary>The parent_conversation_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -122,7 +118,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string SandboxId { get; set; }
 #endif
-        /// <summary>The sandbox_status property</summary>
+        /// <summary>Current sandbox status. Will be MISSING if the sandbox does not exist.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStatus? SandboxStatus { get; set; }
         /// <summary>The selected_branch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -173,13 +169,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Title { get; set; }
 #endif
         /// <summary>The trigger property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationTrigger? Trigger { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationTrigger Trigger { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTrigger? Trigger { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -189,6 +179,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             AgentKind = "openhands";
+            SandboxStatus = global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStatus.Missing;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -210,15 +201,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "acp_server", n => { AcpServer = n.GetStringValue(); } },
                 { "agent_kind", n => { AgentKind = n.GetStringValue(); } },
+                { "conversation_ui_url", n => { ConversationUiUrl = n.GetStringValue(); } },
                 { "conversation_url", n => { ConversationUrl = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created_by_user_id", n => { CreatedByUserId = n.GetStringValue(); } },
-                { "execution_status", n => { ExecutionStatus = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationExecutionStatus>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationExecutionStatus.CreateFromDiscriminatorValue); } },
-                { "git_provider", n => { GitProvider = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationGitProvider>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationGitProvider.CreateFromDiscriminatorValue); } },
+                { "execution_status", n => { ExecutionStatus = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationExecutionStatus>(); } },
+                { "git_provider", n => { GitProvider = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "launched_agent_profile", n => { LaunchedAgentProfile = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationLaunchedAgentProfile>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationLaunchedAgentProfile.CreateFromDiscriminatorValue); } },
+                { "launched_agent_profile", n => { LaunchedAgentProfile = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile>(global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile.CreateFromDiscriminatorValue); } },
                 { "llm_model", n => { LlmModel = n.GetStringValue(); } },
-                { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationMetrics>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationMetrics.CreateFromDiscriminatorValue); } },
+                { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot>(global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot.CreateFromDiscriminatorValue); } },
                 { "parent_conversation_id", n => { ParentConversationId = n.GetStringValue(); } },
                 { "pr_number", n => { PrNumber = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "public", n => { Public = n.GetBoolValue(); } },
@@ -230,7 +222,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "sub_conversation_ids", n => { SubConversationIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationTagsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationTagsProperty.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
-                { "trigger", n => { Trigger = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationTrigger>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationTrigger.CreateFromDiscriminatorValue); } },
+                { "trigger", n => { Trigger = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTrigger>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -242,14 +234,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("agent_kind", AgentKind);
+            writer.WriteStringValue("conversation_ui_url", ConversationUiUrl);
             writer.WriteStringValue("conversation_url", ConversationUrl);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("created_by_user_id", CreatedByUserId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationExecutionStatus>("execution_status", ExecutionStatus);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationGitProvider>("git_provider", GitProvider);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationExecutionStatus>("execution_status", ExecutionStatus);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>("git_provider", GitProvider);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("llm_model", LlmModel);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationMetrics>("metrics", Metrics);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot>("metrics", Metrics);
             writer.WriteStringValue("parent_conversation_id", ParentConversationId);
             writer.WriteCollectionOfPrimitiveValues<int?>("pr_number", PrNumber);
             writer.WriteBoolValue("public", Public);
@@ -261,7 +254,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("sub_conversation_ids", SubConversationIds);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationTagsProperty>("tags", Tags);
             writer.WriteStringValue("title", Title);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationTrigger>("trigger", Trigger);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTrigger>("trigger", Trigger);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

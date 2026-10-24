@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;``create pr button clicked``: Pull Request button click in chat UI.Drives PostHog surveys (e.g. NPS) keyed off the PR action. The eventname uses the lowercase-with-spaces convention shared by every otherPostHog event in ``openhands/analytics/analytics_constants.py``.&quot;
+    /// ``create pr button clicked``: Pull Request button click in chat UI.Drives PostHog surveys (e.g. NPS) keyed off the PR action. The eventname uses the lowercase-with-spaces convention shared by every otherPostHog event in ``openhands/analytics/analytics_constants.py``.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreatePrButtonClickedEvent : IAdditionalDataHolder, IParsable
@@ -16,7 +16,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The event_type property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEvent_event_type? EventType { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEventType? EventType { get; set; }
         /// <summary>The git_provider property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEventGitProvider? GitProvider { get; set; }
         /// <summary>
@@ -44,7 +44,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEvent_event_type>(); } },
+                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEventType>(); } },
                 { "git_provider", n => { GitProvider = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEventGitProvider>(); } },
             };
         }
@@ -55,7 +55,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEvent_event_type>("event_type", EventType);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEventType>("event_type", EventType);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CreatePrButtonClickedEventGitProvider>("git_provider", GitProvider);
             writer.WriteAdditionalData(AdditionalData);
         }

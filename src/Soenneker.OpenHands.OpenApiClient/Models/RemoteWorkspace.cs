@@ -32,11 +32,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Host { get; set; }
 #endif
         /// <summary>The kind property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_kind? Kind { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspaceKind? Kind { get; set; }
         /// <summary>Maximum number of connections for httpx.Client. None means no limit, useful for running many conversations in parallel.</summary>
         public int? MaxConnections { get; set; }
         /// <summary>Timeout in seconds for reading operations of httpx.Client.</summary>
         public double? ReadTimeout { get; set; }
+        /// <summary>Conversation runtime scope; None uses the host workspace.</summary>
+        public Guid? RuntimeConversationId { get; set; }
         /// <summary>The working directory for agent operations and tool execution.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,9 +75,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "api_key", n => { ApiKey = n.GetStringValue(); } },
                 { "host", n => { Host = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_kind>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspaceKind>(); } },
                 { "max_connections", n => { MaxConnections = n.GetIntValue(); } },
                 { "read_timeout", n => { ReadTimeout = n.GetDoubleValue(); } },
+                { "runtime_conversation_id", n => { RuntimeConversationId = n.GetGuidValue(); } },
                 { "working_dir", n => { WorkingDir = n.GetStringValue(); } },
             };
         }
@@ -88,9 +91,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_key", ApiKey);
             writer.WriteStringValue("host", Host);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace_kind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspaceKind>("kind", Kind);
             writer.WriteIntValue("max_connections", MaxConnections);
             writer.WriteDoubleValue("read_timeout", ReadTimeout);
+            writer.WriteGuidValue("runtime_conversation_id", RuntimeConversationId);
             writer.WriteStringValue("working_dir", WorkingDir);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -68,6 +68,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         #pragma warning disable CS1591
         SystemPromptEvent,
         #pragma warning restore CS1591
+        [EnumMember(Value = "SecurityAnalysisEvent")]
+        #pragma warning disable CS1591
+        SecurityAnalysisEvent,
+        #pragma warning restore CS1591
         [EnumMember(Value = "StreamingDeltaEvent")]
         #pragma warning disable CS1591
         StreamingDeltaEvent,
@@ -83,6 +87,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         [EnumMember(Value = "PauseEvent")]
         #pragma warning disable CS1591
         PauseEvent,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464")]
+        #pragma warning disable CS1591
+        OpenapiJsonNullSentinelValue2BF936000FE44250987AE5DDB203E464,
         #pragma warning restore CS1591
     }
 }

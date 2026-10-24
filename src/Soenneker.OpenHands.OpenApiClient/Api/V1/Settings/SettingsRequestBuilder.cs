@@ -52,13 +52,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings
         {
         }
         /// <summary>
-        /// &quot;Load user settings.Retrieves the settings for the authenticated user, including LLM configuration,provider tokens, and other user preferences.Returns:    GETSettingsModel: The user settings with token dataRaises:    404: Settings not found    401: Invalid token&quot;
+        /// Load user settings.Retrieves the settings for the authenticated user, including LLM configuration,provider tokens, and other user preferences.Returns:    GETSettingsModel: The user settings with token dataRaises:    404: Settings not found    401: Invalid token
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModel"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.LoadSettingsApiV1SettingsGet401Response">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.LoadSettingsApiV1SettingsGet404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.Response401LoadSettingsApiV1SettingsGetSchema">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.Response404LoadSettingsApiV1SettingsGetSchema">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModel?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -71,40 +71,40 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.OpenHands.OpenApiClient.Models.LoadSettingsApiV1SettingsGet401Response.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.OpenHands.OpenApiClient.Models.LoadSettingsApiV1SettingsGet404Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.OpenHands.OpenApiClient.Models.Response401LoadSettingsApiV1SettingsGetSchema.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.OpenHands.OpenApiClient.Models.Response404LoadSettingsApiV1SettingsGetSchema.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModel>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModel.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Store user settings.Accepts a partial payload and deep-merges ``agent_settings_diff`` and``conversation_settings_diff`` with the existing persisted values so thatsaving one settings page never overwrites fields owned by another.Returns:    200: Settings stored successfully    422: Legacy nested settings keys are rejected    500: Error storing settings&quot;
+        /// Store user settings.Accepts a partial payload and deep-merges ``agent_settings_diff`` and``conversation_settings_diff`` with the existing persisted values so thatsaving one settings page never overwrites fields owned by another.Returns:    200: Settings stored successfully    422: Legacy nested settings keys are rejected    500: Error storing settings
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StoreSettingsApiV1SettingsPost200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Response200StoreSettingsApiV1SettingsPostSchema"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.StoreSettingsApiV1SettingsPost422Response">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.StoreSettingsApiV1SettingsPost500Response">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.Response422StoreSettingsApiV1SettingsPostSchema">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.Response500StoreSettingsApiV1SettingsPostSchema">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.StoreSettingsApiV1SettingsPost200Response?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.StoreSettingsApiV1SettingsPostRequestRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.Response200StoreSettingsApiV1SettingsPostSchema?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.StoreSettingsApiV1SettingsPostRequestRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.StoreSettingsApiV1SettingsPost200Response> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.StoreSettingsApiV1SettingsPostRequestRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.Response200StoreSettingsApiV1SettingsPostSchema> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.StoreSettingsApiV1SettingsPostRequestRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.StoreSettingsApiV1SettingsPost422Response.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.OpenHands.OpenApiClient.Models.StoreSettingsApiV1SettingsPost500Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.Response422StoreSettingsApiV1SettingsPostSchema.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.OpenHands.OpenApiClient.Models.Response500StoreSettingsApiV1SettingsPostSchema.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.StoreSettingsApiV1SettingsPost200Response>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.StoreSettingsApiV1SettingsPost200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.Response200StoreSettingsApiV1SettingsPostSchema>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.Response200StoreSettingsApiV1SettingsPostSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Load user settings.Retrieves the settings for the authenticated user, including LLM configuration,provider tokens, and other user preferences.Returns:    GETSettingsModel: The user settings with token dataRaises:    404: Settings not found    401: Invalid token&quot;
+        /// Load user settings.Retrieves the settings for the authenticated user, including LLM configuration,provider tokens, and other user preferences.Returns:    GETSettingsModel: The user settings with token dataRaises:    404: Settings not found    401: Invalid token
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -123,7 +123,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Store user settings.Accepts a partial payload and deep-merges ``agent_settings_diff`` and``conversation_settings_diff`` with the existing persisted values so thatsaving one settings page never overwrites fields owned by another.Returns:    200: Settings stored successfully    422: Legacy nested settings keys are rejected    500: Error storing settings&quot;
+        /// Store user settings.Accepts a partial payload and deep-merges ``agent_settings_diff`` and``conversation_settings_diff`` with the existing persisted values so thatsaving one settings page never overwrites fields owned by another.Returns:    200: Settings stored successfully    422: Legacy nested settings keys are rejected    500: Error storing settings
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

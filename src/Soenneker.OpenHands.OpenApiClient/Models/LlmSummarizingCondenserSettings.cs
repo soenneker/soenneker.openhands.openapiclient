@@ -16,7 +16,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Discriminator for the condenser settings union. ``&apos;llm_summarizing&apos;`` selects the default LLM summarizing condenser.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettings_condenser_kind? CondenserKind { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsCondenserKind? CondenserKind { get; set; }
         /// <summary>Enable conversation memory condensation.</summary>
         public bool? Enabled { get; set; }
         /// <summary>Factor used to reduce event string size after a hard context reset summarization failure.</summary>
@@ -28,7 +28,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Maximum number of events kept before the condenser runs. Kept on the base settings class for compatibility; concrete condenser-settings variants may opt out when this does not apply.</summary>
         public int? MaxSize { get; set; }
         /// <summary>Maximum number of tokens allowed before the condenser runs. When unset, condensation is only based on event count.</summary>
-        public int? MaxTokens { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsMaxTokens? MaxTokens { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsMaxTokens MaxTokens { get; set; }
+#endif
         /// <summary>Minimum fraction of events that must be condensed for condensation to be considered successful.</summary>
         public double? MinimumProgress { get; set; }
         /// <summary>
@@ -62,13 +68,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "condenser_kind", n => { CondenserKind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettings_condenser_kind>(); } },
+                { "condenser_kind", n => { CondenserKind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsCondenserKind>(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "hard_context_reset_context_scaling", n => { HardContextResetContextScaling = n.GetDoubleValue(); } },
                 { "hard_context_reset_max_retries", n => { HardContextResetMaxRetries = n.GetIntValue(); } },
                 { "keep_first", n => { KeepFirst = n.GetIntValue(); } },
                 { "max_size", n => { MaxSize = n.GetIntValue(); } },
-                { "max_tokens", n => { MaxTokens = n.GetIntValue(); } },
+                { "max_tokens", n => { MaxTokens = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsMaxTokens>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsMaxTokens.CreateFromDiscriminatorValue); } },
                 { "minimum_progress", n => { MinimumProgress = n.GetDoubleValue(); } },
             };
         }
@@ -79,13 +85,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettings_condenser_kind>("condenser_kind", CondenserKind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsCondenserKind>("condenser_kind", CondenserKind);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteDoubleValue("hard_context_reset_context_scaling", HardContextResetContextScaling);
             writer.WriteIntValue("hard_context_reset_max_retries", HardContextResetMaxRetries);
             writer.WriteIntValue("keep_first", KeepFirst);
             writer.WriteIntValue("max_size", MaxSize);
-            writer.WriteIntValue("max_tokens", MaxTokens);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsMaxTokens>("max_tokens", MaxTokens);
             writer.WriteDoubleValue("minimum_progress", MinimumProgress);
             writer.WriteAdditionalData(AdditionalData);
         }

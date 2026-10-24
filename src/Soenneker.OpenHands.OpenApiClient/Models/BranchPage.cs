@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Paginated response for branch search results.Attributes:    items: List of branches in the current page.    next_page_id: ID for the next page, or None if there are no more pages.&quot;
+    /// Paginated response for branch search results.Attributes:    items: List of branches in the current page.    next_page_id: ID for the next page, or None if there are no more pages.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BranchPage : IAdditionalDataHolder, IParsable

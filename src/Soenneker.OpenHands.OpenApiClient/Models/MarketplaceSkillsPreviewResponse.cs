@@ -15,6 +15,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The conflicts property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillNameConflict>? Conflicts { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillNameConflict> Conflicts { get; set; }
+#endif
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,6 +30,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #nullable restore
 #else
         public List<string> Errors { get; set; }
+#endif
+        /// <summary>The marketplace_layouts property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceLayoutsProperty? MarketplaceLayouts { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceLayoutsProperty MarketplaceLayouts { get; set; }
 #endif
         /// <summary>The marketplace_skills property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -72,7 +88,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "conflicts", n => { Conflicts = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.SkillNameConflict>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillNameConflict.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "errors", n => { Errors = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "marketplace_layouts", n => { MarketplaceLayouts = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceLayoutsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceLayoutsProperty.CreateFromDiscriminatorValue); } },
                 { "marketplace_skills", n => { MarketplaceSkills = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceSkillsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceSkillsProperty.CreateFromDiscriminatorValue); } },
                 { "plugins", n => { Plugins = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplacePluginPreview>(global::Soenneker.OpenHands.OpenApiClient.Models.MarketplacePluginPreview.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "skills", n => { Skills = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInfo>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillInfo.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -85,7 +103,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.SkillNameConflict>("conflicts", Conflicts);
             writer.WriteCollectionOfPrimitiveValues<string>("errors", Errors);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceLayoutsProperty>("marketplace_layouts", MarketplaceLayouts);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceSkillsProperty>("marketplace_skills", MarketplaceSkills);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplacePluginPreview>("plugins", Plugins);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInfo>("skills", Skills);

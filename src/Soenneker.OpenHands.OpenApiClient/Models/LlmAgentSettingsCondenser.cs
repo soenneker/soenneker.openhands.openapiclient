@@ -37,13 +37,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsCondenser CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("condenser_kind")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsCondenser();
-            if("LlmSummarizingCondenserSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("llm_summarizing".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.LlmSummarizingCondenserSettings = new global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettings();
             }
-            else if("NoOpCondenserSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("no_op".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.NoOpCondenserSettings = new global::Soenneker.OpenHands.OpenApiClient.Models.NoOpCondenserSettings();
             }

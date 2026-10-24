@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.App
         {
         }
         /// <summary>
-        /// &quot;Get organization app settings for the user&apos;s current organization.This endpoint retrieves application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found&quot;
+        /// Get organization app settings for the user&apos;s current organization.This endpoint retrieves application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,10 +57,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.App
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Update organization app settings for the user&apos;s current organization.Base access requires MANAGE_APPLICATION_SETTINGS (all members). Editingorg-wide ``registered_marketplaces`` additionally requires EDIT_ORG_SETTINGS(admin/owner), since those defaults apply to every member.Args:    update_data: App settings update data    request: The incoming request (used to resolve the target org for the        marketplace permission check)    service: OrgAppSettingsService (injected by dependency)    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks the required permission    HTTPException: 404 if current organization not found    HTTPException: 409 if a concurrent modification is detected    HTTPException: 400 if validation errors occur (e.g. duplicate names)    HTTPException: 500 if update fails&quot;
+        /// Update organization app settings for the user&apos;s current organization.Base access requires MANAGE_APPLICATION_SETTINGS (all members). Editingorg-wide ``registered_marketplaces`` or ``agent_settings_diff``additionally requires EDIT_ORG_SETTINGS (admin/owner), since those defaultsapply to every member.Args:    update_data: App settings update data    request: The incoming request (used to resolve the target org for the        org-wide permission checks)    service: OrgAppSettingsService (injected by dependency)    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks the required permission    HTTPException: 404 if current organization not found    HTTPException: 409 if a concurrent modification is detected    HTTPException: 400 if validation errors occur (e.g. duplicate names)    HTTPException: 500 if update fails
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse"/></returns>
-        /// <param name="body">Request model for updating organization app settings.</param>
+        /// <param name="body">Request model for updating organization app settings.``agent_settings_diff`` is a sparse diff applied to the org-wide``agent_settings`` defaults, so admins/owners can set the harness everymember starts from. It is admin/owner-only on the route (see``update_org_app_settings``) because those defaults apply to every member.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
@@ -82,7 +82,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.App
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Get organization app settings for the user&apos;s current organization.This endpoint retrieves application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found&quot;
+        /// Get organization app settings for the user&apos;s current organization.This endpoint retrieves application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,10 +101,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.App
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Update organization app settings for the user&apos;s current organization.Base access requires MANAGE_APPLICATION_SETTINGS (all members). Editingorg-wide ``registered_marketplaces`` additionally requires EDIT_ORG_SETTINGS(admin/owner), since those defaults apply to every member.Args:    update_data: App settings update data    request: The incoming request (used to resolve the target org for the        marketplace permission check)    service: OrgAppSettingsService (injected by dependency)    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks the required permission    HTTPException: 404 if current organization not found    HTTPException: 409 if a concurrent modification is detected    HTTPException: 400 if validation errors occur (e.g. duplicate names)    HTTPException: 500 if update fails&quot;
+        /// Update organization app settings for the user&apos;s current organization.Base access requires MANAGE_APPLICATION_SETTINGS (all members). Editingorg-wide ``registered_marketplaces`` or ``agent_settings_diff``additionally requires EDIT_ORG_SETTINGS (admin/owner), since those defaultsapply to every member.Args:    update_data: App settings update data    request: The incoming request (used to resolve the target org for the        org-wide permission checks)    service: OrgAppSettingsService (injected by dependency)    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks the required permission    HTTPException: 404 if current organization not found    HTTPException: 409 if a concurrent modification is detected    HTTPException: 400 if validation errors occur (e.g. duplicate names)    HTTPException: 500 if update fails
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Request model for updating organization app settings.</param>
+        /// <param name="body">Request model for updating organization app settings.``agent_settings_diff`` is a sparse diff applied to the org-wide``agent_settings`` defaults, so admins/owners can set the harness everymember starts from. It is admin/owner-only on the route (see``update_org_app_settings``) because those defaults apply to every member.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -132,22 +132,26 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.App
             return new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.App.AppRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Get organization app settings for the user&apos;s current organization.This endpoint retrieves application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found&quot;
+        /// Get organization app settings for the user&apos;s current organization.This endpoint retrieves application settings for the authenticated user&apos;scurrent organization. Access requires the MANAGE_APPLICATION_SETTINGS permission,which is granted to all organization members (member, admin, and owner roles).Args:    service: OrgAppSettingsService (injected by dependency)Returns:    OrgAppSettingsResponse: The organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks MANAGE_APPLICATION_SETTINGS permission    HTTPException: 404 if current organization not found
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AppRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("org_id")]
             public Guid? OrgId { get; set; }
+            #pragma warning restore CS1591
         }
         /// <summary>
-        /// &quot;Update organization app settings for the user&apos;s current organization.Base access requires MANAGE_APPLICATION_SETTINGS (all members). Editingorg-wide ``registered_marketplaces`` additionally requires EDIT_ORG_SETTINGS(admin/owner), since those defaults apply to every member.Args:    update_data: App settings update data    request: The incoming request (used to resolve the target org for the        marketplace permission check)    service: OrgAppSettingsService (injected by dependency)    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks the required permission    HTTPException: 404 if current organization not found    HTTPException: 409 if a concurrent modification is detected    HTTPException: 400 if validation errors occur (e.g. duplicate names)    HTTPException: 500 if update fails&quot;
+        /// Update organization app settings for the user&apos;s current organization.Base access requires MANAGE_APPLICATION_SETTINGS (all members). Editingorg-wide ``registered_marketplaces`` or ``agent_settings_diff``additionally requires EDIT_ORG_SETTINGS (admin/owner), since those defaultsapply to every member.Args:    update_data: App settings update data    request: The incoming request (used to resolve the target org for the        org-wide permission checks)    service: OrgAppSettingsService (injected by dependency)    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgAppSettingsResponse: The updated organization app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks the required permission    HTTPException: 404 if current organization not found    HTTPException: 409 if a concurrent modification is detected    HTTPException: 400 if validation errors occur (e.g. duplicate names)    HTTPException: 500 if update fails
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AppRequestBuilderPostQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("org_id")]
             public Guid? OrgId { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

@@ -42,10 +42,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The mcp_server_refs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileInfoMcpServerRefs? McpServerRefs { get; set; }
+        public List<string>? McpServerRefs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileInfoMcpServerRefs McpServerRefs { get; set; }
+        public List<string> McpServerRefs { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -86,7 +86,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "agent_kind", n => { AgentKind = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "llm_profile_ref", n => { LlmProfileRef = n.GetStringValue(); } },
-                { "mcp_server_refs", n => { McpServerRefs = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileInfoMcpServerRefs>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileInfoMcpServerRefs.CreateFromDiscriminatorValue); } },
+                { "mcp_server_refs", n => { McpServerRefs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "revision", n => { Revision = n.GetIntValue(); } },
             };
@@ -101,7 +101,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("agent_kind", AgentKind);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("llm_profile_ref", LlmProfileRef);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileInfoMcpServerRefs>("mcp_server_refs", McpServerRefs);
+            writer.WriteCollectionOfPrimitiveValues<string>("mcp_server_refs", McpServerRefs);
             writer.WriteStringValue("name", Name);
             writer.WriteIntValue("revision", Revision);
             writer.WriteAdditionalData(AdditionalData);

@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.Link;
+using Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.Status;
 using Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.Unlink;
 using Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.Validate;
 using Soenneker.OpenHands.OpenApiClient.Models;
@@ -25,6 +26,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.Link.LinkRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The status property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.Status.StatusRequestBuilder Status
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.Status.StatusRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The unlink property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.Unlink.UnlinkRequestBuilder Unlink
         {
@@ -40,7 +46,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WorkspacesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/integration/jira/workspaces", pathParameters)
+        public WorkspacesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/integration/jira/workspaces{?org_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -48,24 +54,24 @@ namespace Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WorkspacesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/integration/jira/workspaces", rawUrl)
+        public WorkspacesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/integration/jira/workspaces{?org_id*}", rawUrl)
         {
         }
         /// <summary>
-        /// Create a new Jira workspace registration.
+        /// Create a new Jira workspace registration.Setting up the workspace connection (service account, webhook secret) is anadmin/owner action; ordinary members link their own account via``POST /workspaces/link`` instead.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CreateJiraWorkspaceIntegrationJiraWorkspacesPost200ResponseSchema"/></returns>
+        /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.CreateJiraWorkspaceIntegrationJiraWorkspacesPost200ResponseSchema?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.JiraWorkspaceCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.JiraWorkspaceCreate body, Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.WorkspacesRequestBuilder.WorkspacesRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.CreateJiraWorkspaceIntegrationJiraWorkspacesPost200ResponseSchema> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.JiraWorkspaceCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.JiraWorkspaceCreate body, Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.WorkspacesRequestBuilder.WorkspacesRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -74,21 +80,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.CreateJiraWorkspaceIntegrationJiraWorkspacesPost200ResponseSchema>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.CreateJiraWorkspaceIntegrationJiraWorkspacesPost200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new Jira workspace registration.
+        /// Create a new Jira workspace registration.Setting up the workspace connection (service account, webhook secret) is anadmin/owner action; ordinary members link their own account via``POST /workspaces/link`` instead.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.JiraWorkspaceCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.JiraWorkspaceCreate body, Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.WorkspacesRequestBuilder.WorkspacesRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.JiraWorkspaceCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.JiraWorkspaceCreate body, Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.WorkspacesRequestBuilder.WorkspacesRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -106,6 +112,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces
         public global::Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.WorkspacesRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.WorkspacesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Create a new Jira workspace registration.Setting up the workspace connection (service account, webhook secret) is anadmin/owner action; ordinary members link their own account via``POST /workspaces/link`` instead.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WorkspacesRequestBuilderPostQueryParameters 
+        {
+            #pragma warning disable CS1591
+            [QueryParameter("org_id")]
+            public Guid? OrgId { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

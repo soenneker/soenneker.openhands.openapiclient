@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Callback
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CallbackRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/oauth/keycloak/callback{?code*,error*,error_description*,state*}", pathParameters)
+        public CallbackRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/oauth/keycloak/callback{?code*,error*,error_description*,kc_action_status*,state*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,23 +30,23 @@ namespace Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Callback
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CallbackRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/oauth/keycloak/callback{?code*,error*,error_description*,state*}", rawUrl)
+        public CallbackRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/oauth/keycloak/callback{?code*,error*,error_description*,kc_action_status*,state*}", rawUrl)
         {
         }
         /// <summary>
         /// Keycloak Callback
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.KeycloakCallbackOAuthKeycloakCallbackGet200ResponseSchema"/></returns>
+        /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.KeycloakCallbackOAuthKeycloakCallbackGet200ResponseSchema?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Callback.CallbackRequestBuilder.CallbackRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Callback.CallbackRequestBuilder.CallbackRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.KeycloakCallbackOAuthKeycloakCallbackGet200ResponseSchema> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Callback.CallbackRequestBuilder.CallbackRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Callback.CallbackRequestBuilder.CallbackRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Callback
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.KeycloakCallbackOAuthKeycloakCallbackGet200ResponseSchema>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.KeycloakCallbackOAuthKeycloakCallbackGet200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Keycloak Callback
@@ -92,39 +92,68 @@ namespace Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.Callback
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("code")]
             public string? Code { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("code")]
             public string Code { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("error")]
             public string? Error { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("error")]
             public string Error { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("error_description")]
             public string? ErrorDescription { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("error_description")]
             public string ErrorDescription { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("state")]
-            public string? State { get; set; }
+            #pragma warning disable CS1591
+            [QueryParameter("kc_action_status")]
+            public string? KcActionStatus { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
+            [QueryParameter("kc_action_status")]
+            public string KcActionStatus { get; set; }
+            #pragma warning restore CS1591
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            #pragma warning disable CS1591
+            [QueryParameter("state")]
+            public string? State { get; set; }
+            #pragma warning restore CS1591
+#nullable restore
+#else
+            #pragma warning disable CS1591
             [QueryParameter("state")]
             public string State { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

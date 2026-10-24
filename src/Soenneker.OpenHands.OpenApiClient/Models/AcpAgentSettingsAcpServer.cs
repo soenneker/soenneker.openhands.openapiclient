@@ -19,6 +19,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         #pragma warning disable CS1591
         GeminiCli,
         #pragma warning restore CS1591
+        [EnumMember(Value = "kimi-code")]
+        #pragma warning disable CS1591
+        KimiCode,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "pi")]
+        #pragma warning disable CS1591
+        Pi,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "opencode")]
+        #pragma warning disable CS1591
+        Opencode,
+        #pragma warning restore CS1591
         [EnumMember(Value = "custom")]
         #pragma warning disable CS1591
         Custom,

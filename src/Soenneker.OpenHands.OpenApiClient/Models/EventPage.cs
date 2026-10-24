@@ -17,10 +17,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.EventOutput>? Items { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.EventType>? Items { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.EventOutput> Items { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.EventType> Items { get; set; }
 #endif
         /// <summary>The next_page_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.EventOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.EventOutput.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.EventType>(global::Soenneker.OpenHands.OpenApiClient.Models.EventType.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "next_page_id", n => { NextPageId = n.GetStringValue(); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.EventOutput>("items", Items);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.EventType>("items", Items);
             writer.WriteStringValue("next_page_id", NextPageId);
             writer.WriteAdditionalData(AdditionalData);
         }

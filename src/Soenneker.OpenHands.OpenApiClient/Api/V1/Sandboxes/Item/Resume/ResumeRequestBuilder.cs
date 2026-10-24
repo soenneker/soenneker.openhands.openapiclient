@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.Item.Resume
 {
     /// <summary>
-    /// Builds and executes requests for operations under \api\v1\sandboxes\{-id}\resume
+    /// Builds and executes requests for operations under \api\v1\sandboxes\{sandboxId}\resume
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ResumeRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.Item.Resume
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ResumeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/sandboxes/{%2Did}/resume", pathParameters)
+        public ResumeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/sandboxes/{sandboxId}/resume", pathParameters)
         {
         }
         /// <summary>
@@ -30,11 +30,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.Item.Resume
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ResumeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/sandboxes/{%2Did}/resume", rawUrl)
+        public ResumeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/sandboxes/{sandboxId}/resume", rawUrl)
         {
         }
         /// <summary>
-        /// Resume Sandbox
+        /// Resume a paused sandbox.Idempotent: a sandbox that is already STARTING or RUNNING returns 200without calling the runtime resume endpoint and without returning orrotating its session key.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Success"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.Item.Resume
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.Success>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.Success.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Resume Sandbox
+        /// Resume a paused sandbox.Idempotent: a sandbox that is already STARTING or RUNNING returns 200without calling the runtime resume endpoint and without returning orrotating its session key.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -83,6 +83,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public AppConversationStartTask()
         {
             AdditionalData = new Dictionary<string, object>();
+            Status = global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskStatus.Working;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

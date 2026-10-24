@@ -34,10 +34,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The triggers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInfoTriggers? Triggers { get; set; }
+        public List<string>? Triggers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInfoTriggers Triggers { get; set; }
+        public List<string> Triggers { get; set; }
 #endif
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,7 +74,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "source", n => { Source = n.GetStringValue(); } },
-                { "triggers", n => { Triggers = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInfoTriggers>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillInfoTriggers.CreateFromDiscriminatorValue); } },
+                { "triggers", n => { Triggers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -87,7 +87,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("source", Source);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInfoTriggers>("triggers", Triggers);
+            writer.WriteCollectionOfPrimitiveValues<string>("triggers", Triggers);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

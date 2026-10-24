@@ -37,7 +37,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpec> AcpFileSecrets { get; set; }
 #endif
-        /// <summary>&quot;Give the ACP subprocess a per-conversation CLI data/config root instead of the shared user ``HOME``. When True and the provider is recognised, point its data-dir env var (``CODEX_HOME`` / ``CLAUDE_CONFIG_DIR`` / ``HOME``; see ``ACPProviderInfo.data_dir_env_var``) at ``&lt;persistence_dir&gt;/acp/&lt;provider&gt;`` — the same per-conversation tree materialised file-secrets use. Required for correctness when several of a user&apos;s conversations share one sandbox (``SandboxGroupingStrategy != NO_GROUPING``), where they would otherwise race on one set of CLI auth/config/cache/lock files (see #1019). Off by default: with one sandbox per conversation the shared HOME is already private, and relocating it would hide a pre-existing interactive login. Downstream policy decides when to enable it; the SDK owns where the root lives.&quot;</summary>
+        /// <summary>Give the ACP subprocess a per-conversation CLI data/config root instead of the shared user ``HOME``. When True and the provider is recognised, point its data-dir env var (``CODEX_HOME`` / ``CLAUDE_CONFIG_DIR`` / ``HOME``; see ``ACPProviderInfo.data_dir_env_var``) at ``&lt;persistence_dir&gt;/acp/&lt;provider&gt;`` — the same per-conversation tree materialised file-secrets use. Required for correctness when several of a user&apos;s conversations share one sandbox (``SandboxGroupingStrategy != NO_GROUPING``), where they would otherwise race on one set of CLI auth/config/cache/lock files (see #1019). Off by default: with one sandbox per conversation the shared HOME is already private, and relocating it would hide a pre-existing interactive login. Downstream policy decides when to enable it; the SDK owns where the root lives.</summary>
         public bool? AcpIsolateDataDir { get; set; }
         /// <summary>Model for the ACP server to use (e.g. &apos;sonnet&apos; or &apos;gpt-5.5&apos;). Applied via the protocol — set_config_option(model) for configOptions-based servers (codex, claude), else set_session_model. If None, the server picks its default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string AcpResumeSessionId { get; set; }
 #endif
-        /// <summary>&quot;Provider registry key identifying which ACP CLI this agent runs (&apos;claude-code&apos;, &apos;codex&apos;, &apos;gemini-cli&apos;, or &apos;custom&apos;); None when the agent is built directly rather than via ACPAgentSettings. Set by ACPAgentSettings.create_agent() from ACPAgentSettings.acp_server so the authoritative key survives onto the agent — and thus onto ConversationInfo.agent — because the launch command in acp_command does not reliably reverse-map to a provider. Informational only: consumers use it to resolve a provider brand label / model list; the subprocess is still launched from acp_command.&quot;</summary>
+        /// <summary>Provider registry key identifying which ACP CLI this agent runs (any ACP_PROVIDERS key, or &apos;custom&apos;); None when the agent is built directly rather than via ACPAgentSettings. Set by ACPAgentSettings.create_agent() from ACPAgentSettings.acp_server so the authoritative key survives onto the agent — and thus onto ConversationInfo.agent — because the launch command in acp_command does not reliably reverse-map to a provider. Informational only: consumers use it to resolve a provider brand label / model list; the subprocess is still launched from acp_command.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AcpServer { get; set; }
@@ -65,7 +65,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string AcpServer { get; set; }
 #endif
-        /// <summary>&quot;Session mode ID to set after creating a session. If None (default), auto-detected from the ACP server type: &apos;bypassPermissions&apos; for claude-agent-acp, &apos;agent-full-access&apos; for codex-acp.&quot;</summary>
+        /// <summary>Session mode ID to set after creating a session. If None (default), auto-detected from the ACP server type: &apos;bypassPermissions&apos; for claude-agent-acp, &apos;agent-full-access&apos; for codex-acp; a provider with no such mode (pi-acp) skips the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AcpSessionMode { get; set; }
@@ -73,33 +73,33 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string AcpSessionMode { get; set; }
 #endif
-        /// <summary>&quot;Timeout in seconds for ACP server startup: spawning the subprocess, the initialize/authenticate handshake, and new_session()/load_session(). Unlike acp_prompt_timeout, this is a hard deadline rather than an idle deadline, since startup has no intermediate progress signal to reset it against. Prevents an indefinite hang when the ACP server blocks on authentication (e.g. an expired token) without ever raising.&quot;</summary>
+        /// <summary>Timeout in seconds for ACP server startup: spawning the subprocess, the initialize/authenticate handshake, and new_session()/load_session(). Unlike acp_prompt_timeout, this is a hard deadline rather than an idle deadline, since startup has no intermediate progress signal to reset it against. Prevents an indefinite hang when the ACP server blocks on authentication (e.g. an expired token) without ever raising.</summary>
         public double? AcpStartupTimeout { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Optional AgentContext to initialize the agent with specific context.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentAgentContext? AgentContext { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput? AgentContext { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentAgentContext AgentContext { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput AgentContext { get; set; }
 #endif
         /// <summary>Optional condenser to use for condensing conversation history.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentCondenser? Condenser { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput? Condenser { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentCondenser Condenser { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput Condenser { get; set; }
 #endif
-        /// <summary>&quot;EXPERIMENTAL: Optional critic to evaluate agent actions and messages in real-time. API and behavior may change without notice. May impact performance, especially in &apos;all_actions&apos; mode.&quot;</summary>
+        /// <summary>EXPERIMENTAL: Optional critic to evaluate agent actions and messages in real-time. API and behavior may change without notice. May impact performance, especially in &apos;all_actions&apos; mode.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentCritic? Critic { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CriticBase? Critic { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentCritic Critic { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CriticBase Critic { get; set; }
 #endif
         /// <summary>Optional regex to filter the tools available to the agent by name. This is applied after any tools provided in `tools` and any MCP tools are added.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -118,8 +118,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public List<string> IncludeDefaultTools { get; set; }
 #endif
         /// <summary>The kind property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgent_kind? Kind { get; set; }
-        /// <summary>&quot;Language model interface for OpenHands agents.The LLM class provides a unified interface for interacting with variouslanguage models through the litellm library. It handles model configuration,API authentication, retry logic, and tool calling capabilities.Attributes:    model: Model name (e.g., \&quot;gpt-5.5\&quot;).    api_key: API key for authentication.    base_url: Custom API base URL.    num_retries: Number of retry attempts for failed requests.    timeout: Request timeout in seconds.Example:    ```python    from openhands.sdk import LLM    from pydantic import SecretStr    llm = LLM(        model=\&quot;gpt-5.5\&quot;,        api_key=SecretStr(\&quot;your-api-key\&quot;),        usage_id=\&quot;my-agent\&quot;    )    # Use with agent or conversation    ```&quot;</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentKind? Kind { get; set; }
+        /// <summary>Language model interface for OpenHands agents.The LLM class provides a unified interface for interacting with variouslanguage models through the litellm library. It handles model configuration,API authentication, retry logic, and tool calling capabilities.Attributes:    model: Model name (e.g., &quot;gpt-5.6&quot;).    api_key: API key for authentication.    base_url: Custom API base URL.    num_retries: Number of retry attempts for failed requests.    timeout: Request timeout in seconds.Example:    ```python    from openhands.sdk import LLM    from pydantic import SecretStr    llm = LLM(        model=&quot;gpt-5.6&quot;,        api_key=SecretStr(&quot;your-api-key&quot;),        usage_id=&quot;my-agent&quot;    )    # Use with agent or conversation    ```</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInput? Llm { get; set; }
@@ -143,7 +143,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string SecurityPolicyFilename { get; set; }
 #endif
-        /// <summary>&quot;Inline system prompt string.  When provided, the agent uses this text verbatim as the system message instead of rendering from `system_prompt_filename`.  Mutually exclusive with a non-default `system_prompt_filename`.**Warning**: This is not recommended unless you know what you are doing (e.g. customising agent behaviour for a completely different task).  Setting this will override OpenHands&apos; built-in system instructions that govern default agent behaviour.&quot;</summary>
+        /// <summary>Inline system prompt string.  When provided, the agent uses this text verbatim as the system message instead of rendering from `system_prompt_filename`.  Mutually exclusive with a non-default `system_prompt_filename`.**Warning**: This is not recommended unless you know what you are doing (e.g. customising agent behaviour for a completely different task).  Setting this will override OpenHands&apos; built-in system instructions that govern default agent behaviour.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SystemPrompt { get; set; }
@@ -172,10 +172,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The tools property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool>? Tools { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ToolInput>? Tools { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool> Tools { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ToolInput> Tools { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgent"/> and sets the default values.
@@ -218,12 +218,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "acp_server", n => { AcpServer = n.GetStringValue(); } },
                 { "acp_session_mode", n => { AcpSessionMode = n.GetStringValue(); } },
                 { "acp_startup_timeout", n => { AcpStartupTimeout = n.GetDoubleValue(); } },
-                { "agent_context", n => { AgentContext = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentAgentContext>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentAgentContext.CreateFromDiscriminatorValue); } },
-                { "condenser", n => { Condenser = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentCondenser>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentCondenser.CreateFromDiscriminatorValue); } },
-                { "critic", n => { Critic = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentCritic>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentCritic.CreateFromDiscriminatorValue); } },
+                { "agent_context", n => { AgentContext = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.CreateFromDiscriminatorValue); } },
+                { "condenser", n => { Condenser = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput>(global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput.CreateFromDiscriminatorValue); } },
+                { "critic", n => { Critic = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CriticBase>(global::Soenneker.OpenHands.OpenApiClient.Models.CriticBase.CreateFromDiscriminatorValue); } },
                 { "filter_tools_regex", n => { FilterToolsRegex = n.GetStringValue(); } },
                 { "include_default_tools", n => { IncludeDefaultTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgent_kind>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentKind>(); } },
                 { "llm", n => { Llm = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInput>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInput.CreateFromDiscriminatorValue); } },
                 { "mcp_config", n => { McpConfig = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentMcpConfigProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentMcpConfigProperty.CreateFromDiscriminatorValue); } },
                 { "security_policy_filename", n => { SecurityPolicyFilename = n.GetStringValue(); } },
@@ -231,7 +231,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "system_prompt_filename", n => { SystemPromptFilename = n.GetStringValue(); } },
                 { "system_prompt_kwargs", n => { SystemPromptKwargs = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSystemPromptKwargsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSystemPromptKwargsProperty.CreateFromDiscriminatorValue); } },
                 { "tool_concurrency_limit", n => { ToolConcurrencyLimit = n.GetIntValue(); } },
-                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ToolInput>(global::Soenneker.OpenHands.OpenApiClient.Models.ToolInput.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -251,12 +251,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("acp_server", AcpServer);
             writer.WriteStringValue("acp_session_mode", AcpSessionMode);
             writer.WriteDoubleValue("acp_startup_timeout", AcpStartupTimeout);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentAgentContext>("agent_context", AgentContext);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentCondenser>("condenser", Condenser);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentCritic>("critic", Critic);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput>("agent_context", AgentContext);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput>("condenser", Condenser);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CriticBase>("critic", Critic);
             writer.WriteStringValue("filter_tools_regex", FilterToolsRegex);
             writer.WriteCollectionOfPrimitiveValues<string>("include_default_tools", IncludeDefaultTools);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgent_kind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentKind>("kind", Kind);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInput>("llm", Llm);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentMcpConfigProperty>("mcp_config", McpConfig);
             writer.WriteStringValue("security_policy_filename", SecurityPolicyFilename);
@@ -264,7 +264,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("system_prompt_filename", SystemPromptFilename);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSystemPromptKwargsProperty>("system_prompt_kwargs", SystemPromptKwargs);
             writer.WriteIntValue("tool_concurrency_limit", ToolConcurrencyLimit);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool>("tools", Tools);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ToolInput>("tools", Tools);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

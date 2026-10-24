@@ -18,10 +18,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>API key used to authenticate with the critic service. When None, the LLM&apos;s ``api_key`` is reused, which preserves the auto-configuration path for the All-Hands LLM proxy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticApiKey? CriticApiKey { get; set; }
+        public UntypedNode? CriticApiKey { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticApiKey CriticApiKey { get; set; }
+        public UntypedNode CriticApiKey { get; set; }
 #endif
         /// <summary>Enable critic evaluation for the agent.</summary>
         public bool? CriticEnabled { get; set; }
@@ -30,18 +30,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Override the critic model name. When None, the APIBasedCritic default is used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CriticModelName { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticModelName? CriticModelName { get; set; }
 #nullable restore
 #else
-        public string CriticModelName { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticModelName CriticModelName { get; set; }
 #endif
         /// <summary>Override the critic service URL. When None, the APIBasedCritic default is used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CriticServerUrl { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticServerUrl? CriticServerUrl { get; set; }
 #nullable restore
 #else
-        public string CriticServerUrl { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticServerUrl CriticServerUrl { get; set; }
 #endif
         /// <summary>Critic success threshold used for iterative refinement.</summary>
         public double? CriticThreshold { get; set; }
@@ -78,11 +78,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "critic_api_key", n => { CriticApiKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticApiKey>(global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticApiKey.CreateFromDiscriminatorValue); } },
+                { "critic_api_key", n => { CriticApiKey = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "critic_enabled", n => { CriticEnabled = n.GetBoolValue(); } },
                 { "critic_mode", n => { CriticMode = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticMode>(); } },
-                { "critic_model_name", n => { CriticModelName = n.GetStringValue(); } },
-                { "critic_server_url", n => { CriticServerUrl = n.GetStringValue(); } },
+                { "critic_model_name", n => { CriticModelName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticModelName>(global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticModelName.CreateFromDiscriminatorValue); } },
+                { "critic_server_url", n => { CriticServerUrl = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticServerUrl>(global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticServerUrl.CreateFromDiscriminatorValue); } },
                 { "critic_threshold", n => { CriticThreshold = n.GetDoubleValue(); } },
                 { "enable_iterative_refinement", n => { EnableIterativeRefinement = n.GetBoolValue(); } },
                 { "max_refinement_iterations", n => { MaxRefinementIterations = n.GetIntValue(); } },
@@ -95,11 +95,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticApiKey>("critic_api_key", CriticApiKey);
+            writer.WriteObjectValue<UntypedNode>("critic_api_key", CriticApiKey);
             writer.WriteBoolValue("critic_enabled", CriticEnabled);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticMode>("critic_mode", CriticMode);
-            writer.WriteStringValue("critic_model_name", CriticModelName);
-            writer.WriteStringValue("critic_server_url", CriticServerUrl);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticModelName>("critic_model_name", CriticModelName);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettingsCriticServerUrl>("critic_server_url", CriticServerUrl);
             writer.WriteDoubleValue("critic_threshold", CriticThreshold);
             writer.WriteBoolValue("enable_iterative_refinement", EnableIterativeRefinement);
             writer.WriteIntValue("max_refinement_iterations", MaxRefinementIterations);

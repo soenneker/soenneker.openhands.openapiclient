@@ -25,7 +25,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public List<string> ImageUrls { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent_type? Type { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ImageType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent"/> and sets the default values.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "cache_prompt", n => { CachePrompt = n.GetBoolValue(); } },
                 { "image_urls", n => { ImageUrls = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ImageType>(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("cache_prompt", CachePrompt);
             writer.WriteCollectionOfPrimitiveValues<string>("image_urls", ImageUrls);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ImageType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

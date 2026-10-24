@@ -92,19 +92,29 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.SharedEvents.Count
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("conversation_id")]
             public string? ConversationId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("conversation_id")]
             public string ConversationId { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("kind__eq")]
             public global::Soenneker.OpenHands.OpenApiClient.Models.CountSharedEventsApiSharedEventsCountGetKindEqParameter? KindEq { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("timestamp__gte")]
             public DateTimeOffset? TimestampGte { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("timestamp__lt")]
             public DateTimeOffset? TimestampLt { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

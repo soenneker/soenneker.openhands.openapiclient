@@ -47,7 +47,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Invit
         {
         }
         /// <summary>
-        /// &quot;List an organization&apos;s pending invitations, including invite links.Gated on the invite permission (admins/owners): responses include eachinvitation&apos;s acceptance link so inviters can share it directly when noemail provider is configured.&quot;
+        /// List an organization&apos;s pending invitations, including invite links.Gated on the invite permission (admins/owners): responses include eachinvitation&apos;s acceptance link so inviters can share it directly when noemail provider is configured.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PendingInvitationsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Invit
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.PendingInvitationsResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.PendingInvitationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Create organization invitations for multiple email addresses.Sends emails to invitees with secure links to join the organization.Supports batch invitations - some may succeed while others fail.Permission rules:- Only owners and admins can create invitations- Admins can only invite with &apos;member&apos; or &apos;admin&apos; role (not &apos;owner&apos;)- Owners can invite with any roleArgs:    org_id: Organization UUID    invitation_data: Invitation details (emails array, role)    request: FastAPI request    user_id: Authenticated user ID (from dependency)Returns:    BatchInvitationResponse: Lists of successful and failed invitationsRaises:    HTTPException 400: Invalid role or organization not found    HTTPException 403: User lacks permission to invite    HTTPException 429: Rate limit exceeded&quot;
+        /// Create organization invitations for multiple email addresses.Sends emails to invitees with secure links to join the organization.Supports batch invitations - some may succeed while others fail.Permission rules:- Only owners and admins can create invitations- Admins can only invite with &apos;member&apos; or &apos;admin&apos; role (not &apos;owner&apos;)- Owners can invite with any roleArgs:    org_id: Organization UUID    invitation_data: Invitation details (emails array, role)    request: FastAPI request    user_id: Authenticated user ID (from dependency)Returns:    BatchInvitationResponse: Lists of successful and failed invitationsRaises:    HTTPException 400: Invalid role or organization not found    HTTPException 403: User lacks permission to invite    HTTPException 429: Rate limit exceeded
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BatchInvitationResponse"/></returns>
         /// <param name="body">Request model for creating invitation(s).</param>
@@ -95,7 +95,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Invit
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.BatchInvitationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.BatchInvitationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;List an organization&apos;s pending invitations, including invite links.Gated on the invite permission (admins/owners): responses include eachinvitation&apos;s acceptance link so inviters can share it directly when noemail provider is configured.&quot;
+        /// List an organization&apos;s pending invitations, including invite links.Gated on the invite permission (admins/owners): responses include eachinvitation&apos;s acceptance link so inviters can share it directly when noemail provider is configured.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,7 +114,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.Invit
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Create organization invitations for multiple email addresses.Sends emails to invitees with secure links to join the organization.Supports batch invitations - some may succeed while others fail.Permission rules:- Only owners and admins can create invitations- Admins can only invite with &apos;member&apos; or &apos;admin&apos; role (not &apos;owner&apos;)- Owners can invite with any roleArgs:    org_id: Organization UUID    invitation_data: Invitation details (emails array, role)    request: FastAPI request    user_id: Authenticated user ID (from dependency)Returns:    BatchInvitationResponse: Lists of successful and failed invitationsRaises:    HTTPException 400: Invalid role or organization not found    HTTPException 403: User lacks permission to invite    HTTPException 429: Rate limit exceeded&quot;
+        /// Create organization invitations for multiple email addresses.Sends emails to invitees with secure links to join the organization.Supports batch invitations - some may succeed while others fail.Permission rules:- Only owners and admins can create invitations- Admins can only invite with &apos;member&apos; or &apos;admin&apos; role (not &apos;owner&apos;)- Owners can invite with any roleArgs:    org_id: Organization UUID    invitation_data: Invitation details (emails array, role)    request: FastAPI request    user_id: Authenticated user ID (from dependency)Returns:    BatchInvitationResponse: Lists of successful and failed invitationsRaises:    HTTPException 400: Invalid role or organization not found    HTTPException 403: User lacks permission to invite    HTTPException 429: Rate limit exceeded
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request model for creating invitation(s).</param>

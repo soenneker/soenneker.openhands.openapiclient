@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
         {
         }
         /// <summary>
-        /// &quot;Get detailed usage statistics for organization dashboard.Returns detailed metrics including active users, agent runs, token usage,daily breakdown, and team usage for the specified time window.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: The organization ID    time_window: Time window filter (7d, 30d, 90d, ytd)    days: Number of days to look back (default 7)Returns:    OrgUsageStats: Detailed usage statistics for the org&quot;
+        /// Get detailed usage statistics for organization dashboard.Returns detailed metrics including active users, agent runs, token usage,daily breakdown, and team usage for the specified time window.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: The organization ID    time_window: Time window filter (7d, 30d, 90d, ytd)    days: Number of days to look back (default 7)Returns:    OrgUsageStats: Detailed usage statistics for the org
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgUsageStats"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgUsageStats>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgUsageStats.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Get detailed usage statistics for organization dashboard.Returns detailed metrics including active users, agent runs, token usage,daily breakdown, and team usage for the specified time window.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: The organization ID    time_window: Time window filter (7d, 30d, 90d, ytd)    days: Number of days to look back (default 7)Returns:    OrgUsageStats: Detailed usage statistics for the org&quot;
+        /// Get detailed usage statistics for organization dashboard.Returns detailed metrics including active users, agent runs, token usage,daily breakdown, and team usage for the specified time window.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: The organization ID    time_window: Time window filter (7d, 30d, 90d, ytd)    days: Number of days to look back (default 7)Returns:    OrgUsageStats: Detailed usage statistics for the org
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
             return new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.UsageStats.UsageStatsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Get detailed usage statistics for organization dashboard.Returns detailed metrics including active users, agent runs, token usage,daily breakdown, and team usage for the specified time window.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: The organization ID    time_window: Time window filter (7d, 30d, 90d, ytd)    days: Number of days to look back (default 7)Returns:    OrgUsageStats: Detailed usage statistics for the org&quot;
+        /// Get detailed usage statistics for organization dashboard.Returns detailed metrics including active users, agent runs, token usage,daily breakdown, and team usage for the specified time window.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: The organization ID    time_window: Time window filter (7d, 30d, 90d, ytd)    days: Number of days to look back (default 7)Returns:    OrgUsageStats: Detailed usage statistics for the org
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class UsageStatsRequestBuilderGetQueryParameters 
@@ -93,7 +93,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
             /// <summary>Number of days to look back</summary>
             [QueryParameter("days")]
             public int? Days { get; set; }
-            /// <summary>&quot;Options: 7d, 30d, 90d, ytd (overrides days when provided)&quot;</summary>
+            /// <summary>Options: 7d, 30d, 90d, ytd (overrides days when provided)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("time_window")]

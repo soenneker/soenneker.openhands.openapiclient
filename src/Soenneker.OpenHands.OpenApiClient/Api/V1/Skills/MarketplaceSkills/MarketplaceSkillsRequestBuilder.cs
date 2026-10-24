@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Skills.MarketplaceSkills
         {
         }
         /// <summary>
-        /// &quot;Get skills from marketplace repositories.This endpoint fetches and returns skill metadata from marketplace reposwithout requiring an active sandbox session. Useful for previewing whatskills a marketplace provides before or after adding it.Each call clones the marketplace repos fresh; this endpoint is admin-onlyand low-traffic, so caching the git clones here would buy little for thecross-user / pod-local complexity a shared cache introduces.Args:    marketplaces: List of marketplace registrations to fetch skills from.Returns:    MarketplaceSkillsPreviewResponse with skill metadata and any errors.&quot;
+        /// Get skills from marketplace repositories.This endpoint fetches and returns skill metadata from marketplace reposwithout requiring an active sandbox session. Useful for previewing whatskills a marketplace provides before or after adding it.Each call clones the marketplace repos fresh; this endpoint is admin-onlyand low-traffic, so caching the git clones here would buy little for thecross-user / pod-local complexity a shared cache introduces.Args:    marketplaces: List of marketplace registrations to fetch skills from.Returns:    MarketplaceSkillsPreviewResponse with skill metadata and any errors.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Skills.MarketplaceSkills
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Get skills from marketplace repositories.This endpoint fetches and returns skill metadata from marketplace reposwithout requiring an active sandbox session. Useful for previewing whatskills a marketplace provides before or after adding it.Each call clones the marketplace repos fresh; this endpoint is admin-onlyand low-traffic, so caching the git clones here would buy little for thecross-user / pod-local complexity a shared cache introduces.Args:    marketplaces: List of marketplace registrations to fetch skills from.Returns:    MarketplaceSkillsPreviewResponse with skill metadata and any errors.&quot;
+        /// Get skills from marketplace repositories.This endpoint fetches and returns skill metadata from marketplace reposwithout requiring an active sandbox session. Useful for previewing whatskills a marketplace provides before or after adding it.Each call clones the marketplace repos fresh; this endpoint is admin-onlyand low-traffic, so caching the git clones here would buy little for thecross-user / pod-local complexity a shared cache introduces.Args:    marketplaces: List of marketplace registrations to fetch skills from.Returns:    MarketplaceSkillsPreviewResponse with skill metadata and any errors.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

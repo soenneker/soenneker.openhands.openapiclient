@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Git.Repositories.Search
         {
         }
         /// <summary>
-        /// Get or search repositories.If query is provided, searches repositories across the git provider.If query is not provided, returns a paginated list of the authenticated user&apos;s repositories.
+        /// Get or search repositories.If query is provided, searches repositories across the git provider (first page only).If query is not provided, returns a paginated list of the authenticated user&apos;s repositories.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.RepositoryPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Git.Repositories.Search
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.RepositoryPage>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.RepositoryPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get or search repositories.If query is provided, searches repositories across the git provider.If query is not provided, returns a paginated list of the authenticated user&apos;s repositories.
+        /// Get or search repositories.If query is provided, searches repositories across the git provider (first page only).If query is not provided, returns a paginated list of the authenticated user&apos;s repositories.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,50 +85,70 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Git.Repositories.Search
             return new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Git.Repositories.Search.SearchRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get or search repositories.If query is provided, searches repositories across the git provider.If query is not provided, returns a paginated list of the authenticated user&apos;s repositories.
+        /// Get or search repositories.If query is provided, searches repositories across the git provider (first page only).If query is not provided, returns a paginated list of the authenticated user&apos;s repositories.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SearchRequestBuilderGetQueryParameters 
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("installation_id")]
             public string? InstallationId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("installation_id")]
             public string InstallationId { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("page_id")]
             public string? PageId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("page_id")]
             public string PageId { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("provider")]
             public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? Provider { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("query")]
             public string? Query { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("query")]
             public string Query { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("sort_order")]
             public string? SortOrder { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("sort_order")]
             public string SortOrder { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

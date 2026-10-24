@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Agent { get; set; }
 #endif
         /// <summary>Discriminator for the ``AgentProfile`` union. ``&apos;openhands&apos;`` selects the standard built-in OpenHands agent.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfile_agent_kind? AgentKind { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAgentKind? AgentKind { get; set; }
         /// <summary>Condenser settings for the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,7 +31,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfileCondenser Condenser { get; set; }
 #endif
-        /// <summary>&quot;Names of server-discovered skills to EXCLUDE from this agent&apos;s prompt — a deny-list over the discovered catalog. [] (the default) = all discovered skills; a listed name that is absent from the catalog is simply a no-op, so the field never fails a launch when the catalog drifts. Replaces the former allow-list ``skill_refs`` (#4017): skills are discovered from many incomplete sources, so exclusion is the only selection model that can&apos;t dangle.&quot;</summary>
+        /// <summary>Names of server-discovered skills to EXCLUDE from this agent&apos;s prompt — a deny-list over the discovered catalog. [] (the default) = all discovered skills; a listed name that is absent from the catalog is simply a no-op, so the field never fails a launch when the catalog drifts. Replaces the former allow-list ``skill_refs`` (#4017): skills are discovered from many incomplete sources, so exclusion is the only selection model that can&apos;t dangle.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? DisabledSkills { get; set; }
@@ -39,10 +39,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public List<string> DisabledSkills { get; set; }
 #endif
-        /// <summary>Enable sub-agent delegation via TaskToolSet.</summary>
-        public bool? EnableSubAgents { get; set; }
-        /// <summary>Enable the built-in switch_llm tool for switching between saved LLM profiles. Defaults True to match the global agent settings default (AgentSettingsConfig.enable_switch_llm_tool).</summary>
-        public bool? EnableSwitchLlmTool { get; set; }
+        /// <summary>Enable the built-in route_task_to_model tool, which routes the task to an LLM profile using the meta-profile named by `meta_profile_ref`.</summary>
+        public bool? EnableClassifyAndSwitchLlmTool { get; set; }
         /// <summary>Stable provenance handle for this profile. Conversations record this UUID; it never changes, even when the profile is renamed.</summary>
         public Guid? Id { get; set; }
         /// <summary>Name of the saved LLM profile to resolve for this agent. The profile itself stores no LLM credential — it lives on the referenced LLM profile.</summary>
@@ -56,10 +54,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Which of the user&apos;s globally configured MCP servers to expose. null = all; [] = none; a non-null list = filter to the named keys.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfileMcpServerRefs? McpServerRefs { get; set; }
+        public List<string>? McpServerRefs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfileMcpServerRefs McpServerRefs { get; set; }
+        public List<string> McpServerRefs { get; set; }
+#endif
+        /// <summary>Name of the saved meta-profile the routing tool uses. The launch copies it and the LLM profiles it routes to into the agent, so a runtime without the stores can still route. null lets the tool fall back to the first meta-profile in the runtime&apos;s store.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MetaProfileRef { get; set; }
+#nullable restore
+#else
+        public string MetaProfileRef { get; set; }
 #endif
         /// <summary>Human-facing, renameable key shown in the profile picker.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -69,10 +75,34 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>Persona text that replaces OpenHands&apos; built-in persona and coding-workflow guidance. Capability and policy guidance (memory, security policy, risk assessment, browser, external services, process management, model-specific notes) and the dynamic context are still included. None keeps the built-in persona.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Persona { get; set; }
+#nullable restore
+#else
+        public string Persona { get; set; }
+#endif
+        /// <summary>Which public-catalog skills to load. null = all; [] = none; a list = only the named skills, ignoring names the catalog lacks. User and project skills are not affected, and `disabled_skills` still applies to every skill.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? PublicSkills { get; set; }
+#nullable restore
+#else
+        public List<string> PublicSkills { get; set; }
+#endif
         /// <summary>Monotonic revision counter, bumped on each saved edit.</summary>
         public int? Revision { get; set; }
         /// <summary>The schema_version property</summary>
         public int? SchemaVersion { get; set; }
+        /// <summary>Which of the user&apos;s saved secrets to expose to this agent. null = all; [] = none; a non-null list = filter to the named keys. Strict: nothing is added back. An ACP profile must list its own provider credential to receive it.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? SecretRefs { get; set; }
+#nullable restore
+#else
+        public List<string> SecretRefs { get; set; }
+#endif
         /// <summary>Optional suffix appended to the system prompt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,12 +116,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Tool selection for the resolved agent. None (the default) = the server&apos;s standard tool set; [] = an explicitly bare agent; a non-empty list is used exactly as given.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfileTools? Tools { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool>? Tools { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfileTools Tools { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool> Tools { get; set; }
 #endif
-        /// <summary>&quot;Secret-free critic/refinement policy for a profile.The non-credential subset of:class:`~openhands.sdk.settings.model.VerificationSettings`: ``critic_api_key``is omitted so the profile holds no secret. The critic reuses the resolvedLLM profile&apos;s key (the existing ``critic_api_key=None`` behavior).&quot;</summary>
+        /// <summary>Critic/verification policy (secret-free; no critic_api_key).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.ProfileVerificationSettings? Verification { get; set; }
@@ -105,10 +135,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public OpenHandsAgentProfile()
         {
             Agent = "CodeActAgent";
-            EnableSubAgents = false;
-            EnableSwitchLlmTool = true;
+            EnableClassifyAndSwitchLlmTool = false;
             Revision = 0;
-            SchemaVersion = 2;
+            SchemaVersion = 4;
             ToolConcurrencyLimit = 1;
         }
         /// <summary>
@@ -130,20 +159,23 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "agent", n => { Agent = n.GetStringValue(); } },
-                { "agent_kind", n => { AgentKind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfile_agent_kind>(); } },
+                { "agent_kind", n => { AgentKind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAgentKind>(); } },
                 { "condenser", n => { Condenser = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfileCondenser>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfileCondenser.CreateFromDiscriminatorValue); } },
                 { "disabled_skills", n => { DisabledSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "enable_sub_agents", n => { EnableSubAgents = n.GetBoolValue(); } },
-                { "enable_switch_llm_tool", n => { EnableSwitchLlmTool = n.GetBoolValue(); } },
+                { "enable_classify_and_switch_llm_tool", n => { EnableClassifyAndSwitchLlmTool = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "llm_profile_ref", n => { LlmProfileRef = n.GetStringValue(); } },
-                { "mcp_server_refs", n => { McpServerRefs = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfileMcpServerRefs>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfileMcpServerRefs.CreateFromDiscriminatorValue); } },
+                { "mcp_server_refs", n => { McpServerRefs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "meta_profile_ref", n => { MetaProfileRef = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "persona", n => { Persona = n.GetStringValue(); } },
+                { "public_skills", n => { PublicSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "revision", n => { Revision = n.GetIntValue(); } },
                 { "schema_version", n => { SchemaVersion = n.GetIntValue(); } },
+                { "secret_refs", n => { SecretRefs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "system_message_suffix", n => { SystemMessageSuffix = n.GetStringValue(); } },
                 { "tool_concurrency_limit", n => { ToolConcurrencyLimit = n.GetIntValue(); } },
-                { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfileTools>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfileTools.CreateFromDiscriminatorValue); } },
+                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "verification", n => { Verification = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileVerificationSettings>(global::Soenneker.OpenHands.OpenApiClient.Models.ProfileVerificationSettings.CreateFromDiscriminatorValue); } },
             };
         }
@@ -155,20 +187,23 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("agent", Agent);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfile_agent_kind>("agent_kind", AgentKind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAgentKind>("agent_kind", AgentKind);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfileCondenser>("condenser", Condenser);
             writer.WriteCollectionOfPrimitiveValues<string>("disabled_skills", DisabledSkills);
-            writer.WriteBoolValue("enable_sub_agents", EnableSubAgents);
-            writer.WriteBoolValue("enable_switch_llm_tool", EnableSwitchLlmTool);
+            writer.WriteBoolValue("enable_classify_and_switch_llm_tool", EnableClassifyAndSwitchLlmTool);
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("llm_profile_ref", LlmProfileRef);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfileMcpServerRefs>("mcp_server_refs", McpServerRefs);
+            writer.WriteCollectionOfPrimitiveValues<string>("mcp_server_refs", McpServerRefs);
+            writer.WriteStringValue("meta_profile_ref", MetaProfileRef);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("persona", Persona);
+            writer.WriteCollectionOfPrimitiveValues<string>("public_skills", PublicSkills);
             writer.WriteIntValue("revision", Revision);
             writer.WriteIntValue("schema_version", SchemaVersion);
+            writer.WriteCollectionOfPrimitiveValues<string>("secret_refs", SecretRefs);
             writer.WriteStringValue("system_message_suffix", SystemMessageSuffix);
             writer.WriteIntValue("tool_concurrency_limit", ToolConcurrencyLimit);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfileTools>("tools", Tools);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool>("tools", Tools);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileVerificationSettings>("verification", Verification);
         }
     }

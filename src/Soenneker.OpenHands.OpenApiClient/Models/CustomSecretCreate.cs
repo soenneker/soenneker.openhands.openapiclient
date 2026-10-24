@@ -31,6 +31,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>Scope of a custom secret — personal or org-shared.</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretScope? Scope { get; set; }
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,6 +47,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public CustomSecretCreate()
         {
             AdditionalData = new Dictionary<string, object>();
+            Scope = global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretScope.Personal;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -66,6 +69,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretScope>(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
             };
         }
@@ -78,6 +82,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretScope>("scope", Scope);
             writer.WriteStringValue("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

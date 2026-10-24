@@ -90,10 +90,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.StartTasks.C
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CountRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("conversation_id__eq")]
             public Guid? ConversationIdEq { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("created_at__gte")]
             public DateTimeOffset? CreatedAtGte { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

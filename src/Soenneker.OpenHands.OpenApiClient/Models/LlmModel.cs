@@ -15,7 +15,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;For a hidden model only: the name of the visible model (same provider) this one aliases, so clients can display a saved hidden model under its canonical name&quot;</summary>
+        /// <summary>For a hidden model only: the name of the visible model (same provider) this one aliases, so clients can display a saved hidden model under its canonical name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Canonical { get; set; }
@@ -23,7 +23,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Canonical { get; set; }
 #endif
-        /// <summary>&quot;Whether the model is served but not promoted: it must not be offered as a dropdown option, yet an already-saved setting referencing it is still valid (e.g. a legacy alias route on a managed LiteLLM proxy)&quot;</summary>
+        /// <summary>Whether this is the provider&apos;s default model, used to preselect it on onboarding and when creating a new model for the provider</summary>
+        public bool? Default { get; set; }
+        /// <summary>Whether the model is free to use on the OpenHands provider (rendered as a &quot;Free&quot; badge in the model selector)</summary>
+        public bool? Free { get; set; }
+        /// <summary>Whether the model is served but not promoted: it must not be offered as a dropdown option, yet an already-saved setting referencing it is still valid (e.g. a legacy alias route on a managed LiteLLM proxy)</summary>
         public bool? Hidden { get; set; }
         /// <summary>The name of this model</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -49,6 +53,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public LlmModel()
         {
             AdditionalData = new Dictionary<string, object>();
+            Default = false;
+            Free = false;
             Hidden = false;
             Verified = false;
         }
@@ -71,6 +77,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "canonical", n => { Canonical = n.GetStringValue(); } },
+                { "default", n => { Default = n.GetBoolValue(); } },
+                { "free", n => { Free = n.GetBoolValue(); } },
                 { "hidden", n => { Hidden = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "provider", n => { Provider = n.GetStringValue(); } },
@@ -85,6 +93,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("canonical", Canonical);
+            writer.WriteBoolValue("default", Default);
+            writer.WriteBoolValue("free", Free);
             writer.WriteBoolValue("hidden", Hidden);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("provider", Provider);

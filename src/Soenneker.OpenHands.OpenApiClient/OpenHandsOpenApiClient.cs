@@ -13,6 +13,7 @@ using Soenneker.OpenHands.OpenApiClient.Integration;
 using Soenneker.OpenHands.OpenApiClient.Oauth;
 using Soenneker.OpenHands.OpenApiClient.Ready;
 using Soenneker.OpenHands.OpenApiClient.Saas;
+using Soenneker.OpenHands.OpenApiClient.Saml;
 using Soenneker.OpenHands.OpenApiClient.Server_info;
 using Soenneker.OpenHands.OpenApiClient.Slack;
 using System.Collections.Generic;
@@ -61,6 +62,11 @@ namespace Soenneker.OpenHands.OpenApiClient
         public global::Soenneker.OpenHands.OpenApiClient.Saas.SaasRequestBuilder Saas
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Saas.SaasRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The saml property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Saml.SamlRequestBuilder Saml
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Saml.SamlRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The server_info property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Server_info.Server_infoRequestBuilder Server_info

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Language model interface for OpenHands agents.The LLM class provides a unified interface for interacting with variouslanguage models through the litellm library. It handles model configuration,API authentication, retry logic, and tool calling capabilities.Attributes:    model: Model name (e.g., \&quot;gpt-5.5\&quot;).    api_key: API key for authentication.    base_url: Custom API base URL.    num_retries: Number of retry attempts for failed requests.    timeout: Request timeout in seconds.Example:    ```python    from openhands.sdk import LLM    from pydantic import SecretStr    llm = LLM(        model=\&quot;gpt-5.5\&quot;,        api_key=SecretStr(\&quot;your-api-key\&quot;),        usage_id=\&quot;my-agent\&quot;    )    # Use with agent or conversation    ```&quot;
+    /// Language model interface for OpenHands agents.The LLM class provides a unified interface for interacting with variouslanguage models through the litellm library. It handles model configuration,API authentication, retry logic, and tool calling capabilities.Attributes:    model: Model name (e.g., &quot;gpt-5.6&quot;).    api_key: API key for authentication.    base_url: Custom API base URL.    num_retries: Number of retry attempts for failed requests.    timeout: Request timeout in seconds.Example:    ```python    from openhands.sdk import LLM    from pydantic import SecretStr    llm = LLM(        model=&quot;gpt-5.6&quot;,        api_key=SecretStr(&quot;your-api-key&quot;),        usage_id=&quot;my-agent&quot;    )    # Use with agent or conversation    ```
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LlmOutput : IAdditionalDataHolder, IParsable
@@ -28,10 +28,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>API version (e.g., Azure).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiVersion { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputApiVersion? ApiVersion { get; set; }
 #nullable restore
 #else
-        public string ApiVersion { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputApiVersion ApiVersion { get; set; }
 #endif
         /// <summary>Authentication mode for the LLM.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAuthType? AuthType { get; set; }
@@ -46,34 +46,34 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The aws_bedrock_runtime_endpoint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AwsBedrockRuntimeEndpoint { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsBedrockRuntimeEndpoint? AwsBedrockRuntimeEndpoint { get; set; }
 #nullable restore
 #else
-        public string AwsBedrockRuntimeEndpoint { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsBedrockRuntimeEndpoint AwsBedrockRuntimeEndpoint { get; set; }
 #endif
         /// <summary>The aws_profile_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AwsProfileName { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsProfileName? AwsProfileName { get; set; }
 #nullable restore
 #else
-        public string AwsProfileName { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsProfileName AwsProfileName { get; set; }
 #endif
         /// <summary>The aws_region_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AwsRegionName { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsRegionName? AwsRegionName { get; set; }
 #nullable restore
 #else
-        public string AwsRegionName { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsRegionName AwsRegionName { get; set; }
 #endif
         /// <summary>The aws_role_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AwsRoleName { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsRoleName? AwsRoleName { get; set; }
 #nullable restore
 #else
-        public string AwsRoleName { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsRoleName AwsRoleName { get; set; }
 #endif
         /// <summary>The aws_secret_access_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -86,10 +86,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The aws_session_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AwsSessionName { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsSessionName? AwsSessionName { get; set; }
 #nullable restore
 #else
-        public string AwsSessionName { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsSessionName AwsSessionName { get; set; }
 #endif
         /// <summary>The aws_session_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -102,10 +102,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Custom base URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BaseUrl { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputBaseUrl? BaseUrl { get; set; }
 #nullable restore
 #else
-        public string BaseUrl { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputBaseUrl BaseUrl { get; set; }
 #endif
         /// <summary>Enable caching of prompts.</summary>
         public bool? CachingPrompt { get; set; }
@@ -120,38 +120,74 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>A custom tokenizer to use for token counting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomTokenizer { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputCustomTokenizer? CustomTokenizer { get; set; }
 #nullable restore
 #else
-        public string CustomTokenizer { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputCustomTokenizer CustomTokenizer { get; set; }
 #endif
         /// <summary>Disable using of stop word.</summary>
-        public bool? DisableStopWord { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputDisableStopWord? DisableStopWord { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputDisableStopWord DisableStopWord { get; set; }
+#endif
         /// <summary>If model is vision capable, this option allows to disable image processing (useful for cost reduction).</summary>
-        public bool? DisableVision { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputDisableVision? DisableVision { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputDisableVision DisableVision { get; set; }
+#endif
         /// <summary>The drop_params property</summary>
         public bool? DropParams { get; set; }
         /// <summary>If True, ask for [&apos;reasoning.encrypted_content&apos;] in Responses API include.</summary>
         public bool? EnableEncryptedReasoning { get; set; }
         /// <summary>Legacy token budget for models confirmed to use manual Anthropic extended thinking. Ignored for adaptive-thinking models. Prefer reasoning_effort for new integrations.</summary>
-        public int? ExtendedThinkingBudget { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputExtendedThinkingBudget? ExtendedThinkingBudget { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputExtendedThinkingBudget ExtendedThinkingBudget { get; set; }
+#endif
         /// <summary>Optional HTTP headers to forward to LiteLLM requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputExtraHeaders? ExtraHeaders { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputExtraHeadersAnyOf1? ExtraHeaders { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputExtraHeaders ExtraHeaders { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputExtraHeadersAnyOf1 ExtraHeaders { get; set; }
 #endif
         /// <summary>Force using string content serializer when sending to LLM API. If None (default), auto-detect based on model. Useful for providers that do not support list content, like HuggingFace and Groq.</summary>
-        public bool? ForceStringSerializer { get; set; }
-        /// <summary>&quot;If True, fetch any http(s) image URL in outgoing messages and inline it as a base64 ``data:`` URL before sending. If None (default), auto-detect based on model (some APIs such as Moonshot&apos;s public Kimi endpoint reject URL-formatted images and require base64). Set this explicitly when the model is reached through a proxy alias that hides the underlying provider (e.g. ``litellm_proxy/&lt;custom-alias&gt;``). Note: inlining only runs when ``vision_is_active()`` is True, so the alias must still be recognised as vision-capable by the SDK feature registry or proxy model metadata.&quot;</summary>
-        public bool? InlineImageUrls { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputForceStringSerializer? ForceStringSerializer { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputForceStringSerializer ForceStringSerializer { get; set; }
+#endif
+        /// <summary>If True, fetch any http(s) image URL in outgoing messages and inline it as a base64 ``data:`` URL before sending. If None (default), auto-detect based on model (some APIs such as Moonshot&apos;s public Kimi endpoint reject URL-formatted images and require base64). Set this explicitly when the model is reached through a proxy alias that hides the underlying provider (e.g. ``litellm_proxy/&lt;custom-alias&gt;``). Note: inlining only runs when ``vision_is_active()`` is True, so the alias must still be recognised as vision-capable by the SDK feature registry or proxy model metadata.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputInlineImageUrls? InlineImageUrls { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputInlineImageUrls InlineImageUrls { get; set; }
+#endif
         /// <summary>The cost per input token. This will available in logs for user.</summary>
-        public double? InputCostPerToken { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputInputCostPerToken? InputCostPerToken { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputInputCostPerToken InputCostPerToken { get; set; }
+#endif
         /// <summary>Whether this LLM uses subscription-based authentication. Serialized so that subscription-specific request handling survives transport to a remote agent-server.</summary>
         public bool? IsSubscription { get; private set; }
-        /// <summary>&quot;Additional key-value pairs to pass to litellm&apos;s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {&apos;trace_version&apos;: &apos;1.0.0&apos;, &apos;tags&apos;: [&apos;agent:my-agent&apos;]} - vLLM features: {&apos;return_token_ids&apos;: True}&quot;</summary>
+        /// <summary>Additional key-value pairs to pass to litellm&apos;s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {&apos;trace_version&apos;: &apos;1.0.0&apos;, &apos;tags&apos;: [&apos;agent:my-agent&apos;]} - vLLM features: {&apos;return_token_ids&apos;: True}</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputLitellmExtraBodyProperty? LitellmExtraBody { get; set; }
@@ -170,11 +206,23 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string LogCompletionsFolder { get; set; }
 #endif
         /// <summary>The maximum number of input tokens. Note that this is currently unused, and the value at runtime is actually the total tokens in OpenAI (e.g. 128,000 tokens for GPT-4).</summary>
-        public int? MaxInputTokens { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputMaxInputTokens? MaxInputTokens { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputMaxInputTokens MaxInputTokens { get; set; }
+#endif
         /// <summary>Approx max chars in each event/content sent to the LLM.</summary>
         public int? MaxMessageChars { get; set; }
         /// <summary>The maximum number of output tokens. This is sent to the LLM.</summary>
-        public int? MaxOutputTokens { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputMaxOutputTokens? MaxOutputTokens { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputMaxOutputTokens MaxOutputTokens { get; set; }
+#endif
         /// <summary>Model name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -186,13 +234,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Optional canonical model name for feature registry lookups. The OpenHands SDK maintains a model feature registry that maps model names to capabilities (e.g., vision support, prompt caching, responses API support). When using proxied or aliased model identifiers, set this field to the canonical model name (e.g., &apos;openai/gpt-4o&apos;) to ensure correct capability detection. If not provided, the &apos;model&apos; field will be used for capability lookups.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ModelCanonicalName { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputModelCanonicalName? ModelCanonicalName { get; set; }
 #nullable restore
 #else
-        public string ModelCanonicalName { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputModelCanonicalName ModelCanonicalName { get; set; }
 #endif
-        /// <summary>Modify params allows litellm to do transformations like adding a default message, when a message is empty.</summary>
-        public bool? ModifyParams { get; set; }
         /// <summary>Whether to use native tool calling.</summary>
         public bool? NativeToolCalling { get; set; }
         /// <summary>The num_retries property</summary>
@@ -200,10 +246,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The ollama_base_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OllamaBaseUrl { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputOllamaBaseUrl? OllamaBaseUrl { get; set; }
 #nullable restore
 #else
-        public string OllamaBaseUrl { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputOllamaBaseUrl OllamaBaseUrl { get; set; }
 #endif
         /// <summary>The openrouter_app_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -222,19 +268,33 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string OpenrouterSiteUrl { get; set; }
 #endif
         /// <summary>The cost per output token. This will available in logs for user.</summary>
-        public double? OutputCostPerToken { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputOutputCostPerToken? OutputCostPerToken { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputOutputCostPerToken OutputCostPerToken { get; set; }
+#endif
         /// <summary>Retention policy for prompt cache. Only sent for supported models (GPT-5+ and GPT-4.1, excluding Azure deployments); explicitly stripped for all others.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PromptCacheRetention { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputPromptCacheRetention? PromptCacheRetention { get; set; }
 #nullable restore
 #else
-        public string PromptCacheRetention { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputPromptCacheRetention PromptCacheRetention { get; set; }
+#endif
+        /// <summary>Optional provider connection whose shared API key and base URL are resolved and applied each time this LLM profile is loaded (read-at-use). When set, the profile stores no inline api_key or base_url of its own.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputProviderConnectionId? ProviderConnectionId { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputProviderConnectionId ProviderConnectionId { get; set; }
 #endif
         /// <summary>Provider-neutral reasoning effort. Common values include &apos;none&apos;, &apos;minimal&apos;, &apos;low&apos;, &apos;medium&apos;, &apos;high&apos;, &apos;xhigh&apos;, and &apos;max&apos;. The SDK accepts future provider values and lets LiteLLM translate them.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputReasoningEffort? ReasoningEffort { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputReasoningEffortAnyOf1? ReasoningEffort { get; set; }
         /// <summary>The level of detail for reasoning summaries. This is a string that can be one of &apos;auto&apos;, &apos;concise&apos;, or &apos;detailed&apos;. Requires verified OpenAI organization. Only sent when explicitly set.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputReasoningSummary? ReasoningSummary { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputReasoningSummaryAnyOf1? ReasoningSummary { get; set; }
         /// <summary>The retry_max_wait property</summary>
         public int? RetryMaxWait { get; set; }
         /// <summary>The retry_min_wait property</summary>
@@ -242,25 +302,57 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The retry_multiplier property</summary>
         public double? RetryMultiplier { get; set; }
         /// <summary>The seed to use for random number generation.</summary>
-        public int? Seed { get; set; }
-        /// <summary>Enable streaming responses from the LLM. When enabled, the provided `on_token` callback in .completions and .responses will be invoked for each chunk of tokens.</summary>
-        public bool? Stream { get; set; }
-        /// <summary>Subscription provider for subscription-backed LLM access.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubscriptionVendor { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputSeed? Seed { get; set; }
 #nullable restore
 #else
-        public string SubscriptionVendor { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputSeed Seed { get; set; }
 #endif
+        /// <summary>Enable streaming responses from the LLM. When enabled, the provided `on_token` callback in .completions and .responses will be invoked for each chunk of tokens.</summary>
+        public bool? Stream { get; set; }
+        /// <summary>Maximum seconds between chunks in an asynchronous streaming response. Default is 300s (5 minutes); set to None to disable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputStreamIdleTimeout? StreamIdleTimeout { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputStreamIdleTimeout StreamIdleTimeout { get; set; }
+#endif
+        /// <summary>Subscription provider for subscription-backed LLM access.</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputSubscriptionVendorAnyOf1? SubscriptionVendor { get; set; }
         /// <summary>Sampling temperature for response generation. Defaults to None (uses provider default temperature). Set to 0.0 for deterministic outputs, or higher values (0.7-1.0) for more creative responses.</summary>
-        public double? Temperature { get; set; }
-        /// <summary>HTTP timeout in seconds. Default is 300s (5 minutes). Set to None to disable timeout (not recommended for production).</summary>
-        public int? Timeout { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTemperature? Temperature { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTemperature Temperature { get; set; }
+#endif
+        /// <summary>HTTP and hard per-attempt timeout in seconds. Default is 300s (5 minutes). Set to None to disable the hard timeout.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTimeout? Timeout { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTimeout Timeout { get; set; }
+#endif
         /// <summary>The top_k property</summary>
-        public double? TopK { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTopK? TopK { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTopK TopK { get; set; }
+#endif
         /// <summary>Nucleus sampling parameter. Defaults to None (uses provider default). Set to a value between 0 and 1 to control diversity of outputs.</summary>
-        public double? TopP { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTopP? TopP { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTopP TopP { get; set; }
+#endif
         /// <summary>Unique usage identifier for the LLM. Used for registry lookups, telemetry, and spend tracking.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -276,25 +368,20 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             CachingPrompt = true;
-            DisableStopWord = false;
             DropParams = true;
             EnableEncryptedReasoning = true;
-            ExtendedThinkingBudget = 200000;
             LogCompletions = false;
             LogCompletionsFolder = "logs/completions";
             MaxMessageChars = 30000;
-            Model = "gpt-5.5";
-            ModifyParams = true;
+            Model = "gpt-5.6";
             NativeToolCalling = true;
             NumRetries = 5;
             OpenrouterAppName = "OpenHands";
             OpenrouterSiteUrl = "https://docs.all-hands.dev/";
-            PromptCacheRetention = "24h";
             RetryMaxWait = 64;
             RetryMinWait = 8;
             RetryMultiplier = 8.0;
             Stream = false;
-            Timeout = 300;
             UsageId = "default";
         }
         /// <summary>
@@ -317,58 +404,59 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "api_key", n => { ApiKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputApiKey>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputApiKey.CreateFromDiscriminatorValue); } },
                 { "api_mode", n => { ApiMode = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputApiMode>(); } },
-                { "api_version", n => { ApiVersion = n.GetStringValue(); } },
+                { "api_version", n => { ApiVersion = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputApiVersion>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputApiVersion.CreateFromDiscriminatorValue); } },
                 { "auth_type", n => { AuthType = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAuthType>(); } },
                 { "aws_access_key_id", n => { AwsAccessKeyId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsAccessKeyId>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsAccessKeyId.CreateFromDiscriminatorValue); } },
-                { "aws_bedrock_runtime_endpoint", n => { AwsBedrockRuntimeEndpoint = n.GetStringValue(); } },
-                { "aws_profile_name", n => { AwsProfileName = n.GetStringValue(); } },
-                { "aws_region_name", n => { AwsRegionName = n.GetStringValue(); } },
-                { "aws_role_name", n => { AwsRoleName = n.GetStringValue(); } },
+                { "aws_bedrock_runtime_endpoint", n => { AwsBedrockRuntimeEndpoint = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsBedrockRuntimeEndpoint>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsBedrockRuntimeEndpoint.CreateFromDiscriminatorValue); } },
+                { "aws_profile_name", n => { AwsProfileName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsProfileName>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsProfileName.CreateFromDiscriminatorValue); } },
+                { "aws_region_name", n => { AwsRegionName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsRegionName>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsRegionName.CreateFromDiscriminatorValue); } },
+                { "aws_role_name", n => { AwsRoleName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsRoleName>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsRoleName.CreateFromDiscriminatorValue); } },
                 { "aws_secret_access_key", n => { AwsSecretAccessKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsSecretAccessKey>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsSecretAccessKey.CreateFromDiscriminatorValue); } },
-                { "aws_session_name", n => { AwsSessionName = n.GetStringValue(); } },
+                { "aws_session_name", n => { AwsSessionName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsSessionName>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsSessionName.CreateFromDiscriminatorValue); } },
                 { "aws_session_token", n => { AwsSessionToken = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsSessionToken>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsSessionToken.CreateFromDiscriminatorValue); } },
-                { "base_url", n => { BaseUrl = n.GetStringValue(); } },
+                { "base_url", n => { BaseUrl = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputBaseUrl>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputBaseUrl.CreateFromDiscriminatorValue); } },
                 { "caching_prompt", n => { CachingPrompt = n.GetBoolValue(); } },
                 { "capability_overrides", n => { CapabilityOverrides = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputCapabilityOverridesProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputCapabilityOverridesProperty.CreateFromDiscriminatorValue); } },
-                { "custom_tokenizer", n => { CustomTokenizer = n.GetStringValue(); } },
-                { "disable_stop_word", n => { DisableStopWord = n.GetBoolValue(); } },
-                { "disable_vision", n => { DisableVision = n.GetBoolValue(); } },
+                { "custom_tokenizer", n => { CustomTokenizer = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputCustomTokenizer>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputCustomTokenizer.CreateFromDiscriminatorValue); } },
+                { "disable_stop_word", n => { DisableStopWord = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputDisableStopWord>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputDisableStopWord.CreateFromDiscriminatorValue); } },
+                { "disable_vision", n => { DisableVision = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputDisableVision>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputDisableVision.CreateFromDiscriminatorValue); } },
                 { "drop_params", n => { DropParams = n.GetBoolValue(); } },
                 { "enable_encrypted_reasoning", n => { EnableEncryptedReasoning = n.GetBoolValue(); } },
-                { "extended_thinking_budget", n => { ExtendedThinkingBudget = n.GetIntValue(); } },
-                { "extra_headers", n => { ExtraHeaders = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputExtraHeaders>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputExtraHeaders.CreateFromDiscriminatorValue); } },
-                { "force_string_serializer", n => { ForceStringSerializer = n.GetBoolValue(); } },
-                { "inline_image_urls", n => { InlineImageUrls = n.GetBoolValue(); } },
-                { "input_cost_per_token", n => { InputCostPerToken = n.GetDoubleValue(); } },
+                { "extended_thinking_budget", n => { ExtendedThinkingBudget = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputExtendedThinkingBudget>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputExtendedThinkingBudget.CreateFromDiscriminatorValue); } },
+                { "extra_headers", n => { ExtraHeaders = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputExtraHeadersAnyOf1>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputExtraHeadersAnyOf1.CreateFromDiscriminatorValue); } },
+                { "force_string_serializer", n => { ForceStringSerializer = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputForceStringSerializer>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputForceStringSerializer.CreateFromDiscriminatorValue); } },
+                { "inline_image_urls", n => { InlineImageUrls = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputInlineImageUrls>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputInlineImageUrls.CreateFromDiscriminatorValue); } },
+                { "input_cost_per_token", n => { InputCostPerToken = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputInputCostPerToken>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputInputCostPerToken.CreateFromDiscriminatorValue); } },
                 { "is_subscription", n => { IsSubscription = n.GetBoolValue(); } },
                 { "litellm_extra_body", n => { LitellmExtraBody = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputLitellmExtraBodyProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputLitellmExtraBodyProperty.CreateFromDiscriminatorValue); } },
                 { "log_completions", n => { LogCompletions = n.GetBoolValue(); } },
                 { "log_completions_folder", n => { LogCompletionsFolder = n.GetStringValue(); } },
-                { "max_input_tokens", n => { MaxInputTokens = n.GetIntValue(); } },
+                { "max_input_tokens", n => { MaxInputTokens = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputMaxInputTokens>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputMaxInputTokens.CreateFromDiscriminatorValue); } },
                 { "max_message_chars", n => { MaxMessageChars = n.GetIntValue(); } },
-                { "max_output_tokens", n => { MaxOutputTokens = n.GetIntValue(); } },
+                { "max_output_tokens", n => { MaxOutputTokens = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputMaxOutputTokens>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputMaxOutputTokens.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "model_canonical_name", n => { ModelCanonicalName = n.GetStringValue(); } },
-                { "modify_params", n => { ModifyParams = n.GetBoolValue(); } },
+                { "model_canonical_name", n => { ModelCanonicalName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputModelCanonicalName>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputModelCanonicalName.CreateFromDiscriminatorValue); } },
                 { "native_tool_calling", n => { NativeToolCalling = n.GetBoolValue(); } },
                 { "num_retries", n => { NumRetries = n.GetIntValue(); } },
-                { "ollama_base_url", n => { OllamaBaseUrl = n.GetStringValue(); } },
+                { "ollama_base_url", n => { OllamaBaseUrl = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputOllamaBaseUrl>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputOllamaBaseUrl.CreateFromDiscriminatorValue); } },
                 { "openrouter_app_name", n => { OpenrouterAppName = n.GetStringValue(); } },
                 { "openrouter_site_url", n => { OpenrouterSiteUrl = n.GetStringValue(); } },
-                { "output_cost_per_token", n => { OutputCostPerToken = n.GetDoubleValue(); } },
-                { "prompt_cache_retention", n => { PromptCacheRetention = n.GetStringValue(); } },
-                { "reasoning_effort", n => { ReasoningEffort = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputReasoningEffort>(); } },
-                { "reasoning_summary", n => { ReasoningSummary = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputReasoningSummary>(); } },
+                { "output_cost_per_token", n => { OutputCostPerToken = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputOutputCostPerToken>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputOutputCostPerToken.CreateFromDiscriminatorValue); } },
+                { "prompt_cache_retention", n => { PromptCacheRetention = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputPromptCacheRetention>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputPromptCacheRetention.CreateFromDiscriminatorValue); } },
+                { "provider_connection_id", n => { ProviderConnectionId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputProviderConnectionId>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputProviderConnectionId.CreateFromDiscriminatorValue); } },
+                { "reasoning_effort", n => { ReasoningEffort = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputReasoningEffortAnyOf1>(); } },
+                { "reasoning_summary", n => { ReasoningSummary = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputReasoningSummaryAnyOf1>(); } },
                 { "retry_max_wait", n => { RetryMaxWait = n.GetIntValue(); } },
                 { "retry_min_wait", n => { RetryMinWait = n.GetIntValue(); } },
                 { "retry_multiplier", n => { RetryMultiplier = n.GetDoubleValue(); } },
-                { "seed", n => { Seed = n.GetIntValue(); } },
+                { "seed", n => { Seed = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputSeed>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputSeed.CreateFromDiscriminatorValue); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
-                { "subscription_vendor", n => { SubscriptionVendor = n.GetStringValue(); } },
-                { "temperature", n => { Temperature = n.GetDoubleValue(); } },
-                { "timeout", n => { Timeout = n.GetIntValue(); } },
-                { "top_k", n => { TopK = n.GetDoubleValue(); } },
-                { "top_p", n => { TopP = n.GetDoubleValue(); } },
+                { "stream_idle_timeout", n => { StreamIdleTimeout = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputStreamIdleTimeout>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputStreamIdleTimeout.CreateFromDiscriminatorValue); } },
+                { "subscription_vendor", n => { SubscriptionVendor = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputSubscriptionVendorAnyOf1>(); } },
+                { "temperature", n => { Temperature = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTemperature>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTemperature.CreateFromDiscriminatorValue); } },
+                { "timeout", n => { Timeout = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTimeout>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTimeout.CreateFromDiscriminatorValue); } },
+                { "top_k", n => { TopK = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTopK>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTopK.CreateFromDiscriminatorValue); } },
+                { "top_p", n => { TopP = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTopP>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTopP.CreateFromDiscriminatorValue); } },
                 { "usage_id", n => { UsageId = n.GetStringValue(); } },
             };
         }
@@ -381,57 +469,58 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputApiKey>("api_key", ApiKey);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputApiMode>("api_mode", ApiMode);
-            writer.WriteStringValue("api_version", ApiVersion);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputApiVersion>("api_version", ApiVersion);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAuthType>("auth_type", AuthType);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsAccessKeyId>("aws_access_key_id", AwsAccessKeyId);
-            writer.WriteStringValue("aws_bedrock_runtime_endpoint", AwsBedrockRuntimeEndpoint);
-            writer.WriteStringValue("aws_profile_name", AwsProfileName);
-            writer.WriteStringValue("aws_region_name", AwsRegionName);
-            writer.WriteStringValue("aws_role_name", AwsRoleName);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsBedrockRuntimeEndpoint>("aws_bedrock_runtime_endpoint", AwsBedrockRuntimeEndpoint);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsProfileName>("aws_profile_name", AwsProfileName);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsRegionName>("aws_region_name", AwsRegionName);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsRoleName>("aws_role_name", AwsRoleName);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsSecretAccessKey>("aws_secret_access_key", AwsSecretAccessKey);
-            writer.WriteStringValue("aws_session_name", AwsSessionName);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsSessionName>("aws_session_name", AwsSessionName);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputAwsSessionToken>("aws_session_token", AwsSessionToken);
-            writer.WriteStringValue("base_url", BaseUrl);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputBaseUrl>("base_url", BaseUrl);
             writer.WriteBoolValue("caching_prompt", CachingPrompt);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputCapabilityOverridesProperty>("capability_overrides", CapabilityOverrides);
-            writer.WriteStringValue("custom_tokenizer", CustomTokenizer);
-            writer.WriteBoolValue("disable_stop_word", DisableStopWord);
-            writer.WriteBoolValue("disable_vision", DisableVision);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputCustomTokenizer>("custom_tokenizer", CustomTokenizer);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputDisableStopWord>("disable_stop_word", DisableStopWord);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputDisableVision>("disable_vision", DisableVision);
             writer.WriteBoolValue("drop_params", DropParams);
             writer.WriteBoolValue("enable_encrypted_reasoning", EnableEncryptedReasoning);
-            writer.WriteIntValue("extended_thinking_budget", ExtendedThinkingBudget);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputExtraHeaders>("extra_headers", ExtraHeaders);
-            writer.WriteBoolValue("force_string_serializer", ForceStringSerializer);
-            writer.WriteBoolValue("inline_image_urls", InlineImageUrls);
-            writer.WriteDoubleValue("input_cost_per_token", InputCostPerToken);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputExtendedThinkingBudget>("extended_thinking_budget", ExtendedThinkingBudget);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputExtraHeadersAnyOf1>("extra_headers", ExtraHeaders);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputForceStringSerializer>("force_string_serializer", ForceStringSerializer);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputInlineImageUrls>("inline_image_urls", InlineImageUrls);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputInputCostPerToken>("input_cost_per_token", InputCostPerToken);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputLitellmExtraBodyProperty>("litellm_extra_body", LitellmExtraBody);
             writer.WriteBoolValue("log_completions", LogCompletions);
             writer.WriteStringValue("log_completions_folder", LogCompletionsFolder);
-            writer.WriteIntValue("max_input_tokens", MaxInputTokens);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputMaxInputTokens>("max_input_tokens", MaxInputTokens);
             writer.WriteIntValue("max_message_chars", MaxMessageChars);
-            writer.WriteIntValue("max_output_tokens", MaxOutputTokens);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputMaxOutputTokens>("max_output_tokens", MaxOutputTokens);
             writer.WriteStringValue("model", Model);
-            writer.WriteStringValue("model_canonical_name", ModelCanonicalName);
-            writer.WriteBoolValue("modify_params", ModifyParams);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputModelCanonicalName>("model_canonical_name", ModelCanonicalName);
             writer.WriteBoolValue("native_tool_calling", NativeToolCalling);
             writer.WriteIntValue("num_retries", NumRetries);
-            writer.WriteStringValue("ollama_base_url", OllamaBaseUrl);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputOllamaBaseUrl>("ollama_base_url", OllamaBaseUrl);
             writer.WriteStringValue("openrouter_app_name", OpenrouterAppName);
             writer.WriteStringValue("openrouter_site_url", OpenrouterSiteUrl);
-            writer.WriteDoubleValue("output_cost_per_token", OutputCostPerToken);
-            writer.WriteStringValue("prompt_cache_retention", PromptCacheRetention);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputReasoningEffort>("reasoning_effort", ReasoningEffort);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputReasoningSummary>("reasoning_summary", ReasoningSummary);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputOutputCostPerToken>("output_cost_per_token", OutputCostPerToken);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputPromptCacheRetention>("prompt_cache_retention", PromptCacheRetention);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputProviderConnectionId>("provider_connection_id", ProviderConnectionId);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputReasoningEffortAnyOf1>("reasoning_effort", ReasoningEffort);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputReasoningSummaryAnyOf1>("reasoning_summary", ReasoningSummary);
             writer.WriteIntValue("retry_max_wait", RetryMaxWait);
             writer.WriteIntValue("retry_min_wait", RetryMinWait);
             writer.WriteDoubleValue("retry_multiplier", RetryMultiplier);
-            writer.WriteIntValue("seed", Seed);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputSeed>("seed", Seed);
             writer.WriteBoolValue("stream", Stream);
-            writer.WriteStringValue("subscription_vendor", SubscriptionVendor);
-            writer.WriteDoubleValue("temperature", Temperature);
-            writer.WriteIntValue("timeout", Timeout);
-            writer.WriteDoubleValue("top_k", TopK);
-            writer.WriteDoubleValue("top_p", TopP);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputStreamIdleTimeout>("stream_idle_timeout", StreamIdleTimeout);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputSubscriptionVendorAnyOf1>("subscription_vendor", SubscriptionVendor);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTemperature>("temperature", Temperature);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTimeout>("timeout", Timeout);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTopK>("top_k", TopK);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputTopP>("top_p", TopP);
             writer.WriteStringValue("usage_id", UsageId);
             writer.WriteAdditionalData(AdditionalData);
         }

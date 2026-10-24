@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Budgets.Me;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Budgets.Overrides;
 using Soenneker.OpenHands.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -18,6 +19,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Budgets
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BudgetsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The me property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Budgets.Me.MeRequestBuilder Me
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Budgets.Me.MeRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The overrides property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Budgets.Overrides.OverridesRequestBuilder Overrides
         {
@@ -63,7 +69,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Budgets
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update Org Budget Settings
+        /// 503 with detail.code=budget_change_rejected means no edit was saved.A 503 settings body means the edit was saved but enforcement is unverified.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -107,7 +113,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Budgets
             return requestInfo;
         }
         /// <summary>
-        /// Update Org Budget Settings
+        /// 503 with detail.code=budget_change_rejected means no edit was saved.A 503 settings body means the edit was saved but enforcement is unverified.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -143,56 +149,80 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Budgets
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class BudgetsRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("users_page")]
             public int? UsersPage { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("users_per_page")]
             public int? UsersPerPage { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("users_search")]
             public string? UsersSearch { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("users_search")]
             public string UsersSearch { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("users_status")]
             public string? UsersStatus { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("users_status")]
             public string UsersStatus { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
         /// <summary>
-        /// Update Org Budget Settings
+        /// 503 with detail.code=budget_change_rejected means no edit was saved.A 503 settings body means the edit was saved but enforcement is unverified.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class BudgetsRequestBuilderPatchQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("users_page")]
             public int? UsersPage { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("users_per_page")]
             public int? UsersPerPage { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("users_search")]
             public string? UsersSearch { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("users_search")]
             public string UsersSearch { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("users_status")]
             public string? UsersStatus { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("users_status")]
             public string UsersStatus { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

@@ -52,10 +52,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The disabled_skills property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoDisabledSkills? DisabledSkills { get; set; }
+        public List<string>? DisabledSkills { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoDisabledSkills DisabledSkills { get; set; }
+        public List<string> DisabledSkills { get; set; }
 #endif
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -67,6 +67,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The email_verified property</summary>
         public bool? EmailVerified { get; set; }
+        /// <summary>The enable_memory_context property</summary>
+        public bool? EnableMemoryContext { get; set; }
         /// <summary>The enable_proactive_conversation_starters property</summary>
         public bool? EnableProactiveConversationStarters { get; set; }
         /// <summary>The enable_sound_notifications property</summary>
@@ -97,7 +99,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>&quot;Marketplaces inherited from instance or organization level. These are read-only and cannot be modified by the user. Computed at runtime: Instance defaults + Org defaults.&quot;</summary>
+        /// <summary>Marketplaces inherited from instance or organization level. These are read-only and cannot be modified by the user. Computed at runtime: Instance defaults + Org defaults.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration>? InheritedMarketplaces { get; set; }
@@ -123,6 +125,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The max_budget_per_task property</summary>
         public double? MaxBudgetPerTask { get; set; }
+        /// <summary>The memory_context property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MemoryContext { get; set; }
+#nullable restore
+#else
+        public string MemoryContext { get; set; }
+#endif
         /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -142,10 +152,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoPermissions? Permissions { get; set; }
+        public List<string>? Permissions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoPermissions Permissions { get; set; }
+        public List<string> Permissions { get; set; }
 #endif
         /// <summary>List of marketplace registrations for plugin resolution. Marketplaces with auto_load=True will have their plugins loaded automatically at conversation start. See MarketplaceRegistration for details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -181,7 +191,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string SandboxBaseContainerImage { get; set; }
 #endif
-        /// <summary>Strategy for grouping conversations within sandboxes.</summary>
+        /// <summary>The sandbox_grouping_strategy property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxGroupingStrategy? SandboxGroupingStrategy { get; set; }
         /// <summary>The sandbox_runtime_container_image property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -202,10 +212,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The secrets_store property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoSecretsStore? SecretsStore { get; set; }
+        public UntypedNode? SecretsStore { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoSecretsStore SecretsStore { get; set; }
+        public UntypedNode SecretsStore { get; set; }
 #endif
         /// <summary>The title_llm_profile property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -227,6 +237,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public SaasUserInfo()
         {
             AdditionalData = new Dictionary<string, object>();
+            EnableMemoryContext = false;
             EnableProactiveConversationStarters = true;
             EnableSoundNotifications = false;
             GitFullClone = false;
@@ -255,9 +266,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "agent_settings", n => { AgentSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoAgentSettingsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoAgentSettingsProperty.CreateFromDiscriminatorValue); } },
                 { "conversation_settings", n => { ConversationSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings.CreateFromDiscriminatorValue); } },
                 { "default_sandbox_spec_id", n => { DefaultSandboxSpecId = n.GetStringValue(); } },
-                { "disabled_skills", n => { DisabledSkills = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoDisabledSkills>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoDisabledSkills.CreateFromDiscriminatorValue); } },
+                { "disabled_skills", n => { DisabledSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "email_verified", n => { EmailVerified = n.GetBoolValue(); } },
+                { "enable_memory_context", n => { EnableMemoryContext = n.GetBoolValue(); } },
                 { "enable_proactive_conversation_starters", n => { EnableProactiveConversationStarters = n.GetBoolValue(); } },
                 { "enable_sound_notifications", n => { EnableSoundNotifications = n.GetBoolValue(); } },
                 { "git_full_clone", n => { GitFullClone = n.GetBoolValue(); } },
@@ -268,9 +280,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "llm_profiles", n => { LlmProfiles = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmProfiles>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmProfiles.CreateFromDiscriminatorValue); } },
                 { "max_budget_per_task", n => { MaxBudgetPerTask = n.GetDoubleValue(); } },
+                { "memory_context", n => { MemoryContext = n.GetStringValue(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "org_name", n => { OrgName = n.GetStringValue(); } },
-                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoPermissions>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoPermissions.CreateFromDiscriminatorValue); } },
+                { "permissions", n => { Permissions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "registered_marketplaces", n => { RegisteredMarketplaces = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "remote_runtime_resource_factor", n => { RemoteRuntimeResourceFactor = n.GetIntValue(); } },
                 { "role", n => { Role = n.GetStringValue(); } },
@@ -279,7 +292,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "sandbox_grouping_strategy", n => { SandboxGroupingStrategy = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxGroupingStrategy>(); } },
                 { "sandbox_runtime_container_image", n => { SandboxRuntimeContainerImage = n.GetStringValue(); } },
                 { "search_api_key", n => { SearchApiKey = n.GetStringValue(); } },
-                { "secrets_store", n => { SecretsStore = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoSecretsStore>(global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoSecretsStore.CreateFromDiscriminatorValue); } },
+                { "secrets_store", n => { SecretsStore = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "title_llm_profile", n => { TitleLlmProfile = n.GetStringValue(); } },
                 { "user_consents_to_analytics", n => { UserConsentsToAnalytics = n.GetBoolValue(); } },
                 { "user_version", n => { UserVersion = n.GetIntValue(); } },
@@ -298,9 +311,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoAgentSettingsProperty>("agent_settings", AgentSettings);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings>("conversation_settings", ConversationSettings);
             writer.WriteStringValue("default_sandbox_spec_id", DefaultSandboxSpecId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoDisabledSkills>("disabled_skills", DisabledSkills);
+            writer.WriteCollectionOfPrimitiveValues<string>("disabled_skills", DisabledSkills);
             writer.WriteStringValue("email", Email);
             writer.WriteBoolValue("email_verified", EmailVerified);
+            writer.WriteBoolValue("enable_memory_context", EnableMemoryContext);
             writer.WriteBoolValue("enable_proactive_conversation_starters", EnableProactiveConversationStarters);
             writer.WriteBoolValue("enable_sound_notifications", EnableSoundNotifications);
             writer.WriteBoolValue("git_full_clone", GitFullClone);
@@ -311,9 +325,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("language", Language);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmProfiles>("llm_profiles", LlmProfiles);
             writer.WriteDoubleValue("max_budget_per_task", MaxBudgetPerTask);
+            writer.WriteStringValue("memory_context", MemoryContext);
             writer.WriteStringValue("org_id", OrgId);
             writer.WriteStringValue("org_name", OrgName);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoPermissions>("permissions", Permissions);
+            writer.WriteCollectionOfPrimitiveValues<string>("permissions", Permissions);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration>("registered_marketplaces", RegisteredMarketplaces);
             writer.WriteIntValue("remote_runtime_resource_factor", RemoteRuntimeResourceFactor);
             writer.WriteStringValue("role", Role);
@@ -322,7 +337,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxGroupingStrategy>("sandbox_grouping_strategy", SandboxGroupingStrategy);
             writer.WriteStringValue("sandbox_runtime_container_image", SandboxRuntimeContainerImage);
             writer.WriteStringValue("search_api_key", SearchApiKey);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SaasUserInfoSecretsStore>("secrets_store", SecretsStore);
+            writer.WriteObjectValue<UntypedNode>("secrets_store", SecretsStore);
             writer.WriteStringValue("title_llm_profile", TitleLlmProfile);
             writer.WriteBoolValue("user_consents_to_analytics", UserConsentsToAnalytics);
             writer.WriteIntValue("user_version", UserVersion);

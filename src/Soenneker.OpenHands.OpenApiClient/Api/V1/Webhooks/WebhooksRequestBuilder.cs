@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Conversations;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Events;
+using Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.McpOauthState;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Secrets;
 using System.Collections.Generic;
 using System.IO;
@@ -26,6 +27,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks
         public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Events.EventsRequestBuilder Events
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Events.EventsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The mcpOauthState property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.McpOauthState.McpOauthStateRequestBuilder McpOauthState
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.McpOauthState.McpOauthStateRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The secrets property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Secrets.SecretsRequestBuilder Secrets

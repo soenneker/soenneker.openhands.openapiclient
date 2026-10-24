@@ -54,7 +54,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public OrgBudgetUserResponse()
         {
             AdditionalData = new Dictionary<string, object>();
-            CurrentSpend = 0.0;
             IsDisabled = false;
             IsOverride = false;
         }

@@ -53,6 +53,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The credits property</summary>
         public double? Credits { get; set; }
+        /// <summary>The credits_available property</summary>
+        public bool? CreditsAvailable { get; set; }
         /// <summary>The enable_proactive_conversation_starters property</summary>
         public bool? EnableProactiveConversationStarters { get; set; }
         /// <summary>The id property</summary>
@@ -65,6 +67,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The is_personal property</summary>
         public bool? IsPersonal { get; set; }
+        /// <summary>The is_visible property</summary>
+        public bool? IsVisible { get; set; }
         /// <summary>The max_budget_per_task property</summary>
         public double? MaxBudgetPerTask { get; set; }
         /// <summary>The name property</summary>
@@ -119,8 +123,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public OrgResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            CreditsAvailable = false;
             EnableProactiveConversationStarters = true;
             IsPersonal = false;
+            IsVisible = true;
             OrgVersion = 0;
         }
         /// <summary>
@@ -148,9 +154,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "conversation_expiration", n => { ConversationExpiration = n.GetIntValue(); } },
                 { "conversation_settings", n => { ConversationSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings.CreateFromDiscriminatorValue); } },
                 { "credits", n => { Credits = n.GetDoubleValue(); } },
+                { "credits_available", n => { CreditsAvailable = n.GetBoolValue(); } },
                 { "enable_proactive_conversation_starters", n => { EnableProactiveConversationStarters = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_personal", n => { IsPersonal = n.GetBoolValue(); } },
+                { "is_visible", n => { IsVisible = n.GetBoolValue(); } },
                 { "max_budget_per_task", n => { MaxBudgetPerTask = n.GetDoubleValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "org_version", n => { OrgVersion = n.GetIntValue(); } },
@@ -176,9 +184,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteIntValue("conversation_expiration", ConversationExpiration);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings>("conversation_settings", ConversationSettings);
             writer.WriteDoubleValue("credits", Credits);
+            writer.WriteBoolValue("credits_available", CreditsAvailable);
             writer.WriteBoolValue("enable_proactive_conversation_starters", EnableProactiveConversationStarters);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_personal", IsPersonal);
+            writer.WriteBoolValue("is_visible", IsVisible);
             writer.WriteDoubleValue("max_budget_per_task", MaxBudgetPerTask);
             writer.WriteStringValue("name", Name);
             writer.WriteIntValue("org_version", OrgVersion);

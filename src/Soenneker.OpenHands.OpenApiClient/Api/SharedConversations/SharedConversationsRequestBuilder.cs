@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.SharedConversations
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SharedConversationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/shared-conversations?ids={ids}", pathParameters)
+        public SharedConversationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/shared-conversations{?ids*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,23 +30,23 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.SharedConversations
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SharedConversationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/shared-conversations?ids={ids}", rawUrl)
+        public SharedConversationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/shared-conversations{?ids*}", rawUrl)
         {
         }
         /// <summary>
         /// Get a batch of shared conversations given their ids. Return None for any missing or non-shared.
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.OpenHands.OpenApiClient.Models.ResponseBatchGetSharedConversationsApiSharedConversationsGetItem&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseBatchGetSharedConversationsApiSharedConversationsGetItem>?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.SharedConversations.SharedConversationsRequestBuilder.SharedConversationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation>?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.SharedConversations.SharedConversationsRequestBuilder.SharedConversationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseBatchGetSharedConversationsApiSharedConversationsGetItem>> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.SharedConversations.SharedConversationsRequestBuilder.SharedConversationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation>> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.SharedConversations.SharedConversationsRequestBuilder.SharedConversationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.SharedConversations
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseBatchGetSharedConversationsApiSharedConversationsGetItem>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ResponseBatchGetSharedConversationsApiSharedConversationsGetItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SharedConversation.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>
@@ -93,12 +93,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.SharedConversations
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("ids")]
             public string[]? Ids { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("ids")]
             public string[] Ids { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

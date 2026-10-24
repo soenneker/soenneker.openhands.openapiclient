@@ -32,6 +32,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string AuthUrl { get; set; }
 #endif
+        /// <summary>The db_feature_flags property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigDbFeatureFlagsProperty? DbFeatureFlags { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigDbFeatureFlagsProperty DbFeatureFlags { get; set; }
+#endif
         /// <summary>The email_change_enabled property</summary>
         public bool? EmailChangeEnabled { get; set; }
         /// <summary>The email_enabled property</summary>
@@ -96,8 +104,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The jira_dc_service_account_managed property</summary>
         public bool? JiraDcServiceAccountManaged { get; set; }
+        /// <summary>The jira_oauth_enabled property</summary>
+        public bool? JiraOauthEnabled { get; set; }
         /// <summary>The kind property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_kind? Kind { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigKind? Kind { get; set; }
         /// <summary>The maintenance_start_time property</summary>
         public DateTimeOffset? MaintenanceStartTime { get; set; }
         /// <summary>The posthog_client_key property</summary>
@@ -136,6 +146,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public bool? SlackEnabled { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
+        /// <summary>The user_provisioning_enabled property</summary>
+        public bool? UserProvisioningEnabled { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig"/> and sets the default values.
         /// </summary>
@@ -146,7 +158,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             EmailEnabled = false;
             GitlabEnabled = false;
             JiraDcServiceAccountManaged = false;
+            JiraOauthEnabled = true;
             SlackEnabled = false;
+            UserProvisioningEnabled = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -169,6 +183,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "acp_providers", n => { AcpProviders = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "app_mode", n => { AppMode = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppMode>(); } },
                 { "auth_url", n => { AuthUrl = n.GetStringValue(); } },
+                { "db_feature_flags", n => { DbFeatureFlags = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigDbFeatureFlagsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigDbFeatureFlagsProperty.CreateFromDiscriminatorValue); } },
                 { "email_change_enabled", n => { EmailChangeEnabled = n.GetBoolValue(); } },
                 { "email_enabled", n => { EmailEnabled = n.GetBoolValue(); } },
                 { "error_message", n => { ErrorMessage = n.GetStringValue(); } },
@@ -180,7 +195,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "jira_dc_service_account_config_error", n => { JiraDcServiceAccountConfigError = n.GetStringValue(); } },
                 { "jira_dc_service_account_email", n => { JiraDcServiceAccountEmail = n.GetStringValue(); } },
                 { "jira_dc_service_account_managed", n => { JiraDcServiceAccountManaged = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_kind>(); } },
+                { "jira_oauth_enabled", n => { JiraOauthEnabled = n.GetBoolValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigKind>(); } },
                 { "maintenance_start_time", n => { MaintenanceStartTime = n.GetDateTimeOffsetValue(); } },
                 { "posthog_client_key", n => { PosthogClientKey = n.GetStringValue(); } },
                 { "provider_default_hosts", n => { ProviderDefaultHosts = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigProviderDefaultHostsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigProviderDefaultHostsProperty.CreateFromDiscriminatorValue); } },
@@ -188,6 +204,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "recaptcha_site_key", n => { RecaptchaSiteKey = n.GetStringValue(); } },
                 { "slack_enabled", n => { SlackEnabled = n.GetBoolValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
+                { "user_provisioning_enabled", n => { UserProvisioningEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -200,6 +217,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig>("acp_providers", AcpProviders);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppMode>("app_mode", AppMode);
             writer.WriteStringValue("auth_url", AuthUrl);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigDbFeatureFlagsProperty>("db_feature_flags", DbFeatureFlags);
             writer.WriteBoolValue("email_change_enabled", EmailChangeEnabled);
             writer.WriteBoolValue("email_enabled", EmailEnabled);
             writer.WriteStringValue("error_message", ErrorMessage);
@@ -211,7 +229,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("jira_dc_service_account_config_error", JiraDcServiceAccountConfigError);
             writer.WriteStringValue("jira_dc_service_account_email", JiraDcServiceAccountEmail);
             writer.WriteBoolValue("jira_dc_service_account_managed", JiraDcServiceAccountManaged);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig_kind>("kind", Kind);
+            writer.WriteBoolValue("jira_oauth_enabled", JiraOauthEnabled);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigKind>("kind", Kind);
             writer.WriteDateTimeOffsetValue("maintenance_start_time", MaintenanceStartTime);
             writer.WriteStringValue("posthog_client_key", PosthogClientKey);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigProviderDefaultHostsProperty>("provider_default_hosts", ProviderDefaultHosts);
@@ -219,6 +238,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("recaptcha_site_key", RecaptchaSiteKey);
             writer.WriteBoolValue("slack_enabled", SlackEnabled);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            writer.WriteBoolValue("user_provisioning_enabled", UserProvisioningEnabled);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

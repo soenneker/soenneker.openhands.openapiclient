@@ -14,6 +14,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The diagnostics property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ManagedLlmApiKeyRefreshResponseDiagnosticsProperty? Diagnostics { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ManagedLlmApiKeyRefreshResponseDiagnosticsProperty Diagnostics { get; set; }
+#endif
         /// <summary>The refreshed property</summary>
         public bool? Refreshed { get; set; }
         /// <summary>
@@ -41,6 +49,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "diagnostics", n => { Diagnostics = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ManagedLlmApiKeyRefreshResponseDiagnosticsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.ManagedLlmApiKeyRefreshResponseDiagnosticsProperty.CreateFromDiscriminatorValue); } },
                 { "refreshed", n => { Refreshed = n.GetBoolValue(); } },
             };
         }
@@ -51,6 +60,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ManagedLlmApiKeyRefreshResponseDiagnosticsProperty>("diagnostics", Diagnostics);
             writer.WriteBoolValue("refreshed", Refreshed);
             writer.WriteAdditionalData(AdditionalData);
         }

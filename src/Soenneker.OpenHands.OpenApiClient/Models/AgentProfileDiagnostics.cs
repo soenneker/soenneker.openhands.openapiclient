@@ -55,6 +55,22 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public List<string> DanglingMcpServerRefs { get; set; }
 #endif
+        /// <summary>The dangling_meta_profile_llm_refs property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? DanglingMetaProfileLlmRefs { get; set; }
+#nullable restore
+#else
+        public List<string> DanglingMetaProfileLlmRefs { get; set; }
+#endif
+        /// <summary>The dangling_meta_profile_ref property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DanglingMetaProfileRef { get; set; }
+#nullable restore
+#else
+        public string DanglingMetaProfileRef { get; set; }
+#endif
         /// <summary>The disabled_skills property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,10 +102,26 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The mcp_server_refs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsMcpServerRefs? McpServerRefs { get; set; }
+        public List<string>? McpServerRefs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsMcpServerRefs McpServerRefs { get; set; }
+        public List<string> McpServerRefs { get; set; }
+#endif
+        /// <summary>The meta_profile_ref property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MetaProfileRef { get; set; }
+#nullable restore
+#else
+        public string MetaProfileRef { get; set; }
+#endif
+        /// <summary>The public_skills property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? PublicSkills { get; set; }
+#nullable restore
+#else
+        public List<string> PublicSkills { get; set; }
 #endif
         /// <summary>The resolved_mcp_config_keys property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -99,21 +131,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public List<string> ResolvedMcpConfigKeys { get; set; }
 #endif
-        /// <summary>Deprecated alias for resolved_mcp_config_keys.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? ResolvedMcpServers { get; set; }
-#nullable restore
-#else
-        public List<string> ResolvedMcpServers { get; set; }
-#endif
         /// <summary>The resolved_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsResolvedSettings? ResolvedSettings { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsResolvedSettingsProperty? ResolvedSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsResolvedSettings ResolvedSettings { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsResolvedSettingsProperty ResolvedSettings { get; set; }
 #endif
         /// <summary>The resolved_skills property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -122,6 +146,22 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #nullable restore
 #else
         public List<string> ResolvedSkills { get; set; }
+#endif
+        /// <summary>The secret_refs property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? SecretRefs { get; set; }
+#nullable restore
+#else
+        public List<string> SecretRefs { get; set; }
+#endif
+        /// <summary>Selected tools the runtime cannot run. An unavailable browser is left out of the launch; any other such tool fails the launch or fails when the agent uses it.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? UnusableTools { get; set; }
+#nullable restore
+#else
+        public List<string> UnusableTools { get; set; }
 #endif
         /// <summary>The valid property</summary>
         public bool? Valid { get; set; }
@@ -158,16 +198,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "acp_file_secret_names", n => { AcpFileSecretNames = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "agent_kind", n => { AgentKind = n.GetStringValue(); } },
                 { "dangling_mcp_server_refs", n => { DanglingMcpServerRefs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "dangling_meta_profile_llm_refs", n => { DanglingMetaProfileLlmRefs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "dangling_meta_profile_ref", n => { DanglingMetaProfileRef = n.GetStringValue(); } },
                 { "disabled_skills", n => { DisabledSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "errors", n => { Errors = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "llm_api_key_set", n => { LlmApiKeySet = n.GetBoolValue(); } },
                 { "llm_profile_ref", n => { LlmProfileRef = n.GetStringValue(); } },
                 { "llm_profile_resolved", n => { LlmProfileResolved = n.GetBoolValue(); } },
-                { "mcp_server_refs", n => { McpServerRefs = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsMcpServerRefs>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsMcpServerRefs.CreateFromDiscriminatorValue); } },
+                { "mcp_server_refs", n => { McpServerRefs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "meta_profile_ref", n => { MetaProfileRef = n.GetStringValue(); } },
+                { "public_skills", n => { PublicSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "resolved_mcp_config_keys", n => { ResolvedMcpConfigKeys = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "resolved_mcp_servers", n => { ResolvedMcpServers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "resolved_settings", n => { ResolvedSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsResolvedSettings>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsResolvedSettings.CreateFromDiscriminatorValue); } },
+                { "resolved_settings", n => { ResolvedSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsResolvedSettingsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsResolvedSettingsProperty.CreateFromDiscriminatorValue); } },
                 { "resolved_skills", n => { ResolvedSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "secret_refs", n => { SecretRefs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "unusable_tools", n => { UnusableTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "valid", n => { Valid = n.GetBoolValue(); } },
             };
         }
@@ -183,16 +228,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("acp_file_secret_names", AcpFileSecretNames);
             writer.WriteStringValue("agent_kind", AgentKind);
             writer.WriteCollectionOfPrimitiveValues<string>("dangling_mcp_server_refs", DanglingMcpServerRefs);
+            writer.WriteCollectionOfPrimitiveValues<string>("dangling_meta_profile_llm_refs", DanglingMetaProfileLlmRefs);
+            writer.WriteStringValue("dangling_meta_profile_ref", DanglingMetaProfileRef);
             writer.WriteCollectionOfPrimitiveValues<string>("disabled_skills", DisabledSkills);
             writer.WriteCollectionOfPrimitiveValues<string>("errors", Errors);
             writer.WriteBoolValue("llm_api_key_set", LlmApiKeySet);
             writer.WriteStringValue("llm_profile_ref", LlmProfileRef);
             writer.WriteBoolValue("llm_profile_resolved", LlmProfileResolved);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsMcpServerRefs>("mcp_server_refs", McpServerRefs);
+            writer.WriteCollectionOfPrimitiveValues<string>("mcp_server_refs", McpServerRefs);
+            writer.WriteStringValue("meta_profile_ref", MetaProfileRef);
+            writer.WriteCollectionOfPrimitiveValues<string>("public_skills", PublicSkills);
             writer.WriteCollectionOfPrimitiveValues<string>("resolved_mcp_config_keys", ResolvedMcpConfigKeys);
-            writer.WriteCollectionOfPrimitiveValues<string>("resolved_mcp_servers", ResolvedMcpServers);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsResolvedSettings>("resolved_settings", ResolvedSettings);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsResolvedSettingsProperty>("resolved_settings", ResolvedSettings);
             writer.WriteCollectionOfPrimitiveValues<string>("resolved_skills", ResolvedSkills);
+            writer.WriteCollectionOfPrimitiveValues<string>("secret_refs", SecretRefs);
+            writer.WriteCollectionOfPrimitiveValues<string>("unusable_tools", UnusableTools);
             writer.WriteBoolValue("valid", Valid);
             writer.WriteAdditionalData(AdditionalData);
         }

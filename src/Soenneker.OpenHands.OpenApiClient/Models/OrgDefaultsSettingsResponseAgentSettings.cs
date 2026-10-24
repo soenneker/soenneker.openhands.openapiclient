@@ -45,17 +45,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.OrgDefaultsSettingsResponseAgentSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("agent_kind")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.OrgDefaultsSettingsResponseAgentSettings();
-            if("AcpAgentSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("acp".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AcpAgentSettings = new global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettings();
             }
-            else if("LlmAgentSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("llm".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.LlmAgentSettings = new global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettings();
             }
-            else if("OpenHandsAgentSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("openhands".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OpenHandsAgentSettings = new global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentSettings();
             }

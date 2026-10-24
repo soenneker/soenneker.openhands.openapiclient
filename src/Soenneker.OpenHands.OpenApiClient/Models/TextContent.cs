@@ -23,7 +23,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Text { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.TextContent_type? Type { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.TextType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TextContent"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "cache_prompt", n => { CachePrompt = n.GetBoolValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TextType>(); } },
             };
         }
         /// <summary>
@@ -63,7 +63,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("cache_prompt", CachePrompt);
             writer.WriteStringValue("text", Text);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TextType>("type", Type);
         }
     }
 }

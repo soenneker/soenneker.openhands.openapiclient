@@ -16,12 +16,50 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Require user confirmation before executing risky actions.</summary>
         public bool? ConfirmationMode { get; set; }
+        /// <summary>Run a browser in new Docker conversations&apos; containers. Has no effect when the server&apos;s image ships without one.</summary>
+        public bool? ContainerBrowser { get; set; }
+        /// <summary>CPUs each new Docker conversation&apos;s container may use, from 0.01 up to the machine&apos;s CPU count. Unset keeps the server default.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerCpus? ContainerCpus { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerCpus ContainerCpus { get; set; }
+#endif
+        /// <summary>Memory limit for each new Docker conversation&apos;s container, in `docker run --memory` syntax such as `512m` or `4g`. Unset keeps the server default.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerMemory? ContainerMemory { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerMemory ContainerMemory { get; set; }
+#endif
+        /// <summary>Where new conversations run: in the workspace on the host, in a new git worktree of it, or in their own Docker container (which needs a server that offers it).</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsDefaultRuntime? DefaultRuntime { get; set; }
         /// <summary>Maximum number of iterations the conversation will run before stopping.</summary>
         public int? MaxIterations { get; set; }
         /// <summary>The schema_version property</summary>
         public int? SchemaVersion { get; set; }
         /// <summary>Security analyzer that evaluates actions before execution.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsSecurityAnalyzer? SecurityAnalyzer { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsSecurityAnalyzerAnyOf1? SecurityAnalyzer { get; set; }
+        /// <summary>What a new conversation worktree branches from: the repository&apos;s default branch, the checkout&apos;s current HEAD, or `worktree_base_ref`.</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBase? WorktreeBase { get; set; }
+        /// <summary>Branch, tag or commit new worktrees branch from when `worktree_base` is `ref`, e.g. `develop` or `origin/release`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBaseRef? WorktreeBaseRef { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBaseRef WorktreeBaseRef { get; set; }
+#endif
+        /// <summary>Start of each worktree&apos;s branch name, which ends in the conversation id, e.g. `openhands/` or `me/`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WorktreeBranchPrefix { get; set; }
+#nullable restore
+#else
+        public string WorktreeBranchPrefix { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings"/> and sets the default values.
         /// </summary>
@@ -29,8 +67,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             ConfirmationMode = false;
+            ContainerBrowser = true;
             MaxIterations = 500;
             SchemaVersion = 1;
+            WorktreeBranchPrefix = "openhands/";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -51,9 +91,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "confirmation_mode", n => { ConfirmationMode = n.GetBoolValue(); } },
+                { "container_browser", n => { ContainerBrowser = n.GetBoolValue(); } },
+                { "container_cpus", n => { ContainerCpus = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerCpus>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerCpus.CreateFromDiscriminatorValue); } },
+                { "container_memory", n => { ContainerMemory = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerMemory>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerMemory.CreateFromDiscriminatorValue); } },
+                { "default_runtime", n => { DefaultRuntime = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsDefaultRuntime>(); } },
                 { "max_iterations", n => { MaxIterations = n.GetIntValue(); } },
                 { "schema_version", n => { SchemaVersion = n.GetIntValue(); } },
-                { "security_analyzer", n => { SecurityAnalyzer = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsSecurityAnalyzer>(); } },
+                { "security_analyzer", n => { SecurityAnalyzer = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsSecurityAnalyzerAnyOf1>(); } },
+                { "worktree_base", n => { WorktreeBase = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBase>(); } },
+                { "worktree_base_ref", n => { WorktreeBaseRef = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBaseRef>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBaseRef.CreateFromDiscriminatorValue); } },
+                { "worktree_branch_prefix", n => { WorktreeBranchPrefix = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -64,9 +111,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("confirmation_mode", ConfirmationMode);
+            writer.WriteBoolValue("container_browser", ContainerBrowser);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerCpus>("container_cpus", ContainerCpus);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerMemory>("container_memory", ContainerMemory);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsDefaultRuntime>("default_runtime", DefaultRuntime);
             writer.WriteIntValue("max_iterations", MaxIterations);
             writer.WriteIntValue("schema_version", SchemaVersion);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsSecurityAnalyzer>("security_analyzer", SecurityAnalyzer);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsSecurityAnalyzerAnyOf1>("security_analyzer", SecurityAnalyzer);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBase>("worktree_base", WorktreeBase);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBaseRef>("worktree_base_ref", WorktreeBaseRef);
+            writer.WriteStringValue("worktree_branch_prefix", WorktreeBranchPrefix);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

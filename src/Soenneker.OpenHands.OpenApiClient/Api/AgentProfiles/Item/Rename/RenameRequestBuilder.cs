@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Rename
 {
     /// <summary>
-    /// Builds and executes requests for operations under \api\agent-profiles\{name-id}\rename
+    /// Builds and executes requests for operations under \api\agent-profiles\{name}\rename
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RenameRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Rename
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RenameRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/agent-profiles/{name%2Did}/rename{?org_id*}", pathParameters)
+        public RenameRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/agent-profiles/{name}/rename{?org_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Rename
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RenameRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/agent-profiles/{name%2Did}/rename{?org_id*}", rawUrl)
+        public RenameRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/agent-profiles/{name}/rename{?org_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -95,8 +95,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Rename
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RenameRequestBuilderPostQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("org_id")]
             public Guid? OrgId { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

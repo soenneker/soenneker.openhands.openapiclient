@@ -3,8 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Oauth.Device;
+using Soenneker.OpenHands.OpenApiClient.Oauth.GitProviders;
 using Soenneker.OpenHands.OpenApiClient.Oauth.Github;
+using Soenneker.OpenHands.OpenApiClient.Oauth.Idp;
+using Soenneker.OpenHands.OpenApiClient.Oauth.IdpLogin;
+using Soenneker.OpenHands.OpenApiClient.Oauth.IdpProviders;
+using Soenneker.OpenHands.OpenApiClient.Oauth.Item;
 using Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak;
+using Soenneker.OpenHands.OpenApiClient.Oauth.Providers;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -27,10 +33,47 @@ namespace Soenneker.OpenHands.OpenApiClient.Oauth
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Oauth.Github.GithubRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The gitProviders property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Oauth.GitProviders.GitProvidersRequestBuilder GitProviders
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Oauth.GitProviders.GitProvidersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The idp property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Oauth.Idp.IdpRequestBuilder Idp
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Oauth.Idp.IdpRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The idpLogin property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Oauth.IdpLogin.IdpLoginRequestBuilder IdpLogin
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Oauth.IdpLogin.IdpLoginRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The idpProviders property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Oauth.IdpProviders.IdpProvidersRequestBuilder IdpProviders
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Oauth.IdpProviders.IdpProvidersRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The keycloak property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.KeycloakRequestBuilder Keycloak
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Oauth.Keycloak.KeycloakRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The providers property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Oauth.Providers.ProvidersRequestBuilder Providers
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Oauth.Providers.ProvidersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.oauth.item collection</summary>
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Oauth.Item.WithProviderItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenHands.OpenApiClient.Oauth.Item.WithProviderItemRequestBuilder this[int position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("providerId", position);
+                return new global::Soenneker.OpenHands.OpenApiClient.Oauth.Item.WithProviderItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Oauth.OauthRequestBuilder"/> and sets the default values.

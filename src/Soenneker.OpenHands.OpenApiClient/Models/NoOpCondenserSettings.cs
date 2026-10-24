@@ -16,7 +16,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Discriminator for the condenser settings union. ``&apos;no_op&apos;`` selects a condenser that leaves conversation views unchanged.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.NoOpCondenserSettings_condenser_kind? CondenserKind { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.NoOpCondenserSettingsCondenserKind? CondenserKind { get; set; }
         /// <summary>Enable conversation memory condensation.</summary>
         public bool? Enabled { get; set; }
         /// <summary>
@@ -45,7 +45,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "condenser_kind", n => { CondenserKind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.NoOpCondenserSettings_condenser_kind>(); } },
+                { "condenser_kind", n => { CondenserKind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.NoOpCondenserSettingsCondenserKind>(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
             };
         }
@@ -56,7 +56,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.NoOpCondenserSettings_condenser_kind>("condenser_kind", CondenserKind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.NoOpCondenserSettingsCondenserKind>("condenser_kind", CondenserKind);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteAdditionalData(AdditionalData);
         }

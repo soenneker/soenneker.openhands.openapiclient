@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.Export;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.Item;
+using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.MyUsage;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.Stats;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.UsageStats;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.UserUsage;
@@ -26,6 +27,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.Export.ExportRequestBuilder Export
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.Export.ExportRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The myUsage property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.MyUsage.MyUsageRequestBuilder MyUsage
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.MyUsage.MyUsageRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The stats property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.Stats.StatsRequestBuilder Stats
@@ -71,7 +77,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
         {
         }
         /// <summary>
-        /// &quot;List all conversations for an organization.This endpoint returns a paginated list of all conversations within an organization,including details about each conversation such as the creator, timestamps, and metrics.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: Organization UUID    search: Search text matching conversation name, creator name, email, or sandbox ID    sort_by: Field to sort by (created_at, updated_at, llm_model, accumulated_cost, title)    sort_order: Sort order (desc or asc)    execution_status: Filter by execution status (idle, running, paused, finished, error, stuck)    sandbox_status: Filter by sandbox status (STARTING, RUNNING, PAUSED, ERROR, MISSING)    time_window: Time window filter (all, 7d, 30d, 90d)    page: Page number (1-indexed)    per_page: Items per page (1-100)    include_sub_conversations: If True, include sub-conversations in results    user_id: Authenticated user ID (injected by require_permission dependency)    service: OrgConversationService instanceReturns:    OrgConversationPage: Paginated list of conversations with total countRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks VIEW_ORG_CONVERSATIONS permission    HTTPException: 500 if retrieval fails&quot;
+        /// List all conversations for an organization.This endpoint returns a paginated list of all conversations within an organization,including details about each conversation such as the creator, timestamps, and metrics.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: Organization UUID    search: Search text matching conversation name, creator name, email, or sandbox ID    sort_by: Field to sort by (created_at, updated_at, llm_model, accumulated_cost, title)    sort_order: Sort order (desc or asc)    execution_status: Filter by execution status (idle, running, paused, finished, error, stuck)    sandbox_status: Filter by sandbox status (STARTING, RUNNING, PAUSED, ERROR, MISSING)    time_window: Time window filter (all, 7d, 30d, 90d)    page: Page number (1-indexed)    per_page: Items per page (1-100)    include_sub_conversations: If True, include sub-conversations in results    user_id: Authenticated user ID (injected by require_permission dependency)    service: OrgConversationService instanceReturns:    OrgConversationPage: Paginated list of conversations with total countRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks VIEW_ORG_CONVERSATIONS permission    HTTPException: 500 if retrieval fails
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgConversationPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -94,7 +100,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgConversationPage>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgConversationPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;List all conversations for an organization.This endpoint returns a paginated list of all conversations within an organization,including details about each conversation such as the creator, timestamps, and metrics.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: Organization UUID    search: Search text matching conversation name, creator name, email, or sandbox ID    sort_by: Field to sort by (created_at, updated_at, llm_model, accumulated_cost, title)    sort_order: Sort order (desc or asc)    execution_status: Filter by execution status (idle, running, paused, finished, error, stuck)    sandbox_status: Filter by sandbox status (STARTING, RUNNING, PAUSED, ERROR, MISSING)    time_window: Time window filter (all, 7d, 30d, 90d)    page: Page number (1-indexed)    per_page: Items per page (1-100)    include_sub_conversations: If True, include sub-conversations in results    user_id: Authenticated user ID (injected by require_permission dependency)    service: OrgConversationService instanceReturns:    OrgConversationPage: Paginated list of conversations with total countRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks VIEW_ORG_CONVERSATIONS permission    HTTPException: 500 if retrieval fails&quot;
+        /// List all conversations for an organization.This endpoint returns a paginated list of all conversations within an organization,including details about each conversation such as the creator, timestamps, and metrics.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: Organization UUID    search: Search text matching conversation name, creator name, email, or sandbox ID    sort_by: Field to sort by (created_at, updated_at, llm_model, accumulated_cost, title)    sort_order: Sort order (desc or asc)    execution_status: Filter by execution status (idle, running, paused, finished, error, stuck)    sandbox_status: Filter by sandbox status (STARTING, RUNNING, PAUSED, ERROR, MISSING)    time_window: Time window filter (all, 7d, 30d, 90d)    page: Page number (1-indexed)    per_page: Items per page (1-100)    include_sub_conversations: If True, include sub-conversations in results    user_id: Authenticated user ID (injected by require_permission dependency)    service: OrgConversationService instanceReturns:    OrgConversationPage: Paginated list of conversations with total countRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks VIEW_ORG_CONVERSATIONS permission    HTTPException: 500 if retrieval fails
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -122,28 +128,34 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
             return new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.ConversationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;List all conversations for an organization.This endpoint returns a paginated list of all conversations within an organization,including details about each conversation such as the creator, timestamps, and metrics.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: Organization UUID    search: Search text matching conversation name, creator name, email, or sandbox ID    sort_by: Field to sort by (created_at, updated_at, llm_model, accumulated_cost, title)    sort_order: Sort order (desc or asc)    execution_status: Filter by execution status (idle, running, paused, finished, error, stuck)    sandbox_status: Filter by sandbox status (STARTING, RUNNING, PAUSED, ERROR, MISSING)    time_window: Time window filter (all, 7d, 30d, 90d)    page: Page number (1-indexed)    per_page: Items per page (1-100)    include_sub_conversations: If True, include sub-conversations in results    user_id: Authenticated user ID (injected by require_permission dependency)    service: OrgConversationService instanceReturns:    OrgConversationPage: Paginated list of conversations with total countRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks VIEW_ORG_CONVERSATIONS permission    HTTPException: 500 if retrieval fails&quot;
+        /// List all conversations for an organization.This endpoint returns a paginated list of all conversations within an organization,including details about each conversation such as the creator, timestamps, and metrics.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Args:    org_id: Organization UUID    search: Search text matching conversation name, creator name, email, or sandbox ID    sort_by: Field to sort by (created_at, updated_at, llm_model, accumulated_cost, title)    sort_order: Sort order (desc or asc)    execution_status: Filter by execution status (idle, running, paused, finished, error, stuck)    sandbox_status: Filter by sandbox status (STARTING, RUNNING, PAUSED, ERROR, MISSING)    time_window: Time window filter (all, 7d, 30d, 90d)    page: Page number (1-indexed)    per_page: Items per page (1-100)    include_sub_conversations: If True, include sub-conversations in results    user_id: Authenticated user ID (injected by require_permission dependency)    service: OrgConversationService instanceReturns:    OrgConversationPage: Paginated list of conversations with total countRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks VIEW_ORG_CONVERSATIONS permission    HTTPException: 500 if retrieval fails
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ConversationsRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Comma-separated list: idle, running, paused, finished, error, stuck&quot;</summary>
+            /// <summary>Comma-separated list: idle, running, paused, finished, error, stuck</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("execution_status")]
-            public string? ExecutionStatus { get; set; }
+            public string[]? ExecutionStatus { get; set; }
 #nullable restore
 #else
             [QueryParameter("execution_status")]
-            public string ExecutionStatus { get; set; }
+            public string[] ExecutionStatus { get; set; }
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("include_sub_conversations")]
             public bool? IncludeSubConversations { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("page")]
             public int? Page { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-            /// <summary>&quot;Filter by sandbox status: STARTING, RUNNING, PAUSED, ERROR, MISSING. Note: when filtering by sandbox_status, total_items reflects the unfiltered count since the filter is applied post-query. This may result in pagination showing fewer items per page than expected.&quot;</summary>
+            #pragma warning restore CS1591
+            /// <summary>Filter by sandbox status: STARTING, RUNNING, PAUSED, ERROR, MISSING. Note: when filtering by sandbox_status, total_items reflects the unfiltered count since the filter is applied post-query. This may result in pagination showing fewer items per page than expected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sandbox_status")]
@@ -155,14 +167,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("search")]
             public string? Search { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("search")]
             public string Search { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>&quot;Options: created_at, updated_at, llm_model, accumulated_cost, title&quot;</summary>
+            /// <summary>Options: created_at, updated_at, llm_model, accumulated_cost, title</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sort_by")]
@@ -172,7 +188,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
             [QueryParameter("sort_by")]
             public string SortBy { get; set; }
 #endif
-            /// <summary>&quot;Options: desc (default), asc&quot;</summary>
+            /// <summary>Options: desc (default), asc</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sort_order")]
@@ -182,7 +198,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
             [QueryParameter("sort_order")]
             public string SortOrder { get; set; }
 #endif
-            /// <summary>&quot;Options: all, 7d, 30d, 90d&quot;</summary>
+            /// <summary>Options: all, 7d, 30d, 90d</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("time_window")]

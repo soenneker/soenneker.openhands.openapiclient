@@ -9,6 +9,8 @@ using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Me;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles;
+using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.ProviderConnections;
+using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Secrets;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Settings;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Switch;
 using Soenneker.OpenHands.OpenApiClient.Models;
@@ -55,6 +57,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.ProfilesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The providerConnections property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.ProviderConnections.ProviderConnectionsRequestBuilder ProviderConnections
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.ProviderConnections.ProviderConnectionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The secrets property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Secrets.SecretsRequestBuilder Secrets
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Secrets.SecretsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The settings property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Settings.SettingsRequestBuilder Settings
         {
@@ -82,19 +94,19 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item
         {
         }
         /// <summary>
-        /// &quot;Delete an organization.This endpoint permanently deletes an organization and all associated data includingorganization members, conversations, billing data, and external LiteLLM team resources.Access requires the DELETE_ORGANIZATION permission, which is granted only to owners.Args:    org_id: Organization ID to delete (UUID)    user_id: Authenticated user ID (injected by require_permission dependency)Returns:    dict: Confirmation message with deleted organization detailsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks DELETE_ORGANIZATION permission    HTTPException: 404 if organization not found    HTTPException: 500 if deletion fails&quot;
+        /// Delete an organization.This endpoint permanently deletes an organization and all associated data includingorganization members, conversations, billing data, and external LiteLLM team resources.Access requires the DELETE_ORGANIZATION permission, which is granted only to owners.Args:    org_id: Organization ID to delete (UUID)    user_id: Authenticated user ID (injected by require_permission dependency)Returns:    dict: Confirmation message with deleted organization detailsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks DELETE_ORGANIZATION permission    HTTPException: 404 if organization not found    HTTPException: 500 if deletion fails
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.DeleteOrgApiOrganizationsOrgIdDelete200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResponseDeleteOrgApiOrganizationsOrgIdDeleteSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.DeleteOrgApiOrganizationsOrgIdDelete200Response?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseDeleteOrgApiOrganizationsOrgIdDeleteSchema?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.DeleteOrgApiOrganizationsOrgIdDelete200Response> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseDeleteOrgApiOrganizationsOrgIdDeleteSchema> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -102,10 +114,34 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.DeleteOrgApiOrganizationsOrgIdDelete200Response>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.DeleteOrgApiOrganizationsOrgIdDelete200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseDeleteOrgApiOrganizationsOrgIdDeleteSchema>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ResponseDeleteOrgApiOrganizationsOrgIdDeleteSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Update an existing organization.This endpoint updates organization settings. Access requires the EDIT_ORG_SETTINGSpermission, which is granted to admin and owner roles.Args:    org_id: Organization ID to update (UUID)    update_data: Organization update data    user_id: Authenticated user ID (injected by require_permission dependency)Returns:    OrgResponse: The updated organization detailsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks EDIT_ORG_SETTINGS permission    HTTPException: 404 if organization not found    HTTPException: 409 if organization name already exists    HTTPException: 422 if validation errors occur (handled by FastAPI)    HTTPException: 500 if update fails&quot;
+        /// Get organization details by ID through the deprecated detail route.
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse"/></returns>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+        [Obsolete("")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToGetRequestInformation(requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Update an existing organization.This endpoint updates organization settings. Access requires the EDIT_ORG_SETTINGSpermission, which is granted to admin and owner roles.Args:    org_id: Organization ID to update (UUID)    update_data: Organization update data    user_id: Authenticated user ID (injected by require_permission dependency)Returns:    OrgResponse: The updated organization detailsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks EDIT_ORG_SETTINGS permission    HTTPException: 404 if organization not found    HTTPException: 409 if organization name already exists    HTTPException: 422 if validation errors occur (handled by FastAPI)    HTTPException: 500 if update fails
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse"/></returns>
         /// <param name="body">Request model for updating an organization.``agent_settings_diff`` and ``conversation_settings_diff`` are sparse diffsthat are deep-merged into the org row and then validated as full settingsbefore persistence.</param>
@@ -130,7 +166,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Delete an organization.This endpoint permanently deletes an organization and all associated data includingorganization members, conversations, billing data, and external LiteLLM team resources.Access requires the DELETE_ORGANIZATION permission, which is granted only to owners.Args:    org_id: Organization ID to delete (UUID)    user_id: Authenticated user ID (injected by require_permission dependency)Returns:    dict: Confirmation message with deleted organization detailsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks DELETE_ORGANIZATION permission    HTTPException: 404 if organization not found    HTTPException: 500 if deletion fails&quot;
+        /// Delete an organization.This endpoint permanently deletes an organization and all associated data includingorganization members, conversations, billing data, and external LiteLLM team resources.Access requires the DELETE_ORGANIZATION permission, which is granted only to owners.Args:    org_id: Organization ID to delete (UUID)    user_id: Authenticated user ID (injected by require_permission dependency)Returns:    dict: Confirmation message with deleted organization detailsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks DELETE_ORGANIZATION permission    HTTPException: 404 if organization not found    HTTPException: 500 if deletion fails
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -149,7 +185,27 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Update an existing organization.This endpoint updates organization settings. Access requires the EDIT_ORG_SETTINGSpermission, which is granted to admin and owner roles.Args:    org_id: Organization ID to update (UUID)    update_data: Organization update data    user_id: Authenticated user ID (injected by require_permission dependency)Returns:    OrgResponse: The updated organization detailsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks EDIT_ORG_SETTINGS permission    HTTPException: 404 if organization not found    HTTPException: 409 if organization name already exists    HTTPException: 422 if validation errors occur (handled by FastAPI)    HTTPException: 500 if update fails&quot;
+        /// Get organization details by ID through the deprecated detail route.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
+        /// Update an existing organization.This endpoint updates organization settings. Access requires the EDIT_ORG_SETTINGSpermission, which is granted to admin and owner roles.Args:    org_id: Organization ID to update (UUID)    update_data: Organization update data    user_id: Authenticated user ID (injected by require_permission dependency)Returns:    OrgResponse: The updated organization detailsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks EDIT_ORG_SETTINGS permission    HTTPException: 404 if organization not found    HTTPException: 409 if organization name already exists    HTTPException: 422 if validation errors occur (handled by FastAPI)    HTTPException: 500 if update fails
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request model for updating an organization.``agent_settings_diff`` and ``conversation_settings_diff`` are sparse diffsthat are deep-merged into the org row and then validated as full settingsbefore persistence.</param>

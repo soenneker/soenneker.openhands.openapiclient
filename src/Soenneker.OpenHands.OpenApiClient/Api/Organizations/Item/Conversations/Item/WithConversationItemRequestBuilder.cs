@@ -40,7 +40,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
         {
         }
         /// <summary>
-        /// &quot;Get a specific conversation by ID.Returns full conversation details including logs/history reference.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Raises:    HTTPException: 404 if conversation not found or not in org&quot;
+        /// Get a specific conversation by ID.Returns full conversation details including logs/history reference.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Raises:    HTTPException: 404 if conversation not found or not in org
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgConversationResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgConversationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgConversationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Get a specific conversation by ID.Returns full conversation details including logs/history reference.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Raises:    HTTPException: 404 if conversation not found or not in org&quot;
+        /// Get a specific conversation by ID.Returns full conversation details including logs/history reference.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Raises:    HTTPException: 404 if conversation not found or not in org
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

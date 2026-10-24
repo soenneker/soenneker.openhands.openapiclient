@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
         {
         }
         /// <summary>
-        /// &quot;Get aggregated statistics for organization conversations.Returns counts of active conversations, running runtimes, completed conversations,and aggregated cost/token usage for the organization.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Returns:    OrgConversationStats: Aggregated statistics for the org&quot;
+        /// Get aggregated statistics for organization conversations.Returns counts of active conversations, running runtimes, completed conversations,and aggregated cost/token usage for the organization.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Returns:    OrgConversationStats: Aggregated statistics for the org
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgConversationStats"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgConversationStats>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgConversationStats.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Get aggregated statistics for organization conversations.Returns counts of active conversations, running runtimes, completed conversations,and aggregated cost/token usage for the organization.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Returns:    OrgConversationStats: Aggregated statistics for the org&quot;
+        /// Get aggregated statistics for organization conversations.Returns counts of active conversations, running runtimes, completed conversations,and aggregated cost/token usage for the organization.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).Returns:    OrgConversationStats: Aggregated statistics for the org
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

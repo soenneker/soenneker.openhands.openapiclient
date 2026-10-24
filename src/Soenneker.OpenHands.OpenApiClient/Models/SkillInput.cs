@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;A skill provides specialized knowledge or functionality.Skill behavior depends on format (is_agentskills_format) and trigger:AgentSkills format (SKILL.md files):- Always listed in &lt;available_skills&gt; with name, description, location- Agent reads full content on demand (progressive disclosure)- If has triggers: content is ALSO auto-injected when triggeredLegacy OpenHands format:- With triggers: Listed in &lt;available_skills&gt;, content injected on trigger- Without triggers (None): Full content in &lt;REPO_CONTEXT&gt;, always activeThis model supports both OpenHands-specific fields and AgentSkills standardfields (https://agentskills.io/specification) for cross-platform compatibility.&quot;
+    /// A skill provides specialized knowledge or functionality.Skill behavior depends on format (is_agentskills_format) and trigger:AgentSkills format (SKILL.md files):- Always listed in &lt;available_skills&gt; with name, description, location- Agent reads full content on demand (progressive disclosure)- If has triggers: content is ALSO auto-injected when triggeredLegacy OpenHands format:- With triggers: Listed in &lt;available_skills&gt;, content injected on trigger- Without triggers (None): Full content in &lt;REPO_CONTEXT&gt;, always activeThis model supports both OpenHands-specific fields and AgentSkills standardfields (https://agentskills.io/specification) for cross-platform compatibility.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SkillInput : IAdditionalDataHolder, IParsable
@@ -18,10 +18,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>List of pre-approved tools for this skill. AgentSkills standard field (parsed from space-delimited string).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputAllowedTools? AllowedTools { get; set; }
+        public List<string>? AllowedTools { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputAllowedTools AllowedTools { get; set; }
+        public List<string> AllowedTools { get; set; }
 #endif
         /// <summary>Environment requirements or compatibility notes for the skill. AgentSkills standard field (e.g., &apos;Requires git and docker&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenHands.OpenApiClient.Models.InputMetadata> Inputs { get; set; }
 #endif
-        /// <summary>&quot;Whether this skill was loaded from a SKILL.md file following the AgentSkills standard. AgentSkills-format skills use progressive disclosure: always listed in &lt;available_skills&gt; with name, description, and location. If the skill also has triggers, content is auto-injected when triggered AND agent can read file anytime.&quot;</summary>
+        /// <summary>Whether this skill was loaded from a SKILL.md file following the AgentSkills standard. AgentSkills-format skills use progressive disclosure: always listed in &lt;available_skills&gt; with name, description, and location. If the skill also has triggers, content is auto-injected when triggered AND agent can read file anytime.</summary>
         public bool? IsAgentskillsFormat { get; set; }
         /// <summary>The license under which the skill is distributed. AgentSkills standard field (e.g., &apos;Apache-2.0&apos;, &apos;MIT&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,18 +70,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>MCP servers for the skill (repo skills only).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMcpTools? McpTools { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMcpToolsProperty? McpTools { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMcpTools McpTools { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMcpToolsProperty McpTools { get; set; }
 #endif
         /// <summary>Arbitrary key-value metadata for the skill. AgentSkills standard field for extensibility.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMetadata? Metadata { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMetadataProperty? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMetadata Metadata { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMetadataProperty Metadata { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -94,10 +94,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Resource directories for the skill (scripts/, references/, assets/). AgentSkills standard field. Only populated for SKILL.md directory format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputResources? Resources { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources? Resources { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputResources Resources { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources Resources { get; set; }
 #endif
         /// <summary>The source path or identifier of the skill. When it is None, it is treated as a programmatically defined skill.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -107,13 +107,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Source { get; set; }
 #endif
-        /// <summary>&quot;Trigger determines when skill content is auto-injected. None = no auto-injection (for AgentSkills: agent reads on demand; for legacy: full content always in system prompt). KeywordTrigger = auto-inject when keywords appear in user messages. TaskTrigger = auto-inject for specific tasks, may require user input.&quot;</summary>
+        /// <summary>Trigger determines when skill content is auto-injected. None = no auto-injection (for AgentSkills: agent reads on demand; for legacy: full content always in system prompt). KeywordTrigger = auto-inject when keywords appear in user messages. TaskTrigger = auto-inject for specific tasks, may require user input.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTrigger? Trigger { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.PathTrigger? Trigger { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTrigger Trigger { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.PathTrigger Trigger { get; set; }
 #endif
         /// <summary>Skill version (AgentSkills standard field).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -151,7 +151,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowed_tools", n => { AllowedTools = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputAllowedTools>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputAllowedTools.CreateFromDiscriminatorValue); } },
+                { "allowed_tools", n => { AllowedTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "compatibility", n => { Compatibility = n.GetStringValue(); } },
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -159,12 +159,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "inputs", n => { Inputs = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.InputMetadata>(global::Soenneker.OpenHands.OpenApiClient.Models.InputMetadata.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "is_agentskills_format", n => { IsAgentskillsFormat = n.GetBoolValue(); } },
                 { "license", n => { License = n.GetStringValue(); } },
-                { "mcp_tools", n => { McpTools = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMcpTools>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMcpTools.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMetadata>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMetadata.CreateFromDiscriminatorValue); } },
+                { "mcp_tools", n => { McpTools = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMcpToolsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMcpToolsProperty.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMetadataProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "resources", n => { Resources = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputResources>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputResources.CreateFromDiscriminatorValue); } },
+                { "resources", n => { Resources = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetStringValue(); } },
-                { "trigger", n => { Trigger = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTrigger>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTrigger.CreateFromDiscriminatorValue); } },
+                { "trigger", n => { Trigger = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PathTrigger>(global::Soenneker.OpenHands.OpenApiClient.Models.PathTrigger.CreateFromDiscriminatorValue); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -175,7 +175,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputAllowedTools>("allowed_tools", AllowedTools);
+            writer.WriteCollectionOfPrimitiveValues<string>("allowed_tools", AllowedTools);
             writer.WriteStringValue("compatibility", Compatibility);
             writer.WriteStringValue("content", Content);
             writer.WriteStringValue("description", Description);
@@ -183,12 +183,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.InputMetadata>("inputs", Inputs);
             writer.WriteBoolValue("is_agentskills_format", IsAgentskillsFormat);
             writer.WriteStringValue("license", License);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMcpTools>("mcp_tools", McpTools);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMetadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMcpToolsProperty>("mcp_tools", McpTools);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMetadataProperty>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputResources>("resources", Resources);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources>("resources", Resources);
             writer.WriteStringValue("source", Source);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTrigger>("trigger", Trigger);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PathTrigger>("trigger", Trigger);
             writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }

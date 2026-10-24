@@ -20,14 +20,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles
     {
         /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.api.agentProfiles.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.NameItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.NameItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.WithNameItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.WithNameItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("name%2Did", position);
-                return new global::Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.NameItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("name", position);
+                return new global::Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.WithNameItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles
         {
         }
         /// <summary>
-        /// &quot;List agent profiles and the effective active pointer for this member.No implicit writes: an org with no profiles yet just returns an emptylist. Profile creation is always an explicit ``save_agent_profile`` call(``EDIT_ORG_SETTINGS``).&quot;
+        /// List agent profiles and the effective active pointer for this member.No implicit writes: an org with no profiles yet just returns an emptylist. Profile creation is always an explicit ``save_agent_profile`` call(``EDIT_ORG_SETTINGS``).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileListResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;List agent profiles and the effective active pointer for this member.No implicit writes: an org with no profiles yet just returns an emptylist. Profile creation is always an explicit ``save_agent_profile`` call(``EDIT_ORG_SETTINGS``).&quot;
+        /// List agent profiles and the effective active pointer for this member.No implicit writes: an org with no profiles yet just returns an emptylist. Profile creation is always an explicit ``save_agent_profile`` call(``EDIT_ORG_SETTINGS``).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,13 +98,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles
             return new global::Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.AgentProfilesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;List agent profiles and the effective active pointer for this member.No implicit writes: an org with no profiles yet just returns an emptylist. Profile creation is always an explicit ``save_agent_profile`` call(``EDIT_ORG_SETTINGS``).&quot;
+        /// List agent profiles and the effective active pointer for this member.No implicit writes: an org with no profiles yet just returns an emptylist. Profile creation is always an explicit ``save_agent_profile`` call(``EDIT_ORG_SETTINGS``).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AgentProfilesRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("org_id")]
             public Guid? OrgId { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

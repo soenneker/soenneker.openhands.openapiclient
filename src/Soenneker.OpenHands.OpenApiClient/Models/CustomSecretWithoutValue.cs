@@ -31,12 +31,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>Scope of a custom secret — personal or org-shared.</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretScope? Scope { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretWithoutValue"/> and sets the default values.
         /// </summary>
         public CustomSecretWithoutValue()
         {
             AdditionalData = new Dictionary<string, object>();
+            Scope = global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretScope.Personal;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -58,6 +61,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretScope>(); } },
             };
         }
         /// <summary>
@@ -69,6 +73,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretScope>("scope", Scope);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

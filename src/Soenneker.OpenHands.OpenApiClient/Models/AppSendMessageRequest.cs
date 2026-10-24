@@ -24,7 +24,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public List<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequestContentItem> Content { get; set; }
 #endif
         /// <summary>The role of the message sender. Currently only &quot;user&quot; is supported.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequest_role? Role { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.UserRole? Role { get; set; }
         /// <summary>Whether to automatically run the agent after sending the message.</summary>
         public bool? Run { get; set; }
         /// <summary>
@@ -54,7 +54,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequestContentItem>(global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequestContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequest_role>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.UserRole>(); } },
                 { "run", n => { Run = n.GetBoolValue(); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequestContentItem>("content", Content);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequest_role>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.UserRole>("role", Role);
             writer.WriteBoolValue("run", Run);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -14,8 +14,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The is_default property</summary>
+        public bool? IsDefault { get; set; }
         /// <summary>The is_enabled property</summary>
         public bool? IsEnabled { get; set; }
+        /// <summary>The is_free property</summary>
+        public bool? IsFree { get; set; }
+        /// <summary>The is_verified property</summary>
+        public bool? IsVerified { get; set; }
         /// <summary>The model_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,7 +44,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public VerifiedModelCreate()
         {
             AdditionalData = new Dictionary<string, object>();
+            IsDefault = false;
             IsEnabled = true;
+            IsFree = false;
+            IsVerified = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -58,7 +67,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "is_default", n => { IsDefault = n.GetBoolValue(); } },
                 { "is_enabled", n => { IsEnabled = n.GetBoolValue(); } },
+                { "is_free", n => { IsFree = n.GetBoolValue(); } },
+                { "is_verified", n => { IsVerified = n.GetBoolValue(); } },
                 { "model_name", n => { ModelName = n.GetStringValue(); } },
                 { "provider", n => { Provider = n.GetStringValue(); } },
             };
@@ -70,7 +82,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("is_default", IsDefault);
             writer.WriteBoolValue("is_enabled", IsEnabled);
+            writer.WriteBoolValue("is_free", IsFree);
+            writer.WriteBoolValue("is_verified", IsVerified);
             writer.WriteStringValue("model_name", ModelName);
             writer.WriteStringValue("provider", Provider);
             writer.WriteAdditionalData(AdditionalData);

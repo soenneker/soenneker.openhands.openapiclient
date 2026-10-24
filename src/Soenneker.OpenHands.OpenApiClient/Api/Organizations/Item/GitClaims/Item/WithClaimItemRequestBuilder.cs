@@ -34,19 +34,19 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims.Ite
         {
         }
         /// <summary>
-        /// &quot;Remove a Git organization claim from an OpenHands organization.Only admin and owner roles can disconnect Git organization claims.Args:    org_id: OpenHands organization UUID    claim_id: Claim UUID to remove    user_id: Authenticated user ID (injected by permission check)Returns:    dict: Confirmation message on successful deletionRaises:    HTTPException 404: If the claim is not found for this organization    HTTPException 403: If user lacks permission&quot;
+        /// Remove a Git organization claim from an OpenHands organization.Only admin and owner roles can disconnect Git organization claims.Args:    org_id: OpenHands organization UUID    claim_id: Claim UUID to remove    user_id: Authenticated user ID (injected by permission check)Returns:    dict: Confirmation message on successful deletionRaises:    HTTPException 404: If the claim is not found for this organization    HTTPException 403: If user lacks permission
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.DisconnectGitOrganizationApiOrganizationsOrgIdGitClaimsClaimIdDelete200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResponseDisconnectGitOrganizationApiOrganizationsOrgIdGitClaimsClaimIdDeleteSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.DisconnectGitOrganizationApiOrganizationsOrgIdGitClaimsClaimIdDelete200Response?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseDisconnectGitOrganizationApiOrganizationsOrgIdGitClaimsClaimIdDeleteSchema?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.DisconnectGitOrganizationApiOrganizationsOrgIdGitClaimsClaimIdDelete200Response> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseDisconnectGitOrganizationApiOrganizationsOrgIdGitClaimsClaimIdDeleteSchema> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -54,10 +54,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims.Ite
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.DisconnectGitOrganizationApiOrganizationsOrgIdGitClaimsClaimIdDelete200Response>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.DisconnectGitOrganizationApiOrganizationsOrgIdGitClaimsClaimIdDelete200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseDisconnectGitOrganizationApiOrganizationsOrgIdGitClaimsClaimIdDeleteSchema>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ResponseDisconnectGitOrganizationApiOrganizationsOrgIdGitClaimsClaimIdDeleteSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Remove a Git organization claim from an OpenHands organization.Only admin and owner roles can disconnect Git organization claims.Args:    org_id: OpenHands organization UUID    claim_id: Claim UUID to remove    user_id: Authenticated user ID (injected by permission check)Returns:    dict: Confirmation message on successful deletionRaises:    HTTPException 404: If the claim is not found for this organization    HTTPException 403: If user lacks permission&quot;
+        /// Remove a Git organization claim from an OpenHands organization.Only admin and owner roles can disconnect Git organization claims.Args:    org_id: OpenHands organization UUID    claim_id: Claim UUID to remove    user_id: Authenticated user ID (injected by permission check)Returns:    dict: Confirmation message on successful deletionRaises:    HTTPException 404: If the claim is not found for this organization    HTTPException 403: If user lacks permission
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

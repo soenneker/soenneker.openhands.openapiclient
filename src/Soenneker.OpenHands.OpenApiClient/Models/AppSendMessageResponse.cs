@@ -23,7 +23,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Message { get; set; }
 #endif
-        /// <summary>The sandbox_status property</summary>
+        /// <summary>The current status of the sandbox after the operation.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStatus? SandboxStatus { get; set; }
         /// <summary>Whether the message was successfully sent to the agent.</summary>
         public bool? Success { get; set; }

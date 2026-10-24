@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Central structure for managing prompt extension.AgentContext unifies all the contextual inputs that shape how the systemextends and interprets user prompts. It combines both static environmentdetails and dynamic, user-activated extensions from skills.Specifically, it provides:- **Repository context / Repo Skills**: Information about the active codebase,  branches, and repo-specific instructions contributed by repo skills.- **Runtime context**: Current execution environment (hosts, working  directory, secrets, date, etc.).- **Conversation instructions**: Optional task- or channel-specific rules  that constrain or guide the agent’s behavior across the session.- **Knowledge Skills**: Extensible components that can be triggered by user input  to inject knowledge or domain-specific guidance.Together, these elements make AgentContext the primary container responsiblefor assembling, formatting, and injecting all prompt-relevant context intoLLM interactions.&quot;
+    /// Central structure for managing prompt extension.AgentContext unifies all the contextual inputs that shape how the systemextends and interprets user prompts. It combines both static environmentdetails and dynamic, user-activated extensions from skills.Specifically, it provides:- **Repository context / Repo Skills**: Information about the active codebase,  branches, and repo-specific instructions contributed by repo skills.- **Runtime context**: Current execution environment (hosts, working  directory, secrets, date, etc.).- **Conversation instructions**: Optional task- or channel-specific rules  that constrain or guide the agent’s behavior across the session.- **Knowledge Skills**: Extensible components that can be triggered by user input  to inject knowledge or domain-specific guidance.Together, these elements make AgentContext the primary container responsiblefor assembling, formatting, and injecting all prompt-relevant context intoLLM interactions.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentContextOutput : IAdditionalDataHolder, IParsable
@@ -33,7 +33,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>Whether to load persistent agent memory (MEMORY.md indexes under ~/.openhands/memory/ and &lt;workspace&gt;/.openhands/memory/) into the system prompt. Like load_project_skills, this flag is not resolved by AgentContext itself (the workspace path is unknown at validation time); LocalConversation resolves it lazily on the first send_message() / run() and stores the result in memory_context.</summary>
         public bool? LoadMemory { get; set; }
-        /// <summary>&quot;Whether to automatically load project skills from the conversation workspace (e.g. .openhands/skills/, AGENTS.md). Unlike load_user_skills / load_public_skills, this flag is not resolved by AgentContext itself (the workspace path is unknown at validation time); LocalConversation resolves it lazily on the first send_message() / run(), when the workspace is known. Also unlike load_user_skills / load_public_skills (which yield to explicit skills on a name conflict), resolved project skills are authoritative: a project skill overrides a same-named skill already present in `skills`.&quot;</summary>
+        /// <summary>Whether to automatically load project skills from the conversation workspace (e.g. .openhands/skills/, AGENTS.md). Unlike load_user_skills / load_public_skills, this flag is not resolved by AgentContext itself (the workspace path is unknown at validation time); LocalConversation resolves it lazily on the first send_message() / run(), when the workspace is known. Also unlike load_user_skills / load_public_skills (which yield to explicit skills on a name conflict), resolved project skills are authoritative: a project skill overrides a same-named skill already present in `skills`.</summary>
         public bool? LoadProjectSkills { get; set; }
         /// <summary>Whether to automatically load skills from the public OpenHands skills repository at https://github.com/OpenHands/extensions. This allows you to get the latest skills without SDK updates.</summary>
         public bool? LoadPublicSkills { get; set; }
@@ -42,10 +42,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Relative marketplace JSON path within the public skills repository. Set to None to load all public skills without marketplace filtering.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MarketplacePath { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputMarketplacePath? MarketplacePath { get; set; }
 #nullable restore
 #else
-        public string MarketplacePath { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputMarketplacePath MarketplacePath { get; set; }
 #endif
         /// <summary>Marketplace registrations for plugin resolution. Registrations with auto_load=True or a list of plugin names are resolved by LocalConversation at startup.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,10 +58,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Dictionary mapping secret keys to values or secret sources. Secrets are used for authentication and sensitive data handling. Values can be either strings or SecretSource instances (str | SecretSource).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSecrets? Secrets { get; set; }
+        public UntypedNode? Secrets { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSecrets Secrets { get; set; }
+        public UntypedNode Secrets { get; set; }
 #endif
         /// <summary>List of available skills that can extend the user&apos;s input.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,18 +74,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Optional suffix to append to the system prompt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SystemMessageSuffix { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSystemMessageSuffix? SystemMessageSuffix { get; set; }
 #nullable restore
 #else
-        public string SystemMessageSuffix { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSystemMessageSuffix SystemMessageSuffix { get; set; }
 #endif
         /// <summary>Optional suffix to append to the user&apos;s message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserMessageSuffix { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputUserMessageSuffix? UserMessageSuffix { get; set; }
 #nullable restore
 #else
-        public string UserMessageSuffix { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputUserMessageSuffix UserMessageSuffix { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput"/> and sets the default values.
@@ -97,7 +97,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             LoadProjectSkills = false;
             LoadPublicSkills = false;
             LoadUserSkills = false;
-            MarketplacePath = "marketplaces/default.json";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -123,12 +122,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "load_project_skills", n => { LoadProjectSkills = n.GetBoolValue(); } },
                 { "load_public_skills", n => { LoadPublicSkills = n.GetBoolValue(); } },
                 { "load_user_skills", n => { LoadUserSkills = n.GetBoolValue(); } },
-                { "marketplace_path", n => { MarketplacePath = n.GetStringValue(); } },
+                { "marketplace_path", n => { MarketplacePath = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputMarketplacePath>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputMarketplacePath.CreateFromDiscriminatorValue); } },
                 { "registered_marketplaces", n => { RegisteredMarketplaces = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "secrets", n => { Secrets = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSecrets>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSecrets.CreateFromDiscriminatorValue); } },
+                { "secrets", n => { Secrets = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "skills", n => { Skills = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.SkillOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillOutput.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "system_message_suffix", n => { SystemMessageSuffix = n.GetStringValue(); } },
-                { "user_message_suffix", n => { UserMessageSuffix = n.GetStringValue(); } },
+                { "system_message_suffix", n => { SystemMessageSuffix = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSystemMessageSuffix>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSystemMessageSuffix.CreateFromDiscriminatorValue); } },
+                { "user_message_suffix", n => { UserMessageSuffix = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputUserMessageSuffix>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputUserMessageSuffix.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -144,12 +143,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("load_project_skills", LoadProjectSkills);
             writer.WriteBoolValue("load_public_skills", LoadPublicSkills);
             writer.WriteBoolValue("load_user_skills", LoadUserSkills);
-            writer.WriteStringValue("marketplace_path", MarketplacePath);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputMarketplacePath>("marketplace_path", MarketplacePath);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration>("registered_marketplaces", RegisteredMarketplaces);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSecrets>("secrets", Secrets);
+            writer.WriteObjectValue<UntypedNode>("secrets", Secrets);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.SkillOutput>("skills", Skills);
-            writer.WriteStringValue("system_message_suffix", SystemMessageSuffix);
-            writer.WriteStringValue("user_message_suffix", UserMessageSuffix);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSystemMessageSuffix>("system_message_suffix", SystemMessageSuffix);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputUserMessageSuffix>("user_message_suffix", UserMessageSuffix);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

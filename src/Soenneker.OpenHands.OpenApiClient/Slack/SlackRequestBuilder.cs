@@ -8,6 +8,7 @@ using Soenneker.OpenHands.OpenApiClient.Slack.KeycloakCallback;
 using Soenneker.OpenHands.OpenApiClient.Slack.OnEvent;
 using Soenneker.OpenHands.OpenApiClient.Slack.OnFormInteraction;
 using Soenneker.OpenHands.OpenApiClient.Slack.OnOptionsLoad;
+using Soenneker.OpenHands.OpenApiClient.Slack.Status;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -49,6 +50,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Slack
         public global::Soenneker.OpenHands.OpenApiClient.Slack.OnOptionsLoad.OnOptionsLoadRequestBuilder OnOptionsLoad
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Slack.OnOptionsLoad.OnOptionsLoadRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The status property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Slack.Status.StatusRequestBuilder Status
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Slack.Status.StatusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Slack.SlackRequestBuilder"/> and sets the default values.

@@ -7,6 +7,7 @@ using Soenneker.OpenHands.OpenApiClient.Api.V1.Config;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.Conversations;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.Git;
+using Soenneker.OpenHands.OpenApiClient.Api.V1.Mcp;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.SandboxSpecs;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets;
@@ -51,6 +52,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1
         public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Git.GitRequestBuilder Git
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Git.GitRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The mcp property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Mcp.McpRequestBuilder Mcp
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Mcp.McpRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The sandboxes property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.SandboxesRequestBuilder Sandboxes

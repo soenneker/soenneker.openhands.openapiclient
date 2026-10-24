@@ -50,6 +50,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Status { get; set; }
 #endif
+        /// <summary>The svc_acc_email property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SvcAccEmail { get; set; }
+#nullable restore
+#else
+        public string SvcAccEmail { get; set; }
+#endif
         /// <summary>The updated_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -89,6 +97,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "jira_cloud_id", n => { JiraCloudId = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
+                { "svc_acc_email", n => { SvcAccEmail = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -105,6 +114,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("jira_cloud_id", JiraCloudId);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("status", Status);
+            writer.WriteStringValue("svc_acc_email", SvcAccEmail);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

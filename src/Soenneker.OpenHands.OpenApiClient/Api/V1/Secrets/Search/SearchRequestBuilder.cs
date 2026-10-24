@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Search
         {
         }
         /// <summary>
-        /// &quot;Search / List custom secrets.Retrieves the names and descriptions of custom secrets for the authenticated user.Results are paginated and can be filtered by name.In SaaS mode, includes the system-generated OPENHANDS_API_KEY which cannot be deleted.Returns:    CustomSecretPage: Paginated list of custom secrets (without values)&quot;
+        /// Search / List custom secrets.Retrieves the names and descriptions of custom secrets for the authenticated user.Results are paginated and can be filtered by name.In SaaS mode, includes the system-generated OPENHANDS_API_KEY which cannot be deleted.In SaaS mode, also includes org-shared secrets (scope=organization), with suffixdeduplication applied so that a personal secret and an org-shared secret with thesame base name are both listed as distinct entries.Returns:    CustomSecretPage: Paginated list of custom secrets (without values)
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Search
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretPage>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Search / List custom secrets.Retrieves the names and descriptions of custom secrets for the authenticated user.Results are paginated and can be filtered by name.In SaaS mode, includes the system-generated OPENHANDS_API_KEY which cannot be deleted.Returns:    CustomSecretPage: Paginated list of custom secrets (without values)&quot;
+        /// Search / List custom secrets.Retrieves the names and descriptions of custom secrets for the authenticated user.Results are paginated and can be filtered by name.In SaaS mode, includes the system-generated OPENHANDS_API_KEY which cannot be deleted.In SaaS mode, also includes org-shared secrets (scope=organization), with suffixdeduplication applied so that a personal secret and an org-shared secret with thesame base name are both listed as distinct entries.Returns:    CustomSecretPage: Paginated list of custom secrets (without values)
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,30 +85,40 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Search
             return new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Search.SearchRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Search / List custom secrets.Retrieves the names and descriptions of custom secrets for the authenticated user.Results are paginated and can be filtered by name.In SaaS mode, includes the system-generated OPENHANDS_API_KEY which cannot be deleted.Returns:    CustomSecretPage: Paginated list of custom secrets (without values)&quot;
+        /// Search / List custom secrets.Retrieves the names and descriptions of custom secrets for the authenticated user.Results are paginated and can be filtered by name.In SaaS mode, includes the system-generated OPENHANDS_API_KEY which cannot be deleted.In SaaS mode, also includes org-shared secrets (scope=organization), with suffixdeduplication applied so that a personal secret and an org-shared secret with thesame base name are both listed as distinct entries.Returns:    CustomSecretPage: Paginated list of custom secrets (without values)
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SearchRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("name__contains")]
             public string? NameContains { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("name__contains")]
             public string NameContains { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("page_id")]
             public string? PageId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("page_id")]
             public string PageId { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

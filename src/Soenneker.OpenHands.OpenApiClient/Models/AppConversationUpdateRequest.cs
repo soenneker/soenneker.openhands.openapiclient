@@ -16,13 +16,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The git_provider property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequestGitProvider? GitProvider { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequestGitProvider GitProvider { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? GitProvider { get; set; }
         /// <summary>The public property</summary>
         public bool? Public { get; set; }
         /// <summary>The selected_branch property</summary>
@@ -40,6 +34,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #nullable restore
 #else
         public string SelectedRepository { get; set; }
+#endif
+        /// <summary>Tag changes applied as a merge patch: each key is set to its value and a null value deletes the key. Keys not mentioned are left untouched. Keys must be lowercase alphanumeric and values at most 256 characters; server-managed tag keys are rejected.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequestTagsProperty? Tags { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequestTagsProperty Tags { get; set; }
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,10 +76,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "git_provider", n => { GitProvider = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequestGitProvider>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequestGitProvider.CreateFromDiscriminatorValue); } },
+                { "git_provider", n => { GitProvider = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>(); } },
                 { "public", n => { Public = n.GetBoolValue(); } },
                 { "selected_branch", n => { SelectedBranch = n.GetStringValue(); } },
                 { "selected_repository", n => { SelectedRepository = n.GetStringValue(); } },
+                { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequestTagsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequestTagsProperty.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -88,10 +91,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequestGitProvider>("git_provider", GitProvider);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>("git_provider", GitProvider);
             writer.WriteBoolValue("public", Public);
             writer.WriteStringValue("selected_branch", SelectedBranch);
             writer.WriteStringValue("selected_repository", SelectedRepository);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationUpdateRequestTagsProperty>("tags", Tags);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }

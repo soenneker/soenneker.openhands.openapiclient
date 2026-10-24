@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.App;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item;
+using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Llm;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members;
 using Soenneker.OpenHands.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -24,6 +25,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.App.AppRequestBuilder App
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.App.AppRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The llm property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Llm.LlmRequestBuilder Llm
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Llm.LlmRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The members property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Members.MembersRequestBuilder Members
@@ -47,7 +53,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OrganizationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations{?limit*,org_id*,page_id*}", pathParameters)
+        public OrganizationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations{?limit*,name*,org_id*,page_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -55,11 +61,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OrganizationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations{?limit*,org_id*,page_id*}", rawUrl)
+        public OrganizationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/organizations{?limit*,name*,org_id*,page_id*}", rawUrl)
         {
         }
         /// <summary>
-        /// &quot;List organizations for the authenticated user.This endpoint returns a paginated list of all organizations that theauthenticated user is a member of.Args:    page_id: Optional page ID (offset) for pagination    limit: Maximum number of organizations to return (1-100, default 100)    user_id: Authenticated user ID (injected by dependency)Returns:    OrgPage: Paginated list of organizationsRaises:    HTTPException: 500 if retrieval fails&quot;
+        /// List organizations for the authenticated user.This endpoint returns a paginated list of all organizations that theauthenticated user is a member of. When ``name`` is provided, only themember organization with exactly that name is returned; a name the userhas no membership in yields an empty page.Args:    page_id: Optional page ID (offset) for pagination    limit: Maximum number of organizations to return (1-100, default 100)    name: Optional exact organization name filter    user_id: Authenticated user ID (injected by dependency)Returns:    OrgPage: Paginated list of organizationsRaises:    HTTPException: 500 if retrieval fails
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +88,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgPage>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Create a new organization.This endpoint allows authenticated users that hold the``CREATE_ORGANIZATION`` permission to create a new organization. Inpractice this permission is only granted via the ``superadmin``role; no regular,org-scoped role carries it. The creator is not automatically addedas a member; a superadmin can provision the initial org users separately.Args:    org_data: Organization creation data    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgResponse: The created organization detailsRaises:    HTTPException: 401 if the user is not authenticated    HTTPException: 403 if the user lacks ``CREATE_ORGANIZATION``    HTTPException: 409 if organization name already exists    HTTPException: 500 if creation fails&quot;
+        /// Create a new organization.This endpoint allows authenticated users that hold the``CREATE_ORGANIZATION`` permission to create a new organization. Inpractice this permission is only granted via the ``superadmin``role; no regular,org-scoped role carries it. When ``owner_user_id`` is given, that user(the caller or an existing user) becomes the organization&apos;s owner.Otherwise the creator is not automatically added as a member; asuperadmin can provision the initial org users separately.Args:    org_data: Organization creation data    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgResponse: The created organization detailsRaises:    HTTPException: 401 if the user is not authenticated    HTTPException: 403 if the user lacks ``CREATE_ORGANIZATION``    HTTPException: 404 if ``owner_user_id`` does not match an existing user    HTTPException: 409 if organization name already exists    HTTPException: 500 if creation fails
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse"/></returns>
         /// <param name="body">Request model for creating a new organization.</param>
@@ -107,7 +113,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;List organizations for the authenticated user.This endpoint returns a paginated list of all organizations that theauthenticated user is a member of.Args:    page_id: Optional page ID (offset) for pagination    limit: Maximum number of organizations to return (1-100, default 100)    user_id: Authenticated user ID (injected by dependency)Returns:    OrgPage: Paginated list of organizationsRaises:    HTTPException: 500 if retrieval fails&quot;
+        /// List organizations for the authenticated user.This endpoint returns a paginated list of all organizations that theauthenticated user is a member of. When ``name`` is provided, only themember organization with exactly that name is returned; a name the userhas no membership in yields an empty page.Args:    page_id: Optional page ID (offset) for pagination    limit: Maximum number of organizations to return (1-100, default 100)    name: Optional exact organization name filter    user_id: Authenticated user ID (injected by dependency)Returns:    OrgPage: Paginated list of organizationsRaises:    HTTPException: 500 if retrieval fails
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -126,7 +132,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Create a new organization.This endpoint allows authenticated users that hold the``CREATE_ORGANIZATION`` permission to create a new organization. Inpractice this permission is only granted via the ``superadmin``role; no regular,org-scoped role carries it. The creator is not automatically addedas a member; a superadmin can provision the initial org users separately.Args:    org_data: Organization creation data    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgResponse: The created organization detailsRaises:    HTTPException: 401 if the user is not authenticated    HTTPException: 403 if the user lacks ``CREATE_ORGANIZATION``    HTTPException: 409 if organization name already exists    HTTPException: 500 if creation fails&quot;
+        /// Create a new organization.This endpoint allows authenticated users that hold the``CREATE_ORGANIZATION`` permission to create a new organization. Inpractice this permission is only granted via the ``superadmin``role; no regular,org-scoped role carries it. When ``owner_user_id`` is given, that user(the caller or an existing user) becomes the organization&apos;s owner.Otherwise the creator is not automatically added as a member; asuperadmin can provision the initial org users separately.Args:    org_data: Organization creation data    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgResponse: The created organization detailsRaises:    HTTPException: 401 if the user is not authenticated    HTTPException: 403 if the user lacks ``CREATE_ORGANIZATION``    HTTPException: 404 if ``owner_user_id`` does not match an existing user    HTTPException: 409 if organization name already exists    HTTPException: 500 if creation fails
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request model for creating a new organization.</param>
@@ -157,31 +163,52 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations
             return new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.OrganizationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;List organizations for the authenticated user.This endpoint returns a paginated list of all organizations that theauthenticated user is a member of.Args:    page_id: Optional page ID (offset) for pagination    limit: Maximum number of organizations to return (1-100, default 100)    user_id: Authenticated user ID (injected by dependency)Returns:    OrgPage: Paginated list of organizationsRaises:    HTTPException: 500 if retrieval fails&quot;
+        /// List organizations for the authenticated user.This endpoint returns a paginated list of all organizations that theauthenticated user is a member of. When ``name`` is provided, only themember organization with exactly that name is returned; a name the userhas no membership in yields an empty page.Args:    page_id: Optional page ID (offset) for pagination    limit: Maximum number of organizations to return (1-100, default 100)    name: Optional exact organization name filter    user_id: Authenticated user ID (injected by dependency)Returns:    OrgPage: Paginated list of organizationsRaises:    HTTPException: 500 if retrieval fails
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class OrganizationsRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("page_id")]
-            public string? PageId { get; set; }
+            #pragma warning disable CS1591
+            [QueryParameter("name")]
+            public string? Name { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
+            [QueryParameter("name")]
+            public string Name { get; set; }
+            #pragma warning restore CS1591
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            #pragma warning disable CS1591
+            [QueryParameter("page_id")]
+            public string? PageId { get; set; }
+            #pragma warning restore CS1591
+#nullable restore
+#else
+            #pragma warning disable CS1591
             [QueryParameter("page_id")]
             public string PageId { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
         /// <summary>
-        /// &quot;Create a new organization.This endpoint allows authenticated users that hold the``CREATE_ORGANIZATION`` permission to create a new organization. Inpractice this permission is only granted via the ``superadmin``role; no regular,org-scoped role carries it. The creator is not automatically addedas a member; a superadmin can provision the initial org users separately.Args:    org_data: Organization creation data    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgResponse: The created organization detailsRaises:    HTTPException: 401 if the user is not authenticated    HTTPException: 403 if the user lacks ``CREATE_ORGANIZATION``    HTTPException: 409 if organization name already exists    HTTPException: 500 if creation fails&quot;
+        /// Create a new organization.This endpoint allows authenticated users that hold the``CREATE_ORGANIZATION`` permission to create a new organization. Inpractice this permission is only granted via the ``superadmin``role; no regular,org-scoped role carries it. When ``owner_user_id`` is given, that user(the caller or an existing user) becomes the organization&apos;s owner.Otherwise the creator is not automatically added as a member; asuperadmin can provision the initial org users separately.Args:    org_data: Organization creation data    user_id: Authenticated user ID (injected by ``require_permission``)Returns:    OrgResponse: The created organization detailsRaises:    HTTPException: 401 if the user is not authenticated    HTTPException: 403 if the user lacks ``CREATE_ORGANIZATION``    HTTPException: 404 if ``owner_user_id`` does not match an existing user    HTTPException: 409 if organization name already exists    HTTPException: 500 if creation fails
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class OrganizationsRequestBuilderPostQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("org_id")]
             public Guid? OrgId { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

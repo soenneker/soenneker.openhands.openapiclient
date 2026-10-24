@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Registration for a plugin marketplace.Represents a marketplace that can be registered for plugin resolution.Marketplaces can be auto-loaded (plugins loaded at conversation start)or registered only (available for explicit plugin references).Wire-compatible with ``openhands.sdk.marketplace.MarketplaceRegistration``(the model the agent-server ``/api/skills`` endpoint consumes): dumping thismodel with ``exclude={&apos;scope&apos;}`` yields exactly the SDK model&apos;s fields(``name``/``source``/``ref``/``repo_path``/``auto_load``), and our ``bool````auto_load`` and stricter field validators are a subset of what the SDKaccepts, so any value we produce validates upstream.This is intentionally kept as a separate model rather than importing the SDKone, because it carries a backend-only ``scope`` (set per storage layer forAPI responses/UI, stripped at the wire boundary and re-derived duringcomposition) and enforces input validation the SDK model does not (source /``repo_path`` traversal guards, name format).Examples:    &gt;&gt;&gt; # Auto-load all plugins from a marketplace    &gt;&gt;&gt; MarketplaceRegistration(    ...     name=\&quot;public\&quot;,    ...     source=\&quot;github:OpenHands/skills\&quot;,    ...     auto_load=True    ... )    &gt;&gt;&gt; # Register marketplace without auto-loading    &gt;&gt;&gt; MarketplaceRegistration(    ...     name=\&quot;experimental\&quot;,    ...     source=\&quot;github:acme/experimental\&quot;    ... )    &gt;&gt;&gt; # Marketplace in monorepo subdirectory    &gt;&gt;&gt; MarketplaceRegistration(    ...     name=\&quot;team\&quot;,    ...     source=\&quot;github:acme/monorepo\&quot;,    ...     repo_path=\&quot;marketplaces/internal\&quot;,    ...     auto_load=True    ... )&quot;
+    /// Registration for a plugin marketplace.Represents a marketplace that can be registered for plugin resolution.Marketplaces can be auto-loaded (plugins loaded at conversation start)or registered only (available for explicit plugin references).Wire-compatible with ``openhands.sdk.marketplace.MarketplaceRegistration``(the model the agent-server ``/api/skills`` endpoint consumes): dumping thismodel with ``exclude={&apos;scope&apos;}`` yields exactly the SDK model&apos;s fields(``name``/``source``/``ref``/``repo_path``/``auto_load``), and our ``bool````auto_load`` and stricter field validators are a subset of what the SDKaccepts, so any value we produce validates upstream.This is intentionally kept as a separate model rather than importing the SDKone, because it carries a backend-only ``scope`` (set per storage layer forAPI responses/UI, stripped at the wire boundary and re-derived duringcomposition) and enforces input validation the SDK model does not (source /``repo_path`` traversal guards, name format).Examples:    &gt;&gt;&gt; # Auto-load all plugins from a marketplace    &gt;&gt;&gt; MarketplaceRegistration(    ...     name=&quot;public&quot;,    ...     source=&quot;github:OpenHands/skills&quot;,    ...     auto_load=True    ... )    &gt;&gt;&gt; # Register marketplace without auto-loading    &gt;&gt;&gt; MarketplaceRegistration(    ...     name=&quot;experimental&quot;,    ...     source=&quot;github:acme/experimental&quot;    ... )    &gt;&gt;&gt; # Marketplace in monorepo subdirectory    &gt;&gt;&gt; MarketplaceRegistration(    ...     name=&quot;team&quot;,    ...     source=&quot;github:acme/monorepo&quot;,    ...     repo_path=&quot;marketplaces/internal&quot;,    ...     auto_load=True    ... )
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration : IAdditionalDataHolder, IParsable
@@ -41,15 +41,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string RepoPath { get; set; }
 #endif
-        /// <summary>&quot;Scope of this marketplace registration. Set automatically by backend based on storage layer: \&quot;instance\&quot; for system defaults, \&quot;org\&quot; for organization-level, \&quot;personal\&quot; for user-level. Frontend should NOT send this field in save requests.&quot;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistrationScope? Scope { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistrationScope Scope { get; set; }
-#endif
-        /// <summary>&quot;Marketplace source: &apos;github:owner/repo&apos;, git URL, or local path&quot;</summary>
+        /// <summary>Scope of this marketplace registration. Set automatically by backend based on storage layer: &quot;instance&quot; for system defaults, &quot;org&quot; for organization-level, &quot;personal&quot; for user-level. Frontend should NOT send this field in save requests.</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceScope? Scope { get; set; }
+        /// <summary>Marketplace source: &apos;github:owner/repo&apos;, git URL, or local path</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Source { get; set; }
@@ -87,7 +81,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
                 { "repo_path", n => { RepoPath = n.GetStringValue(); } },
-                { "scope", n => { Scope = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistrationScope>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistrationScope.CreateFromDiscriminatorValue); } },
+                { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceScope>(); } },
                 { "source", n => { Source = n.GetStringValue(); } },
             };
         }
@@ -102,7 +96,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("ref", Ref);
             writer.WriteStringValue("repo_path", RepoPath);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistrationScope>("scope", Scope);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceScope>("scope", Scope);
             writer.WriteStringValue("source", Source);
             writer.WriteAdditionalData(AdditionalData);
         }

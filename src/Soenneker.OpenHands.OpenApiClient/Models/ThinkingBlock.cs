@@ -32,7 +32,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Thinking { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock_type? Type { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "signature", n => { Signature = n.GetStringValue(); } },
                 { "thinking", n => { Thinking = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("signature", Signature);
             writer.WriteStringValue("thinking", Thinking);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingBlock_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ThinkingType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

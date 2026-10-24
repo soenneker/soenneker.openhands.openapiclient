@@ -18,10 +18,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The annotations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotationsComposed? Annotations { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotations? Annotations { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotationsComposed Annotations { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotations Annotations { get; set; }
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -34,18 +34,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The execution property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolExecution? Execution { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecution? Execution { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolExecution Execution { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecution Execution { get; set; }
 #endif
         /// <summary>The icons property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolIcons? Icons { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.Icon>? Icons { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolIcons Icons { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.Icon> Icons { get; set; }
 #endif
         /// <summary>The inputSchema property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,10 +58,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolMeta? Meta { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolMetaProperty? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolMeta Meta { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolMetaProperty Meta { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,10 +74,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The outputSchema property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolOutputSchema? OutputSchema { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolOutputSchemaProperty? OutputSchema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolOutputSchema OutputSchema { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolOutputSchemaProperty OutputSchema { get; set; }
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -112,14 +112,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotationsComposed>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotationsComposed.CreateFromDiscriminatorValue); } },
+                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotations>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotations.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "execution", n => { Execution = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolExecution>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolExecution.CreateFromDiscriminatorValue); } },
-                { "icons", n => { Icons = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolIcons>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolIcons.CreateFromDiscriminatorValue); } },
+                { "execution", n => { Execution = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecution>(global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecution.CreateFromDiscriminatorValue); } },
+                { "icons", n => { Icons = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.Icon>(global::Soenneker.OpenHands.OpenApiClient.Models.Icon.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "inputSchema", n => { InputSchema = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolInputSchemaProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolInputSchemaProperty.CreateFromDiscriminatorValue); } },
-                { "_meta", n => { Meta = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolMeta>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolMeta.CreateFromDiscriminatorValue); } },
+                { "_meta", n => { Meta = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolMetaProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolMetaProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "outputSchema", n => { OutputSchema = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolOutputSchema>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolOutputSchema.CreateFromDiscriminatorValue); } },
+                { "outputSchema", n => { OutputSchema = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolOutputSchemaProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolOutputSchemaProperty.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -130,14 +130,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotationsComposed>("annotations", Annotations);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotations>("annotations", Annotations);
             writer.WriteStringValue("description", Description);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolExecution>("execution", Execution);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolIcons>("icons", Icons);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecution>("execution", Execution);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.Icon>("icons", Icons);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolInputSchemaProperty>("inputSchema", InputSchema);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolMeta>("_meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolMetaProperty>("_meta", Meta);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolOutputSchema>("outputSchema", OutputSchema);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolOutputSchemaProperty>("outputSchema", OutputSchema);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }

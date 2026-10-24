@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Conversations.Item;
 using Soenneker.OpenHands.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Conversations
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConversationsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.api.v1.webhooks.conversations.item collection</summary>
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Conversations.Item.WithConversationItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Conversations.Item.WithConversationItemRequestBuilder this[Guid position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("conversationId", position);
+                return new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Conversations.Item.WithConversationItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Conversations.ConversationsRequestBuilder"/> and sets the default values.
         /// </summary>

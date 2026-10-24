@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
         {
         }
         /// <summary>
-        /// &quot;Export organization conversations as CSV.Returns the filtered conversation dataset as a downloadable CSV file.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).&quot;
+        /// Export organization conversations as CSV.Returns the filtered conversation dataset as a downloadable CSV file.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Export organization conversations as CSV.Returns the filtered conversation dataset as a downloadable CSV file.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).&quot;
+        /// Export organization conversations as CSV.Returns the filtered conversation dataset as a downloadable CSV file.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,66 +85,92 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
             return new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.Export.ExportRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Export organization conversations as CSV.Returns the filtered conversation dataset as a downloadable CSV file.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).&quot;
+        /// Export organization conversations as CSV.Returns the filtered conversation dataset as a downloadable CSV file.**Access Control**: Requires VIEW_ORG_CONVERSATIONS permission (Admin or Owner role).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ExportRequestBuilderGetQueryParameters 
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("execution_status")]
-            public string? ExecutionStatus { get; set; }
+            public string[]? ExecutionStatus { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("execution_status")]
-            public string ExecutionStatus { get; set; }
+            public string[] ExecutionStatus { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("include_sub_conversations")]
             public bool? IncludeSubConversations { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("sandbox_status")]
             public string? SandboxStatus { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("sandbox_status")]
             public string SandboxStatus { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("search")]
             public string? Search { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("search")]
             public string Search { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("sort_by")]
             public string? SortBy { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("sort_by")]
             public string SortBy { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("sort_order")]
             public string? SortOrder { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("sort_order")]
             public string SortOrder { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("time_window")]
             public string? TimeWindow { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("time_window")]
             public string TimeWindow { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

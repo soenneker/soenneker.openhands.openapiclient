@@ -36,17 +36,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Git.Dif
         /// <summary>
         /// Proxy ``GET /api/git/diff`` on the conversation&apos;s runtime.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GetConversationGitDiffApiV1AppConversationsConversationIdGitDiffGet200Response"/></returns>
+        /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.GetConversationGitDiffApiV1AppConversationsConversationIdGitDiffGet200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Git.Diff.DiffRequestBuilder.DiffRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Git.Diff.DiffRequestBuilder.DiffRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.GetConversationGitDiffApiV1AppConversationsConversationIdGitDiffGet200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Git.Diff.DiffRequestBuilder.DiffRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Git.Diff.DiffRequestBuilder.DiffRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Git.Dif
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.GetConversationGitDiffApiV1AppConversationsConversationIdGitDiffGet200Response>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.GetConversationGitDiffApiV1AppConversationsConversationIdGitDiffGet200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Proxy ``GET /api/git/diff`` on the conversation&apos;s runtime.

@@ -2,7 +2,11 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.OpenHands.OpenApiClient.Api.Admin.FeatureFlags;
+using Soenneker.OpenHands.OpenApiClient.Api.Admin.OauthProviders;
+using Soenneker.OpenHands.OpenApiClient.Api.Admin.Quota;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins;
+using Soenneker.OpenHands.OpenApiClient.Api.Admin.Users;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels;
 using System.Collections.Generic;
 using System.IO;
@@ -16,10 +20,30 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AdminRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The featureFlags property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.FeatureFlags.FeatureFlagsRequestBuilder FeatureFlags
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.FeatureFlags.FeatureFlagsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The oauthProviders property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.OauthProviders.OauthProvidersRequestBuilder OauthProviders
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.OauthProviders.OauthProvidersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The quota property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.Quota.QuotaRequestBuilder Quota
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.Quota.QuotaRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The superAdmins property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.SuperAdminsRequestBuilder SuperAdmins
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.SuperAdminsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The users property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.Users.UsersRequestBuilder Users
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.Users.UsersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The verifiedModels property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels.VerifiedModelsRequestBuilder VerifiedModels

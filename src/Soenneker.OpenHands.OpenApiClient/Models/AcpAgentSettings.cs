@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Settings for an ACP (Agent Client Protocol) agent.``create_agent()`` returns an :class:`ACPAgent` that delegates to asubprocess ACP server.  The ACP server manages its own system prompt,tools, MCP, and (primary) LLM calls; those fields from:class:`OpenHandsAgentSettings` do not apply here.``ACPAgent`` uses the :attr:`llm` field purely for cost/token attribution,never for LLM requests; :attr:`acp_model` is the model identity. Anycredentials set on it (``llm.api_key`` / ``llm.base_url``) are ignored —provider credentials ride the conversation secrets channel(``request.secrets`` / ``agent_context.secrets`` → ``state.secret_registry``)keyed by the provider&apos;s env var name (:attr:`api_key_env_var`).
+    /// Settings for an ACP (Agent Client Protocol) agent.``create_agent()`` returns an :class:`ACPAgent` that delegates to asubprocess ACP server.  The ACP server manages its own system prompt,tools, MCP, and (primary) LLM calls; those fields from:class:`OpenHandsAgentSettings` do not apply here.:attr:`acp_model` is the model identity. The created ``ACPAgent`` keeps itsown metrics LLM, so title generation can tell it is never callable.Provider credentials ride the conversation secrets channel(``request.secrets`` / ``agent_context.secrets`` → ``state.secret_registry``)keyed by the provider&apos;s env var name (:attr:`api_key_env_var`).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AcpAgentSettings : IAdditionalDataHolder, IParsable
@@ -42,10 +42,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Model identifier for the ACP server to use (e.g. ``&apos;sonnet&apos;`` or ``&apos;gpt-5.5&apos;``). Applied via the protocol — set_config_option(model) for configOptions-based servers (codex, claude), else set_session_model. Leave blank to let the server pick its default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AcpModel { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpModel? AcpModel { get; set; }
 #nullable restore
 #else
-        public string AcpModel { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpModel AcpModel { get; set; }
 #endif
         /// <summary>Inactivity timeout (seconds) for a single ACP prompt() round-trip. The deadline resets on every update from the ACP server, so a steadily-progressing agent keeps running; the prompt is only aborted after this many seconds with no activity at all.</summary>
         public double? AcpPromptTimeout { get; set; }
@@ -54,33 +54,25 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Session mode ID (e.g. ``bypassPermissions``). Leave blank to auto-detect from the ACP server type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AcpSessionMode { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpSessionMode? AcpSessionMode { get; set; }
 #nullable restore
 #else
-        public string AcpSessionMode { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpSessionMode AcpSessionMode { get; set; }
 #endif
-        /// <summary>&quot;Timeout (seconds) for ACP server startup: spawning the subprocess, the initialize/authenticate handshake, and new_session()/load_session(). A hard deadline, unlike acp_prompt_timeout, since startup has no intermediate progress signal to reset it against.&quot;</summary>
+        /// <summary>Timeout (seconds) for ACP server startup: spawning the subprocess, the initialize/authenticate handshake, and new_session()/load_session(). A hard deadline, unlike acp_prompt_timeout, since startup has no intermediate progress signal to reset it against.</summary>
         public double? AcpStartupTimeout { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Prompt-only context for the ACP server. ``secrets`` here are advertised to the agent (names/descriptions) and reach the subprocess env through ``state.secret_registry``: ``LocalConversation`` seeds ``agent_context.secrets`` into the registry at conversation init (below ``request.secrets``), so callers that build the request outside Python (e.g. canvas-local) are covered too, not just the ``create_request`` path. Provider credentials belong here (or in ``request.secrets``) keyed by the provider&apos;s env var name.&quot;</summary>
+        /// <summary>Prompt-only context for the ACP server. ``secrets`` here are advertised to the agent (names/descriptions) and reach the subprocess env through ``state.secret_registry``: ``LocalConversation`` seeds ``agent_context.secrets`` into the registry at conversation init (below ``request.secrets``), so callers that build the request outside Python (e.g. canvas-local) are covered too, not just the ``create_request`` path. Provider credentials belong here (or in ``request.secrets``) keyed by the provider&apos;s env var name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentContext? AgentContext { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput? AgentContext { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentContext AgentContext { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput AgentContext { get; set; }
 #endif
         /// <summary>Discriminator for the ``AgentSettings`` union. ``&apos;acp&apos;`` selects an ACP-delegating agent.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettings_agent_kind? AgentKind { get; set; }
-        /// <summary>&quot;Language model interface for OpenHands agents.The LLM class provides a unified interface for interacting with variouslanguage models through the litellm library. It handles model configuration,API authentication, retry logic, and tool calling capabilities.Attributes:    model: Model name (e.g., \&quot;gpt-5.5\&quot;).    api_key: API key for authentication.    base_url: Custom API base URL.    num_retries: Number of retry attempts for failed requests.    timeout: Request timeout in seconds.Example:    ```python    from openhands.sdk import LLM    from pydantic import SecretStr    llm = LLM(        model=\&quot;gpt-5.5\&quot;,        api_key=SecretStr(\&quot;your-api-key\&quot;),        usage_id=\&quot;my-agent\&quot;    )    # Use with agent or conversation    ```&quot;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput? Llm { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput Llm { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentKind? AgentKind { get; set; }
         /// <summary>MCP servers to make available to the ACP subprocess. Unlike the OpenHands agent — where these become in-process MCP tools — the servers are forwarded to the ACP server at session creation and it owns the connection. Remote (http/sse) servers are only forwarded when the ACP server advertises support for that transport; stdio servers (which run inside the runtime) are always forwarded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,7 +92,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             AcpIsolateDataDir = false;
             AcpPromptTimeout = 1800.0;
             AcpStartupTimeout = 90.0;
-            SchemaVersion = 5;
+            SchemaVersion = 9;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -124,14 +116,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "acp_command", n => { AcpCommand = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "acp_file_secrets", n => { AcpFileSecrets = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpec>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpec.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "acp_isolate_data_dir", n => { AcpIsolateDataDir = n.GetBoolValue(); } },
-                { "acp_model", n => { AcpModel = n.GetStringValue(); } },
+                { "acp_model", n => { AcpModel = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpModel>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpModel.CreateFromDiscriminatorValue); } },
                 { "acp_prompt_timeout", n => { AcpPromptTimeout = n.GetDoubleValue(); } },
                 { "acp_server", n => { AcpServer = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpServer>(); } },
-                { "acp_session_mode", n => { AcpSessionMode = n.GetStringValue(); } },
+                { "acp_session_mode", n => { AcpSessionMode = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpSessionMode>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpSessionMode.CreateFromDiscriminatorValue); } },
                 { "acp_startup_timeout", n => { AcpStartupTimeout = n.GetDoubleValue(); } },
-                { "agent_context", n => { AgentContext = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentContext>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentContext.CreateFromDiscriminatorValue); } },
-                { "agent_kind", n => { AgentKind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettings_agent_kind>(); } },
-                { "llm", n => { Llm = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput.CreateFromDiscriminatorValue); } },
+                { "agent_context", n => { AgentContext = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput.CreateFromDiscriminatorValue); } },
+                { "agent_kind", n => { AgentKind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentKind>(); } },
                 { "mcp_config", n => { McpConfig = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsMcpConfigProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsMcpConfigProperty.CreateFromDiscriminatorValue); } },
                 { "schema_version", n => { SchemaVersion = n.GetIntValue(); } },
             };
@@ -147,14 +138,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("acp_command", AcpCommand);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpec>("acp_file_secrets", AcpFileSecrets);
             writer.WriteBoolValue("acp_isolate_data_dir", AcpIsolateDataDir);
-            writer.WriteStringValue("acp_model", AcpModel);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpModel>("acp_model", AcpModel);
             writer.WriteDoubleValue("acp_prompt_timeout", AcpPromptTimeout);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpServer>("acp_server", AcpServer);
-            writer.WriteStringValue("acp_session_mode", AcpSessionMode);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpSessionMode>("acp_session_mode", AcpSessionMode);
             writer.WriteDoubleValue("acp_startup_timeout", AcpStartupTimeout);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentContext>("agent_context", AgentContext);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettings_agent_kind>("agent_kind", AgentKind);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput>("llm", Llm);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput>("agent_context", AgentContext);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentKind>("agent_kind", AgentKind);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsMcpConfigProperty>("mcp_config", McpConfig);
             writer.WriteIntValue("schema_version", SchemaVersion);
             writer.WriteAdditionalData(AdditionalData);

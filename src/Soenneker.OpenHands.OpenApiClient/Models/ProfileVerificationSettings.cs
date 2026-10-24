@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Secret-free critic/refinement policy for a profile.The non-credential subset of:class:`~openhands.sdk.settings.model.VerificationSettings`: ``critic_api_key``is omitted so the profile holds no secret. The critic reuses the resolvedLLM profile&apos;s key (the existing ``critic_api_key=None`` behavior).&quot;
+    /// Secret-free critic/refinement policy for a profile.The non-credential subset of:class:`~openhands.sdk.settings.model.VerificationSettings`: ``critic_api_key``is omitted so the profile holds no secret. The critic reuses the resolvedLLM profile&apos;s key (the existing ``critic_api_key=None`` behavior).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProfileVerificationSettings : IAdditionalDataHolder, IParsable

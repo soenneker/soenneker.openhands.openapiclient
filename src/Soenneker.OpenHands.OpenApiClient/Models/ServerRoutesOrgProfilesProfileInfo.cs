@@ -41,6 +41,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>The provider_connection_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProviderConnectionId { get; set; }
+#nullable restore
+#else
+        public string ProviderConnectionId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileInfo"/> and sets the default values.
         /// </summary>
@@ -70,6 +78,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "base_url", n => { BaseUrl = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "provider_connection_id", n => { ProviderConnectionId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -83,6 +92,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("base_url", BaseUrl);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("provider_connection_id", ProviderConnectionId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

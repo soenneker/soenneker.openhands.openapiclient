@@ -39,6 +39,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>The owner_user_id property</summary>
+        public Guid? OwnerUserId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgCreate"/> and sets the default values.
         /// </summary>
@@ -67,6 +69,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "contact_email", n => { ContactEmail = n.GetStringValue(); } },
                 { "contact_name", n => { ContactName = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "owner_user_id", n => { OwnerUserId = n.GetGuidValue(); } },
             };
         }
         /// <summary>
@@ -79,6 +82,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("contact_email", ContactEmail);
             writer.WriteStringValue("contact_name", ContactName);
             writer.WriteStringValue("name", Name);
+            writer.WriteGuidValue("owner_user_id", OwnerUserId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

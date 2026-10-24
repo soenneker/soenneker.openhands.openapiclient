@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Users.GitOrganizations
         {
         }
         /// <summary>
-        /// Return the Git organizations, groups, or workspaces the user belongs toon their active provider.In SAAS mode users sign in with one provider at a time, so the responsereflects that single provider.
+        /// Return the Git organizations, groups, or workspaces the user belongs to.on their active provider.In SAAS mode users sign in with one provider at a time, so the responsereflects that single provider.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GitOrganizationsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Users.GitOrganizations
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.GitOrganizationsResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.GitOrganizationsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Return the Git organizations, groups, or workspaces the user belongs toon their active provider.In SAAS mode users sign in with one provider at a time, so the responsereflects that single provider.
+        /// Return the Git organizations, groups, or workspaces the user belongs to.on their active provider.In SAAS mode users sign in with one provider at a time, so the responsereflects that single provider.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

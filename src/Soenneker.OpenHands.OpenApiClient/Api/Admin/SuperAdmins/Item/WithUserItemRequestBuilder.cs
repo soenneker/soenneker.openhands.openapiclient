@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.Item
         {
         }
         /// <summary>
-        /// Revoke the super-admin role from a user (including oneself).Refuses with ``409 Conflict`` if the target is the only remaining superadmin. Requires ``MANAGE_SUPER_ADMINS``.
+        /// Revoke the super-admin role from another user.Refuses with ``403 Forbidden`` if the caller targets their own user id --self-revocation is never allowed, regardless of how many other superadmins exist, so a super admin can never accidentally lock themselvesout (and then need a support call to get back in). Ask another superadmin to revoke your access instead.Refuses with ``409 Conflict`` if the target is the only remaining superadmin. Requires ``MANAGE_SUPER_ADMINS``.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.Item
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Revoke the super-admin role from a user (including oneself).Refuses with ``409 Conflict`` if the target is the only remaining superadmin. Requires ``MANAGE_SUPER_ADMINS``.
+        /// Revoke the super-admin role from another user.Refuses with ``403 Forbidden`` if the caller targets their own user id --self-revocation is never allowed, regardless of how many other superadmins exist, so a super admin can never accidentally lock themselvesout (and then need a support call to get back in). Ask another superadmin to revoke your access instead.Refuses with ``409 Conflict`` if the target is the only remaining superadmin. Requires ``MANAGE_SUPER_ADMINS``.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,13 +85,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.Item
             return new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.Item.WithUserItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Revoke the super-admin role from a user (including oneself).Refuses with ``409 Conflict`` if the target is the only remaining superadmin. Requires ``MANAGE_SUPER_ADMINS``.
+        /// Revoke the super-admin role from another user.Refuses with ``403 Forbidden`` if the caller targets their own user id --self-revocation is never allowed, regardless of how many other superadmins exist, so a super admin can never accidentally lock themselvesout (and then need a support call to get back in). Ask another superadmin to revoke your access instead.Refuses with ``409 Conflict`` if the target is the only remaining superadmin. Requires ``MANAGE_SUPER_ADMINS``.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithUserItemRequestBuilderDeleteQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("org_id")]
             public Guid? OrgId { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

@@ -65,7 +65,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members
         {
         }
         /// <summary>
-        /// &quot;Get all members of an organization with pagination and optional email filter.This endpoint retrieves a paginated list of organization members. Access requiresthe VIEW_ORG_SETTINGS permission, which is granted to all organization members(member, admin, and owner roles).Args:    org_id: Organization ID (UUID)    page_id: Optional page offset for pagination    limit: Maximum number of members to return (1-100, default 10)    email: Optional email filter (case-insensitive partial match)    user_id: Authenticated user ID (injected by require_permission dependency)Returns:    OrgMemberPage: Paginated list of organization members with        current_page and per_page metadata. Use the /count endpoint        to get the total count separately.Raises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks VIEW_ORG_SETTINGS permission    HTTPException: 400 if org_id or page_id format is invalid    HTTPException: 500 if retrieval fails&quot;
+        /// Get all members of an organization with pagination and optional email filter.This endpoint retrieves a paginated list of organization members. Access requiresthe VIEW_ORG_SETTINGS permission, which is granted to all organization members(member, admin, and owner roles).Args:    org_id: Organization ID (UUID)    page_id: Optional page offset for pagination    limit: Maximum number of members to return (1-100, default 10)    email: Optional email filter (case-insensitive partial match)    user_id: Authenticated user ID (injected by require_permission dependency)Returns:    OrgMemberPage: Paginated list of organization members with        current_page and per_page metadata. Use the /count endpoint        to get the total count separately.Raises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks VIEW_ORG_SETTINGS permission    HTTPException: 400 if org_id or page_id format is invalid    HTTPException: 500 if retrieval fails
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -88,7 +88,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberPage>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Get all members of an organization with pagination and optional email filter.This endpoint retrieves a paginated list of organization members. Access requiresthe VIEW_ORG_SETTINGS permission, which is granted to all organization members(member, admin, and owner roles).Args:    org_id: Organization ID (UUID)    page_id: Optional page offset for pagination    limit: Maximum number of members to return (1-100, default 10)    email: Optional email filter (case-insensitive partial match)    user_id: Authenticated user ID (injected by require_permission dependency)Returns:    OrgMemberPage: Paginated list of organization members with        current_page and per_page metadata. Use the /count endpoint        to get the total count separately.Raises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks VIEW_ORG_SETTINGS permission    HTTPException: 400 if org_id or page_id format is invalid    HTTPException: 500 if retrieval fails&quot;
+        /// Get all members of an organization with pagination and optional email filter.This endpoint retrieves a paginated list of organization members. Access requiresthe VIEW_ORG_SETTINGS permission, which is granted to all organization members(member, admin, and owner roles).Args:    org_id: Organization ID (UUID)    page_id: Optional page offset for pagination    limit: Maximum number of members to return (1-100, default 10)    email: Optional email filter (case-insensitive partial match)    user_id: Authenticated user ID (injected by require_permission dependency)Returns:    OrgMemberPage: Paginated list of organization members with        current_page and per_page metadata. Use the /count endpoint        to get the total count separately.Raises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks VIEW_ORG_SETTINGS permission    HTTPException: 400 if org_id or page_id format is invalid    HTTPException: 500 if retrieval fails
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -116,30 +116,40 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members
             return new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.MembersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Get all members of an organization with pagination and optional email filter.This endpoint retrieves a paginated list of organization members. Access requiresthe VIEW_ORG_SETTINGS permission, which is granted to all organization members(member, admin, and owner roles).Args:    org_id: Organization ID (UUID)    page_id: Optional page offset for pagination    limit: Maximum number of members to return (1-100, default 10)    email: Optional email filter (case-insensitive partial match)    user_id: Authenticated user ID (injected by require_permission dependency)Returns:    OrgMemberPage: Paginated list of organization members with        current_page and per_page metadata. Use the /count endpoint        to get the total count separately.Raises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks VIEW_ORG_SETTINGS permission    HTTPException: 400 if org_id or page_id format is invalid    HTTPException: 500 if retrieval fails&quot;
+        /// Get all members of an organization with pagination and optional email filter.This endpoint retrieves a paginated list of organization members. Access requiresthe VIEW_ORG_SETTINGS permission, which is granted to all organization members(member, admin, and owner roles).Args:    org_id: Organization ID (UUID)    page_id: Optional page offset for pagination    limit: Maximum number of members to return (1-100, default 10)    email: Optional email filter (case-insensitive partial match)    user_id: Authenticated user ID (injected by require_permission dependency)Returns:    OrgMemberPage: Paginated list of organization members with        current_page and per_page metadata. Use the /count endpoint        to get the total count separately.Raises:    HTTPException: 401 if user is not authenticated    HTTPException: 403 if user lacks VIEW_ORG_SETTINGS permission    HTTPException: 400 if org_id or page_id format is invalid    HTTPException: 500 if retrieval fails
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MembersRequestBuilderGetQueryParameters 
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("email")]
             public string? Email { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("email")]
             public string Email { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("page_id")]
             public string? PageId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("page_id")]
             public string PageId { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

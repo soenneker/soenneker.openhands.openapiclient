@@ -25,23 +25,33 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>Agent type for conversation.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.AgentType? AgentType { get; set; }
-        /// <summary>The conversation_id property</summary>
-        public Guid? ConversationId { get; set; }
-        /// <summary>The git_provider property</summary>
+        /// <summary>Client-defined tools to register with the runtime agent-server. These tools are handled by the browser/client over the event stream instead of by a server-side executor.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputGitProvider? GitProvider { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInput>? ClientTools { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputGitProvider GitProvider { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInput> ClientTools { get; set; }
 #endif
+        /// <summary>The conversation_id property</summary>
+        public Guid? ConversationId { get; set; }
+        /// <summary>Skill names to exclude from this conversation (e.g. bundled &quot;Instance&quot; skills that are not needed, to save context tokens). Unioned with the deny-lists from user settings and the launched agent profile: a skill disabled at any level stays off. Matched by exact skill name; unknown names are harmless no-ops.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? DisabledSkills { get; set; }
+#nullable restore
+#else
+        public List<string> DisabledSkills { get; set; }
+#endif
+        /// <summary>The git_provider property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? GitProvider { get; set; }
         /// <summary>The initial_message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage? InitialMessage { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SendMessageRequest? InitialMessage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage InitialMessage { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SendMessageRequest InitialMessage { get; set; }
 #endif
         /// <summary>The llm_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,13 +61,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string LlmModel { get; set; }
 #endif
+        /// <summary>The llm_profile property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LlmProfile { get; set; }
+#nullable restore
+#else
+        public string LlmProfile { get; set; }
+#endif
         /// <summary>Trace-level metadata to attach to observability backends. Values must be scalars or homogeneous scalar lists supported by OpenTelemetry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityMetadata? ObservabilityMetadata { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityMetadataProperty? ObservabilityMetadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityMetadata ObservabilityMetadata { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityMetadataProperty ObservabilityMetadata { get; set; }
 #endif
         /// <summary>Optional named child span to emit under the conversation root. Use stable, low-cardinality names because observability backends may use span names for grouping or signal routing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,20 +88,20 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Tags to attach to the conversation root observability span.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityTags? ObservabilityTags { get; set; }
+        public List<string>? ObservabilityTags { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityTags ObservabilityTags { get; set; }
+        public List<string> ObservabilityTags { get; set; }
 #endif
         /// <summary>The parent_conversation_id property</summary>
         public Guid? ParentConversationId { get; set; }
         /// <summary>List of plugins to load for this conversation. Plugins are loaded and their skills/MCP config are merged into the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputPlugins? Plugins { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.PluginSpec>? Plugins { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputPlugins Plugins { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.PluginSpec> Plugins { get; set; }
 #endif
         /// <summary>The pr_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -96,10 +114,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The processors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputProcessors? Processors { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInput>? Processors { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputProcessors Processors { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInput> Processors { get; set; }
 #endif
         /// <summary>The public property</summary>
         public bool? Public { get; set; }
@@ -111,13 +129,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string SandboxId { get; set; }
 #endif
-        /// <summary>&quot;Secrets to pass to the conversation. These are merged with any existing secrets (from database or git providers), with API-provided secrets taking precedence (overriding any existing secret with the same name). Keys are secret names (e.g., \&quot;MY_API_KEY\&quot;), values are the secret values. Warning: Providing a secret that already exists will silently override it.&quot;</summary>
+        /// <summary>Secrets to pass to the conversation. These are merged with any existing secrets (from database or git providers), with API-provided secrets taking precedence (overriding any existing secret with the same name). Keys are secret names (e.g., &quot;MY_API_KEY&quot;), values are the secret values. Warning: Providing a secret that already exists will silently override it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSecrets? Secrets { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSecretsProperty? Secrets { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSecrets Secrets { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSecretsProperty Secrets { get; set; }
 #endif
         /// <summary>The selected_branch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -138,10 +156,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The suggested_task property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSuggestedTask? SuggestedTask { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SuggestedTask? SuggestedTask { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSuggestedTask SuggestedTask { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SuggestedTask SuggestedTask { get; set; }
 #endif
         /// <summary>The system_message_suffix property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -150,6 +168,22 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #nullable restore
 #else
         public string SystemMessageSuffix { get; set; }
+#endif
+        /// <summary>Inline system prompt that replaces OpenHands&apos; built-in static system prompt verbatim for this conversation. Per-conversation dynamic context (loaded skills, repository context, system_message_suffix, secrets, current datetime) is still appended, so this composes with system_message_suffix. When agent_type=plan it replaces the built-in planning prompt (planning tools and workflow instruction still apply). Ignored, with a server-side warning, when the launched agent is an ACP agent, which owns its own system prompt.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SystemPrompt { get; set; }
+#nullable restore
+#else
+        public string SystemPrompt { get; set; }
+#endif
+        /// <summary>Key-value tags to store on the conversation. Keys must be lowercase alphanumeric and values at most 256 characters. Tags are stored on the app server and can be queried with the tags__contains search filter. Server-managed tag keys are rejected.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputTagsProperty? Tags { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputTagsProperty Tags { get; set; }
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -160,19 +194,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Title { get; set; }
 #endif
         /// <summary>The trigger property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputTrigger? Trigger { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputTrigger Trigger { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTrigger? Trigger { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInput"/> and sets the default values.
         /// </summary>
         public AppConversationStartRequestInput()
         {
             AdditionalData = new Dictionary<string, object>();
+            AgentType = global::Soenneker.OpenHands.OpenApiClient.Models.AgentType.DefaultValue;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -194,26 +223,31 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "agent_profile_id", n => { AgentProfileId = n.GetStringValue(); } },
                 { "agent_type", n => { AgentType = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentType>(); } },
+                { "client_tools", n => { ClientTools = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInput>(global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInput.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "conversation_id", n => { ConversationId = n.GetGuidValue(); } },
-                { "git_provider", n => { GitProvider = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputGitProvider>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputGitProvider.CreateFromDiscriminatorValue); } },
-                { "initial_message", n => { InitialMessage = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage.CreateFromDiscriminatorValue); } },
+                { "disabled_skills", n => { DisabledSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "git_provider", n => { GitProvider = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>(); } },
+                { "initial_message", n => { InitialMessage = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SendMessageRequest>(global::Soenneker.OpenHands.OpenApiClient.Models.SendMessageRequest.CreateFromDiscriminatorValue); } },
                 { "llm_model", n => { LlmModel = n.GetStringValue(); } },
-                { "observability_metadata", n => { ObservabilityMetadata = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityMetadata>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityMetadata.CreateFromDiscriminatorValue); } },
+                { "llm_profile", n => { LlmProfile = n.GetStringValue(); } },
+                { "observability_metadata", n => { ObservabilityMetadata = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityMetadataProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "observability_span_name", n => { ObservabilitySpanName = n.GetStringValue(); } },
-                { "observability_tags", n => { ObservabilityTags = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityTags>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityTags.CreateFromDiscriminatorValue); } },
+                { "observability_tags", n => { ObservabilityTags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "parent_conversation_id", n => { ParentConversationId = n.GetGuidValue(); } },
-                { "plugins", n => { Plugins = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputPlugins>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputPlugins.CreateFromDiscriminatorValue); } },
+                { "plugins", n => { Plugins = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.PluginSpec>(global::Soenneker.OpenHands.OpenApiClient.Models.PluginSpec.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "pr_number", n => { PrNumber = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
-                { "processors", n => { Processors = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputProcessors>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputProcessors.CreateFromDiscriminatorValue); } },
+                { "processors", n => { Processors = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInput>(global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInput.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "public", n => { Public = n.GetBoolValue(); } },
                 { "sandbox_id", n => { SandboxId = n.GetStringValue(); } },
-                { "secrets", n => { Secrets = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSecrets>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSecrets.CreateFromDiscriminatorValue); } },
+                { "secrets", n => { Secrets = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSecretsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSecretsProperty.CreateFromDiscriminatorValue); } },
                 { "selected_branch", n => { SelectedBranch = n.GetStringValue(); } },
                 { "selected_repository", n => { SelectedRepository = n.GetStringValue(); } },
-                { "suggested_task", n => { SuggestedTask = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSuggestedTask>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSuggestedTask.CreateFromDiscriminatorValue); } },
+                { "suggested_task", n => { SuggestedTask = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SuggestedTask>(global::Soenneker.OpenHands.OpenApiClient.Models.SuggestedTask.CreateFromDiscriminatorValue); } },
                 { "system_message_suffix", n => { SystemMessageSuffix = n.GetStringValue(); } },
+                { "system_prompt", n => { SystemPrompt = n.GetStringValue(); } },
+                { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputTagsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputTagsProperty.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
-                { "trigger", n => { Trigger = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputTrigger>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputTrigger.CreateFromDiscriminatorValue); } },
+                { "trigger", n => { Trigger = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTrigger>(); } },
             };
         }
         /// <summary>
@@ -225,26 +259,31 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("agent_profile_id", AgentProfileId);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentType>("agent_type", AgentType);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInput>("client_tools", ClientTools);
             writer.WriteGuidValue("conversation_id", ConversationId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputGitProvider>("git_provider", GitProvider);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage>("initial_message", InitialMessage);
+            writer.WriteCollectionOfPrimitiveValues<string>("disabled_skills", DisabledSkills);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>("git_provider", GitProvider);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SendMessageRequest>("initial_message", InitialMessage);
             writer.WriteStringValue("llm_model", LlmModel);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityMetadata>("observability_metadata", ObservabilityMetadata);
+            writer.WriteStringValue("llm_profile", LlmProfile);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityMetadataProperty>("observability_metadata", ObservabilityMetadata);
             writer.WriteStringValue("observability_span_name", ObservabilitySpanName);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputObservabilityTags>("observability_tags", ObservabilityTags);
+            writer.WriteCollectionOfPrimitiveValues<string>("observability_tags", ObservabilityTags);
             writer.WriteGuidValue("parent_conversation_id", ParentConversationId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputPlugins>("plugins", Plugins);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.PluginSpec>("plugins", Plugins);
             writer.WriteCollectionOfPrimitiveValues<int?>("pr_number", PrNumber);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputProcessors>("processors", Processors);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInput>("processors", Processors);
             writer.WriteBoolValue("public", Public);
             writer.WriteStringValue("sandbox_id", SandboxId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSecrets>("secrets", Secrets);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSecretsProperty>("secrets", Secrets);
             writer.WriteStringValue("selected_branch", SelectedBranch);
             writer.WriteStringValue("selected_repository", SelectedRepository);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSuggestedTask>("suggested_task", SuggestedTask);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SuggestedTask>("suggested_task", SuggestedTask);
             writer.WriteStringValue("system_message_suffix", SystemMessageSuffix);
+            writer.WriteStringValue("system_prompt", SystemPrompt);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputTagsProperty>("tags", Tags);
             writer.WriteStringValue("title", Title);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputTrigger>("trigger", Trigger);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTrigger>("trigger", Trigger);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

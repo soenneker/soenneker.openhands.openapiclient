@@ -14,6 +14,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The applied_at property</summary>
+        public DateTimeOffset? AppliedAt { get; set; }
+        /// <summary>The applied_policy_observed_at property</summary>
+        public DateTimeOffset? AppliedPolicyObservedAt { get; set; }
+        /// <summary>The applied_team_max_budget property</summary>
+        public double? AppliedTeamMaxBudget { get; set; }
+        /// <summary>The budget_policy_matches property</summary>
+        public bool? BudgetPolicyMatches { get; set; }
         /// <summary>The current_spend property</summary>
         public double? CurrentSpend { get; set; }
         /// <summary>The current_spend_percentage property</summary>
@@ -24,6 +32,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public DateTimeOffset? CycleStartAt { get; set; }
         /// <summary>The default_user_monthly_limit property</summary>
         public double? DefaultUserMonthlyLimit { get; set; }
+        /// <summary>The desired_team_max_budget property</summary>
+        public double? DesiredTeamMaxBudget { get; set; }
+        /// <summary>The email_alerts_available property</summary>
+        public bool? EmailAlertsAvailable { get; set; }
         /// <summary>The enabled property</summary>
         public bool? Enabled { get; set; }
         /// <summary>The litellm_last_sync_at property</summary>
@@ -46,6 +58,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The monthly_limit property</summary>
         public double? MonthlyLimit { get; set; }
+        /// <summary>The reconciliation_error property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ReconciliationError { get; set; }
+#nullable restore
+#else
+        public string ReconciliationError { get; set; }
+#endif
+        /// <summary>The reconciliation_state property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponseReconciliationState? ReconciliationState { get; set; }
         /// <summary>The reset_day property</summary>
         public int? ResetDay { get; set; }
         /// <summary>The slack_channel property</summary>
@@ -56,6 +78,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string SlackChannel { get; set; }
 #endif
+        /// <summary>The slack_integration_configured property</summary>
+        public bool? SlackIntegrationConfigured { get; set; }
         /// <summary>The slack_team_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,6 +88,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string SlackTeamId { get; set; }
 #endif
+        /// <summary>The slack_workspace_connected property</summary>
+        public bool? SlackWorkspaceConnected { get; set; }
+        /// <summary>The spend_observed_at property</summary>
+        public DateTimeOffset? SpendObservedAt { get; set; }
+        /// <summary>The spend_status property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponseSpendStatus? SpendStatus { get; set; }
         /// <summary>The thresholds property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -72,6 +102,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdResponse> Thresholds { get; set; }
 #endif
+        /// <summary>The unmapped_member_count property</summary>
+        public int? UnmappedMemberCount { get; set; }
+        /// <summary>The unmapped_spend property</summary>
+        public double? UnmappedSpend { get; set; }
         /// <summary>The users property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,8 +126,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public OrgBudgetSettingsResponse()
         {
             AdditionalData = new Dictionary<string, object>();
-            CurrentSpend = 0.0;
-            CurrentSpendPercentage = 0.0;
             UsersPage = 1;
             UsersPerPage = 50;
             UsersTotal = 0;
@@ -116,20 +148,34 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "applied_at", n => { AppliedAt = n.GetDateTimeOffsetValue(); } },
+                { "applied_policy_observed_at", n => { AppliedPolicyObservedAt = n.GetDateTimeOffsetValue(); } },
+                { "applied_team_max_budget", n => { AppliedTeamMaxBudget = n.GetDoubleValue(); } },
+                { "budget_policy_matches", n => { BudgetPolicyMatches = n.GetBoolValue(); } },
                 { "current_spend", n => { CurrentSpend = n.GetDoubleValue(); } },
                 { "current_spend_percentage", n => { CurrentSpendPercentage = n.GetDoubleValue(); } },
                 { "cycle_end_at", n => { CycleEndAt = n.GetDateTimeOffsetValue(); } },
                 { "cycle_start_at", n => { CycleStartAt = n.GetDateTimeOffsetValue(); } },
                 { "default_user_monthly_limit", n => { DefaultUserMonthlyLimit = n.GetDoubleValue(); } },
+                { "desired_team_max_budget", n => { DesiredTeamMaxBudget = n.GetDoubleValue(); } },
+                { "email_alerts_available", n => { EmailAlertsAvailable = n.GetBoolValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "litellm_last_sync_at", n => { LitellmLastSyncAt = n.GetDateTimeOffsetValue(); } },
                 { "litellm_last_sync_error", n => { LitellmLastSyncError = n.GetStringValue(); } },
                 { "litellm_last_sync_status", n => { LitellmLastSyncStatus = n.GetStringValue(); } },
                 { "monthly_limit", n => { MonthlyLimit = n.GetDoubleValue(); } },
+                { "reconciliation_error", n => { ReconciliationError = n.GetStringValue(); } },
+                { "reconciliation_state", n => { ReconciliationState = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponseReconciliationState>(); } },
                 { "reset_day", n => { ResetDay = n.GetIntValue(); } },
                 { "slack_channel", n => { SlackChannel = n.GetStringValue(); } },
+                { "slack_integration_configured", n => { SlackIntegrationConfigured = n.GetBoolValue(); } },
                 { "slack_team_id", n => { SlackTeamId = n.GetStringValue(); } },
+                { "slack_workspace_connected", n => { SlackWorkspaceConnected = n.GetBoolValue(); } },
+                { "spend_observed_at", n => { SpendObservedAt = n.GetDateTimeOffsetValue(); } },
+                { "spend_status", n => { SpendStatus = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponseSpendStatus>(); } },
                 { "thresholds", n => { Thresholds = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdResponse>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdResponse.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "unmapped_member_count", n => { UnmappedMemberCount = n.GetIntValue(); } },
+                { "unmapped_spend", n => { UnmappedSpend = n.GetDoubleValue(); } },
                 { "users", n => { Users = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserResponse>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserResponse.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "users_page", n => { UsersPage = n.GetIntValue(); } },
                 { "users_per_page", n => { UsersPerPage = n.GetIntValue(); } },
@@ -143,20 +189,34 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteDateTimeOffsetValue("applied_at", AppliedAt);
+            writer.WriteDateTimeOffsetValue("applied_policy_observed_at", AppliedPolicyObservedAt);
+            writer.WriteDoubleValue("applied_team_max_budget", AppliedTeamMaxBudget);
+            writer.WriteBoolValue("budget_policy_matches", BudgetPolicyMatches);
             writer.WriteDoubleValue("current_spend", CurrentSpend);
             writer.WriteDoubleValue("current_spend_percentage", CurrentSpendPercentage);
             writer.WriteDateTimeOffsetValue("cycle_end_at", CycleEndAt);
             writer.WriteDateTimeOffsetValue("cycle_start_at", CycleStartAt);
             writer.WriteDoubleValue("default_user_monthly_limit", DefaultUserMonthlyLimit);
+            writer.WriteDoubleValue("desired_team_max_budget", DesiredTeamMaxBudget);
+            writer.WriteBoolValue("email_alerts_available", EmailAlertsAvailable);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteDateTimeOffsetValue("litellm_last_sync_at", LitellmLastSyncAt);
             writer.WriteStringValue("litellm_last_sync_error", LitellmLastSyncError);
             writer.WriteStringValue("litellm_last_sync_status", LitellmLastSyncStatus);
             writer.WriteDoubleValue("monthly_limit", MonthlyLimit);
+            writer.WriteStringValue("reconciliation_error", ReconciliationError);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponseReconciliationState>("reconciliation_state", ReconciliationState);
             writer.WriteIntValue("reset_day", ResetDay);
             writer.WriteStringValue("slack_channel", SlackChannel);
+            writer.WriteBoolValue("slack_integration_configured", SlackIntegrationConfigured);
             writer.WriteStringValue("slack_team_id", SlackTeamId);
+            writer.WriteBoolValue("slack_workspace_connected", SlackWorkspaceConnected);
+            writer.WriteDateTimeOffsetValue("spend_observed_at", SpendObservedAt);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponseSpendStatus>("spend_status", SpendStatus);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdResponse>("thresholds", Thresholds);
+            writer.WriteIntValue("unmapped_member_count", UnmappedMemberCount);
+            writer.WriteDoubleValue("unmapped_spend", UnmappedSpend);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserResponse>("users", Users);
             writer.WriteIntValue("users_page", UsersPage);
             writer.WriteIntValue("users_per_page", UsersPerPage);

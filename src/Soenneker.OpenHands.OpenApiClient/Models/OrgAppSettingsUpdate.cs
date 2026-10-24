@@ -8,13 +8,21 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Request model for updating organization app settings.
+    /// Request model for updating organization app settings.``agent_settings_diff`` is a sparse diff applied to the org-wide``agent_settings`` defaults, so admins/owners can set the harness everymember starts from. It is admin/owner-only on the route (see``update_org_app_settings``) because those defaults apply to every member.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OrgAppSettingsUpdate : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The agent_settings_diff property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateAgentSettingsDiffProperty? AgentSettingsDiff { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateAgentSettingsDiffProperty AgentSettingsDiff { get; set; }
+#endif
         /// <summary>The enable_proactive_conversation_starters property</summary>
         public bool? EnableProactiveConversationStarters { get; set; }
         /// <summary>The last_known_updated_at property</summary>
@@ -24,10 +32,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The registered_marketplaces property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateRegisteredMarketplaces? RegisteredMarketplaces { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration>? RegisteredMarketplaces { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateRegisteredMarketplaces RegisteredMarketplaces { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration> RegisteredMarketplaces { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdate"/> and sets the default values.
@@ -54,10 +62,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "agent_settings_diff", n => { AgentSettingsDiff = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateAgentSettingsDiffProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateAgentSettingsDiffProperty.CreateFromDiscriminatorValue); } },
                 { "enable_proactive_conversation_starters", n => { EnableProactiveConversationStarters = n.GetBoolValue(); } },
                 { "last_known_updated_at", n => { LastKnownUpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "max_budget_per_task", n => { MaxBudgetPerTask = n.GetDoubleValue(); } },
-                { "registered_marketplaces", n => { RegisteredMarketplaces = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateRegisteredMarketplaces>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateRegisteredMarketplaces.CreateFromDiscriminatorValue); } },
+                { "registered_marketplaces", n => { RegisteredMarketplaces = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -67,10 +76,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateAgentSettingsDiffProperty>("agent_settings_diff", AgentSettingsDiff);
             writer.WriteBoolValue("enable_proactive_conversation_starters", EnableProactiveConversationStarters);
             writer.WriteDateTimeOffsetValue("last_known_updated_at", LastKnownUpdatedAt);
             writer.WriteDoubleValue("max_budget_per_task", MaxBudgetPerTask);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateRegisteredMarketplaces>("registered_marketplaces", RegisteredMarketplaces);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration>("registered_marketplaces", RegisteredMarketplaces);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

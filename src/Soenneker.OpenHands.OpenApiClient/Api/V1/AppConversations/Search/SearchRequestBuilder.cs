@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Search
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SearchRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/search{?created_at__gte*,created_at__lt*,include_sub_conversations*,limit*,page_id*,sandbox_id__eq*,title__contains*,updated_at__gte*,updated_at__lt*}", pathParameters)
+        public SearchRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/search{?created_at__gte*,created_at__lt*,include_sub_conversations*,limit*,page_id*,sandbox_id__eq*,tags__contains*,title__contains*,updated_at__gte*,updated_at__lt*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Search
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SearchRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/search{?created_at__gte*,created_at__lt*,include_sub_conversations*,limit*,page_id*,sandbox_id__eq*,title__contains*,updated_at__gte*,updated_at__lt*}", rawUrl)
+        public SearchRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/search{?created_at__gte*,created_at__lt*,include_sub_conversations*,limit*,page_id*,sandbox_id__eq*,tags__contains*,title__contains*,updated_at__gte*,updated_at__lt*}", rawUrl)
         {
         }
         /// <summary>
@@ -90,45 +90,82 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Search
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SearchRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("created_at__gte")]
             public DateTimeOffset? CreatedAtGte { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("created_at__lt")]
             public DateTimeOffset? CreatedAtLt { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("include_sub_conversations")]
             public bool? IncludeSubConversations { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("page_id")]
             public string? PageId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("page_id")]
             public string PageId { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("sandbox_id__eq")]
             public string? SandboxIdEq { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("sandbox_id__eq")]
             public string SandboxIdEq { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("title__contains")]
-            public string? TitleContains { get; set; }
+            #pragma warning disable CS1591
+            [QueryParameter("tags__contains")]
+            public string[]? TagsContains { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
+            [QueryParameter("tags__contains")]
+            public string[] TagsContains { get; set; }
+            #pragma warning restore CS1591
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            #pragma warning disable CS1591
+            [QueryParameter("title__contains")]
+            public string? TitleContains { get; set; }
+            #pragma warning restore CS1591
+#nullable restore
+#else
+            #pragma warning disable CS1591
             [QueryParameter("title__contains")]
             public string TitleContains { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("updated_at__gte")]
             public DateTimeOffset? UpdatedAtGte { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("updated_at__lt")]
             public DateTimeOffset? UpdatedAtLt { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

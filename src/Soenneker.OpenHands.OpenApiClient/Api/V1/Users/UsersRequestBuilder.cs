@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.Users.GitInfo;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.Users.GitOrganizations;
+using Soenneker.OpenHands.OpenApiClient.Api.V1.Users.GitProviders;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.Users.Me;
 using System.Collections.Generic;
 using System.IO;
@@ -26,6 +27,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Users
         public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Users.GitOrganizations.GitOrganizationsRequestBuilder GitOrganizations
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Users.GitOrganizations.GitOrganizationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The gitProviders property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Users.GitProviders.GitProvidersRequestBuilder GitProviders
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Users.GitProviders.GitProvidersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The me property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Users.Me.MeRequestBuilder Me

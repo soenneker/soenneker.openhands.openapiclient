@@ -20,10 +20,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The llm property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesSaveProfileRequestLlm? Llm { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm? Llm { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesSaveProfileRequestLlm Llm { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm Llm { get; set; }
 #endif
         /// <summary>The preserve_existing_api_key property</summary>
         public bool? PreserveExistingApiKey { get; set; }
@@ -55,7 +55,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "include_secrets", n => { IncludeSecrets = n.GetBoolValue(); } },
-                { "llm", n => { Llm = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesSaveProfileRequestLlm>(global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesSaveProfileRequestLlm.CreateFromDiscriminatorValue); } },
+                { "llm", n => { Llm = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm.CreateFromDiscriminatorValue); } },
                 { "preserve_existing_api_key", n => { PreserveExistingApiKey = n.GetBoolValue(); } },
             };
         }
@@ -67,7 +67,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("include_secrets", IncludeSecrets);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesSaveProfileRequestLlm>("llm", Llm);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm>("llm", Llm);
             writer.WriteBoolValue("preserve_existing_api_key", PreserveExistingApiKey);
             writer.WriteAdditionalData(AdditionalData);
         }

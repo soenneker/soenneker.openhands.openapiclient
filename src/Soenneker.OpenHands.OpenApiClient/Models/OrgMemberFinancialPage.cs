@@ -35,6 +35,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>The per_page property</summary>
         public int? PerPage { get; set; }
+        /// <summary>The spend_status property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialPageSpendStatus? SpendStatus { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialPage"/> and sets the default values.
         /// </summary>
@@ -66,6 +68,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialResponse>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialResponse.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "next_page_id", n => { NextPageId = n.GetStringValue(); } },
                 { "per_page", n => { PerPage = n.GetIntValue(); } },
+                { "spend_status", n => { SpendStatus = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialPageSpendStatus>(); } },
             };
         }
         /// <summary>
@@ -79,6 +82,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialResponse>("items", Items);
             writer.WriteStringValue("next_page_id", NextPageId);
             writer.WriteIntValue("per_page", PerPage);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialPageSpendStatus>("spend_status", SpendStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

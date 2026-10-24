@@ -37,13 +37,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDetailResponseProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("agent_kind")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDetailResponseProfile();
-            if("AcpAgentProfile".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("acp".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AcpAgentProfile = new global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfile();
             }
-            else if("OpenHandsAgentProfile".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("openhands".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OpenHandsAgentProfile = new global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfile();
             }

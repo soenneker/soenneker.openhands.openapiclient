@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Main agent implementation for OpenHands.The Agent class provides the core functionality for running AI agents that caninteract with tools, process messages, and execute actions. It inherits fromAgentBase and implements the agent execution logic. Critic-related functionalityis provided by CriticMixin.Attributes:    llm: The language model instance used for reasoning.    tools: List of tools available to the agent.    system_prompt: Inline system prompt string. When provided the agent        uses this text verbatim instead of rendering from a template.        Mutually exclusive with a non-default ``system_prompt_filename``.        **Not recommended** unless you know what you are doing (e.g.        customising agent behaviour for a completely different task) —        this will override OpenHands&apos; built-in system instructions.    system_prompt_filename: Jinja2 template filename resolved relative to        the agent&apos;s prompts directory, or an absolute path. Defaults to        ``\&quot;system_prompt.j2\&quot;``.    system_prompt_kwargs: Extra kwargs forwarded to the Jinja2 template.Example:    ```python    from openhands.sdk import LLM, Agent, Tool    from pydantic import SecretStr    llm = LLM(model=\&quot;gpt-5.5\&quot;, api_key=SecretStr(\&quot;key\&quot;))    tools = [Tool(name=\&quot;TerminalTool\&quot;), Tool(name=\&quot;FileEditorTool\&quot;)]    agent = Agent(llm=llm, tools=tools)    ```    To override the system prompt entirely::        agent = Agent(            llm=llm,            tools=tools,            system_prompt=\&quot;You are a helpful coding assistant.\&quot;,        )&quot;
+    /// Main agent implementation for OpenHands.The Agent class provides the core functionality for running AI agents that caninteract with tools, process messages, and execute actions. It inherits fromAgentBase and implements the agent execution logic. Critic-related functionalityis provided by CriticMixin.Attributes:    llm: The language model instance used for reasoning.    tools: List of tools available to the agent.    system_prompt: Inline system prompt string. When provided the agent        uses this text verbatim instead of rendering from a template.        Mutually exclusive with a non-default ``system_prompt_filename``.        **Not recommended** unless you know what you are doing (e.g.        customising agent behaviour for a completely different task) —        this will override OpenHands&apos; built-in system instructions.    system_prompt_filename: Jinja2 template filename resolved relative to        the agent&apos;s prompts directory, or an absolute path. Defaults to        ``&quot;system_prompt.j2&quot;``.    system_prompt_kwargs: Extra kwargs forwarded to the Jinja2 template.Example:    ```python    from openhands.sdk import LLM, Agent, Tool    from pydantic import SecretStr    llm = LLM(model=&quot;gpt-5.6&quot;, api_key=SecretStr(&quot;key&quot;))    tools = [Tool(name=&quot;TerminalTool&quot;), Tool(name=&quot;FileEditorTool&quot;)]    agent = Agent(llm=llm, tools=tools)    ```    To override the system prompt entirely::        agent = Agent(            llm=llm,            tools=tools,            system_prompt=&quot;You are a helpful coding assistant.&quot;,        )
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Agent : IAdditionalDataHolder, IParsable
@@ -18,26 +18,26 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Optional AgentContext to initialize the agent with specific context.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentAgentContext? AgentContext { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput? AgentContext { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentAgentContext AgentContext { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput AgentContext { get; set; }
 #endif
         /// <summary>Optional condenser to use for condensing conversation history.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentCondenser? Condenser { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput? Condenser { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentCondenser Condenser { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput Condenser { get; set; }
 #endif
-        /// <summary>&quot;EXPERIMENTAL: Optional critic to evaluate agent actions and messages in real-time. API and behavior may change without notice. May impact performance, especially in &apos;all_actions&apos; mode.&quot;</summary>
+        /// <summary>EXPERIMENTAL: Optional critic to evaluate agent actions and messages in real-time. API and behavior may change without notice. May impact performance, especially in &apos;all_actions&apos; mode.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentCritic? Critic { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CriticBase? Critic { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentCritic Critic { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CriticBase Critic { get; set; }
 #endif
         /// <summary>Optional regex to filter the tools available to the agent by name. This is applied after any tools provided in `tools` and any MCP tools are added.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,7 +47,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string FilterToolsRegex { get; set; }
 #endif
-        /// <summary>&quot;List of default tool class names to include. By default, the agent includes &apos;FinishTool&apos; and &apos;ThinkTool&apos;. Set to an empty list to disable all default tools, or provide a subset to include only specific ones. Example: include_default_tools=[&apos;FinishTool&apos;] to only include FinishTool, or include_default_tools=[] to disable all default tools.&quot;</summary>
+        /// <summary>List of default tool class names to include. By default, the agent includes &apos;FinishTool&apos; and &apos;ThinkTool&apos;. Set to an empty list to disable all default tools, or provide a subset to include only specific ones. Example: include_default_tools=[&apos;FinishTool&apos;] to only include FinishTool, or include_default_tools=[] to disable all default tools.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? IncludeDefaultTools { get; set; }
@@ -56,8 +56,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public List<string> IncludeDefaultTools { get; set; }
 #endif
         /// <summary>The kind property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.Agent_kind? Kind { get; set; }
-        /// <summary>&quot;Language model interface for OpenHands agents.The LLM class provides a unified interface for interacting with variouslanguage models through the litellm library. It handles model configuration,API authentication, retry logic, and tool calling capabilities.Attributes:    model: Model name (e.g., \&quot;gpt-5.5\&quot;).    api_key: API key for authentication.    base_url: Custom API base URL.    num_retries: Number of retry attempts for failed requests.    timeout: Request timeout in seconds.Example:    ```python    from openhands.sdk import LLM    from pydantic import SecretStr    llm = LLM(        model=\&quot;gpt-5.5\&quot;,        api_key=SecretStr(\&quot;your-api-key\&quot;),        usage_id=\&quot;my-agent\&quot;    )    # Use with agent or conversation    ```&quot;</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentKind? Kind { get; set; }
+        /// <summary>Language model interface for OpenHands agents.The LLM class provides a unified interface for interacting with variouslanguage models through the litellm library. It handles model configuration,API authentication, retry logic, and tool calling capabilities.Attributes:    model: Model name (e.g., &quot;gpt-5.6&quot;).    api_key: API key for authentication.    base_url: Custom API base URL.    num_retries: Number of retry attempts for failed requests.    timeout: Request timeout in seconds.Example:    ```python    from openhands.sdk import LLM    from pydantic import SecretStr    llm = LLM(        model=&quot;gpt-5.6&quot;,        api_key=SecretStr(&quot;your-api-key&quot;),        usage_id=&quot;my-agent&quot;    )    # Use with agent or conversation    ```</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInput? Llm { get; set; }
@@ -73,6 +73,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.AgentMcpConfigProperty McpConfig { get; set; }
 #endif
+        /// <summary>Persona text that replaces OpenHands&apos; built-in persona and coding-workflow sections of the system prompt. Capability and policy sections (memory, security policy, risk assessment, browser, external services, process management, model-specific guidance) and the dynamic context still apply. Ignored when `system_prompt` is set; a custom template receives it as the `persona` kwarg.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Persona { get; set; }
+#nullable restore
+#else
+        public string Persona { get; set; }
+#endif
         /// <summary>Security policy filename. The default &apos;security_policy.j2&apos; is a back-compat sentinel (the file was removed) that selects the built-in default policy from the prompt registry -- it is not loaded from disk. Any other value names a custom policy file whose contents are inserted verbatim (NOT rendered as a Jinja template). Can be either:- A relative filename (e.g., &apos;custom_security_policy.md&apos;) loaded from the agent&apos;s prompts directory- An absolute path (e.g., &apos;/path/to/custom_security_policy.md&apos;)- Empty string to disable security policy</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,7 +89,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string SecurityPolicyFilename { get; set; }
 #endif
-        /// <summary>&quot;Inline system prompt string.  When provided, the agent uses this text verbatim as the system message instead of rendering from `system_prompt_filename`.  Mutually exclusive with a non-default `system_prompt_filename`.**Warning**: This is not recommended unless you know what you are doing (e.g. customising agent behaviour for a completely different task).  Setting this will override OpenHands&apos; built-in system instructions that govern default agent behaviour.&quot;</summary>
+        /// <summary>Inline system prompt string.  When provided, the agent uses this text verbatim as the system message instead of rendering from `system_prompt_filename`.  Mutually exclusive with a non-default `system_prompt_filename`.**Warning**: This is not recommended unless you know what you are doing (e.g. customising agent behaviour for a completely different task).  Setting this will override OpenHands&apos; built-in system instructions that govern default agent behaviour.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SystemPrompt { get; set; }
@@ -110,10 +118,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>List of tools to initialize for the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool>? Tools { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ToolInput>? Tools { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool> Tools { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ToolInput> Tools { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Agent"/> and sets the default values.
@@ -143,20 +151,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "agent_context", n => { AgentContext = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentAgentContext>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentAgentContext.CreateFromDiscriminatorValue); } },
-                { "condenser", n => { Condenser = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentCondenser>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentCondenser.CreateFromDiscriminatorValue); } },
-                { "critic", n => { Critic = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentCritic>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentCritic.CreateFromDiscriminatorValue); } },
+                { "agent_context", n => { AgentContext = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput.CreateFromDiscriminatorValue); } },
+                { "condenser", n => { Condenser = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput>(global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput.CreateFromDiscriminatorValue); } },
+                { "critic", n => { Critic = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CriticBase>(global::Soenneker.OpenHands.OpenApiClient.Models.CriticBase.CreateFromDiscriminatorValue); } },
                 { "filter_tools_regex", n => { FilterToolsRegex = n.GetStringValue(); } },
                 { "include_default_tools", n => { IncludeDefaultTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.Agent_kind>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentKind>(); } },
                 { "llm", n => { Llm = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInput>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInput.CreateFromDiscriminatorValue); } },
                 { "mcp_config", n => { McpConfig = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentMcpConfigProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentMcpConfigProperty.CreateFromDiscriminatorValue); } },
+                { "persona", n => { Persona = n.GetStringValue(); } },
                 { "security_policy_filename", n => { SecurityPolicyFilename = n.GetStringValue(); } },
                 { "system_prompt", n => { SystemPrompt = n.GetStringValue(); } },
                 { "system_prompt_filename", n => { SystemPromptFilename = n.GetStringValue(); } },
                 { "system_prompt_kwargs", n => { SystemPromptKwargs = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentSystemPromptKwargsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentSystemPromptKwargsProperty.CreateFromDiscriminatorValue); } },
                 { "tool_concurrency_limit", n => { ToolConcurrencyLimit = n.GetIntValue(); } },
-                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ToolInput>(global::Soenneker.OpenHands.OpenApiClient.Models.ToolInput.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -166,20 +175,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentAgentContext>("agent_context", AgentContext);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentCondenser>("condenser", Condenser);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentCritic>("critic", Critic);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput>("agent_context", AgentContext);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput>("condenser", Condenser);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CriticBase>("critic", Critic);
             writer.WriteStringValue("filter_tools_regex", FilterToolsRegex);
             writer.WriteCollectionOfPrimitiveValues<string>("include_default_tools", IncludeDefaultTools);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.Agent_kind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentKind>("kind", Kind);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInput>("llm", Llm);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentMcpConfigProperty>("mcp_config", McpConfig);
+            writer.WriteStringValue("persona", Persona);
             writer.WriteStringValue("security_policy_filename", SecurityPolicyFilename);
             writer.WriteStringValue("system_prompt", SystemPrompt);
             writer.WriteStringValue("system_prompt_filename", SystemPromptFilename);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentSystemPromptKwargsProperty>("system_prompt_kwargs", SystemPromptKwargs);
             writer.WriteIntValue("tool_concurrency_limit", ToolConcurrencyLimit);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool>("tools", Tools);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ToolInput>("tools", Tools);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -23,7 +23,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>Server-assigned model identifier. May be concrete (e.g. ``&quot;gpt-5.5&quot;``) or an opaque alias (e.g. ``&quot;default&quot;``, ``&quot;auto&quot;``). This is the value to pass back to the server to switch to this model.</summary>
+        /// <summary>Server-assigned model identifier. May be concrete (e.g. ``&quot;gpt-5.6&quot;``) or an opaque alias (e.g. ``&quot;default&quot;``, ``&quot;auto&quot;``). This is the value to pass back to the server to switch to this model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ModelId { get; set; }

@@ -39,11 +39,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase();
-            if("AcpAgent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("openhands__sdk__agent__acp_agent__ACPAgent-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AcpAgent = new global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgent();
             }
-            else if("Agent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("openhands__sdk__agent__agent__Agent-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.Agent = new global::Soenneker.OpenHands.OpenApiClient.Models.Agent();
             }

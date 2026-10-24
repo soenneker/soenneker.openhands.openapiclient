@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.Item.Settings.Secrets.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \api\v1\sandboxes\{-id}\settings\secrets\{secretName}
+    /// Builds and executes requests for operations under \api\v1\sandboxes\{sandboxId}\settings\secrets\{secretName}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithSecretNameItemRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.Item.Settings.Secre
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithSecretNameItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/sandboxes/{%2Did}/settings/secrets/{secretName}", pathParameters)
+        public WithSecretNameItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/sandboxes/{sandboxId}/settings/secrets/{secretName}", pathParameters)
         {
         }
         /// <summary>
@@ -30,23 +30,23 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.Item.Settings.Secre
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithSecretNameItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/sandboxes/{%2Did}/settings/secrets/{secretName}", rawUrl)
+        public WithSecretNameItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/sandboxes/{sandboxId}/settings/secrets/{secretName}", rawUrl)
         {
         }
         /// <summary>
         /// Return a single secret value as plain text.Called by ``LookupSecret`` inside the sandbox. Checks custom secretsfirst, then falls back to provider tokens — always resolving thelatest token at call time.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GetSecretValueApiV1SandboxesSandboxIdSettingsSecretsSecretNameGet200ResponseSchema"/></returns>
+        /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.GetSecretValueApiV1SandboxesSandboxIdSettingsSecretsSecretNameGet200ResponseSchema?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.GetSecretValueApiV1SandboxesSandboxIdSettingsSecretsSecretNameGet200ResponseSchema> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.Item.Settings.Secre
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.GetSecretValueApiV1SandboxesSandboxIdSettingsSecretsSecretNameGet200ResponseSchema>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.GetSecretValueApiV1SandboxesSandboxIdSettingsSecretsSecretNameGet200ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Return a single secret value as plain text.Called by ``LookupSecret`` inside the sandbox. Checks custom secretsfirst, then falls back to provider tokens — always resolving thelatest token at call time.
