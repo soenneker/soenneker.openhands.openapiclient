@@ -276,7 +276,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 result.UserinfoUrl = userinfoUrlValue;
             }
-            else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> scopesValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> scopesValue)
             {
                 result.Scopes = scopesValue;
             }

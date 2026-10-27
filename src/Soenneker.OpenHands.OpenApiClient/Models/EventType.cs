@@ -943,35 +943,35 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 result.Value = valueValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>(global::Soenneker.OpenHands.OpenApiClient.Models.TextContent.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent> extendedContentValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>(global::Soenneker.OpenHands.OpenApiClient.Models.TextContent.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent> extendedContentValue)
             {
                 result.ExtendedContent = extendedContentValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventThinkingBlocksItem>(global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventThinkingBlocksItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventThinkingBlocksItem> thinkingBlocksValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventThinkingBlocksItem>(global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventThinkingBlocksItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventThinkingBlocksItem> thinkingBlocksValue)
             {
                 result.ThinkingBlocks = thinkingBlocksValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>(global::Soenneker.OpenHands.OpenApiClient.Models.TextContent.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent> thoughtValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent>(global::Soenneker.OpenHands.OpenApiClient.Models.TextContent.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenHands.OpenApiClient.Models.TextContent> thoughtValue)
             {
                 result.Thought = thoughtValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ToolDefinition>(global::Soenneker.OpenHands.OpenApiClient.Models.ToolDefinition.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenHands.OpenApiClient.Models.ToolDefinition> toolsValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ToolDefinition>(global::Soenneker.OpenHands.OpenApiClient.Models.ToolDefinition.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenHands.OpenApiClient.Models.ToolDefinition> toolsValue)
             {
                 result.Tools = toolsValue;
             }
-            else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> activatedSkillsValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> activatedSkillsValue)
             {
                 result.ActivatedSkills = activatedSkillsValue;
             }
-            else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> forgottenEventIdsValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> forgottenEventIdsValue)
             {
                 result.ForgottenEventIds = forgottenEventIdsValue;
             }
-            else if(parseNode.GetCollectionOfPrimitiveValues<int?>()?.AsList() is List<int?> promptTokenIdsValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<int?>()?.AsList() is List<int?> promptTokenIdsValue)
             {
                 result.PromptTokenIds = promptTokenIdsValue;
             }
-            else if(parseNode.GetCollectionOfPrimitiveValues<int?>()?.AsList() is List<int?> responseTokenIdsValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<int?>()?.AsList() is List<int?> responseTokenIdsValue)
             {
                 result.ResponseTokenIds = responseTokenIdsValue;
             }

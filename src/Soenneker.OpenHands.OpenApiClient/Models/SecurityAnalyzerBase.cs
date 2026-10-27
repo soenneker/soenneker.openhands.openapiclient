@@ -261,23 +261,23 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 result.Timeout = timeoutValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase>(global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase> analyzersValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase>(global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase> analyzersValue)
             {
                 result.Analyzers = analyzersValue;
             }
-            else if(parseNode.GetCollectionOfPrimitiveValues<UntypedNode>()?.AsList() is List<UntypedNode> highPatternsValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<UntypedNode>()?.AsList() is List<UntypedNode> highPatternsValue)
             {
                 result.HighPatterns = highPatternsValue;
             }
-            else if(parseNode.GetCollectionOfPrimitiveValues<UntypedNode>()?.AsList() is List<UntypedNode> injectionHighPatternsValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<UntypedNode>()?.AsList() is List<UntypedNode> injectionHighPatternsValue)
             {
                 result.InjectionHighPatterns = injectionHighPatternsValue;
             }
-            else if(parseNode.GetCollectionOfPrimitiveValues<UntypedNode>()?.AsList() is List<UntypedNode> injectionMediumPatternsValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<UntypedNode>()?.AsList() is List<UntypedNode> injectionMediumPatternsValue)
             {
                 result.InjectionMediumPatterns = injectionMediumPatternsValue;
             }
-            else if(parseNode.GetCollectionOfPrimitiveValues<UntypedNode>()?.AsList() is List<UntypedNode> mediumPatternsValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<UntypedNode>()?.AsList() is List<UntypedNode> mediumPatternsValue)
             {
                 result.MediumPatterns = mediumPatternsValue;
             }

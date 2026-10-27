@@ -124,7 +124,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 result.MinimumProgress = minimumProgressValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput>(global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput> condensersValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput>(global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput> condensersValue)
             {
                 result.Condensers = condensersValue;
             }
