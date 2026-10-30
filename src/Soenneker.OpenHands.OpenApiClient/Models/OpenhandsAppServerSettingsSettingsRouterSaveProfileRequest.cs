@@ -12,21 +12,35 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OpenhandsAppServerSettingsSettingsRouterSaveProfileRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("include_secrets") is { } nullNodeIncludeSecrets && nullNodeIncludeSecrets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeSecrets = null;
+            if (parseNode.GetChildNode("llm") is { } nullNodeLlm && nullNodeLlm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Llm = null;
+            if (parseNode.GetChildNode("preserve_existing_api_key") is { } nullNodePreserveExistingApiKey && nullNodePreserveExistingApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreserveExistingApiKey = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The include_secrets property</summary>
-        public bool? IncludeSecrets { get; set; }
+        public bool? IncludeSecrets { get => _explicitNullValueIncludeSecrets; set { _explicitNullValueIncludeSecrets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_secrets"); else _explicitNullProperties?.Remove("include_secrets"); } }
+        private bool? _explicitNullValueIncludeSecrets = default!;
         /// <summary>The llm property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm? Llm { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm? Llm { get => _explicitNullValueLlm; set { _explicitNullValueLlm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm"); else _explicitNullProperties?.Remove("llm"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm? _explicitNullValueLlm = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm Llm { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm Llm { get => _explicitNullValueLlm; set { _explicitNullValueLlm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm"); else _explicitNullProperties?.Remove("llm"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm _explicitNullValueLlm = default!;
 #endif
         /// <summary>The preserve_existing_api_key property</summary>
-        public bool? PreserveExistingApiKey { get; set; }
+        public bool? PreserveExistingApiKey { get => _explicitNullValuePreserveExistingApiKey; set { _explicitNullValuePreserveExistingApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preserve_existing_api_key"); else _explicitNullProperties?.Remove("preserve_existing_api_key"); } }
+        private bool? _explicitNullValuePreserveExistingApiKey = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterSaveProfileRequest"/> and sets the default values.
         /// </summary>
@@ -44,7 +58,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterSaveProfileRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterSaveProfileRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterSaveProfileRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +83,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("include_secrets", IncludeSecrets);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm>("llm", Llm);
             writer.WriteBoolValue("preserve_existing_api_key", PreserveExistingApiKey);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

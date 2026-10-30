@@ -12,28 +12,45 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LaunchedAgentProfile : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agent_profile_id") is { } nullNodeAgentProfileId && nullNodeAgentProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentProfileId = null;
+            if (parseNode.GetChildNode("llm_profile_ref") is { } nullNodeLlmProfileRef && nullNodeLlmProfileRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmProfileRef = null;
+            if (parseNode.GetChildNode("revision") is { } nullNodeRevision && nullNodeRevision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Revision = null;
+            if (parseNode.GetChildNode("secret_refs") is { } nullNodeSecretRefs && nullNodeSecretRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretRefs = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Stable id of the agent profile that launched the conversation.</summary>
-        public Guid? AgentProfileId { get; set; }
+        public Guid? AgentProfileId { get => _explicitNullValueAgentProfileId; set { _explicitNullValueAgentProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_profile_id"); else _explicitNullProperties?.Remove("agent_profile_id"); } }
+        private Guid? _explicitNullValueAgentProfileId = default!;
         /// <summary>Per-launch LLM profile override from `agent_launch_additions`. null means the profile&apos;s own `llm_profile_ref` was used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LlmProfileRef { get; set; }
+        public string? LlmProfileRef { get => _explicitNullValueLlmProfileRef; set { _explicitNullValueLlmProfileRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_profile_ref"); else _explicitNullProperties?.Remove("llm_profile_ref"); } }
+        private string? _explicitNullValueLlmProfileRef = default!;
 #nullable restore
 #else
-        public string LlmProfileRef { get; set; }
+        public string LlmProfileRef { get => _explicitNullValueLlmProfileRef; set { _explicitNullValueLlmProfileRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_profile_ref"); else _explicitNullProperties?.Remove("llm_profile_ref"); } }
+        private string _explicitNullValueLlmProfileRef = default!;
 #endif
         /// <summary>Revision of the agent profile at launch time.</summary>
-        public int? Revision { get; set; }
+        public int? Revision { get => _explicitNullValueRevision; set { _explicitNullValueRevision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revision"); else _explicitNullProperties?.Remove("revision"); } }
+        private int? _explicitNullValueRevision = default!;
         /// <summary>Secret allow-list captured at launch, also enforced on resume. null preserves unrestricted behavior for older conversations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SecretRefs { get; set; }
+        public List<string>? SecretRefs { get => _explicitNullValueSecretRefs; set { _explicitNullValueSecretRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_refs"); else _explicitNullProperties?.Remove("secret_refs"); } }
+        private List<string>? _explicitNullValueSecretRefs = default!;
 #nullable restore
 #else
-        public List<string> SecretRefs { get; set; }
+        public List<string> SecretRefs { get => _explicitNullValueSecretRefs; set { _explicitNullValueSecretRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_refs"); else _explicitNullProperties?.Remove("secret_refs"); } }
+        private List<string> _explicitNullValueSecretRefs = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile"/> and sets the default values.
@@ -50,7 +67,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,6 +94,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("llm_profile_ref", LlmProfileRef);
             writer.WriteIntValue("revision", Revision);
             writer.WriteCollectionOfPrimitiveValues<string>("secret_refs", SecretRefs);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

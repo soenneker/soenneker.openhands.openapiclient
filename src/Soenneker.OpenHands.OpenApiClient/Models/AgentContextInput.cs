@@ -12,88 +12,130 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentContextInput : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("current_datetime") is { } nullNodeCurrentDatetime && nullNodeCurrentDatetime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentDatetime = null;
+            if (parseNode.GetChildNode("disabled_skills") is { } nullNodeDisabledSkills && nullNodeDisabledSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisabledSkills = null;
+            if (parseNode.GetChildNode("load_memory") is { } nullNodeLoadMemory && nullNodeLoadMemory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadMemory = null;
+            if (parseNode.GetChildNode("load_project_skills") is { } nullNodeLoadProjectSkills && nullNodeLoadProjectSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadProjectSkills = null;
+            if (parseNode.GetChildNode("load_public_skills") is { } nullNodeLoadPublicSkills && nullNodeLoadPublicSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadPublicSkills = null;
+            if (parseNode.GetChildNode("load_user_skills") is { } nullNodeLoadUserSkills && nullNodeLoadUserSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadUserSkills = null;
+            if (parseNode.GetChildNode("marketplace_path") is { } nullNodeMarketplacePath && nullNodeMarketplacePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MarketplacePath = null;
+            if (parseNode.GetChildNode("memory_context") is { } nullNodeMemoryContext && nullNodeMemoryContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemoryContext = null;
+            if (parseNode.GetChildNode("registered_marketplaces") is { } nullNodeRegisteredMarketplaces && nullNodeRegisteredMarketplaces.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegisteredMarketplaces = null;
+            if (parseNode.GetChildNode("secrets") is { } nullNodeSecrets && nullNodeSecrets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Secrets = null;
+            if (parseNode.GetChildNode("skills") is { } nullNodeSkills && nullNodeSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Skills = null;
+            if (parseNode.GetChildNode("system_message_suffix") is { } nullNodeSystemMessageSuffix && nullNodeSystemMessageSuffix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SystemMessageSuffix = null;
+            if (parseNode.GetChildNode("user_message_suffix") is { } nullNodeUserMessageSuffix && nullNodeUserMessageSuffix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserMessageSuffix = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Current date and time information to provide to the agent. Can be a datetime object (which will be formatted as ISO 8601) or a pre-formatted string. When provided, this information is included in the system prompt to give the agent awareness of the current time context. Defaults to the current (timezone-aware) datetime.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime? CurrentDatetime { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime? CurrentDatetime { get => _explicitNullValueCurrentDatetime; set { _explicitNullValueCurrentDatetime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_datetime"); else _explicitNullProperties?.Remove("current_datetime"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime? _explicitNullValueCurrentDatetime = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime CurrentDatetime { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime CurrentDatetime { get => _explicitNullValueCurrentDatetime; set { _explicitNullValueCurrentDatetime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_datetime"); else _explicitNullProperties?.Remove("current_datetime"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime _explicitNullValueCurrentDatetime = default!;
 #endif
         /// <summary>Names of skills to EXCLUDE from this context — a deny-list applied after every skill source is loaded (auto-loaded user/public, explicit, and lazily-loaded project skills). A listed name absent from the loaded set is a harmless no-op. [] (the default) keeps every skill. This is the single, drift-tolerant skill-selection mechanism (agent profiles set it from their own deny-list; #4017).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DisabledSkills { get; set; }
+        public List<string>? DisabledSkills { get => _explicitNullValueDisabledSkills; set { _explicitNullValueDisabledSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled_skills"); else _explicitNullProperties?.Remove("disabled_skills"); } }
+        private List<string>? _explicitNullValueDisabledSkills = default!;
 #nullable restore
 #else
-        public List<string> DisabledSkills { get; set; }
+        public List<string> DisabledSkills { get => _explicitNullValueDisabledSkills; set { _explicitNullValueDisabledSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled_skills"); else _explicitNullProperties?.Remove("disabled_skills"); } }
+        private List<string> _explicitNullValueDisabledSkills = default!;
 #endif
         /// <summary>Whether to load persistent agent memory (MEMORY.md indexes under ~/.openhands/memory/ and &lt;workspace&gt;/.openhands/memory/) into the system prompt. Like load_project_skills, this flag is not resolved by AgentContext itself (the workspace path is unknown at validation time); LocalConversation resolves it lazily on the first send_message() / run() and stores the result in memory_context.</summary>
-        public bool? LoadMemory { get; set; }
+        public bool? LoadMemory { get => _explicitNullValueLoadMemory; set { _explicitNullValueLoadMemory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_memory"); else _explicitNullProperties?.Remove("load_memory"); } }
+        private bool? _explicitNullValueLoadMemory = default!;
         /// <summary>Whether to automatically load project skills from the conversation workspace (e.g. .openhands/skills/, AGENTS.md). Unlike load_user_skills / load_public_skills, this flag is not resolved by AgentContext itself (the workspace path is unknown at validation time); LocalConversation resolves it lazily on the first send_message() / run(), when the workspace is known. Also unlike load_user_skills / load_public_skills (which yield to explicit skills on a name conflict), resolved project skills are authoritative: a project skill overrides a same-named skill already present in `skills`.</summary>
-        public bool? LoadProjectSkills { get; set; }
+        public bool? LoadProjectSkills { get => _explicitNullValueLoadProjectSkills; set { _explicitNullValueLoadProjectSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_project_skills"); else _explicitNullProperties?.Remove("load_project_skills"); } }
+        private bool? _explicitNullValueLoadProjectSkills = default!;
         /// <summary>Whether to automatically load skills from the public OpenHands skills repository at https://github.com/OpenHands/extensions. This allows you to get the latest skills without SDK updates.</summary>
-        public bool? LoadPublicSkills { get; set; }
+        public bool? LoadPublicSkills { get => _explicitNullValueLoadPublicSkills; set { _explicitNullValueLoadPublicSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_public_skills"); else _explicitNullProperties?.Remove("load_public_skills"); } }
+        private bool? _explicitNullValueLoadPublicSkills = default!;
         /// <summary>Whether to automatically load user skills from ~/.openhands/skills/ and ~/.openhands/microagents/ (for backward compatibility). </summary>
-        public bool? LoadUserSkills { get; set; }
+        public bool? LoadUserSkills { get => _explicitNullValueLoadUserSkills; set { _explicitNullValueLoadUserSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_user_skills"); else _explicitNullProperties?.Remove("load_user_skills"); } }
+        private bool? _explicitNullValueLoadUserSkills = default!;
         /// <summary>Relative marketplace JSON path within the public skills repository. Set to None to load all public skills without marketplace filtering.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMarketplacePath? MarketplacePath { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMarketplacePath? MarketplacePath { get => _explicitNullValueMarketplacePath; set { _explicitNullValueMarketplacePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("marketplace_path"); else _explicitNullProperties?.Remove("marketplace_path"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMarketplacePath? _explicitNullValueMarketplacePath = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMarketplacePath MarketplacePath { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMarketplacePath MarketplacePath { get => _explicitNullValueMarketplacePath; set { _explicitNullValueMarketplacePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("marketplace_path"); else _explicitNullProperties?.Remove("marketplace_path"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMarketplacePath _explicitNullValueMarketplacePath = default!;
 #endif
         /// <summary>Resolved memory-index text rendered into the &lt;MEMORY_CONTEXT&gt; prompt block. Populated via model_copy by LocalConversation when load_memory is set; excluded from serialization because it is re-resolved from disk each session and must not bloat persisted conversation state.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMemoryContext? MemoryContext { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMemoryContext? MemoryContext { get => _explicitNullValueMemoryContext; set { _explicitNullValueMemoryContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_context"); else _explicitNullProperties?.Remove("memory_context"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMemoryContext? _explicitNullValueMemoryContext = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMemoryContext MemoryContext { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMemoryContext MemoryContext { get => _explicitNullValueMemoryContext; set { _explicitNullValueMemoryContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_context"); else _explicitNullProperties?.Remove("memory_context"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMemoryContext _explicitNullValueMemoryContext = default!;
 #endif
         /// <summary>Marketplace registrations for plugin resolution. Registrations with auto_load=True or a list of plugin names are resolved by LocalConversation at startup.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration>? RegisteredMarketplaces { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration>? RegisteredMarketplaces { get => _explicitNullValueRegisteredMarketplaces; set { _explicitNullValueRegisteredMarketplaces = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registered_marketplaces"); else _explicitNullProperties?.Remove("registered_marketplaces"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration>? _explicitNullValueRegisteredMarketplaces = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration> RegisteredMarketplaces { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration> RegisteredMarketplaces { get => _explicitNullValueRegisteredMarketplaces; set { _explicitNullValueRegisteredMarketplaces = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registered_marketplaces"); else _explicitNullProperties?.Remove("registered_marketplaces"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration> _explicitNullValueRegisteredMarketplaces = default!;
 #endif
         /// <summary>Dictionary mapping secret keys to values or secret sources. Secrets are used for authentication and sensitive data handling. Values can be either strings or SecretSource instances (str | SecretSource).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSecretsAnyOf1? Secrets { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSecretsAnyOf1? Secrets { get => _explicitNullValueSecrets; set { _explicitNullValueSecrets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secrets"); else _explicitNullProperties?.Remove("secrets"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSecretsAnyOf1? _explicitNullValueSecrets = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSecretsAnyOf1 Secrets { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSecretsAnyOf1 Secrets { get => _explicitNullValueSecrets; set { _explicitNullValueSecrets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secrets"); else _explicitNullProperties?.Remove("secrets"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSecretsAnyOf1 _explicitNullValueSecrets = default!;
 #endif
         /// <summary>List of available skills that can extend the user&apos;s input.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInput>? Skills { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInput>? Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInput>? _explicitNullValueSkills = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInput> Skills { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInput> Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInput> _explicitNullValueSkills = default!;
 #endif
         /// <summary>Optional suffix to append to the system prompt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSystemMessageSuffix? SystemMessageSuffix { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSystemMessageSuffix? SystemMessageSuffix { get => _explicitNullValueSystemMessageSuffix; set { _explicitNullValueSystemMessageSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("system_message_suffix"); else _explicitNullProperties?.Remove("system_message_suffix"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSystemMessageSuffix? _explicitNullValueSystemMessageSuffix = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSystemMessageSuffix SystemMessageSuffix { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSystemMessageSuffix SystemMessageSuffix { get => _explicitNullValueSystemMessageSuffix; set { _explicitNullValueSystemMessageSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("system_message_suffix"); else _explicitNullProperties?.Remove("system_message_suffix"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSystemMessageSuffix _explicitNullValueSystemMessageSuffix = default!;
 #endif
         /// <summary>Optional suffix to append to the user&apos;s message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputUserMessageSuffix? UserMessageSuffix { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputUserMessageSuffix? UserMessageSuffix { get => _explicitNullValueUserMessageSuffix; set { _explicitNullValueUserMessageSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_message_suffix"); else _explicitNullProperties?.Remove("user_message_suffix"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputUserMessageSuffix? _explicitNullValueUserMessageSuffix = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputUserMessageSuffix UserMessageSuffix { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputUserMessageSuffix UserMessageSuffix { get => _explicitNullValueUserMessageSuffix; set { _explicitNullValueUserMessageSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_message_suffix"); else _explicitNullProperties?.Remove("user_message_suffix"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputUserMessageSuffix _explicitNullValueUserMessageSuffix = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput"/> and sets the default values.
@@ -114,7 +156,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -159,6 +201,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInput>("skills", Skills);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSystemMessageSuffix>("system_message_suffix", SystemMessageSuffix);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputUserMessageSuffix>("user_message_suffix", UserMessageSuffix);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

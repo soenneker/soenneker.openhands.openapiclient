@@ -12,56 +12,81 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MarketplaceSkillsPreviewResponse : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("conflicts") is { } nullNodeConflicts && nullNodeConflicts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Conflicts = null;
+            if (parseNode.GetChildNode("errors") is { } nullNodeErrors && nullNodeErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Errors = null;
+            if (parseNode.GetChildNode("marketplace_layouts") is { } nullNodeMarketplaceLayouts && nullNodeMarketplaceLayouts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MarketplaceLayouts = null;
+            if (parseNode.GetChildNode("marketplace_skills") is { } nullNodeMarketplaceSkills && nullNodeMarketplaceSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MarketplaceSkills = null;
+            if (parseNode.GetChildNode("plugins") is { } nullNodePlugins && nullNodePlugins.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Plugins = null;
+            if (parseNode.GetChildNode("skills") is { } nullNodeSkills && nullNodeSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Skills = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The conflicts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillNameConflict>? Conflicts { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillNameConflict>? Conflicts { get => _explicitNullValueConflicts; set { _explicitNullValueConflicts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conflicts"); else _explicitNullProperties?.Remove("conflicts"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillNameConflict>? _explicitNullValueConflicts = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillNameConflict> Conflicts { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillNameConflict> Conflicts { get => _explicitNullValueConflicts; set { _explicitNullValueConflicts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conflicts"); else _explicitNullProperties?.Remove("conflicts"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillNameConflict> _explicitNullValueConflicts = default!;
 #endif
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Errors { get; set; }
+        public List<string>? Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        private List<string>? _explicitNullValueErrors = default!;
 #nullable restore
 #else
-        public List<string> Errors { get; set; }
+        public List<string> Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        private List<string> _explicitNullValueErrors = default!;
 #endif
         /// <summary>The marketplace_layouts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceLayoutsProperty? MarketplaceLayouts { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceLayoutsProperty? MarketplaceLayouts { get => _explicitNullValueMarketplaceLayouts; set { _explicitNullValueMarketplaceLayouts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("marketplace_layouts"); else _explicitNullProperties?.Remove("marketplace_layouts"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceLayoutsProperty? _explicitNullValueMarketplaceLayouts = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceLayoutsProperty MarketplaceLayouts { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceLayoutsProperty MarketplaceLayouts { get => _explicitNullValueMarketplaceLayouts; set { _explicitNullValueMarketplaceLayouts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("marketplace_layouts"); else _explicitNullProperties?.Remove("marketplace_layouts"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceLayoutsProperty _explicitNullValueMarketplaceLayouts = default!;
 #endif
         /// <summary>The marketplace_skills property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceSkillsProperty? MarketplaceSkills { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceSkillsProperty? MarketplaceSkills { get => _explicitNullValueMarketplaceSkills; set { _explicitNullValueMarketplaceSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("marketplace_skills"); else _explicitNullProperties?.Remove("marketplace_skills"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceSkillsProperty? _explicitNullValueMarketplaceSkills = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceSkillsProperty MarketplaceSkills { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceSkillsProperty MarketplaceSkills { get => _explicitNullValueMarketplaceSkills; set { _explicitNullValueMarketplaceSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("marketplace_skills"); else _explicitNullProperties?.Remove("marketplace_skills"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceSkillsProperty _explicitNullValueMarketplaceSkills = default!;
 #endif
         /// <summary>The plugins property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplacePluginPreview>? Plugins { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplacePluginPreview>? Plugins { get => _explicitNullValuePlugins; set { _explicitNullValuePlugins = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plugins"); else _explicitNullProperties?.Remove("plugins"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplacePluginPreview>? _explicitNullValuePlugins = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplacePluginPreview> Plugins { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplacePluginPreview> Plugins { get => _explicitNullValuePlugins; set { _explicitNullValuePlugins = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plugins"); else _explicitNullProperties?.Remove("plugins"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplacePluginPreview> _explicitNullValuePlugins = default!;
 #endif
         /// <summary>The skills property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInfo>? Skills { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInfo>? Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInfo>? _explicitNullValueSkills = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInfo> Skills { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInfo> Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInfo> _explicitNullValueSkills = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponse"/> and sets the default values.
@@ -78,7 +103,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -109,6 +134,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceSkillsPreviewResponseMarketplaceSkillsProperty>("marketplace_skills", MarketplaceSkills);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplacePluginPreview>("plugins", Plugins);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInfo>("skills", Skills);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

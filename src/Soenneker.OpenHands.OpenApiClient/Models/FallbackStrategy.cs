@@ -12,24 +12,37 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FallbackStrategy : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("fallback_llms") is { } nullNodeFallbackLlms && nullNodeFallbackLlms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackLlms = null;
+            if (parseNode.GetChildNode("profile_store_dir") is { } nullNodeProfileStoreDir && nullNodeProfileStoreDir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProfileStoreDir = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Ordered list of LLM profile names to try on transient failure.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? FallbackLlms { get; set; }
+        public List<string>? FallbackLlms { get => _explicitNullValueFallbackLlms; set { _explicitNullValueFallbackLlms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_llms"); else _explicitNullProperties?.Remove("fallback_llms"); } }
+        private List<string>? _explicitNullValueFallbackLlms = default!;
 #nullable restore
 #else
-        public List<string> FallbackLlms { get; set; }
+        public List<string> FallbackLlms { get => _explicitNullValueFallbackLlms; set { _explicitNullValueFallbackLlms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_llms"); else _explicitNullProperties?.Remove("fallback_llms"); } }
+        private List<string> _explicitNullValueFallbackLlms = default!;
 #endif
         /// <summary>Path to directory containing profiles. If not specified, defaults to `.openhands/profiles`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategyProfileStoreDir? ProfileStoreDir { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategyProfileStoreDir? ProfileStoreDir { get => _explicitNullValueProfileStoreDir; set { _explicitNullValueProfileStoreDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profile_store_dir"); else _explicitNullProperties?.Remove("profile_store_dir"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategyProfileStoreDir? _explicitNullValueProfileStoreDir = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategyProfileStoreDir ProfileStoreDir { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategyProfileStoreDir ProfileStoreDir { get => _explicitNullValueProfileStoreDir; set { _explicitNullValueProfileStoreDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profile_store_dir"); else _explicitNullProperties?.Remove("profile_store_dir"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategyProfileStoreDir _explicitNullValueProfileStoreDir = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("fallback_llms", FallbackLlms);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategyProfileStoreDir>("profile_store_dir", ProfileStoreDir);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

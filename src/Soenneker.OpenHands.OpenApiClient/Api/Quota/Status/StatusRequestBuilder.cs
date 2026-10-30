@@ -49,7 +49,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Quota.Status
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.QuotaStatusResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.QuotaStatusResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.QuotaStatusResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.QuotaStatusResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Return the authenticated user&apos;s daily sandbox quota status.Scoped to the request&apos;s effective org (``X-Org-Id`` / API-key binding),so a user in several orgs sees the quota of the org they are actuallyworking in.

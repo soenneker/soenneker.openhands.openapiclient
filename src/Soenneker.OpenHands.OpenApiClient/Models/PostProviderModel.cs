@@ -12,24 +12,37 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostProviderModel : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("mcp_config") is { } nullNodeMcpConfig && nullNodeMcpConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpConfig = null;
+            if (parseNode.GetChildNode("provider_tokens") is { } nullNodeProviderTokens && nullNodeProviderTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderTokens = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The mcp_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig? McpConfig { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig? McpConfig { get => _explicitNullValueMcpConfig; set { _explicitNullValueMcpConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_config"); else _explicitNullProperties?.Remove("mcp_config"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig? _explicitNullValueMcpConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig McpConfig { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig McpConfig { get => _explicitNullValueMcpConfig; set { _explicitNullValueMcpConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_config"); else _explicitNullProperties?.Remove("mcp_config"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig _explicitNullValueMcpConfig = default!;
 #endif
         /// <summary>The provider_tokens property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelProviderTokensProperty? ProviderTokens { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelProviderTokensProperty? ProviderTokens { get => _explicitNullValueProviderTokens; set { _explicitNullValueProviderTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_tokens"); else _explicitNullProperties?.Remove("provider_tokens"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelProviderTokensProperty? _explicitNullValueProviderTokens = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelProviderTokensProperty ProviderTokens { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelProviderTokensProperty ProviderTokens { get => _explicitNullValueProviderTokens; set { _explicitNullValueProviderTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_tokens"); else _explicitNullProperties?.Remove("provider_tokens"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelProviderTokensProperty _explicitNullValueProviderTokens = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModel"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModel CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModel();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModel(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig>("mcp_config", McpConfig);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelProviderTokensProperty>("provider_tokens", ProviderTokens);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

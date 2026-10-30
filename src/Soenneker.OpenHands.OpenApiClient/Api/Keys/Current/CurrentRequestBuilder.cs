@@ -49,7 +49,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys.Current
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.CurrentApiKeyResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.CurrentApiKeyResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.CurrentApiKeyResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.CurrentApiKeyResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get information about the currently authenticated API key.Returns the key&apos;s bound org (``bound_org_id``, ``None`` for unboundkeys) and the request&apos;s effective org (``org_id``, resolved from the``X-Org-Id`` header or ``user.current_org_id`` for unbound keys).Returns 400 if not authenticated via API key (e.g., using cookie auth).

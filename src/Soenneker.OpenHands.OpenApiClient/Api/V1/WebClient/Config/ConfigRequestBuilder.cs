@@ -49,7 +49,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.WebClient.Config
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get the configuration of the web client.This endpoint is typically one of the first invoked, and does not requireauthentication. It provides general settings for the web client independentof users.

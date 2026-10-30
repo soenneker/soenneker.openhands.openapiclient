@@ -12,19 +12,36 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MarketplaceCheckResponse : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("layout") is { } nullNodeLayout && nullNodeLayout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Layout = null;
+            if (parseNode.GetChildNode("plugin_count") is { } nullNodePluginCount && nullNodePluginCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PluginCount = null;
+            if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
+            if (parseNode.GetChildNode("skill_count") is { } nullNodeSkillCount && nullNodeSkillCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkillCount = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The layout property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout? Layout { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout? Layout { get => _explicitNullValueLayout; set { _explicitNullValueLayout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("layout"); else _explicitNullProperties?.Remove("layout"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout? _explicitNullValueLayout = default!;
         /// <summary>The plugin_count property</summary>
-        public int? PluginCount { get; set; }
+        public int? PluginCount { get => _explicitNullValuePluginCount; set { _explicitNullValuePluginCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plugin_count"); else _explicitNullProperties?.Remove("plugin_count"); } }
+        private int? _explicitNullValuePluginCount = default!;
         /// <summary>The reason property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason? Reason { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason? _explicitNullValueReason = default!;
         /// <summary>The skill_count property</summary>
-        public int? SkillCount { get; set; }
+        public int? SkillCount { get => _explicitNullValueSkillCount; set { _explicitNullValueSkillCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skill_count"); else _explicitNullProperties?.Remove("skill_count"); } }
+        private int? _explicitNullValueSkillCount = default!;
         /// <summary>The status property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseStatus? Status { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseStatus? _explicitNullValueStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponse"/> and sets the default values.
         /// </summary>
@@ -42,7 +59,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,6 +88,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason>("reason", Reason);
             writer.WriteIntValue("skill_count", SkillCount);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseStatus>("status", Status);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

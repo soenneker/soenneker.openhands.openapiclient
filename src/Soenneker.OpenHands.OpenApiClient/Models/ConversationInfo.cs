@@ -12,234 +12,337 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConversationInfo : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("activated_knowledge_skills") is { } nullNodeActivatedKnowledgeSkills && nullNodeActivatedKnowledgeSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivatedKnowledgeSkills = null;
+            if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
+            if (parseNode.GetChildNode("agent_state") is { } nullNodeAgentState && nullNodeAgentState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentState = null;
+            if (parseNode.GetChildNode("available_models") is { } nullNodeAvailableModels && nullNodeAvailableModels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableModels = null;
+            if (parseNode.GetChildNode("blocked_actions") is { } nullNodeBlockedActions && nullNodeBlockedActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockedActions = null;
+            if (parseNode.GetChildNode("blocked_messages") is { } nullNodeBlockedMessages && nullNodeBlockedMessages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockedMessages = null;
+            if (parseNode.GetChildNode("client_tools") is { } nullNodeClientTools && nullNodeClientTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientTools = null;
+            if (parseNode.GetChildNode("confirmation_policy") is { } nullNodeConfirmationPolicy && nullNodeConfirmationPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfirmationPolicy = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("current_model_id") is { } nullNodeCurrentModelId && nullNodeCurrentModelId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentModelId = null;
+            if (parseNode.GetChildNode("execution_status") is { } nullNodeExecutionStatus && nullNodeExecutionStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExecutionStatus = null;
+            if (parseNode.GetChildNode("forked_from_conversation_id") is { } nullNodeForkedFromConversationId && nullNodeForkedFromConversationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkedFromConversationId = null;
+            if (parseNode.GetChildNode("forked_from_event_id") is { } nullNodeForkedFromEventId && nullNodeForkedFromEventId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkedFromEventId = null;
+            if (parseNode.GetChildNode("hook_config") is { } nullNodeHookConfig && nullNodeHookConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HookConfig = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("invoked_skills") is { } nullNodeInvokedSkills && nullNodeInvokedSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvokedSkills = null;
+            if (parseNode.GetChildNode("last_user_message_id") is { } nullNodeLastUserMessageId && nullNodeLastUserMessageId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastUserMessageId = null;
+            if (parseNode.GetChildNode("launched_agent_profile") is { } nullNodeLaunchedAgentProfile && nullNodeLaunchedAgentProfile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LaunchedAgentProfile = null;
+            if (parseNode.GetChildNode("leaf_event_id") is { } nullNodeLeafEventId && nullNodeLeafEventId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeafEventId = null;
+            if (parseNode.GetChildNode("max_iterations") is { } nullNodeMaxIterations && nullNodeMaxIterations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxIterations = null;
+            if (parseNode.GetChildNode("metrics") is { } nullNodeMetrics && nullNodeMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metrics = null;
+            if (parseNode.GetChildNode("parent_conversation_id") is { } nullNodeParentConversationId && nullNodeParentConversationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentConversationId = null;
+            if (parseNode.GetChildNode("persistence_dir") is { } nullNodePersistenceDir && nullNodePersistenceDir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PersistenceDir = null;
+            if (parseNode.GetChildNode("runtime_info") is { } nullNodeRuntimeInfo && nullNodeRuntimeInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuntimeInfo = null;
+            if (parseNode.GetChildNode("secret_registry") is { } nullNodeSecretRegistry && nullNodeSecretRegistry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretRegistry = null;
+            if (parseNode.GetChildNode("security_analyzer") is { } nullNodeSecurityAnalyzer && nullNodeSecurityAnalyzer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecurityAnalyzer = null;
+            if (parseNode.GetChildNode("stats") is { } nullNodeStats && nullNodeStats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stats = null;
+            if (parseNode.GetChildNode("stuck_detection") is { } nullNodeStuckDetection && nullNodeStuckDetection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StuckDetection = null;
+            if (parseNode.GetChildNode("sub_conversation_ids") is { } nullNodeSubConversationIds && nullNodeSubConversationIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubConversationIds = null;
+            if (parseNode.GetChildNode("supports_runtime_model_switch") is { } nullNodeSupportsRuntimeModelSwitch && nullNodeSupportsRuntimeModelSwitch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportsRuntimeModelSwitch = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
+            if (parseNode.GetChildNode("tool_module_qualnames") is { } nullNodeToolModuleQualnames && nullNodeToolModuleQualnames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolModuleQualnames = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("workspace") is { } nullNodeWorkspace && nullNodeWorkspace.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workspace = null;
+        }
+
         /// <summary>List of activated knowledge skills name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ActivatedKnowledgeSkills { get; set; }
+        public List<string>? ActivatedKnowledgeSkills { get => _explicitNullValueActivatedKnowledgeSkills; set { _explicitNullValueActivatedKnowledgeSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activated_knowledge_skills"); else _explicitNullProperties?.Remove("activated_knowledge_skills"); } }
+        private List<string>? _explicitNullValueActivatedKnowledgeSkills = default!;
 #nullable restore
 #else
-        public List<string> ActivatedKnowledgeSkills { get; set; }
+        public List<string> ActivatedKnowledgeSkills { get => _explicitNullValueActivatedKnowledgeSkills; set { _explicitNullValueActivatedKnowledgeSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activated_knowledge_skills"); else _explicitNullProperties?.Remove("activated_knowledge_skills"); } }
+        private List<string> _explicitNullValueActivatedKnowledgeSkills = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The agent running in the conversation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase? Agent { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase? _explicitNullValueAgent = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase Agent { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase _explicitNullValueAgent = default!;
 #endif
         /// <summary>Dictionary for agent-specific runtime state that persists across iterations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoAgentStateProperty? AgentState { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoAgentStateProperty? AgentState { get => _explicitNullValueAgentState; set { _explicitNullValueAgentState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_state"); else _explicitNullProperties?.Remove("agent_state"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoAgentStateProperty? _explicitNullValueAgentState = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoAgentStateProperty AgentState { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoAgentStateProperty AgentState { get => _explicitNullValueAgentState; set { _explicitNullValueAgentState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_state"); else _explicitNullProperties?.Remove("agent_state"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoAgentStateProperty _explicitNullValueAgentState = default!;
 #endif
         /// <summary>Models the ACP server offers for this session, lifted off ``ACPAgent.available_models`` (the ``models.availableModels`` field on the ACP session response). Each entry carries a ``model_id`` plus an optional ``name``/``description``. Surfaced verbatim so clients can render a model picker and resolve ``current_model_id`` to a display label themselves — the server does no name curation. Empty for ACP servers that don&apos;t surface the (UNSTABLE) capability and for native OpenHands agents. Client contract: ``current_model_id`` is NOT guaranteed to be a member — a forced ``acp_model`` override may name a model absent from the list — so treat a miss as &apos;show the raw id&apos;. Some entries are opaque aliases whose human identity lives in ``description`` (e.g. claude-agent-acp&apos;s ``&quot;default&quot;`` -&gt; ``&quot;Opus 4.7 with 1M context · ...&quot;``).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo>? AvailableModels { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo>? AvailableModels { get => _explicitNullValueAvailableModels; set { _explicitNullValueAvailableModels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_models"); else _explicitNullProperties?.Remove("available_models"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo>? _explicitNullValueAvailableModels = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo> AvailableModels { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo> AvailableModels { get => _explicitNullValueAvailableModels; set { _explicitNullValueAvailableModels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_models"); else _explicitNullProperties?.Remove("available_models"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo> _explicitNullValueAvailableModels = default!;
 #endif
         /// <summary>Actions blocked by PreToolUse hooks, keyed by action ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedActionsProperty? BlockedActions { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedActionsProperty? BlockedActions { get => _explicitNullValueBlockedActions; set { _explicitNullValueBlockedActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked_actions"); else _explicitNullProperties?.Remove("blocked_actions"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedActionsProperty? _explicitNullValueBlockedActions = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedActionsProperty BlockedActions { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedActionsProperty BlockedActions { get => _explicitNullValueBlockedActions; set { _explicitNullValueBlockedActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked_actions"); else _explicitNullProperties?.Remove("blocked_actions"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedActionsProperty _explicitNullValueBlockedActions = default!;
 #endif
         /// <summary>Messages blocked by UserPromptSubmit hooks, keyed by message ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedMessagesProperty? BlockedMessages { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedMessagesProperty? BlockedMessages { get => _explicitNullValueBlockedMessages; set { _explicitNullValueBlockedMessages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked_messages"); else _explicitNullProperties?.Remove("blocked_messages"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedMessagesProperty? _explicitNullValueBlockedMessages = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedMessagesProperty BlockedMessages { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedMessagesProperty BlockedMessages { get => _explicitNullValueBlockedMessages; set { _explicitNullValueBlockedMessages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked_messages"); else _explicitNullProperties?.Remove("blocked_messages"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedMessagesProperty _explicitNullValueBlockedMessages = default!;
 #endif
         /// <summary>Client-defined tool specs registered for this conversation. Surfaced so that a client re-attaching by conversation id can register the dynamic ClientAction_* action types before syncing persisted events, avoiding &apos;Unknown kind&apos; deserialization errors.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInput>? ClientTools { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInput>? ClientTools { get => _explicitNullValueClientTools; set { _explicitNullValueClientTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_tools"); else _explicitNullProperties?.Remove("client_tools"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInput>? _explicitNullValueClientTools = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInput> ClientTools { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInput> ClientTools { get => _explicitNullValueClientTools; set { _explicitNullValueClientTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_tools"); else _explicitNullProperties?.Remove("client_tools"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInput> _explicitNullValueClientTools = default!;
 #endif
         /// <summary>The confirmation_policy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBase? ConfirmationPolicy { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBase? ConfirmationPolicy { get => _explicitNullValueConfirmationPolicy; set { _explicitNullValueConfirmationPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confirmation_policy"); else _explicitNullProperties?.Remove("confirmation_policy"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBase? _explicitNullValueConfirmationPolicy = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBase ConfirmationPolicy { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBase ConfirmationPolicy { get => _explicitNullValueConfirmationPolicy; set { _explicitNullValueConfirmationPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confirmation_policy"); else _explicitNullProperties?.Remove("confirmation_policy"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBase _explicitNullValueConfirmationPolicy = default!;
 #endif
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Model the agent is actually using for this session. For ACP agents, this is lifted off ``ACPAgent.current_model_id`` (populated from the ``models.currentModelId`` field on the ACP session response, or from ``acp_model`` when the caller forced an override). May be an opaque alias (e.g. claude-agent-acp&apos;s ``&quot;default&quot;``); match it against ``available_models`` to get a display label. ``None`` for older ACP servers that don&apos;t surface the field, or while the agent is still initializing. Native OpenHands agents leave this ``None`` — consumers should read ``agent.llm.model`` for those.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CurrentModelId { get; set; }
+        public string? CurrentModelId { get => _explicitNullValueCurrentModelId; set { _explicitNullValueCurrentModelId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_model_id"); else _explicitNullProperties?.Remove("current_model_id"); } }
+        private string? _explicitNullValueCurrentModelId = default!;
 #nullable restore
 #else
-        public string CurrentModelId { get; set; }
+        public string CurrentModelId { get => _explicitNullValueCurrentModelId; set { _explicitNullValueCurrentModelId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_model_id"); else _explicitNullProperties?.Remove("current_model_id"); } }
+        private string _explicitNullValueCurrentModelId = default!;
 #endif
         /// <summary>Enum representing the current execution state of the conversation.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationExecutionStatus? ExecutionStatus { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationExecutionStatus? ExecutionStatus { get => _explicitNullValueExecutionStatus; set { _explicitNullValueExecutionStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("execution_status"); else _explicitNullProperties?.Remove("execution_status"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationExecutionStatus? _explicitNullValueExecutionStatus = default!;
         /// <summary>ID of the conversation this one was forked from. ``None`` for conversations created directly (not via fork).</summary>
-        public Guid? ForkedFromConversationId { get; set; }
+        public Guid? ForkedFromConversationId { get => _explicitNullValueForkedFromConversationId; set { _explicitNullValueForkedFromConversationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forked_from_conversation_id"); else _explicitNullProperties?.Remove("forked_from_conversation_id"); } }
+        private Guid? _explicitNullValueForkedFromConversationId = default!;
         /// <summary>Event ID this conversation was forked at. ``None`` for non-forked conversations or whole-conversation forks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ForkedFromEventId { get; set; }
+        public string? ForkedFromEventId { get => _explicitNullValueForkedFromEventId; set { _explicitNullValueForkedFromEventId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forked_from_event_id"); else _explicitNullProperties?.Remove("forked_from_event_id"); } }
+        private string? _explicitNullValueForkedFromEventId = default!;
 #nullable restore
 #else
-        public string ForkedFromEventId { get; set; }
+        public string ForkedFromEventId { get => _explicitNullValueForkedFromEventId; set { _explicitNullValueForkedFromEventId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forked_from_event_id"); else _explicitNullProperties?.Remove("forked_from_event_id"); } }
+        private string _explicitNullValueForkedFromEventId = default!;
 #endif
         /// <summary>Hook configuration for this conversation. Includes definitions for PreToolUse, PostToolUse, UserPromptSubmit, SessionStart, SessionEnd, and Stop hooks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookConfig? HookConfig { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.HookConfig? HookConfig { get => _explicitNullValueHookConfig; set { _explicitNullValueHookConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hook_config"); else _explicitNullProperties?.Remove("hook_config"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.HookConfig? _explicitNullValueHookConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.HookConfig HookConfig { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.HookConfig HookConfig { get => _explicitNullValueHookConfig; set { _explicitNullValueHookConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hook_config"); else _explicitNullProperties?.Remove("hook_config"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.HookConfig _explicitNullValueHookConfig = default!;
 #endif
         /// <summary>Unique conversation ID</summary>
-        public Guid? Id { get; set; }
+        public Guid? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private Guid? _explicitNullValueId = default!;
         /// <summary>Names of progressive-disclosure skills explicitly invoked via the `invoke_skill` tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? InvokedSkills { get; set; }
+        public List<string>? InvokedSkills { get => _explicitNullValueInvokedSkills; set { _explicitNullValueInvokedSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invoked_skills"); else _explicitNullProperties?.Remove("invoked_skills"); } }
+        private List<string>? _explicitNullValueInvokedSkills = default!;
 #nullable restore
 #else
-        public List<string> InvokedSkills { get; set; }
+        public List<string> InvokedSkills { get => _explicitNullValueInvokedSkills; set { _explicitNullValueInvokedSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invoked_skills"); else _explicitNullProperties?.Remove("invoked_skills"); } }
+        private List<string> _explicitNullValueInvokedSkills = default!;
 #endif
         /// <summary>Most recent user MessageEvent id for hook block checks. Updated when user messages are emitted so Agent.step can pop blocked_messages without scanning the event log. If None, hook-blocked checks are skipped (legacy conversations).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastUserMessageId { get; set; }
+        public string? LastUserMessageId { get => _explicitNullValueLastUserMessageId; set { _explicitNullValueLastUserMessageId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_user_message_id"); else _explicitNullProperties?.Remove("last_user_message_id"); } }
+        private string? _explicitNullValueLastUserMessageId = default!;
 #nullable restore
 #else
-        public string LastUserMessageId { get; set; }
+        public string LastUserMessageId { get => _explicitNullValueLastUserMessageId; set { _explicitNullValueLastUserMessageId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_user_message_id"); else _explicitNullProperties?.Remove("last_user_message_id"); } }
+        private string _explicitNullValueLastUserMessageId = default!;
 #endif
         /// <summary>Provenance snapshot of the agent profile that launched this conversation. Set at creation when the conversation was started via ``agent_profile_id``; ``None`` for conversations started directly with ``agent`` or ``agent_settings``. Clients use this to identify which agent profile is current without fragile settings-comparison.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile? LaunchedAgentProfile { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile? LaunchedAgentProfile { get => _explicitNullValueLaunchedAgentProfile; set { _explicitNullValueLaunchedAgentProfile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("launched_agent_profile"); else _explicitNullProperties?.Remove("launched_agent_profile"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile? _explicitNullValueLaunchedAgentProfile = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile LaunchedAgentProfile { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile LaunchedAgentProfile { get => _explicitNullValueLaunchedAgentProfile; set { _explicitNullValueLaunchedAgentProfile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("launched_agent_profile"); else _explicitNullProperties?.Remove("launched_agent_profile"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile _explicitNullValueLaunchedAgentProfile = default!;
 #endif
         /// <summary>HEAD of the conversation tree: the parent of the next appended event. ``None`` means an empty tree (or, for pre-feature conversations, the linear tail). Moving it via ``navigate`` re-roots the active branch the agent runs on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LeafEventId { get; set; }
+        public string? LeafEventId { get => _explicitNullValueLeafEventId; set { _explicitNullValueLeafEventId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leaf_event_id"); else _explicitNullProperties?.Remove("leaf_event_id"); } }
+        private string? _explicitNullValueLeafEventId = default!;
 #nullable restore
 #else
-        public string LeafEventId { get; set; }
+        public string LeafEventId { get => _explicitNullValueLeafEventId; set { _explicitNullValueLeafEventId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leaf_event_id"); else _explicitNullProperties?.Remove("leaf_event_id"); } }
+        private string _explicitNullValueLeafEventId = default!;
 #endif
         /// <summary>Maximum number of iterations the agent can perform in a single run.</summary>
-        public int? MaxIterations { get; set; }
+        public int? MaxIterations { get => _explicitNullValueMaxIterations; set { _explicitNullValueMaxIterations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_iterations"); else _explicitNullProperties?.Remove("max_iterations"); } }
+        private int? _explicitNullValueMaxIterations = default!;
         /// <summary>The metrics property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot? Metrics { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot? Metrics { get => _explicitNullValueMetrics; set { _explicitNullValueMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics"); else _explicitNullProperties?.Remove("metrics"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot? _explicitNullValueMetrics = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot Metrics { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot Metrics { get => _explicitNullValueMetrics; set { _explicitNullValueMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics"); else _explicitNullProperties?.Remove("metrics"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot _explicitNullValueMetrics = default!;
 #endif
         /// <summary>ID of the conversation that owns this one. ``None`` for top-level conversations.</summary>
-        public Guid? ParentConversationId { get; set; }
+        public Guid? ParentConversationId { get => _explicitNullValueParentConversationId; set { _explicitNullValueParentConversationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_conversation_id"); else _explicitNullProperties?.Remove("parent_conversation_id"); } }
+        private Guid? _explicitNullValueParentConversationId = default!;
         /// <summary>Directory for persisting conversation state and events. If None, conversation will not be persisted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PersistenceDir { get; set; }
+        public string? PersistenceDir { get => _explicitNullValuePersistenceDir; set { _explicitNullValuePersistenceDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("persistence_dir"); else _explicitNullProperties?.Remove("persistence_dir"); } }
+        private string? _explicitNullValuePersistenceDir = default!;
 #nullable restore
 #else
-        public string PersistenceDir { get; set; }
+        public string PersistenceDir { get => _explicitNullValuePersistenceDir; set { _explicitNullValuePersistenceDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("persistence_dir"); else _explicitNullProperties?.Remove("persistence_dir"); } }
+        private string _explicitNullValuePersistenceDir = default!;
 #endif
         /// <summary>Availability of the execution runtime. Catalog responses populate this when the hosting server manages runtime lifecycle.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeInfo? RuntimeInfo { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeInfo? RuntimeInfo { get => _explicitNullValueRuntimeInfo; set { _explicitNullValueRuntimeInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_info"); else _explicitNullProperties?.Remove("runtime_info"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeInfo? _explicitNullValueRuntimeInfo = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeInfo RuntimeInfo { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeInfo RuntimeInfo { get => _explicitNullValueRuntimeInfo; set { _explicitNullValueRuntimeInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_info"); else _explicitNullProperties?.Remove("runtime_info"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeInfo _explicitNullValueRuntimeInfo = default!;
 #endif
         /// <summary>Registry for handling secrets and sensitive data</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry? SecretRegistry { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry? SecretRegistry { get => _explicitNullValueSecretRegistry; set { _explicitNullValueSecretRegistry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_registry"); else _explicitNullProperties?.Remove("secret_registry"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry? _explicitNullValueSecretRegistry = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry SecretRegistry { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry SecretRegistry { get => _explicitNullValueSecretRegistry; set { _explicitNullValueSecretRegistry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_registry"); else _explicitNullProperties?.Remove("secret_registry"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistry _explicitNullValueSecretRegistry = default!;
 #endif
         /// <summary>Optional security analyzer to evaluate action risks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase? SecurityAnalyzer { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase? SecurityAnalyzer { get => _explicitNullValueSecurityAnalyzer; set { _explicitNullValueSecurityAnalyzer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("security_analyzer"); else _explicitNullProperties?.Remove("security_analyzer"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase? _explicitNullValueSecurityAnalyzer = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase SecurityAnalyzer { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase SecurityAnalyzer { get => _explicitNullValueSecurityAnalyzer; set { _explicitNullValueSecurityAnalyzer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("security_analyzer"); else _explicitNullProperties?.Remove("security_analyzer"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase _explicitNullValueSecurityAnalyzer = default!;
 #endif
         /// <summary>Conversation statistics for tracking LLM metrics</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats? Stats { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats? Stats { get => _explicitNullValueStats; set { _explicitNullValueStats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stats"); else _explicitNullProperties?.Remove("stats"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats? _explicitNullValueStats = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats Stats { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats Stats { get => _explicitNullValueStats; set { _explicitNullValueStats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stats"); else _explicitNullProperties?.Remove("stats"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationStats _explicitNullValueStats = default!;
 #endif
         /// <summary>Whether to enable stuck detection for the agent.</summary>
-        public bool? StuckDetection { get; set; }
+        public bool? StuckDetection { get => _explicitNullValueStuckDetection; set { _explicitNullValueStuckDetection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stuck_detection"); else _explicitNullProperties?.Remove("stuck_detection"); } }
+        private bool? _explicitNullValueStuckDetection = default!;
         /// <summary>IDs of conversations naming this one as their parent. Derived from the server catalog; empty on webhook payloads. Name mirrors the Cloud API field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? SubConversationIds { get; set; }
+        public List<Guid?>? SubConversationIds { get => _explicitNullValueSubConversationIds; set { _explicitNullValueSubConversationIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_conversation_ids"); else _explicitNullProperties?.Remove("sub_conversation_ids"); } }
+        private List<Guid?>? _explicitNullValueSubConversationIds = default!;
 #nullable restore
 #else
-        public List<Guid?> SubConversationIds { get; set; }
+        public List<Guid?> SubConversationIds { get => _explicitNullValueSubConversationIds; set { _explicitNullValueSubConversationIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_conversation_ids"); else _explicitNullProperties?.Remove("sub_conversation_ids"); } }
+        private List<Guid?> _explicitNullValueSubConversationIds = default!;
 #endif
         /// <summary>Whether a live, mid-conversation model switch will be attempted for this conversation — tells the inline picker whether to offer a live-switch control. Mirrors the SDK&apos;s switch gate: ``True`` for known switch-capable providers; ``False`` for unknown/custom ACP servers because their generic config writes are not guaranteed live-switch primitives. ``False`` for native OpenHands agents, for a known provider that declares no support, and before the conversation has started a session.</summary>
-        public bool? SupportsRuntimeModelSwitch { get; set; }
+        public bool? SupportsRuntimeModelSwitch { get => _explicitNullValueSupportsRuntimeModelSwitch; set { _explicitNullValueSupportsRuntimeModelSwitch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supports_runtime_model_switch"); else _explicitNullProperties?.Remove("supports_runtime_model_switch"); } }
+        private bool? _explicitNullValueSupportsRuntimeModelSwitch = default!;
         /// <summary>Key-value tags for the conversation. Keys must be lowercase alphanumeric. Values are arbitrary strings up to 256 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoTagsProperty? Tags { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoTagsProperty? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoTagsProperty? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoTagsProperty Tags { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoTagsProperty Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoTagsProperty _explicitNullValueTags = default!;
 #endif
         /// <summary>User-defined title for the conversation</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Title { get; set; }
+        public string? Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        private string? _explicitNullValueTitle = default!;
 #nullable restore
 #else
-        public string Title { get; set; }
+        public string Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        private string _explicitNullValueTitle = default!;
 #endif
         /// <summary>Tool names mapped to importable module qualnames. SDK clients use this metadata to restore the registrations needed to deserialize the conversation&apos;s tool events when attaching.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoToolModuleQualnamesProperty? ToolModuleQualnames { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoToolModuleQualnamesProperty? ToolModuleQualnames { get => _explicitNullValueToolModuleQualnames; set { _explicitNullValueToolModuleQualnames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_module_qualnames"); else _explicitNullProperties?.Remove("tool_module_qualnames"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoToolModuleQualnamesProperty? _explicitNullValueToolModuleQualnames = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoToolModuleQualnamesProperty ToolModuleQualnames { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoToolModuleQualnamesProperty ToolModuleQualnames { get => _explicitNullValueToolModuleQualnames; set { _explicitNullValueToolModuleQualnames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_module_qualnames"); else _explicitNullProperties?.Remove("tool_module_qualnames"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoToolModuleQualnamesProperty _explicitNullValueToolModuleQualnames = default!;
 #endif
         /// <summary>The updated_at property</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>Workspace used by the agent to execute commands and read/write files. Not the process working directory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace? Workspace { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace? Workspace { get => _explicitNullValueWorkspace; set { _explicitNullValueWorkspace = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace"); else _explicitNullProperties?.Remove("workspace"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace? _explicitNullValueWorkspace = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace Workspace { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace Workspace { get => _explicitNullValueWorkspace; set { _explicitNullValueWorkspace = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace"); else _explicitNullProperties?.Remove("workspace"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace _explicitNullValueWorkspace = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo"/> and sets the default values.
@@ -261,7 +364,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfo(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -350,6 +453,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoToolModuleQualnamesProperty>("tool_module_qualnames", ToolModuleQualnames);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace>("workspace", Workspace);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

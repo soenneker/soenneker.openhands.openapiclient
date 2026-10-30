@@ -8,26 +8,31 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.McpTestFailure"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccess"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResponseTestMcpServerApiV1McpTestPostOneOf1"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResponseTestMcpServerApiV1McpTestPostOneOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ResponseTestMcpServerApiV1McpTestPost : IComposedTypeWrapper, IParsable
-    {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.McpTestFailure"/></summary>
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResponseTestMcpServerApiV1McpTestPostOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTestFailure? McpTestFailure { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ResponseTestMcpServerApiV1McpTestPostOneOf1? ResponseTestMcpServerApiV1McpTestPostOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTestFailure McpTestFailure { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ResponseTestMcpServerApiV1McpTestPostOneOf1 ResponseTestMcpServerApiV1McpTestPostOneOf1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccess"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResponseTestMcpServerApiV1McpTestPostOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccess? McpTestSuccess { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ResponseTestMcpServerApiV1McpTestPostOneOf2? ResponseTestMcpServerApiV1McpTestPostOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccess McpTestSuccess { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ResponseTestMcpServerApiV1McpTestPostOneOf2 ResponseTestMcpServerApiV1McpTestPostOneOf2 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -37,17 +42,24 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.ResponseTestMcpServerApiV1McpTestPost CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("ok")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ResponseTestMcpServerApiV1McpTestPost();
-            if("False".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ResponseTestMcpServerApiV1McpTestPostOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.McpTestFailure = new global::Soenneker.OpenHands.OpenApiClient.Models.McpTestFailure();
+                
             }
-            else if("True".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ResponseTestMcpServerApiV1McpTestPostOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.McpTestSuccess = new global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccess();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("ok") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("error") != null && parseNode.GetChildNode("error_kind") != null && (parseNode.GetChildNode("error_kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("timeout".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "connection".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "unknown".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("ok") != null))();
+            if (result.ResponseTestMcpServerApiV1McpTestPostOneOf1 == null && result.ResponseTestMcpServerApiV1McpTestPostOneOf2 == null && matchesUnionBranch0 && !matchesUnionBranch1) result.ResponseTestMcpServerApiV1McpTestPostOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.ResponseTestMcpServerApiV1McpTestPostOneOf1(), parseNode);
+            if (result.ResponseTestMcpServerApiV1McpTestPostOneOf1 == null && result.ResponseTestMcpServerApiV1McpTestPostOneOf2 == null && matchesUnionBranch1 && !matchesUnionBranch0) result.ResponseTestMcpServerApiV1McpTestPostOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.ResponseTestMcpServerApiV1McpTestPostOneOf2(), parseNode);
+            if (result.ResponseTestMcpServerApiV1McpTestPostOneOf1 == null && result.ResponseTestMcpServerApiV1McpTestPostOneOf2 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,13 +67,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(McpTestFailure != null)
+            if(ResponseTestMcpServerApiV1McpTestPostOneOf1 != null)
             {
-                return McpTestFailure.GetFieldDeserializers();
+                return ResponseTestMcpServerApiV1McpTestPostOneOf1.GetFieldDeserializers();
             }
-            else if(McpTestSuccess != null)
+            else if(ResponseTestMcpServerApiV1McpTestPostOneOf2 != null)
             {
-                return McpTestSuccess.GetFieldDeserializers();
+                return ResponseTestMcpServerApiV1McpTestPostOneOf2.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -71,14 +83,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ResponseTestMcpServerApiV1McpTestPostOneOf1 == null && ResponseTestMcpServerApiV1McpTestPostOneOf2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ResponseTestMcpServerApiV1McpTestPostOneOf1 != null && ResponseTestMcpServerApiV1McpTestPostOneOf2 == null) { if (ResponseTestMcpServerApiV1McpTestPostOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ResponseTestMcpServerApiV1McpTestPostOneOf1); return; }
+            if (ResponseTestMcpServerApiV1McpTestPostOneOf2 != null && ResponseTestMcpServerApiV1McpTestPostOneOf1 == null) { if (ResponseTestMcpServerApiV1McpTestPostOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ResponseTestMcpServerApiV1McpTestPostOneOf2); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(McpTestFailure != null)
+            if(ResponseTestMcpServerApiV1McpTestPostOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestFailure>(null, McpTestFailure);
+                if (ResponseTestMcpServerApiV1McpTestPostOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseTestMcpServerApiV1McpTestPostOneOf1>(null, ResponseTestMcpServerApiV1McpTestPostOneOf1);
             }
-            else if(McpTestSuccess != null)
+            else if(ResponseTestMcpServerApiV1McpTestPostOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccess>(null, McpTestSuccess);
+                if (ResponseTestMcpServerApiV1McpTestPostOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseTestMcpServerApiV1McpTestPostOneOf2>(null, ResponseTestMcpServerApiV1McpTestPostOneOf2);
             }
         }
     }

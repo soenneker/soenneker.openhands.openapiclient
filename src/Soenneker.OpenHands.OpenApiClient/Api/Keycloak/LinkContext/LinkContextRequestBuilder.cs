@@ -49,7 +49,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keycloak.LinkContext
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.KeycloakLinkContext>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.KeycloakLinkContext.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.KeycloakLinkContext>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.KeycloakLinkContext.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Return an authenticated routing hint, never credentials or authorization.Keycloak still verifies account ownership and authorizes the Git connection.Stored account attributes are not session provenance. Only suggest corporateSSO when browser login history is absent; never suggest a Git provider.

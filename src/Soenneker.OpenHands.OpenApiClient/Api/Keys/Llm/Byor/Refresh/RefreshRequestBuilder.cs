@@ -49,7 +49,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys.Llm.Byor.Refresh
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.LlmApiKeyResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.LlmApiKeyResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.LlmApiKeyResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.LlmApiKeyResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Refresh the LLM API key for BYOR (Bring Your Own Runtime).Returns 402 Payment Required if BYOR export is not enabled for therequest&apos;s effective org.

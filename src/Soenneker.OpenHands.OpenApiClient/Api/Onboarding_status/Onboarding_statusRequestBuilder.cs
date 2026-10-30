@@ -48,7 +48,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Onboarding_status
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Return whether the current user must still complete onboarding.Kept as a dedicated endpoint instead of riding on ``GET /api/v1/settings``(the natural home for fields like ``email_verified``) because the settingsresponse is heavyweight: ``SaasSettingsStore.load`` joins User, Org, andOrgMember rows and deep-merges the org-level and member-level``agent_settings`` before returning. Onboarding gating runs on everyprotected-route navigation, so we need a lightweight read of a singleboolean rather than paying for the full settings aggregation.

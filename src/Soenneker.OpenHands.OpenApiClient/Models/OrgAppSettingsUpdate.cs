@@ -12,30 +12,49 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OrgAppSettingsUpdate : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agent_settings_diff") is { } nullNodeAgentSettingsDiff && nullNodeAgentSettingsDiff.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentSettingsDiff = null;
+            if (parseNode.GetChildNode("enable_proactive_conversation_starters") is { } nullNodeEnableProactiveConversationStarters && nullNodeEnableProactiveConversationStarters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableProactiveConversationStarters = null;
+            if (parseNode.GetChildNode("last_known_updated_at") is { } nullNodeLastKnownUpdatedAt && nullNodeLastKnownUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastKnownUpdatedAt = null;
+            if (parseNode.GetChildNode("max_budget_per_task") is { } nullNodeMaxBudgetPerTask && nullNodeMaxBudgetPerTask.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxBudgetPerTask = null;
+            if (parseNode.GetChildNode("registered_marketplaces") is { } nullNodeRegisteredMarketplaces && nullNodeRegisteredMarketplaces.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegisteredMarketplaces = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The agent_settings_diff property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateAgentSettingsDiffProperty? AgentSettingsDiff { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateAgentSettingsDiffProperty? AgentSettingsDiff { get => _explicitNullValueAgentSettingsDiff; set { _explicitNullValueAgentSettingsDiff = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_settings_diff"); else _explicitNullProperties?.Remove("agent_settings_diff"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateAgentSettingsDiffProperty? _explicitNullValueAgentSettingsDiff = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateAgentSettingsDiffProperty AgentSettingsDiff { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateAgentSettingsDiffProperty AgentSettingsDiff { get => _explicitNullValueAgentSettingsDiff; set { _explicitNullValueAgentSettingsDiff = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_settings_diff"); else _explicitNullProperties?.Remove("agent_settings_diff"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdateAgentSettingsDiffProperty _explicitNullValueAgentSettingsDiff = default!;
 #endif
         /// <summary>The enable_proactive_conversation_starters property</summary>
-        public bool? EnableProactiveConversationStarters { get; set; }
+        public bool? EnableProactiveConversationStarters { get => _explicitNullValueEnableProactiveConversationStarters; set { _explicitNullValueEnableProactiveConversationStarters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_proactive_conversation_starters"); else _explicitNullProperties?.Remove("enable_proactive_conversation_starters"); } }
+        private bool? _explicitNullValueEnableProactiveConversationStarters = default!;
         /// <summary>The last_known_updated_at property</summary>
-        public DateTimeOffset? LastKnownUpdatedAt { get; set; }
+        public DateTimeOffset? LastKnownUpdatedAt { get => _explicitNullValueLastKnownUpdatedAt; set { _explicitNullValueLastKnownUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_known_updated_at"); else _explicitNullProperties?.Remove("last_known_updated_at"); } }
+        private DateTimeOffset? _explicitNullValueLastKnownUpdatedAt = default!;
         /// <summary>The max_budget_per_task property</summary>
-        public double? MaxBudgetPerTask { get; set; }
+        public double? MaxBudgetPerTask { get => _explicitNullValueMaxBudgetPerTask; set { _explicitNullValueMaxBudgetPerTask = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_budget_per_task"); else _explicitNullProperties?.Remove("max_budget_per_task"); } }
+        private double? _explicitNullValueMaxBudgetPerTask = default!;
         /// <summary>The registered_marketplaces property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration>? RegisteredMarketplaces { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration>? RegisteredMarketplaces { get => _explicitNullValueRegisteredMarketplaces; set { _explicitNullValueRegisteredMarketplaces = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registered_marketplaces"); else _explicitNullProperties?.Remove("registered_marketplaces"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration>? _explicitNullValueRegisteredMarketplaces = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration> RegisteredMarketplaces { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration> RegisteredMarketplaces { get => _explicitNullValueRegisteredMarketplaces; set { _explicitNullValueRegisteredMarketplaces = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registered_marketplaces"); else _explicitNullProperties?.Remove("registered_marketplaces"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration> _explicitNullValueRegisteredMarketplaces = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdate"/> and sets the default values.
@@ -52,7 +71,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.OrgAppSettingsUpdate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,6 +100,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("last_known_updated_at", LastKnownUpdatedAt);
             writer.WriteDoubleValue("max_budget_per_task", MaxBudgetPerTask);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration>("registered_marketplaces", RegisteredMarketplaces);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

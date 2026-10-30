@@ -8,26 +8,31 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LocalWorkspaceInput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf1"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BaseWorkspace : IComposedTypeWrapper, IParsable
-    {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LocalWorkspaceInput"/></summary>
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LocalWorkspaceInput? LocalWorkspaceInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf1? BaseWorkspaceOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LocalWorkspaceInput LocalWorkspaceInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf1 BaseWorkspaceOneOf1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace? RemoteWorkspace { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf2? BaseWorkspaceOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace RemoteWorkspace { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf2 BaseWorkspaceOneOf2 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -37,17 +42,24 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace();
-            if("openhands__sdk__workspace__local__LocalWorkspace-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("BaseWorkspaceOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.LocalWorkspaceInput = new global::Soenneker.OpenHands.OpenApiClient.Models.LocalWorkspaceInput();
+                
             }
-            else if("openhands__sdk__workspace__remote__base__RemoteWorkspace-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BaseWorkspaceOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.RemoteWorkspace = new global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("working_dir") != null && parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("LocalWorkspace".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("working_dir") != null && parseNode.GetChildNode("host") != null && parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("RemoteWorkspace".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.BaseWorkspaceOneOf1 == null && result.BaseWorkspaceOneOf2 == null && matchesUnionBranch0 && !matchesUnionBranch1) result.BaseWorkspaceOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf1(), parseNode);
+            if (result.BaseWorkspaceOneOf1 == null && result.BaseWorkspaceOneOf2 == null && matchesUnionBranch1 && !matchesUnionBranch0) result.BaseWorkspaceOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf2(), parseNode);
+            if (result.BaseWorkspaceOneOf1 == null && result.BaseWorkspaceOneOf2 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,13 +67,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(LocalWorkspaceInput != null)
+            if(BaseWorkspaceOneOf1 != null)
             {
-                return LocalWorkspaceInput.GetFieldDeserializers();
+                return BaseWorkspaceOneOf1.GetFieldDeserializers();
             }
-            else if(RemoteWorkspace != null)
+            else if(BaseWorkspaceOneOf2 != null)
             {
-                return RemoteWorkspace.GetFieldDeserializers();
+                return BaseWorkspaceOneOf2.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -71,14 +83,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (BaseWorkspaceOneOf1 == null && BaseWorkspaceOneOf2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (BaseWorkspaceOneOf1 != null && BaseWorkspaceOneOf2 == null) { if (BaseWorkspaceOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BaseWorkspaceOneOf1); return; }
+            if (BaseWorkspaceOneOf2 != null && BaseWorkspaceOneOf1 == null) { if (BaseWorkspaceOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BaseWorkspaceOneOf2); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(LocalWorkspaceInput != null)
+            if(BaseWorkspaceOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LocalWorkspaceInput>(null, LocalWorkspaceInput);
+                if (BaseWorkspaceOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf1>(null, BaseWorkspaceOneOf1);
             }
-            else if(RemoteWorkspace != null)
+            else if(BaseWorkspaceOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.RemoteWorkspace>(null, RemoteWorkspace);
+                if (BaseWorkspaceOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf2>(null, BaseWorkspaceOneOf2);
             }
         }
     }

@@ -12,101 +12,150 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OrgUpdate : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agent_settings_diff") is { } nullNodeAgentSettingsDiff && nullNodeAgentSettingsDiff.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentSettingsDiff = null;
+            if (parseNode.GetChildNode("billing_margin") is { } nullNodeBillingMargin && nullNodeBillingMargin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillingMargin = null;
+            if (parseNode.GetChildNode("contact_email") is { } nullNodeContactEmail && nullNodeContactEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContactEmail = null;
+            if (parseNode.GetChildNode("contact_name") is { } nullNodeContactName && nullNodeContactName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContactName = null;
+            if (parseNode.GetChildNode("conversation_expiration") is { } nullNodeConversationExpiration && nullNodeConversationExpiration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConversationExpiration = null;
+            if (parseNode.GetChildNode("conversation_settings_diff") is { } nullNodeConversationSettingsDiff && nullNodeConversationSettingsDiff.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConversationSettingsDiff = null;
+            if (parseNode.GetChildNode("enable_proactive_conversation_starters") is { } nullNodeEnableProactiveConversationStarters && nullNodeEnableProactiveConversationStarters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableProactiveConversationStarters = null;
+            if (parseNode.GetChildNode("llm_api_key") is { } nullNodeLlmApiKey && nullNodeLlmApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmApiKey = null;
+            if (parseNode.GetChildNode("max_budget_per_task") is { } nullNodeMaxBudgetPerTask && nullNodeMaxBudgetPerTask.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxBudgetPerTask = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("remote_runtime_resource_factor") is { } nullNodeRemoteRuntimeResourceFactor && nullNodeRemoteRuntimeResourceFactor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemoteRuntimeResourceFactor = null;
+            if (parseNode.GetChildNode("sandbox_api_key") is { } nullNodeSandboxApiKey && nullNodeSandboxApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SandboxApiKey = null;
+            if (parseNode.GetChildNode("sandbox_base_container_image") is { } nullNodeSandboxBaseContainerImage && nullNodeSandboxBaseContainerImage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SandboxBaseContainerImage = null;
+            if (parseNode.GetChildNode("sandbox_runtime_container_image") is { } nullNodeSandboxRuntimeContainerImage && nullNodeSandboxRuntimeContainerImage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SandboxRuntimeContainerImage = null;
+            if (parseNode.GetChildNode("search_api_key") is { } nullNodeSearchApiKey && nullNodeSearchApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchApiKey = null;
+            if (parseNode.GetChildNode("v1_enabled") is { } nullNodeV1Enabled && nullNodeV1Enabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) V1Enabled = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The agent_settings_diff property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateAgentSettingsDiffProperty? AgentSettingsDiff { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateAgentSettingsDiffProperty? AgentSettingsDiff { get => _explicitNullValueAgentSettingsDiff; set { _explicitNullValueAgentSettingsDiff = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_settings_diff"); else _explicitNullProperties?.Remove("agent_settings_diff"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateAgentSettingsDiffProperty? _explicitNullValueAgentSettingsDiff = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateAgentSettingsDiffProperty AgentSettingsDiff { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateAgentSettingsDiffProperty AgentSettingsDiff { get => _explicitNullValueAgentSettingsDiff; set { _explicitNullValueAgentSettingsDiff = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_settings_diff"); else _explicitNullProperties?.Remove("agent_settings_diff"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateAgentSettingsDiffProperty _explicitNullValueAgentSettingsDiff = default!;
 #endif
         /// <summary>The billing_margin property</summary>
-        public double? BillingMargin { get; set; }
+        public double? BillingMargin { get => _explicitNullValueBillingMargin; set { _explicitNullValueBillingMargin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_margin"); else _explicitNullProperties?.Remove("billing_margin"); } }
+        private double? _explicitNullValueBillingMargin = default!;
         /// <summary>The contact_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ContactEmail { get; set; }
+        public string? ContactEmail { get => _explicitNullValueContactEmail; set { _explicitNullValueContactEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contact_email"); else _explicitNullProperties?.Remove("contact_email"); } }
+        private string? _explicitNullValueContactEmail = default!;
 #nullable restore
 #else
-        public string ContactEmail { get; set; }
+        public string ContactEmail { get => _explicitNullValueContactEmail; set { _explicitNullValueContactEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contact_email"); else _explicitNullProperties?.Remove("contact_email"); } }
+        private string _explicitNullValueContactEmail = default!;
 #endif
         /// <summary>The contact_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ContactName { get; set; }
+        public string? ContactName { get => _explicitNullValueContactName; set { _explicitNullValueContactName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contact_name"); else _explicitNullProperties?.Remove("contact_name"); } }
+        private string? _explicitNullValueContactName = default!;
 #nullable restore
 #else
-        public string ContactName { get; set; }
+        public string ContactName { get => _explicitNullValueContactName; set { _explicitNullValueContactName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contact_name"); else _explicitNullProperties?.Remove("contact_name"); } }
+        private string _explicitNullValueContactName = default!;
 #endif
         /// <summary>The conversation_expiration property</summary>
-        public int? ConversationExpiration { get; set; }
+        public int? ConversationExpiration { get => _explicitNullValueConversationExpiration; set { _explicitNullValueConversationExpiration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_expiration"); else _explicitNullProperties?.Remove("conversation_expiration"); } }
+        private int? _explicitNullValueConversationExpiration = default!;
         /// <summary>The conversation_settings_diff property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateConversationSettingsDiffProperty? ConversationSettingsDiff { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateConversationSettingsDiffProperty? ConversationSettingsDiff { get => _explicitNullValueConversationSettingsDiff; set { _explicitNullValueConversationSettingsDiff = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_settings_diff"); else _explicitNullProperties?.Remove("conversation_settings_diff"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateConversationSettingsDiffProperty? _explicitNullValueConversationSettingsDiff = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateConversationSettingsDiffProperty ConversationSettingsDiff { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateConversationSettingsDiffProperty ConversationSettingsDiff { get => _explicitNullValueConversationSettingsDiff; set { _explicitNullValueConversationSettingsDiff = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_settings_diff"); else _explicitNullProperties?.Remove("conversation_settings_diff"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateConversationSettingsDiffProperty _explicitNullValueConversationSettingsDiff = default!;
 #endif
         /// <summary>The enable_proactive_conversation_starters property</summary>
-        public bool? EnableProactiveConversationStarters { get; set; }
+        public bool? EnableProactiveConversationStarters { get => _explicitNullValueEnableProactiveConversationStarters; set { _explicitNullValueEnableProactiveConversationStarters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_proactive_conversation_starters"); else _explicitNullProperties?.Remove("enable_proactive_conversation_starters"); } }
+        private bool? _explicitNullValueEnableProactiveConversationStarters = default!;
         /// <summary>The llm_api_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LlmApiKey { get; set; }
+        public string? LlmApiKey { get => _explicitNullValueLlmApiKey; set { _explicitNullValueLlmApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key"); else _explicitNullProperties?.Remove("llm_api_key"); } }
+        private string? _explicitNullValueLlmApiKey = default!;
 #nullable restore
 #else
-        public string LlmApiKey { get; set; }
+        public string LlmApiKey { get => _explicitNullValueLlmApiKey; set { _explicitNullValueLlmApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key"); else _explicitNullProperties?.Remove("llm_api_key"); } }
+        private string _explicitNullValueLlmApiKey = default!;
 #endif
         /// <summary>The max_budget_per_task property</summary>
-        public double? MaxBudgetPerTask { get; set; }
+        public double? MaxBudgetPerTask { get => _explicitNullValueMaxBudgetPerTask; set { _explicitNullValueMaxBudgetPerTask = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_budget_per_task"); else _explicitNullProperties?.Remove("max_budget_per_task"); } }
+        private double? _explicitNullValueMaxBudgetPerTask = default!;
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The remote_runtime_resource_factor property</summary>
-        public int? RemoteRuntimeResourceFactor { get; set; }
+        public int? RemoteRuntimeResourceFactor { get => _explicitNullValueRemoteRuntimeResourceFactor; set { _explicitNullValueRemoteRuntimeResourceFactor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remote_runtime_resource_factor"); else _explicitNullProperties?.Remove("remote_runtime_resource_factor"); } }
+        private int? _explicitNullValueRemoteRuntimeResourceFactor = default!;
         /// <summary>The sandbox_api_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SandboxApiKey { get; set; }
+        public string? SandboxApiKey { get => _explicitNullValueSandboxApiKey; set { _explicitNullValueSandboxApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox_api_key"); else _explicitNullProperties?.Remove("sandbox_api_key"); } }
+        private string? _explicitNullValueSandboxApiKey = default!;
 #nullable restore
 #else
-        public string SandboxApiKey { get; set; }
+        public string SandboxApiKey { get => _explicitNullValueSandboxApiKey; set { _explicitNullValueSandboxApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox_api_key"); else _explicitNullProperties?.Remove("sandbox_api_key"); } }
+        private string _explicitNullValueSandboxApiKey = default!;
 #endif
         /// <summary>The sandbox_base_container_image property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SandboxBaseContainerImage { get; set; }
+        public string? SandboxBaseContainerImage { get => _explicitNullValueSandboxBaseContainerImage; set { _explicitNullValueSandboxBaseContainerImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox_base_container_image"); else _explicitNullProperties?.Remove("sandbox_base_container_image"); } }
+        private string? _explicitNullValueSandboxBaseContainerImage = default!;
 #nullable restore
 #else
-        public string SandboxBaseContainerImage { get; set; }
+        public string SandboxBaseContainerImage { get => _explicitNullValueSandboxBaseContainerImage; set { _explicitNullValueSandboxBaseContainerImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox_base_container_image"); else _explicitNullProperties?.Remove("sandbox_base_container_image"); } }
+        private string _explicitNullValueSandboxBaseContainerImage = default!;
 #endif
         /// <summary>The sandbox_runtime_container_image property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SandboxRuntimeContainerImage { get; set; }
+        public string? SandboxRuntimeContainerImage { get => _explicitNullValueSandboxRuntimeContainerImage; set { _explicitNullValueSandboxRuntimeContainerImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox_runtime_container_image"); else _explicitNullProperties?.Remove("sandbox_runtime_container_image"); } }
+        private string? _explicitNullValueSandboxRuntimeContainerImage = default!;
 #nullable restore
 #else
-        public string SandboxRuntimeContainerImage { get; set; }
+        public string SandboxRuntimeContainerImage { get => _explicitNullValueSandboxRuntimeContainerImage; set { _explicitNullValueSandboxRuntimeContainerImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox_runtime_container_image"); else _explicitNullProperties?.Remove("sandbox_runtime_container_image"); } }
+        private string _explicitNullValueSandboxRuntimeContainerImage = default!;
 #endif
         /// <summary>The search_api_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SearchApiKey { get; set; }
+        public string? SearchApiKey { get => _explicitNullValueSearchApiKey; set { _explicitNullValueSearchApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_api_key"); else _explicitNullProperties?.Remove("search_api_key"); } }
+        private string? _explicitNullValueSearchApiKey = default!;
 #nullable restore
 #else
-        public string SearchApiKey { get; set; }
+        public string SearchApiKey { get => _explicitNullValueSearchApiKey; set { _explicitNullValueSearchApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_api_key"); else _explicitNullProperties?.Remove("search_api_key"); } }
+        private string _explicitNullValueSearchApiKey = default!;
 #endif
         /// <summary>The v1_enabled property</summary>
-        public bool? V1Enabled { get; set; }
+        public bool? V1Enabled { get => _explicitNullValueV1Enabled; set { _explicitNullValueV1Enabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("v1_enabled"); else _explicitNullProperties?.Remove("v1_enabled"); } }
+        private bool? _explicitNullValueV1Enabled = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdate"/> and sets the default values.
         /// </summary>
@@ -122,7 +171,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -173,6 +222,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("sandbox_runtime_container_image", SandboxRuntimeContainerImage);
             writer.WriteStringValue("search_api_key", SearchApiKey);
             writer.WriteBoolValue("v1_enabled", V1Enabled);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

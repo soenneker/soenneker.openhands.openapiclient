@@ -11,44 +11,67 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DeviceAuthorizationResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("device_code") is { } nullNodeDeviceCode && nullNodeDeviceCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeviceCode = null;
+            if (parseNode.GetChildNode("expires_in") is { } nullNodeExpiresIn && nullNodeExpiresIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresIn = null;
+            if (parseNode.GetChildNode("interval") is { } nullNodeInterval && nullNodeInterval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Interval = null;
+            if (parseNode.GetChildNode("user_code") is { } nullNodeUserCode && nullNodeUserCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserCode = null;
+            if (parseNode.GetChildNode("verification_uri") is { } nullNodeVerificationUri && nullNodeVerificationUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationUri = null;
+            if (parseNode.GetChildNode("verification_uri_complete") is { } nullNodeVerificationUriComplete && nullNodeVerificationUriComplete.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationUriComplete = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The device_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeviceCode { get; set; }
+        public string? DeviceCode { get => _explicitNullValueDeviceCode; set { _explicitNullValueDeviceCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device_code"); else _explicitNullProperties?.Remove("device_code"); } }
+        private string? _explicitNullValueDeviceCode = default!;
 #nullable restore
 #else
-        public string DeviceCode { get; set; }
+        public string DeviceCode { get => _explicitNullValueDeviceCode; set { _explicitNullValueDeviceCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device_code"); else _explicitNullProperties?.Remove("device_code"); } }
+        private string _explicitNullValueDeviceCode = default!;
 #endif
         /// <summary>The expires_in property</summary>
-        public int? ExpiresIn { get; set; }
+        public int? ExpiresIn { get => _explicitNullValueExpiresIn; set { _explicitNullValueExpiresIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_in"); else _explicitNullProperties?.Remove("expires_in"); } }
+        private int? _explicitNullValueExpiresIn = default!;
         /// <summary>The interval property</summary>
-        public int? Interval { get; set; }
+        public int? Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
+        private int? _explicitNullValueInterval = default!;
         /// <summary>The user_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserCode { get; set; }
+        public string? UserCode { get => _explicitNullValueUserCode; set { _explicitNullValueUserCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_code"); else _explicitNullProperties?.Remove("user_code"); } }
+        private string? _explicitNullValueUserCode = default!;
 #nullable restore
 #else
-        public string UserCode { get; set; }
+        public string UserCode { get => _explicitNullValueUserCode; set { _explicitNullValueUserCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_code"); else _explicitNullProperties?.Remove("user_code"); } }
+        private string _explicitNullValueUserCode = default!;
 #endif
         /// <summary>The verification_uri property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VerificationUri { get; set; }
+        public string? VerificationUri { get => _explicitNullValueVerificationUri; set { _explicitNullValueVerificationUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_uri"); else _explicitNullProperties?.Remove("verification_uri"); } }
+        private string? _explicitNullValueVerificationUri = default!;
 #nullable restore
 #else
-        public string VerificationUri { get; set; }
+        public string VerificationUri { get => _explicitNullValueVerificationUri; set { _explicitNullValueVerificationUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_uri"); else _explicitNullProperties?.Remove("verification_uri"); } }
+        private string _explicitNullValueVerificationUri = default!;
 #endif
         /// <summary>The verification_uri_complete property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VerificationUriComplete { get; set; }
+        public string? VerificationUriComplete { get => _explicitNullValueVerificationUriComplete; set { _explicitNullValueVerificationUriComplete = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_uri_complete"); else _explicitNullProperties?.Remove("verification_uri_complete"); } }
+        private string? _explicitNullValueVerificationUriComplete = default!;
 #nullable restore
 #else
-        public string VerificationUriComplete { get; set; }
+        public string VerificationUriComplete { get => _explicitNullValueVerificationUriComplete; set { _explicitNullValueVerificationUriComplete = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_uri_complete"); else _explicitNullProperties?.Remove("verification_uri_complete"); } }
+        private string _explicitNullValueVerificationUriComplete = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.DeviceAuthorizationResponse"/> and sets the default values.
@@ -65,7 +88,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.DeviceAuthorizationResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.DeviceAuthorizationResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.DeviceAuthorizationResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,6 +119,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("user_code", UserCode);
             writer.WriteStringValue("verification_uri", VerificationUri);
             writer.WriteStringValue("verification_uri_complete", VerificationUriComplete);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

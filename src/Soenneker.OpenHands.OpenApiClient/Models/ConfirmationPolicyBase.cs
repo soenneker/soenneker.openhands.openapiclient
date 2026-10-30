@@ -8,34 +8,39 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AlwaysConfirm"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmRisky"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.NeverConfirm"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf1"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf2"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf3"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConfirmationPolicyBase : IComposedTypeWrapper, IParsable
-    {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AlwaysConfirm"/></summary>
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AlwaysConfirm? AlwaysConfirm { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf1? ConfirmationPolicyBaseOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AlwaysConfirm AlwaysConfirm { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf1 ConfirmationPolicyBaseOneOf1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmRisky"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmRisky? ConfirmRisky { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf2? ConfirmationPolicyBaseOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmRisky ConfirmRisky { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf2 ConfirmationPolicyBaseOneOf2 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.NeverConfirm"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.NeverConfirm? NeverConfirm { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf3? ConfirmationPolicyBaseOneOf3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.NeverConfirm NeverConfirm { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf3 ConfirmationPolicyBaseOneOf3 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,21 +50,30 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBase();
-            if("openhands__sdk__security__confirmation_policy__AlwaysConfirm-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ConfirmationPolicyBaseOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AlwaysConfirm = new global::Soenneker.OpenHands.OpenApiClient.Models.AlwaysConfirm();
+                
             }
-            else if("openhands__sdk__security__confirmation_policy__ConfirmRisky-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ConfirmationPolicyBaseOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ConfirmRisky = new global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmRisky();
+                
             }
-            else if("openhands__sdk__security__confirmation_policy__NeverConfirm-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ConfirmationPolicyBaseOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.NeverConfirm = new global::Soenneker.OpenHands.OpenApiClient.Models.NeverConfirm();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("AlwaysConfirm".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("ConfirmRisky".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && (parseNode.GetChildNode("threshold") == null || (parseNode.GetChildNode("threshold")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag2 && ("UNKNOWN".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "LOW".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "MEDIUM".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "HIGH".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal))))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("NeverConfirm".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.ConfirmationPolicyBaseOneOf1 == null && result.ConfirmationPolicyBaseOneOf2 == null && result.ConfirmationPolicyBaseOneOf3 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.ConfirmationPolicyBaseOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf1(), parseNode);
+            if (result.ConfirmationPolicyBaseOneOf1 == null && result.ConfirmationPolicyBaseOneOf2 == null && result.ConfirmationPolicyBaseOneOf3 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.ConfirmationPolicyBaseOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf2(), parseNode);
+            if (result.ConfirmationPolicyBaseOneOf1 == null && result.ConfirmationPolicyBaseOneOf2 == null && result.ConfirmationPolicyBaseOneOf3 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.ConfirmationPolicyBaseOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf3(), parseNode);
+            if (result.ConfirmationPolicyBaseOneOf1 == null && result.ConfirmationPolicyBaseOneOf2 == null && result.ConfirmationPolicyBaseOneOf3 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,17 +81,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(AlwaysConfirm != null)
+            if(ConfirmationPolicyBaseOneOf1 != null)
             {
-                return AlwaysConfirm.GetFieldDeserializers();
+                return ConfirmationPolicyBaseOneOf1.GetFieldDeserializers();
             }
-            else if(ConfirmRisky != null)
+            else if(ConfirmationPolicyBaseOneOf2 != null)
             {
-                return ConfirmRisky.GetFieldDeserializers();
+                return ConfirmationPolicyBaseOneOf2.GetFieldDeserializers();
             }
-            else if(NeverConfirm != null)
+            else if(ConfirmationPolicyBaseOneOf3 != null)
             {
-                return NeverConfirm.GetFieldDeserializers();
+                return ConfirmationPolicyBaseOneOf3.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -87,18 +101,27 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ConfirmationPolicyBaseOneOf1 == null && ConfirmationPolicyBaseOneOf2 == null && ConfirmationPolicyBaseOneOf3 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ConfirmationPolicyBaseOneOf1 != null && ConfirmationPolicyBaseOneOf2 == null && ConfirmationPolicyBaseOneOf3 == null) { if (ConfirmationPolicyBaseOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ConfirmationPolicyBaseOneOf1); return; }
+            if (ConfirmationPolicyBaseOneOf2 != null && ConfirmationPolicyBaseOneOf1 == null && ConfirmationPolicyBaseOneOf3 == null) { if (ConfirmationPolicyBaseOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ConfirmationPolicyBaseOneOf2); return; }
+            if (ConfirmationPolicyBaseOneOf3 != null && ConfirmationPolicyBaseOneOf1 == null && ConfirmationPolicyBaseOneOf2 == null) { if (ConfirmationPolicyBaseOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ConfirmationPolicyBaseOneOf3); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(AlwaysConfirm != null)
+            if(ConfirmationPolicyBaseOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AlwaysConfirm>(null, AlwaysConfirm);
+                if (ConfirmationPolicyBaseOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf1>(null, ConfirmationPolicyBaseOneOf1);
             }
-            else if(ConfirmRisky != null)
+            else if(ConfirmationPolicyBaseOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmRisky>(null, ConfirmRisky);
+                if (ConfirmationPolicyBaseOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf2>(null, ConfirmationPolicyBaseOneOf2);
             }
-            else if(NeverConfirm != null)
+            else if(ConfirmationPolicyBaseOneOf3 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.NeverConfirm>(null, NeverConfirm);
+                if (ConfirmationPolicyBaseOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf3>(null, ConfirmationPolicyBaseOneOf3);
             }
         }
     }

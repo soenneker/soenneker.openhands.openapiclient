@@ -49,7 +49,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Integration.Jira.Workspaces.Status
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.JiraInstanceStatusResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.JiraInstanceStatusResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.JiraInstanceStatusResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.JiraInstanceStatusResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Whether an org-visible Jira Cloud connection is set up, and its host.Lets the settings UI tell a not-yet-linked member &quot;the integration exists,mention @openhands on a Jira issue&quot; (vs &quot;ask an admin to set it up&quot;).Scoped to the caller&apos;s org so a user in one org can&apos;t see another org&apos;sJira Cloud connection (install-wide workspaces -- no org, orpersonal-org-stamped -- stay visible to everyone).

@@ -11,54 +11,87 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ConversationSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("confirmation_mode") is { } nullNodeConfirmationMode && nullNodeConfirmationMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfirmationMode = null;
+            if (parseNode.GetChildNode("container_browser") is { } nullNodeContainerBrowser && nullNodeContainerBrowser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContainerBrowser = null;
+            if (parseNode.GetChildNode("container_cpus") is { } nullNodeContainerCpus && nullNodeContainerCpus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContainerCpus = null;
+            if (parseNode.GetChildNode("container_memory") is { } nullNodeContainerMemory && nullNodeContainerMemory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContainerMemory = null;
+            if (parseNode.GetChildNode("default_runtime") is { } nullNodeDefaultRuntime && nullNodeDefaultRuntime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultRuntime = null;
+            if (parseNode.GetChildNode("max_iterations") is { } nullNodeMaxIterations && nullNodeMaxIterations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxIterations = null;
+            if (parseNode.GetChildNode("schema_version") is { } nullNodeSchemaVersion && nullNodeSchemaVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SchemaVersion = null;
+            if (parseNode.GetChildNode("security_analyzer") is { } nullNodeSecurityAnalyzer && nullNodeSecurityAnalyzer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecurityAnalyzer = null;
+            if (parseNode.GetChildNode("worktree_base") is { } nullNodeWorktreeBase && nullNodeWorktreeBase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorktreeBase = null;
+            if (parseNode.GetChildNode("worktree_base_ref") is { } nullNodeWorktreeBaseRef && nullNodeWorktreeBaseRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorktreeBaseRef = null;
+            if (parseNode.GetChildNode("worktree_branch_prefix") is { } nullNodeWorktreeBranchPrefix && nullNodeWorktreeBranchPrefix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorktreeBranchPrefix = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Require user confirmation before executing risky actions.</summary>
-        public bool? ConfirmationMode { get; set; }
+        public bool? ConfirmationMode { get => _explicitNullValueConfirmationMode; set { _explicitNullValueConfirmationMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confirmation_mode"); else _explicitNullProperties?.Remove("confirmation_mode"); } }
+        private bool? _explicitNullValueConfirmationMode = default!;
         /// <summary>Run a browser in new Docker conversations&apos; containers. Has no effect when the server&apos;s image ships without one.</summary>
-        public bool? ContainerBrowser { get; set; }
+        public bool? ContainerBrowser { get => _explicitNullValueContainerBrowser; set { _explicitNullValueContainerBrowser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("container_browser"); else _explicitNullProperties?.Remove("container_browser"); } }
+        private bool? _explicitNullValueContainerBrowser = default!;
         /// <summary>CPUs each new Docker conversation&apos;s container may use, from 0.01 up to the machine&apos;s CPU count. Unset keeps the server default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerCpus? ContainerCpus { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerCpus? ContainerCpus { get => _explicitNullValueContainerCpus; set { _explicitNullValueContainerCpus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("container_cpus"); else _explicitNullProperties?.Remove("container_cpus"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerCpus? _explicitNullValueContainerCpus = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerCpus ContainerCpus { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerCpus ContainerCpus { get => _explicitNullValueContainerCpus; set { _explicitNullValueContainerCpus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("container_cpus"); else _explicitNullProperties?.Remove("container_cpus"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerCpus _explicitNullValueContainerCpus = default!;
 #endif
         /// <summary>Memory limit for each new Docker conversation&apos;s container, in `docker run --memory` syntax such as `512m` or `4g`. Unset keeps the server default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerMemory? ContainerMemory { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerMemory? ContainerMemory { get => _explicitNullValueContainerMemory; set { _explicitNullValueContainerMemory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("container_memory"); else _explicitNullProperties?.Remove("container_memory"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerMemory? _explicitNullValueContainerMemory = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerMemory ContainerMemory { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerMemory ContainerMemory { get => _explicitNullValueContainerMemory; set { _explicitNullValueContainerMemory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("container_memory"); else _explicitNullProperties?.Remove("container_memory"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsContainerMemory _explicitNullValueContainerMemory = default!;
 #endif
         /// <summary>Where new conversations run: in the workspace on the host, in a new git worktree of it, or in their own Docker container (which needs a server that offers it).</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsDefaultRuntime? DefaultRuntime { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsDefaultRuntime? DefaultRuntime { get => _explicitNullValueDefaultRuntime; set { _explicitNullValueDefaultRuntime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_runtime"); else _explicitNullProperties?.Remove("default_runtime"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsDefaultRuntime? _explicitNullValueDefaultRuntime = default!;
         /// <summary>Maximum number of iterations the conversation will run before stopping.</summary>
-        public int? MaxIterations { get; set; }
+        public int? MaxIterations { get => _explicitNullValueMaxIterations; set { _explicitNullValueMaxIterations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_iterations"); else _explicitNullProperties?.Remove("max_iterations"); } }
+        private int? _explicitNullValueMaxIterations = default!;
         /// <summary>The schema_version property</summary>
-        public int? SchemaVersion { get; set; }
+        public int? SchemaVersion { get => _explicitNullValueSchemaVersion; set { _explicitNullValueSchemaVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schema_version"); else _explicitNullProperties?.Remove("schema_version"); } }
+        private int? _explicitNullValueSchemaVersion = default!;
         /// <summary>Security analyzer that evaluates actions before execution.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsSecurityAnalyzerAnyOf1? SecurityAnalyzer { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsSecurityAnalyzerAnyOf1? SecurityAnalyzer { get => _explicitNullValueSecurityAnalyzer; set { _explicitNullValueSecurityAnalyzer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("security_analyzer"); else _explicitNullProperties?.Remove("security_analyzer"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsSecurityAnalyzerAnyOf1? _explicitNullValueSecurityAnalyzer = default!;
         /// <summary>What a new conversation worktree branches from: the repository&apos;s default branch, the checkout&apos;s current HEAD, or `worktree_base_ref`.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBase? WorktreeBase { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBase? WorktreeBase { get => _explicitNullValueWorktreeBase; set { _explicitNullValueWorktreeBase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("worktree_base"); else _explicitNullProperties?.Remove("worktree_base"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBase? _explicitNullValueWorktreeBase = default!;
         /// <summary>Branch, tag or commit new worktrees branch from when `worktree_base` is `ref`, e.g. `develop` or `origin/release`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBaseRef? WorktreeBaseRef { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBaseRef? WorktreeBaseRef { get => _explicitNullValueWorktreeBaseRef; set { _explicitNullValueWorktreeBaseRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("worktree_base_ref"); else _explicitNullProperties?.Remove("worktree_base_ref"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBaseRef? _explicitNullValueWorktreeBaseRef = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBaseRef WorktreeBaseRef { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBaseRef WorktreeBaseRef { get => _explicitNullValueWorktreeBaseRef; set { _explicitNullValueWorktreeBaseRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("worktree_base_ref"); else _explicitNullProperties?.Remove("worktree_base_ref"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBaseRef _explicitNullValueWorktreeBaseRef = default!;
 #endif
         /// <summary>Start of each worktree&apos;s branch name, which ends in the conversation id, e.g. `openhands/` or `me/`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorktreeBranchPrefix { get; set; }
+        public string? WorktreeBranchPrefix { get => _explicitNullValueWorktreeBranchPrefix; set { _explicitNullValueWorktreeBranchPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("worktree_branch_prefix"); else _explicitNullProperties?.Remove("worktree_branch_prefix"); } }
+        private string? _explicitNullValueWorktreeBranchPrefix = default!;
 #nullable restore
 #else
-        public string WorktreeBranchPrefix { get; set; }
+        public string WorktreeBranchPrefix { get => _explicitNullValueWorktreeBranchPrefix; set { _explicitNullValueWorktreeBranchPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("worktree_branch_prefix"); else _explicitNullProperties?.Remove("worktree_branch_prefix"); } }
+        private string _explicitNullValueWorktreeBranchPrefix = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings"/> and sets the default values.
@@ -80,7 +113,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -121,6 +154,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBase>("worktree_base", WorktreeBase);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettingsWorktreeBaseRef>("worktree_base_ref", WorktreeBaseRef);
             writer.WriteStringValue("worktree_branch_prefix", WorktreeBranchPrefix);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

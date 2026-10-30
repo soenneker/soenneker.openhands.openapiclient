@@ -12,6 +12,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     public partial class SecurityAnalyzerBase : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
     #pragma warning restore CS1591
     {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Analyzers whose assessments are combined via max-severity</summary>
@@ -37,22 +41,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #nullable restore
 #else
         public string ApiUrl { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EnsembleSecurityAnalyzer"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.EnsembleSecurityAnalyzer? EnsembleSecurityAnalyzer { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.EnsembleSecurityAnalyzer EnsembleSecurityAnalyzer { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GraySwanAnalyzer"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GraySwanAnalyzer? GraySwanAnalyzer { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GraySwanAnalyzer GraySwanAnalyzer { get; set; }
 #endif
         /// <summary>HIGH patterns scanned against executable fields only</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -83,13 +71,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public List<UntypedNode> InjectionMediumPatterns { get; set; }
 #endif
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase_kind? Kind { get; set; }
         /// <summary>Language model interface for OpenHands agents.The LLM class provides a unified interface for interacting with variouslanguage models through the litellm library. It handles model configuration,API authentication, retry logic, and tool calling capabilities.Attributes:    model: Model name (e.g., &quot;gpt-5.6&quot;).    api_key: API key for authentication.    base_url: Custom API base URL.    num_retries: Number of retry attempts for failed requests.    timeout: Request timeout in seconds.Example:    ```python    from openhands.sdk import LLM    from pydantic import SecretStr    llm = LLM(        model=&quot;gpt-5.6&quot;,        api_key=SecretStr(&quot;your-api-key&quot;),        usage_id=&quot;my-agent&quot;    )    # Use with agent or conversation    ```</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,14 +79,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInput Llm { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LlmSecurityAnalyzer"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmSecurityAnalyzer? LlmSecurityAnalyzer { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmSecurityAnalyzer LlmSecurityAnalyzer { get; set; }
 #endif
         /// <summary>Risk threshold for LOW classification (score &lt;= threshold)</summary>
         public double? LowThreshold { get; set; }
@@ -120,14 +94,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #endif
         /// <summary>Risk threshold for MEDIUM classification (score &lt;= threshold)</summary>
         public double? MediumThreshold { get; set; }
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PatternSecurityAnalyzer"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PatternSecurityAnalyzer? PatternSecurityAnalyzer { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PatternSecurityAnalyzer PatternSecurityAnalyzer { get; set; }
-#endif
         /// <summary>GraySwan policy ID (via GRAYSWAN_POLICY_ID env var)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -135,14 +101,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #nullable restore
 #else
         public string PolicyId { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PolicyRailSecurityAnalyzer"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PolicyRailSecurityAnalyzer? PolicyRailSecurityAnalyzer { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PolicyRailSecurityAnalyzer PolicyRailSecurityAnalyzer { get; set; }
 #endif
         /// <summary>When True, any child returning UNKNOWN causes the ensemble to return UNKNOWN. When False (default), UNKNOWN is filtered out if any child returns a concrete level.</summary>
         public bool? PropagateUnknown { get; set; }
@@ -154,16 +112,56 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string SafetyExperiences { get; set; }
 #endif
-        /// <summary>Request timeout in seconds</summary>
-        public double? Timeout { get; set; }
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ToolShieldLlmSecurityAnalyzer"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ToolShieldLlmSecurityAnalyzer? ToolShieldLlmSecurityAnalyzer { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf1? SecurityAnalyzerBaseOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ToolShieldLlmSecurityAnalyzer ToolShieldLlmSecurityAnalyzer { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf1 SecurityAnalyzerBaseOneOf1 { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf2? SecurityAnalyzerBaseOneOf2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf2 SecurityAnalyzerBaseOneOf2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf3? SecurityAnalyzerBaseOneOf3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf3 SecurityAnalyzerBaseOneOf3 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf4"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf4? SecurityAnalyzerBaseOneOf4 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf4 SecurityAnalyzerBaseOneOf4 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf5"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf5? SecurityAnalyzerBaseOneOf5 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf5 SecurityAnalyzerBaseOneOf5 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf6"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf6? SecurityAnalyzerBaseOneOf6 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf6 SecurityAnalyzerBaseOneOf6 { get; set; }
+#endif
+        /// <summary>Request timeout in seconds</summary>
+        public double? Timeout { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase"/> and sets the default values.
         /// </summary>
@@ -187,77 +185,77 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase();
-            if("openhands__sdk__security__ensemble__EnsembleSecurityAnalyzer-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.EnsembleSecurityAnalyzer = new global::Soenneker.OpenHands.OpenApiClient.Models.EnsembleSecurityAnalyzer();
-            }
-            else if("openhands__sdk__security__grayswan__analyzer__GraySwanAnalyzer-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GraySwanAnalyzer = new global::Soenneker.OpenHands.OpenApiClient.Models.GraySwanAnalyzer();
-            }
-            else if("openhands__sdk__security__llm_analyzer__LLMSecurityAnalyzer-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.LlmSecurityAnalyzer = new global::Soenneker.OpenHands.OpenApiClient.Models.LlmSecurityAnalyzer();
-            }
-            else if("openhands__sdk__security__defense_in_depth__pattern__PatternSecurityAnalyzer-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.PatternSecurityAnalyzer = new global::Soenneker.OpenHands.OpenApiClient.Models.PatternSecurityAnalyzer();
-            }
-            else if("openhands__sdk__security__defense_in_depth__policy_rails__PolicyRailSecurityAnalyzer-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.PolicyRailSecurityAnalyzer = new global::Soenneker.OpenHands.OpenApiClient.Models.PolicyRailSecurityAnalyzer();
-            }
-            else if("openhands__sdk__security__toolshield_llm_analyzer__ToolShieldLLMSecurityAnalyzer-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.ToolShieldLlmSecurityAnalyzer = new global::Soenneker.OpenHands.OpenApiClient.Models.ToolShieldLlmSecurityAnalyzer();
-            }
-            else if(parseNode.GetStringValue() is string apiKeyValue)
-            {
-                result.ApiKey = apiKeyValue;
-            }
-            else if(parseNode.GetStringValue() is string apiUrlValue)
-            {
-                result.ApiUrl = apiUrlValue;
-            }
-            else if(parseNode.GetIntValue() is int historyLimitValue)
-            {
-                result.HistoryLimit = historyLimitValue;
-            }
-            else if(parseNode.GetIntValue() is int historyWindowValue)
-            {
-                result.HistoryWindow = historyWindowValue;
-            }
-            else if(parseNode.GetStringValue() is string kindValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase_kind>() is global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase_kind kindValue)
             {
                 result.Kind = kindValue;
             }
-            else if(parseNode.GetDoubleValue() is double lowThresholdValue)
+            else if("SecurityAnalyzerBaseOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("SecurityAnalyzerBaseOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("SecurityAnalyzerBaseOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("SecurityAnalyzerBaseOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("SecurityAnalyzerBaseOneOf5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("SecurityAnalyzerBaseOneOf6".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string apiKeyValue)
+            {
+                result.ApiKey = apiKeyValue;
+            }
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string apiUrlValue)
+            {
+                result.ApiUrl = apiUrlValue;
+            }
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int historyLimitValue)
+            {
+                result.HistoryLimit = historyLimitValue;
+            }
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int historyWindowValue)
+            {
+                result.HistoryWindow = historyWindowValue;
+            }
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is (global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal) && parseNode.GetDoubleValue() is double lowThresholdValue)
             {
                 result.LowThreshold = lowThresholdValue;
             }
-            else if(parseNode.GetIntValue() is int maxMessageCharsValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int maxMessageCharsValue)
             {
                 result.MaxMessageChars = maxMessageCharsValue;
             }
-            else if(parseNode.GetDoubleValue() is double mediumThresholdValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is (global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal) && parseNode.GetDoubleValue() is double mediumThresholdValue)
             {
                 result.MediumThreshold = mediumThresholdValue;
             }
-            else if(parseNode.GetStringValue() is string policyIdValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string policyIdValue)
             {
                 result.PolicyId = policyIdValue;
             }
-            else if(parseNode.GetBoolValue() is bool propagateUnknownValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedBoolean && parseNode.GetBoolValue() is bool propagateUnknownValue)
             {
                 result.PropagateUnknown = propagateUnknownValue;
             }
-            else if(parseNode.GetStringValue() is string safetyExperiencesValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string safetyExperiencesValue)
             {
                 result.SafetyExperiences = safetyExperiencesValue;
             }
-            else if(parseNode.GetDoubleValue() is double timeoutValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is (global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal) && parseNode.GetDoubleValue() is double timeoutValue)
             {
                 result.Timeout = timeoutValue;
             }
@@ -265,23 +263,38 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 result.Analyzers = analyzersValue;
             }
-            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<UntypedNode>()?.AsList() is List<UntypedNode> highPatternsValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue)?.AsList() is List<UntypedNode> highPatternsValue)
             {
                 result.HighPatterns = highPatternsValue;
             }
-            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<UntypedNode>()?.AsList() is List<UntypedNode> injectionHighPatternsValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue)?.AsList() is List<UntypedNode> injectionHighPatternsValue)
             {
                 result.InjectionHighPatterns = injectionHighPatternsValue;
             }
-            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<UntypedNode>()?.AsList() is List<UntypedNode> injectionMediumPatternsValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue)?.AsList() is List<UntypedNode> injectionMediumPatternsValue)
             {
                 result.InjectionMediumPatterns = injectionMediumPatternsValue;
             }
-            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<UntypedNode>()?.AsList() is List<UntypedNode> mediumPatternsValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue)?.AsList() is List<UntypedNode> mediumPatternsValue)
             {
                 result.MediumPatterns = mediumPatternsValue;
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("PatternSecurityAnalyzer".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("PolicyRailSecurityAnalyzer".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("analyzers") != null && parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("EnsembleSecurityAnalyzer".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("GraySwanAnalyzer".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("LLMSecurityAnalyzer".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch5 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("llm") != null && parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("ToolShieldLLMSecurityAnalyzer".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.Analyzers == null && result.ApiKey == null && result.ApiUrl == null && result.HighPatterns == null && result.HistoryLimit == null && result.HistoryWindow == null && result.InjectionHighPatterns == null && result.InjectionMediumPatterns == null && result.Kind == null && result.Llm == null && result.LowThreshold == null && result.MaxMessageChars == null && result.MediumPatterns == null && result.MediumThreshold == null && result.PolicyId == null && result.PropagateUnknown == null && result.SafetyExperiences == null && result.SecurityAnalyzerBaseOneOf1 == null && result.SecurityAnalyzerBaseOneOf2 == null && result.SecurityAnalyzerBaseOneOf3 == null && result.SecurityAnalyzerBaseOneOf4 == null && result.SecurityAnalyzerBaseOneOf5 == null && result.SecurityAnalyzerBaseOneOf6 == null && result.Timeout == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5) result.SecurityAnalyzerBaseOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf1(), parseNode);
+            if (result.Analyzers == null && result.ApiKey == null && result.ApiUrl == null && result.HighPatterns == null && result.HistoryLimit == null && result.HistoryWindow == null && result.InjectionHighPatterns == null && result.InjectionMediumPatterns == null && result.Kind == null && result.Llm == null && result.LowThreshold == null && result.MaxMessageChars == null && result.MediumPatterns == null && result.MediumThreshold == null && result.PolicyId == null && result.PropagateUnknown == null && result.SafetyExperiences == null && result.SecurityAnalyzerBaseOneOf1 == null && result.SecurityAnalyzerBaseOneOf2 == null && result.SecurityAnalyzerBaseOneOf3 == null && result.SecurityAnalyzerBaseOneOf4 == null && result.SecurityAnalyzerBaseOneOf5 == null && result.SecurityAnalyzerBaseOneOf6 == null && result.Timeout == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5) result.SecurityAnalyzerBaseOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf2(), parseNode);
+            if (result.Analyzers == null && result.ApiKey == null && result.ApiUrl == null && result.HighPatterns == null && result.HistoryLimit == null && result.HistoryWindow == null && result.InjectionHighPatterns == null && result.InjectionMediumPatterns == null && result.Kind == null && result.Llm == null && result.LowThreshold == null && result.MaxMessageChars == null && result.MediumPatterns == null && result.MediumThreshold == null && result.PolicyId == null && result.PropagateUnknown == null && result.SafetyExperiences == null && result.SecurityAnalyzerBaseOneOf1 == null && result.SecurityAnalyzerBaseOneOf2 == null && result.SecurityAnalyzerBaseOneOf3 == null && result.SecurityAnalyzerBaseOneOf4 == null && result.SecurityAnalyzerBaseOneOf5 == null && result.SecurityAnalyzerBaseOneOf6 == null && result.Timeout == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5) result.SecurityAnalyzerBaseOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf3(), parseNode);
+            if (result.Analyzers == null && result.ApiKey == null && result.ApiUrl == null && result.HighPatterns == null && result.HistoryLimit == null && result.HistoryWindow == null && result.InjectionHighPatterns == null && result.InjectionMediumPatterns == null && result.Kind == null && result.Llm == null && result.LowThreshold == null && result.MaxMessageChars == null && result.MediumPatterns == null && result.MediumThreshold == null && result.PolicyId == null && result.PropagateUnknown == null && result.SafetyExperiences == null && result.SecurityAnalyzerBaseOneOf1 == null && result.SecurityAnalyzerBaseOneOf2 == null && result.SecurityAnalyzerBaseOneOf3 == null && result.SecurityAnalyzerBaseOneOf4 == null && result.SecurityAnalyzerBaseOneOf5 == null && result.SecurityAnalyzerBaseOneOf6 == null && result.Timeout == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4 && !matchesUnionBranch5) result.SecurityAnalyzerBaseOneOf4 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf4(), parseNode);
+            if (result.Analyzers == null && result.ApiKey == null && result.ApiUrl == null && result.HighPatterns == null && result.HistoryLimit == null && result.HistoryWindow == null && result.InjectionHighPatterns == null && result.InjectionMediumPatterns == null && result.Kind == null && result.Llm == null && result.LowThreshold == null && result.MaxMessageChars == null && result.MediumPatterns == null && result.MediumThreshold == null && result.PolicyId == null && result.PropagateUnknown == null && result.SafetyExperiences == null && result.SecurityAnalyzerBaseOneOf1 == null && result.SecurityAnalyzerBaseOneOf2 == null && result.SecurityAnalyzerBaseOneOf3 == null && result.SecurityAnalyzerBaseOneOf4 == null && result.SecurityAnalyzerBaseOneOf5 == null && result.SecurityAnalyzerBaseOneOf6 == null && result.Timeout == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch5) result.SecurityAnalyzerBaseOneOf5 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf5(), parseNode);
+            if (result.Analyzers == null && result.ApiKey == null && result.ApiUrl == null && result.HighPatterns == null && result.HistoryLimit == null && result.HistoryWindow == null && result.InjectionHighPatterns == null && result.InjectionMediumPatterns == null && result.Kind == null && result.Llm == null && result.LowThreshold == null && result.MaxMessageChars == null && result.MediumPatterns == null && result.MediumThreshold == null && result.PolicyId == null && result.PropagateUnknown == null && result.SafetyExperiences == null && result.SecurityAnalyzerBaseOneOf1 == null && result.SecurityAnalyzerBaseOneOf2 == null && result.SecurityAnalyzerBaseOneOf3 == null && result.SecurityAnalyzerBaseOneOf4 == null && result.SecurityAnalyzerBaseOneOf5 == null && result.SecurityAnalyzerBaseOneOf6 == null && result.Timeout == null && matchesUnionBranch5 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4) result.SecurityAnalyzerBaseOneOf6 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf6(), parseNode);
+            if (result.Analyzers == null && result.ApiKey == null && result.ApiUrl == null && result.HighPatterns == null && result.HistoryLimit == null && result.HistoryWindow == null && result.InjectionHighPatterns == null && result.InjectionMediumPatterns == null && result.Kind == null && result.Llm == null && result.LowThreshold == null && result.MaxMessageChars == null && result.MediumPatterns == null && result.MediumThreshold == null && result.PolicyId == null && result.PropagateUnknown == null && result.SafetyExperiences == null && result.SecurityAnalyzerBaseOneOf1 == null && result.SecurityAnalyzerBaseOneOf2 == null && result.SecurityAnalyzerBaseOneOf3 == null && result.SecurityAnalyzerBaseOneOf4 == null && result.SecurityAnalyzerBaseOneOf5 == null && result.SecurityAnalyzerBaseOneOf6 == null && result.Timeout == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -289,33 +302,33 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(EnsembleSecurityAnalyzer != null)
-            {
-                return EnsembleSecurityAnalyzer.GetFieldDeserializers();
-            }
-            else if(GraySwanAnalyzer != null)
-            {
-                return GraySwanAnalyzer.GetFieldDeserializers();
-            }
-            else if(Llm != null)
+            if(Llm != null)
             {
                 return Llm.GetFieldDeserializers();
             }
-            else if(LlmSecurityAnalyzer != null)
+            else if(SecurityAnalyzerBaseOneOf1 != null)
             {
-                return LlmSecurityAnalyzer.GetFieldDeserializers();
+                return SecurityAnalyzerBaseOneOf1.GetFieldDeserializers();
             }
-            else if(PatternSecurityAnalyzer != null)
+            else if(SecurityAnalyzerBaseOneOf2 != null)
             {
-                return PatternSecurityAnalyzer.GetFieldDeserializers();
+                return SecurityAnalyzerBaseOneOf2.GetFieldDeserializers();
             }
-            else if(PolicyRailSecurityAnalyzer != null)
+            else if(SecurityAnalyzerBaseOneOf3 != null)
             {
-                return PolicyRailSecurityAnalyzer.GetFieldDeserializers();
+                return SecurityAnalyzerBaseOneOf3.GetFieldDeserializers();
             }
-            else if(ToolShieldLlmSecurityAnalyzer != null)
+            else if(SecurityAnalyzerBaseOneOf4 != null)
             {
-                return ToolShieldLlmSecurityAnalyzer.GetFieldDeserializers();
+                return SecurityAnalyzerBaseOneOf4.GetFieldDeserializers();
+            }
+            else if(SecurityAnalyzerBaseOneOf5 != null)
+            {
+                return SecurityAnalyzerBaseOneOf5.GetFieldDeserializers();
+            }
+            else if(SecurityAnalyzerBaseOneOf6 != null)
+            {
+                return SecurityAnalyzerBaseOneOf6.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -325,34 +338,54 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Analyzers == null && ApiKey == null && ApiUrl == null && HighPatterns == null && HistoryLimit == null && HistoryWindow == null && InjectionHighPatterns == null && InjectionMediumPatterns == null && Kind == null && Llm == null && LowThreshold == null && MaxMessageChars == null && MediumPatterns == null && MediumThreshold == null && PolicyId == null && PropagateUnknown == null && SafetyExperiences == null && SecurityAnalyzerBaseOneOf1 == null && SecurityAnalyzerBaseOneOf2 == null && SecurityAnalyzerBaseOneOf3 == null && SecurityAnalyzerBaseOneOf4 == null && SecurityAnalyzerBaseOneOf5 == null && SecurityAnalyzerBaseOneOf6 == null && Timeout == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (SecurityAnalyzerBaseOneOf1 != null && Analyzers == null && ApiKey == null && ApiUrl == null && HighPatterns == null && HistoryLimit == null && HistoryWindow == null && InjectionHighPatterns == null && InjectionMediumPatterns == null && Kind == null && Llm == null && LowThreshold == null && MaxMessageChars == null && MediumPatterns == null && MediumThreshold == null && PolicyId == null && PropagateUnknown == null && SafetyExperiences == null && SecurityAnalyzerBaseOneOf2 == null && SecurityAnalyzerBaseOneOf3 == null && SecurityAnalyzerBaseOneOf4 == null && SecurityAnalyzerBaseOneOf5 == null && SecurityAnalyzerBaseOneOf6 == null && Timeout == null) { if (SecurityAnalyzerBaseOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SecurityAnalyzerBaseOneOf1); return; }
+            if (SecurityAnalyzerBaseOneOf2 != null && Analyzers == null && ApiKey == null && ApiUrl == null && HighPatterns == null && HistoryLimit == null && HistoryWindow == null && InjectionHighPatterns == null && InjectionMediumPatterns == null && Kind == null && Llm == null && LowThreshold == null && MaxMessageChars == null && MediumPatterns == null && MediumThreshold == null && PolicyId == null && PropagateUnknown == null && SafetyExperiences == null && SecurityAnalyzerBaseOneOf1 == null && SecurityAnalyzerBaseOneOf3 == null && SecurityAnalyzerBaseOneOf4 == null && SecurityAnalyzerBaseOneOf5 == null && SecurityAnalyzerBaseOneOf6 == null && Timeout == null) { if (SecurityAnalyzerBaseOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SecurityAnalyzerBaseOneOf2); return; }
+            if (SecurityAnalyzerBaseOneOf3 != null && Analyzers == null && ApiKey == null && ApiUrl == null && HighPatterns == null && HistoryLimit == null && HistoryWindow == null && InjectionHighPatterns == null && InjectionMediumPatterns == null && Kind == null && Llm == null && LowThreshold == null && MaxMessageChars == null && MediumPatterns == null && MediumThreshold == null && PolicyId == null && PropagateUnknown == null && SafetyExperiences == null && SecurityAnalyzerBaseOneOf1 == null && SecurityAnalyzerBaseOneOf2 == null && SecurityAnalyzerBaseOneOf4 == null && SecurityAnalyzerBaseOneOf5 == null && SecurityAnalyzerBaseOneOf6 == null && Timeout == null) { if (SecurityAnalyzerBaseOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SecurityAnalyzerBaseOneOf3); return; }
+            if (SecurityAnalyzerBaseOneOf4 != null && Analyzers == null && ApiKey == null && ApiUrl == null && HighPatterns == null && HistoryLimit == null && HistoryWindow == null && InjectionHighPatterns == null && InjectionMediumPatterns == null && Kind == null && Llm == null && LowThreshold == null && MaxMessageChars == null && MediumPatterns == null && MediumThreshold == null && PolicyId == null && PropagateUnknown == null && SafetyExperiences == null && SecurityAnalyzerBaseOneOf1 == null && SecurityAnalyzerBaseOneOf2 == null && SecurityAnalyzerBaseOneOf3 == null && SecurityAnalyzerBaseOneOf5 == null && SecurityAnalyzerBaseOneOf6 == null && Timeout == null) { if (SecurityAnalyzerBaseOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SecurityAnalyzerBaseOneOf4); return; }
+            if (SecurityAnalyzerBaseOneOf5 != null && Analyzers == null && ApiKey == null && ApiUrl == null && HighPatterns == null && HistoryLimit == null && HistoryWindow == null && InjectionHighPatterns == null && InjectionMediumPatterns == null && Kind == null && Llm == null && LowThreshold == null && MaxMessageChars == null && MediumPatterns == null && MediumThreshold == null && PolicyId == null && PropagateUnknown == null && SafetyExperiences == null && SecurityAnalyzerBaseOneOf1 == null && SecurityAnalyzerBaseOneOf2 == null && SecurityAnalyzerBaseOneOf3 == null && SecurityAnalyzerBaseOneOf4 == null && SecurityAnalyzerBaseOneOf6 == null && Timeout == null) { if (SecurityAnalyzerBaseOneOf5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SecurityAnalyzerBaseOneOf5); return; }
+            if (SecurityAnalyzerBaseOneOf6 != null && Analyzers == null && ApiKey == null && ApiUrl == null && HighPatterns == null && HistoryLimit == null && HistoryWindow == null && InjectionHighPatterns == null && InjectionMediumPatterns == null && Kind == null && Llm == null && LowThreshold == null && MaxMessageChars == null && MediumPatterns == null && MediumThreshold == null && PolicyId == null && PropagateUnknown == null && SafetyExperiences == null && SecurityAnalyzerBaseOneOf1 == null && SecurityAnalyzerBaseOneOf2 == null && SecurityAnalyzerBaseOneOf3 == null && SecurityAnalyzerBaseOneOf4 == null && SecurityAnalyzerBaseOneOf5 == null && Timeout == null) { if (SecurityAnalyzerBaseOneOf6 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SecurityAnalyzerBaseOneOf6); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(EnsembleSecurityAnalyzer != null)
+            if(Kind != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.EnsembleSecurityAnalyzer>(null, EnsembleSecurityAnalyzer);
-            }
-            else if(GraySwanAnalyzer != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GraySwanAnalyzer>(null, GraySwanAnalyzer);
+                writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase_kind>(null, Kind);
             }
             else if(Llm != null)
             {
+                if (Llm is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInput>(null, Llm);
             }
-            else if(LlmSecurityAnalyzer != null)
+            else if(SecurityAnalyzerBaseOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmSecurityAnalyzer>(null, LlmSecurityAnalyzer);
+                if (SecurityAnalyzerBaseOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf1>(null, SecurityAnalyzerBaseOneOf1);
             }
-            else if(PatternSecurityAnalyzer != null)
+            else if(SecurityAnalyzerBaseOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PatternSecurityAnalyzer>(null, PatternSecurityAnalyzer);
+                if (SecurityAnalyzerBaseOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf2>(null, SecurityAnalyzerBaseOneOf2);
             }
-            else if(PolicyRailSecurityAnalyzer != null)
+            else if(SecurityAnalyzerBaseOneOf3 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PolicyRailSecurityAnalyzer>(null, PolicyRailSecurityAnalyzer);
+                if (SecurityAnalyzerBaseOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf3>(null, SecurityAnalyzerBaseOneOf3);
             }
-            else if(ToolShieldLlmSecurityAnalyzer != null)
+            else if(SecurityAnalyzerBaseOneOf4 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ToolShieldLlmSecurityAnalyzer>(null, ToolShieldLlmSecurityAnalyzer);
+                if (SecurityAnalyzerBaseOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf4>(null, SecurityAnalyzerBaseOneOf4);
+            }
+            else if(SecurityAnalyzerBaseOneOf5 != null)
+            {
+                if (SecurityAnalyzerBaseOneOf5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf5>(null, SecurityAnalyzerBaseOneOf5);
+            }
+            else if(SecurityAnalyzerBaseOneOf6 != null)
+            {
+                if (SecurityAnalyzerBaseOneOf6 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf6>(null, SecurityAnalyzerBaseOneOf6);
             }
             else if(ApiKey != null)
             {
@@ -369,10 +402,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if(HistoryWindow != null)
             {
                 writer.WriteIntValue(null, HistoryWindow);
-            }
-            else if(Kind != null)
-            {
-                writer.WriteStringValue(null, Kind);
             }
             else if(LowThreshold != null)
             {
@@ -422,7 +451,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 writer.WriteCollectionOfPrimitiveValues<UntypedNode>(null, MediumPatterns);
             }
-            writer.WriteAdditionalData(AdditionalData);
+            
         }
     }
 }

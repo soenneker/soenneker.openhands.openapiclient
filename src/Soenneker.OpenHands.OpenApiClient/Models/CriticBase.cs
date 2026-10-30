@@ -11,106 +11,151 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CriticBase : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agent_issue_labels") is { } nullNodeAgentIssueLabels && nullNodeAgentIssueLabels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentIssueLabels = null;
+            if (parseNode.GetChildNode("api_key") is { } nullNodeApiKey && nullNodeApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKey = null;
+            if (parseNode.GetChildNode("has_success_label") is { } nullNodeHasSuccessLabel && nullNodeHasSuccessLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasSuccessLabel = null;
+            if (parseNode.GetChildNode("infra_labels") is { } nullNodeInfraLabels && nullNodeInfraLabels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InfraLabels = null;
+            if (parseNode.GetChildNode("issue_threshold") is { } nullNodeIssueThreshold && nullNodeIssueThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueThreshold = null;
+            if (parseNode.GetChildNode("iterative_refinement") is { } nullNodeIterativeRefinement && nullNodeIterativeRefinement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IterativeRefinement = null;
+            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("model_name") is { } nullNodeModelName && nullNodeModelName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelName = null;
+            if (parseNode.GetChildNode("pass_tools_definitions") is { } nullNodePassToolsDefinitions && nullNodePassToolsDefinitions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PassToolsDefinitions = null;
+            if (parseNode.GetChildNode("sentiment_labels") is { } nullNodeSentimentLabels && nullNodeSentimentLabels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SentimentLabels = null;
+            if (parseNode.GetChildNode("sentiment_map") is { } nullNodeSentimentMap && nullNodeSentimentMap.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SentimentMap = null;
+            if (parseNode.GetChildNode("server_url") is { } nullNodeServerUrl && nullNodeServerUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerUrl = null;
+            if (parseNode.GetChildNode("timeout_seconds") is { } nullNodeTimeoutSeconds && nullNodeTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeoutSeconds = null;
+            if (parseNode.GetChildNode("tokenizer_name") is { } nullNodeTokenizerName && nullNodeTokenizerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenizerName = null;
+            if (parseNode.GetChildNode("user_followup_labels") is { } nullNodeUserFollowupLabels && nullNodeUserFollowupLabels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserFollowupLabels = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The agent_issue_labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AgentIssueLabels { get; set; }
+        public List<string>? AgentIssueLabels { get => _explicitNullValueAgentIssueLabels; set { _explicitNullValueAgentIssueLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_issue_labels"); else _explicitNullProperties?.Remove("agent_issue_labels"); } }
+        private List<string>? _explicitNullValueAgentIssueLabels = default!;
 #nullable restore
 #else
-        public List<string> AgentIssueLabels { get; set; }
+        public List<string> AgentIssueLabels { get => _explicitNullValueAgentIssueLabels; set { _explicitNullValueAgentIssueLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_issue_labels"); else _explicitNullProperties?.Remove("agent_issue_labels"); } }
+        private List<string> _explicitNullValueAgentIssueLabels = default!;
 #endif
         /// <summary>API key for authenticating with the vLLM service</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ApiBasedCriticApiKey? ApiKey { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ApiBasedCriticApiKey? ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ApiBasedCriticApiKey? _explicitNullValueApiKey = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ApiBasedCriticApiKey ApiKey { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ApiBasedCriticApiKey ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ApiBasedCriticApiKey _explicitNullValueApiKey = default!;
 #endif
         /// <summary>Whether the model predicts success label at index 0</summary>
-        public bool? HasSuccessLabel { get; set; }
+        public bool? HasSuccessLabel { get => _explicitNullValueHasSuccessLabel; set { _explicitNullValueHasSuccessLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_success_label"); else _explicitNullProperties?.Remove("has_success_label"); } }
+        private bool? _explicitNullValueHasSuccessLabel = default!;
         /// <summary>The infra_labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? InfraLabels { get; set; }
+        public List<string>? InfraLabels { get => _explicitNullValueInfraLabels; set { _explicitNullValueInfraLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("infra_labels"); else _explicitNullProperties?.Remove("infra_labels"); } }
+        private List<string>? _explicitNullValueInfraLabels = default!;
 #nullable restore
 #else
-        public List<string> InfraLabels { get; set; }
+        public List<string> InfraLabels { get => _explicitNullValueInfraLabels; set { _explicitNullValueInfraLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("infra_labels"); else _explicitNullProperties?.Remove("infra_labels"); } }
+        private List<string> _explicitNullValueInfraLabels = default!;
 #endif
         /// <summary>APIBasedCritic-specific probability threshold for agent issue labels that should trigger iterative refinement.</summary>
-        public double? IssueThreshold { get; set; }
+        public double? IssueThreshold { get => _explicitNullValueIssueThreshold; set { _explicitNullValueIssueThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_threshold"); else _explicitNullProperties?.Remove("issue_threshold"); } }
+        private double? _explicitNullValueIssueThreshold = default!;
         /// <summary>Optional configuration for iterative refinement. When set, Conversation.run() will automatically retry the task if the critic score is below the success_threshold, up to max_iterations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.IterativeRefinementConfig? IterativeRefinement { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.IterativeRefinementConfig? IterativeRefinement { get => _explicitNullValueIterativeRefinement; set { _explicitNullValueIterativeRefinement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("iterative_refinement"); else _explicitNullProperties?.Remove("iterative_refinement"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.IterativeRefinementConfig? _explicitNullValueIterativeRefinement = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.IterativeRefinementConfig IterativeRefinement { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.IterativeRefinementConfig IterativeRefinement { get => _explicitNullValueIterativeRefinement; set { _explicitNullValueIterativeRefinement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("iterative_refinement"); else _explicitNullProperties?.Remove("iterative_refinement"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.IterativeRefinementConfig _explicitNullValueIterativeRefinement = default!;
 #endif
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Kind { get; set; }
+        public string? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private string? _explicitNullValueKind = default!;
 #nullable restore
-#else
-        public string Kind { get; set; }
-#endif
         /// <summary>When to run critic evaluation:- &apos;finish_and_message&apos;: Evaluate on FinishAction and agent MessageEvent (default, minimal performance impact)- &apos;all_actions&apos;: Evaluate after every agent action (WARNING: significantly slower due to API calls on each action)</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentFinishedCriticMode? Mode { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentFinishedCriticMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentFinishedCriticMode? _explicitNullValueMode = default!;
         /// <summary>Name of the model to use</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ModelName { get; set; }
+        public string? ModelName { get => _explicitNullValueModelName; set { _explicitNullValueModelName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_name"); else _explicitNullProperties?.Remove("model_name"); } }
+        private string? _explicitNullValueModelName = default!;
 #nullable restore
 #else
-        public string ModelName { get; set; }
+        public string ModelName { get => _explicitNullValueModelName; set { _explicitNullValueModelName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_name"); else _explicitNullProperties?.Remove("model_name"); } }
+        private string _explicitNullValueModelName = default!;
 #endif
         /// <summary>Whether to pass tool definitions to the model</summary>
-        public bool? PassToolsDefinitions { get; set; }
+        public bool? PassToolsDefinitions { get => _explicitNullValuePassToolsDefinitions; set { _explicitNullValuePassToolsDefinitions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pass_tools_definitions"); else _explicitNullProperties?.Remove("pass_tools_definitions"); } }
+        private bool? _explicitNullValuePassToolsDefinitions = default!;
         /// <summary>The sentiment_labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SentimentLabels { get; set; }
+        public List<string>? SentimentLabels { get => _explicitNullValueSentimentLabels; set { _explicitNullValueSentimentLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sentiment_labels"); else _explicitNullProperties?.Remove("sentiment_labels"); } }
+        private List<string>? _explicitNullValueSentimentLabels = default!;
 #nullable restore
 #else
-        public List<string> SentimentLabels { get; set; }
+        public List<string> SentimentLabels { get => _explicitNullValueSentimentLabels; set { _explicitNullValueSentimentLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sentiment_labels"); else _explicitNullProperties?.Remove("sentiment_labels"); } }
+        private List<string> _explicitNullValueSentimentLabels = default!;
 #endif
         /// <summary>The sentiment_map property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ApiBasedCriticSentimentMapProperty? SentimentMap { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ApiBasedCriticSentimentMapProperty? SentimentMap { get => _explicitNullValueSentimentMap; set { _explicitNullValueSentimentMap = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sentiment_map"); else _explicitNullProperties?.Remove("sentiment_map"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ApiBasedCriticSentimentMapProperty? _explicitNullValueSentimentMap = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ApiBasedCriticSentimentMapProperty SentimentMap { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ApiBasedCriticSentimentMapProperty SentimentMap { get => _explicitNullValueSentimentMap; set { _explicitNullValueSentimentMap = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sentiment_map"); else _explicitNullProperties?.Remove("sentiment_map"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ApiBasedCriticSentimentMapProperty _explicitNullValueSentimentMap = default!;
 #endif
         /// <summary>Base URL of the vLLM classification service</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ServerUrl { get; set; }
+        public string? ServerUrl { get => _explicitNullValueServerUrl; set { _explicitNullValueServerUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_url"); else _explicitNullProperties?.Remove("server_url"); } }
+        private string? _explicitNullValueServerUrl = default!;
 #nullable restore
 #else
-        public string ServerUrl { get; set; }
+        public string ServerUrl { get => _explicitNullValueServerUrl; set { _explicitNullValueServerUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_url"); else _explicitNullProperties?.Remove("server_url"); } }
+        private string _explicitNullValueServerUrl = default!;
 #endif
         /// <summary>Timeout for requests to the model</summary>
-        public double? TimeoutSeconds { get; set; }
+        public double? TimeoutSeconds { get => _explicitNullValueTimeoutSeconds; set { _explicitNullValueTimeoutSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_seconds"); else _explicitNullProperties?.Remove("timeout_seconds"); } }
+        private double? _explicitNullValueTimeoutSeconds = default!;
         /// <summary>HuggingFace tokenizer name for loading chat template</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TokenizerName { get; set; }
+        public string? TokenizerName { get => _explicitNullValueTokenizerName; set { _explicitNullValueTokenizerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokenizer_name"); else _explicitNullProperties?.Remove("tokenizer_name"); } }
+        private string? _explicitNullValueTokenizerName = default!;
 #nullable restore
 #else
-        public string TokenizerName { get; set; }
+        public string TokenizerName { get => _explicitNullValueTokenizerName; set { _explicitNullValueTokenizerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokenizer_name"); else _explicitNullProperties?.Remove("tokenizer_name"); } }
+        private string _explicitNullValueTokenizerName = default!;
 #endif
         /// <summary>The user_followup_labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? UserFollowupLabels { get; set; }
+        public List<string>? UserFollowupLabels { get => _explicitNullValueUserFollowupLabels; set { _explicitNullValueUserFollowupLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_followup_labels"); else _explicitNullProperties?.Remove("user_followup_labels"); } }
+        private List<string>? _explicitNullValueUserFollowupLabels = default!;
 #nullable restore
 #else
-        public List<string> UserFollowupLabels { get; set; }
+        public List<string> UserFollowupLabels { get => _explicitNullValueUserFollowupLabels; set { _explicitNullValueUserFollowupLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_followup_labels"); else _explicitNullProperties?.Remove("user_followup_labels"); } }
+        private List<string> _explicitNullValueUserFollowupLabels = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CriticBase"/> and sets the default values.
@@ -134,7 +179,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.CriticBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.CriticBase();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.CriticBase(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -185,6 +230,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteDoubleValue("timeout_seconds", TimeoutSeconds);
             writer.WriteStringValue("tokenizer_name", TokenizerName);
             writer.WriteCollectionOfPrimitiveValues<string>("user_followup_labels", UserFollowupLabels);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

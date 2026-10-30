@@ -12,7 +12,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EventCallbackProcessorOutput : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorOutput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,45 +98,66 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorOutput();
-            if("integrations__bitbucket__bitbucket_v1_callback_processor__BitbucketV1CallbackProcessor-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("BitbucketV1CallbackProcessorOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.BitbucketV1CallbackProcessorOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorOutput();
+                
             }
-            else if("integrations__github__github_v1_callback_processor__GithubV1CallbackProcessor-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("GithubV1CallbackProcessorOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.GithubV1CallbackProcessorOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorOutput();
+                
             }
-            else if("integrations__gitlab__gitlab_v1_callback_processor__GitlabV1CallbackProcessor-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("GitlabV1CallbackProcessorOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.GitlabV1CallbackProcessorOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorOutput();
+                
             }
-            else if("integrations__jira_dc__jira_dc_v1_callback_processor__JiraDcV1CallbackProcessor-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("JiraDcV1CallbackProcessorOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.JiraDcV1CallbackProcessorOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorOutput();
+                
             }
-            else if("integrations__jira__jira_v1_callback_processor__JiraV1CallbackProcessor-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("JiraV1CallbackProcessorOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.JiraV1CallbackProcessorOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorOutput();
+                
             }
-            else if("openhands__app_server__event_callback__event_callback_models__LoggingCallbackProcessor-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("LoggingCallbackProcessorOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.LoggingCallbackProcessorOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.LoggingCallbackProcessorOutput();
+                
             }
-            else if("openhands__app_server__event_callback__memory_change_callback_processor__MemoryChangeCallbackProcessor-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("MemoryChangeCallbackProcessorOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MemoryChangeCallbackProcessorOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.MemoryChangeCallbackProcessorOutput();
+                
             }
-            else if("openhands__app_server__event_callback__set_title_callback_processor__SetTitleCallbackProcessor-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("SetTitleCallbackProcessorOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SetTitleCallbackProcessorOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.SetTitleCallbackProcessorOutput();
+                
             }
-            else if("integrations__slack__slack_v1_callback_processor__SlackV1CallbackProcessor-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("SlackV1CallbackProcessorOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SlackV1CallbackProcessorOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorOutput();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("BitbucketV1CallbackProcessor".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("GithubV1CallbackProcessor".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("GitlabV1CallbackProcessor".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("svc_acc_email") != null && parseNode.GetChildNode("decrypted_api_key") != null && parseNode.GetChildNode("issue_key") != null && parseNode.GetChildNode("jira_cloud_id") != null && parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag5 && ("JiraV1CallbackProcessor".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("issue_key") != null && parseNode.GetChildNode("workspace_name") != null && parseNode.GetChildNode("base_api_url") != null && parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag4 && ("JiraDcV1CallbackProcessor".Equals(tag4.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch5 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("SlackV1CallbackProcessor".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch6 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("LoggingCallbackProcessor".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch7 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("MemoryChangeCallbackProcessor".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch8 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("SetTitleCallbackProcessor".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.BitbucketV1CallbackProcessorOutput == null && result.GithubV1CallbackProcessorOutput == null && result.GitlabV1CallbackProcessorOutput == null && result.JiraDcV1CallbackProcessorOutput == null && result.JiraV1CallbackProcessorOutput == null && result.LoggingCallbackProcessorOutput == null && result.MemoryChangeCallbackProcessorOutput == null && result.SetTitleCallbackProcessorOutput == null && result.SlackV1CallbackProcessorOutput == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.BitbucketV1CallbackProcessorOutput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorOutput(), parseNode);
+            if (result.BitbucketV1CallbackProcessorOutput == null && result.GithubV1CallbackProcessorOutput == null && result.GitlabV1CallbackProcessorOutput == null && result.JiraDcV1CallbackProcessorOutput == null && result.JiraV1CallbackProcessorOutput == null && result.LoggingCallbackProcessorOutput == null && result.MemoryChangeCallbackProcessorOutput == null && result.SetTitleCallbackProcessorOutput == null && result.SlackV1CallbackProcessorOutput == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.GithubV1CallbackProcessorOutput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorOutput(), parseNode);
+            if (result.BitbucketV1CallbackProcessorOutput == null && result.GithubV1CallbackProcessorOutput == null && result.GitlabV1CallbackProcessorOutput == null && result.JiraDcV1CallbackProcessorOutput == null && result.JiraV1CallbackProcessorOutput == null && result.LoggingCallbackProcessorOutput == null && result.MemoryChangeCallbackProcessorOutput == null && result.SetTitleCallbackProcessorOutput == null && result.SlackV1CallbackProcessorOutput == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.GitlabV1CallbackProcessorOutput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorOutput(), parseNode);
+            if (result.BitbucketV1CallbackProcessorOutput == null && result.GithubV1CallbackProcessorOutput == null && result.GitlabV1CallbackProcessorOutput == null && result.JiraDcV1CallbackProcessorOutput == null && result.JiraV1CallbackProcessorOutput == null && result.LoggingCallbackProcessorOutput == null && result.MemoryChangeCallbackProcessorOutput == null && result.SetTitleCallbackProcessorOutput == null && result.SlackV1CallbackProcessorOutput == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.JiraV1CallbackProcessorOutput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorOutput(), parseNode);
+            if (result.BitbucketV1CallbackProcessorOutput == null && result.GithubV1CallbackProcessorOutput == null && result.GitlabV1CallbackProcessorOutput == null && result.JiraDcV1CallbackProcessorOutput == null && result.JiraV1CallbackProcessorOutput == null && result.LoggingCallbackProcessorOutput == null && result.MemoryChangeCallbackProcessorOutput == null && result.SetTitleCallbackProcessorOutput == null && result.SlackV1CallbackProcessorOutput == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.JiraDcV1CallbackProcessorOutput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorOutput(), parseNode);
+            if (result.BitbucketV1CallbackProcessorOutput == null && result.GithubV1CallbackProcessorOutput == null && result.GitlabV1CallbackProcessorOutput == null && result.JiraDcV1CallbackProcessorOutput == null && result.JiraV1CallbackProcessorOutput == null && result.LoggingCallbackProcessorOutput == null && result.MemoryChangeCallbackProcessorOutput == null && result.SetTitleCallbackProcessorOutput == null && result.SlackV1CallbackProcessorOutput == null && matchesUnionBranch5 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.SlackV1CallbackProcessorOutput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorOutput(), parseNode);
+            if (result.BitbucketV1CallbackProcessorOutput == null && result.GithubV1CallbackProcessorOutput == null && result.GitlabV1CallbackProcessorOutput == null && result.JiraDcV1CallbackProcessorOutput == null && result.JiraV1CallbackProcessorOutput == null && result.LoggingCallbackProcessorOutput == null && result.MemoryChangeCallbackProcessorOutput == null && result.SetTitleCallbackProcessorOutput == null && result.SlackV1CallbackProcessorOutput == null && matchesUnionBranch6 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch7 && !matchesUnionBranch8) result.LoggingCallbackProcessorOutput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.LoggingCallbackProcessorOutput(), parseNode);
+            if (result.BitbucketV1CallbackProcessorOutput == null && result.GithubV1CallbackProcessorOutput == null && result.GitlabV1CallbackProcessorOutput == null && result.JiraDcV1CallbackProcessorOutput == null && result.JiraV1CallbackProcessorOutput == null && result.LoggingCallbackProcessorOutput == null && result.MemoryChangeCallbackProcessorOutput == null && result.SetTitleCallbackProcessorOutput == null && result.SlackV1CallbackProcessorOutput == null && matchesUnionBranch7 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch8) result.MemoryChangeCallbackProcessorOutput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.MemoryChangeCallbackProcessorOutput(), parseNode);
+            if (result.BitbucketV1CallbackProcessorOutput == null && result.GithubV1CallbackProcessorOutput == null && result.GitlabV1CallbackProcessorOutput == null && result.JiraDcV1CallbackProcessorOutput == null && result.JiraV1CallbackProcessorOutput == null && result.LoggingCallbackProcessorOutput == null && result.MemoryChangeCallbackProcessorOutput == null && result.SetTitleCallbackProcessorOutput == null && result.SlackV1CallbackProcessorOutput == null && matchesUnionBranch8 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7) result.SetTitleCallbackProcessorOutput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.SetTitleCallbackProcessorOutput(), parseNode);
+            if (result.BitbucketV1CallbackProcessorOutput == null && result.GithubV1CallbackProcessorOutput == null && result.GitlabV1CallbackProcessorOutput == null && result.JiraDcV1CallbackProcessorOutput == null && result.JiraV1CallbackProcessorOutput == null && result.LoggingCallbackProcessorOutput == null && result.MemoryChangeCallbackProcessorOutput == null && result.SetTitleCallbackProcessorOutput == null && result.SlackV1CallbackProcessorOutput == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -183,41 +209,62 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (BitbucketV1CallbackProcessorOutput == null && GithubV1CallbackProcessorOutput == null && GitlabV1CallbackProcessorOutput == null && JiraDcV1CallbackProcessorOutput == null && JiraV1CallbackProcessorOutput == null && LoggingCallbackProcessorOutput == null && MemoryChangeCallbackProcessorOutput == null && SetTitleCallbackProcessorOutput == null && SlackV1CallbackProcessorOutput == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (BitbucketV1CallbackProcessorOutput != null && GithubV1CallbackProcessorOutput == null && GitlabV1CallbackProcessorOutput == null && JiraDcV1CallbackProcessorOutput == null && JiraV1CallbackProcessorOutput == null && LoggingCallbackProcessorOutput == null && MemoryChangeCallbackProcessorOutput == null && SetTitleCallbackProcessorOutput == null && SlackV1CallbackProcessorOutput == null) { if (BitbucketV1CallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BitbucketV1CallbackProcessorOutput); return; }
+            if (GithubV1CallbackProcessorOutput != null && BitbucketV1CallbackProcessorOutput == null && GitlabV1CallbackProcessorOutput == null && JiraDcV1CallbackProcessorOutput == null && JiraV1CallbackProcessorOutput == null && LoggingCallbackProcessorOutput == null && MemoryChangeCallbackProcessorOutput == null && SetTitleCallbackProcessorOutput == null && SlackV1CallbackProcessorOutput == null) { if (GithubV1CallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GithubV1CallbackProcessorOutput); return; }
+            if (GitlabV1CallbackProcessorOutput != null && BitbucketV1CallbackProcessorOutput == null && GithubV1CallbackProcessorOutput == null && JiraDcV1CallbackProcessorOutput == null && JiraV1CallbackProcessorOutput == null && LoggingCallbackProcessorOutput == null && MemoryChangeCallbackProcessorOutput == null && SetTitleCallbackProcessorOutput == null && SlackV1CallbackProcessorOutput == null) { if (GitlabV1CallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GitlabV1CallbackProcessorOutput); return; }
+            if (JiraDcV1CallbackProcessorOutput != null && BitbucketV1CallbackProcessorOutput == null && GithubV1CallbackProcessorOutput == null && GitlabV1CallbackProcessorOutput == null && JiraV1CallbackProcessorOutput == null && LoggingCallbackProcessorOutput == null && MemoryChangeCallbackProcessorOutput == null && SetTitleCallbackProcessorOutput == null && SlackV1CallbackProcessorOutput == null) { if (JiraDcV1CallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, JiraDcV1CallbackProcessorOutput); return; }
+            if (JiraV1CallbackProcessorOutput != null && BitbucketV1CallbackProcessorOutput == null && GithubV1CallbackProcessorOutput == null && GitlabV1CallbackProcessorOutput == null && JiraDcV1CallbackProcessorOutput == null && LoggingCallbackProcessorOutput == null && MemoryChangeCallbackProcessorOutput == null && SetTitleCallbackProcessorOutput == null && SlackV1CallbackProcessorOutput == null) { if (JiraV1CallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, JiraV1CallbackProcessorOutput); return; }
+            if (LoggingCallbackProcessorOutput != null && BitbucketV1CallbackProcessorOutput == null && GithubV1CallbackProcessorOutput == null && GitlabV1CallbackProcessorOutput == null && JiraDcV1CallbackProcessorOutput == null && JiraV1CallbackProcessorOutput == null && MemoryChangeCallbackProcessorOutput == null && SetTitleCallbackProcessorOutput == null && SlackV1CallbackProcessorOutput == null) { if (LoggingCallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, LoggingCallbackProcessorOutput); return; }
+            if (MemoryChangeCallbackProcessorOutput != null && BitbucketV1CallbackProcessorOutput == null && GithubV1CallbackProcessorOutput == null && GitlabV1CallbackProcessorOutput == null && JiraDcV1CallbackProcessorOutput == null && JiraV1CallbackProcessorOutput == null && LoggingCallbackProcessorOutput == null && SetTitleCallbackProcessorOutput == null && SlackV1CallbackProcessorOutput == null) { if (MemoryChangeCallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MemoryChangeCallbackProcessorOutput); return; }
+            if (SetTitleCallbackProcessorOutput != null && BitbucketV1CallbackProcessorOutput == null && GithubV1CallbackProcessorOutput == null && GitlabV1CallbackProcessorOutput == null && JiraDcV1CallbackProcessorOutput == null && JiraV1CallbackProcessorOutput == null && LoggingCallbackProcessorOutput == null && MemoryChangeCallbackProcessorOutput == null && SlackV1CallbackProcessorOutput == null) { if (SetTitleCallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SetTitleCallbackProcessorOutput); return; }
+            if (SlackV1CallbackProcessorOutput != null && BitbucketV1CallbackProcessorOutput == null && GithubV1CallbackProcessorOutput == null && GitlabV1CallbackProcessorOutput == null && JiraDcV1CallbackProcessorOutput == null && JiraV1CallbackProcessorOutput == null && LoggingCallbackProcessorOutput == null && MemoryChangeCallbackProcessorOutput == null && SetTitleCallbackProcessorOutput == null) { if (SlackV1CallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SlackV1CallbackProcessorOutput); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(BitbucketV1CallbackProcessorOutput != null)
             {
+                if (BitbucketV1CallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorOutput>(null, BitbucketV1CallbackProcessorOutput);
             }
             else if(GithubV1CallbackProcessorOutput != null)
             {
+                if (GithubV1CallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorOutput>(null, GithubV1CallbackProcessorOutput);
             }
             else if(GitlabV1CallbackProcessorOutput != null)
             {
+                if (GitlabV1CallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorOutput>(null, GitlabV1CallbackProcessorOutput);
             }
             else if(JiraDcV1CallbackProcessorOutput != null)
             {
+                if (JiraDcV1CallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorOutput>(null, JiraDcV1CallbackProcessorOutput);
             }
             else if(JiraV1CallbackProcessorOutput != null)
             {
+                if (JiraV1CallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorOutput>(null, JiraV1CallbackProcessorOutput);
             }
             else if(LoggingCallbackProcessorOutput != null)
             {
+                if (LoggingCallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LoggingCallbackProcessorOutput>(null, LoggingCallbackProcessorOutput);
             }
             else if(MemoryChangeCallbackProcessorOutput != null)
             {
+                if (MemoryChangeCallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MemoryChangeCallbackProcessorOutput>(null, MemoryChangeCallbackProcessorOutput);
             }
             else if(SetTitleCallbackProcessorOutput != null)
             {
+                if (SetTitleCallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SetTitleCallbackProcessorOutput>(null, SetTitleCallbackProcessorOutput);
             }
             else if(SlackV1CallbackProcessorOutput != null)
             {
+                if (SlackV1CallbackProcessorOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorOutput>(null, SlackV1CallbackProcessorOutput);
             }
         }

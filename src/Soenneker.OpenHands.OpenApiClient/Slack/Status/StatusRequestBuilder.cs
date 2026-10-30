@@ -49,7 +49,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Slack.Status
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SlackStatusResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SlackStatusResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SlackStatusResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SlackStatusResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Whether the current user has linked their Slack account.Lets the settings UI show Slack as connected once the install flow hasstored the link. Describes the saved link, not the health of the Slack app.

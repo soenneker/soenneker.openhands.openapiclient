@@ -12,76 +12,118 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AcpAgentProfile : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("acp_args") is { } nullNodeAcpArgs && nullNodeAcpArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpArgs = null;
+            if (parseNode.GetChildNode("acp_command") is { } nullNodeAcpCommand && nullNodeAcpCommand.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpCommand = null;
+            if (parseNode.GetChildNode("acp_model") is { } nullNodeAcpModel && nullNodeAcpModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpModel = null;
+            if (parseNode.GetChildNode("acp_prompt_timeout") is { } nullNodeAcpPromptTimeout && nullNodeAcpPromptTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpPromptTimeout = null;
+            if (parseNode.GetChildNode("acp_server") is { } nullNodeAcpServer && nullNodeAcpServer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpServer = null;
+            if (parseNode.GetChildNode("acp_session_mode") is { } nullNodeAcpSessionMode && nullNodeAcpSessionMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpSessionMode = null;
+            if (parseNode.GetChildNode("acp_startup_timeout") is { } nullNodeAcpStartupTimeout && nullNodeAcpStartupTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpStartupTimeout = null;
+            if (parseNode.GetChildNode("agent_kind") is { } nullNodeAgentKind && nullNodeAgentKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentKind = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("mcp_server_refs") is { } nullNodeMcpServerRefs && nullNodeMcpServerRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpServerRefs = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("revision") is { } nullNodeRevision && nullNodeRevision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Revision = null;
+            if (parseNode.GetChildNode("schema_version") is { } nullNodeSchemaVersion && nullNodeSchemaVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SchemaVersion = null;
+            if (parseNode.GetChildNode("secret_refs") is { } nullNodeSecretRefs && nullNodeSecretRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretRefs = null;
+        }
+
         /// <summary>Additional arguments appended to the ACP server command.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AcpArgs { get; set; }
+        public List<string>? AcpArgs { get => _explicitNullValueAcpArgs; set { _explicitNullValueAcpArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_args"); else _explicitNullProperties?.Remove("acp_args"); } }
+        private List<string>? _explicitNullValueAcpArgs = default!;
 #nullable restore
 #else
-        public List<string> AcpArgs { get; set; }
+        public List<string> AcpArgs { get => _explicitNullValueAcpArgs; set { _explicitNullValueAcpArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_args"); else _explicitNullProperties?.Remove("acp_args"); } }
+        private List<string> _explicitNullValueAcpArgs = default!;
 #endif
         /// <summary>Optional explicit command to launch the ACP subprocess. Leave blank to use the default for ``acp_server``.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AcpCommand { get; set; }
+        public string? AcpCommand { get => _explicitNullValueAcpCommand; set { _explicitNullValueAcpCommand = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_command"); else _explicitNullProperties?.Remove("acp_command"); } }
+        private string? _explicitNullValueAcpCommand = default!;
 #nullable restore
 #else
-        public string AcpCommand { get; set; }
+        public string AcpCommand { get => _explicitNullValueAcpCommand; set { _explicitNullValueAcpCommand = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_command"); else _explicitNullProperties?.Remove("acp_command"); } }
+        private string _explicitNullValueAcpCommand = default!;
 #endif
         /// <summary>Model identifier for the ACP server (e.g. &apos;claude-opus-4-8&apos;). Leave blank to let the server pick its default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AcpModel { get; set; }
+        public string? AcpModel { get => _explicitNullValueAcpModel; set { _explicitNullValueAcpModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_model"); else _explicitNullProperties?.Remove("acp_model"); } }
+        private string? _explicitNullValueAcpModel = default!;
 #nullable restore
 #else
-        public string AcpModel { get; set; }
+        public string AcpModel { get => _explicitNullValueAcpModel; set { _explicitNullValueAcpModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_model"); else _explicitNullProperties?.Remove("acp_model"); } }
+        private string _explicitNullValueAcpModel = default!;
 #endif
         /// <summary>Inactivity timeout (seconds) for a single ACP prompt() round-trip; resets on every update from the server.</summary>
-        public double? AcpPromptTimeout { get; set; }
+        public double? AcpPromptTimeout { get => _explicitNullValueAcpPromptTimeout; set { _explicitNullValueAcpPromptTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_prompt_timeout"); else _explicitNullProperties?.Remove("acp_prompt_timeout"); } }
+        private double? _explicitNullValueAcpPromptTimeout = default!;
         /// <summary>Which ACP-compatible backend to launch. The provider&apos;s credential env-var name is derived from this via the ACP_PROVIDERS registry.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileAcpServer? AcpServer { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileAcpServer? AcpServer { get => _explicitNullValueAcpServer; set { _explicitNullValueAcpServer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_server"); else _explicitNullProperties?.Remove("acp_server"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileAcpServer? _explicitNullValueAcpServer = default!;
         /// <summary>Session mode ID (e.g. &apos;bypassPermissions&apos;). Leave blank to auto-detect from the ACP server type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AcpSessionMode { get; set; }
+        public string? AcpSessionMode { get => _explicitNullValueAcpSessionMode; set { _explicitNullValueAcpSessionMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_session_mode"); else _explicitNullProperties?.Remove("acp_session_mode"); } }
+        private string? _explicitNullValueAcpSessionMode = default!;
 #nullable restore
 #else
-        public string AcpSessionMode { get; set; }
+        public string AcpSessionMode { get => _explicitNullValueAcpSessionMode; set { _explicitNullValueAcpSessionMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_session_mode"); else _explicitNullProperties?.Remove("acp_session_mode"); } }
+        private string _explicitNullValueAcpSessionMode = default!;
 #endif
         /// <summary>Timeout (seconds) for ACP server startup: spawn, initialize/authenticate, and new_session()/load_session().</summary>
-        public double? AcpStartupTimeout { get; set; }
+        public double? AcpStartupTimeout { get => _explicitNullValueAcpStartupTimeout; set { _explicitNullValueAcpStartupTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_startup_timeout"); else _explicitNullProperties?.Remove("acp_startup_timeout"); } }
+        private double? _explicitNullValueAcpStartupTimeout = default!;
         /// <summary>Discriminator for the ``AgentProfile`` union. ``&apos;acp&apos;`` selects an ACP-delegating agent.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileAgentKind? AgentKind { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileAgentKind? AgentKind { get => _explicitNullValueAgentKind; set { _explicitNullValueAgentKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_kind"); else _explicitNullProperties?.Remove("agent_kind"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileAgentKind? _explicitNullValueAgentKind = default!;
         /// <summary>Stable provenance handle for this profile. Conversations record this UUID; it never changes, even when the profile is renamed.</summary>
-        public Guid? Id { get; set; }
+        public Guid? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private Guid? _explicitNullValueId = default!;
         /// <summary>Which of the user&apos;s globally configured MCP servers to expose. null = all; [] = none; a non-null list = filter to the named keys.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? McpServerRefs { get; set; }
+        public List<string>? McpServerRefs { get => _explicitNullValueMcpServerRefs; set { _explicitNullValueMcpServerRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_refs"); else _explicitNullProperties?.Remove("mcp_server_refs"); } }
+        private List<string>? _explicitNullValueMcpServerRefs = default!;
 #nullable restore
 #else
-        public List<string> McpServerRefs { get; set; }
+        public List<string> McpServerRefs { get => _explicitNullValueMcpServerRefs; set { _explicitNullValueMcpServerRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_refs"); else _explicitNullProperties?.Remove("mcp_server_refs"); } }
+        private List<string> _explicitNullValueMcpServerRefs = default!;
 #endif
         /// <summary>Human-facing, renameable key shown in the profile picker.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Monotonic revision counter, bumped on each saved edit.</summary>
-        public int? Revision { get; set; }
+        public int? Revision { get => _explicitNullValueRevision; set { _explicitNullValueRevision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revision"); else _explicitNullProperties?.Remove("revision"); } }
+        private int? _explicitNullValueRevision = default!;
         /// <summary>The schema_version property</summary>
-        public int? SchemaVersion { get; set; }
+        public int? SchemaVersion { get => _explicitNullValueSchemaVersion; set { _explicitNullValueSchemaVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schema_version"); else _explicitNullProperties?.Remove("schema_version"); } }
+        private int? _explicitNullValueSchemaVersion = default!;
         /// <summary>Which of the user&apos;s saved secrets to expose to this agent. null = all; [] = none; a non-null list = filter to the named keys. Strict: nothing is added back. An ACP profile must list its own provider credential to receive it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SecretRefs { get; set; }
+        public List<string>? SecretRefs { get => _explicitNullValueSecretRefs; set { _explicitNullValueSecretRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_refs"); else _explicitNullProperties?.Remove("secret_refs"); } }
+        private List<string>? _explicitNullValueSecretRefs = default!;
 #nullable restore
 #else
-        public List<string> SecretRefs { get; set; }
+        public List<string> SecretRefs { get => _explicitNullValueSecretRefs; set { _explicitNullValueSecretRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_refs"); else _explicitNullProperties?.Remove("secret_refs"); } }
+        private List<string> _explicitNullValueSecretRefs = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfile"/> and sets the default values.
@@ -101,7 +143,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfile();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfile(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -147,7 +189,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteIntValue("revision", Revision);
             writer.WriteIntValue("schema_version", SchemaVersion);
-            writer.WriteCollectionOfPrimitiveValues<string>("secret_refs", SecretRefs);
+            writer.WriteCollectionOfPrimitiveValues<string>("secret_refs", SecretRefs);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

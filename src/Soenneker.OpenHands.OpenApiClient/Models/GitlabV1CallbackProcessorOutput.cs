@@ -12,23 +12,39 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GitlabV1CallbackProcessorOutput : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("gitlab_view_data") is { } nullNodeGitlabViewData && nullNodeGitlabViewData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitlabViewData = null;
+            if (parseNode.GetChildNode("inline_mr_comment") is { } nullNodeInlineMrComment && nullNodeInlineMrComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InlineMrComment = null;
+            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("should_request_summary") is { } nullNodeShouldRequestSummary && nullNodeShouldRequestSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShouldRequestSummary = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The gitlab_view_data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorOutputGitlabViewDataProperty? GitlabViewData { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorOutputGitlabViewDataProperty? GitlabViewData { get => _explicitNullValueGitlabViewData; set { _explicitNullValueGitlabViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gitlab_view_data"); else _explicitNullProperties?.Remove("gitlab_view_data"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorOutputGitlabViewDataProperty? _explicitNullValueGitlabViewData = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorOutputGitlabViewDataProperty GitlabViewData { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorOutputGitlabViewDataProperty GitlabViewData { get => _explicitNullValueGitlabViewData; set { _explicitNullValueGitlabViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gitlab_view_data"); else _explicitNullProperties?.Remove("gitlab_view_data"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorOutputGitlabViewDataProperty _explicitNullValueGitlabViewData = default!;
 #endif
         /// <summary>The inline_mr_comment property</summary>
-        public bool? InlineMrComment { get; set; }
+        public bool? InlineMrComment { get => _explicitNullValueInlineMrComment; set { _explicitNullValueInlineMrComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inline_mr_comment"); else _explicitNullProperties?.Remove("inline_mr_comment"); } }
+        private bool? _explicitNullValueInlineMrComment = default!;
         /// <summary>The kind property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorOutputKind? Kind { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorOutputKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorOutputKind? _explicitNullValueKind = default!;
         /// <summary>The should_request_summary property</summary>
-        public bool? ShouldRequestSummary { get; set; }
+        public bool? ShouldRequestSummary { get => _explicitNullValueShouldRequestSummary; set { _explicitNullValueShouldRequestSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("should_request_summary"); else _explicitNullProperties?.Remove("should_request_summary"); } }
+        private bool? _explicitNullValueShouldRequestSummary = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorOutput"/> and sets the default values.
         /// </summary>
@@ -46,7 +62,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorOutput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorOutput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +89,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("inline_mr_comment", InlineMrComment);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorOutputKind>("kind", Kind);
             writer.WriteBoolValue("should_request_summary", ShouldRequestSummary);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

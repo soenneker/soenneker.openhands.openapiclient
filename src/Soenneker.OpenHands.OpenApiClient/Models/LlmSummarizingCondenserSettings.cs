@@ -12,31 +12,55 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LlmSummarizingCondenserSettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("condenser_kind") is { } nullNodeCondenserKind && nullNodeCondenserKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CondenserKind = null;
+            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("hard_context_reset_context_scaling") is { } nullNodeHardContextResetContextScaling && nullNodeHardContextResetContextScaling.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HardContextResetContextScaling = null;
+            if (parseNode.GetChildNode("hard_context_reset_max_retries") is { } nullNodeHardContextResetMaxRetries && nullNodeHardContextResetMaxRetries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HardContextResetMaxRetries = null;
+            if (parseNode.GetChildNode("keep_first") is { } nullNodeKeepFirst && nullNodeKeepFirst.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeepFirst = null;
+            if (parseNode.GetChildNode("max_size") is { } nullNodeMaxSize && nullNodeMaxSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxSize = null;
+            if (parseNode.GetChildNode("max_tokens") is { } nullNodeMaxTokens && nullNodeMaxTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxTokens = null;
+            if (parseNode.GetChildNode("minimum_progress") is { } nullNodeMinimumProgress && nullNodeMinimumProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinimumProgress = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Discriminator for the condenser settings union. ``&apos;llm_summarizing&apos;`` selects the default LLM summarizing condenser.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsCondenserKind? CondenserKind { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsCondenserKind? CondenserKind { get => _explicitNullValueCondenserKind; set { _explicitNullValueCondenserKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condenser_kind"); else _explicitNullProperties?.Remove("condenser_kind"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsCondenserKind? _explicitNullValueCondenserKind = default!;
         /// <summary>Enable conversation memory condensation.</summary>
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        private bool? _explicitNullValueEnabled = default!;
         /// <summary>Factor used to reduce event string size after a hard context reset summarization failure.</summary>
-        public double? HardContextResetContextScaling { get; set; }
+        public double? HardContextResetContextScaling { get => _explicitNullValueHardContextResetContextScaling; set { _explicitNullValueHardContextResetContextScaling = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hard_context_reset_context_scaling"); else _explicitNullProperties?.Remove("hard_context_reset_context_scaling"); } }
+        private double? _explicitNullValueHardContextResetContextScaling = default!;
         /// <summary>Number of hard context reset attempts before raising an error.</summary>
-        public int? HardContextResetMaxRetries { get; set; }
+        public int? HardContextResetMaxRetries { get => _explicitNullValueHardContextResetMaxRetries; set { _explicitNullValueHardContextResetMaxRetries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hard_context_reset_max_retries"); else _explicitNullProperties?.Remove("hard_context_reset_max_retries"); } }
+        private int? _explicitNullValueHardContextResetMaxRetries = default!;
         /// <summary>Minimum number of initial events to preserve before condensation.</summary>
-        public int? KeepFirst { get; set; }
+        public int? KeepFirst { get => _explicitNullValueKeepFirst; set { _explicitNullValueKeepFirst = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keep_first"); else _explicitNullProperties?.Remove("keep_first"); } }
+        private int? _explicitNullValueKeepFirst = default!;
         /// <summary>Maximum number of events kept before the condenser runs. Kept on the base settings class for compatibility; concrete condenser-settings variants may opt out when this does not apply.</summary>
-        public int? MaxSize { get; set; }
+        public int? MaxSize { get => _explicitNullValueMaxSize; set { _explicitNullValueMaxSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_size"); else _explicitNullProperties?.Remove("max_size"); } }
+        private int? _explicitNullValueMaxSize = default!;
         /// <summary>Maximum number of tokens allowed before the condenser runs. When unset, condensation is only based on event count.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsMaxTokens? MaxTokens { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsMaxTokens? MaxTokens { get => _explicitNullValueMaxTokens; set { _explicitNullValueMaxTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_tokens"); else _explicitNullProperties?.Remove("max_tokens"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsMaxTokens? _explicitNullValueMaxTokens = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsMaxTokens MaxTokens { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsMaxTokens MaxTokens { get => _explicitNullValueMaxTokens; set { _explicitNullValueMaxTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_tokens"); else _explicitNullProperties?.Remove("max_tokens"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsMaxTokens _explicitNullValueMaxTokens = default!;
 #endif
         /// <summary>Minimum fraction of events that must be condensed for condensation to be considered successful.</summary>
-        public double? MinimumProgress { get; set; }
+        public double? MinimumProgress { get => _explicitNullValueMinimumProgress; set { _explicitNullValueMinimumProgress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minimum_progress"); else _explicitNullProperties?.Remove("minimum_progress"); } }
+        private double? _explicitNullValueMinimumProgress = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettings"/> and sets the default values.
         /// </summary>
@@ -58,7 +82,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,6 +117,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteIntValue("max_size", MaxSize);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsMaxTokens>("max_tokens", MaxTokens);
             writer.WriteDoubleValue("minimum_progress", MinimumProgress);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

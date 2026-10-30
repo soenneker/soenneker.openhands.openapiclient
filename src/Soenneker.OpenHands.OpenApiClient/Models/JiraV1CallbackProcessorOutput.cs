@@ -12,44 +12,67 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class JiraV1CallbackProcessorOutput : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("decrypted_api_key") is { } nullNodeDecryptedApiKey && nullNodeDecryptedApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DecryptedApiKey = null;
+            if (parseNode.GetChildNode("issue_key") is { } nullNodeIssueKey && nullNodeIssueKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueKey = null;
+            if (parseNode.GetChildNode("jira_cloud_id") is { } nullNodeJiraCloudId && nullNodeJiraCloudId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JiraCloudId = null;
+            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("should_request_summary") is { } nullNodeShouldRequestSummary && nullNodeShouldRequestSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShouldRequestSummary = null;
+            if (parseNode.GetChildNode("svc_acc_email") is { } nullNodeSvcAccEmail && nullNodeSvcAccEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SvcAccEmail = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The decrypted_api_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DecryptedApiKey { get; set; }
+        public string? DecryptedApiKey { get => _explicitNullValueDecryptedApiKey; set { _explicitNullValueDecryptedApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("decrypted_api_key"); else _explicitNullProperties?.Remove("decrypted_api_key"); } }
+        private string? _explicitNullValueDecryptedApiKey = default!;
 #nullable restore
 #else
-        public string DecryptedApiKey { get; set; }
+        public string DecryptedApiKey { get => _explicitNullValueDecryptedApiKey; set { _explicitNullValueDecryptedApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("decrypted_api_key"); else _explicitNullProperties?.Remove("decrypted_api_key"); } }
+        private string _explicitNullValueDecryptedApiKey = default!;
 #endif
         /// <summary>The issue_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IssueKey { get; set; }
+        public string? IssueKey { get => _explicitNullValueIssueKey; set { _explicitNullValueIssueKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_key"); else _explicitNullProperties?.Remove("issue_key"); } }
+        private string? _explicitNullValueIssueKey = default!;
 #nullable restore
 #else
-        public string IssueKey { get; set; }
+        public string IssueKey { get => _explicitNullValueIssueKey; set { _explicitNullValueIssueKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_key"); else _explicitNullProperties?.Remove("issue_key"); } }
+        private string _explicitNullValueIssueKey = default!;
 #endif
         /// <summary>The jira_cloud_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JiraCloudId { get; set; }
+        public string? JiraCloudId { get => _explicitNullValueJiraCloudId; set { _explicitNullValueJiraCloudId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jira_cloud_id"); else _explicitNullProperties?.Remove("jira_cloud_id"); } }
+        private string? _explicitNullValueJiraCloudId = default!;
 #nullable restore
 #else
-        public string JiraCloudId { get; set; }
+        public string JiraCloudId { get => _explicitNullValueJiraCloudId; set { _explicitNullValueJiraCloudId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jira_cloud_id"); else _explicitNullProperties?.Remove("jira_cloud_id"); } }
+        private string _explicitNullValueJiraCloudId = default!;
 #endif
         /// <summary>The kind property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorOutputKind? Kind { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorOutputKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorOutputKind? _explicitNullValueKind = default!;
         /// <summary>The should_request_summary property</summary>
-        public bool? ShouldRequestSummary { get; set; }
+        public bool? ShouldRequestSummary { get => _explicitNullValueShouldRequestSummary; set { _explicitNullValueShouldRequestSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("should_request_summary"); else _explicitNullProperties?.Remove("should_request_summary"); } }
+        private bool? _explicitNullValueShouldRequestSummary = default!;
         /// <summary>The svc_acc_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SvcAccEmail { get; set; }
+        public string? SvcAccEmail { get => _explicitNullValueSvcAccEmail; set { _explicitNullValueSvcAccEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svc_acc_email"); else _explicitNullProperties?.Remove("svc_acc_email"); } }
+        private string? _explicitNullValueSvcAccEmail = default!;
 #nullable restore
 #else
-        public string SvcAccEmail { get; set; }
+        public string SvcAccEmail { get => _explicitNullValueSvcAccEmail; set { _explicitNullValueSvcAccEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svc_acc_email"); else _explicitNullProperties?.Remove("svc_acc_email"); } }
+        private string _explicitNullValueSvcAccEmail = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorOutput"/> and sets the default values.
@@ -67,7 +90,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorOutput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorOutput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,6 +121,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorOutputKind>("kind", Kind);
             writer.WriteBoolValue("should_request_summary", ShouldRequestSummary);
             writer.WriteStringValue("svc_acc_email", SvcAccEmail);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,104 +12,152 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LlmAgentSettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("active_meta_profile") is { } nullNodeActiveMetaProfile && nullNodeActiveMetaProfile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveMetaProfile = null;
+            if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
+            if (parseNode.GetChildNode("agent_context") is { } nullNodeAgentContext && nullNodeAgentContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentContext = null;
+            if (parseNode.GetChildNode("agent_kind") is { } nullNodeAgentKind && nullNodeAgentKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentKind = null;
+            if (parseNode.GetChildNode("condenser") is { } nullNodeCondenser && nullNodeCondenser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Condenser = null;
+            if (parseNode.GetChildNode("enable_classify_and_switch_llm_tool") is { } nullNodeEnableClassifyAndSwitchLlmTool && nullNodeEnableClassifyAndSwitchLlmTool.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableClassifyAndSwitchLlmTool = null;
+            if (parseNode.GetChildNode("llm") is { } nullNodeLlm && nullNodeLlm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Llm = null;
+            if (parseNode.GetChildNode("mcp_config") is { } nullNodeMcpConfig && nullNodeMcpConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpConfig = null;
+            if (parseNode.GetChildNode("meta_profile") is { } nullNodeMetaProfile && nullNodeMetaProfile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetaProfile = null;
+            if (parseNode.GetChildNode("meta_profile_llms") is { } nullNodeMetaProfileLlms && nullNodeMetaProfileLlms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetaProfileLlms = null;
+            if (parseNode.GetChildNode("persona") is { } nullNodePersona && nullNodePersona.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Persona = null;
+            if (parseNode.GetChildNode("schema_version") is { } nullNodeSchemaVersion && nullNodeSchemaVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SchemaVersion = null;
+            if (parseNode.GetChildNode("tool_concurrency_limit") is { } nullNodeToolConcurrencyLimit && nullNodeToolConcurrencyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolConcurrencyLimit = null;
+            if (parseNode.GetChildNode("tools") is { } nullNodeTools && nullNodeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tools = null;
+            if (parseNode.GetChildNode("verification") is { } nullNodeVerification && nullNodeVerification.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verification = null;
+        }
+
         /// <summary>Name of the active meta-profile (in ~/.openhands/meta-profiles) used by the route_task_to_model tool to route tasks to LLM profiles.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsActiveMetaProfile? ActiveMetaProfile { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsActiveMetaProfile? ActiveMetaProfile { get => _explicitNullValueActiveMetaProfile; set { _explicitNullValueActiveMetaProfile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_meta_profile"); else _explicitNullProperties?.Remove("active_meta_profile"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsActiveMetaProfile? _explicitNullValueActiveMetaProfile = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsActiveMetaProfile ActiveMetaProfile { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsActiveMetaProfile ActiveMetaProfile { get => _explicitNullValueActiveMetaProfile; set { _explicitNullValueActiveMetaProfile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_meta_profile"); else _explicitNullProperties?.Remove("active_meta_profile"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsActiveMetaProfile _explicitNullValueActiveMetaProfile = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Agent class to use.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Agent { get; set; }
+        public string? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private string? _explicitNullValueAgent = default!;
 #nullable restore
 #else
-        public string Agent { get; set; }
+        public string Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private string _explicitNullValueAgent = default!;
 #endif
         /// <summary>Central structure for managing prompt extension.AgentContext unifies all the contextual inputs that shape how the systemextends and interprets user prompts. It combines both static environmentdetails and dynamic, user-activated extensions from skills.Specifically, it provides:- **Repository context / Repo Skills**: Information about the active codebase,  branches, and repo-specific instructions contributed by repo skills.- **Runtime context**: Current execution environment (hosts, working  directory, secrets, date, etc.).- **Conversation instructions**: Optional task- or channel-specific rules  that constrain or guide the agent’s behavior across the session.- **Knowledge Skills**: Extensible components that can be triggered by user input  to inject knowledge or domain-specific guidance.Together, these elements make AgentContext the primary container responsiblefor assembling, formatting, and injecting all prompt-relevant context intoLLM interactions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput? AgentContext { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput? AgentContext { get => _explicitNullValueAgentContext; set { _explicitNullValueAgentContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_context"); else _explicitNullProperties?.Remove("agent_context"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput? _explicitNullValueAgentContext = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput AgentContext { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput AgentContext { get => _explicitNullValueAgentContext; set { _explicitNullValueAgentContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_context"); else _explicitNullProperties?.Remove("agent_context"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput _explicitNullValueAgentContext = default!;
 #endif
         /// <summary>Discriminator for the ``AgentSettings`` union. ``&apos;llm&apos;`` selects the standard LLM-backed agent. Deprecated; use ``&apos;openhands&apos;``.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentKind? AgentKind { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentKind? AgentKind { get => _explicitNullValueAgentKind; set { _explicitNullValueAgentKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_kind"); else _explicitNullProperties?.Remove("agent_kind"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentKind? _explicitNullValueAgentKind = default!;
         /// <summary>Condenser settings for the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsCondenser? Condenser { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsCondenser? Condenser { get => _explicitNullValueCondenser; set { _explicitNullValueCondenser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condenser"); else _explicitNullProperties?.Remove("condenser"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsCondenser? _explicitNullValueCondenser = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsCondenser Condenser { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsCondenser Condenser { get => _explicitNullValueCondenser; set { _explicitNullValueCondenser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condenser"); else _explicitNullProperties?.Remove("condenser"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsCondenser _explicitNullValueCondenser = default!;
 #endif
         /// <summary>Enable the built-in route_task_to_model tool, which routes the task to the best LLM profile using the active meta-profile. When no active_meta_profile is set, the first available meta-profile is used.</summary>
-        public bool? EnableClassifyAndSwitchLlmTool { get; set; }
+        public bool? EnableClassifyAndSwitchLlmTool { get => _explicitNullValueEnableClassifyAndSwitchLlmTool; set { _explicitNullValueEnableClassifyAndSwitchLlmTool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_classify_and_switch_llm_tool"); else _explicitNullProperties?.Remove("enable_classify_and_switch_llm_tool"); } }
+        private bool? _explicitNullValueEnableClassifyAndSwitchLlmTool = default!;
         /// <summary>Language model interface for OpenHands agents.The LLM class provides a unified interface for interacting with variouslanguage models through the litellm library. It handles model configuration,API authentication, retry logic, and tool calling capabilities.Attributes:    model: Model name (e.g., &quot;gpt-5.6&quot;).    api_key: API key for authentication.    base_url: Custom API base URL.    num_retries: Number of retry attempts for failed requests.    timeout: Request timeout in seconds.Example:    ```python    from openhands.sdk import LLM    from pydantic import SecretStr    llm = LLM(        model=&quot;gpt-5.6&quot;,        api_key=SecretStr(&quot;your-api-key&quot;),        usage_id=&quot;my-agent&quot;    )    # Use with agent or conversation    ```</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput? Llm { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput? Llm { get => _explicitNullValueLlm; set { _explicitNullValueLlm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm"); else _explicitNullProperties?.Remove("llm"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput? _explicitNullValueLlm = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput Llm { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput Llm { get => _explicitNullValueLlm; set { _explicitNullValueLlm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm"); else _explicitNullProperties?.Remove("llm"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput _explicitNullValueLlm = default!;
 #endif
         /// <summary>MCP servers available to the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMcpConfigProperty? McpConfig { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMcpConfigProperty? McpConfig { get => _explicitNullValueMcpConfig; set { _explicitNullValueMcpConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_config"); else _explicitNullProperties?.Remove("mcp_config"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMcpConfigProperty? _explicitNullValueMcpConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMcpConfigProperty McpConfig { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMcpConfigProperty McpConfig { get => _explicitNullValueMcpConfig; set { _explicitNullValueMcpConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_config"); else _explicitNullProperties?.Remove("mcp_config"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMcpConfigProperty _explicitNullValueMcpConfig = default!;
 #endif
         /// <summary>Inline configuration for the active meta-profile. Cloud runtimes use this field because their ephemeral filesystem does not contain the control plane&apos;s meta-profile store.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfile? MetaProfile { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfile? MetaProfile { get => _explicitNullValueMetaProfile; set { _explicitNullValueMetaProfile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta_profile"); else _explicitNullProperties?.Remove("meta_profile"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfile? _explicitNullValueMetaProfile = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfile MetaProfile { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfile MetaProfile { get => _explicitNullValueMetaProfile; set { _explicitNullValueMetaProfile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta_profile"); else _explicitNullProperties?.Remove("meta_profile"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfile _explicitNullValueMetaProfile = default!;
 #endif
         /// <summary>Resolved LLM configurations referenced by the active meta-profile. Cloud control planes hydrate this map for ephemeral runtimes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMetaProfileLlmsProperty? MetaProfileLlms { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMetaProfileLlmsProperty? MetaProfileLlms { get => _explicitNullValueMetaProfileLlms; set { _explicitNullValueMetaProfileLlms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta_profile_llms"); else _explicitNullProperties?.Remove("meta_profile_llms"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMetaProfileLlmsProperty? _explicitNullValueMetaProfileLlms = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMetaProfileLlmsProperty MetaProfileLlms { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMetaProfileLlmsProperty MetaProfileLlms { get => _explicitNullValueMetaProfileLlms; set { _explicitNullValueMetaProfileLlms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta_profile_llms"); else _explicitNullProperties?.Remove("meta_profile_llms"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMetaProfileLlmsProperty _explicitNullValueMetaProfileLlms = default!;
 #endif
         /// <summary>Persona text that replaces OpenHands&apos; built-in persona and coding-workflow guidance. Capability and policy guidance (memory, security policy, risk assessment, browser, external services, process management, model-specific notes) and the dynamic context are still included. None keeps the built-in persona.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Persona { get; set; }
+        public string? Persona { get => _explicitNullValuePersona; set { _explicitNullValuePersona = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("persona"); else _explicitNullProperties?.Remove("persona"); } }
+        private string? _explicitNullValuePersona = default!;
 #nullable restore
 #else
-        public string Persona { get; set; }
+        public string Persona { get => _explicitNullValuePersona; set { _explicitNullValuePersona = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("persona"); else _explicitNullProperties?.Remove("persona"); } }
+        private string _explicitNullValuePersona = default!;
 #endif
         /// <summary>The schema_version property</summary>
-        public int? SchemaVersion { get; set; }
+        public int? SchemaVersion { get => _explicitNullValueSchemaVersion; set { _explicitNullValueSchemaVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schema_version"); else _explicitNullProperties?.Remove("schema_version"); } }
+        private int? _explicitNullValueSchemaVersion = default!;
         /// <summary>Maximum number of tool calls to execute concurrently per agent step. 1 = sequential (default). Values &gt; 1 enable parallel tool calls; concurrent tools share the conversation object, filesystem, and working directory, so mutations to shared state may race.</summary>
-        public int? ToolConcurrencyLimit { get; set; }
+        public int? ToolConcurrencyLimit { get => _explicitNullValueToolConcurrencyLimit; set { _explicitNullValueToolConcurrencyLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_concurrency_limit"); else _explicitNullProperties?.Remove("tool_concurrency_limit"); } }
+        private int? _explicitNullValueToolConcurrencyLimit = default!;
         /// <summary>Tools available to the agent. None (the default) resolves to the standard exec set plus switch_llm (see openhands.sdk.tool.defaults); [] is an explicitly bare agent; a non-empty list is used exactly as given. Environment-dependent tools (browser) are injected by the serving layer, not the default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool>? Tools { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool>? Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool>? _explicitNullValueTools = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool> Tools { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool> Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool> _explicitNullValueTools = default!;
 #endif
         /// <summary>Verification settings for the agent critic.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings? Verification { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings? Verification { get => _explicitNullValueVerification; set { _explicitNullValueVerification = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification"); else _explicitNullProperties?.Remove("verification"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings? _explicitNullValueVerification = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings Verification { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings Verification { get => _explicitNullValueVerification; set { _explicitNullValueVerification = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification"); else _explicitNullProperties?.Remove("verification"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings _explicitNullValueVerification = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettings"/> and sets the default values.
@@ -130,7 +178,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -179,6 +227,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteIntValue("tool_concurrency_limit", ToolConcurrencyLimit);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool>("tools", Tools);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.VerificationSettings>("verification", Verification);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

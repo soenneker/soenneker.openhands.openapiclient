@@ -49,7 +49,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Users.App
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.UserAppSettingsResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.UserAppSettingsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.UserAppSettingsResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.UserAppSettingsResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the current user&apos;s app settings (partial update).Only provided fields will be updated. Pass null to clear a field.Args:    update_data: Fields to update    service: UserAppSettingsService (injected by dependency)Returns:    UserAppSettingsResponse: The updated user&apos;s app settingsRaises:    HTTPException: 401 if user is not authenticated    HTTPException: 404 if user not found    HTTPException: 500 if update fails
@@ -73,6 +73,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Users.App
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.UserAppSettingsResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.UserAppSettingsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

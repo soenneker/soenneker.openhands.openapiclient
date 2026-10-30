@@ -49,7 +49,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings.AgentSchema
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseLoadSettingsSchemaApiV1SettingsAgentSchemaGetSchema>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ResponseLoadSettingsSchemaApiV1SettingsAgentSchemaGetSchema.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseLoadSettingsSchemaApiV1SettingsAgentSchemaGetSchema>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ResponseLoadSettingsSchemaApiV1SettingsAgentSchemaGetSchema.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Load the schema for settings

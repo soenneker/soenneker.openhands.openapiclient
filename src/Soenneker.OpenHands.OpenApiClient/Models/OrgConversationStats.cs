@@ -12,27 +12,52 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OrgConversationStats : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("active_conversations") is { } nullNodeActiveConversations && nullNodeActiveConversations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveConversations = null;
+            if (parseNode.GetChildNode("completed_24h") is { } nullNodeCompleted24h && nullNodeCompleted24h.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Completed24h = null;
+            if (parseNode.GetChildNode("completed_30d") is { } nullNodeCompleted30d && nullNodeCompleted30d.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Completed30d = null;
+            if (parseNode.GetChildNode("completed_7d") is { } nullNodeCompleted7d && nullNodeCompleted7d.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Completed7d = null;
+            if (parseNode.GetChildNode("running_runtimes") is { } nullNodeRunningRuntimes && nullNodeRunningRuntimes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunningRuntimes = null;
+            if (parseNode.GetChildNode("total_completion_tokens") is { } nullNodeTotalCompletionTokens && nullNodeTotalCompletionTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCompletionTokens = null;
+            if (parseNode.GetChildNode("total_cost") is { } nullNodeTotalCost && nullNodeTotalCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCost = null;
+            if (parseNode.GetChildNode("total_prompt_tokens") is { } nullNodeTotalPromptTokens && nullNodeTotalPromptTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalPromptTokens = null;
+            if (parseNode.GetChildNode("total_tokens") is { } nullNodeTotalTokens && nullNodeTotalTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalTokens = null;
+        }
+
         /// <summary>The active_conversations property</summary>
-        public int? ActiveConversations { get; set; }
+        public int? ActiveConversations { get => _explicitNullValueActiveConversations; set { _explicitNullValueActiveConversations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_conversations"); else _explicitNullProperties?.Remove("active_conversations"); } }
+        private int? _explicitNullValueActiveConversations = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The completed_24h property</summary>
-        public int? Completed24h { get; set; }
+        public int? Completed24h { get => _explicitNullValueCompleted24h; set { _explicitNullValueCompleted24h = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_24h"); else _explicitNullProperties?.Remove("completed_24h"); } }
+        private int? _explicitNullValueCompleted24h = default!;
         /// <summary>The completed_30d property</summary>
-        public int? Completed30d { get; set; }
+        public int? Completed30d { get => _explicitNullValueCompleted30d; set { _explicitNullValueCompleted30d = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_30d"); else _explicitNullProperties?.Remove("completed_30d"); } }
+        private int? _explicitNullValueCompleted30d = default!;
         /// <summary>The completed_7d property</summary>
-        public int? Completed7d { get; set; }
+        public int? Completed7d { get => _explicitNullValueCompleted7d; set { _explicitNullValueCompleted7d = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_7d"); else _explicitNullProperties?.Remove("completed_7d"); } }
+        private int? _explicitNullValueCompleted7d = default!;
         /// <summary>The running_runtimes property</summary>
-        public int? RunningRuntimes { get; set; }
+        public int? RunningRuntimes { get => _explicitNullValueRunningRuntimes; set { _explicitNullValueRunningRuntimes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("running_runtimes"); else _explicitNullProperties?.Remove("running_runtimes"); } }
+        private int? _explicitNullValueRunningRuntimes = default!;
         /// <summary>The total_completion_tokens property</summary>
-        public int? TotalCompletionTokens { get; set; }
+        public int? TotalCompletionTokens { get => _explicitNullValueTotalCompletionTokens; set { _explicitNullValueTotalCompletionTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_completion_tokens"); else _explicitNullProperties?.Remove("total_completion_tokens"); } }
+        private int? _explicitNullValueTotalCompletionTokens = default!;
         /// <summary>The total_cost property</summary>
-        public double? TotalCost { get; set; }
+        public double? TotalCost { get => _explicitNullValueTotalCost; set { _explicitNullValueTotalCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_cost"); else _explicitNullProperties?.Remove("total_cost"); } }
+        private double? _explicitNullValueTotalCost = default!;
         /// <summary>The total_prompt_tokens property</summary>
-        public int? TotalPromptTokens { get; set; }
+        public int? TotalPromptTokens { get => _explicitNullValueTotalPromptTokens; set { _explicitNullValueTotalPromptTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_prompt_tokens"); else _explicitNullProperties?.Remove("total_prompt_tokens"); } }
+        private int? _explicitNullValueTotalPromptTokens = default!;
         /// <summary>The total_tokens property</summary>
-        public int? TotalTokens { get; set; }
+        public int? TotalTokens { get => _explicitNullValueTotalTokens; set { _explicitNullValueTotalTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_tokens"); else _explicitNullProperties?.Remove("total_tokens"); } }
+        private int? _explicitNullValueTotalTokens = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgConversationStats"/> and sets the default values.
         /// </summary>
@@ -57,7 +82,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.OrgConversationStats CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.OrgConversationStats();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.OrgConversationStats(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -94,6 +119,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteDoubleValue("total_cost", TotalCost);
             writer.WriteIntValue("total_prompt_tokens", TotalPromptTokens);
             writer.WriteIntValue("total_tokens", TotalTokens);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

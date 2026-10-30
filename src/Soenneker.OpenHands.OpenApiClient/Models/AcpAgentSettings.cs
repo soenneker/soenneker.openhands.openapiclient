@@ -12,77 +12,117 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AcpAgentSettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("acp_args") is { } nullNodeAcpArgs && nullNodeAcpArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpArgs = null;
+            if (parseNode.GetChildNode("acp_command") is { } nullNodeAcpCommand && nullNodeAcpCommand.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpCommand = null;
+            if (parseNode.GetChildNode("acp_file_secrets") is { } nullNodeAcpFileSecrets && nullNodeAcpFileSecrets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpFileSecrets = null;
+            if (parseNode.GetChildNode("acp_isolate_data_dir") is { } nullNodeAcpIsolateDataDir && nullNodeAcpIsolateDataDir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpIsolateDataDir = null;
+            if (parseNode.GetChildNode("acp_model") is { } nullNodeAcpModel && nullNodeAcpModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpModel = null;
+            if (parseNode.GetChildNode("acp_prompt_timeout") is { } nullNodeAcpPromptTimeout && nullNodeAcpPromptTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpPromptTimeout = null;
+            if (parseNode.GetChildNode("acp_server") is { } nullNodeAcpServer && nullNodeAcpServer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpServer = null;
+            if (parseNode.GetChildNode("acp_session_mode") is { } nullNodeAcpSessionMode && nullNodeAcpSessionMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpSessionMode = null;
+            if (parseNode.GetChildNode("acp_startup_timeout") is { } nullNodeAcpStartupTimeout && nullNodeAcpStartupTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpStartupTimeout = null;
+            if (parseNode.GetChildNode("agent_context") is { } nullNodeAgentContext && nullNodeAgentContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentContext = null;
+            if (parseNode.GetChildNode("agent_kind") is { } nullNodeAgentKind && nullNodeAgentKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentKind = null;
+            if (parseNode.GetChildNode("mcp_config") is { } nullNodeMcpConfig && nullNodeMcpConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpConfig = null;
+            if (parseNode.GetChildNode("schema_version") is { } nullNodeSchemaVersion && nullNodeSchemaVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SchemaVersion = null;
+        }
+
         /// <summary>Additional arguments appended to the ACP server command.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AcpArgs { get; set; }
+        public List<string>? AcpArgs { get => _explicitNullValueAcpArgs; set { _explicitNullValueAcpArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_args"); else _explicitNullProperties?.Remove("acp_args"); } }
+        private List<string>? _explicitNullValueAcpArgs = default!;
 #nullable restore
 #else
-        public List<string> AcpArgs { get; set; }
+        public List<string> AcpArgs { get => _explicitNullValueAcpArgs; set { _explicitNullValueAcpArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_args"); else _explicitNullProperties?.Remove("acp_args"); } }
+        private List<string> _explicitNullValueAcpArgs = default!;
 #endif
         /// <summary>Optional explicit command to launch the ACP subprocess. Leave empty to use the default for :attr:`acp_server` (e.g. ``npx -y @agentclientprotocol/claude-agent-acp`` for ``claude-code``). Must be set when :attr:`acp_server` is ``&apos;custom&apos;``.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AcpCommand { get; set; }
+        public List<string>? AcpCommand { get => _explicitNullValueAcpCommand; set { _explicitNullValueAcpCommand = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_command"); else _explicitNullProperties?.Remove("acp_command"); } }
+        private List<string>? _explicitNullValueAcpCommand = default!;
 #nullable restore
 #else
-        public List<string> AcpCommand { get; set; }
+        public List<string> AcpCommand { get => _explicitNullValueAcpCommand; set { _explicitNullValueAcpCommand = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_command"); else _explicitNullProperties?.Remove("acp_command"); } }
+        private List<string> _explicitNullValueAcpCommand = default!;
 #endif
         /// <summary>Reserved &apos;file-content&apos; credential secrets the SDK materialises to disk before launching the ACP subprocess (e.g. Codex auth.json, Gemini Vertex SA JSON). Defaults to the built-in supported providers; override to support other ACP servers with different file-auth schemes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpec>? AcpFileSecrets { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpec>? AcpFileSecrets { get => _explicitNullValueAcpFileSecrets; set { _explicitNullValueAcpFileSecrets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_file_secrets"); else _explicitNullProperties?.Remove("acp_file_secrets"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpec>? _explicitNullValueAcpFileSecrets = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpec> AcpFileSecrets { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpec> AcpFileSecrets { get => _explicitNullValueAcpFileSecrets; set { _explicitNullValueAcpFileSecrets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_file_secrets"); else _explicitNullProperties?.Remove("acp_file_secrets"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpec> _explicitNullValueAcpFileSecrets = default!;
 #endif
         /// <summary>Give the ACP subprocess a per-conversation CLI data/config root instead of the shared user HOME. Forwarded to :attr:`~openhands.sdk.agent.ACPAgent.acp_isolate_data_dir`; off by default. Enable from the deploying application when several conversations share one sandbox (see #1019).</summary>
-        public bool? AcpIsolateDataDir { get; set; }
+        public bool? AcpIsolateDataDir { get => _explicitNullValueAcpIsolateDataDir; set { _explicitNullValueAcpIsolateDataDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_isolate_data_dir"); else _explicitNullProperties?.Remove("acp_isolate_data_dir"); } }
+        private bool? _explicitNullValueAcpIsolateDataDir = default!;
         /// <summary>Model identifier for the ACP server to use (e.g. ``&apos;sonnet&apos;`` or ``&apos;gpt-5.5&apos;``). Applied via the protocol — set_config_option(model) for configOptions-based servers (codex, claude), else set_session_model. Leave blank to let the server pick its default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpModel? AcpModel { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpModel? AcpModel { get => _explicitNullValueAcpModel; set { _explicitNullValueAcpModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_model"); else _explicitNullProperties?.Remove("acp_model"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpModel? _explicitNullValueAcpModel = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpModel AcpModel { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpModel AcpModel { get => _explicitNullValueAcpModel; set { _explicitNullValueAcpModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_model"); else _explicitNullProperties?.Remove("acp_model"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpModel _explicitNullValueAcpModel = default!;
 #endif
         /// <summary>Inactivity timeout (seconds) for a single ACP prompt() round-trip. The deadline resets on every update from the ACP server, so a steadily-progressing agent keeps running; the prompt is only aborted after this many seconds with no activity at all.</summary>
-        public double? AcpPromptTimeout { get; set; }
+        public double? AcpPromptTimeout { get => _explicitNullValueAcpPromptTimeout; set { _explicitNullValueAcpPromptTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_prompt_timeout"); else _explicitNullProperties?.Remove("acp_prompt_timeout"); } }
+        private double? _explicitNullValueAcpPromptTimeout = default!;
         /// <summary>Which ACP-compatible backend to launch. Each choice maps to a default subprocess command (see ``acp_command`` to override).</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpServer? AcpServer { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpServer? AcpServer { get => _explicitNullValueAcpServer; set { _explicitNullValueAcpServer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_server"); else _explicitNullProperties?.Remove("acp_server"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpServer? _explicitNullValueAcpServer = default!;
         /// <summary>Session mode ID (e.g. ``bypassPermissions``). Leave blank to auto-detect from the ACP server type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpSessionMode? AcpSessionMode { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpSessionMode? AcpSessionMode { get => _explicitNullValueAcpSessionMode; set { _explicitNullValueAcpSessionMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_session_mode"); else _explicitNullProperties?.Remove("acp_session_mode"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpSessionMode? _explicitNullValueAcpSessionMode = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpSessionMode AcpSessionMode { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpSessionMode AcpSessionMode { get => _explicitNullValueAcpSessionMode; set { _explicitNullValueAcpSessionMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_session_mode"); else _explicitNullProperties?.Remove("acp_session_mode"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpSessionMode _explicitNullValueAcpSessionMode = default!;
 #endif
         /// <summary>Timeout (seconds) for ACP server startup: spawning the subprocess, the initialize/authenticate handshake, and new_session()/load_session(). A hard deadline, unlike acp_prompt_timeout, since startup has no intermediate progress signal to reset it against.</summary>
-        public double? AcpStartupTimeout { get; set; }
+        public double? AcpStartupTimeout { get => _explicitNullValueAcpStartupTimeout; set { _explicitNullValueAcpStartupTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_startup_timeout"); else _explicitNullProperties?.Remove("acp_startup_timeout"); } }
+        private double? _explicitNullValueAcpStartupTimeout = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Prompt-only context for the ACP server. ``secrets`` here are advertised to the agent (names/descriptions) and reach the subprocess env through ``state.secret_registry``: ``LocalConversation`` seeds ``agent_context.secrets`` into the registry at conversation init (below ``request.secrets``), so callers that build the request outside Python (e.g. canvas-local) are covered too, not just the ``create_request`` path. Provider credentials belong here (or in ``request.secrets``) keyed by the provider&apos;s env var name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput? AgentContext { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput? AgentContext { get => _explicitNullValueAgentContext; set { _explicitNullValueAgentContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_context"); else _explicitNullProperties?.Remove("agent_context"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput? _explicitNullValueAgentContext = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput AgentContext { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput AgentContext { get => _explicitNullValueAgentContext; set { _explicitNullValueAgentContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_context"); else _explicitNullProperties?.Remove("agent_context"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput _explicitNullValueAgentContext = default!;
 #endif
         /// <summary>Discriminator for the ``AgentSettings`` union. ``&apos;acp&apos;`` selects an ACP-delegating agent.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentKind? AgentKind { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentKind? AgentKind { get => _explicitNullValueAgentKind; set { _explicitNullValueAgentKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_kind"); else _explicitNullProperties?.Remove("agent_kind"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentKind? _explicitNullValueAgentKind = default!;
         /// <summary>MCP servers to make available to the ACP subprocess. Unlike the OpenHands agent — where these become in-process MCP tools — the servers are forwarded to the ACP server at session creation and it owns the connection. Remote (http/sse) servers are only forwarded when the ACP server advertises support for that transport; stdio servers (which run inside the runtime) are always forwarded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsMcpConfigProperty? McpConfig { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsMcpConfigProperty? McpConfig { get => _explicitNullValueMcpConfig; set { _explicitNullValueMcpConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_config"); else _explicitNullProperties?.Remove("mcp_config"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsMcpConfigProperty? _explicitNullValueMcpConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsMcpConfigProperty McpConfig { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsMcpConfigProperty McpConfig { get => _explicitNullValueMcpConfig; set { _explicitNullValueMcpConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_config"); else _explicitNullProperties?.Remove("mcp_config"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsMcpConfigProperty _explicitNullValueMcpConfig = default!;
 #endif
         /// <summary>The schema_version property</summary>
-        public int? SchemaVersion { get; set; }
+        public int? SchemaVersion { get => _explicitNullValueSchemaVersion; set { _explicitNullValueSchemaVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schema_version"); else _explicitNullProperties?.Remove("schema_version"); } }
+        private int? _explicitNullValueSchemaVersion = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettings"/> and sets the default values.
         /// </summary>
@@ -102,7 +142,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -147,6 +187,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentKind>("agent_kind", AgentKind);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsMcpConfigProperty>("mcp_config", McpConfig);
             writer.WriteIntValue("schema_version", SchemaVersion);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

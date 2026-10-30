@@ -49,7 +49,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Oauth.Device.Authorize
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.DeviceAuthorizationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.DeviceAuthorizationResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.DeviceAuthorizationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.DeviceAuthorizationResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Start device flow by generating device and user codes.

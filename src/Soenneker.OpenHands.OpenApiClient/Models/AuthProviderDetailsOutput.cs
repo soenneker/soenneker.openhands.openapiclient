@@ -12,7 +12,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AuthProviderDetailsOutput : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OAuthProviderDetailsOutput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,21 +50,30 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsOutput();
-            if("storage__auth_provider_details__OAuthProviderDetails-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("OAuthProviderDetailsOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OAuthProviderDetailsOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.OAuthProviderDetailsOutput();
+                
             }
-            else if("storage__auth_provider_details__PasswordProviderDetails-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("PasswordProviderDetailsOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PasswordProviderDetailsOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.PasswordProviderDetailsOutput();
+                
             }
-            else if("storage__auth_provider_details__SamlProviderDetails-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("SamlProviderDetailsOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SamlProviderDetailsOutput = new global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsOutput();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("provider_type") != null && (parseNode.GetChildNode("provider_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("github".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "gitlab".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "bitbucket".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "bitbucket_data_center".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "forgejo".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "azure_devops".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "enterprise_sso".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("client_id") != null && parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag4 && ("OAuthProviderDetails".Equals(tag4.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("PasswordProviderDetails".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("SamlProviderDetails".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && (parseNode.GetChildNode("sso_binding") == null || (parseNode.GetChildNode("sso_binding")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag2 && ("redirect".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "post".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal))))))();
+            if (result.OAuthProviderDetailsOutput == null && result.PasswordProviderDetailsOutput == null && result.SamlProviderDetailsOutput == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.OAuthProviderDetailsOutput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.OAuthProviderDetailsOutput(), parseNode);
+            if (result.OAuthProviderDetailsOutput == null && result.PasswordProviderDetailsOutput == null && result.SamlProviderDetailsOutput == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.PasswordProviderDetailsOutput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.PasswordProviderDetailsOutput(), parseNode);
+            if (result.OAuthProviderDetailsOutput == null && result.PasswordProviderDetailsOutput == null && result.SamlProviderDetailsOutput == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.SamlProviderDetailsOutput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsOutput(), parseNode);
+            if (result.OAuthProviderDetailsOutput == null && result.PasswordProviderDetailsOutput == null && result.SamlProviderDetailsOutput == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,17 +101,26 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (OAuthProviderDetailsOutput == null && PasswordProviderDetailsOutput == null && SamlProviderDetailsOutput == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (OAuthProviderDetailsOutput != null && PasswordProviderDetailsOutput == null && SamlProviderDetailsOutput == null) { if (OAuthProviderDetailsOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OAuthProviderDetailsOutput); return; }
+            if (PasswordProviderDetailsOutput != null && OAuthProviderDetailsOutput == null && SamlProviderDetailsOutput == null) { if (PasswordProviderDetailsOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PasswordProviderDetailsOutput); return; }
+            if (SamlProviderDetailsOutput != null && OAuthProviderDetailsOutput == null && PasswordProviderDetailsOutput == null) { if (SamlProviderDetailsOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SamlProviderDetailsOutput); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(OAuthProviderDetailsOutput != null)
             {
+                if (OAuthProviderDetailsOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OAuthProviderDetailsOutput>(null, OAuthProviderDetailsOutput);
             }
             else if(PasswordProviderDetailsOutput != null)
             {
+                if (PasswordProviderDetailsOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PasswordProviderDetailsOutput>(null, PasswordProviderDetailsOutput);
             }
             else if(SamlProviderDetailsOutput != null)
             {
+                if (SamlProviderDetailsOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsOutput>(null, SamlProviderDetailsOutput);
             }
         }

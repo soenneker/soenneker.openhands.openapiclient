@@ -49,7 +49,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Service.Health
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseServiceHealthApiServiceHealthGetSchema>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ResponseServiceHealthApiServiceHealthGetSchema.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseServiceHealthApiServiceHealthGetSchema>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ResponseServiceHealthApiServiceHealthGetSchema.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Health check endpoint for the service API.This endpoint does not require authentication and can be usedto verify the service routes are accessible.

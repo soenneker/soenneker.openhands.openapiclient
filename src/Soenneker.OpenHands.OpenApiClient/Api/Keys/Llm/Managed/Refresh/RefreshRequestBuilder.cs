@@ -49,7 +49,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys.Llm.Managed.Refresh
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ManagedLlmApiKeyRefreshResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ManagedLlmApiKeyRefreshResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ManagedLlmApiKeyRefreshResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ManagedLlmApiKeyRefreshResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Refresh the managed OpenHands LiteLLM key for the current user/org.Delegates the full managed-key lifecycle (effective-config classification,serialized delete-then-generate rotation with OpenHands metadata,persistence, and cleanup of the previous key) to``SaasSettingsStore.rotate_managed_llm_key`` so the route does notduplicate the storage-layer machinery. Only managed LiteLLM/OpenHands-provider effective configs are rotated; BYOK/custom and non-managed configsare rejected before any key is generated.

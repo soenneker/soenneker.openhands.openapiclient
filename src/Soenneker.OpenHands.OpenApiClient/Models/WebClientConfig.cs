@@ -11,143 +11,214 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class WebClientConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("acp_providers") is { } nullNodeAcpProviders && nullNodeAcpProviders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpProviders = null;
+            if (parseNode.GetChildNode("app_mode") is { } nullNodeAppMode && nullNodeAppMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppMode = null;
+            if (parseNode.GetChildNode("auth_url") is { } nullNodeAuthUrl && nullNodeAuthUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthUrl = null;
+            if (parseNode.GetChildNode("db_feature_flags") is { } nullNodeDbFeatureFlags && nullNodeDbFeatureFlags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbFeatureFlags = null;
+            if (parseNode.GetChildNode("email_change_enabled") is { } nullNodeEmailChangeEnabled && nullNodeEmailChangeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailChangeEnabled = null;
+            if (parseNode.GetChildNode("email_enabled") is { } nullNodeEmailEnabled && nullNodeEmailEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailEnabled = null;
+            if (parseNode.GetChildNode("error_message") is { } nullNodeErrorMessage && nullNodeErrorMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorMessage = null;
+            if (parseNode.GetChildNode("faulty_models") is { } nullNodeFaultyModels && nullNodeFaultyModels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FaultyModels = null;
+            if (parseNode.GetChildNode("feature_flags") is { } nullNodeFeatureFlags && nullNodeFeatureFlags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FeatureFlags = null;
+            if (parseNode.GetChildNode("github_app_slug") is { } nullNodeGithubAppSlug && nullNodeGithubAppSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GithubAppSlug = null;
+            if (parseNode.GetChildNode("gitlab_enabled") is { } nullNodeGitlabEnabled && nullNodeGitlabEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitlabEnabled = null;
+            if (parseNode.GetChildNode("jira_dc_oauth_host") is { } nullNodeJiraDcOauthHost && nullNodeJiraDcOauthHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JiraDcOauthHost = null;
+            if (parseNode.GetChildNode("jira_dc_service_account_config_error") is { } nullNodeJiraDcServiceAccountConfigError && nullNodeJiraDcServiceAccountConfigError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JiraDcServiceAccountConfigError = null;
+            if (parseNode.GetChildNode("jira_dc_service_account_email") is { } nullNodeJiraDcServiceAccountEmail && nullNodeJiraDcServiceAccountEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JiraDcServiceAccountEmail = null;
+            if (parseNode.GetChildNode("jira_dc_service_account_managed") is { } nullNodeJiraDcServiceAccountManaged && nullNodeJiraDcServiceAccountManaged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JiraDcServiceAccountManaged = null;
+            if (parseNode.GetChildNode("jira_oauth_enabled") is { } nullNodeJiraOauthEnabled && nullNodeJiraOauthEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JiraOauthEnabled = null;
+            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("maintenance_start_time") is { } nullNodeMaintenanceStartTime && nullNodeMaintenanceStartTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaintenanceStartTime = null;
+            if (parseNode.GetChildNode("posthog_client_key") is { } nullNodePosthogClientKey && nullNodePosthogClientKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PosthogClientKey = null;
+            if (parseNode.GetChildNode("provider_default_hosts") is { } nullNodeProviderDefaultHosts && nullNodeProviderDefaultHosts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderDefaultHosts = null;
+            if (parseNode.GetChildNode("providers_configured") is { } nullNodeProvidersConfigured && nullNodeProvidersConfigured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProvidersConfigured = null;
+            if (parseNode.GetChildNode("recaptcha_site_key") is { } nullNodeRecaptchaSiteKey && nullNodeRecaptchaSiteKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecaptchaSiteKey = null;
+            if (parseNode.GetChildNode("slack_enabled") is { } nullNodeSlackEnabled && nullNodeSlackEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackEnabled = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("user_provisioning_enabled") is { } nullNodeUserProvisioningEnabled && nullNodeUserProvisioningEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserProvisioningEnabled = null;
+        }
+
         /// <summary>The acp_providers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig>? AcpProviders { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig>? AcpProviders { get => _explicitNullValueAcpProviders; set { _explicitNullValueAcpProviders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_providers"); else _explicitNullProperties?.Remove("acp_providers"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig>? _explicitNullValueAcpProviders = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig> AcpProviders { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig> AcpProviders { get => _explicitNullValueAcpProviders; set { _explicitNullValueAcpProviders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_providers"); else _explicitNullProperties?.Remove("acp_providers"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig> _explicitNullValueAcpProviders = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The app_mode property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AppMode? AppMode { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppMode? AppMode { get => _explicitNullValueAppMode; set { _explicitNullValueAppMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_mode"); else _explicitNullProperties?.Remove("app_mode"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AppMode? _explicitNullValueAppMode = default!;
         /// <summary>The auth_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AuthUrl { get; set; }
+        public string? AuthUrl { get => _explicitNullValueAuthUrl; set { _explicitNullValueAuthUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_url"); else _explicitNullProperties?.Remove("auth_url"); } }
+        private string? _explicitNullValueAuthUrl = default!;
 #nullable restore
 #else
-        public string AuthUrl { get; set; }
+        public string AuthUrl { get => _explicitNullValueAuthUrl; set { _explicitNullValueAuthUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_url"); else _explicitNullProperties?.Remove("auth_url"); } }
+        private string _explicitNullValueAuthUrl = default!;
 #endif
         /// <summary>The db_feature_flags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigDbFeatureFlagsProperty? DbFeatureFlags { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigDbFeatureFlagsProperty? DbFeatureFlags { get => _explicitNullValueDbFeatureFlags; set { _explicitNullValueDbFeatureFlags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_feature_flags"); else _explicitNullProperties?.Remove("db_feature_flags"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigDbFeatureFlagsProperty? _explicitNullValueDbFeatureFlags = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigDbFeatureFlagsProperty DbFeatureFlags { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigDbFeatureFlagsProperty DbFeatureFlags { get => _explicitNullValueDbFeatureFlags; set { _explicitNullValueDbFeatureFlags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_feature_flags"); else _explicitNullProperties?.Remove("db_feature_flags"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigDbFeatureFlagsProperty _explicitNullValueDbFeatureFlags = default!;
 #endif
         /// <summary>The email_change_enabled property</summary>
-        public bool? EmailChangeEnabled { get; set; }
+        public bool? EmailChangeEnabled { get => _explicitNullValueEmailChangeEnabled; set { _explicitNullValueEmailChangeEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_change_enabled"); else _explicitNullProperties?.Remove("email_change_enabled"); } }
+        private bool? _explicitNullValueEmailChangeEnabled = default!;
         /// <summary>The email_enabled property</summary>
-        public bool? EmailEnabled { get; set; }
+        public bool? EmailEnabled { get => _explicitNullValueEmailEnabled; set { _explicitNullValueEmailEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_enabled"); else _explicitNullProperties?.Remove("email_enabled"); } }
+        private bool? _explicitNullValueEmailEnabled = default!;
         /// <summary>The error_message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorMessage { get; set; }
+        public string? ErrorMessage { get => _explicitNullValueErrorMessage; set { _explicitNullValueErrorMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_message"); else _explicitNullProperties?.Remove("error_message"); } }
+        private string? _explicitNullValueErrorMessage = default!;
 #nullable restore
 #else
-        public string ErrorMessage { get; set; }
+        public string ErrorMessage { get => _explicitNullValueErrorMessage; set { _explicitNullValueErrorMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_message"); else _explicitNullProperties?.Remove("error_message"); } }
+        private string _explicitNullValueErrorMessage = default!;
 #endif
         /// <summary>The faulty_models property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? FaultyModels { get; set; }
+        public List<string>? FaultyModels { get => _explicitNullValueFaultyModels; set { _explicitNullValueFaultyModels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("faulty_models"); else _explicitNullProperties?.Remove("faulty_models"); } }
+        private List<string>? _explicitNullValueFaultyModels = default!;
 #nullable restore
 #else
-        public List<string> FaultyModels { get; set; }
+        public List<string> FaultyModels { get => _explicitNullValueFaultyModels; set { _explicitNullValueFaultyModels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("faulty_models"); else _explicitNullProperties?.Remove("faulty_models"); } }
+        private List<string> _explicitNullValueFaultyModels = default!;
 #endif
         /// <summary>The feature_flags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags? FeatureFlags { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags? FeatureFlags { get => _explicitNullValueFeatureFlags; set { _explicitNullValueFeatureFlags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("feature_flags"); else _explicitNullProperties?.Remove("feature_flags"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags? _explicitNullValueFeatureFlags = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags FeatureFlags { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags FeatureFlags { get => _explicitNullValueFeatureFlags; set { _explicitNullValueFeatureFlags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("feature_flags"); else _explicitNullProperties?.Remove("feature_flags"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlags _explicitNullValueFeatureFlags = default!;
 #endif
         /// <summary>The github_app_slug property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GithubAppSlug { get; set; }
+        public string? GithubAppSlug { get => _explicitNullValueGithubAppSlug; set { _explicitNullValueGithubAppSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github_app_slug"); else _explicitNullProperties?.Remove("github_app_slug"); } }
+        private string? _explicitNullValueGithubAppSlug = default!;
 #nullable restore
 #else
-        public string GithubAppSlug { get; set; }
+        public string GithubAppSlug { get => _explicitNullValueGithubAppSlug; set { _explicitNullValueGithubAppSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github_app_slug"); else _explicitNullProperties?.Remove("github_app_slug"); } }
+        private string _explicitNullValueGithubAppSlug = default!;
 #endif
         /// <summary>The gitlab_enabled property</summary>
-        public bool? GitlabEnabled { get; set; }
+        public bool? GitlabEnabled { get => _explicitNullValueGitlabEnabled; set { _explicitNullValueGitlabEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gitlab_enabled"); else _explicitNullProperties?.Remove("gitlab_enabled"); } }
+        private bool? _explicitNullValueGitlabEnabled = default!;
         /// <summary>The jira_dc_oauth_host property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JiraDcOauthHost { get; set; }
+        public string? JiraDcOauthHost { get => _explicitNullValueJiraDcOauthHost; set { _explicitNullValueJiraDcOauthHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jira_dc_oauth_host"); else _explicitNullProperties?.Remove("jira_dc_oauth_host"); } }
+        private string? _explicitNullValueJiraDcOauthHost = default!;
 #nullable restore
 #else
-        public string JiraDcOauthHost { get; set; }
+        public string JiraDcOauthHost { get => _explicitNullValueJiraDcOauthHost; set { _explicitNullValueJiraDcOauthHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jira_dc_oauth_host"); else _explicitNullProperties?.Remove("jira_dc_oauth_host"); } }
+        private string _explicitNullValueJiraDcOauthHost = default!;
 #endif
         /// <summary>The jira_dc_service_account_config_error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JiraDcServiceAccountConfigError { get; set; }
+        public string? JiraDcServiceAccountConfigError { get => _explicitNullValueJiraDcServiceAccountConfigError; set { _explicitNullValueJiraDcServiceAccountConfigError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jira_dc_service_account_config_error"); else _explicitNullProperties?.Remove("jira_dc_service_account_config_error"); } }
+        private string? _explicitNullValueJiraDcServiceAccountConfigError = default!;
 #nullable restore
 #else
-        public string JiraDcServiceAccountConfigError { get; set; }
+        public string JiraDcServiceAccountConfigError { get => _explicitNullValueJiraDcServiceAccountConfigError; set { _explicitNullValueJiraDcServiceAccountConfigError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jira_dc_service_account_config_error"); else _explicitNullProperties?.Remove("jira_dc_service_account_config_error"); } }
+        private string _explicitNullValueJiraDcServiceAccountConfigError = default!;
 #endif
         /// <summary>The jira_dc_service_account_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JiraDcServiceAccountEmail { get; set; }
+        public string? JiraDcServiceAccountEmail { get => _explicitNullValueJiraDcServiceAccountEmail; set { _explicitNullValueJiraDcServiceAccountEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jira_dc_service_account_email"); else _explicitNullProperties?.Remove("jira_dc_service_account_email"); } }
+        private string? _explicitNullValueJiraDcServiceAccountEmail = default!;
 #nullable restore
 #else
-        public string JiraDcServiceAccountEmail { get; set; }
+        public string JiraDcServiceAccountEmail { get => _explicitNullValueJiraDcServiceAccountEmail; set { _explicitNullValueJiraDcServiceAccountEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jira_dc_service_account_email"); else _explicitNullProperties?.Remove("jira_dc_service_account_email"); } }
+        private string _explicitNullValueJiraDcServiceAccountEmail = default!;
 #endif
         /// <summary>The jira_dc_service_account_managed property</summary>
-        public bool? JiraDcServiceAccountManaged { get; set; }
+        public bool? JiraDcServiceAccountManaged { get => _explicitNullValueJiraDcServiceAccountManaged; set { _explicitNullValueJiraDcServiceAccountManaged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jira_dc_service_account_managed"); else _explicitNullProperties?.Remove("jira_dc_service_account_managed"); } }
+        private bool? _explicitNullValueJiraDcServiceAccountManaged = default!;
         /// <summary>The jira_oauth_enabled property</summary>
-        public bool? JiraOauthEnabled { get; set; }
+        public bool? JiraOauthEnabled { get => _explicitNullValueJiraOauthEnabled; set { _explicitNullValueJiraOauthEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jira_oauth_enabled"); else _explicitNullProperties?.Remove("jira_oauth_enabled"); } }
+        private bool? _explicitNullValueJiraOauthEnabled = default!;
         /// <summary>The kind property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigKind? Kind { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigKind? _explicitNullValueKind = default!;
         /// <summary>The maintenance_start_time property</summary>
-        public DateTimeOffset? MaintenanceStartTime { get; set; }
+        public DateTimeOffset? MaintenanceStartTime { get => _explicitNullValueMaintenanceStartTime; set { _explicitNullValueMaintenanceStartTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maintenance_start_time"); else _explicitNullProperties?.Remove("maintenance_start_time"); } }
+        private DateTimeOffset? _explicitNullValueMaintenanceStartTime = default!;
         /// <summary>The posthog_client_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PosthogClientKey { get; set; }
+        public string? PosthogClientKey { get => _explicitNullValuePosthogClientKey; set { _explicitNullValuePosthogClientKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("posthog_client_key"); else _explicitNullProperties?.Remove("posthog_client_key"); } }
+        private string? _explicitNullValuePosthogClientKey = default!;
 #nullable restore
 #else
-        public string PosthogClientKey { get; set; }
+        public string PosthogClientKey { get => _explicitNullValuePosthogClientKey; set { _explicitNullValuePosthogClientKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("posthog_client_key"); else _explicitNullProperties?.Remove("posthog_client_key"); } }
+        private string _explicitNullValuePosthogClientKey = default!;
 #endif
         /// <summary>The provider_default_hosts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigProviderDefaultHostsProperty? ProviderDefaultHosts { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigProviderDefaultHostsProperty? ProviderDefaultHosts { get => _explicitNullValueProviderDefaultHosts; set { _explicitNullValueProviderDefaultHosts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_default_hosts"); else _explicitNullProperties?.Remove("provider_default_hosts"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigProviderDefaultHostsProperty? _explicitNullValueProviderDefaultHosts = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigProviderDefaultHostsProperty ProviderDefaultHosts { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigProviderDefaultHostsProperty ProviderDefaultHosts { get => _explicitNullValueProviderDefaultHosts; set { _explicitNullValueProviderDefaultHosts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_default_hosts"); else _explicitNullProperties?.Remove("provider_default_hosts"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigProviderDefaultHostsProperty _explicitNullValueProviderDefaultHosts = default!;
 #endif
         /// <summary>The providers_configured property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType?>? ProvidersConfigured { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType?>? ProvidersConfigured { get => _explicitNullValueProvidersConfigured; set { _explicitNullValueProvidersConfigured = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("providers_configured"); else _explicitNullProperties?.Remove("providers_configured"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType?>? _explicitNullValueProvidersConfigured = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType?> ProvidersConfigured { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType?> ProvidersConfigured { get => _explicitNullValueProvidersConfigured; set { _explicitNullValueProvidersConfigured = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("providers_configured"); else _explicitNullProperties?.Remove("providers_configured"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType?> _explicitNullValueProvidersConfigured = default!;
 #endif
         /// <summary>The recaptcha_site_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecaptchaSiteKey { get; set; }
+        public string? RecaptchaSiteKey { get => _explicitNullValueRecaptchaSiteKey; set { _explicitNullValueRecaptchaSiteKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recaptcha_site_key"); else _explicitNullProperties?.Remove("recaptcha_site_key"); } }
+        private string? _explicitNullValueRecaptchaSiteKey = default!;
 #nullable restore
 #else
-        public string RecaptchaSiteKey { get; set; }
+        public string RecaptchaSiteKey { get => _explicitNullValueRecaptchaSiteKey; set { _explicitNullValueRecaptchaSiteKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recaptcha_site_key"); else _explicitNullProperties?.Remove("recaptcha_site_key"); } }
+        private string _explicitNullValueRecaptchaSiteKey = default!;
 #endif
         /// <summary>The slack_enabled property</summary>
-        public bool? SlackEnabled { get; set; }
+        public bool? SlackEnabled { get => _explicitNullValueSlackEnabled; set { _explicitNullValueSlackEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_enabled"); else _explicitNullProperties?.Remove("slack_enabled"); } }
+        private bool? _explicitNullValueSlackEnabled = default!;
         /// <summary>The updated_at property</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>The user_provisioning_enabled property</summary>
-        public bool? UserProvisioningEnabled { get; set; }
+        public bool? UserProvisioningEnabled { get => _explicitNullValueUserProvisioningEnabled; set { _explicitNullValueUserProvisioningEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_provisioning_enabled"); else _explicitNullProperties?.Remove("user_provisioning_enabled"); } }
+        private bool? _explicitNullValueUserProvisioningEnabled = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig"/> and sets the default values.
         /// </summary>
@@ -170,7 +241,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -239,6 +310,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("slack_enabled", SlackEnabled);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteBoolValue("user_provisioning_enabled", UserProvisioningEnabled);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

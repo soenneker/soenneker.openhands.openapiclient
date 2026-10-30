@@ -49,7 +49,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.Me
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminStatusResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminStatusResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminStatusResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminStatusResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Let any authenticated user learn whether *they* are a super admin.Unlike every other endpoint in this module, this is not gated by``MANAGE_SUPER_ADMINS`` -- it only discloses the caller&apos;s own status,which is self-information, not an instance-admin capability. Thefrontend uses it to decide whether to show instance-wide adminaffordances (e.g. the org-members page&apos;s &quot;all users&quot; view, reachableregardless of organization selection) without requiring the caller toalready be a member of an organization.

@@ -12,7 +12,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentProfileDetailResponseProfile : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfile"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,13 +46,20 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDetailResponseProfile();
             if("acp".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AcpAgentProfile = new global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfile();
+                
             }
             else if("openhands".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OpenHandsAgentProfile = new global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfile();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("name") != null && parseNode.GetChildNode("llm_profile_ref") != null && (parseNode.GetChildNode("agent_kind") == null || (parseNode.GetChildNode("agent_kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag2 && ("openhands".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("name") != null && (parseNode.GetChildNode("agent_kind") == null || (parseNode.GetChildNode("agent_kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag1 && ("acp".Equals(optionalTag1.GetValue(), global::System.StringComparison.Ordinal)))) && (parseNode.GetChildNode("acp_server") == null || (parseNode.GetChildNode("acp_server")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag2 && ("claude-code".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "codex".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "gemini-cli".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "kimi-code".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "pi".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "opencode".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "custom".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal))))))();
+            if (result.AcpAgentProfile == null && result.OpenHandsAgentProfile == null && matchesUnionBranch0 && !matchesUnionBranch1) result.OpenHandsAgentProfile = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfile(), parseNode);
+            if (result.AcpAgentProfile == null && result.OpenHandsAgentProfile == null && matchesUnionBranch1 && !matchesUnionBranch0) result.AcpAgentProfile = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfile(), parseNode);
+            if (result.AcpAgentProfile == null && result.OpenHandsAgentProfile == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,13 +83,20 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (AcpAgentProfile == null && OpenHandsAgentProfile == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (AcpAgentProfile != null && OpenHandsAgentProfile == null) { if (AcpAgentProfile is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AcpAgentProfile); return; }
+            if (OpenHandsAgentProfile != null && AcpAgentProfile == null) { if (OpenHandsAgentProfile is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OpenHandsAgentProfile); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(AcpAgentProfile != null)
             {
+                if (AcpAgentProfile is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfile>(null, AcpAgentProfile);
             }
             else if(OpenHandsAgentProfile != null)
             {
+                if (OpenHandsAgentProfile is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenHandsAgentProfile>(null, OpenHandsAgentProfile);
             }
         }

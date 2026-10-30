@@ -49,7 +49,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.GitProviders
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Store git provider tokens.Saves the git provider tokens (GitHub, GitLab, Bitbucket, etc.) for the authenticated user.Returns:    200: Git providers stored successfully    401: Invalid token    500: Error storing git providers
@@ -73,6 +73,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.GitProviders
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

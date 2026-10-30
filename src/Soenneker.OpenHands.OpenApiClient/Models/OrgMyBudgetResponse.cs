@@ -12,33 +12,64 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OrgMyBudgetResponse : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("current_spend") is { } nullNodeCurrentSpend && nullNodeCurrentSpend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentSpend = null;
+            if (parseNode.GetChildNode("cycle_end_at") is { } nullNodeCycleEndAt && nullNodeCycleEndAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CycleEndAt = null;
+            if (parseNode.GetChildNode("cycle_start_at") is { } nullNodeCycleStartAt && nullNodeCycleStartAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CycleStartAt = null;
+            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("is_disabled") is { } nullNodeIsDisabled && nullNodeIsDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsDisabled = null;
+            if (parseNode.GetChildNode("is_override") is { } nullNodeIsOverride && nullNodeIsOverride.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsOverride = null;
+            if (parseNode.GetChildNode("limit_updated_at") is { } nullNodeLimitUpdatedAt && nullNodeLimitUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LimitUpdatedAt = null;
+            if (parseNode.GetChildNode("monthly_limit") is { } nullNodeMonthlyLimit && nullNodeMonthlyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MonthlyLimit = null;
+            if (parseNode.GetChildNode("org_current_spend") is { } nullNodeOrgCurrentSpend && nullNodeOrgCurrentSpend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrgCurrentSpend = null;
+            if (parseNode.GetChildNode("org_monthly_limit") is { } nullNodeOrgMonthlyLimit && nullNodeOrgMonthlyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrgMonthlyLimit = null;
+            if (parseNode.GetChildNode("spend_observed_at") is { } nullNodeSpendObservedAt && nullNodeSpendObservedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendObservedAt = null;
+            if (parseNode.GetChildNode("spend_status") is { } nullNodeSpendStatus && nullNodeSpendStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendStatus = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The current_spend property</summary>
-        public double? CurrentSpend { get; set; }
+        public double? CurrentSpend { get => _explicitNullValueCurrentSpend; set { _explicitNullValueCurrentSpend = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_spend"); else _explicitNullProperties?.Remove("current_spend"); } }
+        private double? _explicitNullValueCurrentSpend = default!;
         /// <summary>The cycle_end_at property</summary>
-        public DateTimeOffset? CycleEndAt { get; set; }
+        public DateTimeOffset? CycleEndAt { get => _explicitNullValueCycleEndAt; set { _explicitNullValueCycleEndAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cycle_end_at"); else _explicitNullProperties?.Remove("cycle_end_at"); } }
+        private DateTimeOffset? _explicitNullValueCycleEndAt = default!;
         /// <summary>The cycle_start_at property</summary>
-        public DateTimeOffset? CycleStartAt { get; set; }
+        public DateTimeOffset? CycleStartAt { get => _explicitNullValueCycleStartAt; set { _explicitNullValueCycleStartAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cycle_start_at"); else _explicitNullProperties?.Remove("cycle_start_at"); } }
+        private DateTimeOffset? _explicitNullValueCycleStartAt = default!;
         /// <summary>The enabled property</summary>
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        private bool? _explicitNullValueEnabled = default!;
         /// <summary>The is_disabled property</summary>
-        public bool? IsDisabled { get; set; }
+        public bool? IsDisabled { get => _explicitNullValueIsDisabled; set { _explicitNullValueIsDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_disabled"); else _explicitNullProperties?.Remove("is_disabled"); } }
+        private bool? _explicitNullValueIsDisabled = default!;
         /// <summary>The is_override property</summary>
-        public bool? IsOverride { get; set; }
+        public bool? IsOverride { get => _explicitNullValueIsOverride; set { _explicitNullValueIsOverride = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_override"); else _explicitNullProperties?.Remove("is_override"); } }
+        private bool? _explicitNullValueIsOverride = default!;
         /// <summary>The limit_updated_at property</summary>
-        public DateTimeOffset? LimitUpdatedAt { get; set; }
+        public DateTimeOffset? LimitUpdatedAt { get => _explicitNullValueLimitUpdatedAt; set { _explicitNullValueLimitUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit_updated_at"); else _explicitNullProperties?.Remove("limit_updated_at"); } }
+        private DateTimeOffset? _explicitNullValueLimitUpdatedAt = default!;
         /// <summary>The monthly_limit property</summary>
-        public double? MonthlyLimit { get; set; }
+        public double? MonthlyLimit { get => _explicitNullValueMonthlyLimit; set { _explicitNullValueMonthlyLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("monthly_limit"); else _explicitNullProperties?.Remove("monthly_limit"); } }
+        private double? _explicitNullValueMonthlyLimit = default!;
         /// <summary>The org_current_spend property</summary>
-        public double? OrgCurrentSpend { get; set; }
+        public double? OrgCurrentSpend { get => _explicitNullValueOrgCurrentSpend; set { _explicitNullValueOrgCurrentSpend = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_current_spend"); else _explicitNullProperties?.Remove("org_current_spend"); } }
+        private double? _explicitNullValueOrgCurrentSpend = default!;
         /// <summary>The org_monthly_limit property</summary>
-        public double? OrgMonthlyLimit { get; set; }
+        public double? OrgMonthlyLimit { get => _explicitNullValueOrgMonthlyLimit; set { _explicitNullValueOrgMonthlyLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_monthly_limit"); else _explicitNullProperties?.Remove("org_monthly_limit"); } }
+        private double? _explicitNullValueOrgMonthlyLimit = default!;
         /// <summary>The spend_observed_at property</summary>
-        public DateTimeOffset? SpendObservedAt { get; set; }
+        public DateTimeOffset? SpendObservedAt { get => _explicitNullValueSpendObservedAt; set { _explicitNullValueSpendObservedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_observed_at"); else _explicitNullProperties?.Remove("spend_observed_at"); } }
+        private DateTimeOffset? _explicitNullValueSpendObservedAt = default!;
         /// <summary>The spend_status property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponseSpendStatus? SpendStatus { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponseSpendStatus? SpendStatus { get => _explicitNullValueSpendStatus; set { _explicitNullValueSpendStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_status"); else _explicitNullProperties?.Remove("spend_status"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponseSpendStatus? _explicitNullValueSpendStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponse"/> and sets the default values.
         /// </summary>
@@ -56,7 +87,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -99,6 +130,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteDoubleValue("org_monthly_limit", OrgMonthlyLimit);
             writer.WriteDateTimeOffsetValue("spend_observed_at", SpendObservedAt);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponseSpendStatus>("spend_status", SpendStatus);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

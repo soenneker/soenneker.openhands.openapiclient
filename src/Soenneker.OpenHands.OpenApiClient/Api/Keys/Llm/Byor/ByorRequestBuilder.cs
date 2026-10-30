@@ -61,7 +61,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Keys.Llm.Byor
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.LlmApiKeyResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.LlmApiKeyResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.LlmApiKeyResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.LlmApiKeyResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get the LLM API key for BYOR (Bring Your Own Runtime).This endpoint validates that the key exists in LiteLLM before returning it.If validation fails, it automatically generates a new key to ensure usersalways receive a working key.Returns 402 Payment Required if BYOR export is not enabled for therequest&apos;s effective org.

@@ -15375,23 +15375,15 @@
         "description": "Main agent implementation for OpenHands.\n\nThe Agent class provides the core functionality for running AI agents that can\ninteract with tools, process messages, and execute actions. It inherits from\nAgentBase and implements the agent execution logic. Critic-related functionality\nis provided by CriticMixin.\n\nAttributes:\n    llm: The language model instance used for reasoning.\n    tools: List of tools available to the agent.\n    system_prompt: Inline system prompt string. When provided the agent\n        uses this text verbatim instead of rendering from a template.\n        Mutually exclusive with a non-default \u0060\u0060system_prompt_filename\u0060\u0060.\n        **Not recommended** unless you know what you are doing (e.g.\n        customising agent behaviour for a completely different task) \u2014\n        this will override OpenHands\u0027 built-in system instructions.\n    system_prompt_filename: Jinja2 template filename resolved relative to\n        the agent\u0027s prompts directory, or an absolute path. Defaults to\n        \u0060\u0060\u0022system_prompt.j2\u0022\u0060\u0060.\n    system_prompt_kwargs: Extra kwargs forwarded to the Jinja2 template.\n\nExample:\n    \u0060\u0060\u0060python\n    from openhands.sdk import LLM, Agent, Tool\n    from pydantic import SecretStr\n\n    llm = LLM(model=\u0022gpt-5.6\u0022, api_key=SecretStr(\u0022key\u0022))\n    tools = [Tool(name=\u0022TerminalTool\u0022), Tool(name=\u0022FileEditorTool\u0022)]\n    agent = Agent(llm=llm, tools=tools)\n    \u0060\u0060\u0060\n\n    To override the system prompt entirely::\n\n        agent = Agent(\n            llm=llm,\n            tools=tools,\n            system_prompt=\u0022You are a helpful coding assistant.\u0022,\n        )"
       },
       "AgentBase": {
-        "required": [
-          "kind"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/AcpAgent"
+            "$ref": "#/components/schemas/AgentBaseOneOf1"
           },
           {
-            "$ref": "#/components/schemas/Agent"
+            "$ref": "#/components/schemas/AgentBaseOneOf2"
           }
         ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
             "openhands__sdk__agent__acp_agent__ACPAgent-Input__1": "#/components/schemas/AcpAgent",
@@ -17347,26 +17339,18 @@
         "description": "Tool for consulting the Oracle (a saved LLM profile named \u0022oracle\u0022)."
       },
       "AuthProviderDetailsInput": {
-        "required": [
-          "kind"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/OAuthProviderDetailsInput"
+            "$ref": "#/components/schemas/AuthProviderDetailsInputOneOf1"
           },
           {
-            "$ref": "#/components/schemas/PasswordProviderDetailsInput"
+            "$ref": "#/components/schemas/AuthProviderDetailsInputOneOf2"
           },
           {
-            "$ref": "#/components/schemas/SamlProviderDetailsInput"
+            "$ref": "#/components/schemas/AuthProviderDetailsInputOneOf3"
           }
         ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
             "storage__auth_provider_details__OAuthProviderDetails-Input__1": "#/components/schemas/OAuthProviderDetailsInput",
@@ -17376,9 +17360,6 @@
         }
       },
       "AuthProviderDetailsOutput": {
-        "required": [
-          "kind"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/OAuthProviderDetailsOutput"
@@ -17390,12 +17371,7 @@
             "$ref": "#/components/schemas/SamlProviderDetailsOutput"
           }
         ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
             "storage__auth_provider_details__OAuthProviderDetails-Output__1": "#/components/schemas/OAuthProviderDetailsOutput",
@@ -17557,23 +17533,15 @@
         "description": "One \u0060\u0060auth_provider_users\u0060\u0060 row, joined with the linked \u0060\u0060User\u0060\u0060.\n\nBacks the admin \u0022User Links\u0022 table (\u0060\u0060GET /{provider_id}/users\u0060\u0060).\n\u0060\u0060user_name\u0060\u0060 is the linked account\u0027s display name, so a super admin\npicking the right account to re-point at sees a name rather than only a\nUUID."
       },
       "BaseWorkspace": {
-        "required": [
-          "kind"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/LocalWorkspaceInput"
+            "$ref": "#/components/schemas/BaseWorkspaceOneOf1"
           },
           {
-            "$ref": "#/components/schemas/RemoteWorkspace"
+            "$ref": "#/components/schemas/BaseWorkspaceOneOf2"
           }
         ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
             "openhands__sdk__workspace__local__LocalWorkspace-Input__1": "#/components/schemas/LocalWorkspaceInput",
@@ -19281,26 +19249,18 @@
         "description": "This event represents a summary generated by a condenser."
       },
       "CondenserBaseInput": {
-        "required": [
-          "kind"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/LlmSummarizingCondenserInput"
+            "$ref": "#/components/schemas/CondenserBaseInputOneOf1"
           },
           {
-            "$ref": "#/components/schemas/NoOpCondenserInput"
+            "$ref": "#/components/schemas/CondenserBaseInputOneOf2"
           },
           {
-            "$ref": "#/components/schemas/PipelineCondenserInput"
+            "$ref": "#/components/schemas/CondenserBaseInputOneOf3"
           }
         ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
             "openhands__sdk__context__condenser__llm_summarizing_condenser__LLMSummarizingCondenser-Input__1": "#/components/schemas/LlmSummarizingCondenserInput",
@@ -19310,9 +19270,6 @@
         }
       },
       "CondenserBaseOutput": {
-        "required": [
-          "kind"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/LlmSummarizingCondenserOutput"
@@ -19324,12 +19281,7 @@
             "$ref": "#/components/schemas/PipelineCondenserOutput"
           }
         ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
             "openhands__sdk__context__condenser__llm_summarizing_condenser__LLMSummarizingCondenser-Output__1": "#/components/schemas/LlmSummarizingCondenserOutput",
@@ -19358,26 +19310,18 @@
         }
       },
       "ConfirmationPolicyBase": {
-        "required": [
-          "kind"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/AlwaysConfirm"
+            "$ref": "#/components/schemas/ConfirmationPolicyBaseOneOf1"
           },
           {
-            "$ref": "#/components/schemas/ConfirmRisky"
+            "$ref": "#/components/schemas/ConfirmationPolicyBaseOneOf2"
           },
           {
-            "$ref": "#/components/schemas/NeverConfirm"
+            "$ref": "#/components/schemas/ConfirmationPolicyBaseOneOf3"
           }
         ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
             "openhands__sdk__security__confirmation_policy__AlwaysConfirm-Input__1": "#/components/schemas/AlwaysConfirm",
@@ -20349,29 +20293,21 @@
         "description": "Response model for created API key."
       },
       "CriticBase": {
-        "required": [
-          "kind"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/AgentFinishedCritic"
+            "$ref": "#/components/schemas/CriticBaseOneOf1"
           },
           {
-            "$ref": "#/components/schemas/ApiBasedCritic"
+            "$ref": "#/components/schemas/CriticBaseOneOf2"
           },
           {
-            "$ref": "#/components/schemas/EmptyPatchCritic"
+            "$ref": "#/components/schemas/CriticBaseOneOf3"
           },
           {
-            "$ref": "#/components/schemas/PassCritic"
+            "$ref": "#/components/schemas/CriticBaseOneOf4"
           }
         ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
             "openhands__sdk__critic__impl__agent_finished__AgentFinishedCritic-Input__1": "#/components/schemas/AgentFinishedCritic",
@@ -21105,44 +21041,36 @@
         }
       },
       "EventCallbackProcessorInput": {
-        "required": [
-          "kind"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/BitbucketV1CallbackProcessorInput"
+            "$ref": "#/components/schemas/EventCallbackProcessorInputOneOf1"
           },
           {
-            "$ref": "#/components/schemas/GithubV1CallbackProcessorInput"
+            "$ref": "#/components/schemas/EventCallbackProcessorInputOneOf2"
           },
           {
-            "$ref": "#/components/schemas/GitlabV1CallbackProcessorInput"
+            "$ref": "#/components/schemas/EventCallbackProcessorInputOneOf3"
           },
           {
-            "$ref": "#/components/schemas/JiraV1CallbackProcessorInput"
+            "$ref": "#/components/schemas/EventCallbackProcessorInputOneOf4"
           },
           {
-            "$ref": "#/components/schemas/JiraDcV1CallbackProcessorInput"
+            "$ref": "#/components/schemas/EventCallbackProcessorInputOneOf5"
           },
           {
-            "$ref": "#/components/schemas/SlackV1CallbackProcessorInput"
+            "$ref": "#/components/schemas/EventCallbackProcessorInputOneOf6"
           },
           {
-            "$ref": "#/components/schemas/LoggingCallbackProcessorInput"
+            "$ref": "#/components/schemas/EventCallbackProcessorInputOneOf7"
           },
           {
-            "$ref": "#/components/schemas/MemoryChangeCallbackProcessorInput"
+            "$ref": "#/components/schemas/EventCallbackProcessorInputOneOf8"
           },
           {
-            "$ref": "#/components/schemas/SetTitleCallbackProcessorInput"
+            "$ref": "#/components/schemas/EventCallbackProcessorInputOneOf9"
           }
         ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
             "integrations__bitbucket__bitbucket_v1_callback_processor__BitbucketV1CallbackProcessor-Input__1": "#/components/schemas/BitbucketV1CallbackProcessorInput",
@@ -21158,9 +21086,6 @@
         }
       },
       "EventCallbackProcessorOutput": {
-        "required": [
-          "kind"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/BitbucketV1CallbackProcessorOutput"
@@ -21190,12 +21115,7 @@
             "$ref": "#/components/schemas/SetTitleCallbackProcessorOutput"
           }
         ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
             "integrations__bitbucket__bitbucket_v1_callback_processor__BitbucketV1CallbackProcessor-Output__1": "#/components/schemas/BitbucketV1CallbackProcessorOutput",
@@ -31306,23 +31226,15 @@
         "description": "Manages secrets and injects them into bash commands when needed.\n\nThe secret registry stores a mapping of secret keys to SecretSources\nthat retrieve the actual secret values. When a bash command is about to be\nexecuted, it scans the command for any secret keys and injects the corresponding\nenvironment variables.\n\nSecret sources will redact / encrypt their sensitive values as appropriate when\nserializing, depending on the content of the context. If a context is present\nand contains a \u0027cipher\u0027 object, this is used for encryption. If it contains a\nboolean \u0027expose_secrets\u0027 flag set to True, secrets are dunped in plain text.\nOtherwise secrets are redacted.\n\nAdditionally, it tracks the latest exported values to enable consistent masking\neven when callable secrets fail on subsequent calls."
       },
       "SecretSourceInput": {
-        "required": [
-          "kind"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/LookupSecretInput"
+            "$ref": "#/components/schemas/SecretSourceInputOneOf1"
           },
           {
-            "$ref": "#/components/schemas/StaticSecretInput"
+            "$ref": "#/components/schemas/SecretSourceInputOneOf2"
           }
         ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
             "openhands__sdk__secret__secrets__LookupSecret-Input__1": "#/components/schemas/LookupSecretInput",
@@ -31331,9 +31243,6 @@
         }
       },
       "SecretSourceOutput": {
-        "required": [
-          "kind"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/LookupSecretOutput"
@@ -31342,12 +31251,7 @@
             "$ref": "#/components/schemas/StaticSecretOutput"
           }
         ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
             "openhands__sdk__secret__secrets__LookupSecret-Output__1": "#/components/schemas/LookupSecretOutput",
@@ -31410,35 +31314,27 @@
         "description": "Risk levels the configured security analyzer assigned to pending actions.\n\nEmitted once per batch of actions the agent is about to execute, whenever a\nsecurity analyzer is configured on the conversation, regardless of whether\nthe confirmation policy then asks for confirmation. This makes the\nanalyzer\u0027s verdict visible in the event log and UI even when the policy\n(for example \u0060\u0060NeverConfirm\u0060\u0060) never consults it.\n\nThis event is not sent to the LLM."
       },
       "SecurityAnalyzerBase": {
-        "required": [
-          "kind"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/PatternSecurityAnalyzer"
+            "$ref": "#/components/schemas/SecurityAnalyzerBaseOneOf1"
           },
           {
-            "$ref": "#/components/schemas/PolicyRailSecurityAnalyzer"
+            "$ref": "#/components/schemas/SecurityAnalyzerBaseOneOf2"
           },
           {
-            "$ref": "#/components/schemas/EnsembleSecurityAnalyzer"
+            "$ref": "#/components/schemas/SecurityAnalyzerBaseOneOf3"
           },
           {
-            "$ref": "#/components/schemas/GraySwanAnalyzer"
+            "$ref": "#/components/schemas/SecurityAnalyzerBaseOneOf4"
           },
           {
-            "$ref": "#/components/schemas/LlmSecurityAnalyzer"
+            "$ref": "#/components/schemas/SecurityAnalyzerBaseOneOf5"
           },
           {
-            "$ref": "#/components/schemas/ToolShieldLlmSecurityAnalyzer"
+            "$ref": "#/components/schemas/SecurityAnalyzerBaseOneOf6"
           }
         ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
             "openhands__sdk__security__defense_in_depth__pattern__PatternSecurityAnalyzer-Input__1": "#/components/schemas/PatternSecurityAnalyzer",
@@ -34182,9 +34078,6 @@
         "description": "Annotations to provide hints about the tool\u0027s behavior.\n\nBased on Model Context Protocol (MCP) spec:\nhttps://github.com/modelcontextprotocol/modelcontextprotocol/blob/caf3424488b10b4a7b1f8cb634244a450a1f4400/schema/2025-06-18/schema.ts#L838"
       },
       "ToolDefinition": {
-        "required": [
-          "kind"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/McpToolDefinition"
@@ -34313,12 +34206,7 @@
             "$ref": "#/components/schemas/WorkflowToolSet"
           }
         ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
             "openhands__sdk__mcp__tool__MCPToolDefinition-Output__1": "#/components/schemas/McpToolDefinition",
@@ -42561,23 +42449,15 @@
       "GetSecretApiV1WebhooksSecretsGet200Response": {},
       "ResponseTestMcpServerApiV1McpTestPost": {
         "title": "Response Test Mcp Server Api V1 Mcp Test Post",
-        "required": [
-          "ok"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/McpTestSuccess"
+            "$ref": "#/components/schemas/ResponseTestMcpServerApiV1McpTestPostOneOf1"
           },
           {
-            "$ref": "#/components/schemas/McpTestFailure"
+            "$ref": "#/components/schemas/ResponseTestMcpServerApiV1McpTestPostOneOf2"
           }
         ],
-        "properties": {
-          "ok": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "ok",
           "mapping": {
             "True": "#/components/schemas/McpTestSuccess",
@@ -42784,9 +42664,6 @@
       "VerifiedEmailApiEmailVerifiedGet200Response": {},
       "TrackFrontendEventApiAnalyticsEventsPostRequest": {
         "title": "Body",
-        "required": [
-          "event_type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/CreatePrButtonClickedEvent"
@@ -42795,12 +42672,7 @@
             "$ref": "#/components/schemas/CanvasAuthenticatedEvent"
           }
         ],
-        "properties": {
-          "event_type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "event_type",
           "mapping": {
             "create pr button clicked": "#/components/schemas/CreatePrButtonClickedEvent",
@@ -49866,6 +49738,1577 @@
             }
           ]
         }
+      },
+      "AgentBaseOneOf1": {
+        "type": "object",
+        "properties": {
+          "llm": {
+            "$ref": "#/components/schemas/LlmInput"
+          },
+          "tools": {
+            "title": "Tools",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ToolInput"
+            }
+          },
+          "mcp_config": {
+            "$ref": "#/components/schemas/AcpAgentMcpConfigProperty"
+          },
+          "filter_tools_regex": {
+            "examples": [
+              "^(?!repomix)(.*)|^repomix.*pack_codebase.*$"
+            ],
+            "title": "Filter Tools Regex",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional regex to filter the tools available to the agent by name. This is applied after any tools provided in \u0060tools\u0060 and any MCP tools are added."
+          },
+          "include_default_tools": {
+            "title": "Include Default Tools",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "agent_context": {
+            "$ref": "#/components/schemas/AcpAgentAgentContext"
+          },
+          "system_prompt": {
+            "title": "System Prompt",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Inline system prompt string.  When provided, the agent uses this text verbatim as the system message instead of rendering from \u0060system_prompt_filename\u0060.  Mutually exclusive with a non-default \u0060system_prompt_filename\u0060.\n\n**Warning**: This is not recommended unless you know what you are doing (e.g. customising agent behaviour for a completely different task).  Setting this will override OpenHands\u0027 built-in system instructions that govern default agent behaviour."
+          },
+          "system_prompt_filename": {
+            "title": "System Prompt Filename",
+            "type": "string",
+            "description": "System prompt template filename. Can be either:\n- A relative filename (e.g., \u0027system_prompt.j2\u0027) loaded from the agent\u0027s prompts directory\n- An absolute path (e.g., \u0027/path/to/custom_prompt.j2\u0027)",
+            "default": "system_prompt.j2"
+          },
+          "security_policy_filename": {
+            "title": "Security Policy Filename",
+            "type": "string",
+            "description": "Security policy filename. The default \u0027security_policy.j2\u0027 is a back-compat sentinel (the file was removed) that selects the built-in default policy from the prompt registry -- it is not loaded from disk. Any other value names a custom policy file whose contents are inserted verbatim (NOT rendered as a Jinja template). Can be either:\n- A relative filename (e.g., \u0027custom_security_policy.md\u0027) loaded from the agent\u0027s prompts directory\n- An absolute path (e.g., \u0027/path/to/custom_security_policy.md\u0027)\n- Empty string to disable security policy",
+            "default": "security_policy.j2"
+          },
+          "system_prompt_kwargs": {
+            "$ref": "#/components/schemas/AcpAgentSystemPromptKwargsProperty"
+          },
+          "condenser": {
+            "$ref": "#/components/schemas/AcpAgentCondenser"
+          },
+          "critic": {
+            "$ref": "#/components/schemas/AcpAgentCritic"
+          },
+          "tool_concurrency_limit": {
+            "title": "Tool Concurrency Limit",
+            "minimum": 1.0,
+            "type": "integer",
+            "description": "Maximum number of tool calls to execute concurrently within a single agent step. Default is 1 (sequential). Values \u003E 1 enable parallel execution; concurrent tools share the conversation object, filesystem, and working directory, so mutations to shared state may race.",
+            "default": 1
+          },
+          "acp_command": {
+            "title": "Acp Command",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Command to start the ACP server, e.g. [\u0027npx\u0027, \u0027-y\u0027, \u0027@agentclientprotocol/claude-agent-acp\u0027]"
+          },
+          "acp_server": {
+            "title": "Acp Server",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Provider registry key identifying which ACP CLI this agent runs (any ACP_PROVIDERS key, or \u0027custom\u0027); None when the agent is built directly rather than via ACPAgentSettings. Set by ACPAgentSettings.create_agent() from ACPAgentSettings.acp_server so the authoritative key survives onto the agent \u2014 and thus onto ConversationInfo.agent \u2014 because the launch command in acp_command does not reliably reverse-map to a provider. Informational only: consumers use it to resolve a provider brand label / model list; the subprocess is still launched from acp_command."
+          },
+          "acp_args": {
+            "title": "Acp Args",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Additional arguments for the ACP server command"
+          },
+          "acp_session_mode": {
+            "title": "Acp Session Mode",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Session mode ID to set after creating a session. If None (default), auto-detected from the ACP server type: \u0027bypassPermissions\u0027 for claude-agent-acp, \u0027agent-full-access\u0027 for codex-acp; a provider with no such mode (pi-acp) skips the call."
+          },
+          "acp_prompt_timeout": {
+            "title": "Acp Prompt Timeout",
+            "type": "number",
+            "description": "Inactivity timeout in seconds for a single ACP prompt() call. The deadline resets on every update from the ACP server (token, thought, tool-call progress, usage), so a steadily-progressing agent runs as long as it keeps making progress; the prompt is only aborted after this many seconds with no activity at all. Prevents indefinite hangs when the ACP server stops responding without killing legitimately long-running work.",
+            "default": 1800.0
+          },
+          "acp_startup_timeout": {
+            "title": "Acp Startup Timeout",
+            "type": "number",
+            "description": "Timeout in seconds for ACP server startup: spawning the subprocess, the initialize/authenticate handshake, and new_session()/load_session(). Unlike acp_prompt_timeout, this is a hard deadline rather than an idle deadline, since startup has no intermediate progress signal to reset it against. Prevents an indefinite hang when the ACP server blocks on authentication (e.g. an expired token) without ever raising.",
+            "default": 90.0
+          },
+          "acp_model": {
+            "title": "Acp Model",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Model for the ACP server to use (e.g. \u0027sonnet\u0027 or \u0027gpt-5.5\u0027). Applied via the protocol \u2014 set_config_option(model) for configOptions-based servers (codex, claude), else set_session_model. If None, the server picks its default."
+          },
+          "acp_resume_session_id": {
+            "title": "Acp Resume Session Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional explicit ACP session id to resume. When set, takes precedence over the id persisted in \u0060\u0060state.agent_state\u0060\u0060 and is used to call \u0060\u0060session/load\u0060\u0060 on the ACP server. Designed for environments where the per-conversation filesystem (and therefore \u0060\u0060base_state.json\u0060\u0060) does not survive across restarts (e.g. cloud sandbox recycles), but the id has been mirrored into durable storage elsewhere. Falls back to a fresh session if the server cannot load the id. Treated as a secret on the wire \u2014 possession of the id is enough to resume the underlying ACP session, so default serialization redacts it; pass \u0060\u0060expose_secrets=\u0027plaintext\u0027\u0060\u0060 (trusted backend) or \u0060\u0060expose_secrets=\u0027encrypted\u0027\u0060\u0060 plus a cipher (frontend round-trip) when the value must cross a serialization boundary."
+          },
+          "acp_file_secrets": {
+            "title": "Acp File Secrets",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AcpFileSecretSpec"
+            },
+            "description": "Reserved \u0027file-content\u0027 credential secrets to materialise to disk before launching the subprocess (e.g. Codex auth.json, Gemini Vertex SA JSON). The SDK owns the mechanism (write the file in the runtime pod, set the env var, seed-if-absent); these specs are the policy. Defaults to the built-in supported providers; a downstream application may override or extend this to support other ACP servers with different file-auth schemes."
+          },
+          "acp_isolate_data_dir": {
+            "title": "Acp Isolate Data Dir",
+            "type": "boolean",
+            "description": "Give the ACP subprocess a per-conversation CLI data/config root instead of the shared user \u0060\u0060HOME\u0060\u0060. When True and the provider is recognised, point its data-dir env var (\u0060\u0060CODEX_HOME\u0060\u0060 / \u0060\u0060CLAUDE_CONFIG_DIR\u0060\u0060 / \u0060\u0060HOME\u0060\u0060; see \u0060\u0060ACPProviderInfo.data_dir_env_var\u0060\u0060) at \u0060\u0060\u003Cpersistence_dir\u003E/acp/\u003Cprovider\u003E\u0060\u0060 \u2014 the same per-conversation tree materialised file-secrets use. Required for correctness when several of a user\u0027s conversations share one sandbox (\u0060\u0060SandboxGroupingStrategy != NO_GROUPING\u0060\u0060), where they would otherwise race on one set of CLI auth/config/cache/lock files (see #1019). Off by default: with one sandbox per conversation the shared HOME is already private, and relocating it would hide a pre-existing interactive login. Downstream policy decides when to enable it; the SDK owns where the root lives.",
+            "default": false
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "ACPAgent"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "Kind",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "ACPAgent",
+                  "name": "AcpAgent"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "acp_command",
+          "kind"
+        ]
+      },
+      "AgentBaseOneOf2": {
+        "type": "object",
+        "properties": {
+          "llm": {
+            "$ref": "#/components/schemas/LlmInput"
+          },
+          "tools": {
+            "examples": [
+              {
+                "name": "TerminalTool",
+                "params": {}
+              },
+              {
+                "name": "FileEditorTool",
+                "params": {}
+              },
+              {
+                "name": "TaskTrackerTool",
+                "params": {}
+              }
+            ],
+            "title": "Tools",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ToolInput"
+            },
+            "description": "List of tools to initialize for the agent."
+          },
+          "mcp_config": {
+            "$ref": "#/components/schemas/AgentMcpConfigProperty"
+          },
+          "filter_tools_regex": {
+            "examples": [
+              "^(?!repomix)(.*)|^repomix.*pack_codebase.*$"
+            ],
+            "title": "Filter Tools Regex",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional regex to filter the tools available to the agent by name. This is applied after any tools provided in \u0060tools\u0060 and any MCP tools are added."
+          },
+          "include_default_tools": {
+            "examples": [
+              [
+                "FinishTool",
+                "ThinkTool"
+              ],
+              [
+                "FinishTool"
+              ],
+              []
+            ],
+            "title": "Include Default Tools",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of default tool class names to include. By default, the agent includes \u0027FinishTool\u0027 and \u0027ThinkTool\u0027. Set to an empty list to disable all default tools, or provide a subset to include only specific ones. Example: include_default_tools=[\u0027FinishTool\u0027] to only include FinishTool, or include_default_tools=[] to disable all default tools."
+          },
+          "agent_context": {
+            "$ref": "#/components/schemas/AgentAgentContext"
+          },
+          "system_prompt": {
+            "title": "System Prompt",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Inline system prompt string.  When provided, the agent uses this text verbatim as the system message instead of rendering from \u0060system_prompt_filename\u0060.  Mutually exclusive with a non-default \u0060system_prompt_filename\u0060.\n\n**Warning**: This is not recommended unless you know what you are doing (e.g. customising agent behaviour for a completely different task).  Setting this will override OpenHands\u0027 built-in system instructions that govern default agent behaviour."
+          },
+          "system_prompt_filename": {
+            "title": "System Prompt Filename",
+            "type": "string",
+            "description": "System prompt template filename. Can be either:\n- A relative filename (e.g., \u0027system_prompt.j2\u0027) loaded from the agent\u0027s prompts directory\n- An absolute path (e.g., \u0027/path/to/custom_prompt.j2\u0027)",
+            "default": "system_prompt.j2"
+          },
+          "security_policy_filename": {
+            "title": "Security Policy Filename",
+            "type": "string",
+            "description": "Security policy filename. The default \u0027security_policy.j2\u0027 is a back-compat sentinel (the file was removed) that selects the built-in default policy from the prompt registry -- it is not loaded from disk. Any other value names a custom policy file whose contents are inserted verbatim (NOT rendered as a Jinja template). Can be either:\n- A relative filename (e.g., \u0027custom_security_policy.md\u0027) loaded from the agent\u0027s prompts directory\n- An absolute path (e.g., \u0027/path/to/custom_security_policy.md\u0027)\n- Empty string to disable security policy",
+            "default": "security_policy.j2"
+          },
+          "system_prompt_kwargs": {
+            "$ref": "#/components/schemas/AgentSystemPromptKwargsProperty"
+          },
+          "condenser": {
+            "$ref": "#/components/schemas/AgentCondenser"
+          },
+          "critic": {
+            "$ref": "#/components/schemas/AgentCritic"
+          },
+          "tool_concurrency_limit": {
+            "title": "Tool Concurrency Limit",
+            "minimum": 1.0,
+            "type": "integer",
+            "description": "Maximum number of tool calls to execute concurrently within a single agent step. Default is 1 (sequential). Values \u003E 1 enable parallel execution; concurrent tools share the conversation object, filesystem, and working directory, so mutations to shared state may race.",
+            "default": 1
+          },
+          "persona": {
+            "title": "Persona",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Persona text that replaces OpenHands\u0027 built-in persona and coding-workflow sections of the system prompt. Capability and policy sections (memory, security policy, risk assessment, browser, external services, process management, model-specific guidance) and the dynamic context still apply. Ignored when \u0060system_prompt\u0060 is set; a custom template receives it as the \u0060persona\u0060 kwarg."
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "Agent"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "llm",
+          "kind"
+        ]
+      },
+      "AuthProviderDetailsInputOneOf1": {
+        "type": "object",
+        "properties": {
+          "provider_type": {
+            "$ref": "#/components/schemas/ProviderType"
+          },
+          "client_id": {
+            "title": "Client Id",
+            "type": "string"
+          },
+          "client_secret": {
+            "title": "Client Secret",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "password"
+          },
+          "authorization_url": {
+            "title": "Authorization Url",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "token_url": {
+            "title": "Token Url",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "userinfo_url": {
+            "title": "Userinfo Url",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "scopes": {
+            "title": "Scopes",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "permitted_drift_seconds": {
+            "title": "Permitted Drift Seconds",
+            "type": "integer",
+            "default": 60
+          },
+          "legacy_keycloak_type": {
+            "$ref": "#/components/schemas/OAuthProviderDetailsInputLegacyKeycloakType"
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "OAuthProviderDetails"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "provider_type",
+          "client_id",
+          "kind"
+        ]
+      },
+      "AuthProviderDetailsInputOneOf2": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "PasswordProviderDetails"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "AuthProviderDetailsInputOneOf3": {
+        "type": "object",
+        "properties": {
+          "metadata_url": {
+            "title": "Metadata Url",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "idp_entity_id": {
+            "title": "Idp Entity Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sso_url": {
+            "title": "Sso Url",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sso_binding": {
+            "$ref": "#/components/schemas/SamlProviderDetailsInputSsoBinding"
+          },
+          "slo_url": {
+            "title": "Slo Url",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "idp_x509_cert": {
+            "title": "Idp X509 Cert",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sp_private_key": {
+            "title": "Sp Private Key",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "password"
+          },
+          "sp_x509_cert": {
+            "title": "Sp X509 Cert",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name_id_format": {
+            "title": "Name Id Format",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "attribute_mapping": {
+            "$ref": "#/components/schemas/SamlProviderDetailsInputAttributeMappingProperty"
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "SamlProviderDetails"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "BaseWorkspaceOneOf1": {
+        "type": "object",
+        "properties": {
+          "working_dir": {
+            "title": "Working Dir",
+            "type": "string",
+            "description": "The working directory for agent operations and tool execution. Accepts both string paths and Path objects. Path objects are automatically converted to strings."
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "LocalWorkspace"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "working_dir",
+          "kind"
+        ]
+      },
+      "BaseWorkspaceOneOf2": {
+        "type": "object",
+        "properties": {
+          "working_dir": {
+            "title": "Working Dir",
+            "type": "string",
+            "description": "The working directory for agent operations and tool execution."
+          },
+          "host": {
+            "title": "Host",
+            "type": "string",
+            "description": "The remote host URL for the workspace."
+          },
+          "api_key": {
+            "title": "Api Key",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "API key for authenticating with the remote host."
+          },
+          "read_timeout": {
+            "title": "Read Timeout",
+            "type": "number",
+            "description": "Timeout in seconds for reading operations of httpx.Client.",
+            "default": 600.0
+          },
+          "max_connections": {
+            "title": "Max Connections",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Maximum number of connections for httpx.Client. None means no limit, useful for running many conversations in parallel."
+          },
+          "runtime_conversation_id": {
+            "title": "Runtime Conversation Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Conversation runtime scope; None uses the host workspace.",
+            "format": "uuid"
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "RemoteWorkspace"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "working_dir",
+          "host",
+          "kind"
+        ]
+      },
+      "CondenserBaseInputOneOf1": {
+        "type": "object",
+        "properties": {
+          "llm": {
+            "$ref": "#/components/schemas/LlmInput"
+          },
+          "max_size": {
+            "title": "Max Size",
+            "exclusiveMinimum": 0.0,
+            "type": "integer",
+            "default": 240
+          },
+          "max_tokens": {
+            "title": "Max Tokens",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "keep_first": {
+            "title": "Keep First",
+            "minimum": 0.0,
+            "type": "integer",
+            "default": 2
+          },
+          "minimum_progress": {
+            "title": "Minimum Progress",
+            "exclusiveMaximum": 1.0,
+            "exclusiveMinimum": 0.0,
+            "type": "number",
+            "default": 0.1
+          },
+          "hard_context_reset_max_retries": {
+            "title": "Hard Context Reset Max Retries",
+            "exclusiveMinimum": 0.0,
+            "type": "integer",
+            "default": 5
+          },
+          "hard_context_reset_context_scaling": {
+            "title": "Hard Context Reset Context Scaling",
+            "exclusiveMaximum": 1.0,
+            "exclusiveMinimum": 0.0,
+            "type": "number",
+            "default": 0.8
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "LLMSummarizingCondenser"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "Kind",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "LLMSummarizingCondenser",
+                  "name": "LlmSummarizingCondenser"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "llm",
+          "kind"
+        ]
+      },
+      "CondenserBaseInputOneOf2": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "NoOpCondenser"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "CondenserBaseInputOneOf3": {
+        "type": "object",
+        "properties": {
+          "condensers": {
+            "title": "Condensers",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CondenserBaseInput"
+            }
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "PipelineCondenser"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "condensers",
+          "kind"
+        ]
+      },
+      "ConfirmationPolicyBaseOneOf1": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "AlwaysConfirm"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "ConfirmationPolicyBaseOneOf2": {
+        "type": "object",
+        "properties": {
+          "threshold": {
+            "description": "Security risk levels for actions.\n\nBased on OpenHands security risk levels but adapted for agent-sdk.\nInteger values allow for easy comparison and ordering.",
+            "default": "HIGH",
+            "$ref": "#/components/schemas/SecurityRisk"
+          },
+          "confirm_unknown": {
+            "title": "Confirm Unknown",
+            "type": "boolean",
+            "default": true
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "ConfirmRisky"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "ConfirmationPolicyBaseOneOf3": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "NeverConfirm"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "CriticBaseOneOf1": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "$ref": "#/components/schemas/AgentFinishedCriticMode"
+          },
+          "iterative_refinement": {
+            "$ref": "#/components/schemas/AgentFinishedCriticIterativeRefinement"
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "AgentFinishedCritic"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "CriticBaseOneOf2": {
+        "type": "object",
+        "properties": {
+          "server_url": {
+            "title": "Server Url",
+            "type": "string",
+            "description": "Base URL of the vLLM classification service",
+            "default": "https://llm-proxy.app.all-hands.dev/vllm"
+          },
+          "api_key": {
+            "$ref": "#/components/schemas/ApiBasedCriticApiKey"
+          },
+          "model_name": {
+            "title": "Model Name",
+            "type": "string",
+            "description": "Name of the model to use",
+            "default": "critic"
+          },
+          "tokenizer_name": {
+            "title": "Tokenizer Name",
+            "type": "string",
+            "description": "HuggingFace tokenizer name for loading chat template",
+            "default": "Qwen/Qwen3-4B-Instruct-2507"
+          },
+          "pass_tools_definitions": {
+            "title": "Pass Tools Definitions",
+            "type": "boolean",
+            "description": "Whether to pass tool definitions to the model",
+            "default": true
+          },
+          "timeout_seconds": {
+            "title": "Timeout Seconds",
+            "type": "number",
+            "description": "Timeout for requests to the model",
+            "default": 300.0
+          },
+          "has_success_label": {
+            "title": "Has Success Label",
+            "type": "boolean",
+            "description": "Whether the model predicts success label at index 0",
+            "default": true
+          },
+          "sentiment_labels": {
+            "title": "Sentiment Labels",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "sentiment_positive",
+              "sentiment_neutral",
+              "sentiment_negative"
+            ]
+          },
+          "agent_issue_labels": {
+            "title": "Agent Issue Labels",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "misunderstood_intention",
+              "did_not_follow_instruction",
+              "insufficient_analysis",
+              "insufficient_clarification",
+              "improper_tool_use_or_setup",
+              "loop_behavior",
+              "insufficient_testing",
+              "insufficient_debugging",
+              "incomplete_implementation",
+              "file_management_errors",
+              "scope_creep",
+              "risky_actions_or_permission",
+              "other_agent_issue"
+            ]
+          },
+          "infra_labels": {
+            "title": "Infra Labels",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "infrastructure_external_issue",
+              "infrastructure_agent_caused_issue"
+            ]
+          },
+          "user_followup_labels": {
+            "title": "User Followup Labels",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "clarification_or_restatement",
+              "correction",
+              "direction_change",
+              "vcs_update_requests",
+              "progress_or_scope_concern",
+              "frustration_or_complaint",
+              "removal_or_reversion_request",
+              "other_user_issue"
+            ]
+          },
+          "sentiment_map": {
+            "$ref": "#/components/schemas/ApiBasedCriticSentimentMapProperty"
+          },
+          "mode": {
+            "$ref": "#/components/schemas/ApiBasedCriticMode"
+          },
+          "iterative_refinement": {
+            "$ref": "#/components/schemas/ApiBasedCriticIterativeRefinement"
+          },
+          "issue_threshold": {
+            "title": "Issue Threshold",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "type": "number",
+            "description": "APIBasedCritic-specific probability threshold for agent issue labels that should trigger iterative refinement.",
+            "default": 0.75
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "APIBasedCritic"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "Kind",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "APIBasedCritic",
+                  "name": "ApiBasedCritic"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "api_key",
+          "kind"
+        ]
+      },
+      "CriticBaseOneOf3": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "$ref": "#/components/schemas/EmptyPatchCriticMode"
+          },
+          "iterative_refinement": {
+            "$ref": "#/components/schemas/EmptyPatchCriticIterativeRefinement"
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "EmptyPatchCritic"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "CriticBaseOneOf4": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "$ref": "#/components/schemas/PassCriticMode"
+          },
+          "iterative_refinement": {
+            "$ref": "#/components/schemas/PassCriticIterativeRefinement"
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "PassCritic"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "EventCallbackProcessorInputOneOf1": {
+        "type": "object",
+        "properties": {
+          "bitbucket_view_data": {
+            "$ref": "#/components/schemas/BitbucketV1CallbackProcessorInputBitbucketViewDataProperty"
+          },
+          "should_request_summary": {
+            "title": "Should Request Summary",
+            "type": "boolean",
+            "default": true
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "BitbucketV1CallbackProcessor"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "EventCallbackProcessorInputOneOf2": {
+        "type": "object",
+        "properties": {
+          "github_view_data": {
+            "$ref": "#/components/schemas/GithubV1CallbackProcessorInputGithubViewDataProperty"
+          },
+          "should_request_summary": {
+            "title": "Should Request Summary",
+            "type": "boolean",
+            "default": true
+          },
+          "inline_pr_comment": {
+            "title": "Inline Pr Comment",
+            "type": "boolean",
+            "default": false
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "GithubV1CallbackProcessor"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "EventCallbackProcessorInputOneOf3": {
+        "type": "object",
+        "properties": {
+          "gitlab_view_data": {
+            "$ref": "#/components/schemas/GitlabV1CallbackProcessorInputGitlabViewDataProperty"
+          },
+          "should_request_summary": {
+            "title": "Should Request Summary",
+            "type": "boolean",
+            "default": true
+          },
+          "inline_mr_comment": {
+            "title": "Inline Mr Comment",
+            "type": "boolean",
+            "default": false
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "GitlabV1CallbackProcessor"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "EventCallbackProcessorInputOneOf4": {
+        "type": "object",
+        "properties": {
+          "should_request_summary": {
+            "title": "Should Request Summary",
+            "type": "boolean",
+            "default": true
+          },
+          "svc_acc_email": {
+            "title": "Svc Acc Email",
+            "type": "string"
+          },
+          "decrypted_api_key": {
+            "title": "Decrypted Api Key",
+            "type": "string"
+          },
+          "issue_key": {
+            "title": "Issue Key",
+            "type": "string"
+          },
+          "jira_cloud_id": {
+            "title": "Jira Cloud Id",
+            "type": "string"
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "JiraV1CallbackProcessor"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "svc_acc_email",
+          "decrypted_api_key",
+          "issue_key",
+          "jira_cloud_id",
+          "kind"
+        ]
+      },
+      "EventCallbackProcessorInputOneOf5": {
+        "type": "object",
+        "properties": {
+          "should_request_summary": {
+            "title": "Should Request Summary",
+            "type": "boolean",
+            "default": true
+          },
+          "issue_key": {
+            "title": "Issue Key",
+            "type": "string"
+          },
+          "workspace_name": {
+            "title": "Workspace Name",
+            "type": "string"
+          },
+          "base_api_url": {
+            "title": "Base Api Url",
+            "type": "string"
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "JiraDcV1CallbackProcessor"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "issue_key",
+          "workspace_name",
+          "base_api_url",
+          "kind"
+        ]
+      },
+      "EventCallbackProcessorInputOneOf6": {
+        "type": "object",
+        "properties": {
+          "slack_view_data": {
+            "$ref": "#/components/schemas/SlackV1CallbackProcessorInputSlackViewDataProperty"
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "SlackV1CallbackProcessor"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "EventCallbackProcessorInputOneOf7": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "LoggingCallbackProcessor"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "EventCallbackProcessorInputOneOf8": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "MemoryChangeCallbackProcessor"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "EventCallbackProcessorInputOneOf9": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "SetTitleCallbackProcessor"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "SecretSourceInputOneOf1": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "title": "Description",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional description for this secret"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          },
+          "headers": {
+            "$ref": "#/components/schemas/LookupSecretInputHeadersProperty"
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "LookupSecret"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "url",
+          "kind"
+        ]
+      },
+      "SecretSourceInputOneOf2": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "title": "Description",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional description for this secret"
+          },
+          "value": {
+            "title": "Value",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "password"
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "StaticSecret"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "SecurityAnalyzerBaseOneOf1": {
+        "type": "object",
+        "properties": {
+          "high_patterns": {
+            "title": "High Patterns",
+            "type": "array",
+            "items": {
+              "maxItems": 3,
+              "minItems": 3,
+              "type": "array",
+              "items": {
+                "description": "Fallback array item schema"
+              },
+              "prefixItems": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "description": "HIGH patterns scanned against executable fields only"
+          },
+          "medium_patterns": {
+            "title": "Medium Patterns",
+            "type": "array",
+            "items": {
+              "maxItems": 3,
+              "minItems": 3,
+              "type": "array",
+              "items": {
+                "description": "Fallback array item schema"
+              },
+              "prefixItems": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "description": "MEDIUM patterns scanned against executable fields only"
+          },
+          "injection_high_patterns": {
+            "title": "Injection High Patterns",
+            "type": "array",
+            "items": {
+              "maxItems": 3,
+              "minItems": 3,
+              "type": "array",
+              "items": {
+                "description": "Fallback array item schema"
+              },
+              "prefixItems": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "description": "HIGH patterns scanned against all fields"
+          },
+          "injection_medium_patterns": {
+            "title": "Injection Medium Patterns",
+            "type": "array",
+            "items": {
+              "maxItems": 3,
+              "minItems": 3,
+              "type": "array",
+              "items": {
+                "description": "Fallback array item schema"
+              },
+              "prefixItems": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "description": "MEDIUM patterns scanned against all fields"
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "PatternSecurityAnalyzer"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "SecurityAnalyzerBaseOneOf2": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "PolicyRailSecurityAnalyzer"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "SecurityAnalyzerBaseOneOf3": {
+        "type": "object",
+        "properties": {
+          "analyzers": {
+            "title": "Analyzers",
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecurityAnalyzerBase"
+            },
+            "description": "Analyzers whose assessments are combined via max-severity"
+          },
+          "propagate_unknown": {
+            "title": "Propagate Unknown",
+            "type": "boolean",
+            "description": "When True, any child returning UNKNOWN causes the ensemble to return UNKNOWN. When False (default), UNKNOWN is filtered out if any child returns a concrete level.",
+            "default": false
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "EnsembleSecurityAnalyzer"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "analyzers",
+          "kind"
+        ]
+      },
+      "SecurityAnalyzerBaseOneOf4": {
+        "type": "object",
+        "properties": {
+          "history_limit": {
+            "title": "History Limit",
+            "type": "integer",
+            "description": "Number of recent events to include as context",
+            "default": 20
+          },
+          "max_message_chars": {
+            "title": "Max Message Chars",
+            "type": "integer",
+            "description": "Max characters for conversation processing",
+            "default": 30000
+          },
+          "timeout": {
+            "title": "Timeout",
+            "type": "number",
+            "description": "Request timeout in seconds",
+            "default": 30.0
+          },
+          "low_threshold": {
+            "title": "Low Threshold",
+            "type": "number",
+            "description": "Risk threshold for LOW classification (score \u003C= threshold)",
+            "default": 0.3
+          },
+          "medium_threshold": {
+            "title": "Medium Threshold",
+            "type": "number",
+            "description": "Risk threshold for MEDIUM classification (score \u003C= threshold)",
+            "default": 0.7
+          },
+          "api_url": {
+            "title": "Api Url",
+            "type": "string",
+            "description": "GraySwan Cygnal API endpoint",
+            "default": "https://api.grayswan.ai/cygnal/monitor"
+          },
+          "api_key": {
+            "title": "Api Key",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "GraySwan API key (via GRAYSWAN_API_KEY env var)",
+            "format": "password"
+          },
+          "policy_id": {
+            "title": "Policy Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "GraySwan policy ID (via GRAYSWAN_POLICY_ID env var)"
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "GraySwanAnalyzer"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "SecurityAnalyzerBaseOneOf5": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "LLMSecurityAnalyzer"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "Kind",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "LLMSecurityAnalyzer",
+                  "name": "LlmSecurityAnalyzer"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "SecurityAnalyzerBaseOneOf6": {
+        "type": "object",
+        "properties": {
+          "llm": {
+            "$ref": "#/components/schemas/LlmInput"
+          },
+          "history_window": {
+            "title": "History Window",
+            "type": "integer",
+            "description": "Number of prior actions to include as context.",
+            "default": 20
+          },
+          "safety_experiences": {
+            "title": "Safety Experiences",
+            "type": "string",
+            "description": "Pre-generated safety guidelines injected into the guardrail\u0027s system prompt.\n- \u0060\u0060\u0022\u0022\u0060\u0060 (default): bare guardrail -- no experiences. The analyzer still separates actor from judge; it just classifies without distilled tool-specific guidance.\n- Any non-empty string: used as-is. The intended pattern is to call one of the helpers (\u0060\u0060default_safety_experiences()\u0060\u0060, \u0060\u0060load_safety_experiences(tool_names)\u0060\u0060, \u0060\u0060auto_detect_safety_experiences()\u0060\u0060) which require the \u0060\u0060[toolshield]\u0060\u0060 optional extra (\u0060\u0060pip install openhands-sdk[toolshield]\u0060\u0060). Callers with their own source of guidelines can pass any custom string.",
+            "default": ""
+          },
+          "kind": {
+            "const": null,
+            "title": "Kind",
+            "enum": [
+              "ToolShieldLLMSecurityAnalyzer"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "Kind",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "ToolShieldLLMSecurityAnalyzer",
+                  "name": "ToolShieldLlmSecurityAnalyzer"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "llm",
+          "kind"
+        ]
+      },
+      "ResponseTestMcpServerApiV1McpTestPostOneOf1": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "const": null,
+            "title": "Ok",
+            "type": "boolean",
+            "default": true,
+            "not": {}
+          },
+          "tools": {
+            "title": "Tools",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Names of tools advertised by the MCP server."
+          },
+          "tool_result": {
+            "$ref": "#/components/schemas/McpTestSuccessToolResult"
+          },
+          "resolved_mcp_servers": {
+            "title": "Resolved Mcp Servers",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/McpTestSuccessResolvedMcpServersItemProperty"
+            },
+            "description": "Deprecated compatibility field for older clients that expected resolved MCP server metadata in test responses.",
+            "deprecated": true
+          },
+          "oauth_state": {
+            "$ref": "#/components/schemas/McpTestSuccessOAuthState"
+          }
+        },
+        "required": [
+          "ok"
+        ]
+      },
+      "ResponseTestMcpServerApiV1McpTestPostOneOf2": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "const": null,
+            "title": "Ok",
+            "type": "boolean",
+            "default": false,
+            "not": {}
+          },
+          "error": {
+            "title": "Error",
+            "type": "string",
+            "description": "Human-readable error message."
+          },
+          "error_kind": {
+            "$ref": "#/components/schemas/McpTestFailureErrorKind"
+          }
+        },
+        "required": [
+          "error",
+          "error_kind",
+          "ok"
+        ]
       },
       "AgentContextInputSecretsAnyOf1": {
         "type": "object",

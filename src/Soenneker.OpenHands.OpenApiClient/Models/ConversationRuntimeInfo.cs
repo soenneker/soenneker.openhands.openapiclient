@@ -12,21 +12,35 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConversationRuntimeInfo : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("can_resume") is { } nullNodeCanResume && nullNodeCanResume.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanResume = null;
+            if (parseNode.GetChildNode("runtime_error") is { } nullNodeRuntimeError && nullNodeRuntimeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuntimeError = null;
+            if (parseNode.GetChildNode("runtime_status") is { } nullNodeRuntimeStatus && nullNodeRuntimeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuntimeStatus = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The can_resume property</summary>
-        public bool? CanResume { get; set; }
+        public bool? CanResume { get => _explicitNullValueCanResume; set { _explicitNullValueCanResume = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_resume"); else _explicitNullProperties?.Remove("can_resume"); } }
+        private bool? _explicitNullValueCanResume = default!;
         /// <summary>The runtime_error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeError? RuntimeError { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeError? RuntimeError { get => _explicitNullValueRuntimeError; set { _explicitNullValueRuntimeError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_error"); else _explicitNullProperties?.Remove("runtime_error"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeError? _explicitNullValueRuntimeError = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeError RuntimeError { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeError RuntimeError { get => _explicitNullValueRuntimeError; set { _explicitNullValueRuntimeError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_error"); else _explicitNullProperties?.Remove("runtime_error"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeError _explicitNullValueRuntimeError = default!;
 #endif
         /// <summary>Availability of the runtime that executes a conversation.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeStatus? RuntimeStatus { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeStatus? RuntimeStatus { get => _explicitNullValueRuntimeStatus; set { _explicitNullValueRuntimeStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_status"); else _explicitNullProperties?.Remove("runtime_status"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeStatus? _explicitNullValueRuntimeStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeInfo"/> and sets the default values.
         /// </summary>
@@ -42,7 +56,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeInfo();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeInfo(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,6 +81,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("can_resume", CanResume);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeError>("runtime_error", RuntimeError);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeStatus>("runtime_status", RuntimeStatus);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -49,7 +49,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Billing.SubscriptionAccess
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SubscriptionAccessResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SubscriptionAccessResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SubscriptionAccessResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SubscriptionAccessResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get details of the currently valid subscription for the user.

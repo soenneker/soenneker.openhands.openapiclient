@@ -12,35 +12,58 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProfileVerificationSettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("critic_enabled") is { } nullNodeCriticEnabled && nullNodeCriticEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CriticEnabled = null;
+            if (parseNode.GetChildNode("critic_mode") is { } nullNodeCriticMode && nullNodeCriticMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CriticMode = null;
+            if (parseNode.GetChildNode("critic_model_name") is { } nullNodeCriticModelName && nullNodeCriticModelName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CriticModelName = null;
+            if (parseNode.GetChildNode("critic_server_url") is { } nullNodeCriticServerUrl && nullNodeCriticServerUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CriticServerUrl = null;
+            if (parseNode.GetChildNode("critic_threshold") is { } nullNodeCriticThreshold && nullNodeCriticThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CriticThreshold = null;
+            if (parseNode.GetChildNode("enable_iterative_refinement") is { } nullNodeEnableIterativeRefinement && nullNodeEnableIterativeRefinement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableIterativeRefinement = null;
+            if (parseNode.GetChildNode("max_refinement_iterations") is { } nullNodeMaxRefinementIterations && nullNodeMaxRefinementIterations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxRefinementIterations = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The critic_enabled property</summary>
-        public bool? CriticEnabled { get; set; }
+        public bool? CriticEnabled { get => _explicitNullValueCriticEnabled; set { _explicitNullValueCriticEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("critic_enabled"); else _explicitNullProperties?.Remove("critic_enabled"); } }
+        private bool? _explicitNullValueCriticEnabled = default!;
         /// <summary>The critic_mode property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ProfileVerificationSettingsCriticMode? CriticMode { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ProfileVerificationSettingsCriticMode? CriticMode { get => _explicitNullValueCriticMode; set { _explicitNullValueCriticMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("critic_mode"); else _explicitNullProperties?.Remove("critic_mode"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ProfileVerificationSettingsCriticMode? _explicitNullValueCriticMode = default!;
         /// <summary>The critic_model_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CriticModelName { get; set; }
+        public string? CriticModelName { get => _explicitNullValueCriticModelName; set { _explicitNullValueCriticModelName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("critic_model_name"); else _explicitNullProperties?.Remove("critic_model_name"); } }
+        private string? _explicitNullValueCriticModelName = default!;
 #nullable restore
 #else
-        public string CriticModelName { get; set; }
+        public string CriticModelName { get => _explicitNullValueCriticModelName; set { _explicitNullValueCriticModelName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("critic_model_name"); else _explicitNullProperties?.Remove("critic_model_name"); } }
+        private string _explicitNullValueCriticModelName = default!;
 #endif
         /// <summary>The critic_server_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CriticServerUrl { get; set; }
+        public string? CriticServerUrl { get => _explicitNullValueCriticServerUrl; set { _explicitNullValueCriticServerUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("critic_server_url"); else _explicitNullProperties?.Remove("critic_server_url"); } }
+        private string? _explicitNullValueCriticServerUrl = default!;
 #nullable restore
 #else
-        public string CriticServerUrl { get; set; }
+        public string CriticServerUrl { get => _explicitNullValueCriticServerUrl; set { _explicitNullValueCriticServerUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("critic_server_url"); else _explicitNullProperties?.Remove("critic_server_url"); } }
+        private string _explicitNullValueCriticServerUrl = default!;
 #endif
         /// <summary>The critic_threshold property</summary>
-        public double? CriticThreshold { get; set; }
+        public double? CriticThreshold { get => _explicitNullValueCriticThreshold; set { _explicitNullValueCriticThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("critic_threshold"); else _explicitNullProperties?.Remove("critic_threshold"); } }
+        private double? _explicitNullValueCriticThreshold = default!;
         /// <summary>The enable_iterative_refinement property</summary>
-        public bool? EnableIterativeRefinement { get; set; }
+        public bool? EnableIterativeRefinement { get => _explicitNullValueEnableIterativeRefinement; set { _explicitNullValueEnableIterativeRefinement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_iterative_refinement"); else _explicitNullProperties?.Remove("enable_iterative_refinement"); } }
+        private bool? _explicitNullValueEnableIterativeRefinement = default!;
         /// <summary>The max_refinement_iterations property</summary>
-        public int? MaxRefinementIterations { get; set; }
+        public int? MaxRefinementIterations { get => _explicitNullValueMaxRefinementIterations; set { _explicitNullValueMaxRefinementIterations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_refinement_iterations"); else _explicitNullProperties?.Remove("max_refinement_iterations"); } }
+        private int? _explicitNullValueMaxRefinementIterations = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ProfileVerificationSettings"/> and sets the default values.
         /// </summary>
@@ -60,7 +83,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.ProfileVerificationSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.ProfileVerificationSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.ProfileVerificationSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,6 +116,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteDoubleValue("critic_threshold", CriticThreshold);
             writer.WriteBoolValue("enable_iterative_refinement", EnableIterativeRefinement);
             writer.WriteIntValue("max_refinement_iterations", MaxRefinementIterations);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

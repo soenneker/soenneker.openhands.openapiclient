@@ -12,54 +12,79 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class HookConfig : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("post_tool_use") is { } nullNodePostToolUse && nullNodePostToolUse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostToolUse = null;
+            if (parseNode.GetChildNode("pre_tool_use") is { } nullNodePreToolUse && nullNodePreToolUse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreToolUse = null;
+            if (parseNode.GetChildNode("session_end") is { } nullNodeSessionEnd && nullNodeSessionEnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionEnd = null;
+            if (parseNode.GetChildNode("session_start") is { } nullNodeSessionStart && nullNodeSessionStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionStart = null;
+            if (parseNode.GetChildNode("stop") is { } nullNodeStop && nullNodeStop.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stop = null;
+            if (parseNode.GetChildNode("user_prompt_submit") is { } nullNodeUserPromptSubmit && nullNodeUserPromptSubmit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserPromptSubmit = null;
+        }
+
         /// <summary>Hooks that run after tool execution</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? PostToolUse { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? PostToolUse { get => _explicitNullValuePostToolUse; set { _explicitNullValuePostToolUse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("post_tool_use"); else _explicitNullProperties?.Remove("post_tool_use"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? _explicitNullValuePostToolUse = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> PostToolUse { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> PostToolUse { get => _explicitNullValuePostToolUse; set { _explicitNullValuePostToolUse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("post_tool_use"); else _explicitNullProperties?.Remove("post_tool_use"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> _explicitNullValuePostToolUse = default!;
 #endif
         /// <summary>Hooks that run before tool execution</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? PreToolUse { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? PreToolUse { get => _explicitNullValuePreToolUse; set { _explicitNullValuePreToolUse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pre_tool_use"); else _explicitNullProperties?.Remove("pre_tool_use"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? _explicitNullValuePreToolUse = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> PreToolUse { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> PreToolUse { get => _explicitNullValuePreToolUse; set { _explicitNullValuePreToolUse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pre_tool_use"); else _explicitNullProperties?.Remove("pre_tool_use"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> _explicitNullValuePreToolUse = default!;
 #endif
         /// <summary>Hooks that run when a session ends</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? SessionEnd { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? SessionEnd { get => _explicitNullValueSessionEnd; set { _explicitNullValueSessionEnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_end"); else _explicitNullProperties?.Remove("session_end"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? _explicitNullValueSessionEnd = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> SessionEnd { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> SessionEnd { get => _explicitNullValueSessionEnd; set { _explicitNullValueSessionEnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_end"); else _explicitNullProperties?.Remove("session_end"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> _explicitNullValueSessionEnd = default!;
 #endif
         /// <summary>Hooks that run when a session starts</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? SessionStart { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? SessionStart { get => _explicitNullValueSessionStart; set { _explicitNullValueSessionStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_start"); else _explicitNullProperties?.Remove("session_start"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? _explicitNullValueSessionStart = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> SessionStart { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> SessionStart { get => _explicitNullValueSessionStart; set { _explicitNullValueSessionStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_start"); else _explicitNullProperties?.Remove("session_start"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> _explicitNullValueSessionStart = default!;
 #endif
         /// <summary>Hooks that run when the agent attempts to stop</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? Stop { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? Stop { get => _explicitNullValueStop; set { _explicitNullValueStop = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stop"); else _explicitNullProperties?.Remove("stop"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? _explicitNullValueStop = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> Stop { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> Stop { get => _explicitNullValueStop; set { _explicitNullValueStop = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stop"); else _explicitNullProperties?.Remove("stop"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> _explicitNullValueStop = default!;
 #endif
         /// <summary>Hooks that run when user submits a prompt</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? UserPromptSubmit { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? UserPromptSubmit { get => _explicitNullValueUserPromptSubmit; set { _explicitNullValueUserPromptSubmit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_prompt_submit"); else _explicitNullProperties?.Remove("user_prompt_submit"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>? _explicitNullValueUserPromptSubmit = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> UserPromptSubmit { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> UserPromptSubmit { get => _explicitNullValueUserPromptSubmit; set { _explicitNullValueUserPromptSubmit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_prompt_submit"); else _explicitNullProperties?.Remove("user_prompt_submit"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher> _explicitNullValueUserPromptSubmit = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -69,7 +94,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.HookConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.HookConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.HookConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -99,7 +124,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>("session_end", SessionEnd);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>("session_start", SessionStart);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>("stop", Stop);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>("user_prompt_submit", UserPromptSubmit);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.HookMatcher>("user_prompt_submit", UserPromptSubmit);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

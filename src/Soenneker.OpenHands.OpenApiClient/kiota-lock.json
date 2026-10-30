@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "F54D1DB766920FA0E74A01AB6DAEDBFBFDEB966EC5E068B5A9D3FC0C6749C83069FE4B758B61304C1B93626277F7CC54E782029ADF011506642BCD8376BD2E1D",
+  "descriptionHash": "397EC1958337D711069E30909BFAFDB0483223C44851DBE28C459DDA21AB8A813DBE2285A4B2CEED78038055F4223479FF966287EF400BFA8841AF7724F6BFC2",
   "descriptionLocation": "../../openapi.fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.36.1",
+  "kiotaVersion": "1.37.0",
   "clientClassName": "OpenHandsOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.OpenHands.OpenApiClient",

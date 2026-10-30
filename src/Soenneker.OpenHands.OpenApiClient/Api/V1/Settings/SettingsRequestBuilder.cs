@@ -73,6 +73,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings
             {
                 { "401", global::Soenneker.OpenHands.OpenApiClient.Models.Response401LoadSettingsApiV1SettingsGetSchema.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.OpenHands.OpenApiClient.Models.Response404LoadSettingsApiV1SettingsGetSchema.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModel>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModel.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -100,6 +102,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.Response422StoreSettingsApiV1SettingsPostSchema.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.OpenHands.OpenApiClient.Models.Response500StoreSettingsApiV1SettingsPostSchema.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.Response200StoreSettingsApiV1SettingsPostSchema>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.Response200StoreSettingsApiV1SettingsPostSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

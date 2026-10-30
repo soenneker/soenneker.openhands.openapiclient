@@ -8,82 +8,87 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorInput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorInput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LoggingCallbackProcessorInput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MemoryChangeCallbackProcessorInput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SetTitleCallbackProcessorInput"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInput"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf1"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf2"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf3"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf4"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf5"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf6"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf7"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf8"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf9"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EventCallbackProcessorInput : IComposedTypeWrapper, IParsable
-    {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInput"/></summary>
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInput? BitbucketV1CallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf1? EventCallbackProcessorInputOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInput BitbucketV1CallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf1 EventCallbackProcessorInputOneOf1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInput"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInput? GithubV1CallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf2? EventCallbackProcessorInputOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInput GithubV1CallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf2 EventCallbackProcessorInputOneOf2 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInput"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInput? GitlabV1CallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf3? EventCallbackProcessorInputOneOf3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInput GitlabV1CallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf3 EventCallbackProcessorInputOneOf3 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorInput"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf4"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorInput? JiraDcV1CallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf4? EventCallbackProcessorInputOneOf4 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorInput JiraDcV1CallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf4 EventCallbackProcessorInputOneOf4 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorInput"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf5"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorInput? JiraV1CallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf5? EventCallbackProcessorInputOneOf5 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorInput JiraV1CallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf5 EventCallbackProcessorInputOneOf5 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LoggingCallbackProcessorInput"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf6"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LoggingCallbackProcessorInput? LoggingCallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf6? EventCallbackProcessorInputOneOf6 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LoggingCallbackProcessorInput LoggingCallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf6 EventCallbackProcessorInputOneOf6 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MemoryChangeCallbackProcessorInput"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf7"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MemoryChangeCallbackProcessorInput? MemoryChangeCallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf7? EventCallbackProcessorInputOneOf7 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MemoryChangeCallbackProcessorInput MemoryChangeCallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf7 EventCallbackProcessorInputOneOf7 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SetTitleCallbackProcessorInput"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf8"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SetTitleCallbackProcessorInput? SetTitleCallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf8? EventCallbackProcessorInputOneOf8 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SetTitleCallbackProcessorInput SetTitleCallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf8 EventCallbackProcessorInputOneOf8 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInput"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf9"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInput? SlackV1CallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf9? EventCallbackProcessorInputOneOf9 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInput SlackV1CallbackProcessorInput { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf9 EventCallbackProcessorInputOneOf9 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -93,45 +98,66 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInput();
-            if("integrations__bitbucket__bitbucket_v1_callback_processor__BitbucketV1CallbackProcessor-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("EventCallbackProcessorInputOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.BitbucketV1CallbackProcessorInput = new global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInput();
+                
             }
-            else if("integrations__github__github_v1_callback_processor__GithubV1CallbackProcessor-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("EventCallbackProcessorInputOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.GithubV1CallbackProcessorInput = new global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInput();
+                
             }
-            else if("integrations__gitlab__gitlab_v1_callback_processor__GitlabV1CallbackProcessor-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("EventCallbackProcessorInputOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.GitlabV1CallbackProcessorInput = new global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInput();
+                
             }
-            else if("integrations__jira_dc__jira_dc_v1_callback_processor__JiraDcV1CallbackProcessor-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("EventCallbackProcessorInputOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.JiraDcV1CallbackProcessorInput = new global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorInput();
+                
             }
-            else if("integrations__jira__jira_v1_callback_processor__JiraV1CallbackProcessor-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("EventCallbackProcessorInputOneOf5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.JiraV1CallbackProcessorInput = new global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorInput();
+                
             }
-            else if("openhands__app_server__event_callback__event_callback_models__LoggingCallbackProcessor-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("EventCallbackProcessorInputOneOf6".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.LoggingCallbackProcessorInput = new global::Soenneker.OpenHands.OpenApiClient.Models.LoggingCallbackProcessorInput();
+                
             }
-            else if("openhands__app_server__event_callback__memory_change_callback_processor__MemoryChangeCallbackProcessor-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("EventCallbackProcessorInputOneOf7".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MemoryChangeCallbackProcessorInput = new global::Soenneker.OpenHands.OpenApiClient.Models.MemoryChangeCallbackProcessorInput();
+                
             }
-            else if("openhands__app_server__event_callback__set_title_callback_processor__SetTitleCallbackProcessor-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("EventCallbackProcessorInputOneOf8".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SetTitleCallbackProcessorInput = new global::Soenneker.OpenHands.OpenApiClient.Models.SetTitleCallbackProcessorInput();
+                
             }
-            else if("integrations__slack__slack_v1_callback_processor__SlackV1CallbackProcessor-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("EventCallbackProcessorInputOneOf9".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SlackV1CallbackProcessorInput = new global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInput();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("BitbucketV1CallbackProcessor".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("GithubV1CallbackProcessor".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("GitlabV1CallbackProcessor".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("svc_acc_email") != null && parseNode.GetChildNode("decrypted_api_key") != null && parseNode.GetChildNode("issue_key") != null && parseNode.GetChildNode("jira_cloud_id") != null && parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag5 && ("JiraV1CallbackProcessor".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("issue_key") != null && parseNode.GetChildNode("workspace_name") != null && parseNode.GetChildNode("base_api_url") != null && parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag4 && ("JiraDcV1CallbackProcessor".Equals(tag4.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch5 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("SlackV1CallbackProcessor".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch6 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("LoggingCallbackProcessor".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch7 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("MemoryChangeCallbackProcessor".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch8 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("SetTitleCallbackProcessor".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.EventCallbackProcessorInputOneOf1 == null && result.EventCallbackProcessorInputOneOf2 == null && result.EventCallbackProcessorInputOneOf3 == null && result.EventCallbackProcessorInputOneOf4 == null && result.EventCallbackProcessorInputOneOf5 == null && result.EventCallbackProcessorInputOneOf6 == null && result.EventCallbackProcessorInputOneOf7 == null && result.EventCallbackProcessorInputOneOf8 == null && result.EventCallbackProcessorInputOneOf9 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.EventCallbackProcessorInputOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf1(), parseNode);
+            if (result.EventCallbackProcessorInputOneOf1 == null && result.EventCallbackProcessorInputOneOf2 == null && result.EventCallbackProcessorInputOneOf3 == null && result.EventCallbackProcessorInputOneOf4 == null && result.EventCallbackProcessorInputOneOf5 == null && result.EventCallbackProcessorInputOneOf6 == null && result.EventCallbackProcessorInputOneOf7 == null && result.EventCallbackProcessorInputOneOf8 == null && result.EventCallbackProcessorInputOneOf9 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.EventCallbackProcessorInputOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf2(), parseNode);
+            if (result.EventCallbackProcessorInputOneOf1 == null && result.EventCallbackProcessorInputOneOf2 == null && result.EventCallbackProcessorInputOneOf3 == null && result.EventCallbackProcessorInputOneOf4 == null && result.EventCallbackProcessorInputOneOf5 == null && result.EventCallbackProcessorInputOneOf6 == null && result.EventCallbackProcessorInputOneOf7 == null && result.EventCallbackProcessorInputOneOf8 == null && result.EventCallbackProcessorInputOneOf9 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.EventCallbackProcessorInputOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf3(), parseNode);
+            if (result.EventCallbackProcessorInputOneOf1 == null && result.EventCallbackProcessorInputOneOf2 == null && result.EventCallbackProcessorInputOneOf3 == null && result.EventCallbackProcessorInputOneOf4 == null && result.EventCallbackProcessorInputOneOf5 == null && result.EventCallbackProcessorInputOneOf6 == null && result.EventCallbackProcessorInputOneOf7 == null && result.EventCallbackProcessorInputOneOf8 == null && result.EventCallbackProcessorInputOneOf9 == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.EventCallbackProcessorInputOneOf4 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf4(), parseNode);
+            if (result.EventCallbackProcessorInputOneOf1 == null && result.EventCallbackProcessorInputOneOf2 == null && result.EventCallbackProcessorInputOneOf3 == null && result.EventCallbackProcessorInputOneOf4 == null && result.EventCallbackProcessorInputOneOf5 == null && result.EventCallbackProcessorInputOneOf6 == null && result.EventCallbackProcessorInputOneOf7 == null && result.EventCallbackProcessorInputOneOf8 == null && result.EventCallbackProcessorInputOneOf9 == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.EventCallbackProcessorInputOneOf5 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf5(), parseNode);
+            if (result.EventCallbackProcessorInputOneOf1 == null && result.EventCallbackProcessorInputOneOf2 == null && result.EventCallbackProcessorInputOneOf3 == null && result.EventCallbackProcessorInputOneOf4 == null && result.EventCallbackProcessorInputOneOf5 == null && result.EventCallbackProcessorInputOneOf6 == null && result.EventCallbackProcessorInputOneOf7 == null && result.EventCallbackProcessorInputOneOf8 == null && result.EventCallbackProcessorInputOneOf9 == null && matchesUnionBranch5 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.EventCallbackProcessorInputOneOf6 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf6(), parseNode);
+            if (result.EventCallbackProcessorInputOneOf1 == null && result.EventCallbackProcessorInputOneOf2 == null && result.EventCallbackProcessorInputOneOf3 == null && result.EventCallbackProcessorInputOneOf4 == null && result.EventCallbackProcessorInputOneOf5 == null && result.EventCallbackProcessorInputOneOf6 == null && result.EventCallbackProcessorInputOneOf7 == null && result.EventCallbackProcessorInputOneOf8 == null && result.EventCallbackProcessorInputOneOf9 == null && matchesUnionBranch6 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch7 && !matchesUnionBranch8) result.EventCallbackProcessorInputOneOf7 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf7(), parseNode);
+            if (result.EventCallbackProcessorInputOneOf1 == null && result.EventCallbackProcessorInputOneOf2 == null && result.EventCallbackProcessorInputOneOf3 == null && result.EventCallbackProcessorInputOneOf4 == null && result.EventCallbackProcessorInputOneOf5 == null && result.EventCallbackProcessorInputOneOf6 == null && result.EventCallbackProcessorInputOneOf7 == null && result.EventCallbackProcessorInputOneOf8 == null && result.EventCallbackProcessorInputOneOf9 == null && matchesUnionBranch7 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch8) result.EventCallbackProcessorInputOneOf8 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf8(), parseNode);
+            if (result.EventCallbackProcessorInputOneOf1 == null && result.EventCallbackProcessorInputOneOf2 == null && result.EventCallbackProcessorInputOneOf3 == null && result.EventCallbackProcessorInputOneOf4 == null && result.EventCallbackProcessorInputOneOf5 == null && result.EventCallbackProcessorInputOneOf6 == null && result.EventCallbackProcessorInputOneOf7 == null && result.EventCallbackProcessorInputOneOf8 == null && result.EventCallbackProcessorInputOneOf9 == null && matchesUnionBranch8 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7) result.EventCallbackProcessorInputOneOf9 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf9(), parseNode);
+            if (result.EventCallbackProcessorInputOneOf1 == null && result.EventCallbackProcessorInputOneOf2 == null && result.EventCallbackProcessorInputOneOf3 == null && result.EventCallbackProcessorInputOneOf4 == null && result.EventCallbackProcessorInputOneOf5 == null && result.EventCallbackProcessorInputOneOf6 == null && result.EventCallbackProcessorInputOneOf7 == null && result.EventCallbackProcessorInputOneOf8 == null && result.EventCallbackProcessorInputOneOf9 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -139,41 +165,41 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(BitbucketV1CallbackProcessorInput != null)
+            if(EventCallbackProcessorInputOneOf1 != null)
             {
-                return BitbucketV1CallbackProcessorInput.GetFieldDeserializers();
+                return EventCallbackProcessorInputOneOf1.GetFieldDeserializers();
             }
-            else if(GithubV1CallbackProcessorInput != null)
+            else if(EventCallbackProcessorInputOneOf2 != null)
             {
-                return GithubV1CallbackProcessorInput.GetFieldDeserializers();
+                return EventCallbackProcessorInputOneOf2.GetFieldDeserializers();
             }
-            else if(GitlabV1CallbackProcessorInput != null)
+            else if(EventCallbackProcessorInputOneOf3 != null)
             {
-                return GitlabV1CallbackProcessorInput.GetFieldDeserializers();
+                return EventCallbackProcessorInputOneOf3.GetFieldDeserializers();
             }
-            else if(JiraDcV1CallbackProcessorInput != null)
+            else if(EventCallbackProcessorInputOneOf4 != null)
             {
-                return JiraDcV1CallbackProcessorInput.GetFieldDeserializers();
+                return EventCallbackProcessorInputOneOf4.GetFieldDeserializers();
             }
-            else if(JiraV1CallbackProcessorInput != null)
+            else if(EventCallbackProcessorInputOneOf5 != null)
             {
-                return JiraV1CallbackProcessorInput.GetFieldDeserializers();
+                return EventCallbackProcessorInputOneOf5.GetFieldDeserializers();
             }
-            else if(LoggingCallbackProcessorInput != null)
+            else if(EventCallbackProcessorInputOneOf6 != null)
             {
-                return LoggingCallbackProcessorInput.GetFieldDeserializers();
+                return EventCallbackProcessorInputOneOf6.GetFieldDeserializers();
             }
-            else if(MemoryChangeCallbackProcessorInput != null)
+            else if(EventCallbackProcessorInputOneOf7 != null)
             {
-                return MemoryChangeCallbackProcessorInput.GetFieldDeserializers();
+                return EventCallbackProcessorInputOneOf7.GetFieldDeserializers();
             }
-            else if(SetTitleCallbackProcessorInput != null)
+            else if(EventCallbackProcessorInputOneOf8 != null)
             {
-                return SetTitleCallbackProcessorInput.GetFieldDeserializers();
+                return EventCallbackProcessorInputOneOf8.GetFieldDeserializers();
             }
-            else if(SlackV1CallbackProcessorInput != null)
+            else if(EventCallbackProcessorInputOneOf9 != null)
             {
-                return SlackV1CallbackProcessorInput.GetFieldDeserializers();
+                return EventCallbackProcessorInputOneOf9.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -183,42 +209,63 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (EventCallbackProcessorInputOneOf1 == null && EventCallbackProcessorInputOneOf2 == null && EventCallbackProcessorInputOneOf3 == null && EventCallbackProcessorInputOneOf4 == null && EventCallbackProcessorInputOneOf5 == null && EventCallbackProcessorInputOneOf6 == null && EventCallbackProcessorInputOneOf7 == null && EventCallbackProcessorInputOneOf8 == null && EventCallbackProcessorInputOneOf9 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (EventCallbackProcessorInputOneOf1 != null && EventCallbackProcessorInputOneOf2 == null && EventCallbackProcessorInputOneOf3 == null && EventCallbackProcessorInputOneOf4 == null && EventCallbackProcessorInputOneOf5 == null && EventCallbackProcessorInputOneOf6 == null && EventCallbackProcessorInputOneOf7 == null && EventCallbackProcessorInputOneOf8 == null && EventCallbackProcessorInputOneOf9 == null) { if (EventCallbackProcessorInputOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EventCallbackProcessorInputOneOf1); return; }
+            if (EventCallbackProcessorInputOneOf2 != null && EventCallbackProcessorInputOneOf1 == null && EventCallbackProcessorInputOneOf3 == null && EventCallbackProcessorInputOneOf4 == null && EventCallbackProcessorInputOneOf5 == null && EventCallbackProcessorInputOneOf6 == null && EventCallbackProcessorInputOneOf7 == null && EventCallbackProcessorInputOneOf8 == null && EventCallbackProcessorInputOneOf9 == null) { if (EventCallbackProcessorInputOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EventCallbackProcessorInputOneOf2); return; }
+            if (EventCallbackProcessorInputOneOf3 != null && EventCallbackProcessorInputOneOf1 == null && EventCallbackProcessorInputOneOf2 == null && EventCallbackProcessorInputOneOf4 == null && EventCallbackProcessorInputOneOf5 == null && EventCallbackProcessorInputOneOf6 == null && EventCallbackProcessorInputOneOf7 == null && EventCallbackProcessorInputOneOf8 == null && EventCallbackProcessorInputOneOf9 == null) { if (EventCallbackProcessorInputOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EventCallbackProcessorInputOneOf3); return; }
+            if (EventCallbackProcessorInputOneOf4 != null && EventCallbackProcessorInputOneOf1 == null && EventCallbackProcessorInputOneOf2 == null && EventCallbackProcessorInputOneOf3 == null && EventCallbackProcessorInputOneOf5 == null && EventCallbackProcessorInputOneOf6 == null && EventCallbackProcessorInputOneOf7 == null && EventCallbackProcessorInputOneOf8 == null && EventCallbackProcessorInputOneOf9 == null) { if (EventCallbackProcessorInputOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EventCallbackProcessorInputOneOf4); return; }
+            if (EventCallbackProcessorInputOneOf5 != null && EventCallbackProcessorInputOneOf1 == null && EventCallbackProcessorInputOneOf2 == null && EventCallbackProcessorInputOneOf3 == null && EventCallbackProcessorInputOneOf4 == null && EventCallbackProcessorInputOneOf6 == null && EventCallbackProcessorInputOneOf7 == null && EventCallbackProcessorInputOneOf8 == null && EventCallbackProcessorInputOneOf9 == null) { if (EventCallbackProcessorInputOneOf5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EventCallbackProcessorInputOneOf5); return; }
+            if (EventCallbackProcessorInputOneOf6 != null && EventCallbackProcessorInputOneOf1 == null && EventCallbackProcessorInputOneOf2 == null && EventCallbackProcessorInputOneOf3 == null && EventCallbackProcessorInputOneOf4 == null && EventCallbackProcessorInputOneOf5 == null && EventCallbackProcessorInputOneOf7 == null && EventCallbackProcessorInputOneOf8 == null && EventCallbackProcessorInputOneOf9 == null) { if (EventCallbackProcessorInputOneOf6 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EventCallbackProcessorInputOneOf6); return; }
+            if (EventCallbackProcessorInputOneOf7 != null && EventCallbackProcessorInputOneOf1 == null && EventCallbackProcessorInputOneOf2 == null && EventCallbackProcessorInputOneOf3 == null && EventCallbackProcessorInputOneOf4 == null && EventCallbackProcessorInputOneOf5 == null && EventCallbackProcessorInputOneOf6 == null && EventCallbackProcessorInputOneOf8 == null && EventCallbackProcessorInputOneOf9 == null) { if (EventCallbackProcessorInputOneOf7 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EventCallbackProcessorInputOneOf7); return; }
+            if (EventCallbackProcessorInputOneOf8 != null && EventCallbackProcessorInputOneOf1 == null && EventCallbackProcessorInputOneOf2 == null && EventCallbackProcessorInputOneOf3 == null && EventCallbackProcessorInputOneOf4 == null && EventCallbackProcessorInputOneOf5 == null && EventCallbackProcessorInputOneOf6 == null && EventCallbackProcessorInputOneOf7 == null && EventCallbackProcessorInputOneOf9 == null) { if (EventCallbackProcessorInputOneOf8 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EventCallbackProcessorInputOneOf8); return; }
+            if (EventCallbackProcessorInputOneOf9 != null && EventCallbackProcessorInputOneOf1 == null && EventCallbackProcessorInputOneOf2 == null && EventCallbackProcessorInputOneOf3 == null && EventCallbackProcessorInputOneOf4 == null && EventCallbackProcessorInputOneOf5 == null && EventCallbackProcessorInputOneOf6 == null && EventCallbackProcessorInputOneOf7 == null && EventCallbackProcessorInputOneOf8 == null) { if (EventCallbackProcessorInputOneOf9 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EventCallbackProcessorInputOneOf9); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(BitbucketV1CallbackProcessorInput != null)
+            if(EventCallbackProcessorInputOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInput>(null, BitbucketV1CallbackProcessorInput);
+                if (EventCallbackProcessorInputOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf1>(null, EventCallbackProcessorInputOneOf1);
             }
-            else if(GithubV1CallbackProcessorInput != null)
+            else if(EventCallbackProcessorInputOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInput>(null, GithubV1CallbackProcessorInput);
+                if (EventCallbackProcessorInputOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf2>(null, EventCallbackProcessorInputOneOf2);
             }
-            else if(GitlabV1CallbackProcessorInput != null)
+            else if(EventCallbackProcessorInputOneOf3 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInput>(null, GitlabV1CallbackProcessorInput);
+                if (EventCallbackProcessorInputOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf3>(null, EventCallbackProcessorInputOneOf3);
             }
-            else if(JiraDcV1CallbackProcessorInput != null)
+            else if(EventCallbackProcessorInputOneOf4 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorInput>(null, JiraDcV1CallbackProcessorInput);
+                if (EventCallbackProcessorInputOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf4>(null, EventCallbackProcessorInputOneOf4);
             }
-            else if(JiraV1CallbackProcessorInput != null)
+            else if(EventCallbackProcessorInputOneOf5 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.JiraV1CallbackProcessorInput>(null, JiraV1CallbackProcessorInput);
+                if (EventCallbackProcessorInputOneOf5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf5>(null, EventCallbackProcessorInputOneOf5);
             }
-            else if(LoggingCallbackProcessorInput != null)
+            else if(EventCallbackProcessorInputOneOf6 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LoggingCallbackProcessorInput>(null, LoggingCallbackProcessorInput);
+                if (EventCallbackProcessorInputOneOf6 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf6>(null, EventCallbackProcessorInputOneOf6);
             }
-            else if(MemoryChangeCallbackProcessorInput != null)
+            else if(EventCallbackProcessorInputOneOf7 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MemoryChangeCallbackProcessorInput>(null, MemoryChangeCallbackProcessorInput);
+                if (EventCallbackProcessorInputOneOf7 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf7>(null, EventCallbackProcessorInputOneOf7);
             }
-            else if(SetTitleCallbackProcessorInput != null)
+            else if(EventCallbackProcessorInputOneOf8 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SetTitleCallbackProcessorInput>(null, SetTitleCallbackProcessorInput);
+                if (EventCallbackProcessorInputOneOf8 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf8>(null, EventCallbackProcessorInputOneOf8);
             }
-            else if(SlackV1CallbackProcessorInput != null)
+            else if(EventCallbackProcessorInputOneOf9 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInput>(null, SlackV1CallbackProcessorInput);
+                if (EventCallbackProcessorInputOneOf9 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf9>(null, EventCallbackProcessorInputOneOf9);
             }
         }
     }

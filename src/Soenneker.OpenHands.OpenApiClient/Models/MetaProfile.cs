@@ -12,40 +12,59 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MetaProfile : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("classes") is { } nullNodeClasses && nullNodeClasses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Classes = null;
+            if (parseNode.GetChildNode("classifier_model") is { } nullNodeClassifierModel && nullNodeClassifierModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClassifierModel = null;
+            if (parseNode.GetChildNode("model_table") is { } nullNodeModelTable && nullNodeModelTable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelTable = null;
+            if (parseNode.GetChildNode("prompt_template") is { } nullNodePromptTemplate && nullNodePromptTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptTemplate = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Ordered list of task classes and their target profiles.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfileClass>? Classes { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfileClass>? Classes { get => _explicitNullValueClasses; set { _explicitNullValueClasses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("classes"); else _explicitNullProperties?.Remove("classes"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfileClass>? _explicitNullValueClasses = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfileClass> Classes { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfileClass> Classes { get => _explicitNullValueClasses; set { _explicitNullValueClasses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("classes"); else _explicitNullProperties?.Remove("classes"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfileClass> _explicitNullValueClasses = default!;
 #endif
         /// <summary>Name of the saved LLM profile used to classify the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClassifierModel { get; set; }
+        public string? ClassifierModel { get => _explicitNullValueClassifierModel; set { _explicitNullValueClassifierModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("classifier_model"); else _explicitNullProperties?.Remove("classifier_model"); } }
+        private string? _explicitNullValueClassifierModel = default!;
 #nullable restore
 #else
-        public string ClassifierModel { get; set; }
+        public string ClassifierModel { get => _explicitNullValueClassifierModel; set { _explicitNullValueClassifierModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("classifier_model"); else _explicitNullProperties?.Remove("classifier_model"); } }
+        private string _explicitNullValueClassifierModel = default!;
 #endif
         /// <summary>Optional text inserted into `{{ model_table }}` for direct-routing prompts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ModelTable { get; set; }
+        public string? ModelTable { get => _explicitNullValueModelTable; set { _explicitNullValueModelTable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_table"); else _explicitNullProperties?.Remove("model_table"); } }
+        private string? _explicitNullValueModelTable = default!;
 #nullable restore
 #else
-        public string ModelTable { get; set; }
+        public string ModelTable { get => _explicitNullValueModelTable; set { _explicitNullValueModelTable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_table"); else _explicitNullProperties?.Remove("model_table"); } }
+        private string _explicitNullValueModelTable = default!;
 #endif
         /// <summary>Optional direct-routing prompt template. When set, the classifier receives this rendered prompt and should return JSON with a `model` field instead of a class number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PromptTemplate { get; set; }
+        public string? PromptTemplate { get => _explicitNullValuePromptTemplate; set { _explicitNullValuePromptTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_template"); else _explicitNullProperties?.Remove("prompt_template"); } }
+        private string? _explicitNullValuePromptTemplate = default!;
 #nullable restore
 #else
-        public string PromptTemplate { get; set; }
+        public string PromptTemplate { get => _explicitNullValuePromptTemplate; set { _explicitNullValuePromptTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_template"); else _explicitNullProperties?.Remove("prompt_template"); } }
+        private string _explicitNullValuePromptTemplate = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfile"/> and sets the default values.
@@ -62,7 +81,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfile();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfile(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,6 +108,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("classifier_model", ClassifierModel);
             writer.WriteStringValue("model_table", ModelTable);
             writer.WriteStringValue("prompt_template", PromptTemplate);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

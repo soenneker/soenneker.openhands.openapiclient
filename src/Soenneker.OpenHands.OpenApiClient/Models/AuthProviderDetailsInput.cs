@@ -12,6 +12,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     public partial class AuthProviderDetailsInput : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
     #pragma warning restore CS1591
     {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The attribute_mapping property</summary>
@@ -29,6 +33,30 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #nullable restore
 #else
         public string AuthorizationUrl { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf1? AuthProviderDetailsInputOneOf1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf1 AuthProviderDetailsInputOneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf2? AuthProviderDetailsInputOneOf2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf2 AuthProviderDetailsInputOneOf2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf3? AuthProviderDetailsInputOneOf3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf3 AuthProviderDetailsInputOneOf3 { get; set; }
 #endif
         /// <summary>The client_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,13 +91,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string IdpX509Cert { get; set; }
 #endif
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInput_kind? Kind { get; set; }
         /// <summary>The legacy_keycloak_type property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? LegacyKeycloakType { get; set; }
         /// <summary>The metadata_url property</summary>
@@ -88,34 +110,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string NameIdFormat { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OAuthProviderDetailsInput"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OAuthProviderDetailsInput? OAuthProviderDetailsInput { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OAuthProviderDetailsInput OAuthProviderDetailsInput { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PasswordProviderDetailsInput"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PasswordProviderDetailsInput? PasswordProviderDetailsInput { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PasswordProviderDetailsInput PasswordProviderDetailsInput { get; set; }
-#endif
         /// <summary>The permitted_drift_seconds property</summary>
         public int? PermittedDriftSeconds { get; set; }
         /// <summary>The provider_type property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? ProviderType { get; set; }
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInput"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInput? SamlProviderDetailsInput { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInput SamlProviderDetailsInput { get; set; }
-#endif
         /// <summary>The scopes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -190,97 +188,106 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInput();
-            if(parseNode.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>() is global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType legacyKeycloakTypeValue)
+            if("AuthProviderDetailsInputOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.LegacyKeycloakType = legacyKeycloakTypeValue;
+                
             }
-            else if("storage__auth_provider_details__OAuthProviderDetails-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("AuthProviderDetailsInputOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OAuthProviderDetailsInput = new global::Soenneker.OpenHands.OpenApiClient.Models.OAuthProviderDetailsInput();
+                
             }
-            else if("storage__auth_provider_details__PasswordProviderDetails-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("AuthProviderDetailsInputOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PasswordProviderDetailsInput = new global::Soenneker.OpenHands.OpenApiClient.Models.PasswordProviderDetailsInput();
+                
             }
-            else if(parseNode.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>() is global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType providerTypeValue)
-            {
-                result.ProviderType = providerTypeValue;
-            }
-            else if("storage__auth_provider_details__SamlProviderDetails-Input__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.SamlProviderDetailsInput = new global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInput();
-            }
-            else if(parseNode.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputSsoBinding>() is global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputSsoBinding ssoBindingValue)
-            {
-                result.SsoBinding = ssoBindingValue;
-            }
-            else if(parseNode.GetStringValue() is string authorizationUrlValue)
-            {
-                result.AuthorizationUrl = authorizationUrlValue;
-            }
-            else if(parseNode.GetStringValue() is string clientIdValue)
-            {
-                result.ClientId = clientIdValue;
-            }
-            else if(parseNode.GetStringValue() is string clientSecretValue)
-            {
-                result.ClientSecret = clientSecretValue;
-            }
-            else if(parseNode.GetStringValue() is string idpEntityIdValue)
-            {
-                result.IdpEntityId = idpEntityIdValue;
-            }
-            else if(parseNode.GetStringValue() is string idpX509CertValue)
-            {
-                result.IdpX509Cert = idpX509CertValue;
-            }
-            else if(parseNode.GetStringValue() is string kindValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInput_kind>() is global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInput_kind kindValue)
             {
                 result.Kind = kindValue;
             }
-            else if(parseNode.GetStringValue() is string metadataUrlValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString unionEnumValue0 && ("github".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gitlab".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "bitbucket".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "bitbucket_data_center".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "forgejo".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "azure_devops".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "enterprise_sso".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase)) && parseNode.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>() is global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType legacyKeycloakTypeValue)
+            {
+                result.LegacyKeycloakType = legacyKeycloakTypeValue;
+            }
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString unionEnumValue1 && ("github".Equals(unionEnumValue1.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gitlab".Equals(unionEnumValue1.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "bitbucket".Equals(unionEnumValue1.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "bitbucket_data_center".Equals(unionEnumValue1.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "forgejo".Equals(unionEnumValue1.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "azure_devops".Equals(unionEnumValue1.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "enterprise_sso".Equals(unionEnumValue1.GetValue(), global::System.StringComparison.OrdinalIgnoreCase)) && parseNode.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>() is global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType providerTypeValue)
+            {
+                result.ProviderType = providerTypeValue;
+            }
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString unionEnumValue2 && ("redirect".Equals(unionEnumValue2.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "post".Equals(unionEnumValue2.GetValue(), global::System.StringComparison.OrdinalIgnoreCase)) && parseNode.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputSsoBinding>() is global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputSsoBinding ssoBindingValue)
+            {
+                result.SsoBinding = ssoBindingValue;
+            }
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string authorizationUrlValue)
+            {
+                result.AuthorizationUrl = authorizationUrlValue;
+            }
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string clientIdValue)
+            {
+                result.ClientId = clientIdValue;
+            }
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string clientSecretValue)
+            {
+                result.ClientSecret = clientSecretValue;
+            }
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string idpEntityIdValue)
+            {
+                result.IdpEntityId = idpEntityIdValue;
+            }
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string idpX509CertValue)
+            {
+                result.IdpX509Cert = idpX509CertValue;
+            }
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string metadataUrlValue)
             {
                 result.MetadataUrl = metadataUrlValue;
             }
-            else if(parseNode.GetStringValue() is string nameIdFormatValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string nameIdFormatValue)
             {
                 result.NameIdFormat = nameIdFormatValue;
             }
-            else if(parseNode.GetIntValue() is int permittedDriftSecondsValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int permittedDriftSecondsValue)
             {
                 result.PermittedDriftSeconds = permittedDriftSecondsValue;
             }
-            else if(parseNode.GetStringValue() is string sloUrlValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string sloUrlValue)
             {
                 result.SloUrl = sloUrlValue;
             }
-            else if(parseNode.GetStringValue() is string spPrivateKeyValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string spPrivateKeyValue)
             {
                 result.SpPrivateKey = spPrivateKeyValue;
             }
-            else if(parseNode.GetStringValue() is string spX509CertValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string spX509CertValue)
             {
                 result.SpX509Cert = spX509CertValue;
             }
-            else if(parseNode.GetStringValue() is string ssoUrlValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string ssoUrlValue)
             {
                 result.SsoUrl = ssoUrlValue;
             }
-            else if(parseNode.GetStringValue() is string tokenUrlValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string tokenUrlValue)
             {
                 result.TokenUrl = tokenUrlValue;
             }
-            else if(parseNode.GetStringValue() is string userinfoUrlValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string userinfoUrlValue)
             {
                 result.UserinfoUrl = userinfoUrlValue;
             }
-            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> scopesValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && global::System.Linq.Enumerable.All(((global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)).GetValue(), item => item is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString) && parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> scopesValue)
             {
                 result.Scopes = scopesValue;
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("provider_type") != null && (parseNode.GetChildNode("provider_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("github".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "gitlab".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "bitbucket".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "bitbucket_data_center".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "forgejo".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "azure_devops".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "enterprise_sso".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("client_id") != null && parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag4 && ("OAuthProviderDetails".Equals(tag4.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("PasswordProviderDetails".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("SamlProviderDetails".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && (parseNode.GetChildNode("sso_binding") == null || (parseNode.GetChildNode("sso_binding")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag2 && ("redirect".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "post".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal))))))();
+            if (result.AttributeMapping == null && result.AuthorizationUrl == null && result.AuthProviderDetailsInputOneOf1 == null && result.AuthProviderDetailsInputOneOf2 == null && result.AuthProviderDetailsInputOneOf3 == null && result.ClientId == null && result.ClientSecret == null && result.IdpEntityId == null && result.IdpX509Cert == null && result.Kind == null && result.LegacyKeycloakType == null && result.MetadataUrl == null && result.NameIdFormat == null && result.PermittedDriftSeconds == null && result.ProviderType == null && result.Scopes == null && result.SloUrl == null && result.SpPrivateKey == null && result.SpX509Cert == null && result.SsoBinding == null && result.SsoUrl == null && result.TokenUrl == null && result.UserinfoUrl == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.AuthProviderDetailsInputOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf1(), parseNode);
+            if (result.AttributeMapping == null && result.AuthorizationUrl == null && result.AuthProviderDetailsInputOneOf1 == null && result.AuthProviderDetailsInputOneOf2 == null && result.AuthProviderDetailsInputOneOf3 == null && result.ClientId == null && result.ClientSecret == null && result.IdpEntityId == null && result.IdpX509Cert == null && result.Kind == null && result.LegacyKeycloakType == null && result.MetadataUrl == null && result.NameIdFormat == null && result.PermittedDriftSeconds == null && result.ProviderType == null && result.Scopes == null && result.SloUrl == null && result.SpPrivateKey == null && result.SpX509Cert == null && result.SsoBinding == null && result.SsoUrl == null && result.TokenUrl == null && result.UserinfoUrl == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.AuthProviderDetailsInputOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf2(), parseNode);
+            if (result.AttributeMapping == null && result.AuthorizationUrl == null && result.AuthProviderDetailsInputOneOf1 == null && result.AuthProviderDetailsInputOneOf2 == null && result.AuthProviderDetailsInputOneOf3 == null && result.ClientId == null && result.ClientSecret == null && result.IdpEntityId == null && result.IdpX509Cert == null && result.Kind == null && result.LegacyKeycloakType == null && result.MetadataUrl == null && result.NameIdFormat == null && result.PermittedDriftSeconds == null && result.ProviderType == null && result.Scopes == null && result.SloUrl == null && result.SpPrivateKey == null && result.SpX509Cert == null && result.SsoBinding == null && result.SsoUrl == null && result.TokenUrl == null && result.UserinfoUrl == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.AuthProviderDetailsInputOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf3(), parseNode);
+            if (result.AttributeMapping == null && result.AuthorizationUrl == null && result.AuthProviderDetailsInputOneOf1 == null && result.AuthProviderDetailsInputOneOf2 == null && result.AuthProviderDetailsInputOneOf3 == null && result.ClientId == null && result.ClientSecret == null && result.IdpEntityId == null && result.IdpX509Cert == null && result.Kind == null && result.LegacyKeycloakType == null && result.MetadataUrl == null && result.NameIdFormat == null && result.PermittedDriftSeconds == null && result.ProviderType == null && result.Scopes == null && result.SloUrl == null && result.SpPrivateKey == null && result.SpX509Cert == null && result.SsoBinding == null && result.SsoUrl == null && result.TokenUrl == null && result.UserinfoUrl == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -292,17 +299,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 return AttributeMapping.GetFieldDeserializers();
             }
-            else if(OAuthProviderDetailsInput != null)
+            else if(AuthProviderDetailsInputOneOf1 != null)
             {
-                return OAuthProviderDetailsInput.GetFieldDeserializers();
+                return AuthProviderDetailsInputOneOf1.GetFieldDeserializers();
             }
-            else if(PasswordProviderDetailsInput != null)
+            else if(AuthProviderDetailsInputOneOf2 != null)
             {
-                return PasswordProviderDetailsInput.GetFieldDeserializers();
+                return AuthProviderDetailsInputOneOf2.GetFieldDeserializers();
             }
-            else if(SamlProviderDetailsInput != null)
+            else if(AuthProviderDetailsInputOneOf3 != null)
             {
-                return SamlProviderDetailsInput.GetFieldDeserializers();
+                return AuthProviderDetailsInputOneOf3.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -312,30 +319,44 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (AttributeMapping == null && AuthorizationUrl == null && AuthProviderDetailsInputOneOf1 == null && AuthProviderDetailsInputOneOf2 == null && AuthProviderDetailsInputOneOf3 == null && ClientId == null && ClientSecret == null && IdpEntityId == null && IdpX509Cert == null && Kind == null && LegacyKeycloakType == null && MetadataUrl == null && NameIdFormat == null && PermittedDriftSeconds == null && ProviderType == null && Scopes == null && SloUrl == null && SpPrivateKey == null && SpX509Cert == null && SsoBinding == null && SsoUrl == null && TokenUrl == null && UserinfoUrl == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (AuthProviderDetailsInputOneOf1 != null && AttributeMapping == null && AuthorizationUrl == null && AuthProviderDetailsInputOneOf2 == null && AuthProviderDetailsInputOneOf3 == null && ClientId == null && ClientSecret == null && IdpEntityId == null && IdpX509Cert == null && Kind == null && LegacyKeycloakType == null && MetadataUrl == null && NameIdFormat == null && PermittedDriftSeconds == null && ProviderType == null && Scopes == null && SloUrl == null && SpPrivateKey == null && SpX509Cert == null && SsoBinding == null && SsoUrl == null && TokenUrl == null && UserinfoUrl == null) { if (AuthProviderDetailsInputOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AuthProviderDetailsInputOneOf1); return; }
+            if (AuthProviderDetailsInputOneOf2 != null && AttributeMapping == null && AuthorizationUrl == null && AuthProviderDetailsInputOneOf1 == null && AuthProviderDetailsInputOneOf3 == null && ClientId == null && ClientSecret == null && IdpEntityId == null && IdpX509Cert == null && Kind == null && LegacyKeycloakType == null && MetadataUrl == null && NameIdFormat == null && PermittedDriftSeconds == null && ProviderType == null && Scopes == null && SloUrl == null && SpPrivateKey == null && SpX509Cert == null && SsoBinding == null && SsoUrl == null && TokenUrl == null && UserinfoUrl == null) { if (AuthProviderDetailsInputOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AuthProviderDetailsInputOneOf2); return; }
+            if (AuthProviderDetailsInputOneOf3 != null && AttributeMapping == null && AuthorizationUrl == null && AuthProviderDetailsInputOneOf1 == null && AuthProviderDetailsInputOneOf2 == null && ClientId == null && ClientSecret == null && IdpEntityId == null && IdpX509Cert == null && Kind == null && LegacyKeycloakType == null && MetadataUrl == null && NameIdFormat == null && PermittedDriftSeconds == null && ProviderType == null && Scopes == null && SloUrl == null && SpPrivateKey == null && SpX509Cert == null && SsoBinding == null && SsoUrl == null && TokenUrl == null && UserinfoUrl == null) { if (AuthProviderDetailsInputOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AuthProviderDetailsInputOneOf3); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(AttributeMapping != null)
             {
+                if (AttributeMapping is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputAttributeMappingProperty>(null, AttributeMapping);
+            }
+            else if(AuthProviderDetailsInputOneOf1 != null)
+            {
+                if (AuthProviderDetailsInputOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf1>(null, AuthProviderDetailsInputOneOf1);
+            }
+            else if(AuthProviderDetailsInputOneOf2 != null)
+            {
+                if (AuthProviderDetailsInputOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf2>(null, AuthProviderDetailsInputOneOf2);
+            }
+            else if(AuthProviderDetailsInputOneOf3 != null)
+            {
+                if (AuthProviderDetailsInputOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf3>(null, AuthProviderDetailsInputOneOf3);
+            }
+            else if(Kind != null)
+            {
+                writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInput_kind>(null, Kind);
             }
             else if(LegacyKeycloakType != null)
             {
                 writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>(null, LegacyKeycloakType);
             }
-            else if(OAuthProviderDetailsInput != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OAuthProviderDetailsInput>(null, OAuthProviderDetailsInput);
-            }
-            else if(PasswordProviderDetailsInput != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PasswordProviderDetailsInput>(null, PasswordProviderDetailsInput);
-            }
             else if(ProviderType != null)
             {
                 writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>(null, ProviderType);
-            }
-            else if(SamlProviderDetailsInput != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInput>(null, SamlProviderDetailsInput);
             }
             else if(SsoBinding != null)
             {
@@ -360,10 +381,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if(IdpX509Cert != null)
             {
                 writer.WriteStringValue(null, IdpX509Cert);
-            }
-            else if(Kind != null)
-            {
-                writer.WriteStringValue(null, Kind);
             }
             else if(MetadataUrl != null)
             {
@@ -405,7 +422,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 writer.WriteCollectionOfPrimitiveValues<string>(null, Scopes);
             }
-            writer.WriteAdditionalData(AdditionalData);
+            
         }
     }
 }

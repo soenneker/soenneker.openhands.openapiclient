@@ -11,115 +11,193 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class OrgBudgetSettingsResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("applied_at") is { } nullNodeAppliedAt && nullNodeAppliedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppliedAt = null;
+            if (parseNode.GetChildNode("applied_policy_observed_at") is { } nullNodeAppliedPolicyObservedAt && nullNodeAppliedPolicyObservedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppliedPolicyObservedAt = null;
+            if (parseNode.GetChildNode("applied_team_max_budget") is { } nullNodeAppliedTeamMaxBudget && nullNodeAppliedTeamMaxBudget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppliedTeamMaxBudget = null;
+            if (parseNode.GetChildNode("budget_policy_matches") is { } nullNodeBudgetPolicyMatches && nullNodeBudgetPolicyMatches.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BudgetPolicyMatches = null;
+            if (parseNode.GetChildNode("current_spend") is { } nullNodeCurrentSpend && nullNodeCurrentSpend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentSpend = null;
+            if (parseNode.GetChildNode("current_spend_percentage") is { } nullNodeCurrentSpendPercentage && nullNodeCurrentSpendPercentage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentSpendPercentage = null;
+            if (parseNode.GetChildNode("cycle_end_at") is { } nullNodeCycleEndAt && nullNodeCycleEndAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CycleEndAt = null;
+            if (parseNode.GetChildNode("cycle_start_at") is { } nullNodeCycleStartAt && nullNodeCycleStartAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CycleStartAt = null;
+            if (parseNode.GetChildNode("default_user_monthly_limit") is { } nullNodeDefaultUserMonthlyLimit && nullNodeDefaultUserMonthlyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultUserMonthlyLimit = null;
+            if (parseNode.GetChildNode("desired_team_max_budget") is { } nullNodeDesiredTeamMaxBudget && nullNodeDesiredTeamMaxBudget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DesiredTeamMaxBudget = null;
+            if (parseNode.GetChildNode("email_alerts_available") is { } nullNodeEmailAlertsAvailable && nullNodeEmailAlertsAvailable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailAlertsAvailable = null;
+            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("litellm_last_sync_at") is { } nullNodeLitellmLastSyncAt && nullNodeLitellmLastSyncAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LitellmLastSyncAt = null;
+            if (parseNode.GetChildNode("litellm_last_sync_error") is { } nullNodeLitellmLastSyncError && nullNodeLitellmLastSyncError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LitellmLastSyncError = null;
+            if (parseNode.GetChildNode("litellm_last_sync_status") is { } nullNodeLitellmLastSyncStatus && nullNodeLitellmLastSyncStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LitellmLastSyncStatus = null;
+            if (parseNode.GetChildNode("monthly_limit") is { } nullNodeMonthlyLimit && nullNodeMonthlyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MonthlyLimit = null;
+            if (parseNode.GetChildNode("reconciliation_error") is { } nullNodeReconciliationError && nullNodeReconciliationError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReconciliationError = null;
+            if (parseNode.GetChildNode("reconciliation_state") is { } nullNodeReconciliationState && nullNodeReconciliationState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReconciliationState = null;
+            if (parseNode.GetChildNode("reset_day") is { } nullNodeResetDay && nullNodeResetDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResetDay = null;
+            if (parseNode.GetChildNode("slack_channel") is { } nullNodeSlackChannel && nullNodeSlackChannel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackChannel = null;
+            if (parseNode.GetChildNode("slack_integration_configured") is { } nullNodeSlackIntegrationConfigured && nullNodeSlackIntegrationConfigured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackIntegrationConfigured = null;
+            if (parseNode.GetChildNode("slack_team_id") is { } nullNodeSlackTeamId && nullNodeSlackTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackTeamId = null;
+            if (parseNode.GetChildNode("slack_workspace_connected") is { } nullNodeSlackWorkspaceConnected && nullNodeSlackWorkspaceConnected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackWorkspaceConnected = null;
+            if (parseNode.GetChildNode("spend_observed_at") is { } nullNodeSpendObservedAt && nullNodeSpendObservedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendObservedAt = null;
+            if (parseNode.GetChildNode("spend_status") is { } nullNodeSpendStatus && nullNodeSpendStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendStatus = null;
+            if (parseNode.GetChildNode("thresholds") is { } nullNodeThresholds && nullNodeThresholds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Thresholds = null;
+            if (parseNode.GetChildNode("unmapped_member_count") is { } nullNodeUnmappedMemberCount && nullNodeUnmappedMemberCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnmappedMemberCount = null;
+            if (parseNode.GetChildNode("unmapped_spend") is { } nullNodeUnmappedSpend && nullNodeUnmappedSpend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnmappedSpend = null;
+            if (parseNode.GetChildNode("users") is { } nullNodeUsers && nullNodeUsers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Users = null;
+            if (parseNode.GetChildNode("users_page") is { } nullNodeUsersPage && nullNodeUsersPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsersPage = null;
+            if (parseNode.GetChildNode("users_per_page") is { } nullNodeUsersPerPage && nullNodeUsersPerPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsersPerPage = null;
+            if (parseNode.GetChildNode("users_total") is { } nullNodeUsersTotal && nullNodeUsersTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsersTotal = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The applied_at property</summary>
-        public DateTimeOffset? AppliedAt { get; set; }
+        public DateTimeOffset? AppliedAt { get => _explicitNullValueAppliedAt; set { _explicitNullValueAppliedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applied_at"); else _explicitNullProperties?.Remove("applied_at"); } }
+        private DateTimeOffset? _explicitNullValueAppliedAt = default!;
         /// <summary>The applied_policy_observed_at property</summary>
-        public DateTimeOffset? AppliedPolicyObservedAt { get; set; }
+        public DateTimeOffset? AppliedPolicyObservedAt { get => _explicitNullValueAppliedPolicyObservedAt; set { _explicitNullValueAppliedPolicyObservedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applied_policy_observed_at"); else _explicitNullProperties?.Remove("applied_policy_observed_at"); } }
+        private DateTimeOffset? _explicitNullValueAppliedPolicyObservedAt = default!;
         /// <summary>The applied_team_max_budget property</summary>
-        public double? AppliedTeamMaxBudget { get; set; }
+        public double? AppliedTeamMaxBudget { get => _explicitNullValueAppliedTeamMaxBudget; set { _explicitNullValueAppliedTeamMaxBudget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applied_team_max_budget"); else _explicitNullProperties?.Remove("applied_team_max_budget"); } }
+        private double? _explicitNullValueAppliedTeamMaxBudget = default!;
         /// <summary>The budget_policy_matches property</summary>
-        public bool? BudgetPolicyMatches { get; set; }
+        public bool? BudgetPolicyMatches { get => _explicitNullValueBudgetPolicyMatches; set { _explicitNullValueBudgetPolicyMatches = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_policy_matches"); else _explicitNullProperties?.Remove("budget_policy_matches"); } }
+        private bool? _explicitNullValueBudgetPolicyMatches = default!;
         /// <summary>The current_spend property</summary>
-        public double? CurrentSpend { get; set; }
+        public double? CurrentSpend { get => _explicitNullValueCurrentSpend; set { _explicitNullValueCurrentSpend = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_spend"); else _explicitNullProperties?.Remove("current_spend"); } }
+        private double? _explicitNullValueCurrentSpend = default!;
         /// <summary>The current_spend_percentage property</summary>
-        public double? CurrentSpendPercentage { get; set; }
+        public double? CurrentSpendPercentage { get => _explicitNullValueCurrentSpendPercentage; set { _explicitNullValueCurrentSpendPercentage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_spend_percentage"); else _explicitNullProperties?.Remove("current_spend_percentage"); } }
+        private double? _explicitNullValueCurrentSpendPercentage = default!;
         /// <summary>The cycle_end_at property</summary>
-        public DateTimeOffset? CycleEndAt { get; set; }
+        public DateTimeOffset? CycleEndAt { get => _explicitNullValueCycleEndAt; set { _explicitNullValueCycleEndAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cycle_end_at"); else _explicitNullProperties?.Remove("cycle_end_at"); } }
+        private DateTimeOffset? _explicitNullValueCycleEndAt = default!;
         /// <summary>The cycle_start_at property</summary>
-        public DateTimeOffset? CycleStartAt { get; set; }
+        public DateTimeOffset? CycleStartAt { get => _explicitNullValueCycleStartAt; set { _explicitNullValueCycleStartAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cycle_start_at"); else _explicitNullProperties?.Remove("cycle_start_at"); } }
+        private DateTimeOffset? _explicitNullValueCycleStartAt = default!;
         /// <summary>The default_user_monthly_limit property</summary>
-        public double? DefaultUserMonthlyLimit { get; set; }
+        public double? DefaultUserMonthlyLimit { get => _explicitNullValueDefaultUserMonthlyLimit; set { _explicitNullValueDefaultUserMonthlyLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_user_monthly_limit"); else _explicitNullProperties?.Remove("default_user_monthly_limit"); } }
+        private double? _explicitNullValueDefaultUserMonthlyLimit = default!;
         /// <summary>The desired_team_max_budget property</summary>
-        public double? DesiredTeamMaxBudget { get; set; }
+        public double? DesiredTeamMaxBudget { get => _explicitNullValueDesiredTeamMaxBudget; set { _explicitNullValueDesiredTeamMaxBudget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("desired_team_max_budget"); else _explicitNullProperties?.Remove("desired_team_max_budget"); } }
+        private double? _explicitNullValueDesiredTeamMaxBudget = default!;
         /// <summary>The email_alerts_available property</summary>
-        public bool? EmailAlertsAvailable { get; set; }
+        public bool? EmailAlertsAvailable { get => _explicitNullValueEmailAlertsAvailable; set { _explicitNullValueEmailAlertsAvailable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_alerts_available"); else _explicitNullProperties?.Remove("email_alerts_available"); } }
+        private bool? _explicitNullValueEmailAlertsAvailable = default!;
         /// <summary>The enabled property</summary>
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        private bool? _explicitNullValueEnabled = default!;
         /// <summary>The litellm_last_sync_at property</summary>
-        public DateTimeOffset? LitellmLastSyncAt { get; set; }
+        public DateTimeOffset? LitellmLastSyncAt { get => _explicitNullValueLitellmLastSyncAt; set { _explicitNullValueLitellmLastSyncAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("litellm_last_sync_at"); else _explicitNullProperties?.Remove("litellm_last_sync_at"); } }
+        private DateTimeOffset? _explicitNullValueLitellmLastSyncAt = default!;
         /// <summary>The litellm_last_sync_error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LitellmLastSyncError { get; set; }
+        public string? LitellmLastSyncError { get => _explicitNullValueLitellmLastSyncError; set { _explicitNullValueLitellmLastSyncError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("litellm_last_sync_error"); else _explicitNullProperties?.Remove("litellm_last_sync_error"); } }
+        private string? _explicitNullValueLitellmLastSyncError = default!;
 #nullable restore
 #else
-        public string LitellmLastSyncError { get; set; }
+        public string LitellmLastSyncError { get => _explicitNullValueLitellmLastSyncError; set { _explicitNullValueLitellmLastSyncError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("litellm_last_sync_error"); else _explicitNullProperties?.Remove("litellm_last_sync_error"); } }
+        private string _explicitNullValueLitellmLastSyncError = default!;
 #endif
         /// <summary>The litellm_last_sync_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LitellmLastSyncStatus { get; set; }
+        public string? LitellmLastSyncStatus { get => _explicitNullValueLitellmLastSyncStatus; set { _explicitNullValueLitellmLastSyncStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("litellm_last_sync_status"); else _explicitNullProperties?.Remove("litellm_last_sync_status"); } }
+        private string? _explicitNullValueLitellmLastSyncStatus = default!;
 #nullable restore
 #else
-        public string LitellmLastSyncStatus { get; set; }
+        public string LitellmLastSyncStatus { get => _explicitNullValueLitellmLastSyncStatus; set { _explicitNullValueLitellmLastSyncStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("litellm_last_sync_status"); else _explicitNullProperties?.Remove("litellm_last_sync_status"); } }
+        private string _explicitNullValueLitellmLastSyncStatus = default!;
 #endif
         /// <summary>The monthly_limit property</summary>
-        public double? MonthlyLimit { get; set; }
+        public double? MonthlyLimit { get => _explicitNullValueMonthlyLimit; set { _explicitNullValueMonthlyLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("monthly_limit"); else _explicitNullProperties?.Remove("monthly_limit"); } }
+        private double? _explicitNullValueMonthlyLimit = default!;
         /// <summary>The reconciliation_error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReconciliationError { get; set; }
+        public string? ReconciliationError { get => _explicitNullValueReconciliationError; set { _explicitNullValueReconciliationError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reconciliation_error"); else _explicitNullProperties?.Remove("reconciliation_error"); } }
+        private string? _explicitNullValueReconciliationError = default!;
 #nullable restore
 #else
-        public string ReconciliationError { get; set; }
+        public string ReconciliationError { get => _explicitNullValueReconciliationError; set { _explicitNullValueReconciliationError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reconciliation_error"); else _explicitNullProperties?.Remove("reconciliation_error"); } }
+        private string _explicitNullValueReconciliationError = default!;
 #endif
         /// <summary>The reconciliation_state property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponseReconciliationState? ReconciliationState { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponseReconciliationState? ReconciliationState { get => _explicitNullValueReconciliationState; set { _explicitNullValueReconciliationState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reconciliation_state"); else _explicitNullProperties?.Remove("reconciliation_state"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponseReconciliationState? _explicitNullValueReconciliationState = default!;
         /// <summary>The reset_day property</summary>
-        public int? ResetDay { get; set; }
+        public int? ResetDay { get => _explicitNullValueResetDay; set { _explicitNullValueResetDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reset_day"); else _explicitNullProperties?.Remove("reset_day"); } }
+        private int? _explicitNullValueResetDay = default!;
         /// <summary>The slack_channel property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SlackChannel { get; set; }
+        public string? SlackChannel { get => _explicitNullValueSlackChannel; set { _explicitNullValueSlackChannel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_channel"); else _explicitNullProperties?.Remove("slack_channel"); } }
+        private string? _explicitNullValueSlackChannel = default!;
 #nullable restore
 #else
-        public string SlackChannel { get; set; }
+        public string SlackChannel { get => _explicitNullValueSlackChannel; set { _explicitNullValueSlackChannel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_channel"); else _explicitNullProperties?.Remove("slack_channel"); } }
+        private string _explicitNullValueSlackChannel = default!;
 #endif
         /// <summary>The slack_integration_configured property</summary>
-        public bool? SlackIntegrationConfigured { get; set; }
+        public bool? SlackIntegrationConfigured { get => _explicitNullValueSlackIntegrationConfigured; set { _explicitNullValueSlackIntegrationConfigured = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_integration_configured"); else _explicitNullProperties?.Remove("slack_integration_configured"); } }
+        private bool? _explicitNullValueSlackIntegrationConfigured = default!;
         /// <summary>The slack_team_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SlackTeamId { get; set; }
+        public string? SlackTeamId { get => _explicitNullValueSlackTeamId; set { _explicitNullValueSlackTeamId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_team_id"); else _explicitNullProperties?.Remove("slack_team_id"); } }
+        private string? _explicitNullValueSlackTeamId = default!;
 #nullable restore
 #else
-        public string SlackTeamId { get; set; }
+        public string SlackTeamId { get => _explicitNullValueSlackTeamId; set { _explicitNullValueSlackTeamId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_team_id"); else _explicitNullProperties?.Remove("slack_team_id"); } }
+        private string _explicitNullValueSlackTeamId = default!;
 #endif
         /// <summary>The slack_workspace_connected property</summary>
-        public bool? SlackWorkspaceConnected { get; set; }
+        public bool? SlackWorkspaceConnected { get => _explicitNullValueSlackWorkspaceConnected; set { _explicitNullValueSlackWorkspaceConnected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_workspace_connected"); else _explicitNullProperties?.Remove("slack_workspace_connected"); } }
+        private bool? _explicitNullValueSlackWorkspaceConnected = default!;
         /// <summary>The spend_observed_at property</summary>
-        public DateTimeOffset? SpendObservedAt { get; set; }
+        public DateTimeOffset? SpendObservedAt { get => _explicitNullValueSpendObservedAt; set { _explicitNullValueSpendObservedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_observed_at"); else _explicitNullProperties?.Remove("spend_observed_at"); } }
+        private DateTimeOffset? _explicitNullValueSpendObservedAt = default!;
         /// <summary>The spend_status property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponseSpendStatus? SpendStatus { get; set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponseSpendStatus? SpendStatus { get => _explicitNullValueSpendStatus; set { _explicitNullValueSpendStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_status"); else _explicitNullProperties?.Remove("spend_status"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponseSpendStatus? _explicitNullValueSpendStatus = default!;
         /// <summary>The thresholds property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdResponse>? Thresholds { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdResponse>? Thresholds { get => _explicitNullValueThresholds; set { _explicitNullValueThresholds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thresholds"); else _explicitNullProperties?.Remove("thresholds"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdResponse>? _explicitNullValueThresholds = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdResponse> Thresholds { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdResponse> Thresholds { get => _explicitNullValueThresholds; set { _explicitNullValueThresholds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thresholds"); else _explicitNullProperties?.Remove("thresholds"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdResponse> _explicitNullValueThresholds = default!;
 #endif
         /// <summary>The unmapped_member_count property</summary>
-        public int? UnmappedMemberCount { get; set; }
+        public int? UnmappedMemberCount { get => _explicitNullValueUnmappedMemberCount; set { _explicitNullValueUnmappedMemberCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unmapped_member_count"); else _explicitNullProperties?.Remove("unmapped_member_count"); } }
+        private int? _explicitNullValueUnmappedMemberCount = default!;
         /// <summary>The unmapped_spend property</summary>
-        public double? UnmappedSpend { get; set; }
+        public double? UnmappedSpend { get => _explicitNullValueUnmappedSpend; set { _explicitNullValueUnmappedSpend = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unmapped_spend"); else _explicitNullProperties?.Remove("unmapped_spend"); } }
+        private double? _explicitNullValueUnmappedSpend = default!;
         /// <summary>The users property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserResponse>? Users { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserResponse>? Users { get => _explicitNullValueUsers; set { _explicitNullValueUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("users"); else _explicitNullProperties?.Remove("users"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserResponse>? _explicitNullValueUsers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserResponse> Users { get; set; }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserResponse> Users { get => _explicitNullValueUsers; set { _explicitNullValueUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("users"); else _explicitNullProperties?.Remove("users"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserResponse> _explicitNullValueUsers = default!;
 #endif
         /// <summary>The users_page property</summary>
-        public int? UsersPage { get; set; }
+        public int? UsersPage { get => _explicitNullValueUsersPage; set { _explicitNullValueUsersPage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("users_page"); else _explicitNullProperties?.Remove("users_page"); } }
+        private int? _explicitNullValueUsersPage = default!;
         /// <summary>The users_per_page property</summary>
-        public int? UsersPerPage { get; set; }
+        public int? UsersPerPage { get => _explicitNullValueUsersPerPage; set { _explicitNullValueUsersPerPage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("users_per_page"); else _explicitNullProperties?.Remove("users_per_page"); } }
+        private int? _explicitNullValueUsersPerPage = default!;
         /// <summary>The users_total property</summary>
-        public int? UsersTotal { get; set; }
+        public int? UsersTotal { get => _explicitNullValueUsersTotal; set { _explicitNullValueUsersTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("users_total"); else _explicitNullProperties?.Remove("users_total"); } }
+        private int? _explicitNullValueUsersTotal = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponse"/> and sets the default values.
         /// </summary>
@@ -138,7 +216,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetSettingsResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -221,6 +299,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteIntValue("users_page", UsersPage);
             writer.WriteIntValue("users_per_page", UsersPerPage);
             writer.WriteIntValue("users_total", UsersTotal);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

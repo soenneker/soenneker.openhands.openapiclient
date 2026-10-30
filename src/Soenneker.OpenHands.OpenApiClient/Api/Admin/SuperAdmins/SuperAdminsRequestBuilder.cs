@@ -74,7 +74,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminListResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminListResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminListResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminListResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Grant the super-admin role to an existing user.Idempotent: granting to a user who is already a super admin succeeds andreturns their record. Requires ``MANAGE_SUPER_ADMINS``.
@@ -98,6 +98,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

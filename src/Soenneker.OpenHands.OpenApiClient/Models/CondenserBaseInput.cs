@@ -12,8 +12,36 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     public partial class CondenserBaseInput : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
     #pragma warning restore CS1591
     {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf1? CondenserBaseInputOneOf1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf1 CondenserBaseInputOneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf2? CondenserBaseInputOneOf2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf2 CondenserBaseInputOneOf2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf3? CondenserBaseInputOneOf3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf3 CondenserBaseInputOneOf3 { get; set; }
+#endif
         /// <summary>The condensers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,13 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The keep_first property</summary>
         public int? KeepFirst { get; set; }
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get; set; }
-#nullable restore
-#else
-        public string Kind { get; set; }
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput_kind? Kind { get; set; }
         /// <summary>Language model interface for OpenHands agents.The LLM class provides a unified interface for interacting with variouslanguage models through the litellm library. It handles model configuration,API authentication, retry logic, and tool calling capabilities.Attributes:    model: Model name (e.g., &quot;gpt-5.6&quot;).    api_key: API key for authentication.    base_url: Custom API base URL.    num_retries: Number of retry attempts for failed requests.    timeout: Request timeout in seconds.Example:    ```python    from openhands.sdk import LLM    from pydantic import SecretStr    llm = LLM(        model=&quot;gpt-5.6&quot;,        api_key=SecretStr(&quot;your-api-key&quot;),        usage_id=&quot;my-agent&quot;    )    # Use with agent or conversation    ```</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -44,36 +66,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInput Llm { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserInput"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserInput? LlmSummarizingCondenserInput { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserInput LlmSummarizingCondenserInput { get; set; }
-#endif
         /// <summary>The max_size property</summary>
         public int? MaxSize { get; set; }
         /// <summary>The max_tokens property</summary>
         public int? MaxTokens { get; set; }
         /// <summary>The minimum_progress property</summary>
         public double? MinimumProgress { get; set; }
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.NoOpCondenserInput"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.NoOpCondenserInput? NoOpCondenserInput { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.NoOpCondenserInput NoOpCondenserInput { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PipelineCondenserInput"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PipelineCondenserInput? PipelineCondenserInput { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PipelineCondenserInput PipelineCondenserInput { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput"/> and sets the default values.
         /// </summary>
@@ -94,33 +92,33 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput();
-            if(parseNode.GetDoubleValue() is double hardContextResetContextScalingValue)
-            {
-                result.HardContextResetContextScaling = hardContextResetContextScalingValue;
-            }
-            else if(parseNode.GetIntValue() is int hardContextResetMaxRetriesValue)
-            {
-                result.HardContextResetMaxRetries = hardContextResetMaxRetriesValue;
-            }
-            else if(parseNode.GetIntValue() is int keepFirstValue)
-            {
-                result.KeepFirst = keepFirstValue;
-            }
-            else if(parseNode.GetStringValue() is string kindValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput_kind>() is global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput_kind kindValue)
             {
                 result.Kind = kindValue;
             }
-            else if(parseNode.GetIntValue() is int maxSizeValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is (global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal) && parseNode.GetDoubleValue() is double hardContextResetContextScalingValue)
+            {
+                result.HardContextResetContextScaling = hardContextResetContextScalingValue;
+            }
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int hardContextResetMaxRetriesValue)
+            {
+                result.HardContextResetMaxRetries = hardContextResetMaxRetriesValue;
+            }
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int keepFirstValue)
+            {
+                result.KeepFirst = keepFirstValue;
+            }
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int maxSizeValue)
             {
                 result.MaxSize = maxSizeValue;
             }
-            else if(parseNode.GetIntValue() is int maxTokensValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int maxTokensValue)
             {
                 result.MaxTokens = maxTokensValue;
             }
-            else if(parseNode.GetDoubleValue() is double minimumProgressValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is (global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal) && parseNode.GetDoubleValue() is double minimumProgressValue)
             {
                 result.MinimumProgress = minimumProgressValue;
             }
@@ -128,7 +126,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 result.Condensers = condensersValue;
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("llm") != null && parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("LLMSummarizingCondenser".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("NoOpCondenser".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("condensers") != null && parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("PipelineCondenser".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.CondenserBaseInputOneOf1 == null && result.CondenserBaseInputOneOf2 == null && result.CondenserBaseInputOneOf3 == null && result.Condensers == null && result.HardContextResetContextScaling == null && result.HardContextResetMaxRetries == null && result.KeepFirst == null && result.Kind == null && result.Llm == null && result.MaxSize == null && result.MaxTokens == null && result.MinimumProgress == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.CondenserBaseInputOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf1(), parseNode);
+            if (result.CondenserBaseInputOneOf1 == null && result.CondenserBaseInputOneOf2 == null && result.CondenserBaseInputOneOf3 == null && result.Condensers == null && result.HardContextResetContextScaling == null && result.HardContextResetMaxRetries == null && result.KeepFirst == null && result.Kind == null && result.Llm == null && result.MaxSize == null && result.MaxTokens == null && result.MinimumProgress == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.CondenserBaseInputOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf2(), parseNode);
+            if (result.CondenserBaseInputOneOf1 == null && result.CondenserBaseInputOneOf2 == null && result.CondenserBaseInputOneOf3 == null && result.Condensers == null && result.HardContextResetContextScaling == null && result.HardContextResetMaxRetries == null && result.KeepFirst == null && result.Kind == null && result.Llm == null && result.MaxSize == null && result.MaxTokens == null && result.MinimumProgress == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.CondenserBaseInputOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf3(), parseNode);
+            if (result.CondenserBaseInputOneOf1 == null && result.CondenserBaseInputOneOf2 == null && result.CondenserBaseInputOneOf3 == null && result.Condensers == null && result.HardContextResetContextScaling == null && result.HardContextResetMaxRetries == null && result.KeepFirst == null && result.Kind == null && result.Llm == null && result.MaxSize == null && result.MaxTokens == null && result.MinimumProgress == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -136,21 +143,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(Llm != null)
+            if(CondenserBaseInputOneOf1 != null)
+            {
+                return CondenserBaseInputOneOf1.GetFieldDeserializers();
+            }
+            else if(CondenserBaseInputOneOf2 != null)
+            {
+                return CondenserBaseInputOneOf2.GetFieldDeserializers();
+            }
+            else if(CondenserBaseInputOneOf3 != null)
+            {
+                return CondenserBaseInputOneOf3.GetFieldDeserializers();
+            }
+            else if(Llm != null)
             {
                 return Llm.GetFieldDeserializers();
-            }
-            else if(LlmSummarizingCondenserInput != null)
-            {
-                return LlmSummarizingCondenserInput.GetFieldDeserializers();
-            }
-            else if(NoOpCondenserInput != null)
-            {
-                return NoOpCondenserInput.GetFieldDeserializers();
-            }
-            else if(PipelineCondenserInput != null)
-            {
-                return PipelineCondenserInput.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -160,22 +167,33 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (CondenserBaseInputOneOf1 == null && CondenserBaseInputOneOf2 == null && CondenserBaseInputOneOf3 == null && Condensers == null && HardContextResetContextScaling == null && HardContextResetMaxRetries == null && KeepFirst == null && Kind == null && Llm == null && MaxSize == null && MaxTokens == null && MinimumProgress == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(Llm != null)
+            if(CondenserBaseInputOneOf1 != null)
             {
+                if (CondenserBaseInputOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf1>(null, CondenserBaseInputOneOf1);
+            }
+            else if(CondenserBaseInputOneOf2 != null)
+            {
+                if (CondenserBaseInputOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf2>(null, CondenserBaseInputOneOf2);
+            }
+            else if(CondenserBaseInputOneOf3 != null)
+            {
+                if (CondenserBaseInputOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf3>(null, CondenserBaseInputOneOf3);
+            }
+            else if(Kind != null)
+            {
+                writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput_kind>(null, Kind);
+            }
+            else if(Llm != null)
+            {
+                if (Llm is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInput>(null, Llm);
-            }
-            else if(LlmSummarizingCondenserInput != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserInput>(null, LlmSummarizingCondenserInput);
-            }
-            else if(NoOpCondenserInput != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.NoOpCondenserInput>(null, NoOpCondenserInput);
-            }
-            else if(PipelineCondenserInput != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PipelineCondenserInput>(null, PipelineCondenserInput);
             }
             else if(HardContextResetContextScaling != null)
             {
@@ -188,10 +206,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if(KeepFirst != null)
             {
                 writer.WriteIntValue(null, KeepFirst);
-            }
-            else if(Kind != null)
-            {
-                writer.WriteStringValue(null, Kind);
             }
             else if(MaxSize != null)
             {
@@ -209,7 +223,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput>(null, Condensers);
             }
-            writer.WriteAdditionalData(AdditionalData);
+            
         }
     }
 }
