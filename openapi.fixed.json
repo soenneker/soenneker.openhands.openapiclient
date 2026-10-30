@@ -14710,7 +14710,10 @@
             "default": "https://llm-proxy.app.all-hands.dev/vllm"
           },
           "api_key": {
-            "$ref": "#/components/schemas/ApiBasedCriticApiKey"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "title": "Api Key",
+            "description": "API key for authenticating with the vLLM service"
           },
           "model_name": {
             "title": "Model Name",
@@ -14811,7 +14814,7 @@
             "$ref": "#/components/schemas/ApiBasedCriticMode"
           },
           "iterative_refinement": {
-            "$ref": "#/components/schemas/ApiBasedCriticIterativeRefinement"
+            "$ref": "#/components/schemas/AgentFinishedCriticIterativeRefinement"
           },
           "issue_threshold": {
             "title": "Issue Threshold",
@@ -15322,7 +15325,7 @@
             "description": "List of default tool class names to include. By default, the agent includes \u0027FinishTool\u0027 and \u0027ThinkTool\u0027. Set to an empty list to disable all default tools, or provide a subset to include only specific ones. Example: include_default_tools=[\u0027FinishTool\u0027] to only include FinishTool, or include_default_tools=[] to disable all default tools."
           },
           "agent_context": {
-            "$ref": "#/components/schemas/AgentAgentContext"
+            "$ref": "#/components/schemas/AcpAgentAgentContext"
           },
           "system_prompt": {
             "title": "System Prompt",
@@ -15348,10 +15351,10 @@
             "$ref": "#/components/schemas/AgentSystemPromptKwargsProperty"
           },
           "condenser": {
-            "$ref": "#/components/schemas/AgentCondenser"
+            "$ref": "#/components/schemas/AcpAgentCondenser"
           },
           "critic": {
-            "$ref": "#/components/schemas/AgentCritic"
+            "$ref": "#/components/schemas/AcpAgentCritic"
           },
           "tool_concurrency_limit": {
             "title": "Tool Concurrency Limit",
@@ -15490,10 +15493,10 @@
             "acp_compatible": true
           },
           "system_message_suffix": {
-            "$ref": "#/components/schemas/AgentContextOutputSystemMessageSuffix"
+            "$ref": "#/components/schemas/AgentContextInputSystemMessageSuffix"
           },
           "user_message_suffix": {
-            "$ref": "#/components/schemas/AgentContextOutputUserMessageSuffix"
+            "$ref": "#/components/schemas/AgentContextInputUserMessageSuffix"
           },
           "load_user_skills": {
             "title": "Load User Skills",
@@ -15510,7 +15513,7 @@
             "acp_compatible": true
           },
           "marketplace_path": {
-            "$ref": "#/components/schemas/AgentContextOutputMarketplacePath"
+            "$ref": "#/components/schemas/AgentContextInputMarketplacePath"
           },
           "registered_marketplaces": {
             "title": "Registered Marketplaces",
@@ -15553,7 +15556,7 @@
             "$ref": "#/components/schemas/AgentContextOutputSecrets"
           },
           "current_datetime": {
-            "$ref": "#/components/schemas/AgentContextOutputCurrentDatetime"
+            "$ref": "#/components/schemas/AgentContextInputCurrentDatetime"
           }
         },
         "description": "Central structure for managing prompt extension.\n\nAgentContext unifies all the contextual inputs that shape how the system\nextends and interprets user prompts. It combines both static environment\ndetails and dynamic, user-activated extensions from skills.\n\nSpecifically, it provides:\n- **Repository context / Repo Skills**: Information about the active codebase,\n  branches, and repo-specific instructions contributed by repo skills.\n- **Runtime context**: Current execution environment (hosts, working\n  directory, secrets, date, etc.).\n- **Conversation instructions**: Optional task- or channel-specific rules\n  that constrain or guide the agent\u2019s behavior across the session.\n- **Knowledge Skills**: Extensible components that can be triggered by user input\n  to inject knowledge or domain-specific guidance.\n\nTogether, these elements make AgentContext the primary container responsible\nfor assembling, formatting, and injecting all prompt-relevant context into\nLLM interactions."
@@ -16291,7 +16294,7 @@
             ]
           },
           "trigger": {
-            "$ref": "#/components/schemas/AppConversationTrigger"
+            "$ref": "#/components/schemas/AppConversationStartRequestInputTrigger"
           },
           "pr_number": {
             "title": "Pr Number",
@@ -16513,7 +16516,7 @@
             ]
           },
           "git_provider": {
-            "$ref": "#/components/schemas/AppConversationStartRequestInputGitProvider"
+            "$ref": "#/components/schemas/AppConversationGitProvider"
           },
           "suggested_task": {
             "$ref": "#/components/schemas/AppConversationStartRequestInputSuggestedTask"
@@ -16628,7 +16631,7 @@
             "format": "uuid"
           },
           "initial_message": {
-            "$ref": "#/components/schemas/AppConversationStartRequestOutputInitialMessage"
+            "$ref": "#/components/schemas/AppConversationStartRequestInputInitialMessage"
           },
           "system_message_suffix": {
             "title": "System Message Suffix",
@@ -16703,10 +16706,10 @@
             ]
           },
           "git_provider": {
-            "$ref": "#/components/schemas/AppConversationStartRequestOutputGitProvider"
+            "$ref": "#/components/schemas/AppConversationGitProvider"
           },
           "suggested_task": {
-            "$ref": "#/components/schemas/AppConversationStartRequestOutputSuggestedTask"
+            "$ref": "#/components/schemas/AppConversationStartRequestInputSuggestedTask"
           },
           "title": {
             "title": "Title",
@@ -16716,7 +16719,7 @@
             ]
           },
           "trigger": {
-            "$ref": "#/components/schemas/AppConversationStartRequestOutputTrigger"
+            "$ref": "#/components/schemas/AppConversationStartRequestInputTrigger"
           },
           "pr_number": {
             "title": "Pr Number",
@@ -17012,7 +17015,7 @@
             ]
           },
           "git_provider": {
-            "$ref": "#/components/schemas/AppConversationUpdateRequestGitProvider"
+            "$ref": "#/components/schemas/AppConversationGitProvider"
           },
           "tags": {
             "$ref": "#/components/schemas/AppConversationUpdateRequestTagsProperty"
@@ -17129,7 +17132,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ApplyPatchObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -17279,7 +17282,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AskOracleObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -17322,7 +17325,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/AskOracleToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/AskOracleToolMetaProperty"
@@ -17839,7 +17842,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/BrowserClickToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/BrowserClickToolMetaProperty"
@@ -17901,7 +17904,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/BrowserCloseTabToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/BrowserCloseTabToolMetaProperty"
@@ -17970,7 +17973,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/BrowserGetContentToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/BrowserGetContentToolMetaProperty"
@@ -18032,7 +18035,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/BrowserGetStateToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/BrowserGetStateToolMetaProperty"
@@ -18088,7 +18091,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/BrowserGetStorageToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/BrowserGetStorageToolMetaProperty"
@@ -18144,7 +18147,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/BrowserGoBackToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/BrowserGoBackToolMetaProperty"
@@ -18200,7 +18203,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/BrowserListTabsToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/BrowserListTabsToolMetaProperty"
@@ -18268,7 +18271,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/BrowserNavigateToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/BrowserNavigateToolMetaProperty"
@@ -18295,7 +18298,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BrowserObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -18371,7 +18374,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/BrowserScrollToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/BrowserScrollToolMetaProperty"
@@ -18431,7 +18434,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/BrowserSetStorageToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/BrowserSetStorageToolMetaProperty"
@@ -18487,7 +18490,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/BrowserStartRecordingToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/BrowserStartRecordingToolMetaProperty"
@@ -18543,7 +18546,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/BrowserStopRecordingToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/BrowserStopRecordingToolMetaProperty"
@@ -18605,7 +18608,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/BrowserSwitchTabToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/BrowserSwitchTabToolMetaProperty"
@@ -18647,7 +18650,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/BrowserToolSetAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/BrowserToolSetMetaProperty"
@@ -18716,7 +18719,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/BrowserTypeToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/BrowserTypeToolMetaProperty"
@@ -18817,7 +18820,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ClassifyAndSwitchLlmObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -18884,7 +18887,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/ClassifyAndSwitchLlmToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/ClassifyAndSwitchLlmToolMetaProperty"
@@ -18928,7 +18931,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/ClientToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/ClientToolMetaProperty"
@@ -18963,7 +18966,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ClientToolObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -19375,7 +19378,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ConsultTomObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -19456,7 +19459,7 @@
             "description": "Details about the error"
           },
           "classification": {
-            "$ref": "#/components/schemas/ConversationErrorEventClassification"
+            "$ref": "#/components/schemas/AgentErrorEventClassification"
           },
           "kind": {
             "$ref": "#/components/schemas/ConversationErrorEventKind"
@@ -19634,7 +19637,7 @@
             "description": "User-defined title for the conversation"
           },
           "metrics": {
-            "$ref": "#/components/schemas/ConversationInfoMetrics"
+            "$ref": "#/components/schemas/AppConversationMetrics"
           },
           "created_at": {
             "title": "Created At",
@@ -20595,7 +20598,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DelegateObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -20703,7 +20706,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EditObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -20796,7 +20799,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/EditToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/EditToolMetaProperty"
@@ -20833,7 +20836,7 @@
             "$ref": "#/components/schemas/EmptyPatchCriticMode"
           },
           "iterative_refinement": {
-            "$ref": "#/components/schemas/EmptyPatchCriticIterativeRefinement"
+            "$ref": "#/components/schemas/AgentFinishedCriticIterativeRefinement"
           },
           "kind": {
             "$ref": "#/components/schemas/EmptyPatchCriticKind"
@@ -21409,7 +21412,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/FileEditorObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -21485,7 +21488,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/FileEditorToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/FileEditorToolMetaProperty"
@@ -21571,7 +21574,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/FinishObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -21614,7 +21617,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/FinishToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/FinishToolMetaProperty"
@@ -22249,7 +22252,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/GlobObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -22316,7 +22319,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/GlobToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/GlobToolMetaProperty"
@@ -22468,7 +22471,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/GrepObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -22543,7 +22546,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/GrepToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/GrepToolMetaProperty"
@@ -23124,7 +23127,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/InvokeSkillObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -23171,7 +23174,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/InvokeSkillToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/InvokeSkillToolMetaProperty"
@@ -23876,10 +23879,10 @@
             }
           },
           "api_key": {
-            "$ref": "#/components/schemas/LlmOutputApiKey"
+            "$ref": "#/components/schemas/LlmInputApiKey"
           },
           "provider_connection_id": {
-            "$ref": "#/components/schemas/LlmOutputProviderConnectionId"
+            "$ref": "#/components/schemas/LlmInputProviderConnectionId"
           },
           "auth_type": {
             "$ref": "#/components/schemas/LlmOutputAuthType"
@@ -23888,34 +23891,34 @@
             "$ref": "#/components/schemas/LlmOutputSubscriptionVendor"
           },
           "base_url": {
-            "$ref": "#/components/schemas/LlmOutputBaseUrl"
+            "$ref": "#/components/schemas/LlmInputBaseUrl"
           },
           "api_version": {
-            "$ref": "#/components/schemas/LlmOutputApiVersion"
+            "$ref": "#/components/schemas/LlmInputApiVersion"
           },
           "aws_access_key_id": {
-            "$ref": "#/components/schemas/LlmOutputAwsAccessKeyId"
+            "$ref": "#/components/schemas/LlmInputAwsAccessKeyId"
           },
           "aws_secret_access_key": {
-            "$ref": "#/components/schemas/LlmOutputAwsSecretAccessKey"
+            "$ref": "#/components/schemas/LlmInputAwsSecretAccessKey"
           },
           "aws_session_token": {
-            "$ref": "#/components/schemas/LlmOutputAwsSessionToken"
+            "$ref": "#/components/schemas/LlmInputAwsSessionToken"
           },
           "aws_region_name": {
-            "$ref": "#/components/schemas/LlmOutputAwsRegionName"
+            "$ref": "#/components/schemas/LlmInputAwsRegionName"
           },
           "aws_profile_name": {
-            "$ref": "#/components/schemas/LlmOutputAwsProfileName"
+            "$ref": "#/components/schemas/LlmInputAwsProfileName"
           },
           "aws_role_name": {
-            "$ref": "#/components/schemas/LlmOutputAwsRoleName"
+            "$ref": "#/components/schemas/LlmInputAwsRoleName"
           },
           "aws_session_name": {
-            "$ref": "#/components/schemas/LlmOutputAwsSessionName"
+            "$ref": "#/components/schemas/LlmInputAwsSessionName"
           },
           "aws_bedrock_runtime_endpoint": {
-            "$ref": "#/components/schemas/LlmOutputAwsBedrockRuntimeEndpoint"
+            "$ref": "#/components/schemas/LlmInputAwsBedrockRuntimeEndpoint"
           },
           "openrouter_site_url": {
             "title": "Openrouter Site Url",
@@ -23976,10 +23979,10 @@
             }
           },
           "timeout": {
-            "$ref": "#/components/schemas/LlmOutputTimeout"
+            "$ref": "#/components/schemas/LlmInputTimeout"
           },
           "stream_idle_timeout": {
-            "$ref": "#/components/schemas/LlmOutputStreamIdleTimeout"
+            "$ref": "#/components/schemas/LlmInputStreamIdleTimeout"
           },
           "max_message_chars": {
             "title": "Max Message Chars",
@@ -23993,22 +23996,22 @@
             }
           },
           "temperature": {
-            "$ref": "#/components/schemas/LlmOutputTemperature"
+            "$ref": "#/components/schemas/LlmInputTemperature"
           },
           "top_p": {
-            "$ref": "#/components/schemas/LlmOutputTopP"
+            "$ref": "#/components/schemas/LlmInputTopP"
           },
           "top_k": {
-            "$ref": "#/components/schemas/LlmOutputTopK"
+            "$ref": "#/components/schemas/LlmInputTopK"
           },
           "max_input_tokens": {
-            "$ref": "#/components/schemas/LlmOutputMaxInputTokens"
+            "$ref": "#/components/schemas/LlmInputMaxInputTokens"
           },
           "max_output_tokens": {
-            "$ref": "#/components/schemas/LlmOutputMaxOutputTokens"
+            "$ref": "#/components/schemas/LlmInputMaxOutputTokens"
           },
           "model_canonical_name": {
-            "$ref": "#/components/schemas/LlmOutputModelCanonicalName"
+            "$ref": "#/components/schemas/LlmInputModelCanonicalName"
           },
           "api_mode": {
             "$ref": "#/components/schemas/LlmOutputApiMode"
@@ -24020,13 +24023,13 @@
             "$ref": "#/components/schemas/LlmOutputExtraHeaders"
           },
           "input_cost_per_token": {
-            "$ref": "#/components/schemas/LlmOutputInputCostPerToken"
+            "$ref": "#/components/schemas/LlmInputInputCostPerToken"
           },
           "output_cost_per_token": {
-            "$ref": "#/components/schemas/LlmOutputOutputCostPerToken"
+            "$ref": "#/components/schemas/LlmInputOutputCostPerToken"
           },
           "ollama_base_url": {
-            "$ref": "#/components/schemas/LlmOutputOllamaBaseUrl"
+            "$ref": "#/components/schemas/LlmInputOllamaBaseUrl"
           },
           "stream": {
             "title": "Stream",
@@ -24048,10 +24051,10 @@
             }
           },
           "disable_vision": {
-            "$ref": "#/components/schemas/LlmOutputDisableVision"
+            "$ref": "#/components/schemas/LlmInputDisableVision"
           },
           "disable_stop_word": {
-            "$ref": "#/components/schemas/LlmOutputDisableStopWord"
+            "$ref": "#/components/schemas/LlmInputDisableStopWord"
           },
           "caching_prompt": {
             "title": "Caching Prompt",
@@ -24084,7 +24087,7 @@
             }
           },
           "custom_tokenizer": {
-            "$ref": "#/components/schemas/LlmOutputCustomTokenizer"
+            "$ref": "#/components/schemas/LlmInputCustomTokenizer"
           },
           "native_tool_calling": {
             "title": "Native Tool Calling",
@@ -24097,10 +24100,10 @@
             }
           },
           "force_string_serializer": {
-            "$ref": "#/components/schemas/LlmOutputForceStringSerializer"
+            "$ref": "#/components/schemas/LlmInputForceStringSerializer"
           },
           "inline_image_urls": {
-            "$ref": "#/components/schemas/LlmOutputInlineImageUrls"
+            "$ref": "#/components/schemas/LlmInputInlineImageUrls"
           },
           "reasoning_effort": {
             "$ref": "#/components/schemas/LlmOutputReasoningEffort"
@@ -24119,13 +24122,13 @@
             }
           },
           "prompt_cache_retention": {
-            "$ref": "#/components/schemas/LlmOutputPromptCacheRetention"
+            "$ref": "#/components/schemas/LlmInputPromptCacheRetention"
           },
           "extended_thinking_budget": {
-            "$ref": "#/components/schemas/LlmOutputExtendedThinkingBudget"
+            "$ref": "#/components/schemas/LlmInputExtendedThinkingBudget"
           },
           "seed": {
-            "$ref": "#/components/schemas/LlmOutputSeed"
+            "$ref": "#/components/schemas/LlmInputSeed"
           },
           "usage_id": {
             "title": "Usage Id",
@@ -24691,7 +24694,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ListDirectoryObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -24762,7 +24765,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/ListDirectoryToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/ListDirectoryToolMetaProperty"
@@ -25205,7 +25208,7 @@
             "$ref": "#/components/schemas/McpoAuthAuthenticationOutputClientAuthMethod"
           },
           "scopes": {
-            "$ref": "#/components/schemas/McpoAuthAuthenticationOutputScopes"
+            "$ref": "#/components/schemas/McpoAuthAuthenticationInputScopes"
           },
           "client_name": {
             "title": "Client Name",
@@ -25701,10 +25704,10 @@
         "type": "object",
         "properties": {
           "ok": {
-            "const": null,
             "title": "Ok",
             "type": "boolean",
-            "default": false
+            "default": false,
+            "x-client-original-const": false
           },
           "error": {
             "title": "Error",
@@ -25756,10 +25759,10 @@
         "type": "object",
         "properties": {
           "ok": {
-            "const": null,
             "title": "Ok",
             "type": "boolean",
-            "default": true
+            "default": true,
+            "x-client-original-const": true
           },
           "tools": {
             "title": "Tools",
@@ -25874,7 +25877,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/McpToolDefinitionAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/McpToolDefinitionMetaProperty"
@@ -25905,7 +25908,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/McpToolObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -26177,7 +26180,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MessageContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             }
           },
           "tool_calls": {
@@ -26216,12 +26219,12 @@
             "title": "Thinking Blocks",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MessageThinkingBlocksItem"
+              "$ref": "#/components/schemas/ActionEventThinkingBlocksItem"
             },
             "description": "Raw Anthropic thinking blocks for extended thinking feature"
           },
           "responses_reasoning_item": {
-            "$ref": "#/components/schemas/MessageResponsesReasoningItem"
+            "$ref": "#/components/schemas/ActionEventResponsesReasoningItem"
           }
         }
       },
@@ -26494,7 +26497,7 @@
             "description": "Maximum budget per task"
           },
           "accumulated_token_usage": {
-            "$ref": "#/components/schemas/MetricsSnapshotAccumulatedTokenUsage"
+            "$ref": "#/components/schemas/MetricsAccumulatedTokenUsage"
           }
         },
         "description": "A snapshot of metrics at a point in time.\n\nDoes not include lists of individual costs, latencies, or token usages."
@@ -26675,7 +26678,7 @@
             "default": 60
           },
           "legacy_keycloak_type": {
-            "$ref": "#/components/schemas/OAuthProviderDetailsInputLegacyKeycloakType"
+            "$ref": "#/components/schemas/AppConversationGitProvider"
           },
           "kind": {
             "$ref": "#/components/schemas/OAuthProviderDetailsKind"
@@ -26743,7 +26746,7 @@
             "default": 60
           },
           "legacy_keycloak_type": {
-            "$ref": "#/components/schemas/OAuthProviderDetailsOutputLegacyKeycloakType"
+            "$ref": "#/components/schemas/AppConversationGitProvider"
           },
           "kind": {
             "$ref": "#/components/schemas/OAuthProviderDetailsOutputKind"
@@ -27135,7 +27138,7 @@
             "$ref": "#/components/schemas/LlmOutput"
           },
           "tools": {
-            "$ref": "#/components/schemas/OpenHandsAgentSettingsTools"
+            "$ref": "#/components/schemas/LlmAgentSettingsTools"
           },
           "enable_classify_and_switch_llm_tool": {
             "title": "Enable Classify And Switch Llm Tool",
@@ -27150,10 +27153,10 @@
             }
           },
           "active_meta_profile": {
-            "$ref": "#/components/schemas/OpenHandsAgentSettingsActiveMetaProfile"
+            "$ref": "#/components/schemas/LlmAgentSettingsActiveMetaProfile"
           },
           "meta_profile": {
-            "$ref": "#/components/schemas/OpenHandsAgentSettingsMetaProfile"
+            "$ref": "#/components/schemas/LlmAgentSettingsMetaProfile"
           },
           "meta_profile_llms": {
             "$ref": "#/components/schemas/OpenHandsAgentSettingsMetaProfileLlmsProperty"
@@ -27188,7 +27191,7 @@
             "$ref": "#/components/schemas/AgentContextOutput"
           },
           "condenser": {
-            "$ref": "#/components/schemas/OpenHandsAgentSettingsCondenser"
+            "$ref": "#/components/schemas/LlmAgentSettingsCondenser"
           },
           "verification": {
             "description": "Verification settings for the agent critic.",
@@ -28510,7 +28513,7 @@
             "default": 0
           },
           "agent_settings": {
-            "$ref": "#/components/schemas/OrgResponseAgentSettings"
+            "$ref": "#/components/schemas/OrgDefaultsSettingsResponseAgentSettings"
           },
           "conversation_settings": {
             "$ref": "#/components/schemas/ConversationSettings"
@@ -28956,7 +28959,7 @@
             "$ref": "#/components/schemas/PassCriticMode"
           },
           "iterative_refinement": {
-            "$ref": "#/components/schemas/PassCriticIterativeRefinement"
+            "$ref": "#/components/schemas/AgentFinishedCriticIterativeRefinement"
           },
           "kind": {
             "$ref": "#/components/schemas/PassCriticKind"
@@ -29321,7 +29324,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/PlanningFileEditorObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -29397,7 +29400,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/PlanningFileEditorToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/PlanningFileEditorToolMetaProperty"
@@ -29998,7 +30001,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ReadFileObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -30069,7 +30072,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/ReadFileToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/ReadFileToolMetaProperty"
@@ -30660,7 +30663,7 @@
             "$ref": "#/components/schemas/ConversationSettings"
           },
           "sandbox_grouping_strategy": {
-            "$ref": "#/components/schemas/SaasUserInfoSandboxGroupingStrategy"
+            "$ref": "#/components/schemas/GetSettingsModelSandboxGroupingStrategy"
           },
           "default_sandbox_spec_id": {
             "title": "Default Sandbox Spec Id",
@@ -31390,7 +31393,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SendMessageRequestContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             }
           },
           "run": {
@@ -31732,7 +31735,7 @@
             "type": "string"
           },
           "trigger": {
-            "$ref": "#/components/schemas/SkillOutputTrigger"
+            "$ref": "#/components/schemas/SkillInputTrigger"
           },
           "source": {
             "title": "Source",
@@ -31810,7 +31813,7 @@
             "default": false
           },
           "resources": {
-            "$ref": "#/components/schemas/SkillOutputResources"
+            "$ref": "#/components/schemas/SkillInputResources"
           }
         },
         "description": "A skill provides specialized knowledge or functionality.\n\nSkill behavior depends on format (is_agentskills_format) and trigger:\n\nAgentSkills format (SKILL.md files):\n- Always listed in \u003Cavailable_skills\u003E with name, description, location\n- Agent reads full content on demand (progressive disclosure)\n- If has triggers: content is ALSO auto-injected when triggered\n\nLegacy OpenHands format:\n- With triggers: Listed in \u003Cavailable_skills\u003E, content injected on trigger\n- Without triggers (None): Full content in \u003CREPO_CONTEXT\u003E, always active\n\nThis model supports both OpenHands-specific fields and AgentSkills standard\nfields (https://agentskills.io/specification) for cross-platform compatibility."
@@ -32008,7 +32011,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SleeptimeComputeObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -32063,7 +32066,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/SleeptimeComputeToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/SleeptimeComputeToolMetaProperty"
@@ -32164,7 +32167,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/StartChildConversationObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -32332,7 +32335,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/StartChildConversationToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/StartChildConversationToolMetaProperty"
@@ -32535,10 +32538,10 @@
             }
           },
           "api_key": {
-            "$ref": "#/components/schemas/StrictLlmApiKey"
+            "$ref": "#/components/schemas/LlmInputApiKey"
           },
           "provider_connection_id": {
-            "$ref": "#/components/schemas/StrictLlmProviderConnectionId"
+            "$ref": "#/components/schemas/LlmInputProviderConnectionId"
           },
           "auth_type": {
             "$ref": "#/components/schemas/StrictLlmAuthType"
@@ -32547,34 +32550,34 @@
             "$ref": "#/components/schemas/StrictLlmSubscriptionVendor"
           },
           "base_url": {
-            "$ref": "#/components/schemas/StrictLlmBaseUrl"
+            "$ref": "#/components/schemas/LlmInputBaseUrl"
           },
           "api_version": {
-            "$ref": "#/components/schemas/StrictLlmApiVersion"
+            "$ref": "#/components/schemas/LlmInputApiVersion"
           },
           "aws_access_key_id": {
-            "$ref": "#/components/schemas/StrictLlmAwsAccessKeyId"
+            "$ref": "#/components/schemas/LlmInputAwsAccessKeyId"
           },
           "aws_secret_access_key": {
-            "$ref": "#/components/schemas/StrictLlmAwsSecretAccessKey"
+            "$ref": "#/components/schemas/LlmInputAwsSecretAccessKey"
           },
           "aws_session_token": {
-            "$ref": "#/components/schemas/StrictLlmAwsSessionToken"
+            "$ref": "#/components/schemas/LlmInputAwsSessionToken"
           },
           "aws_region_name": {
-            "$ref": "#/components/schemas/StrictLlmAwsRegionName"
+            "$ref": "#/components/schemas/LlmInputAwsRegionName"
           },
           "aws_profile_name": {
-            "$ref": "#/components/schemas/StrictLlmAwsProfileName"
+            "$ref": "#/components/schemas/LlmInputAwsProfileName"
           },
           "aws_role_name": {
-            "$ref": "#/components/schemas/StrictLlmAwsRoleName"
+            "$ref": "#/components/schemas/LlmInputAwsRoleName"
           },
           "aws_session_name": {
-            "$ref": "#/components/schemas/StrictLlmAwsSessionName"
+            "$ref": "#/components/schemas/LlmInputAwsSessionName"
           },
           "aws_bedrock_runtime_endpoint": {
-            "$ref": "#/components/schemas/StrictLlmAwsBedrockRuntimeEndpoint"
+            "$ref": "#/components/schemas/LlmInputAwsBedrockRuntimeEndpoint"
           },
           "openrouter_site_url": {
             "title": "Openrouter Site Url",
@@ -32635,10 +32638,10 @@
             }
           },
           "timeout": {
-            "$ref": "#/components/schemas/StrictLlmTimeout"
+            "$ref": "#/components/schemas/LlmInputTimeout"
           },
           "stream_idle_timeout": {
-            "$ref": "#/components/schemas/StrictLlmStreamIdleTimeout"
+            "$ref": "#/components/schemas/LlmInputStreamIdleTimeout"
           },
           "max_message_chars": {
             "title": "Max Message Chars",
@@ -32652,22 +32655,22 @@
             }
           },
           "temperature": {
-            "$ref": "#/components/schemas/StrictLlmTemperature"
+            "$ref": "#/components/schemas/LlmInputTemperature"
           },
           "top_p": {
-            "$ref": "#/components/schemas/StrictLlmTopP"
+            "$ref": "#/components/schemas/LlmInputTopP"
           },
           "top_k": {
-            "$ref": "#/components/schemas/StrictLlmTopK"
+            "$ref": "#/components/schemas/LlmInputTopK"
           },
           "max_input_tokens": {
-            "$ref": "#/components/schemas/StrictLlmMaxInputTokens"
+            "$ref": "#/components/schemas/LlmInputMaxInputTokens"
           },
           "max_output_tokens": {
-            "$ref": "#/components/schemas/StrictLlmMaxOutputTokens"
+            "$ref": "#/components/schemas/LlmInputMaxOutputTokens"
           },
           "model_canonical_name": {
-            "$ref": "#/components/schemas/StrictLlmModelCanonicalName"
+            "$ref": "#/components/schemas/LlmInputModelCanonicalName"
           },
           "api_mode": {
             "$ref": "#/components/schemas/StrictLlmApiMode"
@@ -32679,13 +32682,13 @@
             "$ref": "#/components/schemas/StrictLlmExtraHeaders"
           },
           "input_cost_per_token": {
-            "$ref": "#/components/schemas/StrictLlmInputCostPerToken"
+            "$ref": "#/components/schemas/LlmInputInputCostPerToken"
           },
           "output_cost_per_token": {
-            "$ref": "#/components/schemas/StrictLlmOutputCostPerToken"
+            "$ref": "#/components/schemas/LlmInputOutputCostPerToken"
           },
           "ollama_base_url": {
-            "$ref": "#/components/schemas/StrictLlmOllamaBaseUrl"
+            "$ref": "#/components/schemas/LlmInputOllamaBaseUrl"
           },
           "stream": {
             "title": "Stream",
@@ -32707,10 +32710,10 @@
             }
           },
           "disable_vision": {
-            "$ref": "#/components/schemas/StrictLlmDisableVision"
+            "$ref": "#/components/schemas/LlmInputDisableVision"
           },
           "disable_stop_word": {
-            "$ref": "#/components/schemas/StrictLlmDisableStopWord"
+            "$ref": "#/components/schemas/LlmInputDisableStopWord"
           },
           "caching_prompt": {
             "title": "Caching Prompt",
@@ -32743,7 +32746,7 @@
             }
           },
           "custom_tokenizer": {
-            "$ref": "#/components/schemas/StrictLlmCustomTokenizer"
+            "$ref": "#/components/schemas/LlmInputCustomTokenizer"
           },
           "native_tool_calling": {
             "title": "Native Tool Calling",
@@ -32756,10 +32759,10 @@
             }
           },
           "force_string_serializer": {
-            "$ref": "#/components/schemas/StrictLlmForceStringSerializer"
+            "$ref": "#/components/schemas/LlmInputForceStringSerializer"
           },
           "inline_image_urls": {
-            "$ref": "#/components/schemas/StrictLlmInlineImageUrls"
+            "$ref": "#/components/schemas/LlmInputInlineImageUrls"
           },
           "reasoning_effort": {
             "$ref": "#/components/schemas/StrictLlmReasoningEffort"
@@ -32778,13 +32781,13 @@
             }
           },
           "prompt_cache_retention": {
-            "$ref": "#/components/schemas/StrictLlmPromptCacheRetention"
+            "$ref": "#/components/schemas/LlmInputPromptCacheRetention"
           },
           "extended_thinking_budget": {
-            "$ref": "#/components/schemas/StrictLlmExtendedThinkingBudget"
+            "$ref": "#/components/schemas/LlmInputExtendedThinkingBudget"
           },
           "seed": {
-            "$ref": "#/components/schemas/StrictLlmSeed"
+            "$ref": "#/components/schemas/LlmInputSeed"
           },
           "usage_id": {
             "title": "Usage Id",
@@ -32800,7 +32803,7 @@
             "$ref": "#/components/schemas/StrictLlmLitellmExtraBodyProperty"
           },
           "fallback_strategy": {
-            "$ref": "#/components/schemas/StrictLlmFallbackStrategy"
+            "$ref": "#/components/schemas/LlmInputFallbackStrategy"
           }
         },
         "additionalProperties": false,
@@ -33019,7 +33022,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SwitchLlmObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -33083,7 +33086,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/SwitchLlmToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/SwitchLlmToolMetaProperty"
@@ -33246,7 +33249,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TaskObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -33304,7 +33307,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/TaskToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/TaskToolMetaProperty"
@@ -33346,7 +33349,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/TaskToolSetAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/TaskToolSetMetaProperty"
@@ -33399,7 +33402,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TaskTrackerObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -33453,7 +33456,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/TaskTrackerToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/TaskTrackerToolMetaProperty"
@@ -33622,7 +33625,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TerminalObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -33699,7 +33702,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/TerminalToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/TerminalToolMetaProperty"
@@ -33768,7 +33771,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ThinkObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -33811,7 +33814,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/ThinkToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/ThinkToolMetaProperty"
@@ -33999,7 +34002,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/TomConsultToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/TomConsultToolMetaProperty"
@@ -34362,9 +34365,6 @@
             "type": "boolean"
           },
           {
-            "type": "integer"
-          },
-          {
             "type": "number"
           },
           {
@@ -34377,12 +34377,6 @@
             "type": "array",
             "items": {
               "type": "boolean"
-            }
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "integer"
             }
           },
           {
@@ -34411,10 +34405,10 @@
             "$ref": "#/components/schemas/TransformingRemoteMcpServerHeadersProperty"
           },
           "auth": {
-            "$ref": "#/components/schemas/TransformingRemoteMcpServerAuth"
+            "$ref": "#/components/schemas/RemoteMcpServerAuth"
           },
           "sse_read_timeout": {
-            "$ref": "#/components/schemas/TransformingRemoteMcpServerSseReadTimeout"
+            "$ref": "#/components/schemas/RemoteMcpServerSseReadTimeout"
           },
           "timeout": {
             "title": "Timeout",
@@ -35295,7 +35289,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/VisionInspectObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -35380,7 +35374,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/VisionInspectToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/VisionInspectToolMetaProperty"
@@ -35707,7 +35701,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WorkflowObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -35758,7 +35752,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/WorkflowToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/WorkflowToolMetaProperty"
@@ -35800,7 +35794,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/WorkflowToolSetAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/WorkflowToolSetMetaProperty"
@@ -35853,7 +35847,7 @@
             "title": "Content",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WriteFileObservationContentItem"
+              "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
             },
             "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
           },
@@ -35926,7 +35920,7 @@
             ]
           },
           "annotations": {
-            "$ref": "#/components/schemas/WriteFileToolAnnotations"
+            "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
           },
           "meta": {
             "$ref": "#/components/schemas/WriteFileToolMetaProperty"
@@ -36509,7 +36503,7 @@
             "default": true
           },
           "llm": {
-            "$ref": "#/components/schemas/ServerRoutesOrgProfilesSaveProfileRequestLlm"
+            "$ref": "#/components/schemas/OpenhandsAppServerSettingsSettingsRouterSaveProfileRequestLlm"
           },
           "preserve_existing_api_key": {
             "title": "Preserve Existing Api Key",
@@ -36646,35 +36640,15 @@
         "description": "Prompt-only context for the ACP server. \u0060\u0060secrets\u0060\u0060 here are advertised to the agent (names/descriptions) and reach the subprocess env through \u0060\u0060state.secret_registry\u0060\u0060: \u0060\u0060LocalConversation\u0060\u0060 seeds \u0060\u0060agent_context.secrets\u0060\u0060 into the registry at conversation init (below \u0060\u0060request.secrets\u0060\u0060), so callers that build the request outside Python (e.g. canvas-local) are covered too, not just the \u0060\u0060create_request\u0060\u0060 path. Provider credentials belong here (or in \u0060\u0060request.secrets\u0060\u0060) keyed by the provider\u0027s env var name."
       },
       "AcpToolCallEventRawInput": {
-        "title": "Raw Input",
-        "anyOf": [
-          {},
-          {
-            "type": "null"
-          }
-        ]
+        "title": "Raw Input"
       },
       "AcpToolCallEventRawOutput": {
-        "title": "Raw Output",
-        "anyOf": [
-          {},
-          {
-            "type": "null"
-          }
-        ]
+        "title": "Raw Output"
       },
       "ApiBasedCriticApiKey": {
+        "type": "string",
+        "x-client-inline-scalar": true,
         "title": "Api Key",
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "string",
-            "format": "password",
-            "writeOnly": true
-          }
-        ],
         "description": "API key for authenticating with the vLLM service"
       },
       "ApiBasedCriticIterativeRefinement": {
@@ -36871,10 +36845,6 @@
         "title": "Current Datetime",
         "anyOf": [
           {
-            "type": "string",
-            "format": "date-time"
-          },
-          {
             "type": "string"
           },
           {
@@ -36939,10 +36909,6 @@
       "AgentContextOutputCurrentDatetime": {
         "title": "Current Datetime",
         "anyOf": [
-          {
-            "type": "string",
-            "format": "date-time"
-          },
           {
             "type": "string"
           },
@@ -37205,9 +37171,6 @@
             "type": "string"
           },
           {
-            "type": "integer"
-          },
-          {
             "type": "number"
           },
           {
@@ -37223,9 +37186,9 @@
         "title": "Required",
         "anyOf": [
           {
-            "const": null,
             "type": "boolean",
-            "default": true
+            "default": true,
+            "x-client-original-const": true
           },
           {
             "type": "null"
@@ -37235,12 +37198,6 @@
       },
       "ArgTransformConfigExamples": {
         "title": "Examples",
-        "anyOf": [
-          {},
-          {
-            "type": "null"
-          }
-        ],
         "description": "Examples of the argument."
       },
       "AskOracleObservationContentItem": {
@@ -37714,10 +37671,6 @@
             "type": "string"
           },
           {
-            "type": "string",
-            "format": "path"
-          },
-          {
             "type": "null"
           }
         ],
@@ -37851,11 +37804,6 @@
             "type": "string"
           },
           {
-            "type": "string",
-            "format": "password",
-            "writeOnly": true
-          },
-          {
             "type": "null"
           }
         ],
@@ -37940,11 +37888,6 @@
             "type": "string"
           },
           {
-            "type": "string",
-            "format": "password",
-            "writeOnly": true
-          },
-          {
             "type": "null"
           }
         ],
@@ -37960,11 +37903,6 @@
             "type": "string"
           },
           {
-            "type": "string",
-            "format": "password",
-            "writeOnly": true
-          },
-          {
             "type": "null"
           }
         ],
@@ -37978,11 +37916,6 @@
         "anyOf": [
           {
             "type": "string"
-          },
-          {
-            "type": "string",
-            "format": "password",
-            "writeOnly": true
           },
           {
             "type": "null"
@@ -38460,11 +38393,6 @@
             "type": "string"
           },
           {
-            "type": "string",
-            "format": "password",
-            "writeOnly": true
-          },
-          {
             "type": "null"
           }
         ],
@@ -38549,11 +38477,6 @@
             "type": "string"
           },
           {
-            "type": "string",
-            "format": "password",
-            "writeOnly": true
-          },
-          {
             "type": "null"
           }
         ],
@@ -38569,11 +38492,6 @@
             "type": "string"
           },
           {
-            "type": "string",
-            "format": "password",
-            "writeOnly": true
-          },
-          {
             "type": "null"
           }
         ],
@@ -38587,11 +38505,6 @@
         "anyOf": [
           {
             "type": "string"
-          },
-          {
-            "type": "string",
-            "format": "password",
-            "writeOnly": true
           },
           {
             "type": "null"
@@ -39793,9 +39706,6 @@
             "type": "string"
           },
           {
-            "$ref": "#/components/schemas/RemoteMcpServerAuthAnyOf2"
-          },
-          {
             "type": "null"
           }
         ],
@@ -39807,9 +39717,6 @@
           {
             "type": "string",
             "format": "duration"
-          },
-          {
-            "type": "integer"
           },
           {
             "type": "number"
@@ -39850,22 +39757,10 @@
         ]
       },
       "SharedConversationGitProvider": {
-        "title": "Git Provider",
-        "anyOf": [
-          {},
-          {
-            "type": "null"
-          }
-        ]
+        "title": "Git Provider"
       },
       "SharedConversationMetrics": {
-        "title": "Metrics",
-        "anyOf": [
-          {},
-          {
-            "type": "null"
-          }
-        ]
+        "title": "Metrics"
       },
       "SkillInputTrigger": {
         "title": "Trigger",
@@ -40023,11 +39918,6 @@
             "type": "string"
           },
           {
-            "type": "string",
-            "format": "password",
-            "writeOnly": true
-          },
-          {
             "type": "null"
           }
         ],
@@ -40112,11 +40002,6 @@
             "type": "string"
           },
           {
-            "type": "string",
-            "format": "password",
-            "writeOnly": true
-          },
-          {
             "type": "null"
           }
         ],
@@ -40132,11 +40017,6 @@
             "type": "string"
           },
           {
-            "type": "string",
-            "format": "password",
-            "writeOnly": true
-          },
-          {
             "type": "null"
           }
         ],
@@ -40150,11 +40030,6 @@
         "anyOf": [
           {
             "type": "string"
-          },
-          {
-            "type": "string",
-            "format": "password",
-            "writeOnly": true
           },
           {
             "type": "null"
@@ -40763,9 +40638,6 @@
             "type": "string"
           },
           {
-            "$ref": "#/components/schemas/TransformingRemoteMcpServerAuthAnyOf2"
-          },
-          {
             "type": "null"
           }
         ],
@@ -40777,9 +40649,6 @@
           {
             "type": "string",
             "format": "duration"
-          },
-          {
-            "type": "integer"
           },
           {
             "type": "number"
@@ -41544,7 +41413,7 @@
         "title": "Capability Overrides",
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/LlmOutputCapabilityOverridesAdditionalProperties"
+          "$ref": "#/components/schemas/LlmInputCapabilityOverridesAdditionalProperties"
         },
         "description": "Explicit model capability overrides. Supported keys include supports_reasoning_effort, thinking_mode (adaptive, manual, none, or unknown), supports_sampling_params, supports_prompt_cache, supports_stop_words, supports_responses_api, supports_vision, and supports_prompt_cache_retention. Overrides take precedence over LiteLLM metadata and SDK fallbacks.",
         "openhands_settings": {
@@ -42081,7 +41950,7 @@
         "title": "Capability Overrides",
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/StrictLlmCapabilityOverridesAdditionalProperties"
+          "$ref": "#/components/schemas/LlmInputCapabilityOverridesAdditionalProperties"
         },
         "description": "Explicit model capability overrides. Supported keys include supports_reasoning_effort, thinking_mode (adaptive, manual, none, or unknown), supports_sampling_params, supports_prompt_cache, supports_stop_words, supports_responses_api, supports_vision, and supports_prompt_cache_retention. Overrides take precedence over LiteLLM metadata and SDK fallbacks.",
         "openhands_settings": {
@@ -42557,7 +42426,7 @@
         "title": "Response Batch Get Shared Events Api Shared Events Get",
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/ResponseBatchGetSharedEventsApiSharedEventsGetItem"
+          "$ref": "#/components/schemas/ResponseBatchGetEventsApiV1ConversationConversationIdEventsGetItem"
         }
       },
       "ResponseGetSharedEventApiSharedEventsConversationIdEventIdGet": {
@@ -42701,7 +42570,7 @@
         "title": "Response Batch Get Events Api V1 Conversation  Conversation Id  Events Get",
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/ResponseBatchGetEventsApiV1ConversationConversationIdEventsGetSchemaItem"
+          "$ref": "#/components/schemas/ResponseBatchGetEventsApiV1ConversationConversationIdEventsGetItem"
         }
       },
       "ResponseCountAppConversationsApiV1AppConversationsCountGetSchema": {
@@ -42712,7 +42581,7 @@
         "title": "Response Batch Get App Conversations Api V1 App Conversations Get",
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/ResponseBatchGetAppConversationsApiV1AppConversationsGetSchemaItem"
+          "$ref": "#/components/schemas/ResponseBatchGetAppConversationsApiV1AppConversationsGetItem"
         }
       },
       "ResponseStreamAppConversationStartApiV1AppConversationsStreamStartPostSchema": {
@@ -42730,7 +42599,7 @@
         "title": "Response Batch Get App Conversation Start Tasks Api V1 App Conversations Start Tasks Get",
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/ResponseBatchGetAppConversationStartTasksApiV1AppConversationsStartTasksGetSchemaItem"
+          "$ref": "#/components/schemas/ResponseBatchGetAppConversationStartTasksApiV1AppConversationsStartTasksGetItem"
         }
       },
       "ResponseReadConversationFileApiV1AppConversationsConversationIdFileGetSchema": {
@@ -42757,7 +42626,7 @@
         "title": "Response Batch Get Sandboxes Api V1 Sandboxes Get",
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/ResponseBatchGetSandboxesApiV1SandboxesGetSchemaItem"
+          "$ref": "#/components/schemas/ResponseBatchGetSandboxesApiV1SandboxesGetItem"
         }
       },
       "GetSecretValueApiV1SandboxesSandboxIdSettingsSecretsSecretNameGet200ResponseSchema": {},
@@ -42765,7 +42634,7 @@
         "title": "Response Batch Get Sandbox Specs Api V1 Sandbox Specs Get",
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/ResponseBatchGetSandboxSpecsApiV1SandboxSpecsGetSchemaItem"
+          "$ref": "#/components/schemas/ResponseBatchGetSandboxSpecsApiV1SandboxSpecsGetItem"
         }
       },
       "Response404LoadSettingsApiV1SettingsGetSchema": {
@@ -42872,7 +42741,7 @@
         "title": "Response Batch Get Shared Conversations Api Shared Conversations Get",
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/ResponseBatchGetSharedConversationsApiSharedConversationsGetSchemaItem"
+          "$ref": "#/components/schemas/ResponseBatchGetSharedConversationsApiSharedConversationsGetItem"
         }
       },
       "ResponseCountSharedEventsApiSharedEventsCountGetSchema": {
@@ -42883,7 +42752,7 @@
         "title": "Response Batch Get Shared Events Api Shared Events Get",
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/ResponseBatchGetSharedEventsApiSharedEventsGetSchemaItem"
+          "$ref": "#/components/schemas/ResponseBatchGetEventsApiV1ConversationConversationIdEventsGetItem"
         }
       },
       "GithubEventsIntegrationGithubEventsPost200ResponseSchema": {},
@@ -43654,7 +43523,7 @@
         "title": "Capability Overrides",
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/LlmOutputCapabilityOverridesAdditionalProperties"
+          "$ref": "#/components/schemas/LlmInputCapabilityOverridesAdditionalProperties"
         },
         "description": "Explicit model capability overrides. Supported keys include supports_reasoning_effort, thinking_mode (adaptive, manual, none, or unknown), supports_sampling_params, supports_prompt_cache, supports_stop_words, supports_responses_api, supports_vision, and supports_prompt_cache_retention. Overrides take precedence over LiteLLM metadata and SDK fallbacks.",
         "openhands_settings": {
@@ -44110,7 +43979,7 @@
         "title": "Capability Overrides",
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/StrictLlmCapabilityOverridesAdditionalProperties"
+          "$ref": "#/components/schemas/LlmInputCapabilityOverridesAdditionalProperties"
         },
         "description": "Explicit model capability overrides. Supported keys include supports_reasoning_effort, thinking_mode (adaptive, manual, none, or unknown), supports_sampling_params, supports_prompt_cache, supports_stop_words, supports_responses_api, supports_vision, and supports_prompt_cache_retention. Overrides take precedence over LiteLLM metadata and SDK fallbacks.",
         "openhands_settings": {
@@ -44352,12 +44221,12 @@
         "type": "object"
       },
       "AcpAgentKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ACPAgent"
         ],
         "type": "string",
+        "x-client-original-const": "ACPAgent",
         "x-ms-enum": {
           "name": "AcpAgentKind",
           "modelAsString": false,
@@ -44370,13 +44239,13 @@
         }
       },
       "AcpAgentProfileAgentKind": {
-        "const": null,
         "title": "Agent Kind",
         "enum": [
           "acp"
         ],
         "type": "string",
         "description": "Discriminator for the \u0060\u0060AgentProfile\u0060\u0060 union. \u0060\u0060\u0027acp\u0027\u0060\u0060 selects an ACP-delegating agent.",
+        "x-client-original-const": "acp",
         "x-ms-enum": {
           "name": "AcpAgentProfileAgentKind",
           "modelAsString": false,
@@ -44437,13 +44306,13 @@
         }
       },
       "AcpAgentSettingsAgentKind": {
-        "const": null,
         "title": "Agent Kind",
         "enum": [
           "acp"
         ],
         "type": "string",
         "description": "Discriminator for the \u0060\u0060AgentSettings\u0060\u0060 union. \u0060\u0060\u0027acp\u0027\u0060\u0060 selects an ACP-delegating agent.",
+        "x-client-original-const": "acp",
         "x-ms-enum": {
           "name": "AcpAgentSettingsAgentKind",
           "modelAsString": false,
@@ -44568,12 +44437,12 @@
         }
       },
       "AcpToolCallEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ACPToolCallEvent"
         ],
         "type": "string",
+        "x-client-original-const": "ACPToolCallEvent",
         "x-ms-enum": {
           "name": "AcpToolCallEventKind",
           "modelAsString": false,
@@ -44609,12 +44478,12 @@
         }
       },
       "ApiBasedCriticKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "APIBasedCritic"
         ],
         "type": "string",
+        "x-client-original-const": "APIBasedCritic",
         "x-ms-enum": {
           "name": "ApiBasedCriticKind",
           "modelAsString": false,
@@ -44659,20 +44528,20 @@
         }
       },
       "ActionEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ActionEvent"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ActionEvent"
       },
       "AgentKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "Agent"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "Agent"
       },
       "AgentDefinitionLevel": {
         "title": "Level",
@@ -44749,12 +44618,12 @@
         }
       },
       "AgentErrorEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "AgentErrorEvent"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "AgentErrorEvent"
       },
       "AgentFinishedCriticMode": {
         "title": "Mode",
@@ -44780,29 +44649,29 @@
         }
       },
       "AgentFinishedCriticKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "AgentFinishedCritic"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "AgentFinishedCritic"
       },
       "AlwaysConfirmKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "AlwaysConfirm"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "AlwaysConfirm"
       },
       "UserRole": {
-        "const": null,
         "title": "Role",
         "enum": [
           "user"
         ],
         "type": "string",
         "description": "The role of the message sender. Currently only \u0022user\u0022 is supported.",
+        "x-client-original-const": "user",
         "x-ms-enum": {
           "name": "UserRole",
           "modelAsString": false,
@@ -44815,212 +44684,212 @@
         }
       },
       "ApplyPatchActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ApplyPatchAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ApplyPatchAction"
       },
       "ApplyPatchObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ApplyPatchObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ApplyPatchObservation"
       },
       "ApplyPatchToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ApplyPatchTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ApplyPatchTool"
       },
       "AskOracleActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "AskOracleAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "AskOracleAction"
       },
       "AskOracleObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "AskOracleObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "AskOracleObservation"
       },
       "AskOracleToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "AskOracleTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "AskOracleTool"
       },
       "BitbucketV1CallbackProcessorKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BitbucketV1CallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BitbucketV1CallbackProcessor"
       },
       "BitbucketV1CallbackProcessorOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BitbucketV1CallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BitbucketV1CallbackProcessor"
       },
       "BrowserActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserAction"
       },
       "BrowserClickActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserClickAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserClickAction"
       },
       "BrowserClickToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserClickTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserClickTool"
       },
       "BrowserCloseTabActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserCloseTabAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserCloseTabAction"
       },
       "BrowserCloseTabToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserCloseTabTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserCloseTabTool"
       },
       "BrowserGetContentActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserGetContentAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserGetContentAction"
       },
       "BrowserGetContentToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserGetContentTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserGetContentTool"
       },
       "BrowserGetStateActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserGetStateAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserGetStateAction"
       },
       "BrowserGetStateToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserGetStateTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserGetStateTool"
       },
       "BrowserGetStorageActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserGetStorageAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserGetStorageAction"
       },
       "BrowserGetStorageToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserGetStorageTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserGetStorageTool"
       },
       "BrowserGoBackActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserGoBackAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserGoBackAction"
       },
       "BrowserGoBackToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserGoBackTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserGoBackTool"
       },
       "BrowserListTabsActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserListTabsAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserListTabsAction"
       },
       "BrowserListTabsToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserListTabsTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserListTabsTool"
       },
       "BrowserNavigateActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserNavigateAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserNavigateAction"
       },
       "BrowserNavigateToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserNavigateTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserNavigateTool"
       },
       "BrowserObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserObservation"
       },
       "BrowserScrollActionDirection": {
         "title": "Direction",
@@ -45046,116 +44915,116 @@
         }
       },
       "BrowserScrollActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserScrollAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserScrollAction"
       },
       "BrowserScrollToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserScrollTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserScrollTool"
       },
       "BrowserSetStorageActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserSetStorageAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserSetStorageAction"
       },
       "BrowserSetStorageToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserSetStorageTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserSetStorageTool"
       },
       "BrowserStartRecordingActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserStartRecordingAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserStartRecordingAction"
       },
       "BrowserStartRecordingToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserStartRecordingTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserStartRecordingTool"
       },
       "BrowserStopRecordingActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserStopRecordingAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserStopRecordingAction"
       },
       "BrowserStopRecordingToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserStopRecordingTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserStopRecordingTool"
       },
       "BrowserSwitchTabActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserSwitchTabAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserSwitchTabAction"
       },
       "BrowserSwitchTabToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserSwitchTabTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserSwitchTabTool"
       },
       "BrowserToolSetKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserToolSet"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserToolSet"
       },
       "BrowserTypeActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserTypeAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserTypeAction"
       },
       "BrowserTypeToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "BrowserTypeTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "BrowserTypeTool"
       },
       "CanvasAuthenticatedEventType": {
-        "const": null,
         "title": "Event Type",
         "enum": [
           "canvas_authenticated"
         ],
         "type": "string",
+        "x-client-original-const": "canvas_authenticated",
         "x-ms-enum": {
           "name": "CanvasAuthenticatedEventType",
           "modelAsString": false,
@@ -45168,12 +45037,12 @@
         }
       },
       "ClassifyAndSwitchLlmActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ClassifyAndSwitchLLMAction"
         ],
         "type": "string",
+        "x-client-original-const": "ClassifyAndSwitchLLMAction",
         "x-ms-enum": {
           "name": "ClassifyAndSwitchLlmActionKind",
           "modelAsString": false,
@@ -45186,12 +45055,12 @@
         }
       },
       "ClassifyAndSwitchLlmObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ClassifyAndSwitchLLMObservation"
         ],
         "type": "string",
+        "x-client-original-const": "ClassifyAndSwitchLLMObservation",
         "x-ms-enum": {
           "name": "ClassifyAndSwitchLlmObservationKind",
           "modelAsString": false,
@@ -45204,12 +45073,12 @@
         }
       },
       "ClassifyAndSwitchLlmToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ClassifyAndSwitchLLMTool"
         ],
         "type": "string",
+        "x-client-original-const": "ClassifyAndSwitchLLMTool",
         "x-ms-enum": {
           "name": "ClassifyAndSwitchLlmToolKind",
           "modelAsString": false,
@@ -45222,20 +45091,20 @@
         }
       },
       "ClientToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ClientTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ClientTool"
       },
       "ClientToolObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ClientToolObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ClientToolObservation"
       },
       "CondensationSource": {
         "title": "Source",
@@ -45270,12 +45139,12 @@
         }
       },
       "CondensationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "Condensation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "Condensation"
       },
       "CondensationRequestSource": {
         "title": "Source",
@@ -45310,12 +45179,12 @@
         }
       },
       "CondensationRequestKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "CondensationRequest"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "CondensationRequest"
       },
       "CondensationSummaryEventSource": {
         "title": "Source",
@@ -45350,36 +45219,36 @@
         }
       },
       "CondensationSummaryEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "CondensationSummaryEvent"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "CondensationSummaryEvent"
       },
       "ConfirmRiskyKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ConfirmRisky"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ConfirmRisky"
       },
       "ConsultTomActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ConsultTomAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ConsultTomAction"
       },
       "ConsultTomObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ConsultTomObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ConsultTomObservation"
       },
       "ConversationErrorEventSource": {
         "title": "Source",
@@ -45415,12 +45284,12 @@
         }
       },
       "ConversationErrorEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ConversationErrorEvent"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ConversationErrorEvent"
       },
       "ConversationSettingsDefaultRuntime": {
         "title": "Default Runtime",
@@ -45531,20 +45400,20 @@
         }
       },
       "ConversationStateUpdateEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ConversationStateUpdateEvent"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ConversationStateUpdateEvent"
       },
       "CreatePrButtonClickedEventType": {
-        "const": null,
         "title": "Event Type",
         "enum": [
           "create pr button clicked"
         ],
         "type": "string",
+        "x-client-original-const": "create pr button clicked",
         "x-ms-enum": {
           "name": "CreatePrButtonClickedEventType",
           "modelAsString": false,
@@ -45631,12 +45500,12 @@
         }
       },
       "DelegateActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "DelegateAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "DelegateAction"
       },
       "DelegateObservationCommand": {
         "title": "Command",
@@ -45662,36 +45531,36 @@
         }
       },
       "DelegateObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "DelegateObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "DelegateObservation"
       },
       "EditActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "EditAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "EditAction"
       },
       "EditObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "EditObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "EditObservation"
       },
       "EditToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "EditTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "EditTool"
       },
       "EmptyPatchCriticMode": {
         "title": "Mode",
@@ -45717,20 +45586,20 @@
         }
       },
       "EmptyPatchCriticKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "EmptyPatchCritic"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "EmptyPatchCritic"
       },
       "EnsembleSecurityAnalyzerKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "EnsembleSecurityAnalyzer"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "EnsembleSecurityAnalyzer"
       },
       "ErrorClassificationUserAction": {
         "title": "User Action",
@@ -45798,12 +45667,12 @@
         }
       },
       "FileEditorActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "FileEditorAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "FileEditorAction"
       },
       "FileEditorObservationCommand": {
         "title": "Command",
@@ -45844,132 +45713,132 @@
         }
       },
       "FileEditorObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "FileEditorObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "FileEditorObservation"
       },
       "FileEditorToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "FileEditorTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "FileEditorTool"
       },
       "FinishActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "FinishAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "FinishAction"
       },
       "FinishObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "FinishObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "FinishObservation"
       },
       "FinishToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "FinishTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "FinishTool"
       },
       "GithubV1CallbackProcessorKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "GithubV1CallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "GithubV1CallbackProcessor"
       },
       "GithubV1CallbackProcessorOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "GithubV1CallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "GithubV1CallbackProcessor"
       },
       "GitlabV1CallbackProcessorKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "GitlabV1CallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "GitlabV1CallbackProcessor"
       },
       "GitlabV1CallbackProcessorOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "GitlabV1CallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "GitlabV1CallbackProcessor"
       },
       "GlobActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "GlobAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "GlobAction"
       },
       "GlobObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "GlobObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "GlobObservation"
       },
       "GlobToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "GlobTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "GlobTool"
       },
       "GraySwanAnalyzerKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "GraySwanAnalyzer"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "GraySwanAnalyzer"
       },
       "GrepActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "GrepAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "GrepAction"
       },
       "GrepObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "GrepObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "GrepObservation"
       },
       "GrepToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "GrepTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "GrepTool"
       },
       "HookExecutionEventSource": {
         "title": "Source",
@@ -46018,20 +45887,20 @@
         "description": "The type of hook event that triggered this execution"
       },
       "HookExecutionEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "HookExecutionEvent"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "HookExecutionEvent"
       },
       "ImageType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "image"
         ],
         "type": "string",
+        "x-client-original-const": "image",
         "x-ms-enum": {
           "name": "ImageType",
           "modelAsString": false,
@@ -46076,76 +45945,76 @@
         }
       },
       "InterruptEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "InterruptEvent"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "InterruptEvent"
       },
       "InvokeSkillActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "InvokeSkillAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "InvokeSkillAction"
       },
       "InvokeSkillObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "InvokeSkillObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "InvokeSkillObservation"
       },
       "InvokeSkillToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "InvokeSkillTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "InvokeSkillTool"
       },
       "JiraDcV1CallbackProcessorKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "JiraDcV1CallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "JiraDcV1CallbackProcessor"
       },
       "JiraDcV1CallbackProcessorOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "JiraDcV1CallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "JiraDcV1CallbackProcessor"
       },
       "JiraV1CallbackProcessorKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "JiraV1CallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "JiraV1CallbackProcessor"
       },
       "JiraV1CallbackProcessorOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "JiraV1CallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "JiraV1CallbackProcessor"
       },
       "KeywordType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "keyword"
         ],
         "type": "string",
+        "x-client-original-const": "keyword",
         "x-ms-enum": {
           "name": "KeywordType",
           "modelAsString": false,
@@ -46278,13 +46147,13 @@
         }
       },
       "LlmAgentKind": {
-        "const": null,
         "title": "Agent Kind",
         "enum": [
           "llm"
         ],
         "type": "string",
         "description": "Discriminator for the \u0060\u0060AgentSettings\u0060\u0060 union. \u0060\u0060\u0027llm\u0027\u0060\u0060 selects the standard LLM-backed agent. Deprecated; use \u0060\u0060\u0027openhands\u0027\u0060\u0060.",
+        "x-client-original-const": "llm",
         "x-ms-enum": {
           "name": "LlmAgentKind",
           "modelAsString": false,
@@ -46329,12 +46198,12 @@
         }
       },
       "LlmCompletionLogEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "LLMCompletionLogEvent"
         ],
         "type": "string",
+        "x-client-original-const": "LLMCompletionLogEvent",
         "x-ms-enum": {
           "name": "LlmCompletionLogEventKind",
           "modelAsString": false,
@@ -46347,12 +46216,12 @@
         }
       },
       "LlmSecurityAnalyzerKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "LLMSecurityAnalyzer"
         ],
         "type": "string",
+        "x-client-original-const": "LLMSecurityAnalyzer",
         "x-ms-enum": {
           "name": "LlmSecurityAnalyzerKind",
           "modelAsString": false,
@@ -46365,12 +46234,12 @@
         }
       },
       "LlmSummarizingCondenserKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "LLMSummarizingCondenser"
         ],
         "type": "string",
+        "x-client-original-const": "LLMSummarizingCondenser",
         "x-ms-enum": {
           "name": "LlmSummarizingCondenserKind",
           "modelAsString": false,
@@ -46383,12 +46252,12 @@
         }
       },
       "LlmSummarizingCondenserOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "LLMSummarizingCondenser"
         ],
         "type": "string",
+        "x-client-original-const": "LLMSummarizingCondenser",
         "x-ms-enum": {
           "name": "LlmSummarizingCondenserOutputKind",
           "modelAsString": false,
@@ -46401,13 +46270,13 @@
         }
       },
       "LlmSummarizingCondenserSettingsCondenserKind": {
-        "const": null,
         "title": "Condenser Kind",
         "enum": [
           "llm_summarizing"
         ],
         "type": "string",
         "description": "Discriminator for the condenser settings union. \u0060\u0060\u0027llm_summarizing\u0027\u0060\u0060 selects the default LLM summarizing condenser.",
+        "x-client-original-const": "llm_summarizing",
         "openhands_settings": {
           "depends_on": [],
           "prominence": "minor"
@@ -46424,84 +46293,84 @@
         }
       },
       "ListDirectoryActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ListDirectoryAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ListDirectoryAction"
       },
       "ListDirectoryObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ListDirectoryObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ListDirectoryObservation"
       },
       "ListDirectoryToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ListDirectoryTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ListDirectoryTool"
       },
       "LocalWorkspaceKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "LocalWorkspace"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "LocalWorkspace"
       },
       "LocalWorkspaceOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "LocalWorkspace"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "LocalWorkspace"
       },
       "LoggingCallbackProcessorKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "LoggingCallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "LoggingCallbackProcessor"
       },
       "LoggingCallbackProcessorOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "LoggingCallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "LoggingCallbackProcessor"
       },
       "LookupSecretKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "LookupSecret"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "LookupSecret"
       },
       "LookupSecretOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "LookupSecret"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "LookupSecret"
       },
       "ApiKeyStrategy": {
-        "const": null,
         "title": "Strategy",
         "enum": [
           "api_key"
         ],
         "type": "string",
+        "x-client-original-const": "api_key",
         "x-ms-enum": {
           "name": "ApiKeyStrategy",
           "modelAsString": false,
@@ -46514,12 +46383,12 @@
         }
       },
       "McpApiKeyAuthCredentialOutputStrategy": {
-        "const": null,
         "title": "Strategy",
         "enum": [
           "api_key"
         ],
         "type": "string",
+        "x-client-original-const": "api_key",
         "x-ms-enum": {
           "name": "McpApiKeyAuthCredentialOutputStrategy",
           "modelAsString": false,
@@ -46532,12 +46401,12 @@
         }
       },
       "BasicStrategy": {
-        "const": null,
         "title": "Strategy",
         "enum": [
           "basic"
         ],
         "type": "string",
+        "x-client-original-const": "basic",
         "x-ms-enum": {
           "name": "BasicStrategy",
           "modelAsString": false,
@@ -46550,12 +46419,12 @@
         }
       },
       "McpBasicAuthCredentialOutputStrategy": {
-        "const": null,
         "title": "Strategy",
         "enum": [
           "basic"
         ],
         "type": "string",
+        "x-client-original-const": "basic",
         "x-ms-enum": {
           "name": "McpBasicAuthCredentialOutputStrategy",
           "modelAsString": false,
@@ -46568,12 +46437,12 @@
         }
       },
       "BearerStrategy": {
-        "const": null,
         "title": "Strategy",
         "enum": [
           "bearer"
         ],
         "type": "string",
+        "x-client-original-const": "bearer",
         "x-ms-enum": {
           "name": "BearerStrategy",
           "modelAsString": false,
@@ -46586,12 +46455,12 @@
         }
       },
       "McpBearerAuthCredentialOutputStrategy": {
-        "const": null,
         "title": "Strategy",
         "enum": [
           "bearer"
         ],
         "type": "string",
+        "x-client-original-const": "bearer",
         "x-ms-enum": {
           "name": "McpBearerAuthCredentialOutputStrategy",
           "modelAsString": false,
@@ -46604,12 +46473,12 @@
         }
       },
       "HeaderStrategy": {
-        "const": null,
         "title": "Strategy",
         "enum": [
           "header"
         ],
         "type": "string",
+        "x-client-original-const": "header",
         "x-ms-enum": {
           "name": "HeaderStrategy",
           "modelAsString": false,
@@ -46622,12 +46491,12 @@
         }
       },
       "McpHeaderAuthCredentialOutputStrategy": {
-        "const": null,
         "title": "Strategy",
         "enum": [
           "header"
         ],
         "type": "string",
+        "x-client-original-const": "header",
         "x-ms-enum": {
           "name": "McpHeaderAuthCredentialOutputStrategy",
           "modelAsString": false,
@@ -46640,12 +46509,12 @@
         }
       },
       "NoneStrategy": {
-        "const": null,
         "title": "Strategy",
         "enum": [
           "none"
         ],
         "type": "string",
+        "x-client-original-const": "none",
         "x-ms-enum": {
           "name": "NoneStrategy",
           "modelAsString": false,
@@ -46658,12 +46527,12 @@
         }
       },
       "OAuth2Strategy": {
-        "const": null,
         "title": "Strategy",
         "enum": [
           "oauth2"
         ],
         "type": "string",
+        "x-client-original-const": "oauth2",
         "x-ms-enum": {
           "name": "OAuth2Strategy",
           "modelAsString": false,
@@ -46676,12 +46545,12 @@
         }
       },
       "McpoAuthAuthCredentialOutputStrategy": {
-        "const": null,
         "title": "Strategy",
         "enum": [
           "oauth2"
         ],
         "type": "string",
+        "x-client-original-const": "oauth2",
         "x-ms-enum": {
           "name": "McpoAuthAuthCredentialOutputStrategy",
           "modelAsString": false,
@@ -46694,12 +46563,12 @@
         }
       },
       "OAuthType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "oauth"
         ],
         "type": "string",
+        "x-client-original-const": "oauth",
         "x-ms-enum": {
           "name": "OAuthType",
           "modelAsString": false,
@@ -46748,12 +46617,12 @@
         }
       },
       "McpoAuthAuthenticationOutputType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "oauth"
         ],
         "type": "string",
+        "x-client-original-const": "oauth",
         "x-ms-enum": {
           "name": "McpoAuthAuthenticationOutputType",
           "modelAsString": false,
@@ -46996,12 +46865,12 @@
         }
       },
       "McpToolActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "MCPToolAction"
         ],
         "type": "string",
+        "x-client-original-const": "MCPToolAction",
         "x-ms-enum": {
           "name": "McpToolActionKind",
           "modelAsString": false,
@@ -47014,12 +46883,12 @@
         }
       },
       "McpToolDefinitionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "MCPToolDefinition"
         ],
         "type": "string",
+        "x-client-original-const": "MCPToolDefinition",
         "x-ms-enum": {
           "name": "McpToolDefinitionKind",
           "modelAsString": false,
@@ -47032,12 +46901,12 @@
         }
       },
       "McpToolObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "MCPToolObservation"
         ],
         "type": "string",
+        "x-client-original-const": "MCPToolObservation",
         "x-ms-enum": {
           "name": "McpToolObservationKind",
           "modelAsString": false,
@@ -47164,20 +47033,20 @@
         }
       },
       "MemoryChangeCallbackProcessorKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "MemoryChangeCallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "MemoryChangeCallbackProcessor"
       },
       "MemoryChangeCallbackProcessorOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "MemoryChangeCallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "MemoryChangeCallbackProcessor"
       },
       "MessageRole": {
         "title": "Role",
@@ -47244,12 +47113,12 @@
         }
       },
       "MessageEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "MessageEvent"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "MessageEvent"
       },
       "MessageToolCallOrigin": {
         "title": "Origin",
@@ -47275,37 +47144,37 @@
         }
       },
       "NeverConfirmKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "NeverConfirm"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "NeverConfirm"
       },
       "NoOpCondenserKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "NoOpCondenser"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "NoOpCondenser"
       },
       "NoOpCondenserOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "NoOpCondenser"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "NoOpCondenser"
       },
       "NoOpCondenserSettingsCondenserKind": {
-        "const": null,
         "title": "Condenser Kind",
         "enum": [
           "no_op"
         ],
         "type": "string",
         "description": "Discriminator for the condenser settings union. \u0060\u0060\u0027no_op\u0027\u0060\u0060 selects a condenser that leaves conversation views unchanged.",
+        "x-client-original-const": "no_op",
         "openhands_settings": {
           "depends_on": [],
           "prominence": "minor"
@@ -47322,20 +47191,20 @@
         }
       },
       "OAuthProviderDetailsKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "OAuthProviderDetails"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "OAuthProviderDetails"
       },
       "OAuthProviderDetailsOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "OAuthProviderDetails"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "OAuthProviderDetails"
       },
       "ObservationEventSource": {
         "title": "Source",
@@ -47370,21 +47239,21 @@
         }
       },
       "ObservationEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ObservationEvent"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ObservationEvent"
       },
       "OpenhandsAgentKind": {
-        "const": null,
         "title": "Agent Kind",
         "enum": [
           "openhands"
         ],
         "type": "string",
         "description": "Discriminator for the \u0060\u0060AgentProfile\u0060\u0060 union. \u0060\u0060\u0027openhands\u0027\u0060\u0060 selects the standard built-in OpenHands agent.",
+        "x-client-original-const": "openhands",
         "x-ms-enum": {
           "name": "OpenhandsAgentKind",
           "modelAsString": false,
@@ -47397,13 +47266,13 @@
         }
       },
       "OpenHandsAgentSettingsAgentKind": {
-        "const": null,
         "title": "Agent Kind",
         "enum": [
           "openhands"
         ],
         "type": "string",
         "description": "Discriminator for the \u0060\u0060AgentSettings\u0060\u0060 union. \u0060\u0060\u0027openhands\u0027\u0060\u0060 selects the standard built-in OpenHands agent.",
+        "x-client-original-const": "openhands",
         "x-ms-enum": {
           "name": "OpenHandsAgentSettingsAgentKind",
           "modelAsString": false,
@@ -47602,36 +47471,36 @@
         }
       },
       "PassCriticKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "PassCritic"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "PassCritic"
       },
       "PasswordProviderDetailsKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "PasswordProviderDetails"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "PasswordProviderDetails"
       },
       "PasswordProviderDetailsOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "PasswordProviderDetails"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "PasswordProviderDetails"
       },
       "PathType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "path"
         ],
         "type": "string",
+        "x-client-original-const": "path",
         "x-ms-enum": {
           "name": "PathType",
           "modelAsString": false,
@@ -47644,12 +47513,12 @@
         }
       },
       "PatternSecurityAnalyzerKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "PatternSecurityAnalyzer"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "PatternSecurityAnalyzer"
       },
       "PauseEventSource": {
         "title": "Source",
@@ -47684,28 +47553,28 @@
         }
       },
       "PauseEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "PauseEvent"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "PauseEvent"
       },
       "PipelineCondenserKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "PipelineCondenser"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "PipelineCondenser"
       },
       "PipelineCondenserOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "PipelineCondenser"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "PipelineCondenser"
       },
       "PlanningFileEditorActionCommand": {
         "title": "Command",
@@ -47746,12 +47615,12 @@
         }
       },
       "PlanningFileEditorActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "PlanningFileEditorAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "PlanningFileEditorAction"
       },
       "PlanningFileEditorObservationCommand": {
         "title": "Command",
@@ -47792,28 +47661,28 @@
         }
       },
       "PlanningFileEditorObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "PlanningFileEditorObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "PlanningFileEditorObservation"
       },
       "PlanningFileEditorToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "PlanningFileEditorTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "PlanningFileEditorTool"
       },
       "PolicyRailSecurityAnalyzerKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "PolicyRailSecurityAnalyzer"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "PolicyRailSecurityAnalyzer"
       },
       "ProfileVerificationSettingsCriticMode": {
         "title": "Critic Mode",
@@ -47838,36 +47707,36 @@
         }
       },
       "ReadFileActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ReadFileAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ReadFileAction"
       },
       "ReadFileObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ReadFileObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ReadFileObservation"
       },
       "ReadFileToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ReadFileTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ReadFileTool"
       },
       "RedactedThinkingType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "redacted_thinking"
         ],
         "type": "string",
+        "x-client-original-const": "redacted_thinking",
         "x-ms-enum": {
           "name": "RedactedThinkingType",
           "modelAsString": false,
@@ -47911,12 +47780,12 @@
         }
       },
       "RemoteWorkspaceKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "RemoteWorkspace"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "RemoteWorkspace"
       },
       "SamlProviderDetailsInputSsoBinding": {
         "title": "Sso Binding",
@@ -47941,12 +47810,12 @@
         }
       },
       "SamlProviderDetailsKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "SamlProviderDetails"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "SamlProviderDetails"
       },
       "SamlProviderDetailsOutputSsoBinding": {
         "title": "Sso Binding",
@@ -47971,12 +47840,12 @@
         }
       },
       "SamlProviderDetailsOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "SamlProviderDetails"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "SamlProviderDetails"
       },
       "SecurityAnalysisEventSource": {
         "title": "Source",
@@ -48011,12 +47880,12 @@
         }
       },
       "SecurityAnalysisEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "SecurityAnalysisEvent"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "SecurityAnalysisEvent"
       },
       "SendMessageRequestRole": {
         "title": "Role",
@@ -48084,68 +47953,68 @@
         }
       },
       "ServerErrorEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ServerErrorEvent"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ServerErrorEvent"
       },
       "SetTitleCallbackProcessorKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "SetTitleCallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "SetTitleCallbackProcessor"
       },
       "SetTitleCallbackProcessorOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "SetTitleCallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "SetTitleCallbackProcessor"
       },
       "SlackV1CallbackProcessorKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "SlackV1CallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "SlackV1CallbackProcessor"
       },
       "SlackV1CallbackProcessorOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "SlackV1CallbackProcessor"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "SlackV1CallbackProcessor"
       },
       "SleeptimeComputeActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "SleeptimeComputeAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "SleeptimeComputeAction"
       },
       "SleeptimeComputeObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "SleeptimeComputeObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "SleeptimeComputeObservation"
       },
       "SleeptimeComputeToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "SleeptimeComputeTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "SleeptimeComputeTool"
       },
       "StartChildConversationActionIsolation": {
         "title": "Isolation",
@@ -48171,12 +48040,12 @@
         }
       },
       "StartChildConversationActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "StartChildConversationAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "StartChildConversationAction"
       },
       "StartChildConversationObservationIsolation": {
         "title": "Isolation",
@@ -48205,12 +48074,12 @@
         }
       },
       "StartChildConversationObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "StartChildConversationObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "StartChildConversationObservation"
       },
       "StartChildConversationRequestIsolation": {
         "title": "Isolation",
@@ -48263,36 +48132,36 @@
         }
       },
       "StartChildConversationToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "StartChildConversationTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "StartChildConversationTool"
       },
       "StaticSecretKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "StaticSecret"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "StaticSecret"
       },
       "StaticSecretOutputKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "StaticSecret"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "StaticSecret"
       },
       "StdioTransport": {
-        "const": null,
         "title": "Transport",
         "enum": [
           "stdio"
         ],
         "type": "string",
+        "x-client-original-const": "stdio",
         "x-ms-enum": {
           "name": "StdioTransport",
           "modelAsString": false,
@@ -48337,12 +48206,12 @@
         }
       },
       "StreamingDeltaEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "StreamingDeltaEvent"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "StreamingDeltaEvent"
       },
       "StrictLlmAuthType": {
         "title": "Auth Type",
@@ -48405,12 +48274,12 @@
         }
       },
       "SwitchLlmActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "SwitchLLMAction"
         ],
         "type": "string",
+        "x-client-original-const": "SwitchLLMAction",
         "x-ms-enum": {
           "name": "SwitchLlmActionKind",
           "modelAsString": false,
@@ -48423,12 +48292,12 @@
         }
       },
       "SwitchLlmObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "SwitchLLMObservation"
         ],
         "type": "string",
+        "x-client-original-const": "SwitchLLMObservation",
         "x-ms-enum": {
           "name": "SwitchLlmObservationKind",
           "modelAsString": false,
@@ -48441,12 +48310,12 @@
         }
       },
       "SwitchLlmToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "SwitchLLMTool"
         ],
         "type": "string",
+        "x-client-original-const": "SwitchLLMTool",
         "x-ms-enum": {
           "name": "SwitchLlmToolKind",
           "modelAsString": false,
@@ -48491,20 +48360,20 @@
         }
       },
       "SystemPromptEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "SystemPromptEvent"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "SystemPromptEvent"
       },
       "TaskActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "TaskAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "TaskAction"
       },
       "TaskItemStatus": {
         "title": "Status",
@@ -48535,28 +48404,28 @@
         }
       },
       "TaskObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "TaskObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "TaskObservation"
       },
       "TaskToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "TaskTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "TaskTool"
       },
       "TaskToolSetKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "TaskToolSet"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "TaskToolSet"
       },
       "TaskTrackerActionCommand": {
         "title": "Command",
@@ -48582,12 +48451,12 @@
         }
       },
       "TaskTrackerActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "TaskTrackerAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "TaskTrackerAction"
       },
       "TaskTrackerObservationCommand": {
         "title": "Command",
@@ -48613,28 +48482,28 @@
         }
       },
       "TaskTrackerObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "TaskTrackerObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "TaskTrackerObservation"
       },
       "TaskTrackerToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "TaskTrackerTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "TaskTrackerTool"
       },
       "TaskTriggerType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "task"
         ],
         "type": "string",
+        "x-client-original-const": "task",
         "x-ms-enum": {
           "name": "TaskTriggerType",
           "modelAsString": false,
@@ -48647,36 +48516,36 @@
         }
       },
       "TerminalActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "TerminalAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "TerminalAction"
       },
       "TerminalObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "TerminalObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "TerminalObservation"
       },
       "TerminalToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "TerminalTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "TerminalTool"
       },
       "TextType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "text"
         ],
         "type": "string",
+        "x-client-original-const": "text",
         "x-ms-enum": {
           "name": "TextType",
           "modelAsString": false,
@@ -48689,36 +48558,36 @@
         }
       },
       "ThinkActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ThinkAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ThinkAction"
       },
       "ThinkObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ThinkObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ThinkObservation"
       },
       "ThinkToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ThinkTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "ThinkTool"
       },
       "ThinkingType": {
-        "const": null,
         "title": "Type",
         "enum": [
           "thinking"
         ],
         "type": "string",
+        "x-client-original-const": "thinking",
         "x-ms-enum": {
           "name": "ThinkingType",
           "modelAsString": false,
@@ -48763,20 +48632,20 @@
         }
       },
       "TokenEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "TokenEvent"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "TokenEvent"
       },
       "TomConsultToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "TomConsultTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "TomConsultTool"
       },
       "ToolExecutionTaskSupport": {
         "title": "Tasksupport",
@@ -48810,12 +48679,12 @@
         }
       },
       "ToolShieldLlmSecurityAnalyzerKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "ToolShieldLLMSecurityAnalyzer"
         ],
         "type": "string",
+        "x-client-original-const": "ToolShieldLLMSecurityAnalyzer",
         "x-ms-enum": {
           "name": "ToolShieldLlmSecurityAnalyzerKind",
           "modelAsString": false,
@@ -48859,12 +48728,12 @@
         }
       },
       "TransformingStdioMcpServerTransport": {
-        "const": null,
         "title": "Transport",
         "enum": [
           "stdio"
         ],
         "type": "string",
+        "x-client-original-const": "stdio",
         "x-ms-enum": {
           "name": "TransformingStdioMcpServerTransport",
           "modelAsString": false,
@@ -48877,12 +48746,12 @@
         }
       },
       "UnparsedActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "UnparsedAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "UnparsedAction"
       },
       "UnparsedEventSource": {
         "title": "Source",
@@ -48918,20 +48787,20 @@
         }
       },
       "UnparsedEventKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "UnparsedEvent"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "UnparsedEvent"
       },
       "UnparsedObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "UnparsedObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "UnparsedObservation"
       },
       "UserRejectObservationSource": {
         "title": "Source",
@@ -48989,12 +48858,12 @@
         }
       },
       "UserRejectObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "UserRejectObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "UserRejectObservation"
       },
       "VerificationSettingsCriticMode": {
         "title": "Critic Mode",
@@ -49027,36 +48896,36 @@
         }
       },
       "VisionInspectActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "VisionInspectAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "VisionInspectAction"
       },
       "VisionInspectObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "VisionInspectObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "VisionInspectObservation"
       },
       "VisionInspectToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "VisionInspectTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "VisionInspectTool"
       },
       "WebClientConfigKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "WebClientConfig"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "WebClientConfig"
       },
       "WebClientFeatureFlagsDeploymentMode": {
         "title": "Deployment Mode",
@@ -49085,12 +48954,12 @@
         }
       },
       "WorkflowActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "WorkflowAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "WorkflowAction"
       },
       "WorkflowObservationStatus": {
         "title": "Status",
@@ -49116,52 +48985,52 @@
         }
       },
       "WorkflowObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "WorkflowObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "WorkflowObservation"
       },
       "WorkflowToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "WorkflowTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "WorkflowTool"
       },
       "WorkflowToolSetKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "WorkflowToolSet"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "WorkflowToolSet"
       },
       "WriteFileActionKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "WriteFileAction"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "WriteFileAction"
       },
       "WriteFileObservationKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "WriteFileObservation"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "WriteFileObservation"
       },
       "WriteFileToolKind": {
-        "const": null,
         "title": "Kind",
         "enum": [
           "WriteFileTool"
         ],
-        "type": "string"
+        "type": "string",
+        "x-client-original-const": "WriteFileTool"
       },
       "ConversationSettingsSecurityAnalyzerAnyOf1": {
         "enum": [
@@ -49185,11 +49054,11 @@
         }
       },
       "LlmInputSubscriptionVendorAnyOf1": {
-        "const": null,
         "enum": [
           "openai"
         ],
         "type": "string",
+        "x-client-original-const": "openai",
         "x-ms-enum": {
           "name": "LlmInputSubscriptionVendorAnyOf1",
           "modelAsString": false,
@@ -49264,11 +49133,11 @@
         }
       },
       "LlmOutputSubscriptionVendorAnyOf1": {
-        "const": null,
         "enum": [
           "openai"
         ],
         "type": "string",
+        "x-client-original-const": "openai",
         "x-ms-enum": {
           "name": "LlmOutputSubscriptionVendorAnyOf1",
           "modelAsString": false,
@@ -49343,11 +49212,11 @@
         }
       },
       "RemoteMcpServerAuthAnyOf2": {
-        "const": null,
         "enum": [
           "oauth"
         ],
         "type": "string",
+        "x-client-original-const": "oauth",
         "x-ms-enum": {
           "name": "RemoteMcpServerAuthAnyOf2",
           "modelAsString": false,
@@ -49360,11 +49229,11 @@
         }
       },
       "StdioMcpServerTypeAnyOf1": {
-        "const": null,
         "enum": [
           "stdio"
         ],
         "type": "string",
+        "x-client-original-const": "stdio",
         "x-ms-enum": {
           "name": "StdioMcpServerTypeAnyOf1",
           "modelAsString": false,
@@ -49377,11 +49246,11 @@
         }
       },
       "StrictLlmSubscriptionVendorAnyOf1": {
-        "const": null,
         "enum": [
           "openai"
         ],
         "type": "string",
+        "x-client-original-const": "openai",
         "x-ms-enum": {
           "name": "StrictLlmSubscriptionVendorAnyOf1",
           "modelAsString": false,
@@ -49456,11 +49325,11 @@
         }
       },
       "TransformingRemoteMcpServerAuthAnyOf2": {
-        "const": null,
         "enum": [
           "oauth"
         ],
         "type": "string",
+        "x-client-original-const": "oauth",
         "x-ms-enum": {
           "name": "TransformingRemoteMcpServerAuthAnyOf2",
           "modelAsString": false,
@@ -49473,11 +49342,11 @@
         }
       },
       "TransformingStdioMcpServerTypeAnyOf1": {
-        "const": null,
         "enum": [
           "stdio"
         ],
         "type": "string",
+        "x-client-original-const": "stdio",
         "x-ms-enum": {
           "name": "TransformingStdioMcpServerTypeAnyOf1",
           "modelAsString": false,
@@ -49887,12 +49756,12 @@
             "default": false
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "ACPAgent"
             ],
             "type": "string",
+            "x-client-original-const": "ACPAgent",
             "x-ms-enum": {
               "name": "Kind",
               "modelAsString": false,
@@ -49971,7 +49840,7 @@
             "description": "List of default tool class names to include. By default, the agent includes \u0027FinishTool\u0027 and \u0027ThinkTool\u0027. Set to an empty list to disable all default tools, or provide a subset to include only specific ones. Example: include_default_tools=[\u0027FinishTool\u0027] to only include FinishTool, or include_default_tools=[] to disable all default tools."
           },
           "agent_context": {
-            "$ref": "#/components/schemas/AgentAgentContext"
+            "$ref": "#/components/schemas/AcpAgentAgentContext"
           },
           "system_prompt": {
             "title": "System Prompt",
@@ -49997,10 +49866,10 @@
             "$ref": "#/components/schemas/AgentSystemPromptKwargsProperty"
           },
           "condenser": {
-            "$ref": "#/components/schemas/AgentCondenser"
+            "$ref": "#/components/schemas/AcpAgentCondenser"
           },
           "critic": {
-            "$ref": "#/components/schemas/AgentCritic"
+            "$ref": "#/components/schemas/AcpAgentCritic"
           },
           "tool_concurrency_limit": {
             "title": "Tool Concurrency Limit",
@@ -50018,12 +49887,12 @@
             "description": "Persona text that replaces OpenHands\u0027 built-in persona and coding-workflow sections of the system prompt. Capability and policy sections (memory, security policy, risk assessment, browser, external services, process management, model-specific guidance) and the dynamic context still apply. Ignored when \u0060system_prompt\u0060 is set; a custom template receives it as the \u0060persona\u0060 kwarg."
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "Agent"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "Agent"
           }
         },
         "required": [
@@ -50086,15 +49955,15 @@
             "default": 60
           },
           "legacy_keycloak_type": {
-            "$ref": "#/components/schemas/OAuthProviderDetailsInputLegacyKeycloakType"
+            "$ref": "#/components/schemas/AppConversationGitProvider"
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "OAuthProviderDetails"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "OAuthProviderDetails"
           }
         },
         "required": [
@@ -50107,12 +49976,12 @@
         "type": "object",
         "properties": {
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "PasswordProviderDetails"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "PasswordProviderDetails"
           }
         },
         "required": [
@@ -50186,12 +50055,12 @@
             "$ref": "#/components/schemas/SamlProviderDetailsInputAttributeMappingProperty"
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "SamlProviderDetails"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "SamlProviderDetails"
           }
         },
         "required": [
@@ -50207,12 +50076,12 @@
             "description": "The working directory for agent operations and tool execution. Accepts both string paths and Path objects. Path objects are automatically converted to strings."
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "LocalWorkspace"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "LocalWorkspace"
           }
         },
         "required": [
@@ -50265,12 +50134,12 @@
             "format": "uuid"
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "RemoteWorkspace"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "RemoteWorkspace"
           }
         },
         "required": [
@@ -50325,12 +50194,12 @@
             "default": 0.8
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "LLMSummarizingCondenser"
             ],
             "type": "string",
+            "x-client-original-const": "LLMSummarizingCondenser",
             "x-ms-enum": {
               "name": "Kind",
               "modelAsString": false,
@@ -50352,12 +50221,12 @@
         "type": "object",
         "properties": {
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "NoOpCondenser"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "NoOpCondenser"
           }
         },
         "required": [
@@ -50375,12 +50244,12 @@
             }
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "PipelineCondenser"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "PipelineCondenser"
           }
         },
         "required": [
@@ -50392,12 +50261,12 @@
         "type": "object",
         "properties": {
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "AlwaysConfirm"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "AlwaysConfirm"
           }
         },
         "required": [
@@ -50418,12 +50287,12 @@
             "default": true
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "ConfirmRisky"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "ConfirmRisky"
           }
         },
         "required": [
@@ -50434,12 +50303,12 @@
         "type": "object",
         "properties": {
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "NeverConfirm"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "NeverConfirm"
           }
         },
         "required": [
@@ -50456,12 +50325,12 @@
             "$ref": "#/components/schemas/AgentFinishedCriticIterativeRefinement"
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "AgentFinishedCritic"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "AgentFinishedCritic"
           }
         },
         "required": [
@@ -50478,7 +50347,10 @@
             "default": "https://llm-proxy.app.all-hands.dev/vllm"
           },
           "api_key": {
-            "$ref": "#/components/schemas/ApiBasedCriticApiKey"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "title": "Api Key",
+            "description": "API key for authenticating with the vLLM service"
           },
           "model_name": {
             "title": "Model Name",
@@ -50579,7 +50451,7 @@
             "$ref": "#/components/schemas/ApiBasedCriticMode"
           },
           "iterative_refinement": {
-            "$ref": "#/components/schemas/ApiBasedCriticIterativeRefinement"
+            "$ref": "#/components/schemas/AgentFinishedCriticIterativeRefinement"
           },
           "issue_threshold": {
             "title": "Issue Threshold",
@@ -50590,12 +50462,12 @@
             "default": 0.75
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "APIBasedCritic"
             ],
             "type": "string",
+            "x-client-original-const": "APIBasedCritic",
             "x-ms-enum": {
               "name": "Kind",
               "modelAsString": false,
@@ -50620,15 +50492,15 @@
             "$ref": "#/components/schemas/EmptyPatchCriticMode"
           },
           "iterative_refinement": {
-            "$ref": "#/components/schemas/EmptyPatchCriticIterativeRefinement"
+            "$ref": "#/components/schemas/AgentFinishedCriticIterativeRefinement"
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "EmptyPatchCritic"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "EmptyPatchCritic"
           }
         },
         "required": [
@@ -50642,15 +50514,15 @@
             "$ref": "#/components/schemas/PassCriticMode"
           },
           "iterative_refinement": {
-            "$ref": "#/components/schemas/PassCriticIterativeRefinement"
+            "$ref": "#/components/schemas/AgentFinishedCriticIterativeRefinement"
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "PassCritic"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "PassCritic"
           }
         },
         "required": [
@@ -50669,12 +50541,12 @@
             "default": true
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "BitbucketV1CallbackProcessor"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "BitbucketV1CallbackProcessor"
           }
         },
         "required": [
@@ -50698,12 +50570,12 @@
             "default": false
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "GithubV1CallbackProcessor"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "GithubV1CallbackProcessor"
           }
         },
         "required": [
@@ -50727,12 +50599,12 @@
             "default": false
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "GitlabV1CallbackProcessor"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "GitlabV1CallbackProcessor"
           }
         },
         "required": [
@@ -50764,12 +50636,12 @@
             "type": "string"
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "JiraV1CallbackProcessor"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "JiraV1CallbackProcessor"
           }
         },
         "required": [
@@ -50801,12 +50673,12 @@
             "type": "string"
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "JiraDcV1CallbackProcessor"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "JiraDcV1CallbackProcessor"
           }
         },
         "required": [
@@ -50823,12 +50695,12 @@
             "$ref": "#/components/schemas/SlackV1CallbackProcessorInputSlackViewDataProperty"
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "SlackV1CallbackProcessor"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "SlackV1CallbackProcessor"
           }
         },
         "required": [
@@ -50839,12 +50711,12 @@
         "type": "object",
         "properties": {
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "LoggingCallbackProcessor"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "LoggingCallbackProcessor"
           }
         },
         "required": [
@@ -50855,12 +50727,12 @@
         "type": "object",
         "properties": {
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "MemoryChangeCallbackProcessor"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "MemoryChangeCallbackProcessor"
           }
         },
         "required": [
@@ -50871,12 +50743,12 @@
         "type": "object",
         "properties": {
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "SetTitleCallbackProcessor"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "SetTitleCallbackProcessor"
           }
         },
         "required": [
@@ -50902,12 +50774,12 @@
             "$ref": "#/components/schemas/LookupSecretInputHeadersProperty"
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "LookupSecret"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "LookupSecret"
           }
         },
         "required": [
@@ -50935,12 +50807,12 @@
             "format": "password"
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "StaticSecret"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "StaticSecret"
           }
         },
         "required": [
@@ -51047,12 +50919,12 @@
             "description": "MEDIUM patterns scanned against all fields"
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "PatternSecurityAnalyzer"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "PatternSecurityAnalyzer"
           }
         },
         "required": [
@@ -51063,12 +50935,12 @@
         "type": "object",
         "properties": {
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "PolicyRailSecurityAnalyzer"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "PolicyRailSecurityAnalyzer"
           }
         },
         "required": [
@@ -51094,12 +50966,12 @@
             "default": false
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "EnsembleSecurityAnalyzer"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "EnsembleSecurityAnalyzer"
           }
         },
         "required": [
@@ -51164,12 +51036,12 @@
             "description": "GraySwan policy ID (via GRAYSWAN_POLICY_ID env var)"
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "GraySwanAnalyzer"
             ],
-            "type": "string"
+            "type": "string",
+            "x-client-original-const": "GraySwanAnalyzer"
           }
         },
         "required": [
@@ -51180,12 +51052,12 @@
         "type": "object",
         "properties": {
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "LLMSecurityAnalyzer"
             ],
             "type": "string",
+            "x-client-original-const": "LLMSecurityAnalyzer",
             "x-ms-enum": {
               "name": "Kind",
               "modelAsString": false,
@@ -51221,12 +51093,12 @@
             "default": ""
           },
           "kind": {
-            "const": null,
             "title": "Kind",
             "enum": [
               "ToolShieldLLMSecurityAnalyzer"
             ],
             "type": "string",
+            "x-client-original-const": "ToolShieldLLMSecurityAnalyzer",
             "x-ms-enum": {
               "name": "Kind",
               "modelAsString": false,
@@ -51248,10 +51120,10 @@
         "type": "object",
         "properties": {
           "ok": {
-            "const": null,
             "title": "Ok",
             "type": "boolean",
             "default": true,
+            "x-client-original-const": true,
             "not": {}
           },
           "tools": {
@@ -51289,10 +51161,10 @@
         "type": "object",
         "properties": {
           "ok": {
-            "const": null,
             "title": "Ok",
             "type": "boolean",
             "default": false,
+            "x-client-original-const": false,
             "not": {}
           },
           "error": {

@@ -17,12 +17,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("device_code") is { } nullNodeDeviceCode && nullNodeDeviceCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeviceCode = null;
-            if (parseNode.GetChildNode("expires_in") is { } nullNodeExpiresIn && nullNodeExpiresIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresIn = null;
-            if (parseNode.GetChildNode("interval") is { } nullNodeInterval && nullNodeInterval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Interval = null;
-            if (parseNode.GetChildNode("user_code") is { } nullNodeUserCode && nullNodeUserCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserCode = null;
-            if (parseNode.GetChildNode("verification_uri") is { } nullNodeVerificationUri && nullNodeVerificationUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationUri = null;
-            if (parseNode.GetChildNode("verification_uri_complete") is { } nullNodeVerificationUriComplete && nullNodeVerificationUriComplete.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationUriComplete = null;
+            if (parseNode.GetChildNode("device_code") is null) { _explicitNullValueDeviceCode = default!; _explicitNullProperties?.Remove("device_code"); }
+            else if (parseNode.GetChildNode("device_code") is { } nullNodeDeviceCode && nullNodeDeviceCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeviceCode = null;
+            if (parseNode.GetChildNode("expires_in") is null) { _explicitNullValueExpiresIn = default!; _explicitNullProperties?.Remove("expires_in"); }
+            else if (parseNode.GetChildNode("expires_in") is { } nullNodeExpiresIn && nullNodeExpiresIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresIn = null;
+            if (parseNode.GetChildNode("interval") is null) { _explicitNullValueInterval = default!; _explicitNullProperties?.Remove("interval"); }
+            else if (parseNode.GetChildNode("interval") is { } nullNodeInterval && nullNodeInterval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Interval = null;
+            if (parseNode.GetChildNode("user_code") is null) { _explicitNullValueUserCode = default!; _explicitNullProperties?.Remove("user_code"); }
+            else if (parseNode.GetChildNode("user_code") is { } nullNodeUserCode && nullNodeUserCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserCode = null;
+            if (parseNode.GetChildNode("verification_uri") is null) { _explicitNullValueVerificationUri = default!; _explicitNullProperties?.Remove("verification_uri"); }
+            else if (parseNode.GetChildNode("verification_uri") is { } nullNodeVerificationUri && nullNodeVerificationUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationUri = null;
+            if (parseNode.GetChildNode("verification_uri_complete") is null) { _explicitNullValueVerificationUriComplete = default!; _explicitNullProperties?.Remove("verification_uri_complete"); }
+            else if (parseNode.GetChildNode("verification_uri_complete") is { } nullNodeVerificationUriComplete && nullNodeVerificationUriComplete.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationUriComplete = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,47 +36,47 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The device_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeviceCode { get => _explicitNullValueDeviceCode; set { _explicitNullValueDeviceCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device_code"); else _explicitNullProperties?.Remove("device_code"); } }
+        public string? DeviceCode { get => _explicitNullValueDeviceCode; set { _explicitNullValueDeviceCode = value; AdditionalData?.Remove("device_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device_code"); else _explicitNullProperties?.Remove("device_code"); } }
         private string? _explicitNullValueDeviceCode = default!;
 #nullable restore
 #else
-        public string DeviceCode { get => _explicitNullValueDeviceCode; set { _explicitNullValueDeviceCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device_code"); else _explicitNullProperties?.Remove("device_code"); } }
+        public string DeviceCode { get => _explicitNullValueDeviceCode; set { _explicitNullValueDeviceCode = value; AdditionalData?.Remove("device_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device_code"); else _explicitNullProperties?.Remove("device_code"); } }
         private string _explicitNullValueDeviceCode = default!;
 #endif
         /// <summary>The expires_in property</summary>
-        public int? ExpiresIn { get => _explicitNullValueExpiresIn; set { _explicitNullValueExpiresIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_in"); else _explicitNullProperties?.Remove("expires_in"); } }
+        public int? ExpiresIn { get => _explicitNullValueExpiresIn; set { _explicitNullValueExpiresIn = value; AdditionalData?.Remove("expires_in"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_in"); else _explicitNullProperties?.Remove("expires_in"); } }
         private int? _explicitNullValueExpiresIn = default!;
         /// <summary>The interval property</summary>
-        public int? Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
+        public int? Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; AdditionalData?.Remove("interval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
         private int? _explicitNullValueInterval = default!;
         /// <summary>The user_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserCode { get => _explicitNullValueUserCode; set { _explicitNullValueUserCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_code"); else _explicitNullProperties?.Remove("user_code"); } }
+        public string? UserCode { get => _explicitNullValueUserCode; set { _explicitNullValueUserCode = value; AdditionalData?.Remove("user_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_code"); else _explicitNullProperties?.Remove("user_code"); } }
         private string? _explicitNullValueUserCode = default!;
 #nullable restore
 #else
-        public string UserCode { get => _explicitNullValueUserCode; set { _explicitNullValueUserCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_code"); else _explicitNullProperties?.Remove("user_code"); } }
+        public string UserCode { get => _explicitNullValueUserCode; set { _explicitNullValueUserCode = value; AdditionalData?.Remove("user_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_code"); else _explicitNullProperties?.Remove("user_code"); } }
         private string _explicitNullValueUserCode = default!;
 #endif
         /// <summary>The verification_uri property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VerificationUri { get => _explicitNullValueVerificationUri; set { _explicitNullValueVerificationUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_uri"); else _explicitNullProperties?.Remove("verification_uri"); } }
+        public string? VerificationUri { get => _explicitNullValueVerificationUri; set { _explicitNullValueVerificationUri = value; AdditionalData?.Remove("verification_uri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_uri"); else _explicitNullProperties?.Remove("verification_uri"); } }
         private string? _explicitNullValueVerificationUri = default!;
 #nullable restore
 #else
-        public string VerificationUri { get => _explicitNullValueVerificationUri; set { _explicitNullValueVerificationUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_uri"); else _explicitNullProperties?.Remove("verification_uri"); } }
+        public string VerificationUri { get => _explicitNullValueVerificationUri; set { _explicitNullValueVerificationUri = value; AdditionalData?.Remove("verification_uri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_uri"); else _explicitNullProperties?.Remove("verification_uri"); } }
         private string _explicitNullValueVerificationUri = default!;
 #endif
         /// <summary>The verification_uri_complete property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VerificationUriComplete { get => _explicitNullValueVerificationUriComplete; set { _explicitNullValueVerificationUriComplete = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_uri_complete"); else _explicitNullProperties?.Remove("verification_uri_complete"); } }
+        public string? VerificationUriComplete { get => _explicitNullValueVerificationUriComplete; set { _explicitNullValueVerificationUriComplete = value; AdditionalData?.Remove("verification_uri_complete"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_uri_complete"); else _explicitNullProperties?.Remove("verification_uri_complete"); } }
         private string? _explicitNullValueVerificationUriComplete = default!;
 #nullable restore
 #else
-        public string VerificationUriComplete { get => _explicitNullValueVerificationUriComplete; set { _explicitNullValueVerificationUriComplete = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_uri_complete"); else _explicitNullProperties?.Remove("verification_uri_complete"); } }
+        public string VerificationUriComplete { get => _explicitNullValueVerificationUriComplete; set { _explicitNullValueVerificationUriComplete = value; AdditionalData?.Remove("verification_uri_complete"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_uri_complete"); else _explicitNullProperties?.Remove("verification_uri_complete"); } }
         private string _explicitNullValueVerificationUriComplete = default!;
 #endif
         /// <summary>

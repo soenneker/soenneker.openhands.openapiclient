@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="DateTimeOffset"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetimeMember1"/>, <see cref="string"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetimeMember1"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentContextInputCurrentDatetime : IComposedTypeWrapper, IParsable
@@ -26,8 +26,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetimeMember1 AgentContextInputCurrentDatetimeMember1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="DateTimeOffset"/></summary>
-        public DateTimeOffset? DateTimeOffset { get; set; }
         /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,11 +43,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime();
-            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetDateTimeOffsetValue() is DateTimeOffset dateTimeOffsetValue)
-            {
-                result.DateTimeOffset = dateTimeOffsetValue;
-            }
-            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
             {
                 result.String = stringValue;
             }
@@ -58,7 +52,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            if (result.AgentContextInputCurrentDatetimeMember1 == null && result.DateTimeOffset == null && result.String == null) result.UnrecognizedValue = unionPayload;
+            if (result.AgentContextInputCurrentDatetimeMember1 == null && result.String == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
         /// <summary>
@@ -67,6 +61,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(AgentContextInputCurrentDatetimeMember1 != null)
             {
                 return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AgentContextInputCurrentDatetimeMember1);
@@ -80,15 +76,14 @@ return result;
         public virtual void Serialize(ISerializationWriter writer)
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
-            if (AgentContextInputCurrentDatetimeMember1 == null && DateTimeOffset == null && String == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (AgentContextInputCurrentDatetimeMember1 != null && DateTimeOffset == null && String == null) { if (AgentContextInputCurrentDatetimeMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AgentContextInputCurrentDatetimeMember1); return; }
+            if (AgentContextInputCurrentDatetimeMember1 == null && String == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            int selectedUnionBranches = 0;
+            if (AgentContextInputCurrentDatetimeMember1 != null) selectedUnionBranches++;
+            if (String != null) selectedUnionBranches++;
+            if (AgentContextInputCurrentDatetimeMember1 != null && selectedUnionBranches == 1) { if (AgentContextInputCurrentDatetimeMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AgentContextInputCurrentDatetimeMember1); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(DateTimeOffset != null)
-            {
-                writer.WriteDateTimeOffsetValue(null, DateTimeOffset);
-            }
-            else if(String != null)
+            if(String != null)
             {
                 writer.WriteStringValue(null, String);
             }

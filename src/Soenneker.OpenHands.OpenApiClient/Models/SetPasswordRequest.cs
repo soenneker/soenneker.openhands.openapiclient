@@ -18,9 +18,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("confirm_password") is { } nullNodeConfirmPassword && nullNodeConfirmPassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfirmPassword = null;
-            if (parseNode.GetChildNode("current_password") is { } nullNodeCurrentPassword && nullNodeCurrentPassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentPassword = null;
-            if (parseNode.GetChildNode("new_password") is { } nullNodeNewPassword && nullNodeNewPassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewPassword = null;
+            if (parseNode.GetChildNode("confirm_password") is null) { _explicitNullValueConfirmPassword = default!; _explicitNullProperties?.Remove("confirm_password"); }
+            else if (parseNode.GetChildNode("confirm_password") is { } nullNodeConfirmPassword && nullNodeConfirmPassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfirmPassword = null;
+            if (parseNode.GetChildNode("current_password") is null) { _explicitNullValueCurrentPassword = default!; _explicitNullProperties?.Remove("current_password"); }
+            else if (parseNode.GetChildNode("current_password") is { } nullNodeCurrentPassword && nullNodeCurrentPassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentPassword = null;
+            if (parseNode.GetChildNode("new_password") is null) { _explicitNullValueNewPassword = default!; _explicitNullProperties?.Remove("new_password"); }
+            else if (parseNode.GetChildNode("new_password") is { } nullNodeNewPassword && nullNodeNewPassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewPassword = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The confirm_password property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConfirmPassword { get => _explicitNullValueConfirmPassword; set { _explicitNullValueConfirmPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confirm_password"); else _explicitNullProperties?.Remove("confirm_password"); } }
+        public string? ConfirmPassword { get => _explicitNullValueConfirmPassword; set { _explicitNullValueConfirmPassword = value; AdditionalData?.Remove("confirm_password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confirm_password"); else _explicitNullProperties?.Remove("confirm_password"); } }
         private string? _explicitNullValueConfirmPassword = default!;
 #nullable restore
 #else
-        public string ConfirmPassword { get => _explicitNullValueConfirmPassword; set { _explicitNullValueConfirmPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confirm_password"); else _explicitNullProperties?.Remove("confirm_password"); } }
+        public string ConfirmPassword { get => _explicitNullValueConfirmPassword; set { _explicitNullValueConfirmPassword = value; AdditionalData?.Remove("confirm_password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confirm_password"); else _explicitNullProperties?.Remove("confirm_password"); } }
         private string _explicitNullValueConfirmPassword = default!;
 #endif
         /// <summary>The current_password property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CurrentPassword { get => _explicitNullValueCurrentPassword; set { _explicitNullValueCurrentPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_password"); else _explicitNullProperties?.Remove("current_password"); } }
+        public string? CurrentPassword { get => _explicitNullValueCurrentPassword; set { _explicitNullValueCurrentPassword = value; AdditionalData?.Remove("current_password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_password"); else _explicitNullProperties?.Remove("current_password"); } }
         private string? _explicitNullValueCurrentPassword = default!;
 #nullable restore
 #else
-        public string CurrentPassword { get => _explicitNullValueCurrentPassword; set { _explicitNullValueCurrentPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_password"); else _explicitNullProperties?.Remove("current_password"); } }
+        public string CurrentPassword { get => _explicitNullValueCurrentPassword; set { _explicitNullValueCurrentPassword = value; AdditionalData?.Remove("current_password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_password"); else _explicitNullProperties?.Remove("current_password"); } }
         private string _explicitNullValueCurrentPassword = default!;
 #endif
         /// <summary>The new_password property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewPassword { get => _explicitNullValueNewPassword; set { _explicitNullValueNewPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_password"); else _explicitNullProperties?.Remove("new_password"); } }
+        public string? NewPassword { get => _explicitNullValueNewPassword; set { _explicitNullValueNewPassword = value; AdditionalData?.Remove("new_password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_password"); else _explicitNullProperties?.Remove("new_password"); } }
         private string? _explicitNullValueNewPassword = default!;
 #nullable restore
 #else
-        public string NewPassword { get => _explicitNullValueNewPassword; set { _explicitNullValueNewPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_password"); else _explicitNullProperties?.Remove("new_password"); } }
+        public string NewPassword { get => _explicitNullValueNewPassword; set { _explicitNullValueNewPassword = value; AdditionalData?.Remove("new_password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_password"); else _explicitNullProperties?.Remove("new_password"); } }
         private string _explicitNullValueNewPassword = default!;
 #endif
         /// <summary>

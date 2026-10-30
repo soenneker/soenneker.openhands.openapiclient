@@ -18,13 +18,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("is_super_admin") is { } nullNodeIsSuperAdmin && nullNodeIsSuperAdmin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsSuperAdmin = null;
+            if (parseNode.GetChildNode("is_super_admin") is null) { _explicitNullValueIsSuperAdmin = default!; _explicitNullProperties?.Remove("is_super_admin"); }
+            else if (parseNode.GetChildNode("is_super_admin") is { } nullNodeIsSuperAdmin && nullNodeIsSuperAdmin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsSuperAdmin = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The is_super_admin property</summary>
-        public bool? IsSuperAdmin { get => _explicitNullValueIsSuperAdmin; set { _explicitNullValueIsSuperAdmin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_super_admin"); else _explicitNullProperties?.Remove("is_super_admin"); } }
+        public bool? IsSuperAdmin { get => _explicitNullValueIsSuperAdmin; set { _explicitNullValueIsSuperAdmin = value; AdditionalData?.Remove("is_super_admin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_super_admin"); else _explicitNullProperties?.Remove("is_super_admin"); } }
         private bool? _explicitNullValueIsSuperAdmin = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminStatusResponse"/> and sets the default values.

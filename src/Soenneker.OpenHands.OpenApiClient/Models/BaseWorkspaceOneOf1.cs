@@ -17,23 +17,25 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
-            if (parseNode.GetChildNode("working_dir") is { } nullNodeWorkingDir && nullNodeWorkingDir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkingDir = null;
+            if (parseNode.GetChildNode("kind") is null) { _explicitNullValueKind = default!; _explicitNullProperties?.Remove("kind"); }
+            else if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("working_dir") is null) { _explicitNullValueWorkingDir = default!; _explicitNullProperties?.Remove("working_dir"); }
+            else if (parseNode.GetChildNode("working_dir") is { } nullNodeWorkingDir && nullNodeWorkingDir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkingDir = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The kind property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf1_kind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf1_kind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf1_kind? _explicitNullValueKind = default!;
         /// <summary>The working directory for agent operations and tool execution. Accepts both string paths and Path objects. Path objects are automatically converted to strings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkingDir { get => _explicitNullValueWorkingDir; set { _explicitNullValueWorkingDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("working_dir"); else _explicitNullProperties?.Remove("working_dir"); } }
+        public string? WorkingDir { get => _explicitNullValueWorkingDir; set { _explicitNullValueWorkingDir = value; AdditionalData?.Remove("working_dir"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("working_dir"); else _explicitNullProperties?.Remove("working_dir"); } }
         private string? _explicitNullValueWorkingDir = default!;
 #nullable restore
 #else
-        public string WorkingDir { get => _explicitNullValueWorkingDir; set { _explicitNullValueWorkingDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("working_dir"); else _explicitNullProperties?.Remove("working_dir"); } }
+        public string WorkingDir { get => _explicitNullValueWorkingDir; set { _explicitNullValueWorkingDir = value; AdditionalData?.Remove("working_dir"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("working_dir"); else _explicitNullProperties?.Remove("working_dir"); } }
         private string _explicitNullValueWorkingDir = default!;
 #endif
         /// <summary>
@@ -61,7 +63,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf1_kind>(); } },
+                { "kind", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf1_kind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueKind = default; _explicitNullProperties?.Remove("kind"); AdditionalData["kind"] = unknown; } else { Kind = parsed; AdditionalData.Remove("kind"); } } },
                 { "working_dir", n => { WorkingDir = n.GetStringValue(); } },
             };
         }

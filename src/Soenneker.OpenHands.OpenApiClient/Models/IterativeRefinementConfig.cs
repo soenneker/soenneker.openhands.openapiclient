@@ -18,17 +18,19 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("max_iterations") is { } nullNodeMaxIterations && nullNodeMaxIterations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxIterations = null;
-            if (parseNode.GetChildNode("success_threshold") is { } nullNodeSuccessThreshold && nullNodeSuccessThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessThreshold = null;
+            if (parseNode.GetChildNode("max_iterations") is null) { _explicitNullValueMaxIterations = default!; _explicitNullProperties?.Remove("max_iterations"); }
+            else if (parseNode.GetChildNode("max_iterations") is { } nullNodeMaxIterations && nullNodeMaxIterations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxIterations = null;
+            if (parseNode.GetChildNode("success_threshold") is null) { _explicitNullValueSuccessThreshold = default!; _explicitNullProperties?.Remove("success_threshold"); }
+            else if (parseNode.GetChildNode("success_threshold") is { } nullNodeSuccessThreshold && nullNodeSuccessThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessThreshold = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Maximum number of iterations before giving up.</summary>
-        public int? MaxIterations { get => _explicitNullValueMaxIterations; set { _explicitNullValueMaxIterations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_iterations"); else _explicitNullProperties?.Remove("max_iterations"); } }
+        public int? MaxIterations { get => _explicitNullValueMaxIterations; set { _explicitNullValueMaxIterations = value; AdditionalData?.Remove("max_iterations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_iterations"); else _explicitNullProperties?.Remove("max_iterations"); } }
         private int? _explicitNullValueMaxIterations = default!;
         /// <summary>Score threshold (0-1) to consider task successful.</summary>
-        public double? SuccessThreshold { get => _explicitNullValueSuccessThreshold; set { _explicitNullValueSuccessThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_threshold"); else _explicitNullProperties?.Remove("success_threshold"); } }
+        public double? SuccessThreshold { get => _explicitNullValueSuccessThreshold; set { _explicitNullValueSuccessThreshold = value; AdditionalData?.Remove("success_threshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_threshold"); else _explicitNullProperties?.Remove("success_threshold"); } }
         private double? _explicitNullValueSuccessThreshold = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.IterativeRefinementConfig"/> and sets the default values.

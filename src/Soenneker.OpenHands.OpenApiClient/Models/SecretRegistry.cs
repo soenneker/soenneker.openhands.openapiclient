@@ -18,7 +18,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("secret_sources") is { } nullNodeSecretSources && nullNodeSecretSources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretSources = null;
+            if (parseNode.GetChildNode("secret_sources") is null) { _explicitNullValueSecretSources = default!; _explicitNullProperties?.Remove("secret_sources"); }
+            else if (parseNode.GetChildNode("secret_sources") is { } nullNodeSecretSources && nullNodeSecretSources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretSources = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The secret_sources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistrySecretSourcesProperty? SecretSources { get => _explicitNullValueSecretSources; set { _explicitNullValueSecretSources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_sources"); else _explicitNullProperties?.Remove("secret_sources"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistrySecretSourcesProperty? SecretSources { get => _explicitNullValueSecretSources; set { _explicitNullValueSecretSources = value; AdditionalData?.Remove("secret_sources"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_sources"); else _explicitNullProperties?.Remove("secret_sources"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistrySecretSourcesProperty? _explicitNullValueSecretSources = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistrySecretSourcesProperty SecretSources { get => _explicitNullValueSecretSources; set { _explicitNullValueSecretSources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_sources"); else _explicitNullProperties?.Remove("secret_sources"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistrySecretSourcesProperty SecretSources { get => _explicitNullValueSecretSources; set { _explicitNullValueSecretSources = value; AdditionalData?.Remove("secret_sources"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_sources"); else _explicitNullProperties?.Remove("secret_sources"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.SecretRegistrySecretSourcesProperty _explicitNullValueSecretSources = default!;
 #endif
         /// <summary>

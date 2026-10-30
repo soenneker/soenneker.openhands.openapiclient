@@ -17,10 +17,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("github_view_data") is { } nullNodeGithubViewData && nullNodeGithubViewData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GithubViewData = null;
-            if (parseNode.GetChildNode("inline_pr_comment") is { } nullNodeInlinePrComment && nullNodeInlinePrComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InlinePrComment = null;
-            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
-            if (parseNode.GetChildNode("should_request_summary") is { } nullNodeShouldRequestSummary && nullNodeShouldRequestSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShouldRequestSummary = null;
+            if (parseNode.GetChildNode("github_view_data") is null) { _explicitNullValueGithubViewData = default!; _explicitNullProperties?.Remove("github_view_data"); }
+            else if (parseNode.GetChildNode("github_view_data") is { } nullNodeGithubViewData && nullNodeGithubViewData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GithubViewData = null;
+            if (parseNode.GetChildNode("inline_pr_comment") is null) { _explicitNullValueInlinePrComment = default!; _explicitNullProperties?.Remove("inline_pr_comment"); }
+            else if (parseNode.GetChildNode("inline_pr_comment") is { } nullNodeInlinePrComment && nullNodeInlinePrComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InlinePrComment = null;
+            if (parseNode.GetChildNode("kind") is null) { _explicitNullValueKind = default!; _explicitNullProperties?.Remove("kind"); }
+            else if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("should_request_summary") is null) { _explicitNullValueShouldRequestSummary = default!; _explicitNullProperties?.Remove("should_request_summary"); }
+            else if (parseNode.GetChildNode("should_request_summary") is { } nullNodeShouldRequestSummary && nullNodeShouldRequestSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShouldRequestSummary = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,21 +32,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The github_view_data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInputGithubViewDataProperty? GithubViewData { get => _explicitNullValueGithubViewData; set { _explicitNullValueGithubViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github_view_data"); else _explicitNullProperties?.Remove("github_view_data"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInputGithubViewDataProperty? GithubViewData { get => _explicitNullValueGithubViewData; set { _explicitNullValueGithubViewData = value; AdditionalData?.Remove("github_view_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github_view_data"); else _explicitNullProperties?.Remove("github_view_data"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInputGithubViewDataProperty? _explicitNullValueGithubViewData = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInputGithubViewDataProperty GithubViewData { get => _explicitNullValueGithubViewData; set { _explicitNullValueGithubViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github_view_data"); else _explicitNullProperties?.Remove("github_view_data"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInputGithubViewDataProperty GithubViewData { get => _explicitNullValueGithubViewData; set { _explicitNullValueGithubViewData = value; AdditionalData?.Remove("github_view_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github_view_data"); else _explicitNullProperties?.Remove("github_view_data"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInputGithubViewDataProperty _explicitNullValueGithubViewData = default!;
 #endif
         /// <summary>The inline_pr_comment property</summary>
-        public bool? InlinePrComment { get => _explicitNullValueInlinePrComment; set { _explicitNullValueInlinePrComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inline_pr_comment"); else _explicitNullProperties?.Remove("inline_pr_comment"); } }
+        public bool? InlinePrComment { get => _explicitNullValueInlinePrComment; set { _explicitNullValueInlinePrComment = value; AdditionalData?.Remove("inline_pr_comment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inline_pr_comment"); else _explicitNullProperties?.Remove("inline_pr_comment"); } }
         private bool? _explicitNullValueInlinePrComment = default!;
         /// <summary>The kind property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf2_kind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf2_kind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf2_kind? _explicitNullValueKind = default!;
         /// <summary>The should_request_summary property</summary>
-        public bool? ShouldRequestSummary { get => _explicitNullValueShouldRequestSummary; set { _explicitNullValueShouldRequestSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("should_request_summary"); else _explicitNullProperties?.Remove("should_request_summary"); } }
+        public bool? ShouldRequestSummary { get => _explicitNullValueShouldRequestSummary; set { _explicitNullValueShouldRequestSummary = value; AdditionalData?.Remove("should_request_summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("should_request_summary"); else _explicitNullProperties?.Remove("should_request_summary"); } }
         private bool? _explicitNullValueShouldRequestSummary = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf2"/> and sets the default values.
@@ -73,7 +77,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "github_view_data", n => { GithubViewData = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInputGithubViewDataProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInputGithubViewDataProperty.CreateFromDiscriminatorValue); } },
                 { "inline_pr_comment", n => { InlinePrComment = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf2_kind>(); } },
+                { "kind", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf2_kind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueKind = default; _explicitNullProperties?.Remove("kind"); AdditionalData["kind"] = unknown; } else { Kind = parsed; AdditionalData.Remove("kind"); } } },
                 { "should_request_summary", n => { ShouldRequestSummary = n.GetBoolValue(); } },
             };
         }

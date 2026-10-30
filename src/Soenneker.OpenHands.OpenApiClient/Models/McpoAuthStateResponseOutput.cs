@@ -17,9 +17,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("client_info") is { } nullNodeClientInfo && nullNodeClientInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientInfo = null;
-            if (parseNode.GetChildNode("token_expires_at") is { } nullNodeTokenExpiresAt && nullNodeTokenExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenExpiresAt = null;
-            if (parseNode.GetChildNode("tokens") is { } nullNodeTokens && nullNodeTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tokens = null;
+            if (parseNode.GetChildNode("client_info") is null) { _explicitNullValueClientInfo = default!; _explicitNullProperties?.Remove("client_info"); }
+            else if (parseNode.GetChildNode("client_info") is { } nullNodeClientInfo && nullNodeClientInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientInfo = null;
+            if (parseNode.GetChildNode("token_expires_at") is null) { _explicitNullValueTokenExpiresAt = default!; _explicitNullProperties?.Remove("token_expires_at"); }
+            else if (parseNode.GetChildNode("token_expires_at") is { } nullNodeTokenExpiresAt && nullNodeTokenExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenExpiresAt = null;
+            if (parseNode.GetChildNode("tokens") is null) { _explicitNullValueTokens = default!; _explicitNullProperties?.Remove("tokens"); }
+            else if (parseNode.GetChildNode("tokens") is { } nullNodeTokens && nullNodeTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tokens = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,24 +30,24 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The client_info property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutputClientInfo? ClientInfo { get => _explicitNullValueClientInfo; set { _explicitNullValueClientInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_info"); else _explicitNullProperties?.Remove("client_info"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutputClientInfo? ClientInfo { get => _explicitNullValueClientInfo; set { _explicitNullValueClientInfo = value; AdditionalData?.Remove("client_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_info"); else _explicitNullProperties?.Remove("client_info"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutputClientInfo? _explicitNullValueClientInfo = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutputClientInfo ClientInfo { get => _explicitNullValueClientInfo; set { _explicitNullValueClientInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_info"); else _explicitNullProperties?.Remove("client_info"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutputClientInfo ClientInfo { get => _explicitNullValueClientInfo; set { _explicitNullValueClientInfo = value; AdditionalData?.Remove("client_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_info"); else _explicitNullProperties?.Remove("client_info"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutputClientInfo _explicitNullValueClientInfo = default!;
 #endif
         /// <summary>The token_expires_at property</summary>
-        public double? TokenExpiresAt { get => _explicitNullValueTokenExpiresAt; set { _explicitNullValueTokenExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_expires_at"); else _explicitNullProperties?.Remove("token_expires_at"); } }
+        public double? TokenExpiresAt { get => _explicitNullValueTokenExpiresAt; set { _explicitNullValueTokenExpiresAt = value; AdditionalData?.Remove("token_expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_expires_at"); else _explicitNullProperties?.Remove("token_expires_at"); } }
         private double? _explicitNullValueTokenExpiresAt = default!;
         /// <summary>The tokens property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutputTokens? Tokens { get => _explicitNullValueTokens; set { _explicitNullValueTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokens"); else _explicitNullProperties?.Remove("tokens"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutputTokens? Tokens { get => _explicitNullValueTokens; set { _explicitNullValueTokens = value; AdditionalData?.Remove("tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokens"); else _explicitNullProperties?.Remove("tokens"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutputTokens? _explicitNullValueTokens = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutputTokens Tokens { get => _explicitNullValueTokens; set { _explicitNullValueTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokens"); else _explicitNullProperties?.Remove("tokens"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutputTokens Tokens { get => _explicitNullValueTokens; set { _explicitNullValueTokens = value; AdditionalData?.Remove("tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokens"); else _explicitNullProperties?.Remove("tokens"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutputTokens _explicitNullValueTokens = default!;
 #endif
         /// <summary>

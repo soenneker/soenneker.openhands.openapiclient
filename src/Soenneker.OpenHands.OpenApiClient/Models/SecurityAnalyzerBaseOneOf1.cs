@@ -17,11 +17,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("high_patterns") is { } nullNodeHighPatterns && nullNodeHighPatterns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HighPatterns = null;
-            if (parseNode.GetChildNode("injection_high_patterns") is { } nullNodeInjectionHighPatterns && nullNodeInjectionHighPatterns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InjectionHighPatterns = null;
-            if (parseNode.GetChildNode("injection_medium_patterns") is { } nullNodeInjectionMediumPatterns && nullNodeInjectionMediumPatterns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InjectionMediumPatterns = null;
-            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
-            if (parseNode.GetChildNode("medium_patterns") is { } nullNodeMediumPatterns && nullNodeMediumPatterns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MediumPatterns = null;
+            if (parseNode.GetChildNode("high_patterns") is null) { _explicitNullValueHighPatterns = default!; _explicitNullProperties?.Remove("high_patterns"); }
+            else if (parseNode.GetChildNode("high_patterns") is { } nullNodeHighPatterns && nullNodeHighPatterns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HighPatterns = null;
+            if (parseNode.GetChildNode("injection_high_patterns") is null) { _explicitNullValueInjectionHighPatterns = default!; _explicitNullProperties?.Remove("injection_high_patterns"); }
+            else if (parseNode.GetChildNode("injection_high_patterns") is { } nullNodeInjectionHighPatterns && nullNodeInjectionHighPatterns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InjectionHighPatterns = null;
+            if (parseNode.GetChildNode("injection_medium_patterns") is null) { _explicitNullValueInjectionMediumPatterns = default!; _explicitNullProperties?.Remove("injection_medium_patterns"); }
+            else if (parseNode.GetChildNode("injection_medium_patterns") is { } nullNodeInjectionMediumPatterns && nullNodeInjectionMediumPatterns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InjectionMediumPatterns = null;
+            if (parseNode.GetChildNode("kind") is null) { _explicitNullValueKind = default!; _explicitNullProperties?.Remove("kind"); }
+            else if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("medium_patterns") is null) { _explicitNullValueMediumPatterns = default!; _explicitNullProperties?.Remove("medium_patterns"); }
+            else if (parseNode.GetChildNode("medium_patterns") is { } nullNodeMediumPatterns && nullNodeMediumPatterns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MediumPatterns = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,44 +34,44 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>HIGH patterns scanned against executable fields only</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UntypedNode>? HighPatterns { get => _explicitNullValueHighPatterns; set { _explicitNullValueHighPatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("high_patterns"); else _explicitNullProperties?.Remove("high_patterns"); } }
+        public List<UntypedNode>? HighPatterns { get => _explicitNullValueHighPatterns; set { _explicitNullValueHighPatterns = value; AdditionalData?.Remove("high_patterns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("high_patterns"); else _explicitNullProperties?.Remove("high_patterns"); } }
         private List<UntypedNode>? _explicitNullValueHighPatterns = default!;
 #nullable restore
 #else
-        public List<UntypedNode> HighPatterns { get => _explicitNullValueHighPatterns; set { _explicitNullValueHighPatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("high_patterns"); else _explicitNullProperties?.Remove("high_patterns"); } }
+        public List<UntypedNode> HighPatterns { get => _explicitNullValueHighPatterns; set { _explicitNullValueHighPatterns = value; AdditionalData?.Remove("high_patterns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("high_patterns"); else _explicitNullProperties?.Remove("high_patterns"); } }
         private List<UntypedNode> _explicitNullValueHighPatterns = default!;
 #endif
         /// <summary>HIGH patterns scanned against all fields</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UntypedNode>? InjectionHighPatterns { get => _explicitNullValueInjectionHighPatterns; set { _explicitNullValueInjectionHighPatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("injection_high_patterns"); else _explicitNullProperties?.Remove("injection_high_patterns"); } }
+        public List<UntypedNode>? InjectionHighPatterns { get => _explicitNullValueInjectionHighPatterns; set { _explicitNullValueInjectionHighPatterns = value; AdditionalData?.Remove("injection_high_patterns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("injection_high_patterns"); else _explicitNullProperties?.Remove("injection_high_patterns"); } }
         private List<UntypedNode>? _explicitNullValueInjectionHighPatterns = default!;
 #nullable restore
 #else
-        public List<UntypedNode> InjectionHighPatterns { get => _explicitNullValueInjectionHighPatterns; set { _explicitNullValueInjectionHighPatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("injection_high_patterns"); else _explicitNullProperties?.Remove("injection_high_patterns"); } }
+        public List<UntypedNode> InjectionHighPatterns { get => _explicitNullValueInjectionHighPatterns; set { _explicitNullValueInjectionHighPatterns = value; AdditionalData?.Remove("injection_high_patterns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("injection_high_patterns"); else _explicitNullProperties?.Remove("injection_high_patterns"); } }
         private List<UntypedNode> _explicitNullValueInjectionHighPatterns = default!;
 #endif
         /// <summary>MEDIUM patterns scanned against all fields</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UntypedNode>? InjectionMediumPatterns { get => _explicitNullValueInjectionMediumPatterns; set { _explicitNullValueInjectionMediumPatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("injection_medium_patterns"); else _explicitNullProperties?.Remove("injection_medium_patterns"); } }
+        public List<UntypedNode>? InjectionMediumPatterns { get => _explicitNullValueInjectionMediumPatterns; set { _explicitNullValueInjectionMediumPatterns = value; AdditionalData?.Remove("injection_medium_patterns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("injection_medium_patterns"); else _explicitNullProperties?.Remove("injection_medium_patterns"); } }
         private List<UntypedNode>? _explicitNullValueInjectionMediumPatterns = default!;
 #nullable restore
 #else
-        public List<UntypedNode> InjectionMediumPatterns { get => _explicitNullValueInjectionMediumPatterns; set { _explicitNullValueInjectionMediumPatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("injection_medium_patterns"); else _explicitNullProperties?.Remove("injection_medium_patterns"); } }
+        public List<UntypedNode> InjectionMediumPatterns { get => _explicitNullValueInjectionMediumPatterns; set { _explicitNullValueInjectionMediumPatterns = value; AdditionalData?.Remove("injection_medium_patterns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("injection_medium_patterns"); else _explicitNullProperties?.Remove("injection_medium_patterns"); } }
         private List<UntypedNode> _explicitNullValueInjectionMediumPatterns = default!;
 #endif
         /// <summary>The kind property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf1_kind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf1_kind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf1_kind? _explicitNullValueKind = default!;
         /// <summary>MEDIUM patterns scanned against executable fields only</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UntypedNode>? MediumPatterns { get => _explicitNullValueMediumPatterns; set { _explicitNullValueMediumPatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("medium_patterns"); else _explicitNullProperties?.Remove("medium_patterns"); } }
+        public List<UntypedNode>? MediumPatterns { get => _explicitNullValueMediumPatterns; set { _explicitNullValueMediumPatterns = value; AdditionalData?.Remove("medium_patterns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("medium_patterns"); else _explicitNullProperties?.Remove("medium_patterns"); } }
         private List<UntypedNode>? _explicitNullValueMediumPatterns = default!;
 #nullable restore
 #else
-        public List<UntypedNode> MediumPatterns { get => _explicitNullValueMediumPatterns; set { _explicitNullValueMediumPatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("medium_patterns"); else _explicitNullProperties?.Remove("medium_patterns"); } }
+        public List<UntypedNode> MediumPatterns { get => _explicitNullValueMediumPatterns; set { _explicitNullValueMediumPatterns = value; AdditionalData?.Remove("medium_patterns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("medium_patterns"); else _explicitNullProperties?.Remove("medium_patterns"); } }
         private List<UntypedNode> _explicitNullValueMediumPatterns = default!;
 #endif
         /// <summary>
@@ -97,7 +102,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "high_patterns", n => { HighPatterns = n.GetCollectionOfObjectValues<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "injection_high_patterns", n => { InjectionHighPatterns = n.GetCollectionOfObjectValues<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "injection_medium_patterns", n => { InjectionMediumPatterns = n.GetCollectionOfObjectValues<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf1_kind>(); } },
+                { "kind", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf1_kind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueKind = default; _explicitNullProperties?.Remove("kind"); AdditionalData["kind"] = unknown; } else { Kind = parsed; AdditionalData.Remove("kind"); } } },
                 { "medium_patterns", n => { MediumPatterns = n.GetCollectionOfObjectValues<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }

@@ -18,8 +18,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("client_version") is { } nullNodeClientVersion && nullNodeClientVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientVersion = null;
-            if (parseNode.GetChildNode("event_type") is { } nullNodeEventType && nullNodeEventType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventType = null;
+            if (parseNode.GetChildNode("client_version") is null) { _explicitNullValueClientVersion = default!; _explicitNullProperties?.Remove("client_version"); }
+            else if (parseNode.GetChildNode("client_version") is { } nullNodeClientVersion && nullNodeClientVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientVersion = null;
+            if (parseNode.GetChildNode("event_type") is null) { _explicitNullValueEventType = default!; _explicitNullProperties?.Remove("event_type"); }
+            else if (parseNode.GetChildNode("event_type") is { } nullNodeEventType && nullNodeEventType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The client_version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientVersion { get => _explicitNullValueClientVersion; set { _explicitNullValueClientVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_version"); else _explicitNullProperties?.Remove("client_version"); } }
+        public string? ClientVersion { get => _explicitNullValueClientVersion; set { _explicitNullValueClientVersion = value; AdditionalData?.Remove("client_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_version"); else _explicitNullProperties?.Remove("client_version"); } }
         private string? _explicitNullValueClientVersion = default!;
 #nullable restore
 #else
-        public string ClientVersion { get => _explicitNullValueClientVersion; set { _explicitNullValueClientVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_version"); else _explicitNullProperties?.Remove("client_version"); } }
+        public string ClientVersion { get => _explicitNullValueClientVersion; set { _explicitNullValueClientVersion = value; AdditionalData?.Remove("client_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_version"); else _explicitNullProperties?.Remove("client_version"); } }
         private string _explicitNullValueClientVersion = default!;
 #endif
         /// <summary>The event_type property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.CanvasAuthenticatedEventType? EventType { get => _explicitNullValueEventType; set { _explicitNullValueEventType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_type"); else _explicitNullProperties?.Remove("event_type"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.CanvasAuthenticatedEventType? EventType { get => _explicitNullValueEventType; set { _explicitNullValueEventType = value; AdditionalData?.Remove("event_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_type"); else _explicitNullProperties?.Remove("event_type"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.CanvasAuthenticatedEventType? _explicitNullValueEventType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CanvasAuthenticatedEvent"/> and sets the default values.
@@ -63,7 +65,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "client_version", n => { ClientVersion = n.GetStringValue(); } },
-                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CanvasAuthenticatedEventType>(); } },
+                { "event_type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CanvasAuthenticatedEventType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEventType = default; _explicitNullProperties?.Remove("event_type"); AdditionalData["event_type"] = unknown; } else { EventType = parsed; AdditionalData.Remove("event_type"); } } },
             };
         }
         /// <summary>

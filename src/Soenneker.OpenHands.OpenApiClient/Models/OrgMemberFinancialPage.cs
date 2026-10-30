@@ -18,43 +18,48 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("current_page") is { } nullNodeCurrentPage && nullNodeCurrentPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentPage = null;
-            if (parseNode.GetChildNode("items") is { } nullNodeItems && nullNodeItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Items = null;
-            if (parseNode.GetChildNode("next_page_id") is { } nullNodeNextPageId && nullNodeNextPageId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextPageId = null;
-            if (parseNode.GetChildNode("per_page") is { } nullNodePerPage && nullNodePerPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerPage = null;
-            if (parseNode.GetChildNode("spend_status") is { } nullNodeSpendStatus && nullNodeSpendStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendStatus = null;
+            if (parseNode.GetChildNode("current_page") is null) { _explicitNullValueCurrentPage = default!; _explicitNullProperties?.Remove("current_page"); }
+            else if (parseNode.GetChildNode("current_page") is { } nullNodeCurrentPage && nullNodeCurrentPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentPage = null;
+            if (parseNode.GetChildNode("items") is null) { _explicitNullValueItems = default!; _explicitNullProperties?.Remove("items"); }
+            else if (parseNode.GetChildNode("items") is { } nullNodeItems && nullNodeItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Items = null;
+            if (parseNode.GetChildNode("next_page_id") is null) { _explicitNullValueNextPageId = default!; _explicitNullProperties?.Remove("next_page_id"); }
+            else if (parseNode.GetChildNode("next_page_id") is { } nullNodeNextPageId && nullNodeNextPageId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextPageId = null;
+            if (parseNode.GetChildNode("per_page") is null) { _explicitNullValuePerPage = default!; _explicitNullProperties?.Remove("per_page"); }
+            else if (parseNode.GetChildNode("per_page") is { } nullNodePerPage && nullNodePerPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerPage = null;
+            if (parseNode.GetChildNode("spend_status") is null) { _explicitNullValueSpendStatus = default!; _explicitNullProperties?.Remove("spend_status"); }
+            else if (parseNode.GetChildNode("spend_status") is { } nullNodeSpendStatus && nullNodeSpendStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendStatus = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The current_page property</summary>
-        public int? CurrentPage { get => _explicitNullValueCurrentPage; set { _explicitNullValueCurrentPage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_page"); else _explicitNullProperties?.Remove("current_page"); } }
+        public int? CurrentPage { get => _explicitNullValueCurrentPage; set { _explicitNullValueCurrentPage = value; AdditionalData?.Remove("current_page"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_page"); else _explicitNullProperties?.Remove("current_page"); } }
         private int? _explicitNullValueCurrentPage = default!;
         /// <summary>The items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialResponse>? Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialResponse>? Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; AdditionalData?.Remove("items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialResponse>? _explicitNullValueItems = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialResponse> Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialResponse> Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; AdditionalData?.Remove("items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialResponse> _explicitNullValueItems = default!;
 #endif
         /// <summary>The next_page_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NextPageId { get => _explicitNullValueNextPageId; set { _explicitNullValueNextPageId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_page_id"); else _explicitNullProperties?.Remove("next_page_id"); } }
+        public string? NextPageId { get => _explicitNullValueNextPageId; set { _explicitNullValueNextPageId = value; AdditionalData?.Remove("next_page_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_page_id"); else _explicitNullProperties?.Remove("next_page_id"); } }
         private string? _explicitNullValueNextPageId = default!;
 #nullable restore
 #else
-        public string NextPageId { get => _explicitNullValueNextPageId; set { _explicitNullValueNextPageId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_page_id"); else _explicitNullProperties?.Remove("next_page_id"); } }
+        public string NextPageId { get => _explicitNullValueNextPageId; set { _explicitNullValueNextPageId = value; AdditionalData?.Remove("next_page_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_page_id"); else _explicitNullProperties?.Remove("next_page_id"); } }
         private string _explicitNullValueNextPageId = default!;
 #endif
         /// <summary>The per_page property</summary>
-        public int? PerPage { get => _explicitNullValuePerPage; set { _explicitNullValuePerPage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_page"); else _explicitNullProperties?.Remove("per_page"); } }
+        public int? PerPage { get => _explicitNullValuePerPage; set { _explicitNullValuePerPage = value; AdditionalData?.Remove("per_page"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_page"); else _explicitNullProperties?.Remove("per_page"); } }
         private int? _explicitNullValuePerPage = default!;
         /// <summary>The spend_status property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialPageSpendStatus? SpendStatus { get => _explicitNullValueSpendStatus; set { _explicitNullValueSpendStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_status"); else _explicitNullProperties?.Remove("spend_status"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialPageSpendStatus? SpendStatus { get => _explicitNullValueSpendStatus; set { _explicitNullValueSpendStatus = value; AdditionalData?.Remove("spend_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_status"); else _explicitNullProperties?.Remove("spend_status"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialPageSpendStatus? _explicitNullValueSpendStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialPage"/> and sets the default values.
@@ -87,7 +92,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialResponse>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialResponse.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "next_page_id", n => { NextPageId = n.GetStringValue(); } },
                 { "per_page", n => { PerPage = n.GetIntValue(); } },
-                { "spend_status", n => { SpendStatus = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialPageSpendStatus>(); } },
+                { "spend_status", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialPageSpendStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSpendStatus = default; _explicitNullProperties?.Remove("spend_status"); AdditionalData["spend_status"] = unknown; } else { SpendStatus = parsed; AdditionalData.Remove("spend_status"); } } },
             };
         }
         /// <summary>

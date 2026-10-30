@@ -17,13 +17,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("permitted") is { } nullNodePermitted && nullNodePermitted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permitted = null;
+            if (parseNode.GetChildNode("permitted") is null) { _explicitNullValuePermitted = default!; _explicitNullProperties?.Remove("permitted"); }
+            else if (parseNode.GetChildNode("permitted") is { } nullNodePermitted && nullNodePermitted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permitted = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The permitted property</summary>
-        public bool? Permitted { get => _explicitNullValuePermitted; set { _explicitNullValuePermitted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permitted"); else _explicitNullProperties?.Remove("permitted"); } }
+        public bool? Permitted { get => _explicitNullValuePermitted; set { _explicitNullValuePermitted = value; AdditionalData?.Remove("permitted"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permitted"); else _explicitNullProperties?.Remove("permitted"); } }
         private bool? _explicitNullValuePermitted = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ByorPermittedResponse"/> and sets the default values.

@@ -56,6 +56,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(ReadFileObservationLinesShownMember1 != null || ReadFileObservationLinesShownMember2 != null)
             {
                 return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ReadFileObservationLinesShownMember1, ReadFileObservationLinesShownMember2);
@@ -70,8 +72,11 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (ReadFileObservationLinesShownMember1 == null && ReadFileObservationLinesShownMember2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (ReadFileObservationLinesShownMember1 != null && ReadFileObservationLinesShownMember2 == null) { if (ReadFileObservationLinesShownMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReadFileObservationLinesShownMember1); return; }
-            if (ReadFileObservationLinesShownMember2 != null && ReadFileObservationLinesShownMember1 == null) { if (ReadFileObservationLinesShownMember2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReadFileObservationLinesShownMember2); return; }
+            int selectedUnionBranches = 0;
+            if (ReadFileObservationLinesShownMember1 != null) selectedUnionBranches++;
+            if (ReadFileObservationLinesShownMember2 != null) selectedUnionBranches++;
+            if (ReadFileObservationLinesShownMember1 != null && selectedUnionBranches == 1) { if (ReadFileObservationLinesShownMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReadFileObservationLinesShownMember1); return; }
+            if (ReadFileObservationLinesShownMember2 != null && selectedUnionBranches == 1) { if (ReadFileObservationLinesShownMember2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReadFileObservationLinesShownMember2); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservationLinesShownMember1>(null, ReadFileObservationLinesShownMember1, ReadFileObservationLinesShownMember2);

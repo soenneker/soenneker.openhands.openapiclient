@@ -18,54 +18,60 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("enable_sound_notifications") is { } nullNodeEnableSoundNotifications && nullNodeEnableSoundNotifications.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableSoundNotifications = null;
-            if (parseNode.GetChildNode("git_full_clone") is { } nullNodeGitFullClone && nullNodeGitFullClone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitFullClone = null;
-            if (parseNode.GetChildNode("git_user_email") is { } nullNodeGitUserEmail && nullNodeGitUserEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitUserEmail = null;
-            if (parseNode.GetChildNode("git_user_name") is { } nullNodeGitUserName && nullNodeGitUserName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitUserName = null;
-            if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
-            if (parseNode.GetChildNode("user_consents_to_analytics") is { } nullNodeUserConsentsToAnalytics && nullNodeUserConsentsToAnalytics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserConsentsToAnalytics = null;
+            if (parseNode.GetChildNode("enable_sound_notifications") is null) { _explicitNullValueEnableSoundNotifications = default!; _explicitNullProperties?.Remove("enable_sound_notifications"); }
+            else if (parseNode.GetChildNode("enable_sound_notifications") is { } nullNodeEnableSoundNotifications && nullNodeEnableSoundNotifications.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableSoundNotifications = null;
+            if (parseNode.GetChildNode("git_full_clone") is null) { _explicitNullValueGitFullClone = default!; _explicitNullProperties?.Remove("git_full_clone"); }
+            else if (parseNode.GetChildNode("git_full_clone") is { } nullNodeGitFullClone && nullNodeGitFullClone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitFullClone = null;
+            if (parseNode.GetChildNode("git_user_email") is null) { _explicitNullValueGitUserEmail = default!; _explicitNullProperties?.Remove("git_user_email"); }
+            else if (parseNode.GetChildNode("git_user_email") is { } nullNodeGitUserEmail && nullNodeGitUserEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitUserEmail = null;
+            if (parseNode.GetChildNode("git_user_name") is null) { _explicitNullValueGitUserName = default!; _explicitNullProperties?.Remove("git_user_name"); }
+            else if (parseNode.GetChildNode("git_user_name") is { } nullNodeGitUserName && nullNodeGitUserName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitUserName = null;
+            if (parseNode.GetChildNode("language") is null) { _explicitNullValueLanguage = default!; _explicitNullProperties?.Remove("language"); }
+            else if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
+            if (parseNode.GetChildNode("user_consents_to_analytics") is null) { _explicitNullValueUserConsentsToAnalytics = default!; _explicitNullProperties?.Remove("user_consents_to_analytics"); }
+            else if (parseNode.GetChildNode("user_consents_to_analytics") is { } nullNodeUserConsentsToAnalytics && nullNodeUserConsentsToAnalytics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserConsentsToAnalytics = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The enable_sound_notifications property</summary>
-        public bool? EnableSoundNotifications { get => _explicitNullValueEnableSoundNotifications; set { _explicitNullValueEnableSoundNotifications = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_sound_notifications"); else _explicitNullProperties?.Remove("enable_sound_notifications"); } }
+        public bool? EnableSoundNotifications { get => _explicitNullValueEnableSoundNotifications; set { _explicitNullValueEnableSoundNotifications = value; AdditionalData?.Remove("enable_sound_notifications"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_sound_notifications"); else _explicitNullProperties?.Remove("enable_sound_notifications"); } }
         private bool? _explicitNullValueEnableSoundNotifications = default!;
         /// <summary>The git_full_clone property</summary>
-        public bool? GitFullClone { get => _explicitNullValueGitFullClone; set { _explicitNullValueGitFullClone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_full_clone"); else _explicitNullProperties?.Remove("git_full_clone"); } }
+        public bool? GitFullClone { get => _explicitNullValueGitFullClone; set { _explicitNullValueGitFullClone = value; AdditionalData?.Remove("git_full_clone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_full_clone"); else _explicitNullProperties?.Remove("git_full_clone"); } }
         private bool? _explicitNullValueGitFullClone = default!;
         /// <summary>The git_user_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GitUserEmail { get => _explicitNullValueGitUserEmail; set { _explicitNullValueGitUserEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_user_email"); else _explicitNullProperties?.Remove("git_user_email"); } }
+        public string? GitUserEmail { get => _explicitNullValueGitUserEmail; set { _explicitNullValueGitUserEmail = value; AdditionalData?.Remove("git_user_email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_user_email"); else _explicitNullProperties?.Remove("git_user_email"); } }
         private string? _explicitNullValueGitUserEmail = default!;
 #nullable restore
 #else
-        public string GitUserEmail { get => _explicitNullValueGitUserEmail; set { _explicitNullValueGitUserEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_user_email"); else _explicitNullProperties?.Remove("git_user_email"); } }
+        public string GitUserEmail { get => _explicitNullValueGitUserEmail; set { _explicitNullValueGitUserEmail = value; AdditionalData?.Remove("git_user_email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_user_email"); else _explicitNullProperties?.Remove("git_user_email"); } }
         private string _explicitNullValueGitUserEmail = default!;
 #endif
         /// <summary>The git_user_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GitUserName { get => _explicitNullValueGitUserName; set { _explicitNullValueGitUserName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_user_name"); else _explicitNullProperties?.Remove("git_user_name"); } }
+        public string? GitUserName { get => _explicitNullValueGitUserName; set { _explicitNullValueGitUserName = value; AdditionalData?.Remove("git_user_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_user_name"); else _explicitNullProperties?.Remove("git_user_name"); } }
         private string? _explicitNullValueGitUserName = default!;
 #nullable restore
 #else
-        public string GitUserName { get => _explicitNullValueGitUserName; set { _explicitNullValueGitUserName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_user_name"); else _explicitNullProperties?.Remove("git_user_name"); } }
+        public string GitUserName { get => _explicitNullValueGitUserName; set { _explicitNullValueGitUserName = value; AdditionalData?.Remove("git_user_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_user_name"); else _explicitNullProperties?.Remove("git_user_name"); } }
         private string _explicitNullValueGitUserName = default!;
 #endif
         /// <summary>The language property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        public string? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; AdditionalData?.Remove("language"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
         private string? _explicitNullValueLanguage = default!;
 #nullable restore
 #else
-        public string Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        public string Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; AdditionalData?.Remove("language"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
         private string _explicitNullValueLanguage = default!;
 #endif
         /// <summary>The user_consents_to_analytics property</summary>
-        public bool? UserConsentsToAnalytics { get => _explicitNullValueUserConsentsToAnalytics; set { _explicitNullValueUserConsentsToAnalytics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_consents_to_analytics"); else _explicitNullProperties?.Remove("user_consents_to_analytics"); } }
+        public bool? UserConsentsToAnalytics { get => _explicitNullValueUserConsentsToAnalytics; set { _explicitNullValueUserConsentsToAnalytics = value; AdditionalData?.Remove("user_consents_to_analytics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_consents_to_analytics"); else _explicitNullProperties?.Remove("user_consents_to_analytics"); } }
         private bool? _explicitNullValueUserConsentsToAnalytics = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.UserAppSettingsResponse"/> and sets the default values.

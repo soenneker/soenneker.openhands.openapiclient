@@ -17,15 +17,24 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("full_name") is { } nullNodeFullName && nullNodeFullName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullName = null;
-            if (parseNode.GetChildNode("git_provider") is { } nullNodeGitProvider && nullNodeGitProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitProvider = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("is_public") is { } nullNodeIsPublic && nullNodeIsPublic.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsPublic = null;
-            if (parseNode.GetChildNode("link_header") is { } nullNodeLinkHeader && nullNodeLinkHeader.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkHeader = null;
-            if (parseNode.GetChildNode("main_branch") is { } nullNodeMainBranch && nullNodeMainBranch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MainBranch = null;
-            if (parseNode.GetChildNode("owner_type") is { } nullNodeOwnerType && nullNodeOwnerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OwnerType = null;
-            if (parseNode.GetChildNode("pushed_at") is { } nullNodePushedAt && nullNodePushedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PushedAt = null;
-            if (parseNode.GetChildNode("stargazers_count") is { } nullNodeStargazersCount && nullNodeStargazersCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StargazersCount = null;
+            if (parseNode.GetChildNode("full_name") is null) { _explicitNullValueFullName = default!; _explicitNullProperties?.Remove("full_name"); }
+            else if (parseNode.GetChildNode("full_name") is { } nullNodeFullName && nullNodeFullName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullName = null;
+            if (parseNode.GetChildNode("git_provider") is null) { _explicitNullValueGitProvider = default!; _explicitNullProperties?.Remove("git_provider"); }
+            else if (parseNode.GetChildNode("git_provider") is { } nullNodeGitProvider && nullNodeGitProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitProvider = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("is_public") is null) { _explicitNullValueIsPublic = default!; _explicitNullProperties?.Remove("is_public"); }
+            else if (parseNode.GetChildNode("is_public") is { } nullNodeIsPublic && nullNodeIsPublic.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsPublic = null;
+            if (parseNode.GetChildNode("link_header") is null) { _explicitNullValueLinkHeader = default!; _explicitNullProperties?.Remove("link_header"); }
+            else if (parseNode.GetChildNode("link_header") is { } nullNodeLinkHeader && nullNodeLinkHeader.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkHeader = null;
+            if (parseNode.GetChildNode("main_branch") is null) { _explicitNullValueMainBranch = default!; _explicitNullProperties?.Remove("main_branch"); }
+            else if (parseNode.GetChildNode("main_branch") is { } nullNodeMainBranch && nullNodeMainBranch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MainBranch = null;
+            if (parseNode.GetChildNode("owner_type") is null) { _explicitNullValueOwnerType = default!; _explicitNullProperties?.Remove("owner_type"); }
+            else if (parseNode.GetChildNode("owner_type") is { } nullNodeOwnerType && nullNodeOwnerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OwnerType = null;
+            if (parseNode.GetChildNode("pushed_at") is null) { _explicitNullValuePushedAt = default!; _explicitNullProperties?.Remove("pushed_at"); }
+            else if (parseNode.GetChildNode("pushed_at") is { } nullNodePushedAt && nullNodePushedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PushedAt = null;
+            if (parseNode.GetChildNode("stargazers_count") is null) { _explicitNullValueStargazersCount = default!; _explicitNullProperties?.Remove("stargazers_count"); }
+            else if (parseNode.GetChildNode("stargazers_count") is { } nullNodeStargazersCount && nullNodeStargazersCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StargazersCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,64 +42,64 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The full_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FullName { get => _explicitNullValueFullName; set { _explicitNullValueFullName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_name"); else _explicitNullProperties?.Remove("full_name"); } }
+        public string? FullName { get => _explicitNullValueFullName; set { _explicitNullValueFullName = value; AdditionalData?.Remove("full_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_name"); else _explicitNullProperties?.Remove("full_name"); } }
         private string? _explicitNullValueFullName = default!;
 #nullable restore
 #else
-        public string FullName { get => _explicitNullValueFullName; set { _explicitNullValueFullName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_name"); else _explicitNullProperties?.Remove("full_name"); } }
+        public string FullName { get => _explicitNullValueFullName; set { _explicitNullValueFullName = value; AdditionalData?.Remove("full_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_name"); else _explicitNullProperties?.Remove("full_name"); } }
         private string _explicitNullValueFullName = default!;
 #endif
         /// <summary>The git_provider property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? GitProvider { get => _explicitNullValueGitProvider; set { _explicitNullValueGitProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_provider"); else _explicitNullProperties?.Remove("git_provider"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? GitProvider { get => _explicitNullValueGitProvider; set { _explicitNullValueGitProvider = value; AdditionalData?.Remove("git_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_provider"); else _explicitNullProperties?.Remove("git_provider"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? _explicitNullValueGitProvider = default!;
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>The is_public property</summary>
-        public bool? IsPublic { get => _explicitNullValueIsPublic; set { _explicitNullValueIsPublic = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_public"); else _explicitNullProperties?.Remove("is_public"); } }
+        public bool? IsPublic { get => _explicitNullValueIsPublic; set { _explicitNullValueIsPublic = value; AdditionalData?.Remove("is_public"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_public"); else _explicitNullProperties?.Remove("is_public"); } }
         private bool? _explicitNullValueIsPublic = default!;
         /// <summary>The link_header property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LinkHeader { get => _explicitNullValueLinkHeader; set { _explicitNullValueLinkHeader = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("link_header"); else _explicitNullProperties?.Remove("link_header"); } }
+        public string? LinkHeader { get => _explicitNullValueLinkHeader; set { _explicitNullValueLinkHeader = value; AdditionalData?.Remove("link_header"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("link_header"); else _explicitNullProperties?.Remove("link_header"); } }
         private string? _explicitNullValueLinkHeader = default!;
 #nullable restore
 #else
-        public string LinkHeader { get => _explicitNullValueLinkHeader; set { _explicitNullValueLinkHeader = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("link_header"); else _explicitNullProperties?.Remove("link_header"); } }
+        public string LinkHeader { get => _explicitNullValueLinkHeader; set { _explicitNullValueLinkHeader = value; AdditionalData?.Remove("link_header"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("link_header"); else _explicitNullProperties?.Remove("link_header"); } }
         private string _explicitNullValueLinkHeader = default!;
 #endif
         /// <summary>The main_branch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MainBranch { get => _explicitNullValueMainBranch; set { _explicitNullValueMainBranch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("main_branch"); else _explicitNullProperties?.Remove("main_branch"); } }
+        public string? MainBranch { get => _explicitNullValueMainBranch; set { _explicitNullValueMainBranch = value; AdditionalData?.Remove("main_branch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("main_branch"); else _explicitNullProperties?.Remove("main_branch"); } }
         private string? _explicitNullValueMainBranch = default!;
 #nullable restore
 #else
-        public string MainBranch { get => _explicitNullValueMainBranch; set { _explicitNullValueMainBranch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("main_branch"); else _explicitNullProperties?.Remove("main_branch"); } }
+        public string MainBranch { get => _explicitNullValueMainBranch; set { _explicitNullValueMainBranch = value; AdditionalData?.Remove("main_branch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("main_branch"); else _explicitNullProperties?.Remove("main_branch"); } }
         private string _explicitNullValueMainBranch = default!;
 #endif
         /// <summary>The owner_type property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType? OwnerType { get => _explicitNullValueOwnerType; set { _explicitNullValueOwnerType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner_type"); else _explicitNullProperties?.Remove("owner_type"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType? OwnerType { get => _explicitNullValueOwnerType; set { _explicitNullValueOwnerType = value; AdditionalData?.Remove("owner_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner_type"); else _explicitNullProperties?.Remove("owner_type"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType? _explicitNullValueOwnerType = default!;
         /// <summary>The pushed_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PushedAt { get => _explicitNullValuePushedAt; set { _explicitNullValuePushedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pushed_at"); else _explicitNullProperties?.Remove("pushed_at"); } }
+        public string? PushedAt { get => _explicitNullValuePushedAt; set { _explicitNullValuePushedAt = value; AdditionalData?.Remove("pushed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pushed_at"); else _explicitNullProperties?.Remove("pushed_at"); } }
         private string? _explicitNullValuePushedAt = default!;
 #nullable restore
 #else
-        public string PushedAt { get => _explicitNullValuePushedAt; set { _explicitNullValuePushedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pushed_at"); else _explicitNullProperties?.Remove("pushed_at"); } }
+        public string PushedAt { get => _explicitNullValuePushedAt; set { _explicitNullValuePushedAt = value; AdditionalData?.Remove("pushed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pushed_at"); else _explicitNullProperties?.Remove("pushed_at"); } }
         private string _explicitNullValuePushedAt = default!;
 #endif
         /// <summary>The stargazers_count property</summary>
-        public int? StargazersCount { get => _explicitNullValueStargazersCount; set { _explicitNullValueStargazersCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stargazers_count"); else _explicitNullProperties?.Remove("stargazers_count"); } }
+        public int? StargazersCount { get => _explicitNullValueStargazersCount; set { _explicitNullValueStargazersCount = value; AdditionalData?.Remove("stargazers_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stargazers_count"); else _explicitNullProperties?.Remove("stargazers_count"); } }
         private int? _explicitNullValueStargazersCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.Repository"/> and sets the default values.
@@ -118,12 +127,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "full_name", n => { FullName = n.GetStringValue(); } },
-                { "git_provider", n => { GitProvider = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>(); } },
+                { "git_provider", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueGitProvider = default; _explicitNullProperties?.Remove("git_provider"); AdditionalData["git_provider"] = unknown; } else { GitProvider = parsed; AdditionalData.Remove("git_provider"); } } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_public", n => { IsPublic = n.GetBoolValue(); } },
                 { "link_header", n => { LinkHeader = n.GetStringValue(); } },
                 { "main_branch", n => { MainBranch = n.GetStringValue(); } },
-                { "owner_type", n => { OwnerType = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType>(); } },
+                { "owner_type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OwnerType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOwnerType = default; _explicitNullProperties?.Remove("owner_type"); AdditionalData["owner_type"] = unknown; } else { OwnerType = parsed; AdditionalData.Remove("owner_type"); } } },
                 { "pushed_at", n => { PushedAt = n.GetStringValue(); } },
                 { "stargazers_count", n => { StargazersCount = n.GetIntValue(); } },
             };

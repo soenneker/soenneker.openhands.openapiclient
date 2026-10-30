@@ -18,8 +18,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("fallback_llms") is { } nullNodeFallbackLlms && nullNodeFallbackLlms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackLlms = null;
-            if (parseNode.GetChildNode("profile_store_dir") is { } nullNodeProfileStoreDir && nullNodeProfileStoreDir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProfileStoreDir = null;
+            if (parseNode.GetChildNode("fallback_llms") is null) { _explicitNullValueFallbackLlms = default!; _explicitNullProperties?.Remove("fallback_llms"); }
+            else if (parseNode.GetChildNode("fallback_llms") is { } nullNodeFallbackLlms && nullNodeFallbackLlms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackLlms = null;
+            if (parseNode.GetChildNode("profile_store_dir") is null) { _explicitNullValueProfileStoreDir = default!; _explicitNullProperties?.Remove("profile_store_dir"); }
+            else if (parseNode.GetChildNode("profile_store_dir") is { } nullNodeProfileStoreDir && nullNodeProfileStoreDir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProfileStoreDir = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Ordered list of LLM profile names to try on transient failure.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? FallbackLlms { get => _explicitNullValueFallbackLlms; set { _explicitNullValueFallbackLlms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_llms"); else _explicitNullProperties?.Remove("fallback_llms"); } }
+        public List<string>? FallbackLlms { get => _explicitNullValueFallbackLlms; set { _explicitNullValueFallbackLlms = value; AdditionalData?.Remove("fallback_llms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_llms"); else _explicitNullProperties?.Remove("fallback_llms"); } }
         private List<string>? _explicitNullValueFallbackLlms = default!;
 #nullable restore
 #else
-        public List<string> FallbackLlms { get => _explicitNullValueFallbackLlms; set { _explicitNullValueFallbackLlms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_llms"); else _explicitNullProperties?.Remove("fallback_llms"); } }
+        public List<string> FallbackLlms { get => _explicitNullValueFallbackLlms; set { _explicitNullValueFallbackLlms = value; AdditionalData?.Remove("fallback_llms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_llms"); else _explicitNullProperties?.Remove("fallback_llms"); } }
         private List<string> _explicitNullValueFallbackLlms = default!;
 #endif
         /// <summary>Path to directory containing profiles. If not specified, defaults to `.openhands/profiles`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategyProfileStoreDir? ProfileStoreDir { get => _explicitNullValueProfileStoreDir; set { _explicitNullValueProfileStoreDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profile_store_dir"); else _explicitNullProperties?.Remove("profile_store_dir"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategyProfileStoreDir? ProfileStoreDir { get => _explicitNullValueProfileStoreDir; set { _explicitNullValueProfileStoreDir = value; AdditionalData?.Remove("profile_store_dir"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profile_store_dir"); else _explicitNullProperties?.Remove("profile_store_dir"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategyProfileStoreDir? _explicitNullValueProfileStoreDir = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategyProfileStoreDir ProfileStoreDir { get => _explicitNullValueProfileStoreDir; set { _explicitNullValueProfileStoreDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profile_store_dir"); else _explicitNullProperties?.Remove("profile_store_dir"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategyProfileStoreDir ProfileStoreDir { get => _explicitNullValueProfileStoreDir; set { _explicitNullValueProfileStoreDir = value; AdditionalData?.Remove("profile_store_dir"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profile_store_dir"); else _explicitNullProperties?.Remove("profile_store_dir"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategyProfileStoreDir _explicitNullValueProfileStoreDir = default!;
 #endif
         /// <summary>

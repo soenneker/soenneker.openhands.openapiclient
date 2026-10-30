@@ -18,28 +18,31 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("can_resume") is { } nullNodeCanResume && nullNodeCanResume.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanResume = null;
-            if (parseNode.GetChildNode("runtime_error") is { } nullNodeRuntimeError && nullNodeRuntimeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuntimeError = null;
-            if (parseNode.GetChildNode("runtime_status") is { } nullNodeRuntimeStatus && nullNodeRuntimeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuntimeStatus = null;
+            if (parseNode.GetChildNode("can_resume") is null) { _explicitNullValueCanResume = default!; _explicitNullProperties?.Remove("can_resume"); }
+            else if (parseNode.GetChildNode("can_resume") is { } nullNodeCanResume && nullNodeCanResume.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanResume = null;
+            if (parseNode.GetChildNode("runtime_error") is null) { _explicitNullValueRuntimeError = default!; _explicitNullProperties?.Remove("runtime_error"); }
+            else if (parseNode.GetChildNode("runtime_error") is { } nullNodeRuntimeError && nullNodeRuntimeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuntimeError = null;
+            if (parseNode.GetChildNode("runtime_status") is null) { _explicitNullValueRuntimeStatus = default!; _explicitNullProperties?.Remove("runtime_status"); }
+            else if (parseNode.GetChildNode("runtime_status") is { } nullNodeRuntimeStatus && nullNodeRuntimeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuntimeStatus = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The can_resume property</summary>
-        public bool? CanResume { get => _explicitNullValueCanResume; set { _explicitNullValueCanResume = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_resume"); else _explicitNullProperties?.Remove("can_resume"); } }
+        public bool? CanResume { get => _explicitNullValueCanResume; set { _explicitNullValueCanResume = value; AdditionalData?.Remove("can_resume"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_resume"); else _explicitNullProperties?.Remove("can_resume"); } }
         private bool? _explicitNullValueCanResume = default!;
         /// <summary>The runtime_error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeError? RuntimeError { get => _explicitNullValueRuntimeError; set { _explicitNullValueRuntimeError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_error"); else _explicitNullProperties?.Remove("runtime_error"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeError? RuntimeError { get => _explicitNullValueRuntimeError; set { _explicitNullValueRuntimeError = value; AdditionalData?.Remove("runtime_error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_error"); else _explicitNullProperties?.Remove("runtime_error"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeError? _explicitNullValueRuntimeError = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeError RuntimeError { get => _explicitNullValueRuntimeError; set { _explicitNullValueRuntimeError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_error"); else _explicitNullProperties?.Remove("runtime_error"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeError RuntimeError { get => _explicitNullValueRuntimeError; set { _explicitNullValueRuntimeError = value; AdditionalData?.Remove("runtime_error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_error"); else _explicitNullProperties?.Remove("runtime_error"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeError _explicitNullValueRuntimeError = default!;
 #endif
         /// <summary>Availability of the runtime that executes a conversation.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeStatus? RuntimeStatus { get => _explicitNullValueRuntimeStatus; set { _explicitNullValueRuntimeStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_status"); else _explicitNullProperties?.Remove("runtime_status"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeStatus? RuntimeStatus { get => _explicitNullValueRuntimeStatus; set { _explicitNullValueRuntimeStatus = value; AdditionalData?.Remove("runtime_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_status"); else _explicitNullProperties?.Remove("runtime_status"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeStatus? _explicitNullValueRuntimeStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeInfo"/> and sets the default values.
@@ -68,7 +71,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "can_resume", n => { CanResume = n.GetBoolValue(); } },
                 { "runtime_error", n => { RuntimeError = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeError>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeError.CreateFromDiscriminatorValue); } },
-                { "runtime_status", n => { RuntimeStatus = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeStatus>(); } },
+                { "runtime_status", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRuntimeStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRuntimeStatus = default; _explicitNullProperties?.Remove("runtime_status"); AdditionalData["runtime_status"] = unknown; } else { RuntimeStatus = parsed; AdditionalData.Remove("runtime_status"); } } },
             };
         }
         /// <summary>

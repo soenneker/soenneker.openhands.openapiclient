@@ -18,73 +18,129 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("api_key") is { } nullNodeApiKey && nullNodeApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKey = null;
-            if (parseNode.GetChildNode("api_mode") is { } nullNodeApiMode && nullNodeApiMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiMode = null;
-            if (parseNode.GetChildNode("api_version") is { } nullNodeApiVersion && nullNodeApiVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiVersion = null;
-            if (parseNode.GetChildNode("auth_type") is { } nullNodeAuthType && nullNodeAuthType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthType = null;
-            if (parseNode.GetChildNode("aws_access_key_id") is { } nullNodeAwsAccessKeyId && nullNodeAwsAccessKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsAccessKeyId = null;
-            if (parseNode.GetChildNode("aws_bedrock_runtime_endpoint") is { } nullNodeAwsBedrockRuntimeEndpoint && nullNodeAwsBedrockRuntimeEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsBedrockRuntimeEndpoint = null;
-            if (parseNode.GetChildNode("aws_profile_name") is { } nullNodeAwsProfileName && nullNodeAwsProfileName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsProfileName = null;
-            if (parseNode.GetChildNode("aws_region_name") is { } nullNodeAwsRegionName && nullNodeAwsRegionName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsRegionName = null;
-            if (parseNode.GetChildNode("aws_role_name") is { } nullNodeAwsRoleName && nullNodeAwsRoleName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsRoleName = null;
-            if (parseNode.GetChildNode("aws_secret_access_key") is { } nullNodeAwsSecretAccessKey && nullNodeAwsSecretAccessKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsSecretAccessKey = null;
-            if (parseNode.GetChildNode("aws_session_name") is { } nullNodeAwsSessionName && nullNodeAwsSessionName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsSessionName = null;
-            if (parseNode.GetChildNode("aws_session_token") is { } nullNodeAwsSessionToken && nullNodeAwsSessionToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsSessionToken = null;
-            if (parseNode.GetChildNode("base_url") is { } nullNodeBaseUrl && nullNodeBaseUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseUrl = null;
-            if (parseNode.GetChildNode("caching_prompt") is { } nullNodeCachingPrompt && nullNodeCachingPrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachingPrompt = null;
-            if (parseNode.GetChildNode("capability_overrides") is { } nullNodeCapabilityOverrides && nullNodeCapabilityOverrides.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CapabilityOverrides = null;
-            if (parseNode.GetChildNode("custom_tokenizer") is { } nullNodeCustomTokenizer && nullNodeCustomTokenizer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomTokenizer = null;
-            if (parseNode.GetChildNode("disable_stop_word") is { } nullNodeDisableStopWord && nullNodeDisableStopWord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableStopWord = null;
-            if (parseNode.GetChildNode("disable_vision") is { } nullNodeDisableVision && nullNodeDisableVision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableVision = null;
-            if (parseNode.GetChildNode("drop_params") is { } nullNodeDropParams && nullNodeDropParams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DropParams = null;
-            if (parseNode.GetChildNode("enable_encrypted_reasoning") is { } nullNodeEnableEncryptedReasoning && nullNodeEnableEncryptedReasoning.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableEncryptedReasoning = null;
-            if (parseNode.GetChildNode("extended_thinking_budget") is { } nullNodeExtendedThinkingBudget && nullNodeExtendedThinkingBudget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtendedThinkingBudget = null;
-            if (parseNode.GetChildNode("extra_headers") is { } nullNodeExtraHeaders && nullNodeExtraHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtraHeaders = null;
-            if (parseNode.GetChildNode("fallback_strategy") is { } nullNodeFallbackStrategy && nullNodeFallbackStrategy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackStrategy = null;
-            if (parseNode.GetChildNode("force_string_serializer") is { } nullNodeForceStringSerializer && nullNodeForceStringSerializer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForceStringSerializer = null;
-            if (parseNode.GetChildNode("inline_image_urls") is { } nullNodeInlineImageUrls && nullNodeInlineImageUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InlineImageUrls = null;
-            if (parseNode.GetChildNode("input_cost_per_token") is { } nullNodeInputCostPerToken && nullNodeInputCostPerToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputCostPerToken = null;
-            if (parseNode.GetChildNode("litellm_extra_body") is { } nullNodeLitellmExtraBody && nullNodeLitellmExtraBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LitellmExtraBody = null;
-            if (parseNode.GetChildNode("log_completions") is { } nullNodeLogCompletions && nullNodeLogCompletions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogCompletions = null;
-            if (parseNode.GetChildNode("log_completions_folder") is { } nullNodeLogCompletionsFolder && nullNodeLogCompletionsFolder.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogCompletionsFolder = null;
-            if (parseNode.GetChildNode("max_input_tokens") is { } nullNodeMaxInputTokens && nullNodeMaxInputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxInputTokens = null;
-            if (parseNode.GetChildNode("max_message_chars") is { } nullNodeMaxMessageChars && nullNodeMaxMessageChars.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxMessageChars = null;
-            if (parseNode.GetChildNode("max_output_tokens") is { } nullNodeMaxOutputTokens && nullNodeMaxOutputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxOutputTokens = null;
-            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
-            if (parseNode.GetChildNode("model_canonical_name") is { } nullNodeModelCanonicalName && nullNodeModelCanonicalName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelCanonicalName = null;
-            if (parseNode.GetChildNode("native_tool_calling") is { } nullNodeNativeToolCalling && nullNodeNativeToolCalling.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NativeToolCalling = null;
-            if (parseNode.GetChildNode("num_retries") is { } nullNodeNumRetries && nullNodeNumRetries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumRetries = null;
-            if (parseNode.GetChildNode("ollama_base_url") is { } nullNodeOllamaBaseUrl && nullNodeOllamaBaseUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OllamaBaseUrl = null;
-            if (parseNode.GetChildNode("openrouter_app_name") is { } nullNodeOpenrouterAppName && nullNodeOpenrouterAppName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenrouterAppName = null;
-            if (parseNode.GetChildNode("openrouter_site_url") is { } nullNodeOpenrouterSiteUrl && nullNodeOpenrouterSiteUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenrouterSiteUrl = null;
-            if (parseNode.GetChildNode("output_cost_per_token") is { } nullNodeOutputCostPerToken && nullNodeOutputCostPerToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputCostPerToken = null;
-            if (parseNode.GetChildNode("prompt_cache_retention") is { } nullNodePromptCacheRetention && nullNodePromptCacheRetention.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptCacheRetention = null;
-            if (parseNode.GetChildNode("provider_connection_id") is { } nullNodeProviderConnectionId && nullNodeProviderConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderConnectionId = null;
-            if (parseNode.GetChildNode("reasoning_effort") is { } nullNodeReasoningEffort && nullNodeReasoningEffort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReasoningEffort = null;
-            if (parseNode.GetChildNode("reasoning_summary") is { } nullNodeReasoningSummary && nullNodeReasoningSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReasoningSummary = null;
-            if (parseNode.GetChildNode("retry_max_wait") is { } nullNodeRetryMaxWait && nullNodeRetryMaxWait.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetryMaxWait = null;
-            if (parseNode.GetChildNode("retry_min_wait") is { } nullNodeRetryMinWait && nullNodeRetryMinWait.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetryMinWait = null;
-            if (parseNode.GetChildNode("retry_multiplier") is { } nullNodeRetryMultiplier && nullNodeRetryMultiplier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetryMultiplier = null;
-            if (parseNode.GetChildNode("seed") is { } nullNodeSeed && nullNodeSeed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seed = null;
-            if (parseNode.GetChildNode("stream") is { } nullNodeStream && nullNodeStream.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stream = null;
-            if (parseNode.GetChildNode("stream_idle_timeout") is { } nullNodeStreamIdleTimeout && nullNodeStreamIdleTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamIdleTimeout = null;
-            if (parseNode.GetChildNode("subscription_vendor") is { } nullNodeSubscriptionVendor && nullNodeSubscriptionVendor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriptionVendor = null;
-            if (parseNode.GetChildNode("temperature") is { } nullNodeTemperature && nullNodeTemperature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Temperature = null;
-            if (parseNode.GetChildNode("timeout") is { } nullNodeTimeout && nullNodeTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timeout = null;
-            if (parseNode.GetChildNode("top_k") is { } nullNodeTopK && nullNodeTopK.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopK = null;
-            if (parseNode.GetChildNode("top_p") is { } nullNodeTopP && nullNodeTopP.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopP = null;
-            if (parseNode.GetChildNode("usage_id") is { } nullNodeUsageId && nullNodeUsageId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsageId = null;
+            if (parseNode.GetChildNode("api_key") is null) { _explicitNullValueApiKey = default!; _explicitNullProperties?.Remove("api_key"); }
+            else if (parseNode.GetChildNode("api_key") is { } nullNodeApiKey && nullNodeApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKey = null;
+            if (parseNode.GetChildNode("api_mode") is null) { _explicitNullValueApiMode = default!; _explicitNullProperties?.Remove("api_mode"); }
+            else if (parseNode.GetChildNode("api_mode") is { } nullNodeApiMode && nullNodeApiMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiMode = null;
+            if (parseNode.GetChildNode("api_version") is null) { _explicitNullValueApiVersion = default!; _explicitNullProperties?.Remove("api_version"); }
+            else if (parseNode.GetChildNode("api_version") is { } nullNodeApiVersion && nullNodeApiVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiVersion = null;
+            if (parseNode.GetChildNode("auth_type") is null) { _explicitNullValueAuthType = default!; _explicitNullProperties?.Remove("auth_type"); }
+            else if (parseNode.GetChildNode("auth_type") is { } nullNodeAuthType && nullNodeAuthType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthType = null;
+            if (parseNode.GetChildNode("aws_access_key_id") is null) { _explicitNullValueAwsAccessKeyId = default!; _explicitNullProperties?.Remove("aws_access_key_id"); }
+            else if (parseNode.GetChildNode("aws_access_key_id") is { } nullNodeAwsAccessKeyId && nullNodeAwsAccessKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsAccessKeyId = null;
+            if (parseNode.GetChildNode("aws_bedrock_runtime_endpoint") is null) { _explicitNullValueAwsBedrockRuntimeEndpoint = default!; _explicitNullProperties?.Remove("aws_bedrock_runtime_endpoint"); }
+            else if (parseNode.GetChildNode("aws_bedrock_runtime_endpoint") is { } nullNodeAwsBedrockRuntimeEndpoint && nullNodeAwsBedrockRuntimeEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsBedrockRuntimeEndpoint = null;
+            if (parseNode.GetChildNode("aws_profile_name") is null) { _explicitNullValueAwsProfileName = default!; _explicitNullProperties?.Remove("aws_profile_name"); }
+            else if (parseNode.GetChildNode("aws_profile_name") is { } nullNodeAwsProfileName && nullNodeAwsProfileName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsProfileName = null;
+            if (parseNode.GetChildNode("aws_region_name") is null) { _explicitNullValueAwsRegionName = default!; _explicitNullProperties?.Remove("aws_region_name"); }
+            else if (parseNode.GetChildNode("aws_region_name") is { } nullNodeAwsRegionName && nullNodeAwsRegionName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsRegionName = null;
+            if (parseNode.GetChildNode("aws_role_name") is null) { _explicitNullValueAwsRoleName = default!; _explicitNullProperties?.Remove("aws_role_name"); }
+            else if (parseNode.GetChildNode("aws_role_name") is { } nullNodeAwsRoleName && nullNodeAwsRoleName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsRoleName = null;
+            if (parseNode.GetChildNode("aws_secret_access_key") is null) { _explicitNullValueAwsSecretAccessKey = default!; _explicitNullProperties?.Remove("aws_secret_access_key"); }
+            else if (parseNode.GetChildNode("aws_secret_access_key") is { } nullNodeAwsSecretAccessKey && nullNodeAwsSecretAccessKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsSecretAccessKey = null;
+            if (parseNode.GetChildNode("aws_session_name") is null) { _explicitNullValueAwsSessionName = default!; _explicitNullProperties?.Remove("aws_session_name"); }
+            else if (parseNode.GetChildNode("aws_session_name") is { } nullNodeAwsSessionName && nullNodeAwsSessionName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsSessionName = null;
+            if (parseNode.GetChildNode("aws_session_token") is null) { _explicitNullValueAwsSessionToken = default!; _explicitNullProperties?.Remove("aws_session_token"); }
+            else if (parseNode.GetChildNode("aws_session_token") is { } nullNodeAwsSessionToken && nullNodeAwsSessionToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsSessionToken = null;
+            if (parseNode.GetChildNode("base_url") is null) { _explicitNullValueBaseUrl = default!; _explicitNullProperties?.Remove("base_url"); }
+            else if (parseNode.GetChildNode("base_url") is { } nullNodeBaseUrl && nullNodeBaseUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseUrl = null;
+            if (parseNode.GetChildNode("caching_prompt") is null) { _explicitNullValueCachingPrompt = default!; _explicitNullProperties?.Remove("caching_prompt"); }
+            else if (parseNode.GetChildNode("caching_prompt") is { } nullNodeCachingPrompt && nullNodeCachingPrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachingPrompt = null;
+            if (parseNode.GetChildNode("capability_overrides") is null) { _explicitNullValueCapabilityOverrides = default!; _explicitNullProperties?.Remove("capability_overrides"); }
+            else if (parseNode.GetChildNode("capability_overrides") is { } nullNodeCapabilityOverrides && nullNodeCapabilityOverrides.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CapabilityOverrides = null;
+            if (parseNode.GetChildNode("custom_tokenizer") is null) { _explicitNullValueCustomTokenizer = default!; _explicitNullProperties?.Remove("custom_tokenizer"); }
+            else if (parseNode.GetChildNode("custom_tokenizer") is { } nullNodeCustomTokenizer && nullNodeCustomTokenizer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomTokenizer = null;
+            if (parseNode.GetChildNode("disable_stop_word") is null) { _explicitNullValueDisableStopWord = default!; _explicitNullProperties?.Remove("disable_stop_word"); }
+            else if (parseNode.GetChildNode("disable_stop_word") is { } nullNodeDisableStopWord && nullNodeDisableStopWord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableStopWord = null;
+            if (parseNode.GetChildNode("disable_vision") is null) { _explicitNullValueDisableVision = default!; _explicitNullProperties?.Remove("disable_vision"); }
+            else if (parseNode.GetChildNode("disable_vision") is { } nullNodeDisableVision && nullNodeDisableVision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableVision = null;
+            if (parseNode.GetChildNode("drop_params") is null) { _explicitNullValueDropParams = default!; _explicitNullProperties?.Remove("drop_params"); }
+            else if (parseNode.GetChildNode("drop_params") is { } nullNodeDropParams && nullNodeDropParams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DropParams = null;
+            if (parseNode.GetChildNode("enable_encrypted_reasoning") is null) { _explicitNullValueEnableEncryptedReasoning = default!; _explicitNullProperties?.Remove("enable_encrypted_reasoning"); }
+            else if (parseNode.GetChildNode("enable_encrypted_reasoning") is { } nullNodeEnableEncryptedReasoning && nullNodeEnableEncryptedReasoning.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableEncryptedReasoning = null;
+            if (parseNode.GetChildNode("extended_thinking_budget") is null) { _explicitNullValueExtendedThinkingBudget = default!; _explicitNullProperties?.Remove("extended_thinking_budget"); }
+            else if (parseNode.GetChildNode("extended_thinking_budget") is { } nullNodeExtendedThinkingBudget && nullNodeExtendedThinkingBudget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtendedThinkingBudget = null;
+            if (parseNode.GetChildNode("extra_headers") is null) { _explicitNullValueExtraHeaders = default!; _explicitNullProperties?.Remove("extra_headers"); }
+            else if (parseNode.GetChildNode("extra_headers") is { } nullNodeExtraHeaders && nullNodeExtraHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtraHeaders = null;
+            if (parseNode.GetChildNode("fallback_strategy") is null) { _explicitNullValueFallbackStrategy = default!; _explicitNullProperties?.Remove("fallback_strategy"); }
+            else if (parseNode.GetChildNode("fallback_strategy") is { } nullNodeFallbackStrategy && nullNodeFallbackStrategy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackStrategy = null;
+            if (parseNode.GetChildNode("force_string_serializer") is null) { _explicitNullValueForceStringSerializer = default!; _explicitNullProperties?.Remove("force_string_serializer"); }
+            else if (parseNode.GetChildNode("force_string_serializer") is { } nullNodeForceStringSerializer && nullNodeForceStringSerializer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForceStringSerializer = null;
+            if (parseNode.GetChildNode("inline_image_urls") is null) { _explicitNullValueInlineImageUrls = default!; _explicitNullProperties?.Remove("inline_image_urls"); }
+            else if (parseNode.GetChildNode("inline_image_urls") is { } nullNodeInlineImageUrls && nullNodeInlineImageUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InlineImageUrls = null;
+            if (parseNode.GetChildNode("input_cost_per_token") is null) { _explicitNullValueInputCostPerToken = default!; _explicitNullProperties?.Remove("input_cost_per_token"); }
+            else if (parseNode.GetChildNode("input_cost_per_token") is { } nullNodeInputCostPerToken && nullNodeInputCostPerToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputCostPerToken = null;
+            if (parseNode.GetChildNode("litellm_extra_body") is null) { _explicitNullValueLitellmExtraBody = default!; _explicitNullProperties?.Remove("litellm_extra_body"); }
+            else if (parseNode.GetChildNode("litellm_extra_body") is { } nullNodeLitellmExtraBody && nullNodeLitellmExtraBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LitellmExtraBody = null;
+            if (parseNode.GetChildNode("log_completions") is null) { _explicitNullValueLogCompletions = default!; _explicitNullProperties?.Remove("log_completions"); }
+            else if (parseNode.GetChildNode("log_completions") is { } nullNodeLogCompletions && nullNodeLogCompletions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogCompletions = null;
+            if (parseNode.GetChildNode("log_completions_folder") is null) { _explicitNullValueLogCompletionsFolder = default!; _explicitNullProperties?.Remove("log_completions_folder"); }
+            else if (parseNode.GetChildNode("log_completions_folder") is { } nullNodeLogCompletionsFolder && nullNodeLogCompletionsFolder.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogCompletionsFolder = null;
+            if (parseNode.GetChildNode("max_input_tokens") is null) { _explicitNullValueMaxInputTokens = default!; _explicitNullProperties?.Remove("max_input_tokens"); }
+            else if (parseNode.GetChildNode("max_input_tokens") is { } nullNodeMaxInputTokens && nullNodeMaxInputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxInputTokens = null;
+            if (parseNode.GetChildNode("max_message_chars") is null) { _explicitNullValueMaxMessageChars = default!; _explicitNullProperties?.Remove("max_message_chars"); }
+            else if (parseNode.GetChildNode("max_message_chars") is { } nullNodeMaxMessageChars && nullNodeMaxMessageChars.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxMessageChars = null;
+            if (parseNode.GetChildNode("max_output_tokens") is null) { _explicitNullValueMaxOutputTokens = default!; _explicitNullProperties?.Remove("max_output_tokens"); }
+            else if (parseNode.GetChildNode("max_output_tokens") is { } nullNodeMaxOutputTokens && nullNodeMaxOutputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxOutputTokens = null;
+            if (parseNode.GetChildNode("model") is null) { _explicitNullValueModel = default!; _explicitNullProperties?.Remove("model"); }
+            else if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("model_canonical_name") is null) { _explicitNullValueModelCanonicalName = default!; _explicitNullProperties?.Remove("model_canonical_name"); }
+            else if (parseNode.GetChildNode("model_canonical_name") is { } nullNodeModelCanonicalName && nullNodeModelCanonicalName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelCanonicalName = null;
+            if (parseNode.GetChildNode("native_tool_calling") is null) { _explicitNullValueNativeToolCalling = default!; _explicitNullProperties?.Remove("native_tool_calling"); }
+            else if (parseNode.GetChildNode("native_tool_calling") is { } nullNodeNativeToolCalling && nullNodeNativeToolCalling.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NativeToolCalling = null;
+            if (parseNode.GetChildNode("num_retries") is null) { _explicitNullValueNumRetries = default!; _explicitNullProperties?.Remove("num_retries"); }
+            else if (parseNode.GetChildNode("num_retries") is { } nullNodeNumRetries && nullNodeNumRetries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumRetries = null;
+            if (parseNode.GetChildNode("ollama_base_url") is null) { _explicitNullValueOllamaBaseUrl = default!; _explicitNullProperties?.Remove("ollama_base_url"); }
+            else if (parseNode.GetChildNode("ollama_base_url") is { } nullNodeOllamaBaseUrl && nullNodeOllamaBaseUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OllamaBaseUrl = null;
+            if (parseNode.GetChildNode("openrouter_app_name") is null) { _explicitNullValueOpenrouterAppName = default!; _explicitNullProperties?.Remove("openrouter_app_name"); }
+            else if (parseNode.GetChildNode("openrouter_app_name") is { } nullNodeOpenrouterAppName && nullNodeOpenrouterAppName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenrouterAppName = null;
+            if (parseNode.GetChildNode("openrouter_site_url") is null) { _explicitNullValueOpenrouterSiteUrl = default!; _explicitNullProperties?.Remove("openrouter_site_url"); }
+            else if (parseNode.GetChildNode("openrouter_site_url") is { } nullNodeOpenrouterSiteUrl && nullNodeOpenrouterSiteUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenrouterSiteUrl = null;
+            if (parseNode.GetChildNode("output_cost_per_token") is null) { _explicitNullValueOutputCostPerToken = default!; _explicitNullProperties?.Remove("output_cost_per_token"); }
+            else if (parseNode.GetChildNode("output_cost_per_token") is { } nullNodeOutputCostPerToken && nullNodeOutputCostPerToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputCostPerToken = null;
+            if (parseNode.GetChildNode("prompt_cache_retention") is null) { _explicitNullValuePromptCacheRetention = default!; _explicitNullProperties?.Remove("prompt_cache_retention"); }
+            else if (parseNode.GetChildNode("prompt_cache_retention") is { } nullNodePromptCacheRetention && nullNodePromptCacheRetention.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptCacheRetention = null;
+            if (parseNode.GetChildNode("provider_connection_id") is null) { _explicitNullValueProviderConnectionId = default!; _explicitNullProperties?.Remove("provider_connection_id"); }
+            else if (parseNode.GetChildNode("provider_connection_id") is { } nullNodeProviderConnectionId && nullNodeProviderConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderConnectionId = null;
+            if (parseNode.GetChildNode("reasoning_effort") is null) { _explicitNullValueReasoningEffort = default!; _explicitNullProperties?.Remove("reasoning_effort"); }
+            else if (parseNode.GetChildNode("reasoning_effort") is { } nullNodeReasoningEffort && nullNodeReasoningEffort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReasoningEffort = null;
+            if (parseNode.GetChildNode("reasoning_summary") is null) { _explicitNullValueReasoningSummary = default!; _explicitNullProperties?.Remove("reasoning_summary"); }
+            else if (parseNode.GetChildNode("reasoning_summary") is { } nullNodeReasoningSummary && nullNodeReasoningSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReasoningSummary = null;
+            if (parseNode.GetChildNode("retry_max_wait") is null) { _explicitNullValueRetryMaxWait = default!; _explicitNullProperties?.Remove("retry_max_wait"); }
+            else if (parseNode.GetChildNode("retry_max_wait") is { } nullNodeRetryMaxWait && nullNodeRetryMaxWait.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetryMaxWait = null;
+            if (parseNode.GetChildNode("retry_min_wait") is null) { _explicitNullValueRetryMinWait = default!; _explicitNullProperties?.Remove("retry_min_wait"); }
+            else if (parseNode.GetChildNode("retry_min_wait") is { } nullNodeRetryMinWait && nullNodeRetryMinWait.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetryMinWait = null;
+            if (parseNode.GetChildNode("retry_multiplier") is null) { _explicitNullValueRetryMultiplier = default!; _explicitNullProperties?.Remove("retry_multiplier"); }
+            else if (parseNode.GetChildNode("retry_multiplier") is { } nullNodeRetryMultiplier && nullNodeRetryMultiplier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetryMultiplier = null;
+            if (parseNode.GetChildNode("seed") is null) { _explicitNullValueSeed = default!; _explicitNullProperties?.Remove("seed"); }
+            else if (parseNode.GetChildNode("seed") is { } nullNodeSeed && nullNodeSeed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seed = null;
+            if (parseNode.GetChildNode("stream") is null) { _explicitNullValueStream = default!; _explicitNullProperties?.Remove("stream"); }
+            else if (parseNode.GetChildNode("stream") is { } nullNodeStream && nullNodeStream.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stream = null;
+            if (parseNode.GetChildNode("stream_idle_timeout") is null) { _explicitNullValueStreamIdleTimeout = default!; _explicitNullProperties?.Remove("stream_idle_timeout"); }
+            else if (parseNode.GetChildNode("stream_idle_timeout") is { } nullNodeStreamIdleTimeout && nullNodeStreamIdleTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamIdleTimeout = null;
+            if (parseNode.GetChildNode("subscription_vendor") is null) { _explicitNullValueSubscriptionVendor = default!; _explicitNullProperties?.Remove("subscription_vendor"); }
+            else if (parseNode.GetChildNode("subscription_vendor") is { } nullNodeSubscriptionVendor && nullNodeSubscriptionVendor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriptionVendor = null;
+            if (parseNode.GetChildNode("temperature") is null) { _explicitNullValueTemperature = default!; _explicitNullProperties?.Remove("temperature"); }
+            else if (parseNode.GetChildNode("temperature") is { } nullNodeTemperature && nullNodeTemperature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Temperature = null;
+            if (parseNode.GetChildNode("timeout") is null) { _explicitNullValueTimeout = default!; _explicitNullProperties?.Remove("timeout"); }
+            else if (parseNode.GetChildNode("timeout") is { } nullNodeTimeout && nullNodeTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timeout = null;
+            if (parseNode.GetChildNode("top_k") is null) { _explicitNullValueTopK = default!; _explicitNullProperties?.Remove("top_k"); }
+            else if (parseNode.GetChildNode("top_k") is { } nullNodeTopK && nullNodeTopK.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopK = null;
+            if (parseNode.GetChildNode("top_p") is null) { _explicitNullValueTopP = default!; _explicitNullProperties?.Remove("top_p"); }
+            else if (parseNode.GetChildNode("top_p") is { } nullNodeTopP && nullNodeTopP.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopP = null;
+            if (parseNode.GetChildNode("usage_id") is null) { _explicitNullValueUsageId = default!; _explicitNullProperties?.Remove("usage_id"); }
+            else if (parseNode.GetChildNode("usage_id") is { } nullNodeUsageId && nullNodeUsageId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsageId = null;
         }
 
         /// <summary>API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiKey? ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiKey? _explicitNullValueApiKey = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiKey? ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiKey? _explicitNullValueApiKey = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiKey ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiKey _explicitNullValueApiKey = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiKey ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiKey _explicitNullValueApiKey = default!;
 #endif
         /// <summary>LLM API endpoint mode. &apos;auto&apos; resolves from model metadata and SDK fallbacks; use &apos;chat&apos; or &apos;responses&apos; to override endpoint selection for proxy aliases and newly released models.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiMode? ApiMode { get => _explicitNullValueApiMode; set { _explicitNullValueApiMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_mode"); else _explicitNullProperties?.Remove("api_mode"); } }
@@ -92,12 +148,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>API version (e.g., Azure).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiVersion? ApiVersion { get => _explicitNullValueApiVersion; set { _explicitNullValueApiVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_version"); else _explicitNullProperties?.Remove("api_version"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiVersion? _explicitNullValueApiVersion = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiVersion? ApiVersion { get => _explicitNullValueApiVersion; set { _explicitNullValueApiVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_version"); else _explicitNullProperties?.Remove("api_version"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiVersion? _explicitNullValueApiVersion = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiVersion ApiVersion { get => _explicitNullValueApiVersion; set { _explicitNullValueApiVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_version"); else _explicitNullProperties?.Remove("api_version"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiVersion _explicitNullValueApiVersion = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiVersion ApiVersion { get => _explicitNullValueApiVersion; set { _explicitNullValueApiVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_version"); else _explicitNullProperties?.Remove("api_version"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiVersion _explicitNullValueApiVersion = default!;
 #endif
         /// <summary>Authentication mode for the LLM.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAuthType? AuthType { get => _explicitNullValueAuthType; set { _explicitNullValueAuthType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_type"); else _explicitNullProperties?.Remove("auth_type"); } }
@@ -105,92 +161,92 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The aws_access_key_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsAccessKeyId? AwsAccessKeyId { get => _explicitNullValueAwsAccessKeyId; set { _explicitNullValueAwsAccessKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_access_key_id"); else _explicitNullProperties?.Remove("aws_access_key_id"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsAccessKeyId? _explicitNullValueAwsAccessKeyId = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsAccessKeyId? AwsAccessKeyId { get => _explicitNullValueAwsAccessKeyId; set { _explicitNullValueAwsAccessKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_access_key_id"); else _explicitNullProperties?.Remove("aws_access_key_id"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsAccessKeyId? _explicitNullValueAwsAccessKeyId = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsAccessKeyId AwsAccessKeyId { get => _explicitNullValueAwsAccessKeyId; set { _explicitNullValueAwsAccessKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_access_key_id"); else _explicitNullProperties?.Remove("aws_access_key_id"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsAccessKeyId _explicitNullValueAwsAccessKeyId = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsAccessKeyId AwsAccessKeyId { get => _explicitNullValueAwsAccessKeyId; set { _explicitNullValueAwsAccessKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_access_key_id"); else _explicitNullProperties?.Remove("aws_access_key_id"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsAccessKeyId _explicitNullValueAwsAccessKeyId = default!;
 #endif
         /// <summary>The aws_bedrock_runtime_endpoint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsBedrockRuntimeEndpoint? AwsBedrockRuntimeEndpoint { get => _explicitNullValueAwsBedrockRuntimeEndpoint; set { _explicitNullValueAwsBedrockRuntimeEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_bedrock_runtime_endpoint"); else _explicitNullProperties?.Remove("aws_bedrock_runtime_endpoint"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsBedrockRuntimeEndpoint? _explicitNullValueAwsBedrockRuntimeEndpoint = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsBedrockRuntimeEndpoint? AwsBedrockRuntimeEndpoint { get => _explicitNullValueAwsBedrockRuntimeEndpoint; set { _explicitNullValueAwsBedrockRuntimeEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_bedrock_runtime_endpoint"); else _explicitNullProperties?.Remove("aws_bedrock_runtime_endpoint"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsBedrockRuntimeEndpoint? _explicitNullValueAwsBedrockRuntimeEndpoint = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsBedrockRuntimeEndpoint AwsBedrockRuntimeEndpoint { get => _explicitNullValueAwsBedrockRuntimeEndpoint; set { _explicitNullValueAwsBedrockRuntimeEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_bedrock_runtime_endpoint"); else _explicitNullProperties?.Remove("aws_bedrock_runtime_endpoint"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsBedrockRuntimeEndpoint _explicitNullValueAwsBedrockRuntimeEndpoint = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsBedrockRuntimeEndpoint AwsBedrockRuntimeEndpoint { get => _explicitNullValueAwsBedrockRuntimeEndpoint; set { _explicitNullValueAwsBedrockRuntimeEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_bedrock_runtime_endpoint"); else _explicitNullProperties?.Remove("aws_bedrock_runtime_endpoint"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsBedrockRuntimeEndpoint _explicitNullValueAwsBedrockRuntimeEndpoint = default!;
 #endif
         /// <summary>The aws_profile_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsProfileName? AwsProfileName { get => _explicitNullValueAwsProfileName; set { _explicitNullValueAwsProfileName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_profile_name"); else _explicitNullProperties?.Remove("aws_profile_name"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsProfileName? _explicitNullValueAwsProfileName = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsProfileName? AwsProfileName { get => _explicitNullValueAwsProfileName; set { _explicitNullValueAwsProfileName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_profile_name"); else _explicitNullProperties?.Remove("aws_profile_name"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsProfileName? _explicitNullValueAwsProfileName = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsProfileName AwsProfileName { get => _explicitNullValueAwsProfileName; set { _explicitNullValueAwsProfileName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_profile_name"); else _explicitNullProperties?.Remove("aws_profile_name"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsProfileName _explicitNullValueAwsProfileName = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsProfileName AwsProfileName { get => _explicitNullValueAwsProfileName; set { _explicitNullValueAwsProfileName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_profile_name"); else _explicitNullProperties?.Remove("aws_profile_name"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsProfileName _explicitNullValueAwsProfileName = default!;
 #endif
         /// <summary>The aws_region_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsRegionName? AwsRegionName { get => _explicitNullValueAwsRegionName; set { _explicitNullValueAwsRegionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_region_name"); else _explicitNullProperties?.Remove("aws_region_name"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsRegionName? _explicitNullValueAwsRegionName = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsRegionName? AwsRegionName { get => _explicitNullValueAwsRegionName; set { _explicitNullValueAwsRegionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_region_name"); else _explicitNullProperties?.Remove("aws_region_name"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsRegionName? _explicitNullValueAwsRegionName = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsRegionName AwsRegionName { get => _explicitNullValueAwsRegionName; set { _explicitNullValueAwsRegionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_region_name"); else _explicitNullProperties?.Remove("aws_region_name"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsRegionName _explicitNullValueAwsRegionName = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsRegionName AwsRegionName { get => _explicitNullValueAwsRegionName; set { _explicitNullValueAwsRegionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_region_name"); else _explicitNullProperties?.Remove("aws_region_name"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsRegionName _explicitNullValueAwsRegionName = default!;
 #endif
         /// <summary>The aws_role_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsRoleName? AwsRoleName { get => _explicitNullValueAwsRoleName; set { _explicitNullValueAwsRoleName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_role_name"); else _explicitNullProperties?.Remove("aws_role_name"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsRoleName? _explicitNullValueAwsRoleName = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsRoleName? AwsRoleName { get => _explicitNullValueAwsRoleName; set { _explicitNullValueAwsRoleName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_role_name"); else _explicitNullProperties?.Remove("aws_role_name"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsRoleName? _explicitNullValueAwsRoleName = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsRoleName AwsRoleName { get => _explicitNullValueAwsRoleName; set { _explicitNullValueAwsRoleName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_role_name"); else _explicitNullProperties?.Remove("aws_role_name"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsRoleName _explicitNullValueAwsRoleName = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsRoleName AwsRoleName { get => _explicitNullValueAwsRoleName; set { _explicitNullValueAwsRoleName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_role_name"); else _explicitNullProperties?.Remove("aws_role_name"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsRoleName _explicitNullValueAwsRoleName = default!;
 #endif
         /// <summary>The aws_secret_access_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSecretAccessKey? AwsSecretAccessKey { get => _explicitNullValueAwsSecretAccessKey; set { _explicitNullValueAwsSecretAccessKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_secret_access_key"); else _explicitNullProperties?.Remove("aws_secret_access_key"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSecretAccessKey? _explicitNullValueAwsSecretAccessKey = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSecretAccessKey? AwsSecretAccessKey { get => _explicitNullValueAwsSecretAccessKey; set { _explicitNullValueAwsSecretAccessKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_secret_access_key"); else _explicitNullProperties?.Remove("aws_secret_access_key"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSecretAccessKey? _explicitNullValueAwsSecretAccessKey = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSecretAccessKey AwsSecretAccessKey { get => _explicitNullValueAwsSecretAccessKey; set { _explicitNullValueAwsSecretAccessKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_secret_access_key"); else _explicitNullProperties?.Remove("aws_secret_access_key"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSecretAccessKey _explicitNullValueAwsSecretAccessKey = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSecretAccessKey AwsSecretAccessKey { get => _explicitNullValueAwsSecretAccessKey; set { _explicitNullValueAwsSecretAccessKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_secret_access_key"); else _explicitNullProperties?.Remove("aws_secret_access_key"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSecretAccessKey _explicitNullValueAwsSecretAccessKey = default!;
 #endif
         /// <summary>The aws_session_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSessionName? AwsSessionName { get => _explicitNullValueAwsSessionName; set { _explicitNullValueAwsSessionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_session_name"); else _explicitNullProperties?.Remove("aws_session_name"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSessionName? _explicitNullValueAwsSessionName = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSessionName? AwsSessionName { get => _explicitNullValueAwsSessionName; set { _explicitNullValueAwsSessionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_session_name"); else _explicitNullProperties?.Remove("aws_session_name"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSessionName? _explicitNullValueAwsSessionName = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSessionName AwsSessionName { get => _explicitNullValueAwsSessionName; set { _explicitNullValueAwsSessionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_session_name"); else _explicitNullProperties?.Remove("aws_session_name"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSessionName _explicitNullValueAwsSessionName = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSessionName AwsSessionName { get => _explicitNullValueAwsSessionName; set { _explicitNullValueAwsSessionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_session_name"); else _explicitNullProperties?.Remove("aws_session_name"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSessionName _explicitNullValueAwsSessionName = default!;
 #endif
         /// <summary>The aws_session_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSessionToken? AwsSessionToken { get => _explicitNullValueAwsSessionToken; set { _explicitNullValueAwsSessionToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_session_token"); else _explicitNullProperties?.Remove("aws_session_token"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSessionToken? _explicitNullValueAwsSessionToken = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSessionToken? AwsSessionToken { get => _explicitNullValueAwsSessionToken; set { _explicitNullValueAwsSessionToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_session_token"); else _explicitNullProperties?.Remove("aws_session_token"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSessionToken? _explicitNullValueAwsSessionToken = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSessionToken AwsSessionToken { get => _explicitNullValueAwsSessionToken; set { _explicitNullValueAwsSessionToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_session_token"); else _explicitNullProperties?.Remove("aws_session_token"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSessionToken _explicitNullValueAwsSessionToken = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSessionToken AwsSessionToken { get => _explicitNullValueAwsSessionToken; set { _explicitNullValueAwsSessionToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_session_token"); else _explicitNullProperties?.Remove("aws_session_token"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSessionToken _explicitNullValueAwsSessionToken = default!;
 #endif
         /// <summary>Custom base URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmBaseUrl? BaseUrl { get => _explicitNullValueBaseUrl; set { _explicitNullValueBaseUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_url"); else _explicitNullProperties?.Remove("base_url"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmBaseUrl? _explicitNullValueBaseUrl = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputBaseUrl? BaseUrl { get => _explicitNullValueBaseUrl; set { _explicitNullValueBaseUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_url"); else _explicitNullProperties?.Remove("base_url"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputBaseUrl? _explicitNullValueBaseUrl = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmBaseUrl BaseUrl { get => _explicitNullValueBaseUrl; set { _explicitNullValueBaseUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_url"); else _explicitNullProperties?.Remove("base_url"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmBaseUrl _explicitNullValueBaseUrl = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputBaseUrl BaseUrl { get => _explicitNullValueBaseUrl; set { _explicitNullValueBaseUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_url"); else _explicitNullProperties?.Remove("base_url"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputBaseUrl _explicitNullValueBaseUrl = default!;
 #endif
         /// <summary>Enable caching of prompts.</summary>
         public bool? CachingPrompt { get => _explicitNullValueCachingPrompt; set { _explicitNullValueCachingPrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("caching_prompt"); else _explicitNullProperties?.Remove("caching_prompt"); } }
@@ -208,32 +264,32 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>A custom tokenizer to use for token counting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmCustomTokenizer? CustomTokenizer { get => _explicitNullValueCustomTokenizer; set { _explicitNullValueCustomTokenizer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_tokenizer"); else _explicitNullProperties?.Remove("custom_tokenizer"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmCustomTokenizer? _explicitNullValueCustomTokenizer = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputCustomTokenizer? CustomTokenizer { get => _explicitNullValueCustomTokenizer; set { _explicitNullValueCustomTokenizer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_tokenizer"); else _explicitNullProperties?.Remove("custom_tokenizer"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputCustomTokenizer? _explicitNullValueCustomTokenizer = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmCustomTokenizer CustomTokenizer { get => _explicitNullValueCustomTokenizer; set { _explicitNullValueCustomTokenizer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_tokenizer"); else _explicitNullProperties?.Remove("custom_tokenizer"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmCustomTokenizer _explicitNullValueCustomTokenizer = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputCustomTokenizer CustomTokenizer { get => _explicitNullValueCustomTokenizer; set { _explicitNullValueCustomTokenizer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_tokenizer"); else _explicitNullProperties?.Remove("custom_tokenizer"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputCustomTokenizer _explicitNullValueCustomTokenizer = default!;
 #endif
         /// <summary>Disable using of stop word.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmDisableStopWord? DisableStopWord { get => _explicitNullValueDisableStopWord; set { _explicitNullValueDisableStopWord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_stop_word"); else _explicitNullProperties?.Remove("disable_stop_word"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmDisableStopWord? _explicitNullValueDisableStopWord = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputDisableStopWord? DisableStopWord { get => _explicitNullValueDisableStopWord; set { _explicitNullValueDisableStopWord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_stop_word"); else _explicitNullProperties?.Remove("disable_stop_word"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputDisableStopWord? _explicitNullValueDisableStopWord = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmDisableStopWord DisableStopWord { get => _explicitNullValueDisableStopWord; set { _explicitNullValueDisableStopWord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_stop_word"); else _explicitNullProperties?.Remove("disable_stop_word"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmDisableStopWord _explicitNullValueDisableStopWord = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputDisableStopWord DisableStopWord { get => _explicitNullValueDisableStopWord; set { _explicitNullValueDisableStopWord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_stop_word"); else _explicitNullProperties?.Remove("disable_stop_word"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputDisableStopWord _explicitNullValueDisableStopWord = default!;
 #endif
         /// <summary>If model is vision capable, this option allows to disable image processing (useful for cost reduction).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmDisableVision? DisableVision { get => _explicitNullValueDisableVision; set { _explicitNullValueDisableVision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_vision"); else _explicitNullProperties?.Remove("disable_vision"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmDisableVision? _explicitNullValueDisableVision = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputDisableVision? DisableVision { get => _explicitNullValueDisableVision; set { _explicitNullValueDisableVision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_vision"); else _explicitNullProperties?.Remove("disable_vision"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputDisableVision? _explicitNullValueDisableVision = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmDisableVision DisableVision { get => _explicitNullValueDisableVision; set { _explicitNullValueDisableVision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_vision"); else _explicitNullProperties?.Remove("disable_vision"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmDisableVision _explicitNullValueDisableVision = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputDisableVision DisableVision { get => _explicitNullValueDisableVision; set { _explicitNullValueDisableVision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_vision"); else _explicitNullProperties?.Remove("disable_vision"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputDisableVision _explicitNullValueDisableVision = default!;
 #endif
         /// <summary>The drop_params property</summary>
         public bool? DropParams { get => _explicitNullValueDropParams; set { _explicitNullValueDropParams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("drop_params"); else _explicitNullProperties?.Remove("drop_params"); } }
@@ -244,12 +300,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Legacy token budget for models confirmed to use manual Anthropic extended thinking. Ignored for adaptive-thinking models. Prefer reasoning_effort for new integrations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmExtendedThinkingBudget? ExtendedThinkingBudget { get => _explicitNullValueExtendedThinkingBudget; set { _explicitNullValueExtendedThinkingBudget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extended_thinking_budget"); else _explicitNullProperties?.Remove("extended_thinking_budget"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmExtendedThinkingBudget? _explicitNullValueExtendedThinkingBudget = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputExtendedThinkingBudget? ExtendedThinkingBudget { get => _explicitNullValueExtendedThinkingBudget; set { _explicitNullValueExtendedThinkingBudget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extended_thinking_budget"); else _explicitNullProperties?.Remove("extended_thinking_budget"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputExtendedThinkingBudget? _explicitNullValueExtendedThinkingBudget = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmExtendedThinkingBudget ExtendedThinkingBudget { get => _explicitNullValueExtendedThinkingBudget; set { _explicitNullValueExtendedThinkingBudget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extended_thinking_budget"); else _explicitNullProperties?.Remove("extended_thinking_budget"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmExtendedThinkingBudget _explicitNullValueExtendedThinkingBudget = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputExtendedThinkingBudget ExtendedThinkingBudget { get => _explicitNullValueExtendedThinkingBudget; set { _explicitNullValueExtendedThinkingBudget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extended_thinking_budget"); else _explicitNullProperties?.Remove("extended_thinking_budget"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputExtendedThinkingBudget _explicitNullValueExtendedThinkingBudget = default!;
 #endif
         /// <summary>Optional HTTP headers to forward to LiteLLM requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -274,32 +330,32 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Force using string content serializer when sending to LLM API. If None (default), auto-detect based on model. Useful for providers that do not support list content, like HuggingFace and Groq.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmForceStringSerializer? ForceStringSerializer { get => _explicitNullValueForceStringSerializer; set { _explicitNullValueForceStringSerializer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("force_string_serializer"); else _explicitNullProperties?.Remove("force_string_serializer"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmForceStringSerializer? _explicitNullValueForceStringSerializer = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputForceStringSerializer? ForceStringSerializer { get => _explicitNullValueForceStringSerializer; set { _explicitNullValueForceStringSerializer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("force_string_serializer"); else _explicitNullProperties?.Remove("force_string_serializer"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputForceStringSerializer? _explicitNullValueForceStringSerializer = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmForceStringSerializer ForceStringSerializer { get => _explicitNullValueForceStringSerializer; set { _explicitNullValueForceStringSerializer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("force_string_serializer"); else _explicitNullProperties?.Remove("force_string_serializer"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmForceStringSerializer _explicitNullValueForceStringSerializer = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputForceStringSerializer ForceStringSerializer { get => _explicitNullValueForceStringSerializer; set { _explicitNullValueForceStringSerializer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("force_string_serializer"); else _explicitNullProperties?.Remove("force_string_serializer"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputForceStringSerializer _explicitNullValueForceStringSerializer = default!;
 #endif
         /// <summary>If True, fetch any http(s) image URL in outgoing messages and inline it as a base64 ``data:`` URL before sending. If None (default), auto-detect based on model (some APIs such as Moonshot&apos;s public Kimi endpoint reject URL-formatted images and require base64). Set this explicitly when the model is reached through a proxy alias that hides the underlying provider (e.g. ``litellm_proxy/&lt;custom-alias&gt;``). Note: inlining only runs when ``vision_is_active()`` is True, so the alias must still be recognised as vision-capable by the SDK feature registry or proxy model metadata.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmInlineImageUrls? InlineImageUrls { get => _explicitNullValueInlineImageUrls; set { _explicitNullValueInlineImageUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inline_image_urls"); else _explicitNullProperties?.Remove("inline_image_urls"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmInlineImageUrls? _explicitNullValueInlineImageUrls = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInlineImageUrls? InlineImageUrls { get => _explicitNullValueInlineImageUrls; set { _explicitNullValueInlineImageUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inline_image_urls"); else _explicitNullProperties?.Remove("inline_image_urls"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInlineImageUrls? _explicitNullValueInlineImageUrls = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmInlineImageUrls InlineImageUrls { get => _explicitNullValueInlineImageUrls; set { _explicitNullValueInlineImageUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inline_image_urls"); else _explicitNullProperties?.Remove("inline_image_urls"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmInlineImageUrls _explicitNullValueInlineImageUrls = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInlineImageUrls InlineImageUrls { get => _explicitNullValueInlineImageUrls; set { _explicitNullValueInlineImageUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inline_image_urls"); else _explicitNullProperties?.Remove("inline_image_urls"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInlineImageUrls _explicitNullValueInlineImageUrls = default!;
 #endif
         /// <summary>The cost per input token. This will available in logs for user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmInputCostPerToken? InputCostPerToken { get => _explicitNullValueInputCostPerToken; set { _explicitNullValueInputCostPerToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_cost_per_token"); else _explicitNullProperties?.Remove("input_cost_per_token"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmInputCostPerToken? _explicitNullValueInputCostPerToken = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInputCostPerToken? InputCostPerToken { get => _explicitNullValueInputCostPerToken; set { _explicitNullValueInputCostPerToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_cost_per_token"); else _explicitNullProperties?.Remove("input_cost_per_token"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInputCostPerToken? _explicitNullValueInputCostPerToken = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmInputCostPerToken InputCostPerToken { get => _explicitNullValueInputCostPerToken; set { _explicitNullValueInputCostPerToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_cost_per_token"); else _explicitNullProperties?.Remove("input_cost_per_token"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmInputCostPerToken _explicitNullValueInputCostPerToken = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInputCostPerToken InputCostPerToken { get => _explicitNullValueInputCostPerToken; set { _explicitNullValueInputCostPerToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_cost_per_token"); else _explicitNullProperties?.Remove("input_cost_per_token"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInputCostPerToken _explicitNullValueInputCostPerToken = default!;
 #endif
         /// <summary>Additional key-value pairs to pass to litellm&apos;s extra_body parameter. This is useful for custom inference endpoints that need additional parameters for configuration, routing, or advanced features. NOTE: Not all LLM providers support extra_body parameters. Some providers (e.g., OpenAI) may reject requests with unrecognized options. This is commonly supported by: - LiteLLM proxy servers (routing metadata, tracing) - vLLM endpoints (return_token_ids, etc.) - Custom inference clusters Examples: - Proxy routing: {&apos;trace_version&apos;: &apos;1.0.0&apos;, &apos;tags&apos;: [&apos;agent:my-agent&apos;]} - vLLM features: {&apos;return_token_ids&apos;: True}</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -327,12 +383,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The maximum number of input tokens. Note that this is currently unused, and the value at runtime is actually the total tokens in OpenAI (e.g. 128,000 tokens for GPT-4).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmMaxInputTokens? MaxInputTokens { get => _explicitNullValueMaxInputTokens; set { _explicitNullValueMaxInputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_input_tokens"); else _explicitNullProperties?.Remove("max_input_tokens"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmMaxInputTokens? _explicitNullValueMaxInputTokens = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxInputTokens? MaxInputTokens { get => _explicitNullValueMaxInputTokens; set { _explicitNullValueMaxInputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_input_tokens"); else _explicitNullProperties?.Remove("max_input_tokens"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxInputTokens? _explicitNullValueMaxInputTokens = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmMaxInputTokens MaxInputTokens { get => _explicitNullValueMaxInputTokens; set { _explicitNullValueMaxInputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_input_tokens"); else _explicitNullProperties?.Remove("max_input_tokens"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmMaxInputTokens _explicitNullValueMaxInputTokens = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxInputTokens MaxInputTokens { get => _explicitNullValueMaxInputTokens; set { _explicitNullValueMaxInputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_input_tokens"); else _explicitNullProperties?.Remove("max_input_tokens"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxInputTokens _explicitNullValueMaxInputTokens = default!;
 #endif
         /// <summary>Approx max chars in each event/content sent to the LLM.</summary>
         public int? MaxMessageChars { get => _explicitNullValueMaxMessageChars; set { _explicitNullValueMaxMessageChars = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_message_chars"); else _explicitNullProperties?.Remove("max_message_chars"); } }
@@ -340,12 +396,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The maximum number of output tokens. This is sent to the LLM.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmMaxOutputTokens? MaxOutputTokens { get => _explicitNullValueMaxOutputTokens; set { _explicitNullValueMaxOutputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_output_tokens"); else _explicitNullProperties?.Remove("max_output_tokens"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmMaxOutputTokens? _explicitNullValueMaxOutputTokens = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxOutputTokens? MaxOutputTokens { get => _explicitNullValueMaxOutputTokens; set { _explicitNullValueMaxOutputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_output_tokens"); else _explicitNullProperties?.Remove("max_output_tokens"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxOutputTokens? _explicitNullValueMaxOutputTokens = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmMaxOutputTokens MaxOutputTokens { get => _explicitNullValueMaxOutputTokens; set { _explicitNullValueMaxOutputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_output_tokens"); else _explicitNullProperties?.Remove("max_output_tokens"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmMaxOutputTokens _explicitNullValueMaxOutputTokens = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxOutputTokens MaxOutputTokens { get => _explicitNullValueMaxOutputTokens; set { _explicitNullValueMaxOutputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_output_tokens"); else _explicitNullProperties?.Remove("max_output_tokens"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxOutputTokens _explicitNullValueMaxOutputTokens = default!;
 #endif
         /// <summary>Model name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -360,12 +416,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Optional canonical model name for feature registry lookups. The OpenHands SDK maintains a model feature registry that maps model names to capabilities (e.g., vision support, prompt caching, responses API support). When using proxied or aliased model identifiers, set this field to the canonical model name (e.g., &apos;openai/gpt-4o&apos;) to ensure correct capability detection. If not provided, the &apos;model&apos; field will be used for capability lookups.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmModelCanonicalName? ModelCanonicalName { get => _explicitNullValueModelCanonicalName; set { _explicitNullValueModelCanonicalName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_canonical_name"); else _explicitNullProperties?.Remove("model_canonical_name"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmModelCanonicalName? _explicitNullValueModelCanonicalName = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputModelCanonicalName? ModelCanonicalName { get => _explicitNullValueModelCanonicalName; set { _explicitNullValueModelCanonicalName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_canonical_name"); else _explicitNullProperties?.Remove("model_canonical_name"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputModelCanonicalName? _explicitNullValueModelCanonicalName = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmModelCanonicalName ModelCanonicalName { get => _explicitNullValueModelCanonicalName; set { _explicitNullValueModelCanonicalName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_canonical_name"); else _explicitNullProperties?.Remove("model_canonical_name"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmModelCanonicalName _explicitNullValueModelCanonicalName = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputModelCanonicalName ModelCanonicalName { get => _explicitNullValueModelCanonicalName; set { _explicitNullValueModelCanonicalName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_canonical_name"); else _explicitNullProperties?.Remove("model_canonical_name"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputModelCanonicalName _explicitNullValueModelCanonicalName = default!;
 #endif
         /// <summary>Whether to use native tool calling.</summary>
         public bool? NativeToolCalling { get => _explicitNullValueNativeToolCalling; set { _explicitNullValueNativeToolCalling = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("native_tool_calling"); else _explicitNullProperties?.Remove("native_tool_calling"); } }
@@ -376,12 +432,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The ollama_base_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmOllamaBaseUrl? OllamaBaseUrl { get => _explicitNullValueOllamaBaseUrl; set { _explicitNullValueOllamaBaseUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ollama_base_url"); else _explicitNullProperties?.Remove("ollama_base_url"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmOllamaBaseUrl? _explicitNullValueOllamaBaseUrl = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputOllamaBaseUrl? OllamaBaseUrl { get => _explicitNullValueOllamaBaseUrl; set { _explicitNullValueOllamaBaseUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ollama_base_url"); else _explicitNullProperties?.Remove("ollama_base_url"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputOllamaBaseUrl? _explicitNullValueOllamaBaseUrl = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmOllamaBaseUrl OllamaBaseUrl { get => _explicitNullValueOllamaBaseUrl; set { _explicitNullValueOllamaBaseUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ollama_base_url"); else _explicitNullProperties?.Remove("ollama_base_url"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmOllamaBaseUrl _explicitNullValueOllamaBaseUrl = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputOllamaBaseUrl OllamaBaseUrl { get => _explicitNullValueOllamaBaseUrl; set { _explicitNullValueOllamaBaseUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ollama_base_url"); else _explicitNullProperties?.Remove("ollama_base_url"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputOllamaBaseUrl _explicitNullValueOllamaBaseUrl = default!;
 #endif
         /// <summary>The openrouter_app_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -406,32 +462,32 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The cost per output token. This will available in logs for user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmOutputCostPerToken? OutputCostPerToken { get => _explicitNullValueOutputCostPerToken; set { _explicitNullValueOutputCostPerToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_cost_per_token"); else _explicitNullProperties?.Remove("output_cost_per_token"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmOutputCostPerToken? _explicitNullValueOutputCostPerToken = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputOutputCostPerToken? OutputCostPerToken { get => _explicitNullValueOutputCostPerToken; set { _explicitNullValueOutputCostPerToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_cost_per_token"); else _explicitNullProperties?.Remove("output_cost_per_token"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputOutputCostPerToken? _explicitNullValueOutputCostPerToken = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmOutputCostPerToken OutputCostPerToken { get => _explicitNullValueOutputCostPerToken; set { _explicitNullValueOutputCostPerToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_cost_per_token"); else _explicitNullProperties?.Remove("output_cost_per_token"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmOutputCostPerToken _explicitNullValueOutputCostPerToken = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputOutputCostPerToken OutputCostPerToken { get => _explicitNullValueOutputCostPerToken; set { _explicitNullValueOutputCostPerToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_cost_per_token"); else _explicitNullProperties?.Remove("output_cost_per_token"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputOutputCostPerToken _explicitNullValueOutputCostPerToken = default!;
 #endif
         /// <summary>Retention policy for prompt cache. Only sent for supported models (GPT-5+ and GPT-4.1, excluding Azure deployments); explicitly stripped for all others.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmPromptCacheRetention? PromptCacheRetention { get => _explicitNullValuePromptCacheRetention; set { _explicitNullValuePromptCacheRetention = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_retention"); else _explicitNullProperties?.Remove("prompt_cache_retention"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmPromptCacheRetention? _explicitNullValuePromptCacheRetention = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputPromptCacheRetention? PromptCacheRetention { get => _explicitNullValuePromptCacheRetention; set { _explicitNullValuePromptCacheRetention = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_retention"); else _explicitNullProperties?.Remove("prompt_cache_retention"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputPromptCacheRetention? _explicitNullValuePromptCacheRetention = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmPromptCacheRetention PromptCacheRetention { get => _explicitNullValuePromptCacheRetention; set { _explicitNullValuePromptCacheRetention = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_retention"); else _explicitNullProperties?.Remove("prompt_cache_retention"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmPromptCacheRetention _explicitNullValuePromptCacheRetention = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputPromptCacheRetention PromptCacheRetention { get => _explicitNullValuePromptCacheRetention; set { _explicitNullValuePromptCacheRetention = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_retention"); else _explicitNullProperties?.Remove("prompt_cache_retention"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputPromptCacheRetention _explicitNullValuePromptCacheRetention = default!;
 #endif
         /// <summary>Optional provider connection whose shared API key and base URL are resolved and applied each time this LLM profile is loaded (read-at-use). When set, the profile stores no inline api_key or base_url of its own.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmProviderConnectionId? ProviderConnectionId { get => _explicitNullValueProviderConnectionId; set { _explicitNullValueProviderConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_connection_id"); else _explicitNullProperties?.Remove("provider_connection_id"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmProviderConnectionId? _explicitNullValueProviderConnectionId = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputProviderConnectionId? ProviderConnectionId { get => _explicitNullValueProviderConnectionId; set { _explicitNullValueProviderConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_connection_id"); else _explicitNullProperties?.Remove("provider_connection_id"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputProviderConnectionId? _explicitNullValueProviderConnectionId = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmProviderConnectionId ProviderConnectionId { get => _explicitNullValueProviderConnectionId; set { _explicitNullValueProviderConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_connection_id"); else _explicitNullProperties?.Remove("provider_connection_id"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmProviderConnectionId _explicitNullValueProviderConnectionId = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputProviderConnectionId ProviderConnectionId { get => _explicitNullValueProviderConnectionId; set { _explicitNullValueProviderConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_connection_id"); else _explicitNullProperties?.Remove("provider_connection_id"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputProviderConnectionId _explicitNullValueProviderConnectionId = default!;
 #endif
         /// <summary>Provider-neutral reasoning effort. Common values include &apos;none&apos;, &apos;minimal&apos;, &apos;low&apos;, &apos;medium&apos;, &apos;high&apos;, &apos;xhigh&apos;, and &apos;max&apos;. The SDK accepts future provider values and lets LiteLLM translate them.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmReasoningEffortAnyOf1? ReasoningEffort { get => _explicitNullValueReasoningEffort; set { _explicitNullValueReasoningEffort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_effort"); else _explicitNullProperties?.Remove("reasoning_effort"); } }
@@ -451,12 +507,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The seed to use for random number generation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmSeed? Seed { get => _explicitNullValueSeed; set { _explicitNullValueSeed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seed"); else _explicitNullProperties?.Remove("seed"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmSeed? _explicitNullValueSeed = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputSeed? Seed { get => _explicitNullValueSeed; set { _explicitNullValueSeed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seed"); else _explicitNullProperties?.Remove("seed"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputSeed? _explicitNullValueSeed = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmSeed Seed { get => _explicitNullValueSeed; set { _explicitNullValueSeed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seed"); else _explicitNullProperties?.Remove("seed"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmSeed _explicitNullValueSeed = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputSeed Seed { get => _explicitNullValueSeed; set { _explicitNullValueSeed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seed"); else _explicitNullProperties?.Remove("seed"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputSeed _explicitNullValueSeed = default!;
 #endif
         /// <summary>Enable streaming responses from the LLM. When enabled, the provided `on_token` callback in .completions and .responses will be invoked for each chunk of tokens.</summary>
         public bool? Stream { get => _explicitNullValueStream; set { _explicitNullValueStream = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream"); else _explicitNullProperties?.Remove("stream"); } }
@@ -464,12 +520,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Maximum seconds between chunks in an asynchronous streaming response. Default is 300s (5 minutes); set to None to disable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmStreamIdleTimeout? StreamIdleTimeout { get => _explicitNullValueStreamIdleTimeout; set { _explicitNullValueStreamIdleTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_idle_timeout"); else _explicitNullProperties?.Remove("stream_idle_timeout"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmStreamIdleTimeout? _explicitNullValueStreamIdleTimeout = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputStreamIdleTimeout? StreamIdleTimeout { get => _explicitNullValueStreamIdleTimeout; set { _explicitNullValueStreamIdleTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_idle_timeout"); else _explicitNullProperties?.Remove("stream_idle_timeout"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputStreamIdleTimeout? _explicitNullValueStreamIdleTimeout = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmStreamIdleTimeout StreamIdleTimeout { get => _explicitNullValueStreamIdleTimeout; set { _explicitNullValueStreamIdleTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_idle_timeout"); else _explicitNullProperties?.Remove("stream_idle_timeout"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmStreamIdleTimeout _explicitNullValueStreamIdleTimeout = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputStreamIdleTimeout StreamIdleTimeout { get => _explicitNullValueStreamIdleTimeout; set { _explicitNullValueStreamIdleTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_idle_timeout"); else _explicitNullProperties?.Remove("stream_idle_timeout"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputStreamIdleTimeout _explicitNullValueStreamIdleTimeout = default!;
 #endif
         /// <summary>Subscription provider for subscription-backed LLM access.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmSubscriptionVendorAnyOf1? SubscriptionVendor { get => _explicitNullValueSubscriptionVendor; set { _explicitNullValueSubscriptionVendor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscription_vendor"); else _explicitNullProperties?.Remove("subscription_vendor"); } }
@@ -477,42 +533,42 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Sampling temperature for response generation. Defaults to None (uses provider default temperature). Set to 0.0 for deterministic outputs, or higher values (0.7-1.0) for more creative responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTemperature? Temperature { get => _explicitNullValueTemperature; set { _explicitNullValueTemperature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("temperature"); else _explicitNullProperties?.Remove("temperature"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTemperature? _explicitNullValueTemperature = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTemperature? Temperature { get => _explicitNullValueTemperature; set { _explicitNullValueTemperature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("temperature"); else _explicitNullProperties?.Remove("temperature"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTemperature? _explicitNullValueTemperature = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTemperature Temperature { get => _explicitNullValueTemperature; set { _explicitNullValueTemperature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("temperature"); else _explicitNullProperties?.Remove("temperature"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTemperature _explicitNullValueTemperature = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTemperature Temperature { get => _explicitNullValueTemperature; set { _explicitNullValueTemperature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("temperature"); else _explicitNullProperties?.Remove("temperature"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTemperature _explicitNullValueTemperature = default!;
 #endif
         /// <summary>HTTP and hard per-attempt timeout in seconds. Default is 300s (5 minutes). Set to None to disable the hard timeout.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTimeout? Timeout { get => _explicitNullValueTimeout; set { _explicitNullValueTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout"); else _explicitNullProperties?.Remove("timeout"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTimeout? _explicitNullValueTimeout = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTimeout? Timeout { get => _explicitNullValueTimeout; set { _explicitNullValueTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout"); else _explicitNullProperties?.Remove("timeout"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTimeout? _explicitNullValueTimeout = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTimeout Timeout { get => _explicitNullValueTimeout; set { _explicitNullValueTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout"); else _explicitNullProperties?.Remove("timeout"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTimeout _explicitNullValueTimeout = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTimeout Timeout { get => _explicitNullValueTimeout; set { _explicitNullValueTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout"); else _explicitNullProperties?.Remove("timeout"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTimeout _explicitNullValueTimeout = default!;
 #endif
         /// <summary>The top_k property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTopK? TopK { get => _explicitNullValueTopK; set { _explicitNullValueTopK = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_k"); else _explicitNullProperties?.Remove("top_k"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTopK? _explicitNullValueTopK = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTopK? TopK { get => _explicitNullValueTopK; set { _explicitNullValueTopK = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_k"); else _explicitNullProperties?.Remove("top_k"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTopK? _explicitNullValueTopK = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTopK TopK { get => _explicitNullValueTopK; set { _explicitNullValueTopK = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_k"); else _explicitNullProperties?.Remove("top_k"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTopK _explicitNullValueTopK = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTopK TopK { get => _explicitNullValueTopK; set { _explicitNullValueTopK = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_k"); else _explicitNullProperties?.Remove("top_k"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTopK _explicitNullValueTopK = default!;
 #endif
         /// <summary>Nucleus sampling parameter. Defaults to None (uses provider default). Set to a value between 0 and 1 to control diversity of outputs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTopP? TopP { get => _explicitNullValueTopP; set { _explicitNullValueTopP = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_p"); else _explicitNullProperties?.Remove("top_p"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTopP? _explicitNullValueTopP = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTopP? TopP { get => _explicitNullValueTopP; set { _explicitNullValueTopP = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_p"); else _explicitNullProperties?.Remove("top_p"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTopP? _explicitNullValueTopP = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTopP TopP { get => _explicitNullValueTopP; set { _explicitNullValueTopP = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_p"); else _explicitNullProperties?.Remove("top_p"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTopP _explicitNullValueTopP = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTopP TopP { get => _explicitNullValueTopP; set { _explicitNullValueTopP = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_p"); else _explicitNullProperties?.Remove("top_p"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTopP _explicitNullValueTopP = default!;
 #endif
         /// <summary>Unique usage identifier for the LLM. Used for registry lookups, telemetry, and spend tracking.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -564,61 +620,61 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "api_key", n => { ApiKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiKey>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiKey.CreateFromDiscriminatorValue); } },
+                { "api_key", n => { ApiKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiKey>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiKey.CreateFromDiscriminatorValue); } },
                 { "api_mode", n => { ApiMode = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiMode>(); } },
-                { "api_version", n => { ApiVersion = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiVersion>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiVersion.CreateFromDiscriminatorValue); } },
+                { "api_version", n => { ApiVersion = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiVersion>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiVersion.CreateFromDiscriminatorValue); } },
                 { "auth_type", n => { AuthType = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAuthType>(); } },
-                { "aws_access_key_id", n => { AwsAccessKeyId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsAccessKeyId>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsAccessKeyId.CreateFromDiscriminatorValue); } },
-                { "aws_bedrock_runtime_endpoint", n => { AwsBedrockRuntimeEndpoint = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsBedrockRuntimeEndpoint>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsBedrockRuntimeEndpoint.CreateFromDiscriminatorValue); } },
-                { "aws_profile_name", n => { AwsProfileName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsProfileName>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsProfileName.CreateFromDiscriminatorValue); } },
-                { "aws_region_name", n => { AwsRegionName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsRegionName>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsRegionName.CreateFromDiscriminatorValue); } },
-                { "aws_role_name", n => { AwsRoleName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsRoleName>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsRoleName.CreateFromDiscriminatorValue); } },
-                { "aws_secret_access_key", n => { AwsSecretAccessKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSecretAccessKey>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSecretAccessKey.CreateFromDiscriminatorValue); } },
-                { "aws_session_name", n => { AwsSessionName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSessionName>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSessionName.CreateFromDiscriminatorValue); } },
-                { "aws_session_token", n => { AwsSessionToken = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSessionToken>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSessionToken.CreateFromDiscriminatorValue); } },
-                { "base_url", n => { BaseUrl = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmBaseUrl>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmBaseUrl.CreateFromDiscriminatorValue); } },
+                { "aws_access_key_id", n => { AwsAccessKeyId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsAccessKeyId>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsAccessKeyId.CreateFromDiscriminatorValue); } },
+                { "aws_bedrock_runtime_endpoint", n => { AwsBedrockRuntimeEndpoint = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsBedrockRuntimeEndpoint>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsBedrockRuntimeEndpoint.CreateFromDiscriminatorValue); } },
+                { "aws_profile_name", n => { AwsProfileName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsProfileName>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsProfileName.CreateFromDiscriminatorValue); } },
+                { "aws_region_name", n => { AwsRegionName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsRegionName>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsRegionName.CreateFromDiscriminatorValue); } },
+                { "aws_role_name", n => { AwsRoleName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsRoleName>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsRoleName.CreateFromDiscriminatorValue); } },
+                { "aws_secret_access_key", n => { AwsSecretAccessKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSecretAccessKey>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSecretAccessKey.CreateFromDiscriminatorValue); } },
+                { "aws_session_name", n => { AwsSessionName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSessionName>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSessionName.CreateFromDiscriminatorValue); } },
+                { "aws_session_token", n => { AwsSessionToken = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSessionToken>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSessionToken.CreateFromDiscriminatorValue); } },
+                { "base_url", n => { BaseUrl = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputBaseUrl>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputBaseUrl.CreateFromDiscriminatorValue); } },
                 { "caching_prompt", n => { CachingPrompt = n.GetBoolValue(); } },
                 { "capability_overrides", n => { CapabilityOverrides = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmCapabilityOverridesProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmCapabilityOverridesProperty.CreateFromDiscriminatorValue); } },
-                { "custom_tokenizer", n => { CustomTokenizer = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmCustomTokenizer>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmCustomTokenizer.CreateFromDiscriminatorValue); } },
-                { "disable_stop_word", n => { DisableStopWord = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmDisableStopWord>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmDisableStopWord.CreateFromDiscriminatorValue); } },
-                { "disable_vision", n => { DisableVision = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmDisableVision>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmDisableVision.CreateFromDiscriminatorValue); } },
+                { "custom_tokenizer", n => { CustomTokenizer = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputCustomTokenizer>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputCustomTokenizer.CreateFromDiscriminatorValue); } },
+                { "disable_stop_word", n => { DisableStopWord = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputDisableStopWord>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputDisableStopWord.CreateFromDiscriminatorValue); } },
+                { "disable_vision", n => { DisableVision = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputDisableVision>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputDisableVision.CreateFromDiscriminatorValue); } },
                 { "drop_params", n => { DropParams = n.GetBoolValue(); } },
                 { "enable_encrypted_reasoning", n => { EnableEncryptedReasoning = n.GetBoolValue(); } },
-                { "extended_thinking_budget", n => { ExtendedThinkingBudget = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmExtendedThinkingBudget>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmExtendedThinkingBudget.CreateFromDiscriminatorValue); } },
+                { "extended_thinking_budget", n => { ExtendedThinkingBudget = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputExtendedThinkingBudget>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputExtendedThinkingBudget.CreateFromDiscriminatorValue); } },
                 { "extra_headers", n => { ExtraHeaders = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmExtraHeadersAnyOf1>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmExtraHeadersAnyOf1.CreateFromDiscriminatorValue); } },
                 { "fallback_strategy", n => { FallbackStrategy = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy>(global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy.CreateFromDiscriminatorValue); } },
-                { "force_string_serializer", n => { ForceStringSerializer = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmForceStringSerializer>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmForceStringSerializer.CreateFromDiscriminatorValue); } },
-                { "inline_image_urls", n => { InlineImageUrls = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmInlineImageUrls>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmInlineImageUrls.CreateFromDiscriminatorValue); } },
-                { "input_cost_per_token", n => { InputCostPerToken = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmInputCostPerToken>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmInputCostPerToken.CreateFromDiscriminatorValue); } },
+                { "force_string_serializer", n => { ForceStringSerializer = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputForceStringSerializer>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputForceStringSerializer.CreateFromDiscriminatorValue); } },
+                { "inline_image_urls", n => { InlineImageUrls = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInlineImageUrls>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInlineImageUrls.CreateFromDiscriminatorValue); } },
+                { "input_cost_per_token", n => { InputCostPerToken = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInputCostPerToken>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInputCostPerToken.CreateFromDiscriminatorValue); } },
                 { "litellm_extra_body", n => { LitellmExtraBody = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmLitellmExtraBodyProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmLitellmExtraBodyProperty.CreateFromDiscriminatorValue); } },
                 { "log_completions", n => { LogCompletions = n.GetBoolValue(); } },
                 { "log_completions_folder", n => { LogCompletionsFolder = n.GetStringValue(); } },
-                { "max_input_tokens", n => { MaxInputTokens = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmMaxInputTokens>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmMaxInputTokens.CreateFromDiscriminatorValue); } },
+                { "max_input_tokens", n => { MaxInputTokens = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxInputTokens>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxInputTokens.CreateFromDiscriminatorValue); } },
                 { "max_message_chars", n => { MaxMessageChars = n.GetIntValue(); } },
-                { "max_output_tokens", n => { MaxOutputTokens = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmMaxOutputTokens>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmMaxOutputTokens.CreateFromDiscriminatorValue); } },
+                { "max_output_tokens", n => { MaxOutputTokens = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxOutputTokens>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxOutputTokens.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "model_canonical_name", n => { ModelCanonicalName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmModelCanonicalName>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmModelCanonicalName.CreateFromDiscriminatorValue); } },
+                { "model_canonical_name", n => { ModelCanonicalName = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputModelCanonicalName>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputModelCanonicalName.CreateFromDiscriminatorValue); } },
                 { "native_tool_calling", n => { NativeToolCalling = n.GetBoolValue(); } },
                 { "num_retries", n => { NumRetries = n.GetIntValue(); } },
-                { "ollama_base_url", n => { OllamaBaseUrl = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmOllamaBaseUrl>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmOllamaBaseUrl.CreateFromDiscriminatorValue); } },
+                { "ollama_base_url", n => { OllamaBaseUrl = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputOllamaBaseUrl>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputOllamaBaseUrl.CreateFromDiscriminatorValue); } },
                 { "openrouter_app_name", n => { OpenrouterAppName = n.GetStringValue(); } },
                 { "openrouter_site_url", n => { OpenrouterSiteUrl = n.GetStringValue(); } },
-                { "output_cost_per_token", n => { OutputCostPerToken = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmOutputCostPerToken>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmOutputCostPerToken.CreateFromDiscriminatorValue); } },
-                { "prompt_cache_retention", n => { PromptCacheRetention = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmPromptCacheRetention>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmPromptCacheRetention.CreateFromDiscriminatorValue); } },
-                { "provider_connection_id", n => { ProviderConnectionId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmProviderConnectionId>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmProviderConnectionId.CreateFromDiscriminatorValue); } },
+                { "output_cost_per_token", n => { OutputCostPerToken = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputOutputCostPerToken>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputOutputCostPerToken.CreateFromDiscriminatorValue); } },
+                { "prompt_cache_retention", n => { PromptCacheRetention = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputPromptCacheRetention>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputPromptCacheRetention.CreateFromDiscriminatorValue); } },
+                { "provider_connection_id", n => { ProviderConnectionId = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputProviderConnectionId>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputProviderConnectionId.CreateFromDiscriminatorValue); } },
                 { "reasoning_effort", n => { ReasoningEffort = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmReasoningEffortAnyOf1>(); } },
                 { "reasoning_summary", n => { ReasoningSummary = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmReasoningSummaryAnyOf1>(); } },
                 { "retry_max_wait", n => { RetryMaxWait = n.GetIntValue(); } },
                 { "retry_min_wait", n => { RetryMinWait = n.GetIntValue(); } },
                 { "retry_multiplier", n => { RetryMultiplier = n.GetDoubleValue(); } },
-                { "seed", n => { Seed = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmSeed>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmSeed.CreateFromDiscriminatorValue); } },
+                { "seed", n => { Seed = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputSeed>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputSeed.CreateFromDiscriminatorValue); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
-                { "stream_idle_timeout", n => { StreamIdleTimeout = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmStreamIdleTimeout>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmStreamIdleTimeout.CreateFromDiscriminatorValue); } },
+                { "stream_idle_timeout", n => { StreamIdleTimeout = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputStreamIdleTimeout>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputStreamIdleTimeout.CreateFromDiscriminatorValue); } },
                 { "subscription_vendor", n => { SubscriptionVendor = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmSubscriptionVendorAnyOf1>(); } },
-                { "temperature", n => { Temperature = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTemperature>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTemperature.CreateFromDiscriminatorValue); } },
-                { "timeout", n => { Timeout = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTimeout>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTimeout.CreateFromDiscriminatorValue); } },
-                { "top_k", n => { TopK = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTopK>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTopK.CreateFromDiscriminatorValue); } },
-                { "top_p", n => { TopP = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTopP>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTopP.CreateFromDiscriminatorValue); } },
+                { "temperature", n => { Temperature = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTemperature>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTemperature.CreateFromDiscriminatorValue); } },
+                { "timeout", n => { Timeout = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTimeout>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTimeout.CreateFromDiscriminatorValue); } },
+                { "top_k", n => { TopK = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTopK>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTopK.CreateFromDiscriminatorValue); } },
+                { "top_p", n => { TopP = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTopP>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTopP.CreateFromDiscriminatorValue); } },
                 { "usage_id", n => { UsageId = n.GetStringValue(); } },
             };
         }
@@ -629,61 +685,61 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiKey>("api_key", ApiKey);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiKey>("api_key", ApiKey);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiMode>("api_mode", ApiMode);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiVersion>("api_version", ApiVersion);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiVersion>("api_version", ApiVersion);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAuthType>("auth_type", AuthType);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsAccessKeyId>("aws_access_key_id", AwsAccessKeyId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsBedrockRuntimeEndpoint>("aws_bedrock_runtime_endpoint", AwsBedrockRuntimeEndpoint);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsProfileName>("aws_profile_name", AwsProfileName);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsRegionName>("aws_region_name", AwsRegionName);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsRoleName>("aws_role_name", AwsRoleName);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSecretAccessKey>("aws_secret_access_key", AwsSecretAccessKey);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSessionName>("aws_session_name", AwsSessionName);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmAwsSessionToken>("aws_session_token", AwsSessionToken);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmBaseUrl>("base_url", BaseUrl);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsAccessKeyId>("aws_access_key_id", AwsAccessKeyId);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsBedrockRuntimeEndpoint>("aws_bedrock_runtime_endpoint", AwsBedrockRuntimeEndpoint);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsProfileName>("aws_profile_name", AwsProfileName);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsRegionName>("aws_region_name", AwsRegionName);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsRoleName>("aws_role_name", AwsRoleName);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSecretAccessKey>("aws_secret_access_key", AwsSecretAccessKey);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSessionName>("aws_session_name", AwsSessionName);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputAwsSessionToken>("aws_session_token", AwsSessionToken);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputBaseUrl>("base_url", BaseUrl);
             writer.WriteBoolValue("caching_prompt", CachingPrompt);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmCapabilityOverridesProperty>("capability_overrides", CapabilityOverrides);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmCustomTokenizer>("custom_tokenizer", CustomTokenizer);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmDisableStopWord>("disable_stop_word", DisableStopWord);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmDisableVision>("disable_vision", DisableVision);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputCustomTokenizer>("custom_tokenizer", CustomTokenizer);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputDisableStopWord>("disable_stop_word", DisableStopWord);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputDisableVision>("disable_vision", DisableVision);
             writer.WriteBoolValue("drop_params", DropParams);
             writer.WriteBoolValue("enable_encrypted_reasoning", EnableEncryptedReasoning);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmExtendedThinkingBudget>("extended_thinking_budget", ExtendedThinkingBudget);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputExtendedThinkingBudget>("extended_thinking_budget", ExtendedThinkingBudget);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmExtraHeadersAnyOf1>("extra_headers", ExtraHeaders);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy>("fallback_strategy", FallbackStrategy);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmForceStringSerializer>("force_string_serializer", ForceStringSerializer);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmInlineImageUrls>("inline_image_urls", InlineImageUrls);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmInputCostPerToken>("input_cost_per_token", InputCostPerToken);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputForceStringSerializer>("force_string_serializer", ForceStringSerializer);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInlineImageUrls>("inline_image_urls", InlineImageUrls);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInputCostPerToken>("input_cost_per_token", InputCostPerToken);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmLitellmExtraBodyProperty>("litellm_extra_body", LitellmExtraBody);
             writer.WriteBoolValue("log_completions", LogCompletions);
             writer.WriteStringValue("log_completions_folder", LogCompletionsFolder);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmMaxInputTokens>("max_input_tokens", MaxInputTokens);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxInputTokens>("max_input_tokens", MaxInputTokens);
             writer.WriteIntValue("max_message_chars", MaxMessageChars);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmMaxOutputTokens>("max_output_tokens", MaxOutputTokens);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxOutputTokens>("max_output_tokens", MaxOutputTokens);
             writer.WriteStringValue("model", Model);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmModelCanonicalName>("model_canonical_name", ModelCanonicalName);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputModelCanonicalName>("model_canonical_name", ModelCanonicalName);
             writer.WriteBoolValue("native_tool_calling", NativeToolCalling);
             writer.WriteIntValue("num_retries", NumRetries);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmOllamaBaseUrl>("ollama_base_url", OllamaBaseUrl);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputOllamaBaseUrl>("ollama_base_url", OllamaBaseUrl);
             writer.WriteStringValue("openrouter_app_name", OpenrouterAppName);
             writer.WriteStringValue("openrouter_site_url", OpenrouterSiteUrl);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmOutputCostPerToken>("output_cost_per_token", OutputCostPerToken);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmPromptCacheRetention>("prompt_cache_retention", PromptCacheRetention);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmProviderConnectionId>("provider_connection_id", ProviderConnectionId);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputOutputCostPerToken>("output_cost_per_token", OutputCostPerToken);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputPromptCacheRetention>("prompt_cache_retention", PromptCacheRetention);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputProviderConnectionId>("provider_connection_id", ProviderConnectionId);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmReasoningEffortAnyOf1>("reasoning_effort", ReasoningEffort);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmReasoningSummaryAnyOf1>("reasoning_summary", ReasoningSummary);
             writer.WriteIntValue("retry_max_wait", RetryMaxWait);
             writer.WriteIntValue("retry_min_wait", RetryMinWait);
             writer.WriteDoubleValue("retry_multiplier", RetryMultiplier);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmSeed>("seed", Seed);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputSeed>("seed", Seed);
             writer.WriteBoolValue("stream", Stream);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmStreamIdleTimeout>("stream_idle_timeout", StreamIdleTimeout);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputStreamIdleTimeout>("stream_idle_timeout", StreamIdleTimeout);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmSubscriptionVendorAnyOf1>("subscription_vendor", SubscriptionVendor);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTemperature>("temperature", Temperature);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTimeout>("timeout", Timeout);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTopK>("top_k", TopK);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmTopP>("top_p", TopP);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTemperature>("temperature", Temperature);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTimeout>("timeout", Timeout);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTopK>("top_k", TopK);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputTopP>("top_p", TopP);
             writer.WriteStringValue("usage_id", UsageId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }

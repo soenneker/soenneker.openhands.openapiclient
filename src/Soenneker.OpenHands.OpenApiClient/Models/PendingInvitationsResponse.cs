@@ -18,27 +18,30 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("auto_add_enabled") is { } nullNodeAutoAddEnabled && nullNodeAutoAddEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoAddEnabled = null;
-            if (parseNode.GetChildNode("email_delivery_configured") is { } nullNodeEmailDeliveryConfigured && nullNodeEmailDeliveryConfigured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailDeliveryConfigured = null;
-            if (parseNode.GetChildNode("items") is { } nullNodeItems && nullNodeItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Items = null;
+            if (parseNode.GetChildNode("auto_add_enabled") is null) { _explicitNullValueAutoAddEnabled = default!; _explicitNullProperties?.Remove("auto_add_enabled"); }
+            else if (parseNode.GetChildNode("auto_add_enabled") is { } nullNodeAutoAddEnabled && nullNodeAutoAddEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoAddEnabled = null;
+            if (parseNode.GetChildNode("email_delivery_configured") is null) { _explicitNullValueEmailDeliveryConfigured = default!; _explicitNullProperties?.Remove("email_delivery_configured"); }
+            else if (parseNode.GetChildNode("email_delivery_configured") is { } nullNodeEmailDeliveryConfigured && nullNodeEmailDeliveryConfigured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailDeliveryConfigured = null;
+            if (parseNode.GetChildNode("items") is null) { _explicitNullValueItems = default!; _explicitNullProperties?.Remove("items"); }
+            else if (parseNode.GetChildNode("items") is { } nullNodeItems && nullNodeItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Items = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The auto_add_enabled property</summary>
-        public bool? AutoAddEnabled { get => _explicitNullValueAutoAddEnabled; set { _explicitNullValueAutoAddEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_add_enabled"); else _explicitNullProperties?.Remove("auto_add_enabled"); } }
+        public bool? AutoAddEnabled { get => _explicitNullValueAutoAddEnabled; set { _explicitNullValueAutoAddEnabled = value; AdditionalData?.Remove("auto_add_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_add_enabled"); else _explicitNullProperties?.Remove("auto_add_enabled"); } }
         private bool? _explicitNullValueAutoAddEnabled = default!;
         /// <summary>The email_delivery_configured property</summary>
-        public bool? EmailDeliveryConfigured { get => _explicitNullValueEmailDeliveryConfigured; set { _explicitNullValueEmailDeliveryConfigured = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_delivery_configured"); else _explicitNullProperties?.Remove("email_delivery_configured"); } }
+        public bool? EmailDeliveryConfigured { get => _explicitNullValueEmailDeliveryConfigured; set { _explicitNullValueEmailDeliveryConfigured = value; AdditionalData?.Remove("email_delivery_configured"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_delivery_configured"); else _explicitNullProperties?.Remove("email_delivery_configured"); } }
         private bool? _explicitNullValueEmailDeliveryConfigured = default!;
         /// <summary>The items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationResponse>? Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationResponse>? Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; AdditionalData?.Remove("items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationResponse>? _explicitNullValueItems = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationResponse> Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationResponse> Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; AdditionalData?.Remove("items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationResponse> _explicitNullValueItems = default!;
 #endif
         /// <summary>

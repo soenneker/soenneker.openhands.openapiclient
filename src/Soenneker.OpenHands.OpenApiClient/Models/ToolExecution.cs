@@ -18,13 +18,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("taskSupport") is { } nullNodeTaskSupport && nullNodeTaskSupport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaskSupport = null;
+            if (parseNode.GetChildNode("taskSupport") is null) { _explicitNullValueTaskSupport = default!; _explicitNullProperties?.Remove("taskSupport"); }
+            else if (parseNode.GetChildNode("taskSupport") is { } nullNodeTaskSupport && nullNodeTaskSupport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaskSupport = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The taskSupport property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecutionTaskSupport? TaskSupport { get => _explicitNullValueTaskSupport; set { _explicitNullValueTaskSupport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("taskSupport"); else _explicitNullProperties?.Remove("taskSupport"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecutionTaskSupport? TaskSupport { get => _explicitNullValueTaskSupport; set { _explicitNullValueTaskSupport = value; AdditionalData?.Remove("taskSupport"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("taskSupport"); else _explicitNullProperties?.Remove("taskSupport"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecutionTaskSupport? _explicitNullValueTaskSupport = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecution"/> and sets the default values.
@@ -51,7 +52,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "taskSupport", n => { TaskSupport = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecutionTaskSupport>(); } },
+                { "taskSupport", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecutionTaskSupport>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTaskSupport = default; _explicitNullProperties?.Remove("taskSupport"); AdditionalData["taskSupport"] = unknown; } else { TaskSupport = parsed; AdditionalData.Remove("taskSupport"); } } },
             };
         }
         /// <summary>

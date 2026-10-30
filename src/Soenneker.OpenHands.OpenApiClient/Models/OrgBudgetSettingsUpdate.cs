@@ -17,57 +17,64 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("default_user_monthly_limit") is { } nullNodeDefaultUserMonthlyLimit && nullNodeDefaultUserMonthlyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultUserMonthlyLimit = null;
-            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
-            if (parseNode.GetChildNode("monthly_limit") is { } nullNodeMonthlyLimit && nullNodeMonthlyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MonthlyLimit = null;
-            if (parseNode.GetChildNode("reset_day") is { } nullNodeResetDay && nullNodeResetDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResetDay = null;
-            if (parseNode.GetChildNode("slack_channel") is { } nullNodeSlackChannel && nullNodeSlackChannel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackChannel = null;
-            if (parseNode.GetChildNode("slack_team_id") is { } nullNodeSlackTeamId && nullNodeSlackTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackTeamId = null;
-            if (parseNode.GetChildNode("thresholds") is { } nullNodeThresholds && nullNodeThresholds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Thresholds = null;
+            if (parseNode.GetChildNode("default_user_monthly_limit") is null) { _explicitNullValueDefaultUserMonthlyLimit = default!; _explicitNullProperties?.Remove("default_user_monthly_limit"); }
+            else if (parseNode.GetChildNode("default_user_monthly_limit") is { } nullNodeDefaultUserMonthlyLimit && nullNodeDefaultUserMonthlyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultUserMonthlyLimit = null;
+            if (parseNode.GetChildNode("enabled") is null) { _explicitNullValueEnabled = default!; _explicitNullProperties?.Remove("enabled"); }
+            else if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("monthly_limit") is null) { _explicitNullValueMonthlyLimit = default!; _explicitNullProperties?.Remove("monthly_limit"); }
+            else if (parseNode.GetChildNode("monthly_limit") is { } nullNodeMonthlyLimit && nullNodeMonthlyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MonthlyLimit = null;
+            if (parseNode.GetChildNode("reset_day") is null) { _explicitNullValueResetDay = default!; _explicitNullProperties?.Remove("reset_day"); }
+            else if (parseNode.GetChildNode("reset_day") is { } nullNodeResetDay && nullNodeResetDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResetDay = null;
+            if (parseNode.GetChildNode("slack_channel") is null) { _explicitNullValueSlackChannel = default!; _explicitNullProperties?.Remove("slack_channel"); }
+            else if (parseNode.GetChildNode("slack_channel") is { } nullNodeSlackChannel && nullNodeSlackChannel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackChannel = null;
+            if (parseNode.GetChildNode("slack_team_id") is null) { _explicitNullValueSlackTeamId = default!; _explicitNullProperties?.Remove("slack_team_id"); }
+            else if (parseNode.GetChildNode("slack_team_id") is { } nullNodeSlackTeamId && nullNodeSlackTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackTeamId = null;
+            if (parseNode.GetChildNode("thresholds") is null) { _explicitNullValueThresholds = default!; _explicitNullProperties?.Remove("thresholds"); }
+            else if (parseNode.GetChildNode("thresholds") is { } nullNodeThresholds && nullNodeThresholds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Thresholds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The default_user_monthly_limit property</summary>
-        public double? DefaultUserMonthlyLimit { get => _explicitNullValueDefaultUserMonthlyLimit; set { _explicitNullValueDefaultUserMonthlyLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_user_monthly_limit"); else _explicitNullProperties?.Remove("default_user_monthly_limit"); } }
+        public double? DefaultUserMonthlyLimit { get => _explicitNullValueDefaultUserMonthlyLimit; set { _explicitNullValueDefaultUserMonthlyLimit = value; AdditionalData?.Remove("default_user_monthly_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_user_monthly_limit"); else _explicitNullProperties?.Remove("default_user_monthly_limit"); } }
         private double? _explicitNullValueDefaultUserMonthlyLimit = default!;
         /// <summary>The enabled property</summary>
-        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; AdditionalData?.Remove("enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
         private bool? _explicitNullValueEnabled = default!;
         /// <summary>The monthly_limit property</summary>
-        public double? MonthlyLimit { get => _explicitNullValueMonthlyLimit; set { _explicitNullValueMonthlyLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("monthly_limit"); else _explicitNullProperties?.Remove("monthly_limit"); } }
+        public double? MonthlyLimit { get => _explicitNullValueMonthlyLimit; set { _explicitNullValueMonthlyLimit = value; AdditionalData?.Remove("monthly_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("monthly_limit"); else _explicitNullProperties?.Remove("monthly_limit"); } }
         private double? _explicitNullValueMonthlyLimit = default!;
         /// <summary>The reset_day property</summary>
-        public int? ResetDay { get => _explicitNullValueResetDay; set { _explicitNullValueResetDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reset_day"); else _explicitNullProperties?.Remove("reset_day"); } }
+        public int? ResetDay { get => _explicitNullValueResetDay; set { _explicitNullValueResetDay = value; AdditionalData?.Remove("reset_day"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reset_day"); else _explicitNullProperties?.Remove("reset_day"); } }
         private int? _explicitNullValueResetDay = default!;
         /// <summary>The slack_channel property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SlackChannel { get => _explicitNullValueSlackChannel; set { _explicitNullValueSlackChannel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_channel"); else _explicitNullProperties?.Remove("slack_channel"); } }
+        public string? SlackChannel { get => _explicitNullValueSlackChannel; set { _explicitNullValueSlackChannel = value; AdditionalData?.Remove("slack_channel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_channel"); else _explicitNullProperties?.Remove("slack_channel"); } }
         private string? _explicitNullValueSlackChannel = default!;
 #nullable restore
 #else
-        public string SlackChannel { get => _explicitNullValueSlackChannel; set { _explicitNullValueSlackChannel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_channel"); else _explicitNullProperties?.Remove("slack_channel"); } }
+        public string SlackChannel { get => _explicitNullValueSlackChannel; set { _explicitNullValueSlackChannel = value; AdditionalData?.Remove("slack_channel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_channel"); else _explicitNullProperties?.Remove("slack_channel"); } }
         private string _explicitNullValueSlackChannel = default!;
 #endif
         /// <summary>The slack_team_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SlackTeamId { get => _explicitNullValueSlackTeamId; set { _explicitNullValueSlackTeamId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_team_id"); else _explicitNullProperties?.Remove("slack_team_id"); } }
+        public string? SlackTeamId { get => _explicitNullValueSlackTeamId; set { _explicitNullValueSlackTeamId = value; AdditionalData?.Remove("slack_team_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_team_id"); else _explicitNullProperties?.Remove("slack_team_id"); } }
         private string? _explicitNullValueSlackTeamId = default!;
 #nullable restore
 #else
-        public string SlackTeamId { get => _explicitNullValueSlackTeamId; set { _explicitNullValueSlackTeamId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_team_id"); else _explicitNullProperties?.Remove("slack_team_id"); } }
+        public string SlackTeamId { get => _explicitNullValueSlackTeamId; set { _explicitNullValueSlackTeamId = value; AdditionalData?.Remove("slack_team_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_team_id"); else _explicitNullProperties?.Remove("slack_team_id"); } }
         private string _explicitNullValueSlackTeamId = default!;
 #endif
         /// <summary>The thresholds property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdUpdate>? Thresholds { get => _explicitNullValueThresholds; set { _explicitNullValueThresholds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thresholds"); else _explicitNullProperties?.Remove("thresholds"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdUpdate>? Thresholds { get => _explicitNullValueThresholds; set { _explicitNullValueThresholds = value; AdditionalData?.Remove("thresholds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thresholds"); else _explicitNullProperties?.Remove("thresholds"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdUpdate>? _explicitNullValueThresholds = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdUpdate> Thresholds { get => _explicitNullValueThresholds; set { _explicitNullValueThresholds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thresholds"); else _explicitNullProperties?.Remove("thresholds"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdUpdate> Thresholds { get => _explicitNullValueThresholds; set { _explicitNullValueThresholds = value; AdditionalData?.Remove("thresholds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thresholds"); else _explicitNullProperties?.Remove("thresholds"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetThresholdUpdate> _explicitNullValueThresholds = default!;
 #endif
         /// <summary>

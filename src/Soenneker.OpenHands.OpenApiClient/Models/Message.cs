@@ -17,14 +17,22 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("content") is { } nullNodeContent && nullNodeContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Content = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("reasoning_content") is { } nullNodeReasoningContent && nullNodeReasoningContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReasoningContent = null;
-            if (parseNode.GetChildNode("responses_reasoning_item") is { } nullNodeResponsesReasoningItem && nullNodeResponsesReasoningItem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResponsesReasoningItem = null;
-            if (parseNode.GetChildNode("role") is { } nullNodeRole && nullNodeRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Role = null;
-            if (parseNode.GetChildNode("thinking_blocks") is { } nullNodeThinkingBlocks && nullNodeThinkingBlocks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThinkingBlocks = null;
-            if (parseNode.GetChildNode("tool_call_id") is { } nullNodeToolCallId && nullNodeToolCallId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolCallId = null;
-            if (parseNode.GetChildNode("tool_calls") is { } nullNodeToolCalls && nullNodeToolCalls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolCalls = null;
+            if (parseNode.GetChildNode("content") is null) { _explicitNullValueContent = default!; _explicitNullProperties?.Remove("content"); }
+            else if (parseNode.GetChildNode("content") is { } nullNodeContent && nullNodeContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Content = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("reasoning_content") is null) { _explicitNullValueReasoningContent = default!; _explicitNullProperties?.Remove("reasoning_content"); }
+            else if (parseNode.GetChildNode("reasoning_content") is { } nullNodeReasoningContent && nullNodeReasoningContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReasoningContent = null;
+            if (parseNode.GetChildNode("responses_reasoning_item") is null) { _explicitNullValueResponsesReasoningItem = default!; _explicitNullProperties?.Remove("responses_reasoning_item"); }
+            else if (parseNode.GetChildNode("responses_reasoning_item") is { } nullNodeResponsesReasoningItem && nullNodeResponsesReasoningItem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResponsesReasoningItem = null;
+            if (parseNode.GetChildNode("role") is null) { _explicitNullValueRole = default!; _explicitNullProperties?.Remove("role"); }
+            else if (parseNode.GetChildNode("role") is { } nullNodeRole && nullNodeRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Role = null;
+            if (parseNode.GetChildNode("thinking_blocks") is null) { _explicitNullValueThinkingBlocks = default!; _explicitNullProperties?.Remove("thinking_blocks"); }
+            else if (parseNode.GetChildNode("thinking_blocks") is { } nullNodeThinkingBlocks && nullNodeThinkingBlocks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThinkingBlocks = null;
+            if (parseNode.GetChildNode("tool_call_id") is null) { _explicitNullValueToolCallId = default!; _explicitNullProperties?.Remove("tool_call_id"); }
+            else if (parseNode.GetChildNode("tool_call_id") is { } nullNodeToolCallId && nullNodeToolCallId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolCallId = null;
+            if (parseNode.GetChildNode("tool_calls") is null) { _explicitNullValueToolCalls = default!; _explicitNullProperties?.Remove("tool_calls"); }
+            else if (parseNode.GetChildNode("tool_calls") is { } nullNodeToolCalls && nullNodeToolCalls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolCalls = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,74 +40,74 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageContentItem>? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
-        private List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageContentItem>? _explicitNullValueContent = default!;
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequestContentItem>? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; AdditionalData?.Remove("content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequestContentItem>? _explicitNullValueContent = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageContentItem> Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
-        private List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageContentItem> _explicitNullValueContent = default!;
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequestContentItem> Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; AdditionalData?.Remove("content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequestContentItem> _explicitNullValueContent = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Intermediate reasoning/thinking content from reasoning models</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReasoningContent { get => _explicitNullValueReasoningContent; set { _explicitNullValueReasoningContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_content"); else _explicitNullProperties?.Remove("reasoning_content"); } }
+        public string? ReasoningContent { get => _explicitNullValueReasoningContent; set { _explicitNullValueReasoningContent = value; AdditionalData?.Remove("reasoning_content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_content"); else _explicitNullProperties?.Remove("reasoning_content"); } }
         private string? _explicitNullValueReasoningContent = default!;
 #nullable restore
 #else
-        public string ReasoningContent { get => _explicitNullValueReasoningContent; set { _explicitNullValueReasoningContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_content"); else _explicitNullProperties?.Remove("reasoning_content"); } }
+        public string ReasoningContent { get => _explicitNullValueReasoningContent; set { _explicitNullValueReasoningContent = value; AdditionalData?.Remove("reasoning_content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_content"); else _explicitNullProperties?.Remove("reasoning_content"); } }
         private string _explicitNullValueReasoningContent = default!;
 #endif
         /// <summary>OpenAI Responses reasoning item from model output</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel? ResponsesReasoningItem { get => _explicitNullValueResponsesReasoningItem; set { _explicitNullValueResponsesReasoningItem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("responses_reasoning_item"); else _explicitNullProperties?.Remove("responses_reasoning_item"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel? ResponsesReasoningItem { get => _explicitNullValueResponsesReasoningItem; set { _explicitNullValueResponsesReasoningItem = value; AdditionalData?.Remove("responses_reasoning_item"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("responses_reasoning_item"); else _explicitNullProperties?.Remove("responses_reasoning_item"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel? _explicitNullValueResponsesReasoningItem = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel ResponsesReasoningItem { get => _explicitNullValueResponsesReasoningItem; set { _explicitNullValueResponsesReasoningItem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("responses_reasoning_item"); else _explicitNullProperties?.Remove("responses_reasoning_item"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel ResponsesReasoningItem { get => _explicitNullValueResponsesReasoningItem; set { _explicitNullValueResponsesReasoningItem = value; AdditionalData?.Remove("responses_reasoning_item"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("responses_reasoning_item"); else _explicitNullProperties?.Remove("responses_reasoning_item"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel _explicitNullValueResponsesReasoningItem = default!;
 #endif
         /// <summary>The role property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MessageRole? Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MessageRole? Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; AdditionalData?.Remove("role"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.MessageRole? _explicitNullValueRole = default!;
         /// <summary>Raw Anthropic thinking blocks for extended thinking feature</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageThinkingBlocksItem>? ThinkingBlocks { get => _explicitNullValueThinkingBlocks; set { _explicitNullValueThinkingBlocks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thinking_blocks"); else _explicitNullProperties?.Remove("thinking_blocks"); } }
-        private List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageThinkingBlocksItem>? _explicitNullValueThinkingBlocks = default!;
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventThinkingBlocksItem>? ThinkingBlocks { get => _explicitNullValueThinkingBlocks; set { _explicitNullValueThinkingBlocks = value; AdditionalData?.Remove("thinking_blocks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thinking_blocks"); else _explicitNullProperties?.Remove("thinking_blocks"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventThinkingBlocksItem>? _explicitNullValueThinkingBlocks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageThinkingBlocksItem> ThinkingBlocks { get => _explicitNullValueThinkingBlocks; set { _explicitNullValueThinkingBlocks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thinking_blocks"); else _explicitNullProperties?.Remove("thinking_blocks"); } }
-        private List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageThinkingBlocksItem> _explicitNullValueThinkingBlocks = default!;
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventThinkingBlocksItem> ThinkingBlocks { get => _explicitNullValueThinkingBlocks; set { _explicitNullValueThinkingBlocks = value; AdditionalData?.Remove("thinking_blocks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thinking_blocks"); else _explicitNullProperties?.Remove("thinking_blocks"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventThinkingBlocksItem> _explicitNullValueThinkingBlocks = default!;
 #endif
         /// <summary>The tool_call_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToolCallId { get => _explicitNullValueToolCallId; set { _explicitNullValueToolCallId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_call_id"); else _explicitNullProperties?.Remove("tool_call_id"); } }
+        public string? ToolCallId { get => _explicitNullValueToolCallId; set { _explicitNullValueToolCallId = value; AdditionalData?.Remove("tool_call_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_call_id"); else _explicitNullProperties?.Remove("tool_call_id"); } }
         private string? _explicitNullValueToolCallId = default!;
 #nullable restore
 #else
-        public string ToolCallId { get => _explicitNullValueToolCallId; set { _explicitNullValueToolCallId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_call_id"); else _explicitNullProperties?.Remove("tool_call_id"); } }
+        public string ToolCallId { get => _explicitNullValueToolCallId; set { _explicitNullValueToolCallId = value; AdditionalData?.Remove("tool_call_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_call_id"); else _explicitNullProperties?.Remove("tool_call_id"); } }
         private string _explicitNullValueToolCallId = default!;
 #endif
         /// <summary>The tool_calls property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall>? ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall>? ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; AdditionalData?.Remove("tool_calls"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall>? _explicitNullValueToolCalls = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall> ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall> ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; AdditionalData?.Remove("tool_calls"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall> _explicitNullValueToolCalls = default!;
 #endif
         /// <summary>
@@ -127,12 +135,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MessageContentItem>(global::Soenneker.OpenHands.OpenApiClient.Models.MessageContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequestContentItem>(global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequestContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "reasoning_content", n => { ReasoningContent = n.GetStringValue(); } },
                 { "responses_reasoning_item", n => { ResponsesReasoningItem = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel>(global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel.CreateFromDiscriminatorValue); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageRole>(); } },
-                { "thinking_blocks", n => { ThinkingBlocks = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MessageThinkingBlocksItem>(global::Soenneker.OpenHands.OpenApiClient.Models.MessageThinkingBlocksItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "role", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageRole>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRole = default; _explicitNullProperties?.Remove("role"); AdditionalData["role"] = unknown; } else { Role = parsed; AdditionalData.Remove("role"); } } },
+                { "thinking_blocks", n => { ThinkingBlocks = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventThinkingBlocksItem>(global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventThinkingBlocksItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "tool_call_id", n => { ToolCallId = n.GetStringValue(); } },
                 { "tool_calls", n => { ToolCalls = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall>(global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall.CreateFromDiscriminatorValue)?.AsList(); } },
             };
@@ -144,12 +152,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MessageContentItem>("content", Content);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequestContentItem>("content", Content);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("reasoning_content", ReasoningContent);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel>("responses_reasoning_item", ResponsesReasoningItem);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageRole>("role", Role);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MessageThinkingBlocksItem>("thinking_blocks", ThinkingBlocks);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventThinkingBlocksItem>("thinking_blocks", ThinkingBlocks);
             writer.WriteStringValue("tool_call_id", ToolCallId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.MessageToolCall>("tool_calls", ToolCalls);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

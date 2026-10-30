@@ -17,13 +17,20 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("api_key") is { } nullNodeApiKey && nullNodeApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKey = null;
-            if (parseNode.GetChildNode("host") is { } nullNodeHost && nullNodeHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Host = null;
-            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
-            if (parseNode.GetChildNode("max_connections") is { } nullNodeMaxConnections && nullNodeMaxConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxConnections = null;
-            if (parseNode.GetChildNode("read_timeout") is { } nullNodeReadTimeout && nullNodeReadTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReadTimeout = null;
-            if (parseNode.GetChildNode("runtime_conversation_id") is { } nullNodeRuntimeConversationId && nullNodeRuntimeConversationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuntimeConversationId = null;
-            if (parseNode.GetChildNode("working_dir") is { } nullNodeWorkingDir && nullNodeWorkingDir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkingDir = null;
+            if (parseNode.GetChildNode("api_key") is null) { _explicitNullValueApiKey = default!; _explicitNullProperties?.Remove("api_key"); }
+            else if (parseNode.GetChildNode("api_key") is { } nullNodeApiKey && nullNodeApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKey = null;
+            if (parseNode.GetChildNode("host") is null) { _explicitNullValueHost = default!; _explicitNullProperties?.Remove("host"); }
+            else if (parseNode.GetChildNode("host") is { } nullNodeHost && nullNodeHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Host = null;
+            if (parseNode.GetChildNode("kind") is null) { _explicitNullValueKind = default!; _explicitNullProperties?.Remove("kind"); }
+            else if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("max_connections") is null) { _explicitNullValueMaxConnections = default!; _explicitNullProperties?.Remove("max_connections"); }
+            else if (parseNode.GetChildNode("max_connections") is { } nullNodeMaxConnections && nullNodeMaxConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxConnections = null;
+            if (parseNode.GetChildNode("read_timeout") is null) { _explicitNullValueReadTimeout = default!; _explicitNullProperties?.Remove("read_timeout"); }
+            else if (parseNode.GetChildNode("read_timeout") is { } nullNodeReadTimeout && nullNodeReadTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReadTimeout = null;
+            if (parseNode.GetChildNode("runtime_conversation_id") is null) { _explicitNullValueRuntimeConversationId = default!; _explicitNullProperties?.Remove("runtime_conversation_id"); }
+            else if (parseNode.GetChildNode("runtime_conversation_id") is { } nullNodeRuntimeConversationId && nullNodeRuntimeConversationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuntimeConversationId = null;
+            if (parseNode.GetChildNode("working_dir") is null) { _explicitNullValueWorkingDir = default!; _explicitNullProperties?.Remove("working_dir"); }
+            else if (parseNode.GetChildNode("working_dir") is { } nullNodeWorkingDir && nullNodeWorkingDir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkingDir = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,43 +38,43 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>API key for authenticating with the remote host.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
+        public string? ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; AdditionalData?.Remove("api_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
         private string? _explicitNullValueApiKey = default!;
 #nullable restore
 #else
-        public string ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
+        public string ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; AdditionalData?.Remove("api_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
         private string _explicitNullValueApiKey = default!;
 #endif
         /// <summary>The remote host URL for the workspace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
+        public string? Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; AdditionalData?.Remove("host"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
         private string? _explicitNullValueHost = default!;
 #nullable restore
 #else
-        public string Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
+        public string Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; AdditionalData?.Remove("host"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
         private string _explicitNullValueHost = default!;
 #endif
         /// <summary>The kind property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf2_kind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf2_kind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf2_kind? _explicitNullValueKind = default!;
         /// <summary>Maximum number of connections for httpx.Client. None means no limit, useful for running many conversations in parallel.</summary>
-        public int? MaxConnections { get => _explicitNullValueMaxConnections; set { _explicitNullValueMaxConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_connections"); else _explicitNullProperties?.Remove("max_connections"); } }
+        public int? MaxConnections { get => _explicitNullValueMaxConnections; set { _explicitNullValueMaxConnections = value; AdditionalData?.Remove("max_connections"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_connections"); else _explicitNullProperties?.Remove("max_connections"); } }
         private int? _explicitNullValueMaxConnections = default!;
         /// <summary>Timeout in seconds for reading operations of httpx.Client.</summary>
-        public double? ReadTimeout { get => _explicitNullValueReadTimeout; set { _explicitNullValueReadTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("read_timeout"); else _explicitNullProperties?.Remove("read_timeout"); } }
+        public double? ReadTimeout { get => _explicitNullValueReadTimeout; set { _explicitNullValueReadTimeout = value; AdditionalData?.Remove("read_timeout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("read_timeout"); else _explicitNullProperties?.Remove("read_timeout"); } }
         private double? _explicitNullValueReadTimeout = default!;
         /// <summary>Conversation runtime scope; None uses the host workspace.</summary>
-        public Guid? RuntimeConversationId { get => _explicitNullValueRuntimeConversationId; set { _explicitNullValueRuntimeConversationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_conversation_id"); else _explicitNullProperties?.Remove("runtime_conversation_id"); } }
+        public Guid? RuntimeConversationId { get => _explicitNullValueRuntimeConversationId; set { _explicitNullValueRuntimeConversationId = value; AdditionalData?.Remove("runtime_conversation_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_conversation_id"); else _explicitNullProperties?.Remove("runtime_conversation_id"); } }
         private Guid? _explicitNullValueRuntimeConversationId = default!;
         /// <summary>The working directory for agent operations and tool execution.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkingDir { get => _explicitNullValueWorkingDir; set { _explicitNullValueWorkingDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("working_dir"); else _explicitNullProperties?.Remove("working_dir"); } }
+        public string? WorkingDir { get => _explicitNullValueWorkingDir; set { _explicitNullValueWorkingDir = value; AdditionalData?.Remove("working_dir"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("working_dir"); else _explicitNullProperties?.Remove("working_dir"); } }
         private string? _explicitNullValueWorkingDir = default!;
 #nullable restore
 #else
-        public string WorkingDir { get => _explicitNullValueWorkingDir; set { _explicitNullValueWorkingDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("working_dir"); else _explicitNullProperties?.Remove("working_dir"); } }
+        public string WorkingDir { get => _explicitNullValueWorkingDir; set { _explicitNullValueWorkingDir = value; AdditionalData?.Remove("working_dir"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("working_dir"); else _explicitNullProperties?.Remove("working_dir"); } }
         private string _explicitNullValueWorkingDir = default!;
 #endif
         /// <summary>
@@ -98,7 +105,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "api_key", n => { ApiKey = n.GetStringValue(); } },
                 { "host", n => { Host = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf2_kind>(); } },
+                { "kind", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf2_kind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueKind = default; _explicitNullProperties?.Remove("kind"); AdditionalData["kind"] = unknown; } else { Kind = parsed; AdditionalData.Remove("kind"); } } },
                 { "max_connections", n => { MaxConnections = n.GetIntValue(); } },
                 { "read_timeout", n => { ReadTimeout = n.GetDoubleValue(); } },
                 { "runtime_conversation_id", n => { RuntimeConversationId = n.GetGuidValue(); } },

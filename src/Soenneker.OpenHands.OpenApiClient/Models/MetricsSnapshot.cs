@@ -18,38 +18,42 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("accumulated_cost") is { } nullNodeAccumulatedCost && nullNodeAccumulatedCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccumulatedCost = null;
-            if (parseNode.GetChildNode("accumulated_token_usage") is { } nullNodeAccumulatedTokenUsage && nullNodeAccumulatedTokenUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccumulatedTokenUsage = null;
-            if (parseNode.GetChildNode("max_budget_per_task") is { } nullNodeMaxBudgetPerTask && nullNodeMaxBudgetPerTask.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxBudgetPerTask = null;
-            if (parseNode.GetChildNode("model_name") is { } nullNodeModelName && nullNodeModelName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelName = null;
+            if (parseNode.GetChildNode("accumulated_cost") is null) { _explicitNullValueAccumulatedCost = default!; _explicitNullProperties?.Remove("accumulated_cost"); }
+            else if (parseNode.GetChildNode("accumulated_cost") is { } nullNodeAccumulatedCost && nullNodeAccumulatedCost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccumulatedCost = null;
+            if (parseNode.GetChildNode("accumulated_token_usage") is null) { _explicitNullValueAccumulatedTokenUsage = default!; _explicitNullProperties?.Remove("accumulated_token_usage"); }
+            else if (parseNode.GetChildNode("accumulated_token_usage") is { } nullNodeAccumulatedTokenUsage && nullNodeAccumulatedTokenUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccumulatedTokenUsage = null;
+            if (parseNode.GetChildNode("max_budget_per_task") is null) { _explicitNullValueMaxBudgetPerTask = default!; _explicitNullProperties?.Remove("max_budget_per_task"); }
+            else if (parseNode.GetChildNode("max_budget_per_task") is { } nullNodeMaxBudgetPerTask && nullNodeMaxBudgetPerTask.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxBudgetPerTask = null;
+            if (parseNode.GetChildNode("model_name") is null) { _explicitNullValueModelName = default!; _explicitNullProperties?.Remove("model_name"); }
+            else if (parseNode.GetChildNode("model_name") is { } nullNodeModelName && nullNodeModelName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelName = null;
         }
 
         /// <summary>Total accumulated cost, must be non-negative</summary>
-        public double? AccumulatedCost { get => _explicitNullValueAccumulatedCost; set { _explicitNullValueAccumulatedCost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accumulated_cost"); else _explicitNullProperties?.Remove("accumulated_cost"); } }
+        public double? AccumulatedCost { get => _explicitNullValueAccumulatedCost; set { _explicitNullValueAccumulatedCost = value; AdditionalData?.Remove("accumulated_cost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accumulated_cost"); else _explicitNullProperties?.Remove("accumulated_cost"); } }
         private double? _explicitNullValueAccumulatedCost = default!;
         /// <summary>Accumulated token usage across all calls</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.TokenUsage? AccumulatedTokenUsage { get => _explicitNullValueAccumulatedTokenUsage; set { _explicitNullValueAccumulatedTokenUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accumulated_token_usage"); else _explicitNullProperties?.Remove("accumulated_token_usage"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.TokenUsage? AccumulatedTokenUsage { get => _explicitNullValueAccumulatedTokenUsage; set { _explicitNullValueAccumulatedTokenUsage = value; AdditionalData?.Remove("accumulated_token_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accumulated_token_usage"); else _explicitNullProperties?.Remove("accumulated_token_usage"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.TokenUsage? _explicitNullValueAccumulatedTokenUsage = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.TokenUsage AccumulatedTokenUsage { get => _explicitNullValueAccumulatedTokenUsage; set { _explicitNullValueAccumulatedTokenUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accumulated_token_usage"); else _explicitNullProperties?.Remove("accumulated_token_usage"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.TokenUsage AccumulatedTokenUsage { get => _explicitNullValueAccumulatedTokenUsage; set { _explicitNullValueAccumulatedTokenUsage = value; AdditionalData?.Remove("accumulated_token_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accumulated_token_usage"); else _explicitNullProperties?.Remove("accumulated_token_usage"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.TokenUsage _explicitNullValueAccumulatedTokenUsage = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Maximum budget per task</summary>
-        public double? MaxBudgetPerTask { get => _explicitNullValueMaxBudgetPerTask; set { _explicitNullValueMaxBudgetPerTask = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_budget_per_task"); else _explicitNullProperties?.Remove("max_budget_per_task"); } }
+        public double? MaxBudgetPerTask { get => _explicitNullValueMaxBudgetPerTask; set { _explicitNullValueMaxBudgetPerTask = value; AdditionalData?.Remove("max_budget_per_task"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_budget_per_task"); else _explicitNullProperties?.Remove("max_budget_per_task"); } }
         private double? _explicitNullValueMaxBudgetPerTask = default!;
         /// <summary>Name of the model</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ModelName { get => _explicitNullValueModelName; set { _explicitNullValueModelName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_name"); else _explicitNullProperties?.Remove("model_name"); } }
+        public string? ModelName { get => _explicitNullValueModelName; set { _explicitNullValueModelName = value; AdditionalData?.Remove("model_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_name"); else _explicitNullProperties?.Remove("model_name"); } }
         private string? _explicitNullValueModelName = default!;
 #nullable restore
 #else
-        public string ModelName { get => _explicitNullValueModelName; set { _explicitNullValueModelName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_name"); else _explicitNullProperties?.Remove("model_name"); } }
+        public string ModelName { get => _explicitNullValueModelName; set { _explicitNullValueModelName = value; AdditionalData?.Remove("model_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_name"); else _explicitNullProperties?.Remove("model_name"); } }
         private string _explicitNullValueModelName = default!;
 #endif
         /// <summary>

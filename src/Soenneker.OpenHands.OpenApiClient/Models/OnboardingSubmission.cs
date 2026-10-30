@@ -18,7 +18,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("selections") is { } nullNodeSelections && nullNodeSelections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Selections = null;
+            if (parseNode.GetChildNode("selections") is null) { _explicitNullValueSelections = default!; _explicitNullProperties?.Remove("selections"); }
+            else if (parseNode.GetChildNode("selections") is { } nullNodeSelections && nullNodeSelections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Selections = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The selections property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OnboardingSubmissionSelectionsProperty? Selections { get => _explicitNullValueSelections; set { _explicitNullValueSelections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selections"); else _explicitNullProperties?.Remove("selections"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OnboardingSubmissionSelectionsProperty? Selections { get => _explicitNullValueSelections; set { _explicitNullValueSelections = value; AdditionalData?.Remove("selections"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selections"); else _explicitNullProperties?.Remove("selections"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.OnboardingSubmissionSelectionsProperty? _explicitNullValueSelections = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OnboardingSubmissionSelectionsProperty Selections { get => _explicitNullValueSelections; set { _explicitNullValueSelections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selections"); else _explicitNullProperties?.Remove("selections"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OnboardingSubmissionSelectionsProperty Selections { get => _explicitNullValueSelections; set { _explicitNullValueSelections = value; AdditionalData?.Remove("selections"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selections"); else _explicitNullProperties?.Remove("selections"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.OnboardingSubmissionSelectionsProperty _explicitNullValueSelections = default!;
 #endif
         /// <summary>

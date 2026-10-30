@@ -17,7 +17,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("device_code") is { } nullNodeDeviceCode && nullNodeDeviceCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeviceCode = null;
+            if (parseNode.GetChildNode("device_code") is null) { _explicitNullValueDeviceCode = default!; _explicitNullProperties?.Remove("device_code"); }
+            else if (parseNode.GetChildNode("device_code") is { } nullNodeDeviceCode && nullNodeDeviceCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeviceCode = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The device_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeviceCode { get => _explicitNullValueDeviceCode; set { _explicitNullValueDeviceCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device_code"); else _explicitNullProperties?.Remove("device_code"); } }
+        public string? DeviceCode { get => _explicitNullValueDeviceCode; set { _explicitNullValueDeviceCode = value; AdditionalData?.Remove("device_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device_code"); else _explicitNullProperties?.Remove("device_code"); } }
         private string? _explicitNullValueDeviceCode = default!;
 #nullable restore
 #else
-        public string DeviceCode { get => _explicitNullValueDeviceCode; set { _explicitNullValueDeviceCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device_code"); else _explicitNullProperties?.Remove("device_code"); } }
+        public string DeviceCode { get => _explicitNullValueDeviceCode; set { _explicitNullValueDeviceCode = value; AdditionalData?.Remove("device_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device_code"); else _explicitNullProperties?.Remove("device_code"); } }
         private string _explicitNullValueDeviceCode = default!;
 #endif
         /// <summary>

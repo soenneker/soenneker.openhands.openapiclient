@@ -18,38 +18,42 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("agent_profile_id") is { } nullNodeAgentProfileId && nullNodeAgentProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentProfileId = null;
-            if (parseNode.GetChildNode("llm_profile_ref") is { } nullNodeLlmProfileRef && nullNodeLlmProfileRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmProfileRef = null;
-            if (parseNode.GetChildNode("revision") is { } nullNodeRevision && nullNodeRevision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Revision = null;
-            if (parseNode.GetChildNode("secret_refs") is { } nullNodeSecretRefs && nullNodeSecretRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretRefs = null;
+            if (parseNode.GetChildNode("agent_profile_id") is null) { _explicitNullValueAgentProfileId = default!; _explicitNullProperties?.Remove("agent_profile_id"); }
+            else if (parseNode.GetChildNode("agent_profile_id") is { } nullNodeAgentProfileId && nullNodeAgentProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentProfileId = null;
+            if (parseNode.GetChildNode("llm_profile_ref") is null) { _explicitNullValueLlmProfileRef = default!; _explicitNullProperties?.Remove("llm_profile_ref"); }
+            else if (parseNode.GetChildNode("llm_profile_ref") is { } nullNodeLlmProfileRef && nullNodeLlmProfileRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmProfileRef = null;
+            if (parseNode.GetChildNode("revision") is null) { _explicitNullValueRevision = default!; _explicitNullProperties?.Remove("revision"); }
+            else if (parseNode.GetChildNode("revision") is { } nullNodeRevision && nullNodeRevision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Revision = null;
+            if (parseNode.GetChildNode("secret_refs") is null) { _explicitNullValueSecretRefs = default!; _explicitNullProperties?.Remove("secret_refs"); }
+            else if (parseNode.GetChildNode("secret_refs") is { } nullNodeSecretRefs && nullNodeSecretRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretRefs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Stable id of the agent profile that launched the conversation.</summary>
-        public Guid? AgentProfileId { get => _explicitNullValueAgentProfileId; set { _explicitNullValueAgentProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_profile_id"); else _explicitNullProperties?.Remove("agent_profile_id"); } }
+        public Guid? AgentProfileId { get => _explicitNullValueAgentProfileId; set { _explicitNullValueAgentProfileId = value; AdditionalData?.Remove("agent_profile_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_profile_id"); else _explicitNullProperties?.Remove("agent_profile_id"); } }
         private Guid? _explicitNullValueAgentProfileId = default!;
         /// <summary>Per-launch LLM profile override from `agent_launch_additions`. null means the profile&apos;s own `llm_profile_ref` was used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LlmProfileRef { get => _explicitNullValueLlmProfileRef; set { _explicitNullValueLlmProfileRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_profile_ref"); else _explicitNullProperties?.Remove("llm_profile_ref"); } }
+        public string? LlmProfileRef { get => _explicitNullValueLlmProfileRef; set { _explicitNullValueLlmProfileRef = value; AdditionalData?.Remove("llm_profile_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_profile_ref"); else _explicitNullProperties?.Remove("llm_profile_ref"); } }
         private string? _explicitNullValueLlmProfileRef = default!;
 #nullable restore
 #else
-        public string LlmProfileRef { get => _explicitNullValueLlmProfileRef; set { _explicitNullValueLlmProfileRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_profile_ref"); else _explicitNullProperties?.Remove("llm_profile_ref"); } }
+        public string LlmProfileRef { get => _explicitNullValueLlmProfileRef; set { _explicitNullValueLlmProfileRef = value; AdditionalData?.Remove("llm_profile_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_profile_ref"); else _explicitNullProperties?.Remove("llm_profile_ref"); } }
         private string _explicitNullValueLlmProfileRef = default!;
 #endif
         /// <summary>Revision of the agent profile at launch time.</summary>
-        public int? Revision { get => _explicitNullValueRevision; set { _explicitNullValueRevision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revision"); else _explicitNullProperties?.Remove("revision"); } }
+        public int? Revision { get => _explicitNullValueRevision; set { _explicitNullValueRevision = value; AdditionalData?.Remove("revision"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revision"); else _explicitNullProperties?.Remove("revision"); } }
         private int? _explicitNullValueRevision = default!;
         /// <summary>Secret allow-list captured at launch, also enforced on resume. null preserves unrestricted behavior for older conversations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SecretRefs { get => _explicitNullValueSecretRefs; set { _explicitNullValueSecretRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_refs"); else _explicitNullProperties?.Remove("secret_refs"); } }
+        public List<string>? SecretRefs { get => _explicitNullValueSecretRefs; set { _explicitNullValueSecretRefs = value; AdditionalData?.Remove("secret_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_refs"); else _explicitNullProperties?.Remove("secret_refs"); } }
         private List<string>? _explicitNullValueSecretRefs = default!;
 #nullable restore
 #else
-        public List<string> SecretRefs { get => _explicitNullValueSecretRefs; set { _explicitNullValueSecretRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_refs"); else _explicitNullProperties?.Remove("secret_refs"); } }
+        public List<string> SecretRefs { get => _explicitNullValueSecretRefs; set { _explicitNullValueSecretRefs = value; AdditionalData?.Remove("secret_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_refs"); else _explicitNullProperties?.Remove("secret_refs"); } }
         private List<string> _explicitNullValueSecretRefs = default!;
 #endif
         /// <summary>

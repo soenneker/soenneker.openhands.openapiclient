@@ -17,7 +17,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("user_code") is { } nullNodeUserCode && nullNodeUserCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserCode = null;
+            if (parseNode.GetChildNode("user_code") is null) { _explicitNullValueUserCode = default!; _explicitNullProperties?.Remove("user_code"); }
+            else if (parseNode.GetChildNode("user_code") is { } nullNodeUserCode && nullNodeUserCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserCode = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The user_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserCode { get => _explicitNullValueUserCode; set { _explicitNullValueUserCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_code"); else _explicitNullProperties?.Remove("user_code"); } }
+        public string? UserCode { get => _explicitNullValueUserCode; set { _explicitNullValueUserCode = value; AdditionalData?.Remove("user_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_code"); else _explicitNullProperties?.Remove("user_code"); } }
         private string? _explicitNullValueUserCode = default!;
 #nullable restore
 #else
-        public string UserCode { get => _explicitNullValueUserCode; set { _explicitNullValueUserCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_code"); else _explicitNullProperties?.Remove("user_code"); } }
+        public string UserCode { get => _explicitNullValueUserCode; set { _explicitNullValueUserCode = value; AdditionalData?.Remove("user_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_code"); else _explicitNullProperties?.Remove("user_code"); } }
         private string _explicitNullValueUserCode = default!;
 #endif
         /// <summary>

@@ -18,18 +18,30 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("current_datetime") is { } nullNodeCurrentDatetime && nullNodeCurrentDatetime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentDatetime = null;
-            if (parseNode.GetChildNode("disabled_skills") is { } nullNodeDisabledSkills && nullNodeDisabledSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisabledSkills = null;
-            if (parseNode.GetChildNode("load_memory") is { } nullNodeLoadMemory && nullNodeLoadMemory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadMemory = null;
-            if (parseNode.GetChildNode("load_project_skills") is { } nullNodeLoadProjectSkills && nullNodeLoadProjectSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadProjectSkills = null;
-            if (parseNode.GetChildNode("load_public_skills") is { } nullNodeLoadPublicSkills && nullNodeLoadPublicSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadPublicSkills = null;
-            if (parseNode.GetChildNode("load_user_skills") is { } nullNodeLoadUserSkills && nullNodeLoadUserSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadUserSkills = null;
-            if (parseNode.GetChildNode("marketplace_path") is { } nullNodeMarketplacePath && nullNodeMarketplacePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MarketplacePath = null;
-            if (parseNode.GetChildNode("registered_marketplaces") is { } nullNodeRegisteredMarketplaces && nullNodeRegisteredMarketplaces.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegisteredMarketplaces = null;
-            if (parseNode.GetChildNode("secrets") is { } nullNodeSecrets && nullNodeSecrets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Secrets = null;
-            if (parseNode.GetChildNode("skills") is { } nullNodeSkills && nullNodeSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Skills = null;
-            if (parseNode.GetChildNode("system_message_suffix") is { } nullNodeSystemMessageSuffix && nullNodeSystemMessageSuffix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SystemMessageSuffix = null;
-            if (parseNode.GetChildNode("user_message_suffix") is { } nullNodeUserMessageSuffix && nullNodeUserMessageSuffix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserMessageSuffix = null;
+            if (parseNode.GetChildNode("current_datetime") is null) { _explicitNullValueCurrentDatetime = default!; _explicitNullProperties?.Remove("current_datetime"); }
+            else if (parseNode.GetChildNode("current_datetime") is { } nullNodeCurrentDatetime && nullNodeCurrentDatetime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentDatetime = null;
+            if (parseNode.GetChildNode("disabled_skills") is null) { _explicitNullValueDisabledSkills = default!; _explicitNullProperties?.Remove("disabled_skills"); }
+            else if (parseNode.GetChildNode("disabled_skills") is { } nullNodeDisabledSkills && nullNodeDisabledSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisabledSkills = null;
+            if (parseNode.GetChildNode("load_memory") is null) { _explicitNullValueLoadMemory = default!; _explicitNullProperties?.Remove("load_memory"); }
+            else if (parseNode.GetChildNode("load_memory") is { } nullNodeLoadMemory && nullNodeLoadMemory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadMemory = null;
+            if (parseNode.GetChildNode("load_project_skills") is null) { _explicitNullValueLoadProjectSkills = default!; _explicitNullProperties?.Remove("load_project_skills"); }
+            else if (parseNode.GetChildNode("load_project_skills") is { } nullNodeLoadProjectSkills && nullNodeLoadProjectSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadProjectSkills = null;
+            if (parseNode.GetChildNode("load_public_skills") is null) { _explicitNullValueLoadPublicSkills = default!; _explicitNullProperties?.Remove("load_public_skills"); }
+            else if (parseNode.GetChildNode("load_public_skills") is { } nullNodeLoadPublicSkills && nullNodeLoadPublicSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadPublicSkills = null;
+            if (parseNode.GetChildNode("load_user_skills") is null) { _explicitNullValueLoadUserSkills = default!; _explicitNullProperties?.Remove("load_user_skills"); }
+            else if (parseNode.GetChildNode("load_user_skills") is { } nullNodeLoadUserSkills && nullNodeLoadUserSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadUserSkills = null;
+            if (parseNode.GetChildNode("marketplace_path") is null) { _explicitNullValueMarketplacePath = default!; _explicitNullProperties?.Remove("marketplace_path"); }
+            else if (parseNode.GetChildNode("marketplace_path") is { } nullNodeMarketplacePath && nullNodeMarketplacePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MarketplacePath = null;
+            if (parseNode.GetChildNode("registered_marketplaces") is null) { _explicitNullValueRegisteredMarketplaces = default!; _explicitNullProperties?.Remove("registered_marketplaces"); }
+            else if (parseNode.GetChildNode("registered_marketplaces") is { } nullNodeRegisteredMarketplaces && nullNodeRegisteredMarketplaces.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegisteredMarketplaces = null;
+            if (parseNode.GetChildNode("secrets") is null) { _explicitNullValueSecrets = default!; _explicitNullProperties?.Remove("secrets"); }
+            else if (parseNode.GetChildNode("secrets") is { } nullNodeSecrets && nullNodeSecrets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Secrets = null;
+            if (parseNode.GetChildNode("skills") is null) { _explicitNullValueSkills = default!; _explicitNullProperties?.Remove("skills"); }
+            else if (parseNode.GetChildNode("skills") is { } nullNodeSkills && nullNodeSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Skills = null;
+            if (parseNode.GetChildNode("system_message_suffix") is null) { _explicitNullValueSystemMessageSuffix = default!; _explicitNullProperties?.Remove("system_message_suffix"); }
+            else if (parseNode.GetChildNode("system_message_suffix") is { } nullNodeSystemMessageSuffix && nullNodeSystemMessageSuffix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SystemMessageSuffix = null;
+            if (parseNode.GetChildNode("user_message_suffix") is null) { _explicitNullValueUserMessageSuffix = default!; _explicitNullProperties?.Remove("user_message_suffix"); }
+            else if (parseNode.GetChildNode("user_message_suffix") is { } nullNodeUserMessageSuffix && nullNodeUserMessageSuffix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserMessageSuffix = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -37,94 +49,94 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Current date and time information to provide to the agent. Can be a datetime object (which will be formatted as ISO 8601) or a pre-formatted string. When provided, this information is included in the system prompt to give the agent awareness of the current time context. Defaults to the current (timezone-aware) datetime.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetime? CurrentDatetime { get => _explicitNullValueCurrentDatetime; set { _explicitNullValueCurrentDatetime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_datetime"); else _explicitNullProperties?.Remove("current_datetime"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetime? _explicitNullValueCurrentDatetime = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime? CurrentDatetime { get => _explicitNullValueCurrentDatetime; set { _explicitNullValueCurrentDatetime = value; AdditionalData?.Remove("current_datetime"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_datetime"); else _explicitNullProperties?.Remove("current_datetime"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime? _explicitNullValueCurrentDatetime = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetime CurrentDatetime { get => _explicitNullValueCurrentDatetime; set { _explicitNullValueCurrentDatetime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_datetime"); else _explicitNullProperties?.Remove("current_datetime"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetime _explicitNullValueCurrentDatetime = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime CurrentDatetime { get => _explicitNullValueCurrentDatetime; set { _explicitNullValueCurrentDatetime = value; AdditionalData?.Remove("current_datetime"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_datetime"); else _explicitNullProperties?.Remove("current_datetime"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime _explicitNullValueCurrentDatetime = default!;
 #endif
         /// <summary>Names of skills to EXCLUDE from this context — a deny-list applied after every skill source is loaded (auto-loaded user/public, explicit, and lazily-loaded project skills). A listed name absent from the loaded set is a harmless no-op. [] (the default) keeps every skill. This is the single, drift-tolerant skill-selection mechanism (agent profiles set it from their own deny-list; #4017).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DisabledSkills { get => _explicitNullValueDisabledSkills; set { _explicitNullValueDisabledSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled_skills"); else _explicitNullProperties?.Remove("disabled_skills"); } }
+        public List<string>? DisabledSkills { get => _explicitNullValueDisabledSkills; set { _explicitNullValueDisabledSkills = value; AdditionalData?.Remove("disabled_skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled_skills"); else _explicitNullProperties?.Remove("disabled_skills"); } }
         private List<string>? _explicitNullValueDisabledSkills = default!;
 #nullable restore
 #else
-        public List<string> DisabledSkills { get => _explicitNullValueDisabledSkills; set { _explicitNullValueDisabledSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled_skills"); else _explicitNullProperties?.Remove("disabled_skills"); } }
+        public List<string> DisabledSkills { get => _explicitNullValueDisabledSkills; set { _explicitNullValueDisabledSkills = value; AdditionalData?.Remove("disabled_skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled_skills"); else _explicitNullProperties?.Remove("disabled_skills"); } }
         private List<string> _explicitNullValueDisabledSkills = default!;
 #endif
         /// <summary>Whether to load persistent agent memory (MEMORY.md indexes under ~/.openhands/memory/ and &lt;workspace&gt;/.openhands/memory/) into the system prompt. Like load_project_skills, this flag is not resolved by AgentContext itself (the workspace path is unknown at validation time); LocalConversation resolves it lazily on the first send_message() / run() and stores the result in memory_context.</summary>
-        public bool? LoadMemory { get => _explicitNullValueLoadMemory; set { _explicitNullValueLoadMemory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_memory"); else _explicitNullProperties?.Remove("load_memory"); } }
+        public bool? LoadMemory { get => _explicitNullValueLoadMemory; set { _explicitNullValueLoadMemory = value; AdditionalData?.Remove("load_memory"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_memory"); else _explicitNullProperties?.Remove("load_memory"); } }
         private bool? _explicitNullValueLoadMemory = default!;
         /// <summary>Whether to automatically load project skills from the conversation workspace (e.g. .openhands/skills/, AGENTS.md). Unlike load_user_skills / load_public_skills, this flag is not resolved by AgentContext itself (the workspace path is unknown at validation time); LocalConversation resolves it lazily on the first send_message() / run(), when the workspace is known. Also unlike load_user_skills / load_public_skills (which yield to explicit skills on a name conflict), resolved project skills are authoritative: a project skill overrides a same-named skill already present in `skills`.</summary>
-        public bool? LoadProjectSkills { get => _explicitNullValueLoadProjectSkills; set { _explicitNullValueLoadProjectSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_project_skills"); else _explicitNullProperties?.Remove("load_project_skills"); } }
+        public bool? LoadProjectSkills { get => _explicitNullValueLoadProjectSkills; set { _explicitNullValueLoadProjectSkills = value; AdditionalData?.Remove("load_project_skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_project_skills"); else _explicitNullProperties?.Remove("load_project_skills"); } }
         private bool? _explicitNullValueLoadProjectSkills = default!;
         /// <summary>Whether to automatically load skills from the public OpenHands skills repository at https://github.com/OpenHands/extensions. This allows you to get the latest skills without SDK updates.</summary>
-        public bool? LoadPublicSkills { get => _explicitNullValueLoadPublicSkills; set { _explicitNullValueLoadPublicSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_public_skills"); else _explicitNullProperties?.Remove("load_public_skills"); } }
+        public bool? LoadPublicSkills { get => _explicitNullValueLoadPublicSkills; set { _explicitNullValueLoadPublicSkills = value; AdditionalData?.Remove("load_public_skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_public_skills"); else _explicitNullProperties?.Remove("load_public_skills"); } }
         private bool? _explicitNullValueLoadPublicSkills = default!;
         /// <summary>Whether to automatically load user skills from ~/.openhands/skills/ and ~/.openhands/microagents/ (for backward compatibility). </summary>
-        public bool? LoadUserSkills { get => _explicitNullValueLoadUserSkills; set { _explicitNullValueLoadUserSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_user_skills"); else _explicitNullProperties?.Remove("load_user_skills"); } }
+        public bool? LoadUserSkills { get => _explicitNullValueLoadUserSkills; set { _explicitNullValueLoadUserSkills = value; AdditionalData?.Remove("load_user_skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("load_user_skills"); else _explicitNullProperties?.Remove("load_user_skills"); } }
         private bool? _explicitNullValueLoadUserSkills = default!;
         /// <summary>Relative marketplace JSON path within the public skills repository. Set to None to load all public skills without marketplace filtering.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputMarketplacePath? MarketplacePath { get => _explicitNullValueMarketplacePath; set { _explicitNullValueMarketplacePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("marketplace_path"); else _explicitNullProperties?.Remove("marketplace_path"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputMarketplacePath? _explicitNullValueMarketplacePath = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMarketplacePath? MarketplacePath { get => _explicitNullValueMarketplacePath; set { _explicitNullValueMarketplacePath = value; AdditionalData?.Remove("marketplace_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("marketplace_path"); else _explicitNullProperties?.Remove("marketplace_path"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMarketplacePath? _explicitNullValueMarketplacePath = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputMarketplacePath MarketplacePath { get => _explicitNullValueMarketplacePath; set { _explicitNullValueMarketplacePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("marketplace_path"); else _explicitNullProperties?.Remove("marketplace_path"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputMarketplacePath _explicitNullValueMarketplacePath = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMarketplacePath MarketplacePath { get => _explicitNullValueMarketplacePath; set { _explicitNullValueMarketplacePath = value; AdditionalData?.Remove("marketplace_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("marketplace_path"); else _explicitNullProperties?.Remove("marketplace_path"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMarketplacePath _explicitNullValueMarketplacePath = default!;
 #endif
         /// <summary>Marketplace registrations for plugin resolution. Registrations with auto_load=True or a list of plugin names are resolved by LocalConversation at startup.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration>? RegisteredMarketplaces { get => _explicitNullValueRegisteredMarketplaces; set { _explicitNullValueRegisteredMarketplaces = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registered_marketplaces"); else _explicitNullProperties?.Remove("registered_marketplaces"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration>? RegisteredMarketplaces { get => _explicitNullValueRegisteredMarketplaces; set { _explicitNullValueRegisteredMarketplaces = value; AdditionalData?.Remove("registered_marketplaces"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registered_marketplaces"); else _explicitNullProperties?.Remove("registered_marketplaces"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration>? _explicitNullValueRegisteredMarketplaces = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration> RegisteredMarketplaces { get => _explicitNullValueRegisteredMarketplaces; set { _explicitNullValueRegisteredMarketplaces = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registered_marketplaces"); else _explicitNullProperties?.Remove("registered_marketplaces"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration> RegisteredMarketplaces { get => _explicitNullValueRegisteredMarketplaces; set { _explicitNullValueRegisteredMarketplaces = value; AdditionalData?.Remove("registered_marketplaces"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registered_marketplaces"); else _explicitNullProperties?.Remove("registered_marketplaces"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration> _explicitNullValueRegisteredMarketplaces = default!;
 #endif
         /// <summary>Dictionary mapping secret keys to values or secret sources. Secrets are used for authentication and sensitive data handling. Values can be either strings or SecretSource instances (str | SecretSource).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Secrets { get => _explicitNullValueSecrets; set { _explicitNullValueSecrets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secrets"); else _explicitNullProperties?.Remove("secrets"); } }
+        public UntypedNode? Secrets { get => _explicitNullValueSecrets; set { _explicitNullValueSecrets = value; AdditionalData?.Remove("secrets"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secrets"); else _explicitNullProperties?.Remove("secrets"); } }
         private UntypedNode? _explicitNullValueSecrets = default!;
 #nullable restore
 #else
-        public UntypedNode Secrets { get => _explicitNullValueSecrets; set { _explicitNullValueSecrets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secrets"); else _explicitNullProperties?.Remove("secrets"); } }
+        public UntypedNode Secrets { get => _explicitNullValueSecrets; set { _explicitNullValueSecrets = value; AdditionalData?.Remove("secrets"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secrets"); else _explicitNullProperties?.Remove("secrets"); } }
         private UntypedNode _explicitNullValueSecrets = default!;
 #endif
         /// <summary>List of available skills that can extend the user&apos;s input.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillOutput>? Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillOutput>? Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; AdditionalData?.Remove("skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillOutput>? _explicitNullValueSkills = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillOutput> Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillOutput> Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; AdditionalData?.Remove("skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.SkillOutput> _explicitNullValueSkills = default!;
 #endif
         /// <summary>Optional suffix to append to the system prompt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSystemMessageSuffix? SystemMessageSuffix { get => _explicitNullValueSystemMessageSuffix; set { _explicitNullValueSystemMessageSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("system_message_suffix"); else _explicitNullProperties?.Remove("system_message_suffix"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSystemMessageSuffix? _explicitNullValueSystemMessageSuffix = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSystemMessageSuffix? SystemMessageSuffix { get => _explicitNullValueSystemMessageSuffix; set { _explicitNullValueSystemMessageSuffix = value; AdditionalData?.Remove("system_message_suffix"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("system_message_suffix"); else _explicitNullProperties?.Remove("system_message_suffix"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSystemMessageSuffix? _explicitNullValueSystemMessageSuffix = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSystemMessageSuffix SystemMessageSuffix { get => _explicitNullValueSystemMessageSuffix; set { _explicitNullValueSystemMessageSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("system_message_suffix"); else _explicitNullProperties?.Remove("system_message_suffix"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSystemMessageSuffix _explicitNullValueSystemMessageSuffix = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSystemMessageSuffix SystemMessageSuffix { get => _explicitNullValueSystemMessageSuffix; set { _explicitNullValueSystemMessageSuffix = value; AdditionalData?.Remove("system_message_suffix"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("system_message_suffix"); else _explicitNullProperties?.Remove("system_message_suffix"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSystemMessageSuffix _explicitNullValueSystemMessageSuffix = default!;
 #endif
         /// <summary>Optional suffix to append to the user&apos;s message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputUserMessageSuffix? UserMessageSuffix { get => _explicitNullValueUserMessageSuffix; set { _explicitNullValueUserMessageSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_message_suffix"); else _explicitNullProperties?.Remove("user_message_suffix"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputUserMessageSuffix? _explicitNullValueUserMessageSuffix = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputUserMessageSuffix? UserMessageSuffix { get => _explicitNullValueUserMessageSuffix; set { _explicitNullValueUserMessageSuffix = value; AdditionalData?.Remove("user_message_suffix"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_message_suffix"); else _explicitNullProperties?.Remove("user_message_suffix"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputUserMessageSuffix? _explicitNullValueUserMessageSuffix = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputUserMessageSuffix UserMessageSuffix { get => _explicitNullValueUserMessageSuffix; set { _explicitNullValueUserMessageSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_message_suffix"); else _explicitNullProperties?.Remove("user_message_suffix"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputUserMessageSuffix _explicitNullValueUserMessageSuffix = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputUserMessageSuffix UserMessageSuffix { get => _explicitNullValueUserMessageSuffix; set { _explicitNullValueUserMessageSuffix = value; AdditionalData?.Remove("user_message_suffix"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_message_suffix"); else _explicitNullProperties?.Remove("user_message_suffix"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputUserMessageSuffix _explicitNullValueUserMessageSuffix = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput"/> and sets the default values.
@@ -155,18 +167,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "current_datetime", n => { CurrentDatetime = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetime>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetime.CreateFromDiscriminatorValue); } },
+                { "current_datetime", n => { CurrentDatetime = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime.CreateFromDiscriminatorValue); } },
                 { "disabled_skills", n => { DisabledSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "load_memory", n => { LoadMemory = n.GetBoolValue(); } },
                 { "load_project_skills", n => { LoadProjectSkills = n.GetBoolValue(); } },
                 { "load_public_skills", n => { LoadPublicSkills = n.GetBoolValue(); } },
                 { "load_user_skills", n => { LoadUserSkills = n.GetBoolValue(); } },
-                { "marketplace_path", n => { MarketplacePath = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputMarketplacePath>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputMarketplacePath.CreateFromDiscriminatorValue); } },
+                { "marketplace_path", n => { MarketplacePath = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMarketplacePath>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMarketplacePath.CreateFromDiscriminatorValue); } },
                 { "registered_marketplaces", n => { RegisteredMarketplaces = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "secrets", n => { Secrets = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "skills", n => { Skills = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.SkillOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillOutput.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "system_message_suffix", n => { SystemMessageSuffix = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSystemMessageSuffix>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSystemMessageSuffix.CreateFromDiscriminatorValue); } },
-                { "user_message_suffix", n => { UserMessageSuffix = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputUserMessageSuffix>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputUserMessageSuffix.CreateFromDiscriminatorValue); } },
+                { "system_message_suffix", n => { SystemMessageSuffix = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSystemMessageSuffix>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSystemMessageSuffix.CreateFromDiscriminatorValue); } },
+                { "user_message_suffix", n => { UserMessageSuffix = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputUserMessageSuffix>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputUserMessageSuffix.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -176,18 +188,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputCurrentDatetime>("current_datetime", CurrentDatetime);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime>("current_datetime", CurrentDatetime);
             writer.WriteCollectionOfPrimitiveValues<string>("disabled_skills", DisabledSkills);
             writer.WriteBoolValue("load_memory", LoadMemory);
             writer.WriteBoolValue("load_project_skills", LoadProjectSkills);
             writer.WriteBoolValue("load_public_skills", LoadPublicSkills);
             writer.WriteBoolValue("load_user_skills", LoadUserSkills);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputMarketplacePath>("marketplace_path", MarketplacePath);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputMarketplacePath>("marketplace_path", MarketplacePath);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkMarketplaceRegistrationMarketplaceRegistration>("registered_marketplaces", RegisteredMarketplaces);
             writer.WriteObjectValue<UntypedNode>("secrets", Secrets);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.SkillOutput>("skills", Skills);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputSystemMessageSuffix>("system_message_suffix", SystemMessageSuffix);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutputUserMessageSuffix>("user_message_suffix", UserMessageSuffix);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputSystemMessageSuffix>("system_message_suffix", SystemMessageSuffix);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputUserMessageSuffix>("user_message_suffix", UserMessageSuffix);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

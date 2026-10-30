@@ -17,11 +17,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("oauth_state") is { } nullNodeOauthState && nullNodeOauthState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthState = null;
-            if (parseNode.GetChildNode("ok") is { } nullNodeOk && nullNodeOk.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ok = null;
-            if (parseNode.GetChildNode("resolved_mcp_servers") is { } nullNodeResolvedMcpServers && nullNodeResolvedMcpServers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResolvedMcpServers = null;
-            if (parseNode.GetChildNode("tool_result") is { } nullNodeToolResult && nullNodeToolResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolResult = null;
-            if (parseNode.GetChildNode("tools") is { } nullNodeTools && nullNodeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tools = null;
+            if (parseNode.GetChildNode("oauth_state") is null) { _explicitNullValueOauthState = default!; _explicitNullProperties?.Remove("oauth_state"); }
+            else if (parseNode.GetChildNode("oauth_state") is { } nullNodeOauthState && nullNodeOauthState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthState = null;
+            if (parseNode.GetChildNode("ok") is null) { _explicitNullValueOk = default!; _explicitNullProperties?.Remove("ok"); }
+            else if (parseNode.GetChildNode("ok") is { } nullNodeOk && nullNodeOk.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ok = null;
+            if (parseNode.GetChildNode("resolved_mcp_servers") is null) { _explicitNullValueResolvedMcpServers = default!; _explicitNullProperties?.Remove("resolved_mcp_servers"); }
+            else if (parseNode.GetChildNode("resolved_mcp_servers") is { } nullNodeResolvedMcpServers && nullNodeResolvedMcpServers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResolvedMcpServers = null;
+            if (parseNode.GetChildNode("tool_result") is null) { _explicitNullValueToolResult = default!; _explicitNullProperties?.Remove("tool_result"); }
+            else if (parseNode.GetChildNode("tool_result") is { } nullNodeToolResult && nullNodeToolResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolResult = null;
+            if (parseNode.GetChildNode("tools") is null) { _explicitNullValueTools = default!; _explicitNullProperties?.Remove("tools"); }
+            else if (parseNode.GetChildNode("tools") is { } nullNodeTools && nullNodeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tools = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,45 +34,45 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Serialized OAuth state acquired or refreshed by the probe. Clients should persist this under the tested server&apos;s auth.state.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput? OauthState { get => _explicitNullValueOauthState; set { _explicitNullValueOauthState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_state"); else _explicitNullProperties?.Remove("oauth_state"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput? OauthState { get => _explicitNullValueOauthState; set { _explicitNullValueOauthState = value; AdditionalData?.Remove("oauth_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_state"); else _explicitNullProperties?.Remove("oauth_state"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput? _explicitNullValueOauthState = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput OauthState { get => _explicitNullValueOauthState; set { _explicitNullValueOauthState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_state"); else _explicitNullProperties?.Remove("oauth_state"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput OauthState { get => _explicitNullValueOauthState; set { _explicitNullValueOauthState = value; AdditionalData?.Remove("oauth_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_state"); else _explicitNullProperties?.Remove("oauth_state"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput _explicitNullValueOauthState = default!;
 #endif
         /// <summary>The ok property</summary>
-        public bool? Ok { get => _explicitNullValueOk; set { _explicitNullValueOk = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ok"); else _explicitNullProperties?.Remove("ok"); } }
+        public bool? Ok { get => _explicitNullValueOk; set { _explicitNullValueOk = value; AdditionalData?.Remove("ok"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ok"); else _explicitNullProperties?.Remove("ok"); } }
         private bool? _explicitNullValueOk = default!;
         /// <summary>Deprecated compatibility field for older clients that expected resolved MCP server metadata in test responses.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessResolvedMcpServersItemProperty>? ResolvedMcpServers { get => _explicitNullValueResolvedMcpServers; set { _explicitNullValueResolvedMcpServers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_mcp_servers"); else _explicitNullProperties?.Remove("resolved_mcp_servers"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessResolvedMcpServersItemProperty>? ResolvedMcpServers { get => _explicitNullValueResolvedMcpServers; set { _explicitNullValueResolvedMcpServers = value; AdditionalData?.Remove("resolved_mcp_servers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_mcp_servers"); else _explicitNullProperties?.Remove("resolved_mcp_servers"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessResolvedMcpServersItemProperty>? _explicitNullValueResolvedMcpServers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessResolvedMcpServersItemProperty> ResolvedMcpServers { get => _explicitNullValueResolvedMcpServers; set { _explicitNullValueResolvedMcpServers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_mcp_servers"); else _explicitNullProperties?.Remove("resolved_mcp_servers"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessResolvedMcpServersItemProperty> ResolvedMcpServers { get => _explicitNullValueResolvedMcpServers; set { _explicitNullValueResolvedMcpServers = value; AdditionalData?.Remove("resolved_mcp_servers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_mcp_servers"); else _explicitNullProperties?.Remove("resolved_mcp_servers"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessResolvedMcpServersItemProperty> _explicitNullValueResolvedMcpServers = default!;
 #endif
         /// <summary>Outcome of the requested `tool_call`, when one was supplied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult? ToolResult { get => _explicitNullValueToolResult; set { _explicitNullValueToolResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_result"); else _explicitNullProperties?.Remove("tool_result"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult? ToolResult { get => _explicitNullValueToolResult; set { _explicitNullValueToolResult = value; AdditionalData?.Remove("tool_result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_result"); else _explicitNullProperties?.Remove("tool_result"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult? _explicitNullValueToolResult = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult ToolResult { get => _explicitNullValueToolResult; set { _explicitNullValueToolResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_result"); else _explicitNullProperties?.Remove("tool_result"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult ToolResult { get => _explicitNullValueToolResult; set { _explicitNullValueToolResult = value; AdditionalData?.Remove("tool_result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_result"); else _explicitNullProperties?.Remove("tool_result"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult _explicitNullValueToolResult = default!;
 #endif
         /// <summary>Names of tools advertised by the MCP server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        public List<string>? Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; AdditionalData?.Remove("tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
         private List<string>? _explicitNullValueTools = default!;
 #nullable restore
 #else
-        public List<string> Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        public List<string> Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; AdditionalData?.Remove("tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
         private List<string> _explicitNullValueTools = default!;
 #endif
         /// <summary>

@@ -17,28 +17,31 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cache_prompt") is { } nullNodeCachePrompt && nullNodeCachePrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachePrompt = null;
-            if (parseNode.GetChildNode("image_urls") is { } nullNodeImageUrls && nullNodeImageUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageUrls = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("cache_prompt") is null) { _explicitNullValueCachePrompt = default!; _explicitNullProperties?.Remove("cache_prompt"); }
+            else if (parseNode.GetChildNode("cache_prompt") is { } nullNodeCachePrompt && nullNodeCachePrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachePrompt = null;
+            if (parseNode.GetChildNode("image_urls") is null) { _explicitNullValueImageUrls = default!; _explicitNullProperties?.Remove("image_urls"); }
+            else if (parseNode.GetChildNode("image_urls") is { } nullNodeImageUrls && nullNodeImageUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageUrls = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The cache_prompt property</summary>
-        public bool? CachePrompt { get => _explicitNullValueCachePrompt; set { _explicitNullValueCachePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_prompt"); else _explicitNullProperties?.Remove("cache_prompt"); } }
+        public bool? CachePrompt { get => _explicitNullValueCachePrompt; set { _explicitNullValueCachePrompt = value; AdditionalData?.Remove("cache_prompt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_prompt"); else _explicitNullProperties?.Remove("cache_prompt"); } }
         private bool? _explicitNullValueCachePrompt = default!;
         /// <summary>The image_urls property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ImageUrls { get => _explicitNullValueImageUrls; set { _explicitNullValueImageUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_urls"); else _explicitNullProperties?.Remove("image_urls"); } }
+        public List<string>? ImageUrls { get => _explicitNullValueImageUrls; set { _explicitNullValueImageUrls = value; AdditionalData?.Remove("image_urls"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_urls"); else _explicitNullProperties?.Remove("image_urls"); } }
         private List<string>? _explicitNullValueImageUrls = default!;
 #nullable restore
 #else
-        public List<string> ImageUrls { get => _explicitNullValueImageUrls; set { _explicitNullValueImageUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_urls"); else _explicitNullProperties?.Remove("image_urls"); } }
+        public List<string> ImageUrls { get => _explicitNullValueImageUrls; set { _explicitNullValueImageUrls = value; AdditionalData?.Remove("image_urls"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_urls"); else _explicitNullProperties?.Remove("image_urls"); } }
         private List<string> _explicitNullValueImageUrls = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ImageType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ImageType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.ImageType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ImageContent"/> and sets the default values.
@@ -68,7 +71,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "cache_prompt", n => { CachePrompt = n.GetBoolValue(); } },
                 { "image_urls", n => { ImageUrls = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ImageType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ImageType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

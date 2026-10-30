@@ -18,67 +18,73 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("env_points_to") is { } nullNodeEnvPointsTo && nullNodeEnvPointsTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnvPointsTo = null;
-            if (parseNode.GetChildNode("env_var") is { } nullNodeEnvVar && nullNodeEnvVar.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnvVar = null;
-            if (parseNode.GetChildNode("filename") is { } nullNodeFilename && nullNodeFilename.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filename = null;
-            if (parseNode.GetChildNode("secret_name") is { } nullNodeSecretName && nullNodeSecretName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretName = null;
-            if (parseNode.GetChildNode("subdir") is { } nullNodeSubdir && nullNodeSubdir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Subdir = null;
-            if (parseNode.GetChildNode("warn_if_unset") is { } nullNodeWarnIfUnset && nullNodeWarnIfUnset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WarnIfUnset = null;
+            if (parseNode.GetChildNode("env_points_to") is null) { _explicitNullValueEnvPointsTo = default!; _explicitNullProperties?.Remove("env_points_to"); }
+            else if (parseNode.GetChildNode("env_points_to") is { } nullNodeEnvPointsTo && nullNodeEnvPointsTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnvPointsTo = null;
+            if (parseNode.GetChildNode("env_var") is null) { _explicitNullValueEnvVar = default!; _explicitNullProperties?.Remove("env_var"); }
+            else if (parseNode.GetChildNode("env_var") is { } nullNodeEnvVar && nullNodeEnvVar.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnvVar = null;
+            if (parseNode.GetChildNode("filename") is null) { _explicitNullValueFilename = default!; _explicitNullProperties?.Remove("filename"); }
+            else if (parseNode.GetChildNode("filename") is { } nullNodeFilename && nullNodeFilename.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filename = null;
+            if (parseNode.GetChildNode("secret_name") is null) { _explicitNullValueSecretName = default!; _explicitNullProperties?.Remove("secret_name"); }
+            else if (parseNode.GetChildNode("secret_name") is { } nullNodeSecretName && nullNodeSecretName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretName = null;
+            if (parseNode.GetChildNode("subdir") is null) { _explicitNullValueSubdir = default!; _explicitNullProperties?.Remove("subdir"); }
+            else if (parseNode.GetChildNode("subdir") is { } nullNodeSubdir && nullNodeSubdir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Subdir = null;
+            if (parseNode.GetChildNode("warn_if_unset") is null) { _explicitNullValueWarnIfUnset = default!; _explicitNullProperties?.Remove("warn_if_unset"); }
+            else if (parseNode.GetChildNode("warn_if_unset") is { } nullNodeWarnIfUnset && nullNodeWarnIfUnset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WarnIfUnset = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The env_points_to property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpecEnvPointsTo? EnvPointsTo { get => _explicitNullValueEnvPointsTo; set { _explicitNullValueEnvPointsTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("env_points_to"); else _explicitNullProperties?.Remove("env_points_to"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpecEnvPointsTo? EnvPointsTo { get => _explicitNullValueEnvPointsTo; set { _explicitNullValueEnvPointsTo = value; AdditionalData?.Remove("env_points_to"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("env_points_to"); else _explicitNullProperties?.Remove("env_points_to"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpecEnvPointsTo? _explicitNullValueEnvPointsTo = default!;
         /// <summary>The env_var property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EnvVar { get => _explicitNullValueEnvVar; set { _explicitNullValueEnvVar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("env_var"); else _explicitNullProperties?.Remove("env_var"); } }
+        public string? EnvVar { get => _explicitNullValueEnvVar; set { _explicitNullValueEnvVar = value; AdditionalData?.Remove("env_var"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("env_var"); else _explicitNullProperties?.Remove("env_var"); } }
         private string? _explicitNullValueEnvVar = default!;
 #nullable restore
 #else
-        public string EnvVar { get => _explicitNullValueEnvVar; set { _explicitNullValueEnvVar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("env_var"); else _explicitNullProperties?.Remove("env_var"); } }
+        public string EnvVar { get => _explicitNullValueEnvVar; set { _explicitNullValueEnvVar = value; AdditionalData?.Remove("env_var"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("env_var"); else _explicitNullProperties?.Remove("env_var"); } }
         private string _explicitNullValueEnvVar = default!;
 #endif
         /// <summary>The filename property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
+        public string? Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; AdditionalData?.Remove("filename"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
         private string? _explicitNullValueFilename = default!;
 #nullable restore
 #else
-        public string Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
+        public string Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; AdditionalData?.Remove("filename"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
         private string _explicitNullValueFilename = default!;
 #endif
         /// <summary>The secret_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SecretName { get => _explicitNullValueSecretName; set { _explicitNullValueSecretName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_name"); else _explicitNullProperties?.Remove("secret_name"); } }
+        public string? SecretName { get => _explicitNullValueSecretName; set { _explicitNullValueSecretName = value; AdditionalData?.Remove("secret_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_name"); else _explicitNullProperties?.Remove("secret_name"); } }
         private string? _explicitNullValueSecretName = default!;
 #nullable restore
 #else
-        public string SecretName { get => _explicitNullValueSecretName; set { _explicitNullValueSecretName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_name"); else _explicitNullProperties?.Remove("secret_name"); } }
+        public string SecretName { get => _explicitNullValueSecretName; set { _explicitNullValueSecretName = value; AdditionalData?.Remove("secret_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_name"); else _explicitNullProperties?.Remove("secret_name"); } }
         private string _explicitNullValueSecretName = default!;
 #endif
         /// <summary>The subdir property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Subdir { get => _explicitNullValueSubdir; set { _explicitNullValueSubdir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subdir"); else _explicitNullProperties?.Remove("subdir"); } }
+        public string? Subdir { get => _explicitNullValueSubdir; set { _explicitNullValueSubdir = value; AdditionalData?.Remove("subdir"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subdir"); else _explicitNullProperties?.Remove("subdir"); } }
         private string? _explicitNullValueSubdir = default!;
 #nullable restore
 #else
-        public string Subdir { get => _explicitNullValueSubdir; set { _explicitNullValueSubdir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subdir"); else _explicitNullProperties?.Remove("subdir"); } }
+        public string Subdir { get => _explicitNullValueSubdir; set { _explicitNullValueSubdir = value; AdditionalData?.Remove("subdir"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subdir"); else _explicitNullProperties?.Remove("subdir"); } }
         private string _explicitNullValueSubdir = default!;
 #endif
         /// <summary>The warn_if_unset property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? WarnIfUnset { get => _explicitNullValueWarnIfUnset; set { _explicitNullValueWarnIfUnset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warn_if_unset"); else _explicitNullProperties?.Remove("warn_if_unset"); } }
+        public List<string>? WarnIfUnset { get => _explicitNullValueWarnIfUnset; set { _explicitNullValueWarnIfUnset = value; AdditionalData?.Remove("warn_if_unset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warn_if_unset"); else _explicitNullProperties?.Remove("warn_if_unset"); } }
         private List<string>? _explicitNullValueWarnIfUnset = default!;
 #nullable restore
 #else
-        public List<string> WarnIfUnset { get => _explicitNullValueWarnIfUnset; set { _explicitNullValueWarnIfUnset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warn_if_unset"); else _explicitNullProperties?.Remove("warn_if_unset"); } }
+        public List<string> WarnIfUnset { get => _explicitNullValueWarnIfUnset; set { _explicitNullValueWarnIfUnset = value; AdditionalData?.Remove("warn_if_unset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warn_if_unset"); else _explicitNullProperties?.Remove("warn_if_unset"); } }
         private List<string> _explicitNullValueWarnIfUnset = default!;
 #endif
         /// <summary>
@@ -106,7 +112,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "env_points_to", n => { EnvPointsTo = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpecEnvPointsTo>(); } },
+                { "env_points_to", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpecEnvPointsTo>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEnvPointsTo = default; _explicitNullProperties?.Remove("env_points_to"); AdditionalData["env_points_to"] = unknown; } else { EnvPointsTo = parsed; AdditionalData.Remove("env_points_to"); } } },
                 { "env_var", n => { EnvVar = n.GetStringValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
                 { "secret_name", n => { SecretName = n.GetStringValue(); } },

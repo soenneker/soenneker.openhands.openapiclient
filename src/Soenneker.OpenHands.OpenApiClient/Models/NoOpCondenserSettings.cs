@@ -18,17 +18,19 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("condenser_kind") is { } nullNodeCondenserKind && nullNodeCondenserKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CondenserKind = null;
-            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("condenser_kind") is null) { _explicitNullValueCondenserKind = default!; _explicitNullProperties?.Remove("condenser_kind"); }
+            else if (parseNode.GetChildNode("condenser_kind") is { } nullNodeCondenserKind && nullNodeCondenserKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CondenserKind = null;
+            if (parseNode.GetChildNode("enabled") is null) { _explicitNullValueEnabled = default!; _explicitNullProperties?.Remove("enabled"); }
+            else if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Discriminator for the condenser settings union. ``&apos;no_op&apos;`` selects a condenser that leaves conversation views unchanged.</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.NoOpCondenserSettingsCondenserKind? CondenserKind { get => _explicitNullValueCondenserKind; set { _explicitNullValueCondenserKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condenser_kind"); else _explicitNullProperties?.Remove("condenser_kind"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.NoOpCondenserSettingsCondenserKind? CondenserKind { get => _explicitNullValueCondenserKind; set { _explicitNullValueCondenserKind = value; AdditionalData?.Remove("condenser_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condenser_kind"); else _explicitNullProperties?.Remove("condenser_kind"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.NoOpCondenserSettingsCondenserKind? _explicitNullValueCondenserKind = default!;
         /// <summary>Enable conversation memory condensation.</summary>
-        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; AdditionalData?.Remove("enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
         private bool? _explicitNullValueEnabled = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.NoOpCondenserSettings"/> and sets the default values.
@@ -56,7 +58,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "condenser_kind", n => { CondenserKind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.NoOpCondenserSettingsCondenserKind>(); } },
+                { "condenser_kind", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.NoOpCondenserSettingsCondenserKind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCondenserKind = default; _explicitNullProperties?.Remove("condenser_kind"); AdditionalData["condenser_kind"] = unknown; } else { CondenserKind = parsed; AdditionalData.Remove("condenser_kind"); } } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
             };
         }

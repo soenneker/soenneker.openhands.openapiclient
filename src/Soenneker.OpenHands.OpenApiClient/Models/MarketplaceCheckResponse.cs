@@ -18,29 +18,34 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("layout") is { } nullNodeLayout && nullNodeLayout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Layout = null;
-            if (parseNode.GetChildNode("plugin_count") is { } nullNodePluginCount && nullNodePluginCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PluginCount = null;
-            if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
-            if (parseNode.GetChildNode("skill_count") is { } nullNodeSkillCount && nullNodeSkillCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkillCount = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("layout") is null) { _explicitNullValueLayout = default!; _explicitNullProperties?.Remove("layout"); }
+            else if (parseNode.GetChildNode("layout") is { } nullNodeLayout && nullNodeLayout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Layout = null;
+            if (parseNode.GetChildNode("plugin_count") is null) { _explicitNullValuePluginCount = default!; _explicitNullProperties?.Remove("plugin_count"); }
+            else if (parseNode.GetChildNode("plugin_count") is { } nullNodePluginCount && nullNodePluginCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PluginCount = null;
+            if (parseNode.GetChildNode("reason") is null) { _explicitNullValueReason = default!; _explicitNullProperties?.Remove("reason"); }
+            else if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
+            if (parseNode.GetChildNode("skill_count") is null) { _explicitNullValueSkillCount = default!; _explicitNullProperties?.Remove("skill_count"); }
+            else if (parseNode.GetChildNode("skill_count") is { } nullNodeSkillCount && nullNodeSkillCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkillCount = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The layout property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout? Layout { get => _explicitNullValueLayout; set { _explicitNullValueLayout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("layout"); else _explicitNullProperties?.Remove("layout"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout? Layout { get => _explicitNullValueLayout; set { _explicitNullValueLayout = value; AdditionalData?.Remove("layout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("layout"); else _explicitNullProperties?.Remove("layout"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout? _explicitNullValueLayout = default!;
         /// <summary>The plugin_count property</summary>
-        public int? PluginCount { get => _explicitNullValuePluginCount; set { _explicitNullValuePluginCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plugin_count"); else _explicitNullProperties?.Remove("plugin_count"); } }
+        public int? PluginCount { get => _explicitNullValuePluginCount; set { _explicitNullValuePluginCount = value; AdditionalData?.Remove("plugin_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plugin_count"); else _explicitNullProperties?.Remove("plugin_count"); } }
         private int? _explicitNullValuePluginCount = default!;
         /// <summary>The reason property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; AdditionalData?.Remove("reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason? _explicitNullValueReason = default!;
         /// <summary>The skill_count property</summary>
-        public int? SkillCount { get => _explicitNullValueSkillCount; set { _explicitNullValueSkillCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skill_count"); else _explicitNullProperties?.Remove("skill_count"); } }
+        public int? SkillCount { get => _explicitNullValueSkillCount; set { _explicitNullValueSkillCount = value; AdditionalData?.Remove("skill_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skill_count"); else _explicitNullProperties?.Remove("skill_count"); } }
         private int? _explicitNullValueSkillCount = default!;
         /// <summary>The status property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseStatus? _explicitNullValueStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponse"/> and sets the default values.
@@ -69,11 +74,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "layout", n => { Layout = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout>(); } },
+                { "layout", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLayout = default; _explicitNullProperties?.Remove("layout"); AdditionalData["layout"] = unknown; } else { Layout = parsed; AdditionalData.Remove("layout"); } } },
                 { "plugin_count", n => { PluginCount = n.GetIntValue(); } },
-                { "reason", n => { Reason = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason>(); } },
+                { "reason", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueReason = default; _explicitNullProperties?.Remove("reason"); AdditionalData["reason"] = unknown; } else { Reason = parsed; AdditionalData.Remove("reason"); } } },
                 { "skill_count", n => { SkillCount = n.GetIntValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseStatus>(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
             };
         }
         /// <summary>

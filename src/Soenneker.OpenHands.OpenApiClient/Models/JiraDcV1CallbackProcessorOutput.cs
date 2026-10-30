@@ -18,11 +18,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("base_api_url") is { } nullNodeBaseApiUrl && nullNodeBaseApiUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseApiUrl = null;
-            if (parseNode.GetChildNode("issue_key") is { } nullNodeIssueKey && nullNodeIssueKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueKey = null;
-            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
-            if (parseNode.GetChildNode("should_request_summary") is { } nullNodeShouldRequestSummary && nullNodeShouldRequestSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShouldRequestSummary = null;
-            if (parseNode.GetChildNode("workspace_name") is { } nullNodeWorkspaceName && nullNodeWorkspaceName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceName = null;
+            if (parseNode.GetChildNode("base_api_url") is null) { _explicitNullValueBaseApiUrl = default!; _explicitNullProperties?.Remove("base_api_url"); }
+            else if (parseNode.GetChildNode("base_api_url") is { } nullNodeBaseApiUrl && nullNodeBaseApiUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseApiUrl = null;
+            if (parseNode.GetChildNode("issue_key") is null) { _explicitNullValueIssueKey = default!; _explicitNullProperties?.Remove("issue_key"); }
+            else if (parseNode.GetChildNode("issue_key") is { } nullNodeIssueKey && nullNodeIssueKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueKey = null;
+            if (parseNode.GetChildNode("kind") is null) { _explicitNullValueKind = default!; _explicitNullProperties?.Remove("kind"); }
+            else if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("should_request_summary") is null) { _explicitNullValueShouldRequestSummary = default!; _explicitNullProperties?.Remove("should_request_summary"); }
+            else if (parseNode.GetChildNode("should_request_summary") is { } nullNodeShouldRequestSummary && nullNodeShouldRequestSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShouldRequestSummary = null;
+            if (parseNode.GetChildNode("workspace_name") is null) { _explicitNullValueWorkspaceName = default!; _explicitNullProperties?.Remove("workspace_name"); }
+            else if (parseNode.GetChildNode("workspace_name") is { } nullNodeWorkspaceName && nullNodeWorkspaceName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,37 +35,37 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The base_api_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BaseApiUrl { get => _explicitNullValueBaseApiUrl; set { _explicitNullValueBaseApiUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_api_url"); else _explicitNullProperties?.Remove("base_api_url"); } }
+        public string? BaseApiUrl { get => _explicitNullValueBaseApiUrl; set { _explicitNullValueBaseApiUrl = value; AdditionalData?.Remove("base_api_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_api_url"); else _explicitNullProperties?.Remove("base_api_url"); } }
         private string? _explicitNullValueBaseApiUrl = default!;
 #nullable restore
 #else
-        public string BaseApiUrl { get => _explicitNullValueBaseApiUrl; set { _explicitNullValueBaseApiUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_api_url"); else _explicitNullProperties?.Remove("base_api_url"); } }
+        public string BaseApiUrl { get => _explicitNullValueBaseApiUrl; set { _explicitNullValueBaseApiUrl = value; AdditionalData?.Remove("base_api_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_api_url"); else _explicitNullProperties?.Remove("base_api_url"); } }
         private string _explicitNullValueBaseApiUrl = default!;
 #endif
         /// <summary>The issue_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IssueKey { get => _explicitNullValueIssueKey; set { _explicitNullValueIssueKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_key"); else _explicitNullProperties?.Remove("issue_key"); } }
+        public string? IssueKey { get => _explicitNullValueIssueKey; set { _explicitNullValueIssueKey = value; AdditionalData?.Remove("issue_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_key"); else _explicitNullProperties?.Remove("issue_key"); } }
         private string? _explicitNullValueIssueKey = default!;
 #nullable restore
 #else
-        public string IssueKey { get => _explicitNullValueIssueKey; set { _explicitNullValueIssueKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_key"); else _explicitNullProperties?.Remove("issue_key"); } }
+        public string IssueKey { get => _explicitNullValueIssueKey; set { _explicitNullValueIssueKey = value; AdditionalData?.Remove("issue_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_key"); else _explicitNullProperties?.Remove("issue_key"); } }
         private string _explicitNullValueIssueKey = default!;
 #endif
         /// <summary>The kind property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorOutputKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorOutputKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorOutputKind? _explicitNullValueKind = default!;
         /// <summary>The should_request_summary property</summary>
-        public bool? ShouldRequestSummary { get => _explicitNullValueShouldRequestSummary; set { _explicitNullValueShouldRequestSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("should_request_summary"); else _explicitNullProperties?.Remove("should_request_summary"); } }
+        public bool? ShouldRequestSummary { get => _explicitNullValueShouldRequestSummary; set { _explicitNullValueShouldRequestSummary = value; AdditionalData?.Remove("should_request_summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("should_request_summary"); else _explicitNullProperties?.Remove("should_request_summary"); } }
         private bool? _explicitNullValueShouldRequestSummary = default!;
         /// <summary>The workspace_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkspaceName { get => _explicitNullValueWorkspaceName; set { _explicitNullValueWorkspaceName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_name"); else _explicitNullProperties?.Remove("workspace_name"); } }
+        public string? WorkspaceName { get => _explicitNullValueWorkspaceName; set { _explicitNullValueWorkspaceName = value; AdditionalData?.Remove("workspace_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_name"); else _explicitNullProperties?.Remove("workspace_name"); } }
         private string? _explicitNullValueWorkspaceName = default!;
 #nullable restore
 #else
-        public string WorkspaceName { get => _explicitNullValueWorkspaceName; set { _explicitNullValueWorkspaceName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_name"); else _explicitNullProperties?.Remove("workspace_name"); } }
+        public string WorkspaceName { get => _explicitNullValueWorkspaceName; set { _explicitNullValueWorkspaceName = value; AdditionalData?.Remove("workspace_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_name"); else _explicitNullProperties?.Remove("workspace_name"); } }
         private string _explicitNullValueWorkspaceName = default!;
 #endif
         /// <summary>
@@ -91,7 +96,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "base_api_url", n => { BaseApiUrl = n.GetStringValue(); } },
                 { "issue_key", n => { IssueKey = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorOutputKind>(); } },
+                { "kind", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.JiraDcV1CallbackProcessorOutputKind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueKind = default; _explicitNullProperties?.Remove("kind"); AdditionalData["kind"] = unknown; } else { Kind = parsed; AdditionalData.Remove("kind"); } } },
                 { "should_request_summary", n => { ShouldRequestSummary = n.GetBoolValue(); } },
                 { "workspace_name", n => { WorkspaceName = n.GetStringValue(); } },
             };

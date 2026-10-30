@@ -17,35 +17,40 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cancelled_at") is { } nullNodeCancelledAt && nullNodeCancelledAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CancelledAt = null;
-            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("end_at") is { } nullNodeEndAt && nullNodeEndAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndAt = null;
-            if (parseNode.GetChildNode("start_at") is { } nullNodeStartAt && nullNodeStartAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartAt = null;
-            if (parseNode.GetChildNode("stripe_subscription_id") is { } nullNodeStripeSubscriptionId && nullNodeStripeSubscriptionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StripeSubscriptionId = null;
+            if (parseNode.GetChildNode("cancelled_at") is null) { _explicitNullValueCancelledAt = default!; _explicitNullProperties?.Remove("cancelled_at"); }
+            else if (parseNode.GetChildNode("cancelled_at") is { } nullNodeCancelledAt && nullNodeCancelledAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CancelledAt = null;
+            if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
+            else if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("end_at") is null) { _explicitNullValueEndAt = default!; _explicitNullProperties?.Remove("end_at"); }
+            else if (parseNode.GetChildNode("end_at") is { } nullNodeEndAt && nullNodeEndAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndAt = null;
+            if (parseNode.GetChildNode("start_at") is null) { _explicitNullValueStartAt = default!; _explicitNullProperties?.Remove("start_at"); }
+            else if (parseNode.GetChildNode("start_at") is { } nullNodeStartAt && nullNodeStartAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartAt = null;
+            if (parseNode.GetChildNode("stripe_subscription_id") is null) { _explicitNullValueStripeSubscriptionId = default!; _explicitNullProperties?.Remove("stripe_subscription_id"); }
+            else if (parseNode.GetChildNode("stripe_subscription_id") is { } nullNodeStripeSubscriptionId && nullNodeStripeSubscriptionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StripeSubscriptionId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The cancelled_at property</summary>
-        public DateTimeOffset? CancelledAt { get => _explicitNullValueCancelledAt; set { _explicitNullValueCancelledAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancelled_at"); else _explicitNullProperties?.Remove("cancelled_at"); } }
+        public DateTimeOffset? CancelledAt { get => _explicitNullValueCancelledAt; set { _explicitNullValueCancelledAt = value; AdditionalData?.Remove("cancelled_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancelled_at"); else _explicitNullProperties?.Remove("cancelled_at"); } }
         private DateTimeOffset? _explicitNullValueCancelledAt = default!;
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The end_at property</summary>
-        public DateTimeOffset? EndAt { get => _explicitNullValueEndAt; set { _explicitNullValueEndAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_at"); else _explicitNullProperties?.Remove("end_at"); } }
+        public DateTimeOffset? EndAt { get => _explicitNullValueEndAt; set { _explicitNullValueEndAt = value; AdditionalData?.Remove("end_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_at"); else _explicitNullProperties?.Remove("end_at"); } }
         private DateTimeOffset? _explicitNullValueEndAt = default!;
         /// <summary>The start_at property</summary>
-        public DateTimeOffset? StartAt { get => _explicitNullValueStartAt; set { _explicitNullValueStartAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_at"); else _explicitNullProperties?.Remove("start_at"); } }
+        public DateTimeOffset? StartAt { get => _explicitNullValueStartAt; set { _explicitNullValueStartAt = value; AdditionalData?.Remove("start_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_at"); else _explicitNullProperties?.Remove("start_at"); } }
         private DateTimeOffset? _explicitNullValueStartAt = default!;
         /// <summary>The stripe_subscription_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StripeSubscriptionId { get => _explicitNullValueStripeSubscriptionId; set { _explicitNullValueStripeSubscriptionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stripe_subscription_id"); else _explicitNullProperties?.Remove("stripe_subscription_id"); } }
+        public string? StripeSubscriptionId { get => _explicitNullValueStripeSubscriptionId; set { _explicitNullValueStripeSubscriptionId = value; AdditionalData?.Remove("stripe_subscription_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stripe_subscription_id"); else _explicitNullProperties?.Remove("stripe_subscription_id"); } }
         private string? _explicitNullValueStripeSubscriptionId = default!;
 #nullable restore
 #else
-        public string StripeSubscriptionId { get => _explicitNullValueStripeSubscriptionId; set { _explicitNullValueStripeSubscriptionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stripe_subscription_id"); else _explicitNullProperties?.Remove("stripe_subscription_id"); } }
+        public string StripeSubscriptionId { get => _explicitNullValueStripeSubscriptionId; set { _explicitNullValueStripeSubscriptionId = value; AdditionalData?.Remove("stripe_subscription_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stripe_subscription_id"); else _explicitNullProperties?.Remove("stripe_subscription_id"); } }
         private string _explicitNullValueStripeSubscriptionId = default!;
 #endif
         /// <summary>

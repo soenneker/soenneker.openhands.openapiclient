@@ -18,11 +18,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("daily_spend") is { } nullNodeDailySpend && nullNodeDailySpend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailySpend = null;
-            if (parseNode.GetChildNode("model_usage") is { } nullNodeModelUsage && nullNodeModelUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelUsage = null;
-            if (parseNode.GetChildNode("previous_period_spend") is { } nullNodePreviousPeriodSpend && nullNodePreviousPeriodSpend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousPeriodSpend = null;
-            if (parseNode.GetChildNode("recent_usage") is { } nullNodeRecentUsage && nullNodeRecentUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecentUsage = null;
-            if (parseNode.GetChildNode("total_spend") is { } nullNodeTotalSpend && nullNodeTotalSpend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalSpend = null;
+            if (parseNode.GetChildNode("daily_spend") is null) { _explicitNullValueDailySpend = default!; _explicitNullProperties?.Remove("daily_spend"); }
+            else if (parseNode.GetChildNode("daily_spend") is { } nullNodeDailySpend && nullNodeDailySpend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailySpend = null;
+            if (parseNode.GetChildNode("model_usage") is null) { _explicitNullValueModelUsage = default!; _explicitNullProperties?.Remove("model_usage"); }
+            else if (parseNode.GetChildNode("model_usage") is { } nullNodeModelUsage && nullNodeModelUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelUsage = null;
+            if (parseNode.GetChildNode("previous_period_spend") is null) { _explicitNullValuePreviousPeriodSpend = default!; _explicitNullProperties?.Remove("previous_period_spend"); }
+            else if (parseNode.GetChildNode("previous_period_spend") is { } nullNodePreviousPeriodSpend && nullNodePreviousPeriodSpend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousPeriodSpend = null;
+            if (parseNode.GetChildNode("recent_usage") is null) { _explicitNullValueRecentUsage = default!; _explicitNullProperties?.Remove("recent_usage"); }
+            else if (parseNode.GetChildNode("recent_usage") is { } nullNodeRecentUsage && nullNodeRecentUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecentUsage = null;
+            if (parseNode.GetChildNode("total_spend") is null) { _explicitNullValueTotalSpend = default!; _explicitNullProperties?.Remove("total_spend"); }
+            else if (parseNode.GetChildNode("total_spend") is { } nullNodeTotalSpend && nullNodeTotalSpend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalSpend = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,38 +35,38 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The daily_spend property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.DailySpendData>? DailySpend { get => _explicitNullValueDailySpend; set { _explicitNullValueDailySpend = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_spend"); else _explicitNullProperties?.Remove("daily_spend"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.DailySpendData>? DailySpend { get => _explicitNullValueDailySpend; set { _explicitNullValueDailySpend = value; AdditionalData?.Remove("daily_spend"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_spend"); else _explicitNullProperties?.Remove("daily_spend"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.DailySpendData>? _explicitNullValueDailySpend = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.DailySpendData> DailySpend { get => _explicitNullValueDailySpend; set { _explicitNullValueDailySpend = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_spend"); else _explicitNullProperties?.Remove("daily_spend"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.DailySpendData> DailySpend { get => _explicitNullValueDailySpend; set { _explicitNullValueDailySpend = value; AdditionalData?.Remove("daily_spend"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_spend"); else _explicitNullProperties?.Remove("daily_spend"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.DailySpendData> _explicitNullValueDailySpend = default!;
 #endif
         /// <summary>The model_usage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ModelUsageData>? ModelUsage { get => _explicitNullValueModelUsage; set { _explicitNullValueModelUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_usage"); else _explicitNullProperties?.Remove("model_usage"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ModelUsageData>? ModelUsage { get => _explicitNullValueModelUsage; set { _explicitNullValueModelUsage = value; AdditionalData?.Remove("model_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_usage"); else _explicitNullProperties?.Remove("model_usage"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.ModelUsageData>? _explicitNullValueModelUsage = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ModelUsageData> ModelUsage { get => _explicitNullValueModelUsage; set { _explicitNullValueModelUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_usage"); else _explicitNullProperties?.Remove("model_usage"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ModelUsageData> ModelUsage { get => _explicitNullValueModelUsage; set { _explicitNullValueModelUsage = value; AdditionalData?.Remove("model_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_usage"); else _explicitNullProperties?.Remove("model_usage"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.ModelUsageData> _explicitNullValueModelUsage = default!;
 #endif
         /// <summary>The previous_period_spend property</summary>
-        public double? PreviousPeriodSpend { get => _explicitNullValuePreviousPeriodSpend; set { _explicitNullValuePreviousPeriodSpend = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_period_spend"); else _explicitNullProperties?.Remove("previous_period_spend"); } }
+        public double? PreviousPeriodSpend { get => _explicitNullValuePreviousPeriodSpend; set { _explicitNullValuePreviousPeriodSpend = value; AdditionalData?.Remove("previous_period_spend"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_period_spend"); else _explicitNullProperties?.Remove("previous_period_spend"); } }
         private double? _explicitNullValuePreviousPeriodSpend = default!;
         /// <summary>The recent_usage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MyRecentUsageItem>? RecentUsage { get => _explicitNullValueRecentUsage; set { _explicitNullValueRecentUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recent_usage"); else _explicitNullProperties?.Remove("recent_usage"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MyRecentUsageItem>? RecentUsage { get => _explicitNullValueRecentUsage; set { _explicitNullValueRecentUsage = value; AdditionalData?.Remove("recent_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recent_usage"); else _explicitNullProperties?.Remove("recent_usage"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.MyRecentUsageItem>? _explicitNullValueRecentUsage = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MyRecentUsageItem> RecentUsage { get => _explicitNullValueRecentUsage; set { _explicitNullValueRecentUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recent_usage"); else _explicitNullProperties?.Remove("recent_usage"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.MyRecentUsageItem> RecentUsage { get => _explicitNullValueRecentUsage; set { _explicitNullValueRecentUsage = value; AdditionalData?.Remove("recent_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recent_usage"); else _explicitNullProperties?.Remove("recent_usage"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.MyRecentUsageItem> _explicitNullValueRecentUsage = default!;
 #endif
         /// <summary>The total_spend property</summary>
-        public double? TotalSpend { get => _explicitNullValueTotalSpend; set { _explicitNullValueTotalSpend = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_spend"); else _explicitNullProperties?.Remove("total_spend"); } }
+        public double? TotalSpend { get => _explicitNullValueTotalSpend; set { _explicitNullValueTotalSpend = value; AdditionalData?.Remove("total_spend"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_spend"); else _explicitNullProperties?.Remove("total_spend"); } }
         private double? _explicitNullValueTotalSpend = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyUsageStats"/> and sets the default values.

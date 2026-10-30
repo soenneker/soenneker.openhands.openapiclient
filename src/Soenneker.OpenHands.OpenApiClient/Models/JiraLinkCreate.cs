@@ -17,7 +17,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("workspace_name") is { } nullNodeWorkspaceName && nullNodeWorkspaceName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceName = null;
+            if (parseNode.GetChildNode("workspace_name") is null) { _explicitNullValueWorkspaceName = default!; _explicitNullProperties?.Remove("workspace_name"); }
+            else if (parseNode.GetChildNode("workspace_name") is { } nullNodeWorkspaceName && nullNodeWorkspaceName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Name of the Jira workspace to link to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkspaceName { get => _explicitNullValueWorkspaceName; set { _explicitNullValueWorkspaceName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_name"); else _explicitNullProperties?.Remove("workspace_name"); } }
+        public string? WorkspaceName { get => _explicitNullValueWorkspaceName; set { _explicitNullValueWorkspaceName = value; AdditionalData?.Remove("workspace_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_name"); else _explicitNullProperties?.Remove("workspace_name"); } }
         private string? _explicitNullValueWorkspaceName = default!;
 #nullable restore
 #else
-        public string WorkspaceName { get => _explicitNullValueWorkspaceName; set { _explicitNullValueWorkspaceName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_name"); else _explicitNullProperties?.Remove("workspace_name"); } }
+        public string WorkspaceName { get => _explicitNullValueWorkspaceName; set { _explicitNullValueWorkspaceName = value; AdditionalData?.Remove("workspace_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_name"); else _explicitNullProperties?.Remove("workspace_name"); } }
         private string _explicitNullValueWorkspaceName = default!;
 #endif
         /// <summary>

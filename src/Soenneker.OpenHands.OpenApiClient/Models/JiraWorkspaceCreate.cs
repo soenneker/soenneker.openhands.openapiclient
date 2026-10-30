@@ -17,56 +17,61 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("is_active") is { } nullNodeIsActive && nullNodeIsActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsActive = null;
-            if (parseNode.GetChildNode("svc_acc_api_key") is { } nullNodeSvcAccApiKey && nullNodeSvcAccApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SvcAccApiKey = null;
-            if (parseNode.GetChildNode("svc_acc_email") is { } nullNodeSvcAccEmail && nullNodeSvcAccEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SvcAccEmail = null;
-            if (parseNode.GetChildNode("webhook_secret") is { } nullNodeWebhookSecret && nullNodeWebhookSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookSecret = null;
-            if (parseNode.GetChildNode("workspace_name") is { } nullNodeWorkspaceName && nullNodeWorkspaceName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceName = null;
+            if (parseNode.GetChildNode("is_active") is null) { _explicitNullValueIsActive = default!; _explicitNullProperties?.Remove("is_active"); }
+            else if (parseNode.GetChildNode("is_active") is { } nullNodeIsActive && nullNodeIsActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsActive = null;
+            if (parseNode.GetChildNode("svc_acc_api_key") is null) { _explicitNullValueSvcAccApiKey = default!; _explicitNullProperties?.Remove("svc_acc_api_key"); }
+            else if (parseNode.GetChildNode("svc_acc_api_key") is { } nullNodeSvcAccApiKey && nullNodeSvcAccApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SvcAccApiKey = null;
+            if (parseNode.GetChildNode("svc_acc_email") is null) { _explicitNullValueSvcAccEmail = default!; _explicitNullProperties?.Remove("svc_acc_email"); }
+            else if (parseNode.GetChildNode("svc_acc_email") is { } nullNodeSvcAccEmail && nullNodeSvcAccEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SvcAccEmail = null;
+            if (parseNode.GetChildNode("webhook_secret") is null) { _explicitNullValueWebhookSecret = default!; _explicitNullProperties?.Remove("webhook_secret"); }
+            else if (parseNode.GetChildNode("webhook_secret") is { } nullNodeWebhookSecret && nullNodeWebhookSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookSecret = null;
+            if (parseNode.GetChildNode("workspace_name") is null) { _explicitNullValueWorkspaceName = default!; _explicitNullProperties?.Remove("workspace_name"); }
+            else if (parseNode.GetChildNode("workspace_name") is { } nullNodeWorkspaceName && nullNodeWorkspaceName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates if the workspace integration is active</summary>
-        public bool? IsActive { get => _explicitNullValueIsActive; set { _explicitNullValueIsActive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_active"); else _explicitNullProperties?.Remove("is_active"); } }
+        public bool? IsActive { get => _explicitNullValueIsActive; set { _explicitNullValueIsActive = value; AdditionalData?.Remove("is_active"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_active"); else _explicitNullProperties?.Remove("is_active"); } }
         private bool? _explicitNullValueIsActive = default!;
         /// <summary>Service account API token. Required when creating a new workspace; optional on update — omit/leave blank to keep the stored value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SvcAccApiKey { get => _explicitNullValueSvcAccApiKey; set { _explicitNullValueSvcAccApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svc_acc_api_key"); else _explicitNullProperties?.Remove("svc_acc_api_key"); } }
+        public string? SvcAccApiKey { get => _explicitNullValueSvcAccApiKey; set { _explicitNullValueSvcAccApiKey = value; AdditionalData?.Remove("svc_acc_api_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svc_acc_api_key"); else _explicitNullProperties?.Remove("svc_acc_api_key"); } }
         private string? _explicitNullValueSvcAccApiKey = default!;
 #nullable restore
 #else
-        public string SvcAccApiKey { get => _explicitNullValueSvcAccApiKey; set { _explicitNullValueSvcAccApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svc_acc_api_key"); else _explicitNullProperties?.Remove("svc_acc_api_key"); } }
+        public string SvcAccApiKey { get => _explicitNullValueSvcAccApiKey; set { _explicitNullValueSvcAccApiKey = value; AdditionalData?.Remove("svc_acc_api_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svc_acc_api_key"); else _explicitNullProperties?.Remove("svc_acc_api_key"); } }
         private string _explicitNullValueSvcAccApiKey = default!;
 #endif
         /// <summary>Service account email</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SvcAccEmail { get => _explicitNullValueSvcAccEmail; set { _explicitNullValueSvcAccEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svc_acc_email"); else _explicitNullProperties?.Remove("svc_acc_email"); } }
+        public string? SvcAccEmail { get => _explicitNullValueSvcAccEmail; set { _explicitNullValueSvcAccEmail = value; AdditionalData?.Remove("svc_acc_email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svc_acc_email"); else _explicitNullProperties?.Remove("svc_acc_email"); } }
         private string? _explicitNullValueSvcAccEmail = default!;
 #nullable restore
 #else
-        public string SvcAccEmail { get => _explicitNullValueSvcAccEmail; set { _explicitNullValueSvcAccEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svc_acc_email"); else _explicitNullProperties?.Remove("svc_acc_email"); } }
+        public string SvcAccEmail { get => _explicitNullValueSvcAccEmail; set { _explicitNullValueSvcAccEmail = value; AdditionalData?.Remove("svc_acc_email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svc_acc_email"); else _explicitNullProperties?.Remove("svc_acc_email"); } }
         private string _explicitNullValueSvcAccEmail = default!;
 #endif
         /// <summary>Webhook secret for verification. Required when creating a new workspace; optional on update — omit/leave blank to keep the stored value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookSecret { get => _explicitNullValueWebhookSecret; set { _explicitNullValueWebhookSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_secret"); else _explicitNullProperties?.Remove("webhook_secret"); } }
+        public string? WebhookSecret { get => _explicitNullValueWebhookSecret; set { _explicitNullValueWebhookSecret = value; AdditionalData?.Remove("webhook_secret"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_secret"); else _explicitNullProperties?.Remove("webhook_secret"); } }
         private string? _explicitNullValueWebhookSecret = default!;
 #nullable restore
 #else
-        public string WebhookSecret { get => _explicitNullValueWebhookSecret; set { _explicitNullValueWebhookSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_secret"); else _explicitNullProperties?.Remove("webhook_secret"); } }
+        public string WebhookSecret { get => _explicitNullValueWebhookSecret; set { _explicitNullValueWebhookSecret = value; AdditionalData?.Remove("webhook_secret"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_secret"); else _explicitNullProperties?.Remove("webhook_secret"); } }
         private string _explicitNullValueWebhookSecret = default!;
 #endif
         /// <summary>Workspace display name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkspaceName { get => _explicitNullValueWorkspaceName; set { _explicitNullValueWorkspaceName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_name"); else _explicitNullProperties?.Remove("workspace_name"); } }
+        public string? WorkspaceName { get => _explicitNullValueWorkspaceName; set { _explicitNullValueWorkspaceName = value; AdditionalData?.Remove("workspace_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_name"); else _explicitNullProperties?.Remove("workspace_name"); } }
         private string? _explicitNullValueWorkspaceName = default!;
 #nullable restore
 #else
-        public string WorkspaceName { get => _explicitNullValueWorkspaceName; set { _explicitNullValueWorkspaceName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_name"); else _explicitNullProperties?.Remove("workspace_name"); } }
+        public string WorkspaceName { get => _explicitNullValueWorkspaceName; set { _explicitNullValueWorkspaceName = value; AdditionalData?.Remove("workspace_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_name"); else _explicitNullProperties?.Remove("workspace_name"); } }
         private string _explicitNullValueWorkspaceName = default!;
 #endif
         /// <summary>

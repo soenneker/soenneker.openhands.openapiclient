@@ -17,17 +17,28 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("attribute_mapping") is { } nullNodeAttributeMapping && nullNodeAttributeMapping.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttributeMapping = null;
-            if (parseNode.GetChildNode("idp_entity_id") is { } nullNodeIdpEntityId && nullNodeIdpEntityId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpEntityId = null;
-            if (parseNode.GetChildNode("idp_x509_cert") is { } nullNodeIdpX509Cert && nullNodeIdpX509Cert.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpX509Cert = null;
-            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
-            if (parseNode.GetChildNode("metadata_url") is { } nullNodeMetadataUrl && nullNodeMetadataUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetadataUrl = null;
-            if (parseNode.GetChildNode("name_id_format") is { } nullNodeNameIdFormat && nullNodeNameIdFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameIdFormat = null;
-            if (parseNode.GetChildNode("slo_url") is { } nullNodeSloUrl && nullNodeSloUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SloUrl = null;
-            if (parseNode.GetChildNode("sp_private_key") is { } nullNodeSpPrivateKey && nullNodeSpPrivateKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpPrivateKey = null;
-            if (parseNode.GetChildNode("sp_x509_cert") is { } nullNodeSpX509Cert && nullNodeSpX509Cert.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpX509Cert = null;
-            if (parseNode.GetChildNode("sso_binding") is { } nullNodeSsoBinding && nullNodeSsoBinding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SsoBinding = null;
-            if (parseNode.GetChildNode("sso_url") is { } nullNodeSsoUrl && nullNodeSsoUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SsoUrl = null;
+            if (parseNode.GetChildNode("attribute_mapping") is null) { _explicitNullValueAttributeMapping = default!; _explicitNullProperties?.Remove("attribute_mapping"); }
+            else if (parseNode.GetChildNode("attribute_mapping") is { } nullNodeAttributeMapping && nullNodeAttributeMapping.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttributeMapping = null;
+            if (parseNode.GetChildNode("idp_entity_id") is null) { _explicitNullValueIdpEntityId = default!; _explicitNullProperties?.Remove("idp_entity_id"); }
+            else if (parseNode.GetChildNode("idp_entity_id") is { } nullNodeIdpEntityId && nullNodeIdpEntityId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpEntityId = null;
+            if (parseNode.GetChildNode("idp_x509_cert") is null) { _explicitNullValueIdpX509Cert = default!; _explicitNullProperties?.Remove("idp_x509_cert"); }
+            else if (parseNode.GetChildNode("idp_x509_cert") is { } nullNodeIdpX509Cert && nullNodeIdpX509Cert.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpX509Cert = null;
+            if (parseNode.GetChildNode("kind") is null) { _explicitNullValueKind = default!; _explicitNullProperties?.Remove("kind"); }
+            else if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("metadata_url") is null) { _explicitNullValueMetadataUrl = default!; _explicitNullProperties?.Remove("metadata_url"); }
+            else if (parseNode.GetChildNode("metadata_url") is { } nullNodeMetadataUrl && nullNodeMetadataUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetadataUrl = null;
+            if (parseNode.GetChildNode("name_id_format") is null) { _explicitNullValueNameIdFormat = default!; _explicitNullProperties?.Remove("name_id_format"); }
+            else if (parseNode.GetChildNode("name_id_format") is { } nullNodeNameIdFormat && nullNodeNameIdFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameIdFormat = null;
+            if (parseNode.GetChildNode("slo_url") is null) { _explicitNullValueSloUrl = default!; _explicitNullProperties?.Remove("slo_url"); }
+            else if (parseNode.GetChildNode("slo_url") is { } nullNodeSloUrl && nullNodeSloUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SloUrl = null;
+            if (parseNode.GetChildNode("sp_private_key") is null) { _explicitNullValueSpPrivateKey = default!; _explicitNullProperties?.Remove("sp_private_key"); }
+            else if (parseNode.GetChildNode("sp_private_key") is { } nullNodeSpPrivateKey && nullNodeSpPrivateKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpPrivateKey = null;
+            if (parseNode.GetChildNode("sp_x509_cert") is null) { _explicitNullValueSpX509Cert = default!; _explicitNullProperties?.Remove("sp_x509_cert"); }
+            else if (parseNode.GetChildNode("sp_x509_cert") is { } nullNodeSpX509Cert && nullNodeSpX509Cert.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpX509Cert = null;
+            if (parseNode.GetChildNode("sso_binding") is null) { _explicitNullValueSsoBinding = default!; _explicitNullProperties?.Remove("sso_binding"); }
+            else if (parseNode.GetChildNode("sso_binding") is { } nullNodeSsoBinding && nullNodeSsoBinding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SsoBinding = null;
+            if (parseNode.GetChildNode("sso_url") is null) { _explicitNullValueSsoUrl = default!; _explicitNullProperties?.Remove("sso_url"); }
+            else if (parseNode.GetChildNode("sso_url") is { } nullNodeSsoUrl && nullNodeSsoUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SsoUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -35,97 +46,97 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The attribute_mapping property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputAttributeMappingProperty? AttributeMapping { get => _explicitNullValueAttributeMapping; set { _explicitNullValueAttributeMapping = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attribute_mapping"); else _explicitNullProperties?.Remove("attribute_mapping"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputAttributeMappingProperty? AttributeMapping { get => _explicitNullValueAttributeMapping; set { _explicitNullValueAttributeMapping = value; AdditionalData?.Remove("attribute_mapping"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attribute_mapping"); else _explicitNullProperties?.Remove("attribute_mapping"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputAttributeMappingProperty? _explicitNullValueAttributeMapping = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputAttributeMappingProperty AttributeMapping { get => _explicitNullValueAttributeMapping; set { _explicitNullValueAttributeMapping = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attribute_mapping"); else _explicitNullProperties?.Remove("attribute_mapping"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputAttributeMappingProperty AttributeMapping { get => _explicitNullValueAttributeMapping; set { _explicitNullValueAttributeMapping = value; AdditionalData?.Remove("attribute_mapping"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attribute_mapping"); else _explicitNullProperties?.Remove("attribute_mapping"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputAttributeMappingProperty _explicitNullValueAttributeMapping = default!;
 #endif
         /// <summary>The idp_entity_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdpEntityId { get => _explicitNullValueIdpEntityId; set { _explicitNullValueIdpEntityId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_entity_id"); else _explicitNullProperties?.Remove("idp_entity_id"); } }
+        public string? IdpEntityId { get => _explicitNullValueIdpEntityId; set { _explicitNullValueIdpEntityId = value; AdditionalData?.Remove("idp_entity_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_entity_id"); else _explicitNullProperties?.Remove("idp_entity_id"); } }
         private string? _explicitNullValueIdpEntityId = default!;
 #nullable restore
 #else
-        public string IdpEntityId { get => _explicitNullValueIdpEntityId; set { _explicitNullValueIdpEntityId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_entity_id"); else _explicitNullProperties?.Remove("idp_entity_id"); } }
+        public string IdpEntityId { get => _explicitNullValueIdpEntityId; set { _explicitNullValueIdpEntityId = value; AdditionalData?.Remove("idp_entity_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_entity_id"); else _explicitNullProperties?.Remove("idp_entity_id"); } }
         private string _explicitNullValueIdpEntityId = default!;
 #endif
         /// <summary>The idp_x509_cert property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdpX509Cert { get => _explicitNullValueIdpX509Cert; set { _explicitNullValueIdpX509Cert = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_x509_cert"); else _explicitNullProperties?.Remove("idp_x509_cert"); } }
+        public string? IdpX509Cert { get => _explicitNullValueIdpX509Cert; set { _explicitNullValueIdpX509Cert = value; AdditionalData?.Remove("idp_x509_cert"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_x509_cert"); else _explicitNullProperties?.Remove("idp_x509_cert"); } }
         private string? _explicitNullValueIdpX509Cert = default!;
 #nullable restore
 #else
-        public string IdpX509Cert { get => _explicitNullValueIdpX509Cert; set { _explicitNullValueIdpX509Cert = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_x509_cert"); else _explicitNullProperties?.Remove("idp_x509_cert"); } }
+        public string IdpX509Cert { get => _explicitNullValueIdpX509Cert; set { _explicitNullValueIdpX509Cert = value; AdditionalData?.Remove("idp_x509_cert"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idp_x509_cert"); else _explicitNullProperties?.Remove("idp_x509_cert"); } }
         private string _explicitNullValueIdpX509Cert = default!;
 #endif
         /// <summary>The kind property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf3_kind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf3_kind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf3_kind? _explicitNullValueKind = default!;
         /// <summary>The metadata_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MetadataUrl { get => _explicitNullValueMetadataUrl; set { _explicitNullValueMetadataUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata_url"); else _explicitNullProperties?.Remove("metadata_url"); } }
+        public string? MetadataUrl { get => _explicitNullValueMetadataUrl; set { _explicitNullValueMetadataUrl = value; AdditionalData?.Remove("metadata_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata_url"); else _explicitNullProperties?.Remove("metadata_url"); } }
         private string? _explicitNullValueMetadataUrl = default!;
 #nullable restore
 #else
-        public string MetadataUrl { get => _explicitNullValueMetadataUrl; set { _explicitNullValueMetadataUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata_url"); else _explicitNullProperties?.Remove("metadata_url"); } }
+        public string MetadataUrl { get => _explicitNullValueMetadataUrl; set { _explicitNullValueMetadataUrl = value; AdditionalData?.Remove("metadata_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata_url"); else _explicitNullProperties?.Remove("metadata_url"); } }
         private string _explicitNullValueMetadataUrl = default!;
 #endif
         /// <summary>The name_id_format property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NameIdFormat { get => _explicitNullValueNameIdFormat; set { _explicitNullValueNameIdFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name_id_format"); else _explicitNullProperties?.Remove("name_id_format"); } }
+        public string? NameIdFormat { get => _explicitNullValueNameIdFormat; set { _explicitNullValueNameIdFormat = value; AdditionalData?.Remove("name_id_format"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name_id_format"); else _explicitNullProperties?.Remove("name_id_format"); } }
         private string? _explicitNullValueNameIdFormat = default!;
 #nullable restore
 #else
-        public string NameIdFormat { get => _explicitNullValueNameIdFormat; set { _explicitNullValueNameIdFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name_id_format"); else _explicitNullProperties?.Remove("name_id_format"); } }
+        public string NameIdFormat { get => _explicitNullValueNameIdFormat; set { _explicitNullValueNameIdFormat = value; AdditionalData?.Remove("name_id_format"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name_id_format"); else _explicitNullProperties?.Remove("name_id_format"); } }
         private string _explicitNullValueNameIdFormat = default!;
 #endif
         /// <summary>The slo_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SloUrl { get => _explicitNullValueSloUrl; set { _explicitNullValueSloUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slo_url"); else _explicitNullProperties?.Remove("slo_url"); } }
+        public string? SloUrl { get => _explicitNullValueSloUrl; set { _explicitNullValueSloUrl = value; AdditionalData?.Remove("slo_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slo_url"); else _explicitNullProperties?.Remove("slo_url"); } }
         private string? _explicitNullValueSloUrl = default!;
 #nullable restore
 #else
-        public string SloUrl { get => _explicitNullValueSloUrl; set { _explicitNullValueSloUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slo_url"); else _explicitNullProperties?.Remove("slo_url"); } }
+        public string SloUrl { get => _explicitNullValueSloUrl; set { _explicitNullValueSloUrl = value; AdditionalData?.Remove("slo_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slo_url"); else _explicitNullProperties?.Remove("slo_url"); } }
         private string _explicitNullValueSloUrl = default!;
 #endif
         /// <summary>The sp_private_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpPrivateKey { get => _explicitNullValueSpPrivateKey; set { _explicitNullValueSpPrivateKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sp_private_key"); else _explicitNullProperties?.Remove("sp_private_key"); } }
+        public string? SpPrivateKey { get => _explicitNullValueSpPrivateKey; set { _explicitNullValueSpPrivateKey = value; AdditionalData?.Remove("sp_private_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sp_private_key"); else _explicitNullProperties?.Remove("sp_private_key"); } }
         private string? _explicitNullValueSpPrivateKey = default!;
 #nullable restore
 #else
-        public string SpPrivateKey { get => _explicitNullValueSpPrivateKey; set { _explicitNullValueSpPrivateKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sp_private_key"); else _explicitNullProperties?.Remove("sp_private_key"); } }
+        public string SpPrivateKey { get => _explicitNullValueSpPrivateKey; set { _explicitNullValueSpPrivateKey = value; AdditionalData?.Remove("sp_private_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sp_private_key"); else _explicitNullProperties?.Remove("sp_private_key"); } }
         private string _explicitNullValueSpPrivateKey = default!;
 #endif
         /// <summary>The sp_x509_cert property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpX509Cert { get => _explicitNullValueSpX509Cert; set { _explicitNullValueSpX509Cert = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sp_x509_cert"); else _explicitNullProperties?.Remove("sp_x509_cert"); } }
+        public string? SpX509Cert { get => _explicitNullValueSpX509Cert; set { _explicitNullValueSpX509Cert = value; AdditionalData?.Remove("sp_x509_cert"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sp_x509_cert"); else _explicitNullProperties?.Remove("sp_x509_cert"); } }
         private string? _explicitNullValueSpX509Cert = default!;
 #nullable restore
 #else
-        public string SpX509Cert { get => _explicitNullValueSpX509Cert; set { _explicitNullValueSpX509Cert = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sp_x509_cert"); else _explicitNullProperties?.Remove("sp_x509_cert"); } }
+        public string SpX509Cert { get => _explicitNullValueSpX509Cert; set { _explicitNullValueSpX509Cert = value; AdditionalData?.Remove("sp_x509_cert"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sp_x509_cert"); else _explicitNullProperties?.Remove("sp_x509_cert"); } }
         private string _explicitNullValueSpX509Cert = default!;
 #endif
         /// <summary>The sso_binding property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputSsoBinding? SsoBinding { get => _explicitNullValueSsoBinding; set { _explicitNullValueSsoBinding = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sso_binding"); else _explicitNullProperties?.Remove("sso_binding"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputSsoBinding? SsoBinding { get => _explicitNullValueSsoBinding; set { _explicitNullValueSsoBinding = value; AdditionalData?.Remove("sso_binding"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sso_binding"); else _explicitNullProperties?.Remove("sso_binding"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputSsoBinding? _explicitNullValueSsoBinding = default!;
         /// <summary>The sso_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SsoUrl { get => _explicitNullValueSsoUrl; set { _explicitNullValueSsoUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sso_url"); else _explicitNullProperties?.Remove("sso_url"); } }
+        public string? SsoUrl { get => _explicitNullValueSsoUrl; set { _explicitNullValueSsoUrl = value; AdditionalData?.Remove("sso_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sso_url"); else _explicitNullProperties?.Remove("sso_url"); } }
         private string? _explicitNullValueSsoUrl = default!;
 #nullable restore
 #else
-        public string SsoUrl { get => _explicitNullValueSsoUrl; set { _explicitNullValueSsoUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sso_url"); else _explicitNullProperties?.Remove("sso_url"); } }
+        public string SsoUrl { get => _explicitNullValueSsoUrl; set { _explicitNullValueSsoUrl = value; AdditionalData?.Remove("sso_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sso_url"); else _explicitNullProperties?.Remove("sso_url"); } }
         private string _explicitNullValueSsoUrl = default!;
 #endif
         /// <summary>
@@ -156,13 +167,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "attribute_mapping", n => { AttributeMapping = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputAttributeMappingProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputAttributeMappingProperty.CreateFromDiscriminatorValue); } },
                 { "idp_entity_id", n => { IdpEntityId = n.GetStringValue(); } },
                 { "idp_x509_cert", n => { IdpX509Cert = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf3_kind>(); } },
+                { "kind", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf3_kind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueKind = default; _explicitNullProperties?.Remove("kind"); AdditionalData["kind"] = unknown; } else { Kind = parsed; AdditionalData.Remove("kind"); } } },
                 { "metadata_url", n => { MetadataUrl = n.GetStringValue(); } },
                 { "name_id_format", n => { NameIdFormat = n.GetStringValue(); } },
                 { "slo_url", n => { SloUrl = n.GetStringValue(); } },
                 { "sp_private_key", n => { SpPrivateKey = n.GetStringValue(); } },
                 { "sp_x509_cert", n => { SpX509Cert = n.GetStringValue(); } },
-                { "sso_binding", n => { SsoBinding = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputSsoBinding>(); } },
+                { "sso_binding", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsInputSsoBinding>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSsoBinding = default; _explicitNullProperties?.Remove("sso_binding"); AdditionalData["sso_binding"] = unknown; } else { SsoBinding = parsed; AdditionalData.Remove("sso_binding"); } } },
                 { "sso_url", n => { SsoUrl = n.GetStringValue(); } },
             };
         }

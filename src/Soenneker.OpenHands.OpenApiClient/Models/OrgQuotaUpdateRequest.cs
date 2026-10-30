@@ -17,13 +17,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("daily_sandbox_limit") is { } nullNodeDailySandboxLimit && nullNodeDailySandboxLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailySandboxLimit = null;
+            if (parseNode.GetChildNode("daily_sandbox_limit") is null) { _explicitNullValueDailySandboxLimit = default!; _explicitNullProperties?.Remove("daily_sandbox_limit"); }
+            else if (parseNode.GetChildNode("daily_sandbox_limit") is { } nullNodeDailySandboxLimit && nullNodeDailySandboxLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailySandboxLimit = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>NULL to inherit the deployment default, -1 to exempt the org entirely, or a positive integer for an org-specific limit.</summary>
-        public int? DailySandboxLimit { get => _explicitNullValueDailySandboxLimit; set { _explicitNullValueDailySandboxLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_sandbox_limit"); else _explicitNullProperties?.Remove("daily_sandbox_limit"); } }
+        public int? DailySandboxLimit { get => _explicitNullValueDailySandboxLimit; set { _explicitNullValueDailySandboxLimit = value; AdditionalData?.Remove("daily_sandbox_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_sandbox_limit"); else _explicitNullProperties?.Remove("daily_sandbox_limit"); } }
         private int? _explicitNullValueDailySandboxLimit = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgQuotaUpdateRequest"/> and sets the default values.

@@ -18,73 +18,82 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("active_users") is { } nullNodeActiveUsers && nullNodeActiveUsers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveUsers = null;
-            if (parseNode.GetChildNode("agent_runs") is { } nullNodeAgentRuns && nullNodeAgentRuns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentRuns = null;
-            if (parseNode.GetChildNode("agent_usage") is { } nullNodeAgentUsage && nullNodeAgentUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentUsage = null;
-            if (parseNode.GetChildNode("daily_usage") is { } nullNodeDailyUsage && nullNodeDailyUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailyUsage = null;
-            if (parseNode.GetChildNode("estimated_spend") is { } nullNodeEstimatedSpend && nullNodeEstimatedSpend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EstimatedSpend = null;
-            if (parseNode.GetChildNode("model_usage") is { } nullNodeModelUsage && nullNodeModelUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelUsage = null;
-            if (parseNode.GetChildNode("team_usage") is { } nullNodeTeamUsage && nullNodeTeamUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TeamUsage = null;
-            if (parseNode.GetChildNode("total_tokens") is { } nullNodeTotalTokens && nullNodeTotalTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalTokens = null;
-            if (parseNode.GetChildNode("usage_conversation_count") is { } nullNodeUsageConversationCount && nullNodeUsageConversationCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsageConversationCount = null;
+            if (parseNode.GetChildNode("active_users") is null) { _explicitNullValueActiveUsers = default!; _explicitNullProperties?.Remove("active_users"); }
+            else if (parseNode.GetChildNode("active_users") is { } nullNodeActiveUsers && nullNodeActiveUsers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveUsers = null;
+            if (parseNode.GetChildNode("agent_runs") is null) { _explicitNullValueAgentRuns = default!; _explicitNullProperties?.Remove("agent_runs"); }
+            else if (parseNode.GetChildNode("agent_runs") is { } nullNodeAgentRuns && nullNodeAgentRuns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentRuns = null;
+            if (parseNode.GetChildNode("agent_usage") is null) { _explicitNullValueAgentUsage = default!; _explicitNullProperties?.Remove("agent_usage"); }
+            else if (parseNode.GetChildNode("agent_usage") is { } nullNodeAgentUsage && nullNodeAgentUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentUsage = null;
+            if (parseNode.GetChildNode("daily_usage") is null) { _explicitNullValueDailyUsage = default!; _explicitNullProperties?.Remove("daily_usage"); }
+            else if (parseNode.GetChildNode("daily_usage") is { } nullNodeDailyUsage && nullNodeDailyUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailyUsage = null;
+            if (parseNode.GetChildNode("estimated_spend") is null) { _explicitNullValueEstimatedSpend = default!; _explicitNullProperties?.Remove("estimated_spend"); }
+            else if (parseNode.GetChildNode("estimated_spend") is { } nullNodeEstimatedSpend && nullNodeEstimatedSpend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EstimatedSpend = null;
+            if (parseNode.GetChildNode("model_usage") is null) { _explicitNullValueModelUsage = default!; _explicitNullProperties?.Remove("model_usage"); }
+            else if (parseNode.GetChildNode("model_usage") is { } nullNodeModelUsage && nullNodeModelUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelUsage = null;
+            if (parseNode.GetChildNode("team_usage") is null) { _explicitNullValueTeamUsage = default!; _explicitNullProperties?.Remove("team_usage"); }
+            else if (parseNode.GetChildNode("team_usage") is { } nullNodeTeamUsage && nullNodeTeamUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TeamUsage = null;
+            if (parseNode.GetChildNode("total_tokens") is null) { _explicitNullValueTotalTokens = default!; _explicitNullProperties?.Remove("total_tokens"); }
+            else if (parseNode.GetChildNode("total_tokens") is { } nullNodeTotalTokens && nullNodeTotalTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalTokens = null;
+            if (parseNode.GetChildNode("usage_conversation_count") is null) { _explicitNullValueUsageConversationCount = default!; _explicitNullProperties?.Remove("usage_conversation_count"); }
+            else if (parseNode.GetChildNode("usage_conversation_count") is { } nullNodeUsageConversationCount && nullNodeUsageConversationCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsageConversationCount = null;
         }
 
         /// <summary>The active_users property</summary>
-        public int? ActiveUsers { get => _explicitNullValueActiveUsers; set { _explicitNullValueActiveUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_users"); else _explicitNullProperties?.Remove("active_users"); } }
+        public int? ActiveUsers { get => _explicitNullValueActiveUsers; set { _explicitNullValueActiveUsers = value; AdditionalData?.Remove("active_users"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_users"); else _explicitNullProperties?.Remove("active_users"); } }
         private int? _explicitNullValueActiveUsers = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The agent_runs property</summary>
-        public int? AgentRuns { get => _explicitNullValueAgentRuns; set { _explicitNullValueAgentRuns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_runs"); else _explicitNullProperties?.Remove("agent_runs"); } }
+        public int? AgentRuns { get => _explicitNullValueAgentRuns; set { _explicitNullValueAgentRuns = value; AdditionalData?.Remove("agent_runs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_runs"); else _explicitNullProperties?.Remove("agent_runs"); } }
         private int? _explicitNullValueAgentRuns = default!;
         /// <summary>The agent_usage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AgentUsageData>? AgentUsage { get => _explicitNullValueAgentUsage; set { _explicitNullValueAgentUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_usage"); else _explicitNullProperties?.Remove("agent_usage"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AgentUsageData>? AgentUsage { get => _explicitNullValueAgentUsage; set { _explicitNullValueAgentUsage = value; AdditionalData?.Remove("agent_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_usage"); else _explicitNullProperties?.Remove("agent_usage"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.AgentUsageData>? _explicitNullValueAgentUsage = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AgentUsageData> AgentUsage { get => _explicitNullValueAgentUsage; set { _explicitNullValueAgentUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_usage"); else _explicitNullProperties?.Remove("agent_usage"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AgentUsageData> AgentUsage { get => _explicitNullValueAgentUsage; set { _explicitNullValueAgentUsage = value; AdditionalData?.Remove("agent_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_usage"); else _explicitNullProperties?.Remove("agent_usage"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.AgentUsageData> _explicitNullValueAgentUsage = default!;
 #endif
         /// <summary>The daily_usage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.DailyUsageData>? DailyUsage { get => _explicitNullValueDailyUsage; set { _explicitNullValueDailyUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_usage"); else _explicitNullProperties?.Remove("daily_usage"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.DailyUsageData>? DailyUsage { get => _explicitNullValueDailyUsage; set { _explicitNullValueDailyUsage = value; AdditionalData?.Remove("daily_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_usage"); else _explicitNullProperties?.Remove("daily_usage"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.DailyUsageData>? _explicitNullValueDailyUsage = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.DailyUsageData> DailyUsage { get => _explicitNullValueDailyUsage; set { _explicitNullValueDailyUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_usage"); else _explicitNullProperties?.Remove("daily_usage"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.DailyUsageData> DailyUsage { get => _explicitNullValueDailyUsage; set { _explicitNullValueDailyUsage = value; AdditionalData?.Remove("daily_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_usage"); else _explicitNullProperties?.Remove("daily_usage"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.DailyUsageData> _explicitNullValueDailyUsage = default!;
 #endif
         /// <summary>The estimated_spend property</summary>
-        public double? EstimatedSpend { get => _explicitNullValueEstimatedSpend; set { _explicitNullValueEstimatedSpend = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("estimated_spend"); else _explicitNullProperties?.Remove("estimated_spend"); } }
+        public double? EstimatedSpend { get => _explicitNullValueEstimatedSpend; set { _explicitNullValueEstimatedSpend = value; AdditionalData?.Remove("estimated_spend"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("estimated_spend"); else _explicitNullProperties?.Remove("estimated_spend"); } }
         private double? _explicitNullValueEstimatedSpend = default!;
         /// <summary>The model_usage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ModelUsageData>? ModelUsage { get => _explicitNullValueModelUsage; set { _explicitNullValueModelUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_usage"); else _explicitNullProperties?.Remove("model_usage"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ModelUsageData>? ModelUsage { get => _explicitNullValueModelUsage; set { _explicitNullValueModelUsage = value; AdditionalData?.Remove("model_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_usage"); else _explicitNullProperties?.Remove("model_usage"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.ModelUsageData>? _explicitNullValueModelUsage = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ModelUsageData> ModelUsage { get => _explicitNullValueModelUsage; set { _explicitNullValueModelUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_usage"); else _explicitNullProperties?.Remove("model_usage"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ModelUsageData> ModelUsage { get => _explicitNullValueModelUsage; set { _explicitNullValueModelUsage = value; AdditionalData?.Remove("model_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_usage"); else _explicitNullProperties?.Remove("model_usage"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.ModelUsageData> _explicitNullValueModelUsage = default!;
 #endif
         /// <summary>The team_usage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.TeamUsageData>? TeamUsage { get => _explicitNullValueTeamUsage; set { _explicitNullValueTeamUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_usage"); else _explicitNullProperties?.Remove("team_usage"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.TeamUsageData>? TeamUsage { get => _explicitNullValueTeamUsage; set { _explicitNullValueTeamUsage = value; AdditionalData?.Remove("team_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_usage"); else _explicitNullProperties?.Remove("team_usage"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.TeamUsageData>? _explicitNullValueTeamUsage = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.TeamUsageData> TeamUsage { get => _explicitNullValueTeamUsage; set { _explicitNullValueTeamUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_usage"); else _explicitNullProperties?.Remove("team_usage"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.TeamUsageData> TeamUsage { get => _explicitNullValueTeamUsage; set { _explicitNullValueTeamUsage = value; AdditionalData?.Remove("team_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_usage"); else _explicitNullProperties?.Remove("team_usage"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.TeamUsageData> _explicitNullValueTeamUsage = default!;
 #endif
         /// <summary>The total_tokens property</summary>
-        public int? TotalTokens { get => _explicitNullValueTotalTokens; set { _explicitNullValueTotalTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_tokens"); else _explicitNullProperties?.Remove("total_tokens"); } }
+        public int? TotalTokens { get => _explicitNullValueTotalTokens; set { _explicitNullValueTotalTokens = value; AdditionalData?.Remove("total_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_tokens"); else _explicitNullProperties?.Remove("total_tokens"); } }
         private int? _explicitNullValueTotalTokens = default!;
         /// <summary>The usage_conversation_count property</summary>
-        public int? UsageConversationCount { get => _explicitNullValueUsageConversationCount; set { _explicitNullValueUsageConversationCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_conversation_count"); else _explicitNullProperties?.Remove("usage_conversation_count"); } }
+        public int? UsageConversationCount { get => _explicitNullValueUsageConversationCount; set { _explicitNullValueUsageConversationCount = value; AdditionalData?.Remove("usage_conversation_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_conversation_count"); else _explicitNullProperties?.Remove("usage_conversation_count"); } }
         private int? _explicitNullValueUsageConversationCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgUsageStats"/> and sets the default values.

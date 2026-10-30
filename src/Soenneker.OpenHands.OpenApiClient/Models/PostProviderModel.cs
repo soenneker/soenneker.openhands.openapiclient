@@ -18,8 +18,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("mcp_config") is { } nullNodeMcpConfig && nullNodeMcpConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpConfig = null;
-            if (parseNode.GetChildNode("provider_tokens") is { } nullNodeProviderTokens && nullNodeProviderTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderTokens = null;
+            if (parseNode.GetChildNode("mcp_config") is null) { _explicitNullValueMcpConfig = default!; _explicitNullProperties?.Remove("mcp_config"); }
+            else if (parseNode.GetChildNode("mcp_config") is { } nullNodeMcpConfig && nullNodeMcpConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpConfig = null;
+            if (parseNode.GetChildNode("provider_tokens") is null) { _explicitNullValueProviderTokens = default!; _explicitNullProperties?.Remove("provider_tokens"); }
+            else if (parseNode.GetChildNode("provider_tokens") is { } nullNodeProviderTokens && nullNodeProviderTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderTokens = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The mcp_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig? McpConfig { get => _explicitNullValueMcpConfig; set { _explicitNullValueMcpConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_config"); else _explicitNullProperties?.Remove("mcp_config"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig? McpConfig { get => _explicitNullValueMcpConfig; set { _explicitNullValueMcpConfig = value; AdditionalData?.Remove("mcp_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_config"); else _explicitNullProperties?.Remove("mcp_config"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig? _explicitNullValueMcpConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig McpConfig { get => _explicitNullValueMcpConfig; set { _explicitNullValueMcpConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_config"); else _explicitNullProperties?.Remove("mcp_config"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig McpConfig { get => _explicitNullValueMcpConfig; set { _explicitNullValueMcpConfig = value; AdditionalData?.Remove("mcp_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_config"); else _explicitNullProperties?.Remove("mcp_config"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.McpConfig _explicitNullValueMcpConfig = default!;
 #endif
         /// <summary>The provider_tokens property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelProviderTokensProperty? ProviderTokens { get => _explicitNullValueProviderTokens; set { _explicitNullValueProviderTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_tokens"); else _explicitNullProperties?.Remove("provider_tokens"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelProviderTokensProperty? ProviderTokens { get => _explicitNullValueProviderTokens; set { _explicitNullValueProviderTokens = value; AdditionalData?.Remove("provider_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_tokens"); else _explicitNullProperties?.Remove("provider_tokens"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelProviderTokensProperty? _explicitNullValueProviderTokens = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelProviderTokensProperty ProviderTokens { get => _explicitNullValueProviderTokens; set { _explicitNullValueProviderTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_tokens"); else _explicitNullProperties?.Remove("provider_tokens"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelProviderTokensProperty ProviderTokens { get => _explicitNullValueProviderTokens; set { _explicitNullValueProviderTokens = value; AdditionalData?.Remove("provider_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_tokens"); else _explicitNullProperties?.Remove("provider_tokens"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.PostProviderModelProviderTokensProperty _explicitNullValueProviderTokens = default!;
 #endif
         /// <summary>

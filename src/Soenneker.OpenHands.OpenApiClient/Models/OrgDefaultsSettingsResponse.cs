@@ -18,10 +18,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("agent_settings") is { } nullNodeAgentSettings && nullNodeAgentSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentSettings = null;
-            if (parseNode.GetChildNode("conversation_settings") is { } nullNodeConversationSettings && nullNodeConversationSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConversationSettings = null;
-            if (parseNode.GetChildNode("llm_api_key_set") is { } nullNodeLlmApiKeySet && nullNodeLlmApiKeySet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmApiKeySet = null;
-            if (parseNode.GetChildNode("search_api_key") is { } nullNodeSearchApiKey && nullNodeSearchApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchApiKey = null;
+            if (parseNode.GetChildNode("agent_settings") is null) { _explicitNullValueAgentSettings = default!; _explicitNullProperties?.Remove("agent_settings"); }
+            else if (parseNode.GetChildNode("agent_settings") is { } nullNodeAgentSettings && nullNodeAgentSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentSettings = null;
+            if (parseNode.GetChildNode("conversation_settings") is null) { _explicitNullValueConversationSettings = default!; _explicitNullProperties?.Remove("conversation_settings"); }
+            else if (parseNode.GetChildNode("conversation_settings") is { } nullNodeConversationSettings && nullNodeConversationSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConversationSettings = null;
+            if (parseNode.GetChildNode("llm_api_key_set") is null) { _explicitNullValueLlmApiKeySet = default!; _explicitNullProperties?.Remove("llm_api_key_set"); }
+            else if (parseNode.GetChildNode("llm_api_key_set") is { } nullNodeLlmApiKeySet && nullNodeLlmApiKeySet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmApiKeySet = null;
+            if (parseNode.GetChildNode("search_api_key") is null) { _explicitNullValueSearchApiKey = default!; _explicitNullProperties?.Remove("search_api_key"); }
+            else if (parseNode.GetChildNode("search_api_key") is { } nullNodeSearchApiKey && nullNodeSearchApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchApiKey = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,34 +33,34 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The agent_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgDefaultsSettingsResponseAgentSettings? AgentSettings { get => _explicitNullValueAgentSettings; set { _explicitNullValueAgentSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_settings"); else _explicitNullProperties?.Remove("agent_settings"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgDefaultsSettingsResponseAgentSettings? AgentSettings { get => _explicitNullValueAgentSettings; set { _explicitNullValueAgentSettings = value; AdditionalData?.Remove("agent_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_settings"); else _explicitNullProperties?.Remove("agent_settings"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.OrgDefaultsSettingsResponseAgentSettings? _explicitNullValueAgentSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgDefaultsSettingsResponseAgentSettings AgentSettings { get => _explicitNullValueAgentSettings; set { _explicitNullValueAgentSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_settings"); else _explicitNullProperties?.Remove("agent_settings"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgDefaultsSettingsResponseAgentSettings AgentSettings { get => _explicitNullValueAgentSettings; set { _explicitNullValueAgentSettings = value; AdditionalData?.Remove("agent_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_settings"); else _explicitNullProperties?.Remove("agent_settings"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.OrgDefaultsSettingsResponseAgentSettings _explicitNullValueAgentSettings = default!;
 #endif
         /// <summary>The conversation_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings? ConversationSettings { get => _explicitNullValueConversationSettings; set { _explicitNullValueConversationSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_settings"); else _explicitNullProperties?.Remove("conversation_settings"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings? ConversationSettings { get => _explicitNullValueConversationSettings; set { _explicitNullValueConversationSettings = value; AdditionalData?.Remove("conversation_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_settings"); else _explicitNullProperties?.Remove("conversation_settings"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings? _explicitNullValueConversationSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings ConversationSettings { get => _explicitNullValueConversationSettings; set { _explicitNullValueConversationSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_settings"); else _explicitNullProperties?.Remove("conversation_settings"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings ConversationSettings { get => _explicitNullValueConversationSettings; set { _explicitNullValueConversationSettings = value; AdditionalData?.Remove("conversation_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_settings"); else _explicitNullProperties?.Remove("conversation_settings"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings _explicitNullValueConversationSettings = default!;
 #endif
         /// <summary>The llm_api_key_set property</summary>
-        public bool? LlmApiKeySet { get => _explicitNullValueLlmApiKeySet; set { _explicitNullValueLlmApiKeySet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key_set"); else _explicitNullProperties?.Remove("llm_api_key_set"); } }
+        public bool? LlmApiKeySet { get => _explicitNullValueLlmApiKeySet; set { _explicitNullValueLlmApiKeySet = value; AdditionalData?.Remove("llm_api_key_set"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key_set"); else _explicitNullProperties?.Remove("llm_api_key_set"); } }
         private bool? _explicitNullValueLlmApiKeySet = default!;
         /// <summary>The search_api_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SearchApiKey { get => _explicitNullValueSearchApiKey; set { _explicitNullValueSearchApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_api_key"); else _explicitNullProperties?.Remove("search_api_key"); } }
+        public string? SearchApiKey { get => _explicitNullValueSearchApiKey; set { _explicitNullValueSearchApiKey = value; AdditionalData?.Remove("search_api_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_api_key"); else _explicitNullProperties?.Remove("search_api_key"); } }
         private string? _explicitNullValueSearchApiKey = default!;
 #nullable restore
 #else
-        public string SearchApiKey { get => _explicitNullValueSearchApiKey; set { _explicitNullValueSearchApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_api_key"); else _explicitNullProperties?.Remove("search_api_key"); } }
+        public string SearchApiKey { get => _explicitNullValueSearchApiKey; set { _explicitNullValueSearchApiKey = value; AdditionalData?.Remove("search_api_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_api_key"); else _explicitNullProperties?.Remove("search_api_key"); } }
         private string _explicitNullValueSearchApiKey = default!;
 #endif
         /// <summary>

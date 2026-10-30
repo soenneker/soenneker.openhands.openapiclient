@@ -18,34 +18,37 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("email_delivery_configured") is { } nullNodeEmailDeliveryConfigured && nullNodeEmailDeliveryConfigured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailDeliveryConfigured = null;
-            if (parseNode.GetChildNode("failed") is { } nullNodeFailed && nullNodeFailed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Failed = null;
-            if (parseNode.GetChildNode("successful") is { } nullNodeSuccessful && nullNodeSuccessful.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Successful = null;
+            if (parseNode.GetChildNode("email_delivery_configured") is null) { _explicitNullValueEmailDeliveryConfigured = default!; _explicitNullProperties?.Remove("email_delivery_configured"); }
+            else if (parseNode.GetChildNode("email_delivery_configured") is { } nullNodeEmailDeliveryConfigured && nullNodeEmailDeliveryConfigured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailDeliveryConfigured = null;
+            if (parseNode.GetChildNode("failed") is null) { _explicitNullValueFailed = default!; _explicitNullProperties?.Remove("failed"); }
+            else if (parseNode.GetChildNode("failed") is { } nullNodeFailed && nullNodeFailed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Failed = null;
+            if (parseNode.GetChildNode("successful") is null) { _explicitNullValueSuccessful = default!; _explicitNullProperties?.Remove("successful"); }
+            else if (parseNode.GetChildNode("successful") is { } nullNodeSuccessful && nullNodeSuccessful.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Successful = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The email_delivery_configured property</summary>
-        public bool? EmailDeliveryConfigured { get => _explicitNullValueEmailDeliveryConfigured; set { _explicitNullValueEmailDeliveryConfigured = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_delivery_configured"); else _explicitNullProperties?.Remove("email_delivery_configured"); } }
+        public bool? EmailDeliveryConfigured { get => _explicitNullValueEmailDeliveryConfigured; set { _explicitNullValueEmailDeliveryConfigured = value; AdditionalData?.Remove("email_delivery_configured"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_delivery_configured"); else _explicitNullProperties?.Remove("email_delivery_configured"); } }
         private bool? _explicitNullValueEmailDeliveryConfigured = default!;
         /// <summary>The failed property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationFailure>? Failed { get => _explicitNullValueFailed; set { _explicitNullValueFailed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed"); else _explicitNullProperties?.Remove("failed"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationFailure>? Failed { get => _explicitNullValueFailed; set { _explicitNullValueFailed = value; AdditionalData?.Remove("failed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed"); else _explicitNullProperties?.Remove("failed"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationFailure>? _explicitNullValueFailed = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationFailure> Failed { get => _explicitNullValueFailed; set { _explicitNullValueFailed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed"); else _explicitNullProperties?.Remove("failed"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationFailure> Failed { get => _explicitNullValueFailed; set { _explicitNullValueFailed = value; AdditionalData?.Remove("failed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed"); else _explicitNullProperties?.Remove("failed"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationFailure> _explicitNullValueFailed = default!;
 #endif
         /// <summary>The successful property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationResponse>? Successful { get => _explicitNullValueSuccessful; set { _explicitNullValueSuccessful = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successful"); else _explicitNullProperties?.Remove("successful"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationResponse>? Successful { get => _explicitNullValueSuccessful; set { _explicitNullValueSuccessful = value; AdditionalData?.Remove("successful"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successful"); else _explicitNullProperties?.Remove("successful"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationResponse>? _explicitNullValueSuccessful = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationResponse> Successful { get => _explicitNullValueSuccessful; set { _explicitNullValueSuccessful = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successful"); else _explicitNullProperties?.Remove("successful"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationResponse> Successful { get => _explicitNullValueSuccessful; set { _explicitNullValueSuccessful = value; AdditionalData?.Remove("successful"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successful"); else _explicitNullProperties?.Remove("successful"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.InvitationResponse> _explicitNullValueSuccessful = default!;
 #endif
         /// <summary>

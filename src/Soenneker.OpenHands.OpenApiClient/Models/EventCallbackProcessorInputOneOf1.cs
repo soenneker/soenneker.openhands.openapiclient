@@ -17,9 +17,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bitbucket_view_data") is { } nullNodeBitbucketViewData && nullNodeBitbucketViewData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BitbucketViewData = null;
-            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
-            if (parseNode.GetChildNode("should_request_summary") is { } nullNodeShouldRequestSummary && nullNodeShouldRequestSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShouldRequestSummary = null;
+            if (parseNode.GetChildNode("bitbucket_view_data") is null) { _explicitNullValueBitbucketViewData = default!; _explicitNullProperties?.Remove("bitbucket_view_data"); }
+            else if (parseNode.GetChildNode("bitbucket_view_data") is { } nullNodeBitbucketViewData && nullNodeBitbucketViewData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BitbucketViewData = null;
+            if (parseNode.GetChildNode("kind") is null) { _explicitNullValueKind = default!; _explicitNullProperties?.Remove("kind"); }
+            else if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("should_request_summary") is null) { _explicitNullValueShouldRequestSummary = default!; _explicitNullProperties?.Remove("should_request_summary"); }
+            else if (parseNode.GetChildNode("should_request_summary") is { } nullNodeShouldRequestSummary && nullNodeShouldRequestSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShouldRequestSummary = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,18 +30,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The bitbucket_view_data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInputBitbucketViewDataProperty? BitbucketViewData { get => _explicitNullValueBitbucketViewData; set { _explicitNullValueBitbucketViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bitbucket_view_data"); else _explicitNullProperties?.Remove("bitbucket_view_data"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInputBitbucketViewDataProperty? BitbucketViewData { get => _explicitNullValueBitbucketViewData; set { _explicitNullValueBitbucketViewData = value; AdditionalData?.Remove("bitbucket_view_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bitbucket_view_data"); else _explicitNullProperties?.Remove("bitbucket_view_data"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInputBitbucketViewDataProperty? _explicitNullValueBitbucketViewData = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInputBitbucketViewDataProperty BitbucketViewData { get => _explicitNullValueBitbucketViewData; set { _explicitNullValueBitbucketViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bitbucket_view_data"); else _explicitNullProperties?.Remove("bitbucket_view_data"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInputBitbucketViewDataProperty BitbucketViewData { get => _explicitNullValueBitbucketViewData; set { _explicitNullValueBitbucketViewData = value; AdditionalData?.Remove("bitbucket_view_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bitbucket_view_data"); else _explicitNullProperties?.Remove("bitbucket_view_data"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInputBitbucketViewDataProperty _explicitNullValueBitbucketViewData = default!;
 #endif
         /// <summary>The kind property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf1_kind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf1_kind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf1_kind? _explicitNullValueKind = default!;
         /// <summary>The should_request_summary property</summary>
-        public bool? ShouldRequestSummary { get => _explicitNullValueShouldRequestSummary; set { _explicitNullValueShouldRequestSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("should_request_summary"); else _explicitNullProperties?.Remove("should_request_summary"); } }
+        public bool? ShouldRequestSummary { get => _explicitNullValueShouldRequestSummary; set { _explicitNullValueShouldRequestSummary = value; AdditionalData?.Remove("should_request_summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("should_request_summary"); else _explicitNullProperties?.Remove("should_request_summary"); } }
         private bool? _explicitNullValueShouldRequestSummary = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf1"/> and sets the default values.
@@ -67,7 +70,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "bitbucket_view_data", n => { BitbucketViewData = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInputBitbucketViewDataProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInputBitbucketViewDataProperty.CreateFromDiscriminatorValue); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf1_kind>(); } },
+                { "kind", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf1_kind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueKind = default; _explicitNullProperties?.Remove("kind"); AdditionalData["kind"] = unknown; } else { Kind = parsed; AdditionalData.Remove("kind"); } } },
                 { "should_request_summary", n => { ShouldRequestSummary = n.GetBoolValue(); } },
             };
         }

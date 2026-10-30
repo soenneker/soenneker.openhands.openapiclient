@@ -18,57 +18,78 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("acp_api_key_secret_name") is { } nullNodeAcpApiKeySecretName && nullNodeAcpApiKeySecretName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpApiKeySecretName = null;
-            if (parseNode.GetChildNode("acp_base_url_secret_name") is { } nullNodeAcpBaseUrlSecretName && nullNodeAcpBaseUrlSecretName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpBaseUrlSecretName = null;
-            if (parseNode.GetChildNode("acp_file_secret_names") is { } nullNodeAcpFileSecretNames && nullNodeAcpFileSecretNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpFileSecretNames = null;
-            if (parseNode.GetChildNode("agent_kind") is { } nullNodeAgentKind && nullNodeAgentKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentKind = null;
-            if (parseNode.GetChildNode("dangling_mcp_server_refs") is { } nullNodeDanglingMcpServerRefs && nullNodeDanglingMcpServerRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DanglingMcpServerRefs = null;
-            if (parseNode.GetChildNode("dangling_meta_profile_llm_refs") is { } nullNodeDanglingMetaProfileLlmRefs && nullNodeDanglingMetaProfileLlmRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DanglingMetaProfileLlmRefs = null;
-            if (parseNode.GetChildNode("dangling_meta_profile_ref") is { } nullNodeDanglingMetaProfileRef && nullNodeDanglingMetaProfileRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DanglingMetaProfileRef = null;
-            if (parseNode.GetChildNode("disabled_skills") is { } nullNodeDisabledSkills && nullNodeDisabledSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisabledSkills = null;
-            if (parseNode.GetChildNode("errors") is { } nullNodeErrors && nullNodeErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Errors = null;
-            if (parseNode.GetChildNode("llm_api_key_set") is { } nullNodeLlmApiKeySet && nullNodeLlmApiKeySet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmApiKeySet = null;
-            if (parseNode.GetChildNode("llm_profile_ref") is { } nullNodeLlmProfileRef && nullNodeLlmProfileRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmProfileRef = null;
-            if (parseNode.GetChildNode("llm_profile_resolved") is { } nullNodeLlmProfileResolved && nullNodeLlmProfileResolved.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmProfileResolved = null;
-            if (parseNode.GetChildNode("mcp_server_refs") is { } nullNodeMcpServerRefs && nullNodeMcpServerRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpServerRefs = null;
-            if (parseNode.GetChildNode("meta_profile_ref") is { } nullNodeMetaProfileRef && nullNodeMetaProfileRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetaProfileRef = null;
-            if (parseNode.GetChildNode("public_skills") is { } nullNodePublicSkills && nullNodePublicSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicSkills = null;
-            if (parseNode.GetChildNode("resolved_mcp_config_keys") is { } nullNodeResolvedMcpConfigKeys && nullNodeResolvedMcpConfigKeys.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResolvedMcpConfigKeys = null;
-            if (parseNode.GetChildNode("resolved_settings") is { } nullNodeResolvedSettings && nullNodeResolvedSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResolvedSettings = null;
-            if (parseNode.GetChildNode("resolved_skills") is { } nullNodeResolvedSkills && nullNodeResolvedSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResolvedSkills = null;
-            if (parseNode.GetChildNode("secret_refs") is { } nullNodeSecretRefs && nullNodeSecretRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretRefs = null;
-            if (parseNode.GetChildNode("unusable_tools") is { } nullNodeUnusableTools && nullNodeUnusableTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnusableTools = null;
-            if (parseNode.GetChildNode("valid") is { } nullNodeValid && nullNodeValid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Valid = null;
+            if (parseNode.GetChildNode("acp_api_key_secret_name") is null) { _explicitNullValueAcpApiKeySecretName = default!; _explicitNullProperties?.Remove("acp_api_key_secret_name"); }
+            else if (parseNode.GetChildNode("acp_api_key_secret_name") is { } nullNodeAcpApiKeySecretName && nullNodeAcpApiKeySecretName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpApiKeySecretName = null;
+            if (parseNode.GetChildNode("acp_base_url_secret_name") is null) { _explicitNullValueAcpBaseUrlSecretName = default!; _explicitNullProperties?.Remove("acp_base_url_secret_name"); }
+            else if (parseNode.GetChildNode("acp_base_url_secret_name") is { } nullNodeAcpBaseUrlSecretName && nullNodeAcpBaseUrlSecretName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpBaseUrlSecretName = null;
+            if (parseNode.GetChildNode("acp_file_secret_names") is null) { _explicitNullValueAcpFileSecretNames = default!; _explicitNullProperties?.Remove("acp_file_secret_names"); }
+            else if (parseNode.GetChildNode("acp_file_secret_names") is { } nullNodeAcpFileSecretNames && nullNodeAcpFileSecretNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpFileSecretNames = null;
+            if (parseNode.GetChildNode("agent_kind") is null) { _explicitNullValueAgentKind = default!; _explicitNullProperties?.Remove("agent_kind"); }
+            else if (parseNode.GetChildNode("agent_kind") is { } nullNodeAgentKind && nullNodeAgentKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentKind = null;
+            if (parseNode.GetChildNode("dangling_mcp_server_refs") is null) { _explicitNullValueDanglingMcpServerRefs = default!; _explicitNullProperties?.Remove("dangling_mcp_server_refs"); }
+            else if (parseNode.GetChildNode("dangling_mcp_server_refs") is { } nullNodeDanglingMcpServerRefs && nullNodeDanglingMcpServerRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DanglingMcpServerRefs = null;
+            if (parseNode.GetChildNode("dangling_meta_profile_llm_refs") is null) { _explicitNullValueDanglingMetaProfileLlmRefs = default!; _explicitNullProperties?.Remove("dangling_meta_profile_llm_refs"); }
+            else if (parseNode.GetChildNode("dangling_meta_profile_llm_refs") is { } nullNodeDanglingMetaProfileLlmRefs && nullNodeDanglingMetaProfileLlmRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DanglingMetaProfileLlmRefs = null;
+            if (parseNode.GetChildNode("dangling_meta_profile_ref") is null) { _explicitNullValueDanglingMetaProfileRef = default!; _explicitNullProperties?.Remove("dangling_meta_profile_ref"); }
+            else if (parseNode.GetChildNode("dangling_meta_profile_ref") is { } nullNodeDanglingMetaProfileRef && nullNodeDanglingMetaProfileRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DanglingMetaProfileRef = null;
+            if (parseNode.GetChildNode("disabled_skills") is null) { _explicitNullValueDisabledSkills = default!; _explicitNullProperties?.Remove("disabled_skills"); }
+            else if (parseNode.GetChildNode("disabled_skills") is { } nullNodeDisabledSkills && nullNodeDisabledSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisabledSkills = null;
+            if (parseNode.GetChildNode("errors") is null) { _explicitNullValueErrors = default!; _explicitNullProperties?.Remove("errors"); }
+            else if (parseNode.GetChildNode("errors") is { } nullNodeErrors && nullNodeErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Errors = null;
+            if (parseNode.GetChildNode("llm_api_key_set") is null) { _explicitNullValueLlmApiKeySet = default!; _explicitNullProperties?.Remove("llm_api_key_set"); }
+            else if (parseNode.GetChildNode("llm_api_key_set") is { } nullNodeLlmApiKeySet && nullNodeLlmApiKeySet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmApiKeySet = null;
+            if (parseNode.GetChildNode("llm_profile_ref") is null) { _explicitNullValueLlmProfileRef = default!; _explicitNullProperties?.Remove("llm_profile_ref"); }
+            else if (parseNode.GetChildNode("llm_profile_ref") is { } nullNodeLlmProfileRef && nullNodeLlmProfileRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmProfileRef = null;
+            if (parseNode.GetChildNode("llm_profile_resolved") is null) { _explicitNullValueLlmProfileResolved = default!; _explicitNullProperties?.Remove("llm_profile_resolved"); }
+            else if (parseNode.GetChildNode("llm_profile_resolved") is { } nullNodeLlmProfileResolved && nullNodeLlmProfileResolved.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmProfileResolved = null;
+            if (parseNode.GetChildNode("mcp_server_refs") is null) { _explicitNullValueMcpServerRefs = default!; _explicitNullProperties?.Remove("mcp_server_refs"); }
+            else if (parseNode.GetChildNode("mcp_server_refs") is { } nullNodeMcpServerRefs && nullNodeMcpServerRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpServerRefs = null;
+            if (parseNode.GetChildNode("meta_profile_ref") is null) { _explicitNullValueMetaProfileRef = default!; _explicitNullProperties?.Remove("meta_profile_ref"); }
+            else if (parseNode.GetChildNode("meta_profile_ref") is { } nullNodeMetaProfileRef && nullNodeMetaProfileRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetaProfileRef = null;
+            if (parseNode.GetChildNode("public_skills") is null) { _explicitNullValuePublicSkills = default!; _explicitNullProperties?.Remove("public_skills"); }
+            else if (parseNode.GetChildNode("public_skills") is { } nullNodePublicSkills && nullNodePublicSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicSkills = null;
+            if (parseNode.GetChildNode("resolved_mcp_config_keys") is null) { _explicitNullValueResolvedMcpConfigKeys = default!; _explicitNullProperties?.Remove("resolved_mcp_config_keys"); }
+            else if (parseNode.GetChildNode("resolved_mcp_config_keys") is { } nullNodeResolvedMcpConfigKeys && nullNodeResolvedMcpConfigKeys.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResolvedMcpConfigKeys = null;
+            if (parseNode.GetChildNode("resolved_settings") is null) { _explicitNullValueResolvedSettings = default!; _explicitNullProperties?.Remove("resolved_settings"); }
+            else if (parseNode.GetChildNode("resolved_settings") is { } nullNodeResolvedSettings && nullNodeResolvedSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResolvedSettings = null;
+            if (parseNode.GetChildNode("resolved_skills") is null) { _explicitNullValueResolvedSkills = default!; _explicitNullProperties?.Remove("resolved_skills"); }
+            else if (parseNode.GetChildNode("resolved_skills") is { } nullNodeResolvedSkills && nullNodeResolvedSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResolvedSkills = null;
+            if (parseNode.GetChildNode("secret_refs") is null) { _explicitNullValueSecretRefs = default!; _explicitNullProperties?.Remove("secret_refs"); }
+            else if (parseNode.GetChildNode("secret_refs") is { } nullNodeSecretRefs && nullNodeSecretRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretRefs = null;
+            if (parseNode.GetChildNode("unusable_tools") is null) { _explicitNullValueUnusableTools = default!; _explicitNullProperties?.Remove("unusable_tools"); }
+            else if (parseNode.GetChildNode("unusable_tools") is { } nullNodeUnusableTools && nullNodeUnusableTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnusableTools = null;
+            if (parseNode.GetChildNode("valid") is null) { _explicitNullValueValid = default!; _explicitNullProperties?.Remove("valid"); }
+            else if (parseNode.GetChildNode("valid") is { } nullNodeValid && nullNodeValid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Valid = null;
         }
 
         /// <summary>The acp_api_key_secret_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AcpApiKeySecretName { get => _explicitNullValueAcpApiKeySecretName; set { _explicitNullValueAcpApiKeySecretName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_api_key_secret_name"); else _explicitNullProperties?.Remove("acp_api_key_secret_name"); } }
+        public string? AcpApiKeySecretName { get => _explicitNullValueAcpApiKeySecretName; set { _explicitNullValueAcpApiKeySecretName = value; AdditionalData?.Remove("acp_api_key_secret_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_api_key_secret_name"); else _explicitNullProperties?.Remove("acp_api_key_secret_name"); } }
         private string? _explicitNullValueAcpApiKeySecretName = default!;
 #nullable restore
 #else
-        public string AcpApiKeySecretName { get => _explicitNullValueAcpApiKeySecretName; set { _explicitNullValueAcpApiKeySecretName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_api_key_secret_name"); else _explicitNullProperties?.Remove("acp_api_key_secret_name"); } }
+        public string AcpApiKeySecretName { get => _explicitNullValueAcpApiKeySecretName; set { _explicitNullValueAcpApiKeySecretName = value; AdditionalData?.Remove("acp_api_key_secret_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_api_key_secret_name"); else _explicitNullProperties?.Remove("acp_api_key_secret_name"); } }
         private string _explicitNullValueAcpApiKeySecretName = default!;
 #endif
         /// <summary>The acp_base_url_secret_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AcpBaseUrlSecretName { get => _explicitNullValueAcpBaseUrlSecretName; set { _explicitNullValueAcpBaseUrlSecretName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_base_url_secret_name"); else _explicitNullProperties?.Remove("acp_base_url_secret_name"); } }
+        public string? AcpBaseUrlSecretName { get => _explicitNullValueAcpBaseUrlSecretName; set { _explicitNullValueAcpBaseUrlSecretName = value; AdditionalData?.Remove("acp_base_url_secret_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_base_url_secret_name"); else _explicitNullProperties?.Remove("acp_base_url_secret_name"); } }
         private string? _explicitNullValueAcpBaseUrlSecretName = default!;
 #nullable restore
 #else
-        public string AcpBaseUrlSecretName { get => _explicitNullValueAcpBaseUrlSecretName; set { _explicitNullValueAcpBaseUrlSecretName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_base_url_secret_name"); else _explicitNullProperties?.Remove("acp_base_url_secret_name"); } }
+        public string AcpBaseUrlSecretName { get => _explicitNullValueAcpBaseUrlSecretName; set { _explicitNullValueAcpBaseUrlSecretName = value; AdditionalData?.Remove("acp_base_url_secret_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_base_url_secret_name"); else _explicitNullProperties?.Remove("acp_base_url_secret_name"); } }
         private string _explicitNullValueAcpBaseUrlSecretName = default!;
 #endif
         /// <summary>The acp_file_secret_names property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AcpFileSecretNames { get => _explicitNullValueAcpFileSecretNames; set { _explicitNullValueAcpFileSecretNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_file_secret_names"); else _explicitNullProperties?.Remove("acp_file_secret_names"); } }
+        public List<string>? AcpFileSecretNames { get => _explicitNullValueAcpFileSecretNames; set { _explicitNullValueAcpFileSecretNames = value; AdditionalData?.Remove("acp_file_secret_names"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_file_secret_names"); else _explicitNullProperties?.Remove("acp_file_secret_names"); } }
         private List<string>? _explicitNullValueAcpFileSecretNames = default!;
 #nullable restore
 #else
-        public List<string> AcpFileSecretNames { get => _explicitNullValueAcpFileSecretNames; set { _explicitNullValueAcpFileSecretNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_file_secret_names"); else _explicitNullProperties?.Remove("acp_file_secret_names"); } }
+        public List<string> AcpFileSecretNames { get => _explicitNullValueAcpFileSecretNames; set { _explicitNullValueAcpFileSecretNames = value; AdditionalData?.Remove("acp_file_secret_names"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_file_secret_names"); else _explicitNullProperties?.Remove("acp_file_secret_names"); } }
         private List<string> _explicitNullValueAcpFileSecretNames = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -76,161 +97,161 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The agent_kind property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AgentKind { get => _explicitNullValueAgentKind; set { _explicitNullValueAgentKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_kind"); else _explicitNullProperties?.Remove("agent_kind"); } }
+        public string? AgentKind { get => _explicitNullValueAgentKind; set { _explicitNullValueAgentKind = value; AdditionalData?.Remove("agent_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_kind"); else _explicitNullProperties?.Remove("agent_kind"); } }
         private string? _explicitNullValueAgentKind = default!;
 #nullable restore
 #else
-        public string AgentKind { get => _explicitNullValueAgentKind; set { _explicitNullValueAgentKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_kind"); else _explicitNullProperties?.Remove("agent_kind"); } }
+        public string AgentKind { get => _explicitNullValueAgentKind; set { _explicitNullValueAgentKind = value; AdditionalData?.Remove("agent_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_kind"); else _explicitNullProperties?.Remove("agent_kind"); } }
         private string _explicitNullValueAgentKind = default!;
 #endif
         /// <summary>The dangling_mcp_server_refs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DanglingMcpServerRefs { get => _explicitNullValueDanglingMcpServerRefs; set { _explicitNullValueDanglingMcpServerRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dangling_mcp_server_refs"); else _explicitNullProperties?.Remove("dangling_mcp_server_refs"); } }
+        public List<string>? DanglingMcpServerRefs { get => _explicitNullValueDanglingMcpServerRefs; set { _explicitNullValueDanglingMcpServerRefs = value; AdditionalData?.Remove("dangling_mcp_server_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dangling_mcp_server_refs"); else _explicitNullProperties?.Remove("dangling_mcp_server_refs"); } }
         private List<string>? _explicitNullValueDanglingMcpServerRefs = default!;
 #nullable restore
 #else
-        public List<string> DanglingMcpServerRefs { get => _explicitNullValueDanglingMcpServerRefs; set { _explicitNullValueDanglingMcpServerRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dangling_mcp_server_refs"); else _explicitNullProperties?.Remove("dangling_mcp_server_refs"); } }
+        public List<string> DanglingMcpServerRefs { get => _explicitNullValueDanglingMcpServerRefs; set { _explicitNullValueDanglingMcpServerRefs = value; AdditionalData?.Remove("dangling_mcp_server_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dangling_mcp_server_refs"); else _explicitNullProperties?.Remove("dangling_mcp_server_refs"); } }
         private List<string> _explicitNullValueDanglingMcpServerRefs = default!;
 #endif
         /// <summary>The dangling_meta_profile_llm_refs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DanglingMetaProfileLlmRefs { get => _explicitNullValueDanglingMetaProfileLlmRefs; set { _explicitNullValueDanglingMetaProfileLlmRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dangling_meta_profile_llm_refs"); else _explicitNullProperties?.Remove("dangling_meta_profile_llm_refs"); } }
+        public List<string>? DanglingMetaProfileLlmRefs { get => _explicitNullValueDanglingMetaProfileLlmRefs; set { _explicitNullValueDanglingMetaProfileLlmRefs = value; AdditionalData?.Remove("dangling_meta_profile_llm_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dangling_meta_profile_llm_refs"); else _explicitNullProperties?.Remove("dangling_meta_profile_llm_refs"); } }
         private List<string>? _explicitNullValueDanglingMetaProfileLlmRefs = default!;
 #nullable restore
 #else
-        public List<string> DanglingMetaProfileLlmRefs { get => _explicitNullValueDanglingMetaProfileLlmRefs; set { _explicitNullValueDanglingMetaProfileLlmRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dangling_meta_profile_llm_refs"); else _explicitNullProperties?.Remove("dangling_meta_profile_llm_refs"); } }
+        public List<string> DanglingMetaProfileLlmRefs { get => _explicitNullValueDanglingMetaProfileLlmRefs; set { _explicitNullValueDanglingMetaProfileLlmRefs = value; AdditionalData?.Remove("dangling_meta_profile_llm_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dangling_meta_profile_llm_refs"); else _explicitNullProperties?.Remove("dangling_meta_profile_llm_refs"); } }
         private List<string> _explicitNullValueDanglingMetaProfileLlmRefs = default!;
 #endif
         /// <summary>The dangling_meta_profile_ref property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DanglingMetaProfileRef { get => _explicitNullValueDanglingMetaProfileRef; set { _explicitNullValueDanglingMetaProfileRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dangling_meta_profile_ref"); else _explicitNullProperties?.Remove("dangling_meta_profile_ref"); } }
+        public string? DanglingMetaProfileRef { get => _explicitNullValueDanglingMetaProfileRef; set { _explicitNullValueDanglingMetaProfileRef = value; AdditionalData?.Remove("dangling_meta_profile_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dangling_meta_profile_ref"); else _explicitNullProperties?.Remove("dangling_meta_profile_ref"); } }
         private string? _explicitNullValueDanglingMetaProfileRef = default!;
 #nullable restore
 #else
-        public string DanglingMetaProfileRef { get => _explicitNullValueDanglingMetaProfileRef; set { _explicitNullValueDanglingMetaProfileRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dangling_meta_profile_ref"); else _explicitNullProperties?.Remove("dangling_meta_profile_ref"); } }
+        public string DanglingMetaProfileRef { get => _explicitNullValueDanglingMetaProfileRef; set { _explicitNullValueDanglingMetaProfileRef = value; AdditionalData?.Remove("dangling_meta_profile_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dangling_meta_profile_ref"); else _explicitNullProperties?.Remove("dangling_meta_profile_ref"); } }
         private string _explicitNullValueDanglingMetaProfileRef = default!;
 #endif
         /// <summary>The disabled_skills property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DisabledSkills { get => _explicitNullValueDisabledSkills; set { _explicitNullValueDisabledSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled_skills"); else _explicitNullProperties?.Remove("disabled_skills"); } }
+        public List<string>? DisabledSkills { get => _explicitNullValueDisabledSkills; set { _explicitNullValueDisabledSkills = value; AdditionalData?.Remove("disabled_skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled_skills"); else _explicitNullProperties?.Remove("disabled_skills"); } }
         private List<string>? _explicitNullValueDisabledSkills = default!;
 #nullable restore
 #else
-        public List<string> DisabledSkills { get => _explicitNullValueDisabledSkills; set { _explicitNullValueDisabledSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled_skills"); else _explicitNullProperties?.Remove("disabled_skills"); } }
+        public List<string> DisabledSkills { get => _explicitNullValueDisabledSkills; set { _explicitNullValueDisabledSkills = value; AdditionalData?.Remove("disabled_skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled_skills"); else _explicitNullProperties?.Remove("disabled_skills"); } }
         private List<string> _explicitNullValueDisabledSkills = default!;
 #endif
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        public List<string>? Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; AdditionalData?.Remove("errors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
         private List<string>? _explicitNullValueErrors = default!;
 #nullable restore
 #else
-        public List<string> Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        public List<string> Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; AdditionalData?.Remove("errors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
         private List<string> _explicitNullValueErrors = default!;
 #endif
         /// <summary>The llm_api_key_set property</summary>
-        public bool? LlmApiKeySet { get => _explicitNullValueLlmApiKeySet; set { _explicitNullValueLlmApiKeySet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key_set"); else _explicitNullProperties?.Remove("llm_api_key_set"); } }
+        public bool? LlmApiKeySet { get => _explicitNullValueLlmApiKeySet; set { _explicitNullValueLlmApiKeySet = value; AdditionalData?.Remove("llm_api_key_set"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key_set"); else _explicitNullProperties?.Remove("llm_api_key_set"); } }
         private bool? _explicitNullValueLlmApiKeySet = default!;
         /// <summary>The llm_profile_ref property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LlmProfileRef { get => _explicitNullValueLlmProfileRef; set { _explicitNullValueLlmProfileRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_profile_ref"); else _explicitNullProperties?.Remove("llm_profile_ref"); } }
+        public string? LlmProfileRef { get => _explicitNullValueLlmProfileRef; set { _explicitNullValueLlmProfileRef = value; AdditionalData?.Remove("llm_profile_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_profile_ref"); else _explicitNullProperties?.Remove("llm_profile_ref"); } }
         private string? _explicitNullValueLlmProfileRef = default!;
 #nullable restore
 #else
-        public string LlmProfileRef { get => _explicitNullValueLlmProfileRef; set { _explicitNullValueLlmProfileRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_profile_ref"); else _explicitNullProperties?.Remove("llm_profile_ref"); } }
+        public string LlmProfileRef { get => _explicitNullValueLlmProfileRef; set { _explicitNullValueLlmProfileRef = value; AdditionalData?.Remove("llm_profile_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_profile_ref"); else _explicitNullProperties?.Remove("llm_profile_ref"); } }
         private string _explicitNullValueLlmProfileRef = default!;
 #endif
         /// <summary>The llm_profile_resolved property</summary>
-        public bool? LlmProfileResolved { get => _explicitNullValueLlmProfileResolved; set { _explicitNullValueLlmProfileResolved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_profile_resolved"); else _explicitNullProperties?.Remove("llm_profile_resolved"); } }
+        public bool? LlmProfileResolved { get => _explicitNullValueLlmProfileResolved; set { _explicitNullValueLlmProfileResolved = value; AdditionalData?.Remove("llm_profile_resolved"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_profile_resolved"); else _explicitNullProperties?.Remove("llm_profile_resolved"); } }
         private bool? _explicitNullValueLlmProfileResolved = default!;
         /// <summary>The mcp_server_refs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? McpServerRefs { get => _explicitNullValueMcpServerRefs; set { _explicitNullValueMcpServerRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_refs"); else _explicitNullProperties?.Remove("mcp_server_refs"); } }
+        public List<string>? McpServerRefs { get => _explicitNullValueMcpServerRefs; set { _explicitNullValueMcpServerRefs = value; AdditionalData?.Remove("mcp_server_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_refs"); else _explicitNullProperties?.Remove("mcp_server_refs"); } }
         private List<string>? _explicitNullValueMcpServerRefs = default!;
 #nullable restore
 #else
-        public List<string> McpServerRefs { get => _explicitNullValueMcpServerRefs; set { _explicitNullValueMcpServerRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_refs"); else _explicitNullProperties?.Remove("mcp_server_refs"); } }
+        public List<string> McpServerRefs { get => _explicitNullValueMcpServerRefs; set { _explicitNullValueMcpServerRefs = value; AdditionalData?.Remove("mcp_server_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_refs"); else _explicitNullProperties?.Remove("mcp_server_refs"); } }
         private List<string> _explicitNullValueMcpServerRefs = default!;
 #endif
         /// <summary>The meta_profile_ref property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MetaProfileRef { get => _explicitNullValueMetaProfileRef; set { _explicitNullValueMetaProfileRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta_profile_ref"); else _explicitNullProperties?.Remove("meta_profile_ref"); } }
+        public string? MetaProfileRef { get => _explicitNullValueMetaProfileRef; set { _explicitNullValueMetaProfileRef = value; AdditionalData?.Remove("meta_profile_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta_profile_ref"); else _explicitNullProperties?.Remove("meta_profile_ref"); } }
         private string? _explicitNullValueMetaProfileRef = default!;
 #nullable restore
 #else
-        public string MetaProfileRef { get => _explicitNullValueMetaProfileRef; set { _explicitNullValueMetaProfileRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta_profile_ref"); else _explicitNullProperties?.Remove("meta_profile_ref"); } }
+        public string MetaProfileRef { get => _explicitNullValueMetaProfileRef; set { _explicitNullValueMetaProfileRef = value; AdditionalData?.Remove("meta_profile_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta_profile_ref"); else _explicitNullProperties?.Remove("meta_profile_ref"); } }
         private string _explicitNullValueMetaProfileRef = default!;
 #endif
         /// <summary>The public_skills property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? PublicSkills { get => _explicitNullValuePublicSkills; set { _explicitNullValuePublicSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_skills"); else _explicitNullProperties?.Remove("public_skills"); } }
+        public List<string>? PublicSkills { get => _explicitNullValuePublicSkills; set { _explicitNullValuePublicSkills = value; AdditionalData?.Remove("public_skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_skills"); else _explicitNullProperties?.Remove("public_skills"); } }
         private List<string>? _explicitNullValuePublicSkills = default!;
 #nullable restore
 #else
-        public List<string> PublicSkills { get => _explicitNullValuePublicSkills; set { _explicitNullValuePublicSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_skills"); else _explicitNullProperties?.Remove("public_skills"); } }
+        public List<string> PublicSkills { get => _explicitNullValuePublicSkills; set { _explicitNullValuePublicSkills = value; AdditionalData?.Remove("public_skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_skills"); else _explicitNullProperties?.Remove("public_skills"); } }
         private List<string> _explicitNullValuePublicSkills = default!;
 #endif
         /// <summary>The resolved_mcp_config_keys property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ResolvedMcpConfigKeys { get => _explicitNullValueResolvedMcpConfigKeys; set { _explicitNullValueResolvedMcpConfigKeys = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_mcp_config_keys"); else _explicitNullProperties?.Remove("resolved_mcp_config_keys"); } }
+        public List<string>? ResolvedMcpConfigKeys { get => _explicitNullValueResolvedMcpConfigKeys; set { _explicitNullValueResolvedMcpConfigKeys = value; AdditionalData?.Remove("resolved_mcp_config_keys"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_mcp_config_keys"); else _explicitNullProperties?.Remove("resolved_mcp_config_keys"); } }
         private List<string>? _explicitNullValueResolvedMcpConfigKeys = default!;
 #nullable restore
 #else
-        public List<string> ResolvedMcpConfigKeys { get => _explicitNullValueResolvedMcpConfigKeys; set { _explicitNullValueResolvedMcpConfigKeys = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_mcp_config_keys"); else _explicitNullProperties?.Remove("resolved_mcp_config_keys"); } }
+        public List<string> ResolvedMcpConfigKeys { get => _explicitNullValueResolvedMcpConfigKeys; set { _explicitNullValueResolvedMcpConfigKeys = value; AdditionalData?.Remove("resolved_mcp_config_keys"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_mcp_config_keys"); else _explicitNullProperties?.Remove("resolved_mcp_config_keys"); } }
         private List<string> _explicitNullValueResolvedMcpConfigKeys = default!;
 #endif
         /// <summary>The resolved_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsResolvedSettingsProperty? ResolvedSettings { get => _explicitNullValueResolvedSettings; set { _explicitNullValueResolvedSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_settings"); else _explicitNullProperties?.Remove("resolved_settings"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsResolvedSettingsProperty? ResolvedSettings { get => _explicitNullValueResolvedSettings; set { _explicitNullValueResolvedSettings = value; AdditionalData?.Remove("resolved_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_settings"); else _explicitNullProperties?.Remove("resolved_settings"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsResolvedSettingsProperty? _explicitNullValueResolvedSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsResolvedSettingsProperty ResolvedSettings { get => _explicitNullValueResolvedSettings; set { _explicitNullValueResolvedSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_settings"); else _explicitNullProperties?.Remove("resolved_settings"); } }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsResolvedSettingsProperty ResolvedSettings { get => _explicitNullValueResolvedSettings; set { _explicitNullValueResolvedSettings = value; AdditionalData?.Remove("resolved_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_settings"); else _explicitNullProperties?.Remove("resolved_settings"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnosticsResolvedSettingsProperty _explicitNullValueResolvedSettings = default!;
 #endif
         /// <summary>The resolved_skills property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ResolvedSkills { get => _explicitNullValueResolvedSkills; set { _explicitNullValueResolvedSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_skills"); else _explicitNullProperties?.Remove("resolved_skills"); } }
+        public List<string>? ResolvedSkills { get => _explicitNullValueResolvedSkills; set { _explicitNullValueResolvedSkills = value; AdditionalData?.Remove("resolved_skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_skills"); else _explicitNullProperties?.Remove("resolved_skills"); } }
         private List<string>? _explicitNullValueResolvedSkills = default!;
 #nullable restore
 #else
-        public List<string> ResolvedSkills { get => _explicitNullValueResolvedSkills; set { _explicitNullValueResolvedSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_skills"); else _explicitNullProperties?.Remove("resolved_skills"); } }
+        public List<string> ResolvedSkills { get => _explicitNullValueResolvedSkills; set { _explicitNullValueResolvedSkills = value; AdditionalData?.Remove("resolved_skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_skills"); else _explicitNullProperties?.Remove("resolved_skills"); } }
         private List<string> _explicitNullValueResolvedSkills = default!;
 #endif
         /// <summary>The secret_refs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SecretRefs { get => _explicitNullValueSecretRefs; set { _explicitNullValueSecretRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_refs"); else _explicitNullProperties?.Remove("secret_refs"); } }
+        public List<string>? SecretRefs { get => _explicitNullValueSecretRefs; set { _explicitNullValueSecretRefs = value; AdditionalData?.Remove("secret_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_refs"); else _explicitNullProperties?.Remove("secret_refs"); } }
         private List<string>? _explicitNullValueSecretRefs = default!;
 #nullable restore
 #else
-        public List<string> SecretRefs { get => _explicitNullValueSecretRefs; set { _explicitNullValueSecretRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_refs"); else _explicitNullProperties?.Remove("secret_refs"); } }
+        public List<string> SecretRefs { get => _explicitNullValueSecretRefs; set { _explicitNullValueSecretRefs = value; AdditionalData?.Remove("secret_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_refs"); else _explicitNullProperties?.Remove("secret_refs"); } }
         private List<string> _explicitNullValueSecretRefs = default!;
 #endif
         /// <summary>Selected tools the runtime cannot run. An unavailable browser is left out of the launch; any other such tool fails the launch or fails when the agent uses it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? UnusableTools { get => _explicitNullValueUnusableTools; set { _explicitNullValueUnusableTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unusable_tools"); else _explicitNullProperties?.Remove("unusable_tools"); } }
+        public List<string>? UnusableTools { get => _explicitNullValueUnusableTools; set { _explicitNullValueUnusableTools = value; AdditionalData?.Remove("unusable_tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unusable_tools"); else _explicitNullProperties?.Remove("unusable_tools"); } }
         private List<string>? _explicitNullValueUnusableTools = default!;
 #nullable restore
 #else
-        public List<string> UnusableTools { get => _explicitNullValueUnusableTools; set { _explicitNullValueUnusableTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unusable_tools"); else _explicitNullProperties?.Remove("unusable_tools"); } }
+        public List<string> UnusableTools { get => _explicitNullValueUnusableTools; set { _explicitNullValueUnusableTools = value; AdditionalData?.Remove("unusable_tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unusable_tools"); else _explicitNullProperties?.Remove("unusable_tools"); } }
         private List<string> _explicitNullValueUnusableTools = default!;
 #endif
         /// <summary>The valid property</summary>
-        public bool? Valid { get => _explicitNullValueValid; set { _explicitNullValueValid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valid"); else _explicitNullProperties?.Remove("valid"); } }
+        public bool? Valid { get => _explicitNullValueValid; set { _explicitNullValueValid = value; AdditionalData?.Remove("valid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valid"); else _explicitNullProperties?.Remove("valid"); } }
         private bool? _explicitNullValueValid = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDiagnostics"/> and sets the default values.

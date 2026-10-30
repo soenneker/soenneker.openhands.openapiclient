@@ -17,62 +17,70 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("daily_limit") is { } nullNodeDailyLimit && nullNodeDailyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailyLimit = null;
-            if (parseNode.GetChildNode("latest_request_requested_limit") is { } nullNodeLatestRequestRequestedLimit && nullNodeLatestRequestRequestedLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LatestRequestRequestedLimit = null;
-            if (parseNode.GetChildNode("latest_request_status") is { } nullNodeLatestRequestStatus && nullNodeLatestRequestStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LatestRequestStatus = null;
-            if (parseNode.GetChildNode("remaining") is { } nullNodeRemaining && nullNodeRemaining.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Remaining = null;
-            if (parseNode.GetChildNode("reset_at") is { } nullNodeResetAt && nullNodeResetAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResetAt = null;
-            if (parseNode.GetChildNode("used_today") is { } nullNodeUsedToday && nullNodeUsedToday.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsedToday = null;
-            if (parseNode.GetChildNode("work_email") is { } nullNodeWorkEmail && nullNodeWorkEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkEmail = null;
-            if (parseNode.GetChildNode("work_email_verified") is { } nullNodeWorkEmailVerified && nullNodeWorkEmailVerified.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkEmailVerified = null;
+            if (parseNode.GetChildNode("daily_limit") is null) { _explicitNullValueDailyLimit = default!; _explicitNullProperties?.Remove("daily_limit"); }
+            else if (parseNode.GetChildNode("daily_limit") is { } nullNodeDailyLimit && nullNodeDailyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailyLimit = null;
+            if (parseNode.GetChildNode("latest_request_requested_limit") is null) { _explicitNullValueLatestRequestRequestedLimit = default!; _explicitNullProperties?.Remove("latest_request_requested_limit"); }
+            else if (parseNode.GetChildNode("latest_request_requested_limit") is { } nullNodeLatestRequestRequestedLimit && nullNodeLatestRequestRequestedLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LatestRequestRequestedLimit = null;
+            if (parseNode.GetChildNode("latest_request_status") is null) { _explicitNullValueLatestRequestStatus = default!; _explicitNullProperties?.Remove("latest_request_status"); }
+            else if (parseNode.GetChildNode("latest_request_status") is { } nullNodeLatestRequestStatus && nullNodeLatestRequestStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LatestRequestStatus = null;
+            if (parseNode.GetChildNode("remaining") is null) { _explicitNullValueRemaining = default!; _explicitNullProperties?.Remove("remaining"); }
+            else if (parseNode.GetChildNode("remaining") is { } nullNodeRemaining && nullNodeRemaining.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Remaining = null;
+            if (parseNode.GetChildNode("reset_at") is null) { _explicitNullValueResetAt = default!; _explicitNullProperties?.Remove("reset_at"); }
+            else if (parseNode.GetChildNode("reset_at") is { } nullNodeResetAt && nullNodeResetAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResetAt = null;
+            if (parseNode.GetChildNode("used_today") is null) { _explicitNullValueUsedToday = default!; _explicitNullProperties?.Remove("used_today"); }
+            else if (parseNode.GetChildNode("used_today") is { } nullNodeUsedToday && nullNodeUsedToday.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsedToday = null;
+            if (parseNode.GetChildNode("work_email") is null) { _explicitNullValueWorkEmail = default!; _explicitNullProperties?.Remove("work_email"); }
+            else if (parseNode.GetChildNode("work_email") is { } nullNodeWorkEmail && nullNodeWorkEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkEmail = null;
+            if (parseNode.GetChildNode("work_email_verified") is null) { _explicitNullValueWorkEmailVerified = default!; _explicitNullProperties?.Remove("work_email_verified"); }
+            else if (parseNode.GetChildNode("work_email_verified") is { } nullNodeWorkEmailVerified && nullNodeWorkEmailVerified.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkEmailVerified = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The daily_limit property</summary>
-        public int? DailyLimit { get => _explicitNullValueDailyLimit; set { _explicitNullValueDailyLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_limit"); else _explicitNullProperties?.Remove("daily_limit"); } }
+        public int? DailyLimit { get => _explicitNullValueDailyLimit; set { _explicitNullValueDailyLimit = value; AdditionalData?.Remove("daily_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_limit"); else _explicitNullProperties?.Remove("daily_limit"); } }
         private int? _explicitNullValueDailyLimit = default!;
         /// <summary>The latest_request_requested_limit property</summary>
-        public int? LatestRequestRequestedLimit { get => _explicitNullValueLatestRequestRequestedLimit; set { _explicitNullValueLatestRequestRequestedLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latest_request_requested_limit"); else _explicitNullProperties?.Remove("latest_request_requested_limit"); } }
+        public int? LatestRequestRequestedLimit { get => _explicitNullValueLatestRequestRequestedLimit; set { _explicitNullValueLatestRequestRequestedLimit = value; AdditionalData?.Remove("latest_request_requested_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latest_request_requested_limit"); else _explicitNullProperties?.Remove("latest_request_requested_limit"); } }
         private int? _explicitNullValueLatestRequestRequestedLimit = default!;
         /// <summary>The latest_request_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LatestRequestStatus { get => _explicitNullValueLatestRequestStatus; set { _explicitNullValueLatestRequestStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latest_request_status"); else _explicitNullProperties?.Remove("latest_request_status"); } }
+        public string? LatestRequestStatus { get => _explicitNullValueLatestRequestStatus; set { _explicitNullValueLatestRequestStatus = value; AdditionalData?.Remove("latest_request_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latest_request_status"); else _explicitNullProperties?.Remove("latest_request_status"); } }
         private string? _explicitNullValueLatestRequestStatus = default!;
 #nullable restore
 #else
-        public string LatestRequestStatus { get => _explicitNullValueLatestRequestStatus; set { _explicitNullValueLatestRequestStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latest_request_status"); else _explicitNullProperties?.Remove("latest_request_status"); } }
+        public string LatestRequestStatus { get => _explicitNullValueLatestRequestStatus; set { _explicitNullValueLatestRequestStatus = value; AdditionalData?.Remove("latest_request_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latest_request_status"); else _explicitNullProperties?.Remove("latest_request_status"); } }
         private string _explicitNullValueLatestRequestStatus = default!;
 #endif
         /// <summary>The remaining property</summary>
-        public int? Remaining { get => _explicitNullValueRemaining; set { _explicitNullValueRemaining = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remaining"); else _explicitNullProperties?.Remove("remaining"); } }
+        public int? Remaining { get => _explicitNullValueRemaining; set { _explicitNullValueRemaining = value; AdditionalData?.Remove("remaining"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remaining"); else _explicitNullProperties?.Remove("remaining"); } }
         private int? _explicitNullValueRemaining = default!;
         /// <summary>The reset_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResetAt { get => _explicitNullValueResetAt; set { _explicitNullValueResetAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reset_at"); else _explicitNullProperties?.Remove("reset_at"); } }
+        public string? ResetAt { get => _explicitNullValueResetAt; set { _explicitNullValueResetAt = value; AdditionalData?.Remove("reset_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reset_at"); else _explicitNullProperties?.Remove("reset_at"); } }
         private string? _explicitNullValueResetAt = default!;
 #nullable restore
 #else
-        public string ResetAt { get => _explicitNullValueResetAt; set { _explicitNullValueResetAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reset_at"); else _explicitNullProperties?.Remove("reset_at"); } }
+        public string ResetAt { get => _explicitNullValueResetAt; set { _explicitNullValueResetAt = value; AdditionalData?.Remove("reset_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reset_at"); else _explicitNullProperties?.Remove("reset_at"); } }
         private string _explicitNullValueResetAt = default!;
 #endif
         /// <summary>The used_today property</summary>
-        public int? UsedToday { get => _explicitNullValueUsedToday; set { _explicitNullValueUsedToday = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("used_today"); else _explicitNullProperties?.Remove("used_today"); } }
+        public int? UsedToday { get => _explicitNullValueUsedToday; set { _explicitNullValueUsedToday = value; AdditionalData?.Remove("used_today"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("used_today"); else _explicitNullProperties?.Remove("used_today"); } }
         private int? _explicitNullValueUsedToday = default!;
         /// <summary>The work_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkEmail { get => _explicitNullValueWorkEmail; set { _explicitNullValueWorkEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("work_email"); else _explicitNullProperties?.Remove("work_email"); } }
+        public string? WorkEmail { get => _explicitNullValueWorkEmail; set { _explicitNullValueWorkEmail = value; AdditionalData?.Remove("work_email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("work_email"); else _explicitNullProperties?.Remove("work_email"); } }
         private string? _explicitNullValueWorkEmail = default!;
 #nullable restore
 #else
-        public string WorkEmail { get => _explicitNullValueWorkEmail; set { _explicitNullValueWorkEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("work_email"); else _explicitNullProperties?.Remove("work_email"); } }
+        public string WorkEmail { get => _explicitNullValueWorkEmail; set { _explicitNullValueWorkEmail = value; AdditionalData?.Remove("work_email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("work_email"); else _explicitNullProperties?.Remove("work_email"); } }
         private string _explicitNullValueWorkEmail = default!;
 #endif
         /// <summary>The work_email_verified property</summary>
-        public bool? WorkEmailVerified { get => _explicitNullValueWorkEmailVerified; set { _explicitNullValueWorkEmailVerified = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("work_email_verified"); else _explicitNullProperties?.Remove("work_email_verified"); } }
+        public bool? WorkEmailVerified { get => _explicitNullValueWorkEmailVerified; set { _explicitNullValueWorkEmailVerified = value; AdditionalData?.Remove("work_email_verified"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("work_email_verified"); else _explicitNullProperties?.Remove("work_email_verified"); } }
         private bool? _explicitNullValueWorkEmailVerified = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.QuotaStatusResponse"/> and sets the default values.

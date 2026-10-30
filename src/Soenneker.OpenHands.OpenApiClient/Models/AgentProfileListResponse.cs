@@ -17,18 +17,20 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("active_agent_profile_id") is { } nullNodeActiveAgentProfileId && nullNodeActiveAgentProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveAgentProfileId = null;
-            if (parseNode.GetChildNode("profiles") is { } nullNodeProfiles && nullNodeProfiles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Profiles = null;
+            if (parseNode.GetChildNode("active_agent_profile_id") is null) { _explicitNullValueActiveAgentProfileId = default!; _explicitNullProperties?.Remove("active_agent_profile_id"); }
+            else if (parseNode.GetChildNode("active_agent_profile_id") is { } nullNodeActiveAgentProfileId && nullNodeActiveAgentProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveAgentProfileId = null;
+            if (parseNode.GetChildNode("profiles") is null) { _explicitNullValueProfiles = default!; _explicitNullProperties?.Remove("profiles"); }
+            else if (parseNode.GetChildNode("profiles") is { } nullNodeProfiles && nullNodeProfiles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Profiles = null;
         }
 
         /// <summary>The active_agent_profile_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ActiveAgentProfileId { get => _explicitNullValueActiveAgentProfileId; set { _explicitNullValueActiveAgentProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_agent_profile_id"); else _explicitNullProperties?.Remove("active_agent_profile_id"); } }
+        public string? ActiveAgentProfileId { get => _explicitNullValueActiveAgentProfileId; set { _explicitNullValueActiveAgentProfileId = value; AdditionalData?.Remove("active_agent_profile_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_agent_profile_id"); else _explicitNullProperties?.Remove("active_agent_profile_id"); } }
         private string? _explicitNullValueActiveAgentProfileId = default!;
 #nullable restore
 #else
-        public string ActiveAgentProfileId { get => _explicitNullValueActiveAgentProfileId; set { _explicitNullValueActiveAgentProfileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_agent_profile_id"); else _explicitNullProperties?.Remove("active_agent_profile_id"); } }
+        public string ActiveAgentProfileId { get => _explicitNullValueActiveAgentProfileId; set { _explicitNullValueActiveAgentProfileId = value; AdditionalData?.Remove("active_agent_profile_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_agent_profile_id"); else _explicitNullProperties?.Remove("active_agent_profile_id"); } }
         private string _explicitNullValueActiveAgentProfileId = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -36,11 +38,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The profiles property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileInfo>? Profiles { get => _explicitNullValueProfiles; set { _explicitNullValueProfiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profiles"); else _explicitNullProperties?.Remove("profiles"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileInfo>? Profiles { get => _explicitNullValueProfiles; set { _explicitNullValueProfiles = value; AdditionalData?.Remove("profiles"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profiles"); else _explicitNullProperties?.Remove("profiles"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileInfo>? _explicitNullValueProfiles = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileInfo> Profiles { get => _explicitNullValueProfiles; set { _explicitNullValueProfiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profiles"); else _explicitNullProperties?.Remove("profiles"); } }
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileInfo> Profiles { get => _explicitNullValueProfiles; set { _explicitNullValueProfiles = value; AdditionalData?.Remove("profiles"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profiles"); else _explicitNullProperties?.Remove("profiles"); } }
         private List<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileInfo> _explicitNullValueProfiles = default!;
 #endif
         /// <summary>
