@@ -5,12 +5,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum UnparsedObservationKind
+    public enum EventTypeOneOf2_kind
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "UnparsedObservation")]
+        [EnumMember(Value = "UnparsedEvent")]
         #pragma warning disable CS1591
-        UnparsedObservation,
+        UnparsedEvent,
         #pragma warning restore CS1591
     }
 }

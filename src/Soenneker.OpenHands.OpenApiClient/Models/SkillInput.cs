@@ -171,12 +171,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Trigger determines when skill content is auto-injected. None = no auto-injection (for AgentSkills: agent reads on demand; for legacy: full content always in system prompt). KeywordTrigger = auto-inject when keywords appear in user messages. TaskTrigger = auto-inject for specific tasks, may require user input.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PathTrigger? Trigger { get => _explicitNullValueTrigger; set { _explicitNullValueTrigger = value; AdditionalData?.Remove("trigger"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger"); else _explicitNullProperties?.Remove("trigger"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.PathTrigger? _explicitNullValueTrigger = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTriggerAnyOf1? Trigger { get => _explicitNullValueTrigger; set { _explicitNullValueTrigger = value; AdditionalData?.Remove("trigger"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger"); else _explicitNullProperties?.Remove("trigger"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTriggerAnyOf1? _explicitNullValueTrigger = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.PathTrigger Trigger { get => _explicitNullValueTrigger; set { _explicitNullValueTrigger = value; AdditionalData?.Remove("trigger"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger"); else _explicitNullProperties?.Remove("trigger"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.PathTrigger _explicitNullValueTrigger = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTriggerAnyOf1 Trigger { get => _explicitNullValueTrigger; set { _explicitNullValueTrigger = value; AdditionalData?.Remove("trigger"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger"); else _explicitNullProperties?.Remove("trigger"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTriggerAnyOf1 _explicitNullValueTrigger = default!;
 #endif
         /// <summary>Skill version (AgentSkills standard field).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -229,7 +229,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "resources", n => { Resources = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetStringValue(); } },
-                { "trigger", n => { Trigger = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PathTrigger>(global::Soenneker.OpenHands.OpenApiClient.Models.PathTrigger.CreateFromDiscriminatorValue); } },
+                { "trigger", n => { Trigger = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTriggerAnyOf1>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTriggerAnyOf1.CreateFromDiscriminatorValue); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -253,7 +253,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources>("resources", Resources);
             writer.WriteStringValue("source", Source);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.PathTrigger>("trigger", Trigger);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTriggerAnyOf1>("trigger", Trigger);
             writer.WriteStringValue("version", Version);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AskOracleObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ClassifyAndSwitchLlmObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.DelegateObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EditObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.FileEditorObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.FinishObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GlobObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.InvokeSkillObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.McpToolObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SleeptimeComputeObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLlmObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskTrackerObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ThinkObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.VisionInspectObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WorkflowObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WriteFileObservation"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AskOracleObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.BrowserObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ClassifyAndSwitchLlmObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.DelegateObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EditObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.FileEditorObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.FinishObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GlobObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.GrepObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.InvokeSkillObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ListDirectoryObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.McpToolObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ObservationOneOf1"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ReadFileObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SleeptimeComputeObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SwitchLlmObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TaskTrackerObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.TerminalObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ThinkObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.VisionInspectObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WorkflowObservation"/>, <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.WriteFileObservation"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Observation : IComposedTypeWrapper, IParsable
@@ -138,6 +138,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.McpToolObservation McpToolObservation { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ObservationOneOf1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ObservationOneOf1? ObservationOneOf1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ObservationOneOf1 ObservationOneOf1 { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.PlanningFileEditorObservation"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -210,14 +218,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.ThinkObservation ThinkObservation { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservation"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservation? UnparsedObservation { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservation UnparsedObservation { get; set; }
-#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.VisionInspectObservation"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -250,123 +250,123 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public static global::Soenneker.OpenHands.OpenApiClient.Models.Observation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenHands.OpenApiClient.Models.Observation();
-            if("openhands__tools__apply_patch__definition__ApplyPatchObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ApplyPatchObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__ask_oracle__definition__AskOracleObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("AskOracleObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__browser_use__definition__BrowserObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BrowserObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__sdk__tool__builtins__classify_and_switch_llm__ClassifyAndSwitchLLMObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ClassifyAndSwitchLlmObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__sdk__tool__client_tool__ClientToolObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ClientToolObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__tom_consult__definition__ConsultTomObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ConsultTomObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__delegate__definition__DelegateObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("DelegateObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__gemini__edit__definition__EditObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("EditObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__file_editor__definition__FileEditorObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("FileEditorObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__sdk__tool__builtins__finish__FinishObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("FinishObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__glob__definition__GlobObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("GlobObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__grep__definition__GrepObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("GrepObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__sdk__tool__builtins__invoke_skill__InvokeSkillObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("InvokeSkillObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__gemini__list_directory__definition__ListDirectoryObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListDirectoryObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__sdk__mcp__definition__MCPToolObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("McpToolObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__planning_file_editor__definition__PlanningFileEditorObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ObservationOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__gemini__read_file__definition__ReadFileObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("PlanningFileEditorObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__tom_consult__definition__SleeptimeComputeObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ReadFileObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__child_conversation__definition__StartChildConversationObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("SleeptimeComputeObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__sdk__tool__builtins__switch_llm__SwitchLLMObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("StartChildConversationObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__task__definition__TaskObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("SwitchLlmObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__task_tracker__definition__TaskTrackerObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("TaskObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__terminal__definition__TerminalObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("TaskTrackerObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__sdk__tool__builtins__think__ThinkObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("TerminalObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__app_server__event__event_parsing__UnparsedObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ThinkObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__sdk__tool__builtins__vision_inspect__VisionInspectObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("VisionInspectObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__workflow__definition__WorkflowObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("WorkflowObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("openhands__tools__gemini__write_file__definition__WriteFileObservation-Output__1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("WriteFileObservation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("original_kind") && shapeMembers1.ContainsKey("raw_payload") && (!shapeMembers1.ContainsKey("content") || (((shapeMembers1["content"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)))) && (!shapeMembers1.ContainsKey("is_error") || (((shapeMembers1["is_error"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedBoolean)))) && (!shapeMembers1.ContainsKey("original_kind") || (((shapeMembers1["original_kind"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("raw_payload") || (((shapeMembers1["raw_payload"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)))) && (!shapeMembers1.ContainsKey("kind") || (((shapeMembers1["kind"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && (shapeMembers1["kind"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal10 && "UnparsedObservation".Equals(literal10.GetValue(), global::System.StringComparison.Ordinal)) && ((shapeMembers1["kind"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal11 && "UnparsedObservation".Equals(literal11.GetValue(), global::System.StringComparison.Ordinal))))) && global::System.Linq.Enumerable.All(shapeMembers1.Keys, key => key == "content" || key == "is_error" || key == "original_kind" || key == "raw_payload" || key == "kind"))))))();
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("original_kind") && shapeMembers1.ContainsKey("raw_payload") && shapeMembers1.ContainsKey("kind") && (!shapeMembers1.ContainsKey("content") || (((shapeMembers1["content"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)))) && (!shapeMembers1.ContainsKey("is_error") || (((shapeMembers1["is_error"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedBoolean)))) && (!shapeMembers1.ContainsKey("original_kind") || (((shapeMembers1["original_kind"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("raw_payload") || (((shapeMembers1["raw_payload"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)))) && (!shapeMembers1.ContainsKey("kind") || (((shapeMembers1["kind"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && (shapeMembers1["kind"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal10 && "UnparsedObservation".Equals(literal10.GetValue(), global::System.StringComparison.Ordinal)) && ((shapeMembers1["kind"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal11 && "UnparsedObservation".Equals(literal11.GetValue(), global::System.StringComparison.Ordinal))))) && global::System.Linq.Enumerable.All(shapeMembers1.Keys, key => key == "content" || key == "is_error" || key == "original_kind" || key == "raw_payload" || key == "kind"))))))();
             bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("tool_name") && shapeMembers1.ContainsKey("kind") && (!shapeMembers1.ContainsKey("content") || (((shapeMembers1["content"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)))) && (!shapeMembers1.ContainsKey("is_error") || (((shapeMembers1["is_error"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedBoolean)))) && (!shapeMembers1.ContainsKey("tool_name") || (((shapeMembers1["tool_name"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("kind") || (((shapeMembers1["kind"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && (shapeMembers1["kind"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal8 && "MCPToolObservation".Equals(literal8.GetValue(), global::System.StringComparison.Ordinal)) && ((shapeMembers1["kind"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal9 && "MCPToolObservation".Equals(literal9.GetValue(), global::System.StringComparison.Ordinal))))) && global::System.Linq.Enumerable.All(shapeMembers1.Keys, key => key == "content" || key == "is_error" || key == "tool_name" || key == "kind"))))))();
             bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("kind") && (!shapeMembers1.ContainsKey("content") || (((shapeMembers1["content"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)))) && (!shapeMembers1.ContainsKey("is_error") || (((shapeMembers1["is_error"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedBoolean)))) && (!shapeMembers1.ContainsKey("chosen_class") || ((((shapeMembers1["chosen_class"] == null || shapeMembers1["chosen_class"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)) || (shapeMembers1["chosen_class"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("model") || ((((shapeMembers1["model"] == null || shapeMembers1["model"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)) || (shapeMembers1["model"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("active_model") || ((((shapeMembers1["active_model"] == null || shapeMembers1["active_model"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)) || (shapeMembers1["active_model"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("kind") || (((shapeMembers1["kind"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && (shapeMembers1["kind"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal12 && "ClassifyAndSwitchLLMObservation".Equals(literal12.GetValue(), global::System.StringComparison.Ordinal)) && ((shapeMembers1["kind"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal13 && "ClassifyAndSwitchLLMObservation".Equals(literal13.GetValue(), global::System.StringComparison.Ordinal))))) && global::System.Linq.Enumerable.All(shapeMembers1.Keys, key => key == "content" || key == "is_error" || key == "chosen_class" || key == "model" || key == "active_model" || key == "kind"))))))();
             bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("kind") && (!shapeMembers1.ContainsKey("content") || (((shapeMembers1["content"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)))) && (!shapeMembers1.ContainsKey("is_error") || (((shapeMembers1["is_error"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedBoolean)))) && (!shapeMembers1.ContainsKey("kind") || (((shapeMembers1["kind"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && (shapeMembers1["kind"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal6 && "FinishObservation".Equals(literal6.GetValue(), global::System.StringComparison.Ordinal)) && ((shapeMembers1["kind"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal7 && "FinishObservation".Equals(literal7.GetValue(), global::System.StringComparison.Ordinal))))) && global::System.Linq.Enumerable.All(shapeMembers1.Keys, key => key == "content" || key == "is_error" || key == "kind"))))))();
@@ -423,8 +423,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if (matchesUnionBranch25) matchingUnionBranches++;
             if (matchesUnionBranch26) matchingUnionBranches++;
             if (matchesUnionBranch27) matchingUnionBranches++;
-            bool noSelectedUnionBranch = result.ApplyPatchObservation == null && result.AskOracleObservation == null && result.BrowserObservation == null && result.ClassifyAndSwitchLlmObservation == null && result.ClientToolObservation == null && result.ConsultTomObservation == null && result.DelegateObservation == null && result.EditObservation == null && result.FileEditorObservation == null && result.FinishObservation == null && result.GlobObservation == null && result.GrepObservation == null && result.InvokeSkillObservation == null && result.ListDirectoryObservation == null && result.McpToolObservation == null && result.PlanningFileEditorObservation == null && result.ReadFileObservation == null && result.SleeptimeComputeObservation == null && result.StartChildConversationObservation == null && result.SwitchLlmObservation == null && result.TaskObservation == null && result.TaskTrackerObservation == null && result.TerminalObservation == null && result.ThinkObservation == null && result.UnparsedObservation == null && result.VisionInspectObservation == null && result.WorkflowObservation == null && result.WriteFileObservation == null;
-            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.UnparsedObservation = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservation(), parseNode);
+            bool noSelectedUnionBranch = result.ApplyPatchObservation == null && result.AskOracleObservation == null && result.BrowserObservation == null && result.ClassifyAndSwitchLlmObservation == null && result.ClientToolObservation == null && result.ConsultTomObservation == null && result.DelegateObservation == null && result.EditObservation == null && result.FileEditorObservation == null && result.FinishObservation == null && result.GlobObservation == null && result.GrepObservation == null && result.InvokeSkillObservation == null && result.ListDirectoryObservation == null && result.McpToolObservation == null && result.ObservationOneOf1 == null && result.PlanningFileEditorObservation == null && result.ReadFileObservation == null && result.SleeptimeComputeObservation == null && result.StartChildConversationObservation == null && result.SwitchLlmObservation == null && result.TaskObservation == null && result.TaskTrackerObservation == null && result.TerminalObservation == null && result.ThinkObservation == null && result.VisionInspectObservation == null && result.WorkflowObservation == null && result.WriteFileObservation == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.ObservationOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.ObservationOneOf1(), parseNode);
             if (noSelectedUnionBranch && matchesUnionBranch1 && matchingUnionBranches == 1) result.McpToolObservation = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.McpToolObservation(), parseNode);
             if (noSelectedUnionBranch && matchesUnionBranch2 && matchingUnionBranches == 1) result.ClassifyAndSwitchLlmObservation = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.ClassifyAndSwitchLlmObservation(), parseNode);
             if (noSelectedUnionBranch && matchesUnionBranch3 && matchingUnionBranches == 1) result.FinishObservation = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.FinishObservation(), parseNode);
@@ -452,7 +452,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if (noSelectedUnionBranch && matchesUnionBranch25 && matchingUnionBranches == 1) result.ConsultTomObservation = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.ConsultTomObservation(), parseNode);
             if (noSelectedUnionBranch && matchesUnionBranch26 && matchingUnionBranches == 1) result.SleeptimeComputeObservation = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.SleeptimeComputeObservation(), parseNode);
             if (noSelectedUnionBranch && matchesUnionBranch27 && matchingUnionBranches == 1) result.WorkflowObservation = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.WorkflowObservation(), parseNode);
-            if (result.ApplyPatchObservation == null && result.AskOracleObservation == null && result.BrowserObservation == null && result.ClassifyAndSwitchLlmObservation == null && result.ClientToolObservation == null && result.ConsultTomObservation == null && result.DelegateObservation == null && result.EditObservation == null && result.FileEditorObservation == null && result.FinishObservation == null && result.GlobObservation == null && result.GrepObservation == null && result.InvokeSkillObservation == null && result.ListDirectoryObservation == null && result.McpToolObservation == null && result.PlanningFileEditorObservation == null && result.ReadFileObservation == null && result.SleeptimeComputeObservation == null && result.StartChildConversationObservation == null && result.SwitchLlmObservation == null && result.TaskObservation == null && result.TaskTrackerObservation == null && result.TerminalObservation == null && result.ThinkObservation == null && result.UnparsedObservation == null && result.VisionInspectObservation == null && result.WorkflowObservation == null && result.WriteFileObservation == null) result.UnrecognizedValue = unionPayload;
+            if (result.ApplyPatchObservation == null && result.AskOracleObservation == null && result.BrowserObservation == null && result.ClassifyAndSwitchLlmObservation == null && result.ClientToolObservation == null && result.ConsultTomObservation == null && result.DelegateObservation == null && result.EditObservation == null && result.FileEditorObservation == null && result.FinishObservation == null && result.GlobObservation == null && result.GrepObservation == null && result.InvokeSkillObservation == null && result.ListDirectoryObservation == null && result.McpToolObservation == null && result.ObservationOneOf1 == null && result.PlanningFileEditorObservation == null && result.ReadFileObservation == null && result.SleeptimeComputeObservation == null && result.StartChildConversationObservation == null && result.SwitchLlmObservation == null && result.TaskObservation == null && result.TaskTrackerObservation == null && result.TerminalObservation == null && result.ThinkObservation == null && result.VisionInspectObservation == null && result.WorkflowObservation == null && result.WriteFileObservation == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
         /// <summary>
@@ -523,6 +523,10 @@ return result;
             {
                 return McpToolObservation.GetFieldDeserializers();
             }
+            else if(ObservationOneOf1 != null)
+            {
+                return ObservationOneOf1.GetFieldDeserializers();
+            }
             else if(PlanningFileEditorObservation != null)
             {
                 return PlanningFileEditorObservation.GetFieldDeserializers();
@@ -559,10 +563,6 @@ return result;
             {
                 return ThinkObservation.GetFieldDeserializers();
             }
-            else if(UnparsedObservation != null)
-            {
-                return UnparsedObservation.GetFieldDeserializers();
-            }
             else if(VisionInspectObservation != null)
             {
                 return VisionInspectObservation.GetFieldDeserializers();
@@ -584,7 +584,7 @@ return result;
         public virtual void Serialize(ISerializationWriter writer)
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
-            if (ApplyPatchObservation == null && AskOracleObservation == null && BrowserObservation == null && ClassifyAndSwitchLlmObservation == null && ClientToolObservation == null && ConsultTomObservation == null && DelegateObservation == null && EditObservation == null && FileEditorObservation == null && FinishObservation == null && GlobObservation == null && GrepObservation == null && InvokeSkillObservation == null && ListDirectoryObservation == null && McpToolObservation == null && PlanningFileEditorObservation == null && ReadFileObservation == null && SleeptimeComputeObservation == null && StartChildConversationObservation == null && SwitchLlmObservation == null && TaskObservation == null && TaskTrackerObservation == null && TerminalObservation == null && ThinkObservation == null && UnparsedObservation == null && VisionInspectObservation == null && WorkflowObservation == null && WriteFileObservation == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ApplyPatchObservation == null && AskOracleObservation == null && BrowserObservation == null && ClassifyAndSwitchLlmObservation == null && ClientToolObservation == null && ConsultTomObservation == null && DelegateObservation == null && EditObservation == null && FileEditorObservation == null && FinishObservation == null && GlobObservation == null && GrepObservation == null && InvokeSkillObservation == null && ListDirectoryObservation == null && McpToolObservation == null && ObservationOneOf1 == null && PlanningFileEditorObservation == null && ReadFileObservation == null && SleeptimeComputeObservation == null && StartChildConversationObservation == null && SwitchLlmObservation == null && TaskObservation == null && TaskTrackerObservation == null && TerminalObservation == null && ThinkObservation == null && VisionInspectObservation == null && WorkflowObservation == null && WriteFileObservation == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
             int selectedUnionBranches = 0;
             if (ApplyPatchObservation != null) selectedUnionBranches++;
             if (AskOracleObservation != null) selectedUnionBranches++;
@@ -601,6 +601,7 @@ return result;
             if (InvokeSkillObservation != null) selectedUnionBranches++;
             if (ListDirectoryObservation != null) selectedUnionBranches++;
             if (McpToolObservation != null) selectedUnionBranches++;
+            if (ObservationOneOf1 != null) selectedUnionBranches++;
             if (PlanningFileEditorObservation != null) selectedUnionBranches++;
             if (ReadFileObservation != null) selectedUnionBranches++;
             if (SleeptimeComputeObservation != null) selectedUnionBranches++;
@@ -610,7 +611,6 @@ return result;
             if (TaskTrackerObservation != null) selectedUnionBranches++;
             if (TerminalObservation != null) selectedUnionBranches++;
             if (ThinkObservation != null) selectedUnionBranches++;
-            if (UnparsedObservation != null) selectedUnionBranches++;
             if (VisionInspectObservation != null) selectedUnionBranches++;
             if (WorkflowObservation != null) selectedUnionBranches++;
             if (WriteFileObservation != null) selectedUnionBranches++;
@@ -629,6 +629,7 @@ return result;
             if (InvokeSkillObservation != null && selectedUnionBranches == 1) { if (InvokeSkillObservation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InvokeSkillObservation); return; }
             if (ListDirectoryObservation != null && selectedUnionBranches == 1) { if (ListDirectoryObservation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ListDirectoryObservation); return; }
             if (McpToolObservation != null && selectedUnionBranches == 1) { if (McpToolObservation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, McpToolObservation); return; }
+            if (ObservationOneOf1 != null && selectedUnionBranches == 1) { if (ObservationOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ObservationOneOf1); return; }
             if (PlanningFileEditorObservation != null && selectedUnionBranches == 1) { if (PlanningFileEditorObservation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PlanningFileEditorObservation); return; }
             if (ReadFileObservation != null && selectedUnionBranches == 1) { if (ReadFileObservation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReadFileObservation); return; }
             if (SleeptimeComputeObservation != null && selectedUnionBranches == 1) { if (SleeptimeComputeObservation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SleeptimeComputeObservation); return; }
@@ -638,7 +639,6 @@ return result;
             if (TaskTrackerObservation != null && selectedUnionBranches == 1) { if (TaskTrackerObservation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, TaskTrackerObservation); return; }
             if (TerminalObservation != null && selectedUnionBranches == 1) { if (TerminalObservation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, TerminalObservation); return; }
             if (ThinkObservation != null && selectedUnionBranches == 1) { if (ThinkObservation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ThinkObservation); return; }
-            if (UnparsedObservation != null && selectedUnionBranches == 1) { if (UnparsedObservation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, UnparsedObservation); return; }
             if (VisionInspectObservation != null && selectedUnionBranches == 1) { if (VisionInspectObservation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, VisionInspectObservation); return; }
             if (WorkflowObservation != null && selectedUnionBranches == 1) { if (WorkflowObservation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WorkflowObservation); return; }
             if (WriteFileObservation != null && selectedUnionBranches == 1) { if (WriteFileObservation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WriteFileObservation); return; }
@@ -719,6 +719,11 @@ return result;
                 if (McpToolObservation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpToolObservation>(null, McpToolObservation);
             }
+            else if(ObservationOneOf1 != null)
+            {
+                if (ObservationOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ObservationOneOf1>(null, ObservationOneOf1);
+            }
             else if(PlanningFileEditorObservation != null)
             {
                 if (PlanningFileEditorObservation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
@@ -763,11 +768,6 @@ return result;
             {
                 if (ThinkObservation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ThinkObservation>(null, ThinkObservation);
-            }
-            else if(UnparsedObservation != null)
-            {
-                if (UnparsedObservation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservation>(null, UnparsedObservation);
             }
             else if(VisionInspectObservation != null)
             {

@@ -7,11 +7,10 @@ using System.IO;
 using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
-    /// <summary>
-    /// Fallback for event payloads unknown to this server.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class UnparsedEvent : IParsable
+    #pragma warning disable CS1591
+    public partial class EventTypeOneOf2 : IParsable
+    #pragma warning restore CS1591
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -45,8 +44,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>The kind property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedEventKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedEventKind? _explicitNullValueKind = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.EventTypeOneOf2_kind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.EventTypeOneOf2_kind? _explicitNullValueKind = default!;
         /// <summary>The original_kind property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,12 +92,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedEvent"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventTypeOneOf2"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedEvent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenHands.OpenApiClient.Models.EventTypeOneOf2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedEvent(), parseNode);
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.EventTypeOneOf2(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -109,7 +108,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedEventKind>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.EventTypeOneOf2_kind>(); } },
                 { "original_kind", n => { OriginalKind = n.GetStringValue(); } },
                 { "parent_id", n => { ParentId = n.GetStringValue(); } },
                 { "raw_payload", n => { RawPayload = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedEventRawPayloadProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedEventRawPayloadProperty.CreateFromDiscriminatorValue); } },
@@ -125,7 +124,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedEventKind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.EventTypeOneOf2_kind>("kind", Kind);
             writer.WriteStringValue("original_kind", OriginalKind);
             writer.WriteStringValue("parent_id", ParentId);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedEventRawPayloadProperty>("raw_payload", RawPayload);

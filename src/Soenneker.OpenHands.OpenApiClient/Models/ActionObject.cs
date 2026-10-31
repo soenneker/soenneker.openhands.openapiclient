@@ -280,15 +280,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationActionIsolation? Isolation { get => _explicitNullValueIsolation; set { _explicitNullValueIsolation = value; AdditionalData?.Remove("isolation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isolation"); else _explicitNullProperties?.Remove("isolation"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationActionIsolation? _explicitNullValueIsolation = default!;
         /// <summary>The kind property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
-        private string? _explicitNullValueKind = default!;
-#nullable restore
-#else
-        public string Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
-        private string _explicitNullValueKind = default!;
-#endif
+        public global::Soenneker.OpenHands.OpenApiClient.Models.Action_kind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.Action_kind? _explicitNullValueKind = default!;
         /// <summary>Optional: Maximum number of lines to read. Use with &apos;offset&apos; to paginate through large files.</summary>
         public int? Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; AdditionalData?.Remove("limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
         private int? _explicitNullValueLimit = default!;
@@ -654,7 +647,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "insert_line", n => { InsertLine = n.GetIntValue(); } },
                 { "is_input", n => { IsInput = n.GetBoolValue(); } },
                 { "isolation", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationActionIsolation>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueIsolation = default; _explicitNullProperties?.Remove("isolation"); AdditionalData["isolation"] = unknown; } else { Isolation = parsed; AdditionalData.Remove("isolation"); } } },
-                { "kind", n => { Kind = n.GetStringValue(); } },
+                { "kind", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.Action_kind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueKind = default; _explicitNullProperties?.Remove("kind"); AdditionalData["kind"] = unknown; } else { Kind = parsed; AdditionalData.Remove("kind"); } } },
                 { "limit", n => { Limit = n.GetIntValue(); } },
                 { "max_concurrency", n => { MaxConcurrency = n.GetIntValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
@@ -722,7 +715,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteIntValue("insert_line", InsertLine);
             writer.WriteBoolValue("is_input", IsInput);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationActionIsolation>("isolation", Isolation);
-            writer.WriteStringValue("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.Action_kind>("kind", Kind);
             writer.WriteIntValue("limit", Limit);
             writer.WriteIntValue("max_concurrency", MaxConcurrency);
             writer.WriteStringValue("message", Message);

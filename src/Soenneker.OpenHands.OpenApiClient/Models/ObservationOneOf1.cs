@@ -7,11 +7,10 @@ using System.IO;
 using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
-    /// <summary>
-    /// Fallback for observation payloads unknown to this server.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class UnparsedObservation : IParsable
+    #pragma warning disable CS1591
+    public partial class ObservationOneOf1 : IParsable
+    #pragma warning restore CS1591
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -44,8 +43,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public bool? IsError { get => _explicitNullValueIsError; set { _explicitNullValueIsError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_error"); else _explicitNullProperties?.Remove("is_error"); } }
         private bool? _explicitNullValueIsError = default!;
         /// <summary>The kind property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservationKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservationKind? _explicitNullValueKind = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ObservationOneOf1_kind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ObservationOneOf1_kind? _explicitNullValueKind = default!;
         /// <summary>The original_kind property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,21 +66,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         private global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservationRawPayloadProperty _explicitNullValueRawPayload = default!;
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservation"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ObservationOneOf1"/> and sets the default values.
         /// </summary>
-        public UnparsedObservation()
+        public ObservationOneOf1()
         {
             IsError = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservation"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ObservationOneOf1"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenHands.OpenApiClient.Models.ObservationOneOf1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservation(), parseNode);
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.ObservationOneOf1(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,7 +92,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "content", n => { Content = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "is_error", n => { IsError = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservationKind>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ObservationOneOf1_kind>(); } },
                 { "original_kind", n => { OriginalKind = n.GetStringValue(); } },
                 { "raw_payload", n => { RawPayload = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservationRawPayloadProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservationRawPayloadProperty.CreateFromDiscriminatorValue); } },
             };
@@ -107,7 +106,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<UntypedNode>("content", Content);
             writer.WriteBoolValue("is_error", IsError);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservationKind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ObservationOneOf1_kind>("kind", Kind);
             writer.WriteStringValue("original_kind", OriginalKind);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.UnparsedObservationRawPayloadProperty>("raw_payload", RawPayload);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             

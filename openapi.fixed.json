@@ -1654,6 +1654,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PendingMessageResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -2479,6 +2490,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -2833,6 +2855,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EditResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -3364,6 +3397,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartChildConversationResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -4985,6 +5029,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignupLinkResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -6826,6 +6881,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchInvitationResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -7101,6 +7167,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -8876,6 +8953,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GitOrgClaimResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -9831,6 +9919,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EditResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -10194,6 +10293,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuperAdminResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -10628,6 +10738,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FlagModel"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -10877,6 +10998,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FlagModel"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -11126,6 +11258,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthProviderResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -12030,6 +12173,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProviderConnectionResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -12349,6 +12503,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentProfileMutationResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -12725,6 +12890,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifiedModel"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -14873,12 +15049,9 @@
         "description": "Response model for successful invitation acceptance."
       },
       "Action": {
-        "required": [
-          "kind"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/UnparsedAction"
+            "$ref": "#/components/schemas/ActionOneOf1"
           },
           {
             "$ref": "#/components/schemas/McpToolAction"
@@ -15001,12 +15174,7 @@
             "$ref": "#/components/schemas/WorkflowAction"
           }
         ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
             "openhands__app_server__event__event_parsing__UnparsedAction-Output__1": "#/components/schemas/UnparsedAction",
@@ -20943,15 +21111,12 @@
         }
       },
       "EventType": {
-        "required": [
-          "kind"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/ServerErrorEvent"
           },
           {
-            "$ref": "#/components/schemas/UnparsedEvent"
+            "$ref": "#/components/schemas/EventTypeOneOf2"
           },
           {
             "$ref": "#/components/schemas/AcpToolCallEvent"
@@ -21011,12 +21176,7 @@
             "$ref": "#/components/schemas/PauseEvent"
           }
         ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
             "openhands__agent_server__models__ServerErrorEvent-Output__1": "#/components/schemas/ServerErrorEvent",
@@ -26755,12 +26915,9 @@
         "description": "OAuth2/OIDC configuration -- covers both real login IDPs\n(\u0060\u0060provider_type=ProviderType.ENTERPRISE_SSO\u0060\u0060) and git providers\n(\u0060\u0060provider_type\u0060\u0060 one of the other \u0060\u0060ProviderType\u0060\u0060 values). Brand\n(github/gitlab/.../enterprise_sso) used to be the SQL \u0060\u0060provider_category\u0060\u0060\ncolumn; it now lives here since it is OAuth-specific, not a property of\nevery \u0060\u0060auth_providers\u0060\u0060 row."
       },
       "Observation": {
-        "required": [
-          "kind"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/UnparsedObservation"
+            "$ref": "#/components/schemas/ObservationOneOf1"
           },
           {
             "$ref": "#/components/schemas/McpToolObservation"
@@ -26844,12 +27001,7 @@
             "$ref": "#/components/schemas/WorkflowObservation"
           }
         ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
             "openhands__app_server__event__event_parsing__UnparsedObservation-Output__1": "#/components/schemas/UnparsedObservation",
@@ -31735,7 +31887,7 @@
             "type": "string"
           },
           "trigger": {
-            "$ref": "#/components/schemas/SkillInputTrigger"
+            "$ref": "#/components/schemas/SkillOutputTrigger"
           },
           "source": {
             "title": "Source",
@@ -39232,45 +39384,7 @@
         "title": "Auth",
         "anyOf": [
           {
-            "required": [
-              "strategy"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/McpNoneAuthCredential"
-              },
-              {
-                "$ref": "#/components/schemas/McpApiKeyAuthCredentialInput"
-              },
-              {
-                "$ref": "#/components/schemas/McpBearerAuthCredentialInput"
-              },
-              {
-                "$ref": "#/components/schemas/McpBasicAuthCredentialInput"
-              },
-              {
-                "$ref": "#/components/schemas/McpHeaderAuthCredentialInput"
-              },
-              {
-                "$ref": "#/components/schemas/McpoAuthAuthCredentialInput"
-              }
-            ],
-            "properties": {
-              "strategy": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "strategy",
-              "mapping": {
-                "api_key": "#/components/schemas/McpApiKeyAuthCredentialInput",
-                "basic": "#/components/schemas/McpBasicAuthCredentialInput",
-                "bearer": "#/components/schemas/McpBearerAuthCredentialInput",
-                "header": "#/components/schemas/McpHeaderAuthCredentialInput",
-                "none": "#/components/schemas/McpNoneAuthCredential",
-                "oauth2": "#/components/schemas/McpoAuthAuthCredentialInput"
-              }
-            }
+            "$ref": "#/components/schemas/McpServerInputAuthAnyOf1"
           },
           {
             "type": "null"
@@ -39281,45 +39395,7 @@
         "title": "Auth",
         "anyOf": [
           {
-            "required": [
-              "strategy"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/McpNoneAuthCredential"
-              },
-              {
-                "$ref": "#/components/schemas/McpApiKeyAuthCredentialOutput"
-              },
-              {
-                "$ref": "#/components/schemas/McpBearerAuthCredentialOutput"
-              },
-              {
-                "$ref": "#/components/schemas/McpBasicAuthCredentialOutput"
-              },
-              {
-                "$ref": "#/components/schemas/McpHeaderAuthCredentialOutput"
-              },
-              {
-                "$ref": "#/components/schemas/McpoAuthAuthCredentialOutput"
-              }
-            ],
-            "properties": {
-              "strategy": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "strategy",
-              "mapping": {
-                "api_key": "#/components/schemas/McpApiKeyAuthCredentialOutput",
-                "basic": "#/components/schemas/McpBasicAuthCredentialOutput",
-                "bearer": "#/components/schemas/McpBearerAuthCredentialOutput",
-                "header": "#/components/schemas/McpHeaderAuthCredentialOutput",
-                "none": "#/components/schemas/McpNoneAuthCredential",
-                "oauth2": "#/components/schemas/McpoAuthAuthCredentialOutput"
-              }
-            }
+            "$ref": "#/components/schemas/McpServerOutputAuthAnyOf1"
           },
           {
             "type": "null"
@@ -39766,33 +39842,7 @@
         "title": "Trigger",
         "anyOf": [
           {
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/KeywordTrigger"
-              },
-              {
-                "$ref": "#/components/schemas/TaskTrigger"
-              },
-              {
-                "$ref": "#/components/schemas/PathTrigger"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "type",
-              "mapping": {
-                "keyword": "#/components/schemas/KeywordTrigger",
-                "path": "#/components/schemas/PathTrigger",
-                "task": "#/components/schemas/TaskTrigger"
-              }
-            }
+            "$ref": "#/components/schemas/SkillInputTriggerAnyOf1"
           },
           {
             "type": "null"
@@ -39815,33 +39865,7 @@
         "title": "Trigger",
         "anyOf": [
           {
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/KeywordTrigger"
-              },
-              {
-                "$ref": "#/components/schemas/TaskTrigger"
-              },
-              {
-                "$ref": "#/components/schemas/PathTrigger"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "type",
-              "mapping": {
-                "keyword": "#/components/schemas/KeywordTrigger",
-                "path": "#/components/schemas/PathTrigger",
-                "task": "#/components/schemas/TaskTrigger"
-              }
-            }
+            "$ref": "#/components/schemas/SkillOutputTriggerAnyOf1"
           },
           {
             "type": "null"
@@ -49608,6 +49632,32 @@
           ]
         }
       },
+      "ActionOneOf1": {
+        "type": "object",
+        "properties": {
+          "original_kind": {
+            "title": "Original Kind",
+            "type": "string"
+          },
+          "raw_payload": {
+            "$ref": "#/components/schemas/UnparsedActionRawPayloadProperty"
+          },
+          "kind": {
+            "title": "Kind",
+            "enum": [
+              "UnparsedAction"
+            ],
+            "type": "string",
+            "x-client-original-const": "UnparsedAction"
+          }
+        },
+        "required": [
+          "original_kind",
+          "raw_payload",
+          "kind"
+        ],
+        "additionalProperties": false
+      },
       "AgentBaseOneOf1": {
         "type": "object",
         "properties": {
@@ -50529,6 +50579,54 @@
           "kind"
         ]
       },
+      "EventTypeOneOf2": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "Unique event id (ULID/UUID)"
+          },
+          "timestamp": {
+            "title": "Timestamp",
+            "type": "string",
+            "description": "Event timestamp"
+          },
+          "source": {
+            "$ref": "#/components/schemas/UnparsedEventSource"
+          },
+          "parent_id": {
+            "title": "Parent Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Parent event id in the conversation tree."
+          },
+          "original_kind": {
+            "title": "Original Kind",
+            "type": "string"
+          },
+          "raw_payload": {
+            "$ref": "#/components/schemas/UnparsedEventRawPayloadProperty"
+          },
+          "kind": {
+            "title": "Kind",
+            "enum": [
+              "UnparsedEvent"
+            ],
+            "type": "string",
+            "x-client-original-const": "UnparsedEvent"
+          }
+        },
+        "required": [
+          "source",
+          "original_kind",
+          "raw_payload",
+          "kind"
+        ],
+        "additionalProperties": false
+      },
       "EventCallbackProcessorInputOneOf1": {
         "type": "object",
         "properties": {
@@ -50754,6 +50852,42 @@
         "required": [
           "kind"
         ]
+      },
+      "ObservationOneOf1": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "title": "Content",
+            "type": "array",
+            "items": {}
+          },
+          "is_error": {
+            "title": "Is Error",
+            "type": "boolean",
+            "default": false
+          },
+          "original_kind": {
+            "title": "Original Kind",
+            "type": "string"
+          },
+          "raw_payload": {
+            "$ref": "#/components/schemas/UnparsedObservationRawPayloadProperty"
+          },
+          "kind": {
+            "title": "Kind",
+            "enum": [
+              "UnparsedObservation"
+            ],
+            "type": "string",
+            "x-client-original-const": "UnparsedObservation"
+          }
+        },
+        "required": [
+          "original_kind",
+          "raw_payload",
+          "kind"
+        ],
+        "additionalProperties": false
       },
       "SecretSourceInputOneOf1": {
         "type": "object",
@@ -51116,6 +51250,114 @@
           "kind"
         ]
       },
+      "McpServerInputAuthAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/McpNoneAuthCredential"
+          },
+          {
+            "$ref": "#/components/schemas/McpApiKeyAuthCredentialInput"
+          },
+          {
+            "$ref": "#/components/schemas/McpBearerAuthCredentialInput"
+          },
+          {
+            "$ref": "#/components/schemas/McpBasicAuthCredentialInput"
+          },
+          {
+            "$ref": "#/components/schemas/McpHeaderAuthCredentialInput"
+          },
+          {
+            "$ref": "#/components/schemas/McpoAuthAuthCredentialInput"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "strategy",
+          "mapping": {
+            "api_key": "#/components/schemas/McpApiKeyAuthCredentialInput",
+            "basic": "#/components/schemas/McpBasicAuthCredentialInput",
+            "bearer": "#/components/schemas/McpBearerAuthCredentialInput",
+            "header": "#/components/schemas/McpHeaderAuthCredentialInput",
+            "none": "#/components/schemas/McpNoneAuthCredential",
+            "oauth2": "#/components/schemas/McpoAuthAuthCredentialInput"
+          }
+        }
+      },
+      "McpServerOutputAuthAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/McpNoneAuthCredential"
+          },
+          {
+            "$ref": "#/components/schemas/McpApiKeyAuthCredentialOutput"
+          },
+          {
+            "$ref": "#/components/schemas/McpBearerAuthCredentialOutput"
+          },
+          {
+            "$ref": "#/components/schemas/McpBasicAuthCredentialOutput"
+          },
+          {
+            "$ref": "#/components/schemas/McpHeaderAuthCredentialOutput"
+          },
+          {
+            "$ref": "#/components/schemas/McpoAuthAuthCredentialOutput"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "strategy",
+          "mapping": {
+            "api_key": "#/components/schemas/McpApiKeyAuthCredentialOutput",
+            "basic": "#/components/schemas/McpBasicAuthCredentialOutput",
+            "bearer": "#/components/schemas/McpBearerAuthCredentialOutput",
+            "header": "#/components/schemas/McpHeaderAuthCredentialOutput",
+            "none": "#/components/schemas/McpNoneAuthCredential",
+            "oauth2": "#/components/schemas/McpoAuthAuthCredentialOutput"
+          }
+        }
+      },
+      "SkillInputTriggerAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SkillInputTriggerAnyOf1OneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/SkillInputTriggerAnyOf1OneOf2"
+          },
+          {
+            "$ref": "#/components/schemas/SkillInputTriggerAnyOf1OneOf3"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "keyword": "#/components/schemas/KeywordTrigger",
+            "path": "#/components/schemas/PathTrigger",
+            "task": "#/components/schemas/TaskTrigger"
+          }
+        }
+      },
+      "SkillOutputTriggerAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SkillOutputTriggerAnyOf1OneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/SkillOutputTriggerAnyOf1OneOf2"
+          },
+          {
+            "$ref": "#/components/schemas/SkillOutputTriggerAnyOf1OneOf3"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "keyword": "#/components/schemas/KeywordTrigger",
+            "path": "#/components/schemas/PathTrigger",
+            "task": "#/components/schemas/TaskTrigger"
+          }
+        }
+      },
       "ResponseTestMcpServerApiV1McpTestPostOneOf1": {
         "type": "object",
         "properties": {
@@ -51180,6 +51422,210 @@
           "error",
           "error_kind",
           "ok"
+        ]
+      },
+      "SkillInputTriggerAnyOf1OneOf1": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Type",
+            "enum": [
+              "keyword"
+            ],
+            "type": "string",
+            "x-client-original-const": "keyword",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "keyword",
+                  "name": "Keyword"
+                }
+              ]
+            }
+          },
+          "keywords": {
+            "title": "Keywords",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "keywords",
+          "type"
+        ]
+      },
+      "SkillInputTriggerAnyOf1OneOf2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Type",
+            "enum": [
+              "task"
+            ],
+            "type": "string",
+            "x-client-original-const": "task",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "task",
+                  "name": "Task"
+                }
+              ]
+            }
+          },
+          "triggers": {
+            "title": "Triggers",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "triggers",
+          "type"
+        ]
+      },
+      "SkillInputTriggerAnyOf1OneOf3": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Type",
+            "enum": [
+              "path"
+            ],
+            "type": "string",
+            "x-client-original-const": "path",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "path",
+                  "name": "Path"
+                }
+              ]
+            }
+          },
+          "paths": {
+            "title": "Paths",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "paths",
+          "type"
+        ]
+      },
+      "SkillOutputTriggerAnyOf1OneOf1": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Type",
+            "enum": [
+              "keyword"
+            ],
+            "type": "string",
+            "x-client-original-const": "keyword",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "keyword",
+                  "name": "Keyword"
+                }
+              ]
+            }
+          },
+          "keywords": {
+            "title": "Keywords",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "keywords",
+          "type"
+        ]
+      },
+      "SkillOutputTriggerAnyOf1OneOf2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Type",
+            "enum": [
+              "task"
+            ],
+            "type": "string",
+            "x-client-original-const": "task",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "task",
+                  "name": "Task"
+                }
+              ]
+            }
+          },
+          "triggers": {
+            "title": "Triggers",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "triggers",
+          "type"
+        ]
+      },
+      "SkillOutputTriggerAnyOf1OneOf3": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Type",
+            "enum": [
+              "path"
+            ],
+            "type": "string",
+            "x-client-original-const": "path",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "path",
+                  "name": "Path"
+                }
+              ]
+            }
+          },
+          "paths": {
+            "title": "Paths",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "paths",
+          "type"
         ]
       },
       "AgentContextInputSecretsAnyOf1": {

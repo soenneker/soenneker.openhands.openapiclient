@@ -60,6 +60,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "params", n => { ParamsValue = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
+
             };
         }
         /// <summary>
