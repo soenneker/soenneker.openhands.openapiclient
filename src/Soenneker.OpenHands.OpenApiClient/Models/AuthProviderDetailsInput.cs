@@ -51,9 +51,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
             return mappingValue switch
             {
-                "OAuthProviderDetails" => new global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputAuthProviderDetailsInputOneOf1(),
-                "PasswordProviderDetails" => new global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputAuthProviderDetailsInputOneOf2(),
-                "SamlProviderDetails" => new global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputAuthProviderDetailsInputOneOf3(),
+                "OAuthProviderDetails" => new global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf1Variant(),
+                "PasswordProviderDetails" => new global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf2Variant(),
+                "SamlProviderDetails" => new global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInputOneOf3Variant(),
                 _ => new global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsInput(),
             };
         }

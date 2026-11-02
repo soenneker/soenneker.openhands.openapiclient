@@ -51,9 +51,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "keyword" => new global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTriggerAnyOf1SkillInputTriggerAnyOf1OneOf1(),
-                "path" => new global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTriggerAnyOf1SkillInputTriggerAnyOf1OneOf3(),
-                "task" => new global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTriggerAnyOf1SkillInputTriggerAnyOf1OneOf2(),
+                "keyword" => new global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTriggerAnyOf1OneOf1Variant(),
+                "path" => new global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTriggerAnyOf1OneOf3Variant(),
+                "task" => new global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTriggerAnyOf1OneOf2Variant(),
                 _ => new global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTriggerAnyOf1(),
             };
         }

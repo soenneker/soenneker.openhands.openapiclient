@@ -51,9 +51,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
             return mappingValue switch
             {
-                "LLMSummarizingCondenser" => new global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputCondenserBaseInputOneOf1(),
-                "NoOpCondenser" => new global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputCondenserBaseInputOneOf2(),
-                "PipelineCondenser" => new global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputCondenserBaseInputOneOf3(),
+                "LLMSummarizingCondenser" => new global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf1Variant(),
+                "NoOpCondenser" => new global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf2Variant(),
+                "PipelineCondenser" => new global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInputOneOf3Variant(),
                 _ => new global::Soenneker.OpenHands.OpenApiClient.Models.CondenserBaseInput(),
             };
         }

@@ -51,10 +51,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
             return mappingValue switch
             {
-                "AgentFinishedCritic" => new global::Soenneker.OpenHands.OpenApiClient.Models.CriticBaseCriticBaseOneOf1(),
-                "APIBasedCritic" => new global::Soenneker.OpenHands.OpenApiClient.Models.CriticBaseCriticBaseOneOf2(),
-                "EmptyPatchCritic" => new global::Soenneker.OpenHands.OpenApiClient.Models.CriticBaseCriticBaseOneOf3(),
-                "PassCritic" => new global::Soenneker.OpenHands.OpenApiClient.Models.CriticBaseCriticBaseOneOf4(),
+                "AgentFinishedCritic" => new global::Soenneker.OpenHands.OpenApiClient.Models.CriticBaseOneOf1Variant(),
+                "APIBasedCritic" => new global::Soenneker.OpenHands.OpenApiClient.Models.CriticBaseOneOf2Variant(),
+                "EmptyPatchCritic" => new global::Soenneker.OpenHands.OpenApiClient.Models.CriticBaseOneOf3Variant(),
+                "PassCritic" => new global::Soenneker.OpenHands.OpenApiClient.Models.CriticBaseOneOf4Variant(),
                 _ => new global::Soenneker.OpenHands.OpenApiClient.Models.CriticBase(),
             };
         }

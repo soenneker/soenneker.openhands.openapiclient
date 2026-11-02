@@ -51,12 +51,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
             return mappingValue switch
             {
-                "EnsembleSecurityAnalyzer" => new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf3(),
-                "GraySwanAnalyzer" => new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf4(),
-                "LLMSecurityAnalyzer" => new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf5(),
-                "PatternSecurityAnalyzer" => new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf1(),
-                "PolicyRailSecurityAnalyzer" => new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf2(),
-                "ToolShieldLLMSecurityAnalyzer" => new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf6(),
+                "EnsembleSecurityAnalyzer" => new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf3Variant(),
+                "GraySwanAnalyzer" => new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf4Variant(),
+                "LLMSecurityAnalyzer" => new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf5Variant(),
+                "PatternSecurityAnalyzer" => new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf1Variant(),
+                "PolicyRailSecurityAnalyzer" => new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf2Variant(),
+                "ToolShieldLLMSecurityAnalyzer" => new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBaseOneOf6Variant(),
                 _ => new global::Soenneker.OpenHands.OpenApiClient.Models.SecurityAnalyzerBase(),
             };
         }

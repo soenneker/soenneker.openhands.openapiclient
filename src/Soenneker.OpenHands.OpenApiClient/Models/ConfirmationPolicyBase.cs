@@ -51,9 +51,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
             return mappingValue switch
             {
-                "AlwaysConfirm" => new global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseConfirmationPolicyBaseOneOf1(),
-                "ConfirmRisky" => new global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseConfirmationPolicyBaseOneOf2(),
-                "NeverConfirm" => new global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseConfirmationPolicyBaseOneOf3(),
+                "AlwaysConfirm" => new global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf1Variant(),
+                "ConfirmRisky" => new global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf2Variant(),
+                "NeverConfirm" => new global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBaseOneOf3Variant(),
                 _ => new global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBase(),
             };
         }

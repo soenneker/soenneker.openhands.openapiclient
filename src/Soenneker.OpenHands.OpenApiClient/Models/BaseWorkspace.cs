@@ -51,8 +51,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
             return mappingValue switch
             {
-                "LocalWorkspace" => new global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceBaseWorkspaceOneOf1(),
-                "RemoteWorkspace" => new global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceBaseWorkspaceOneOf2(),
+                "LocalWorkspace" => new global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf1Variant(),
+                "RemoteWorkspace" => new global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspaceOneOf2Variant(),
                 _ => new global::Soenneker.OpenHands.OpenApiClient.Models.BaseWorkspace(),
             };
         }

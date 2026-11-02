@@ -70,7 +70,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 "StreamingDeltaEvent" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventTypeStreamingDeltaEvent(),
                 "SystemPromptEvent" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventTypeSystemPromptEvent(),
                 "TokenEvent" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventTypeTokenEvent(),
-                "UnparsedEvent" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventTypeEventTypeOneOf2(),
+                "UnparsedEvent" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventTypeOneOf2Variant(),
                 "UserRejectObservation" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventTypeUserRejectObservation(),
                 _ => new global::Soenneker.OpenHands.OpenApiClient.Models.EventType(),
             };

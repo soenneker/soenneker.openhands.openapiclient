@@ -88,7 +88,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 "TaskTrackerAction" => new global::Soenneker.OpenHands.OpenApiClient.Models.ActionTaskTrackerAction(),
                 "TerminalAction" => new global::Soenneker.OpenHands.OpenApiClient.Models.ActionTerminalAction(),
                 "ThinkAction" => new global::Soenneker.OpenHands.OpenApiClient.Models.ActionThinkAction(),
-                "UnparsedAction" => new global::Soenneker.OpenHands.OpenApiClient.Models.ActionActionOneOf1(),
+                "UnparsedAction" => new global::Soenneker.OpenHands.OpenApiClient.Models.ActionOneOf1Variant(),
                 "VisionInspectAction" => new global::Soenneker.OpenHands.OpenApiClient.Models.ActionVisionInspectAction(),
                 "WorkflowAction" => new global::Soenneker.OpenHands.OpenApiClient.Models.ActionWorkflowAction(),
                 "WriteFileAction" => new global::Soenneker.OpenHands.OpenApiClient.Models.ActionWriteFileAction(),

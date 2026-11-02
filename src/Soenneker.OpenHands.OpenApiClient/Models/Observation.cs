@@ -75,7 +75,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 "TaskTrackerObservation" => new global::Soenneker.OpenHands.OpenApiClient.Models.ObservationTaskTrackerObservation(),
                 "TerminalObservation" => new global::Soenneker.OpenHands.OpenApiClient.Models.ObservationTerminalObservation(),
                 "ThinkObservation" => new global::Soenneker.OpenHands.OpenApiClient.Models.ObservationThinkObservation(),
-                "UnparsedObservation" => new global::Soenneker.OpenHands.OpenApiClient.Models.ObservationObservationOneOf1(),
+                "UnparsedObservation" => new global::Soenneker.OpenHands.OpenApiClient.Models.ObservationOneOf1Variant(),
                 "VisionInspectObservation" => new global::Soenneker.OpenHands.OpenApiClient.Models.ObservationVisionInspectObservation(),
                 "WorkflowObservation" => new global::Soenneker.OpenHands.OpenApiClient.Models.ObservationWorkflowObservation(),
                 "WriteFileObservation" => new global::Soenneker.OpenHands.OpenApiClient.Models.ObservationWriteFileObservation(),

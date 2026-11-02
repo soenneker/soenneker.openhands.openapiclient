@@ -51,15 +51,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
             return mappingValue switch
             {
-                "BitbucketV1CallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputEventCallbackProcessorInputOneOf1(),
-                "GithubV1CallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputEventCallbackProcessorInputOneOf2(),
-                "GitlabV1CallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputEventCallbackProcessorInputOneOf3(),
-                "JiraDcV1CallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputEventCallbackProcessorInputOneOf5(),
-                "JiraV1CallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputEventCallbackProcessorInputOneOf4(),
-                "LoggingCallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputEventCallbackProcessorInputOneOf7(),
-                "MemoryChangeCallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputEventCallbackProcessorInputOneOf8(),
-                "SetTitleCallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputEventCallbackProcessorInputOneOf9(),
-                "SlackV1CallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputEventCallbackProcessorInputOneOf6(),
+                "BitbucketV1CallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf1Variant(),
+                "GithubV1CallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf2Variant(),
+                "GitlabV1CallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf3Variant(),
+                "JiraDcV1CallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf5Variant(),
+                "JiraV1CallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf4Variant(),
+                "LoggingCallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf7Variant(),
+                "MemoryChangeCallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf8Variant(),
+                "SetTitleCallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf9Variant(),
+                "SlackV1CallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf6Variant(),
                 _ => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInput(),
             };
         }

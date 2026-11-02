@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
-    /// <summary>Security risk levels for actions.Based on OpenHands security risk levels but adapted for agent-sdk.Integer values allow for easy comparison and ordering.</summary>
+    /// <summary>The LLM&apos;s assessment of the safety risk of this action.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum SecurityRisk
     {

@@ -14730,7 +14730,7 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
-            "UnparsedAction": "#/components/schemas/ActionActionOneOf1",
+            "UnparsedAction": "#/components/schemas/ActionOneOf1Variant",
             "MCPToolAction": "#/components/schemas/ActionMcpToolAction",
             "ClassifyAndSwitchLLMAction": "#/components/schemas/ActionClassifyAndSwitchLlmAction",
             "FinishAction": "#/components/schemas/ActionFinishAction",
@@ -15116,8 +15116,8 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
-            "ACPAgent": "#/components/schemas/AgentBaseAgentBaseOneOf1",
-            "Agent": "#/components/schemas/AgentBaseAgentBaseOneOf2"
+            "ACPAgent": "#/components/schemas/AgentBaseOneOf1Variant",
+            "Agent": "#/components/schemas/AgentBaseOneOf2Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -16624,9 +16624,9 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
-            "OAuthProviderDetails": "#/components/schemas/AuthProviderDetailsInputAuthProviderDetailsInputOneOf1",
-            "PasswordProviderDetails": "#/components/schemas/AuthProviderDetailsInputAuthProviderDetailsInputOneOf2",
-            "SamlProviderDetails": "#/components/schemas/AuthProviderDetailsInputAuthProviderDetailsInputOneOf3"
+            "OAuthProviderDetails": "#/components/schemas/AuthProviderDetailsInputOneOf1Variant",
+            "PasswordProviderDetails": "#/components/schemas/AuthProviderDetailsInputOneOf2Variant",
+            "SamlProviderDetails": "#/components/schemas/AuthProviderDetailsInputOneOf3Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -16887,8 +16887,8 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
-            "LocalWorkspace": "#/components/schemas/BaseWorkspaceBaseWorkspaceOneOf1",
-            "RemoteWorkspace": "#/components/schemas/BaseWorkspaceBaseWorkspaceOneOf2"
+            "LocalWorkspace": "#/components/schemas/BaseWorkspaceOneOf1Variant",
+            "RemoteWorkspace": "#/components/schemas/BaseWorkspaceOneOf2Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -17278,9 +17278,9 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
-            "LLMSummarizingCondenser": "#/components/schemas/CondenserBaseInputCondenserBaseInputOneOf1",
-            "NoOpCondenser": "#/components/schemas/CondenserBaseInputCondenserBaseInputOneOf2",
-            "PipelineCondenser": "#/components/schemas/CondenserBaseInputCondenserBaseInputOneOf3"
+            "LLMSummarizingCondenser": "#/components/schemas/CondenserBaseInputOneOf1Variant",
+            "NoOpCondenser": "#/components/schemas/CondenserBaseInputOneOf2Variant",
+            "PipelineCondenser": "#/components/schemas/CondenserBaseInputOneOf3Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -17334,9 +17334,9 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
-            "AlwaysConfirm": "#/components/schemas/ConfirmationPolicyBaseConfirmationPolicyBaseOneOf1",
-            "ConfirmRisky": "#/components/schemas/ConfirmationPolicyBaseConfirmationPolicyBaseOneOf2",
-            "NeverConfirm": "#/components/schemas/ConfirmationPolicyBaseConfirmationPolicyBaseOneOf3"
+            "AlwaysConfirm": "#/components/schemas/ConfirmationPolicyBaseOneOf1Variant",
+            "ConfirmRisky": "#/components/schemas/ConfirmationPolicyBaseOneOf2Variant",
+            "NeverConfirm": "#/components/schemas/ConfirmationPolicyBaseOneOf3Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -18117,10 +18117,10 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
-            "AgentFinishedCritic": "#/components/schemas/CriticBaseCriticBaseOneOf1",
-            "APIBasedCritic": "#/components/schemas/CriticBaseCriticBaseOneOf2",
-            "EmptyPatchCritic": "#/components/schemas/CriticBaseCriticBaseOneOf3",
-            "PassCritic": "#/components/schemas/CriticBaseCriticBaseOneOf4"
+            "AgentFinishedCritic": "#/components/schemas/CriticBaseOneOf1Variant",
+            "APIBasedCritic": "#/components/schemas/CriticBaseOneOf2Variant",
+            "EmptyPatchCritic": "#/components/schemas/CriticBaseOneOf3Variant",
+            "PassCritic": "#/components/schemas/CriticBaseOneOf4Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -18498,7 +18498,7 @@
           "propertyName": "kind",
           "mapping": {
             "ServerErrorEvent": "#/components/schemas/EventTypeServerErrorEvent",
-            "UnparsedEvent": "#/components/schemas/EventTypeEventTypeOneOf2",
+            "UnparsedEvent": "#/components/schemas/EventTypeOneOf2Variant",
             "ACPToolCallEvent": "#/components/schemas/EventTypeAcpToolCallEvent",
             "Condensation": "#/components/schemas/EventTypeCondensation",
             "CondensationRequest": "#/components/schemas/EventTypeCondensationRequest",
@@ -18667,15 +18667,15 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
-            "BitbucketV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputEventCallbackProcessorInputOneOf1",
-            "GithubV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputEventCallbackProcessorInputOneOf2",
-            "GitlabV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputEventCallbackProcessorInputOneOf3",
-            "JiraV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputEventCallbackProcessorInputOneOf4",
-            "JiraDcV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputEventCallbackProcessorInputOneOf5",
-            "SlackV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputEventCallbackProcessorInputOneOf6",
-            "LoggingCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputEventCallbackProcessorInputOneOf7",
-            "MemoryChangeCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputEventCallbackProcessorInputOneOf8",
-            "SetTitleCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputEventCallbackProcessorInputOneOf9"
+            "BitbucketV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf1Variant",
+            "GithubV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf2Variant",
+            "GitlabV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf3Variant",
+            "JiraV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf4Variant",
+            "JiraDcV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf5Variant",
+            "SlackV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf6Variant",
+            "LoggingCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf7Variant",
+            "MemoryChangeCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf8Variant",
+            "SetTitleCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf9Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -21998,7 +21998,7 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
-            "UnparsedObservation": "#/components/schemas/ObservationObservationOneOf1",
+            "UnparsedObservation": "#/components/schemas/ObservationOneOf1Variant",
             "MCPToolObservation": "#/components/schemas/ObservationMcpToolObservation",
             "ClassifyAndSwitchLLMObservation": "#/components/schemas/ObservationClassifyAndSwitchLlmObservation",
             "FinishObservation": "#/components/schemas/ObservationFinishObservation",
@@ -25616,8 +25616,8 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
-            "LookupSecret": "#/components/schemas/SecretSourceInputSecretSourceInputOneOf1",
-            "StaticSecret": "#/components/schemas/SecretSourceInputSecretSourceInputOneOf2"
+            "LookupSecret": "#/components/schemas/SecretSourceInputOneOf1Variant",
+            "StaticSecret": "#/components/schemas/SecretSourceInputOneOf2Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -25669,12 +25669,12 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
-            "PatternSecurityAnalyzer": "#/components/schemas/SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf1",
-            "PolicyRailSecurityAnalyzer": "#/components/schemas/SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf2",
-            "EnsembleSecurityAnalyzer": "#/components/schemas/SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf3",
-            "GraySwanAnalyzer": "#/components/schemas/SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf4",
-            "LLMSecurityAnalyzer": "#/components/schemas/SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf5",
-            "ToolShieldLLMSecurityAnalyzer": "#/components/schemas/SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf6"
+            "PatternSecurityAnalyzer": "#/components/schemas/SecurityAnalyzerBaseOneOf1Variant",
+            "PolicyRailSecurityAnalyzer": "#/components/schemas/SecurityAnalyzerBaseOneOf2Variant",
+            "EnsembleSecurityAnalyzer": "#/components/schemas/SecurityAnalyzerBaseOneOf3Variant",
+            "GraySwanAnalyzer": "#/components/schemas/SecurityAnalyzerBaseOneOf4Variant",
+            "LLMSecurityAnalyzer": "#/components/schemas/SecurityAnalyzerBaseOneOf5Variant",
+            "ToolShieldLLMSecurityAnalyzer": "#/components/schemas/SecurityAnalyzerBaseOneOf6Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -39591,9 +39591,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "keyword": "#/components/schemas/SkillInputTriggerAnyOf1SkillInputTriggerAnyOf1OneOf1",
-            "task": "#/components/schemas/SkillInputTriggerAnyOf1SkillInputTriggerAnyOf1OneOf2",
-            "path": "#/components/schemas/SkillInputTriggerAnyOf1SkillInputTriggerAnyOf1OneOf3"
+            "keyword": "#/components/schemas/SkillInputTriggerAnyOf1OneOf1Variant",
+            "task": "#/components/schemas/SkillInputTriggerAnyOf1OneOf2Variant",
+            "path": "#/components/schemas/SkillInputTriggerAnyOf1OneOf3Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -39647,9 +39647,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "keyword": "#/components/schemas/SkillOutputTriggerAnyOf1SkillOutputTriggerAnyOf1OneOf1",
-            "task": "#/components/schemas/SkillOutputTriggerAnyOf1SkillOutputTriggerAnyOf1OneOf2",
-            "path": "#/components/schemas/SkillOutputTriggerAnyOf1SkillOutputTriggerAnyOf1OneOf3"
+            "keyword": "#/components/schemas/SkillOutputTriggerAnyOf1OneOf1Variant",
+            "task": "#/components/schemas/SkillOutputTriggerAnyOf1OneOf2Variant",
+            "path": "#/components/schemas/SkillOutputTriggerAnyOf1OneOf3Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -39871,7 +39871,7 @@
           "$ref": "#/components/schemas/VerifyQuotaIncreaseApiQuotaVerifyGet410ResponseSchema"
         }
       },
-      "ActionActionOneOf1": {
+      "ActionOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/Action"
@@ -41262,7 +41262,7 @@
           }
         ]
       },
-      "AgentBaseAgentBaseOneOf1": {
+      "AgentBaseOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/AgentBase"
@@ -41440,7 +41440,7 @@
           }
         ]
       },
-      "AgentBaseAgentBaseOneOf2": {
+      "AgentBaseOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/AgentBase"
@@ -41568,7 +41568,7 @@
           }
         ]
       },
-      "AuthProviderDetailsInputAuthProviderDetailsInputOneOf1": {
+      "AuthProviderDetailsInputOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/AuthProviderDetailsInput"
@@ -41647,7 +41647,7 @@
           }
         ]
       },
-      "AuthProviderDetailsInputAuthProviderDetailsInputOneOf2": {
+      "AuthProviderDetailsInputOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/AuthProviderDetailsInput"
@@ -41670,7 +41670,7 @@
           }
         ]
       },
-      "AuthProviderDetailsInputAuthProviderDetailsInputOneOf3": {
+      "AuthProviderDetailsInputOneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/AuthProviderDetailsInput"
@@ -41933,7 +41933,7 @@
           }
         ]
       },
-      "BaseWorkspaceBaseWorkspaceOneOf1": {
+      "BaseWorkspaceOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/BaseWorkspace"
@@ -41962,7 +41962,7 @@
           }
         ]
       },
-      "BaseWorkspaceBaseWorkspaceOneOf2": {
+      "BaseWorkspaceOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/BaseWorkspace"
@@ -42028,7 +42028,7 @@
           }
         ]
       },
-      "CondenserBaseInputCondenserBaseInputOneOf1": {
+      "CondenserBaseInputOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/CondenserBaseInput"
@@ -42104,7 +42104,7 @@
           }
         ]
       },
-      "CondenserBaseInputCondenserBaseInputOneOf2": {
+      "CondenserBaseInputOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/CondenserBaseInput"
@@ -42127,7 +42127,7 @@
           }
         ]
       },
-      "CondenserBaseInputCondenserBaseInputOneOf3": {
+      "CondenserBaseInputOneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/CondenserBaseInput"
@@ -42158,7 +42158,7 @@
           }
         ]
       },
-      "ConfirmationPolicyBaseConfirmationPolicyBaseOneOf1": {
+      "ConfirmationPolicyBaseOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ConfirmationPolicyBase"
@@ -42181,7 +42181,7 @@
           }
         ]
       },
-      "ConfirmationPolicyBaseConfirmationPolicyBaseOneOf2": {
+      "ConfirmationPolicyBaseOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ConfirmationPolicyBase"
@@ -42214,7 +42214,7 @@
           }
         ]
       },
-      "ConfirmationPolicyBaseConfirmationPolicyBaseOneOf3": {
+      "ConfirmationPolicyBaseOneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ConfirmationPolicyBase"
@@ -42237,7 +42237,7 @@
           }
         ]
       },
-      "CriticBaseCriticBaseOneOf1": {
+      "CriticBaseOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/CriticBase"
@@ -42266,7 +42266,7 @@
           }
         ]
       },
-      "CriticBaseCriticBaseOneOf2": {
+      "CriticBaseOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/CriticBase"
@@ -42421,7 +42421,7 @@
           }
         ]
       },
-      "CriticBaseCriticBaseOneOf3": {
+      "CriticBaseOneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/CriticBase"
@@ -42450,7 +42450,7 @@
           }
         ]
       },
-      "CriticBaseCriticBaseOneOf4": {
+      "CriticBaseOneOf4Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/CriticBase"
@@ -42534,7 +42534,7 @@
           }
         ]
       },
-      "EventTypeEventTypeOneOf2": {
+      "EventTypeOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventType"
@@ -43864,7 +43864,7 @@
           }
         ]
       },
-      "EventCallbackProcessorInputEventCallbackProcessorInputOneOf1": {
+      "EventCallbackProcessorInputOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventCallbackProcessorInput"
@@ -43895,7 +43895,7 @@
           }
         ]
       },
-      "EventCallbackProcessorInputEventCallbackProcessorInputOneOf2": {
+      "EventCallbackProcessorInputOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventCallbackProcessorInput"
@@ -43931,7 +43931,7 @@
           }
         ]
       },
-      "EventCallbackProcessorInputEventCallbackProcessorInputOneOf3": {
+      "EventCallbackProcessorInputOneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventCallbackProcessorInput"
@@ -43967,7 +43967,7 @@
           }
         ]
       },
-      "EventCallbackProcessorInputEventCallbackProcessorInputOneOf4": {
+      "EventCallbackProcessorInputOneOf4Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventCallbackProcessorInput"
@@ -44015,7 +44015,7 @@
           }
         ]
       },
-      "EventCallbackProcessorInputEventCallbackProcessorInputOneOf5": {
+      "EventCallbackProcessorInputOneOf5Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventCallbackProcessorInput"
@@ -44058,7 +44058,7 @@
           }
         ]
       },
-      "EventCallbackProcessorInputEventCallbackProcessorInputOneOf6": {
+      "EventCallbackProcessorInputOneOf6Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventCallbackProcessorInput"
@@ -44084,7 +44084,7 @@
           }
         ]
       },
-      "EventCallbackProcessorInputEventCallbackProcessorInputOneOf7": {
+      "EventCallbackProcessorInputOneOf7Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventCallbackProcessorInput"
@@ -44107,7 +44107,7 @@
           }
         ]
       },
-      "EventCallbackProcessorInputEventCallbackProcessorInputOneOf8": {
+      "EventCallbackProcessorInputOneOf8Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventCallbackProcessorInput"
@@ -44130,7 +44130,7 @@
           }
         ]
       },
-      "EventCallbackProcessorInputEventCallbackProcessorInputOneOf9": {
+      "EventCallbackProcessorInputOneOf9Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventCallbackProcessorInput"
@@ -44415,7 +44415,7 @@
           }
         ]
       },
-      "ObservationObservationOneOf1": {
+      "ObservationOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/Observation"
@@ -45944,7 +45944,7 @@
           }
         ]
       },
-      "SecretSourceInputSecretSourceInputOneOf1": {
+      "SecretSourceInputOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/SecretSourceInput"
@@ -45983,7 +45983,7 @@
           }
         ]
       },
-      "SecretSourceInputSecretSourceInputOneOf2": {
+      "SecretSourceInputOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/SecretSourceInput"
@@ -46022,7 +46022,7 @@
           }
         ]
       },
-      "SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf1": {
+      "SecurityAnalyzerBaseOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/SecurityAnalyzerBase"
@@ -46141,7 +46141,7 @@
           }
         ]
       },
-      "SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf2": {
+      "SecurityAnalyzerBaseOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/SecurityAnalyzerBase"
@@ -46164,7 +46164,7 @@
           }
         ]
       },
-      "SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf3": {
+      "SecurityAnalyzerBaseOneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/SecurityAnalyzerBase"
@@ -46203,7 +46203,7 @@
           }
         ]
       },
-      "SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf4": {
+      "SecurityAnalyzerBaseOneOf4Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/SecurityAnalyzerBase"
@@ -46279,7 +46279,7 @@
           }
         ]
       },
-      "SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf5": {
+      "SecurityAnalyzerBaseOneOf5Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/SecurityAnalyzerBase"
@@ -46312,7 +46312,7 @@
           }
         ]
       },
-      "SecurityAnalyzerBaseSecurityAnalyzerBaseOneOf6": {
+      "SecurityAnalyzerBaseOneOf6Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/SecurityAnalyzerBase"
@@ -48642,7 +48642,7 @@
           }
         ]
       },
-      "SkillInputTriggerAnyOf1SkillInputTriggerAnyOf1OneOf1": {
+      "SkillInputTriggerAnyOf1OneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/SkillInputTriggerAnyOf1"
@@ -48683,7 +48683,7 @@
           }
         ]
       },
-      "SkillInputTriggerAnyOf1SkillInputTriggerAnyOf1OneOf2": {
+      "SkillInputTriggerAnyOf1OneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/SkillInputTriggerAnyOf1"
@@ -48724,7 +48724,7 @@
           }
         ]
       },
-      "SkillInputTriggerAnyOf1SkillInputTriggerAnyOf1OneOf3": {
+      "SkillInputTriggerAnyOf1OneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/SkillInputTriggerAnyOf1"
@@ -48765,7 +48765,7 @@
           }
         ]
       },
-      "SkillOutputTriggerAnyOf1SkillOutputTriggerAnyOf1OneOf1": {
+      "SkillOutputTriggerAnyOf1OneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/SkillOutputTriggerAnyOf1"
@@ -48806,7 +48806,7 @@
           }
         ]
       },
-      "SkillOutputTriggerAnyOf1SkillOutputTriggerAnyOf1OneOf2": {
+      "SkillOutputTriggerAnyOf1OneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/SkillOutputTriggerAnyOf1"
@@ -48847,7 +48847,7 @@
           }
         ]
       },
-      "SkillOutputTriggerAnyOf1SkillOutputTriggerAnyOf1OneOf3": {
+      "SkillOutputTriggerAnyOf1OneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/SkillOutputTriggerAnyOf1"

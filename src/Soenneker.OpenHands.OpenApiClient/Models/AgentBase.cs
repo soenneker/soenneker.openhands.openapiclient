@@ -51,8 +51,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
             return mappingValue switch
             {
-                "ACPAgent" => new global::Soenneker.OpenHands.OpenApiClient.Models.AgentBaseAgentBaseOneOf1(),
-                "Agent" => new global::Soenneker.OpenHands.OpenApiClient.Models.AgentBaseAgentBaseOneOf2(),
+                "ACPAgent" => new global::Soenneker.OpenHands.OpenApiClient.Models.AgentBaseOneOf1Variant(),
+                "Agent" => new global::Soenneker.OpenHands.OpenApiClient.Models.AgentBaseOneOf2Variant(),
                 _ => new global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase(),
             };
         }
