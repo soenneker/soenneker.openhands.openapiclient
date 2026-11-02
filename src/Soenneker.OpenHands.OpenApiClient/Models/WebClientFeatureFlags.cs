@@ -65,8 +65,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public bool? AllowUserLlmConfiguration { get => _explicitNullValueAllowUserLlmConfiguration; set { _explicitNullValueAllowUserLlmConfiguration = value; AdditionalData?.Remove("allow_user_llm_configuration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_user_llm_configuration"); else _explicitNullProperties?.Remove("allow_user_llm_configuration"); } }
         private bool? _explicitNullValueAllowUserLlmConfiguration = default!;
         /// <summary>The deployment_mode property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode? DeploymentMode { get => _explicitNullValueDeploymentMode; set { _explicitNullValueDeploymentMode = value; AdditionalData?.Remove("deployment_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment_mode"); else _explicitNullProperties?.Remove("deployment_mode"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode? _explicitNullValueDeploymentMode = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode DeploymentMode { get => _explicitNullValueDeploymentMode; set { _explicitNullValueDeploymentMode = value; AdditionalData?.Remove("deployment_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment_mode"); else _explicitNullProperties?.Remove("deployment_mode"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode _explicitNullValueDeploymentMode = default!;
+#endif
         /// <summary>The enable_acp property</summary>
         public bool? EnableAcp { get => _explicitNullValueEnableAcp; set { _explicitNullValueEnableAcp = value; AdditionalData?.Remove("enable_acp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_acp"); else _explicitNullProperties?.Remove("enable_acp"); } }
         private bool? _explicitNullValueEnableAcp = default!;
@@ -166,7 +173,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allow_user_llm_configuration", n => { AllowUserLlmConfiguration = n.GetBoolValue(); } },
-                { "deployment_mode", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDeploymentMode = default; _explicitNullProperties?.Remove("deployment_mode"); AdditionalData["deployment_mode"] = unknown; } else { DeploymentMode = parsed; AdditionalData.Remove("deployment_mode"); } } },
+                { "deployment_mode", n => { DeploymentMode = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode.CreateFromDiscriminatorValue); } },
                 { "enable_acp", n => { EnableAcp = n.GetBoolValue(); } },
                 { "enable_agent_canvas_banner", n => { EnableAgentCanvasBanner = n.GetBoolValue(); } },
                 { "enable_automations", n => { EnableAutomations = n.GetBoolValue(); } },
@@ -195,7 +202,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("allow_user_llm_configuration", AllowUserLlmConfiguration);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode>("deployment_mode", DeploymentMode);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode>("deployment_mode", DeploymentMode);
             writer.WriteBoolValue("enable_acp", EnableAcp);
             writer.WriteBoolValue("enable_agent_canvas_banner", EnableAgentCanvasBanner);
             writer.WriteBoolValue("enable_automations", EnableAutomations);

@@ -70,12 +70,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>OpenAI Responses reasoning item from model output</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel? ResponsesReasoningItem { get => _explicitNullValueResponsesReasoningItem; set { _explicitNullValueResponsesReasoningItem = value; AdditionalData?.Remove("responses_reasoning_item"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("responses_reasoning_item"); else _explicitNullProperties?.Remove("responses_reasoning_item"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel? _explicitNullValueResponsesReasoningItem = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventResponsesReasoningItem? ResponsesReasoningItem { get => _explicitNullValueResponsesReasoningItem; set { _explicitNullValueResponsesReasoningItem = value; AdditionalData?.Remove("responses_reasoning_item"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("responses_reasoning_item"); else _explicitNullProperties?.Remove("responses_reasoning_item"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventResponsesReasoningItem? _explicitNullValueResponsesReasoningItem = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel ResponsesReasoningItem { get => _explicitNullValueResponsesReasoningItem; set { _explicitNullValueResponsesReasoningItem = value; AdditionalData?.Remove("responses_reasoning_item"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("responses_reasoning_item"); else _explicitNullProperties?.Remove("responses_reasoning_item"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel _explicitNullValueResponsesReasoningItem = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventResponsesReasoningItem ResponsesReasoningItem { get => _explicitNullValueResponsesReasoningItem; set { _explicitNullValueResponsesReasoningItem = value; AdditionalData?.Remove("responses_reasoning_item"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("responses_reasoning_item"); else _explicitNullProperties?.Remove("responses_reasoning_item"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventResponsesReasoningItem _explicitNullValueResponsesReasoningItem = default!;
 #endif
         /// <summary>The role property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.MessageRole? Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; AdditionalData?.Remove("role"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
@@ -138,7 +138,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequestContentItem>(global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequestContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "reasoning_content", n => { ReasoningContent = n.GetStringValue(); } },
-                { "responses_reasoning_item", n => { ResponsesReasoningItem = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel>(global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel.CreateFromDiscriminatorValue); } },
+                { "responses_reasoning_item", n => { ResponsesReasoningItem = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventResponsesReasoningItem>(global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventResponsesReasoningItem.CreateFromDiscriminatorValue); } },
                 { "role", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageRole>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRole = default; _explicitNullProperties?.Remove("role"); AdditionalData["role"] = unknown; } else { Role = parsed; AdditionalData.Remove("role"); } } },
                 { "thinking_blocks", n => { ThinkingBlocks = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventThinkingBlocksItem>(global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventThinkingBlocksItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "tool_call_id", n => { ToolCallId = n.GetStringValue(); } },
@@ -155,7 +155,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequestContentItem>("content", Content);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("reasoning_content", ReasoningContent);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ReasoningItemModel>("responses_reasoning_item", ResponsesReasoningItem);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventResponsesReasoningItem>("responses_reasoning_item", ResponsesReasoningItem);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MessageRole>("role", Role);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ActionEventThinkingBlocksItem>("thinking_blocks", ThinkingBlocks);
             writer.WriteStringValue("tool_call_id", ToolCallId);

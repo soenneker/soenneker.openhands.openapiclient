@@ -37,17 +37,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Complete_onboarding
         /// Mark onboarding as completed for the current user and fire analytics.Persists ``user.onboarding_completed = True`` and emits the``onboarding completed`` PostHog event (plus an org ``group_identify`` tostamp ``onboarding_completed_at``). Analytics failures are swallowed sothey never block the user from leaving the onboarding flow.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Payload posted from the onboarding form.``selections`` maps onboarding question_id -&gt; selected option(s), e.g.``{&quot;role&quot;: &quot;software_engineer&quot;, &quot;org_size&quot;: &quot;solo&quot;,   &quot;use_case&quot;: [&quot;new_features&quot;, &quot;fixing_bugs&quot;]}``.The field is optional so the endpoint stays backwards-compatible with anyclient that previously called it with an empty body, but the currentfrontend always submits a populated mapping.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<UntypedNode?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.OnboardingSubmission body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.CompleteOnboardingApiCompleteOnboardingPostRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<UntypedNode> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.OnboardingSubmission body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.CompleteOnboardingApiCompleteOnboardingPostRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -64,15 +64,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Complete_onboarding
         /// Mark onboarding as completed for the current user and fire analytics.Persists ``user.onboarding_completed = True`` and emits the``onboarding completed`` PostHog event (plus an org ``group_identify`` tostamp ``onboarding_completed_at``). Analytics failures are swallowed sothey never block the user from leaving the onboarding flow.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Payload posted from the onboarding form.``selections`` maps onboarding question_id -&gt; selected option(s), e.g.``{&quot;role&quot;: &quot;software_engineer&quot;, &quot;org_size&quot;: &quot;solo&quot;,   &quot;use_case&quot;: [&quot;new_features&quot;, &quot;fixing_bugs&quot;]}``.The field is optional so the endpoint stays backwards-compatible with anyclient that previously called it with an empty body, but the currentfrontend always submits a populated mapping.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.OnboardingSubmission body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.CompleteOnboardingApiCompleteOnboardingPostRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.OnboardingSubmission body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.CompleteOnboardingApiCompleteOnboardingPostRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

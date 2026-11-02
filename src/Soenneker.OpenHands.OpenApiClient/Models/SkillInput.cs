@@ -151,12 +151,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Resource directories for the skill (scripts/, references/, assets/). AgentSkills standard field. Only populated for SKILL.md directory format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources? Resources { get => _explicitNullValueResources; set { _explicitNullValueResources = value; AdditionalData?.Remove("resources"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources"); else _explicitNullProperties?.Remove("resources"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources? _explicitNullValueResources = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputResources? Resources { get => _explicitNullValueResources; set { _explicitNullValueResources = value; AdditionalData?.Remove("resources"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources"); else _explicitNullProperties?.Remove("resources"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputResources? _explicitNullValueResources = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources Resources { get => _explicitNullValueResources; set { _explicitNullValueResources = value; AdditionalData?.Remove("resources"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources"); else _explicitNullProperties?.Remove("resources"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources _explicitNullValueResources = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputResources Resources { get => _explicitNullValueResources; set { _explicitNullValueResources = value; AdditionalData?.Remove("resources"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources"); else _explicitNullProperties?.Remove("resources"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputResources _explicitNullValueResources = default!;
 #endif
         /// <summary>The source path or identifier of the skill. When it is None, it is treated as a programmatically defined skill.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -227,7 +227,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "mcp_tools", n => { McpTools = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMcpToolsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMcpToolsProperty.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMetadataProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "resources", n => { Resources = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources.CreateFromDiscriminatorValue); } },
+                { "resources", n => { Resources = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputResources>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputResources.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetStringValue(); } },
                 { "trigger", n => { Trigger = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTriggerAnyOf1>(global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTriggerAnyOf1.CreateFromDiscriminatorValue); } },
                 { "version", n => { Version = n.GetStringValue(); } },
@@ -251,7 +251,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMcpToolsProperty>("mcp_tools", McpTools);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputMetadataProperty>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillResources>("resources", Resources);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputResources>("resources", Resources);
             writer.WriteStringValue("source", Source);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SkillInputTriggerAnyOf1>("trigger", Trigger);
             writer.WriteStringValue("version", Version);

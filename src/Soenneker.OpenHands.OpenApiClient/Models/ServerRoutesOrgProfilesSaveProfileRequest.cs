@@ -31,15 +31,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The include_secrets property</summary>
         public bool? IncludeSecrets { get => _explicitNullValueIncludeSecrets; set { _explicitNullValueIncludeSecrets = value; AdditionalData?.Remove("include_secrets"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_secrets"); else _explicitNullProperties?.Remove("include_secrets"); } }
         private bool? _explicitNullValueIncludeSecrets = default!;
-        /// <summary>The llm property</summary>
+        /// <summary>LLM variant that rejects unknown fields.The base ``LLM`` model has ``extra=&apos;ignore&apos;``, so typos and renamed keyssilently disappear. For API input we want to fail loud, otherwise userscan POST ``{&quot;llm&quot;: {&quot;custom_header&quot;: &quot;x&quot;}}`` and get a 201 with thefield quietly dropped.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm? Llm { get => _explicitNullValueLlm; set { _explicitNullValueLlm = value; AdditionalData?.Remove("llm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm"); else _explicitNullProperties?.Remove("llm"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm? _explicitNullValueLlm = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterSaveProfileRequestLlm? Llm { get => _explicitNullValueLlm; set { _explicitNullValueLlm = value; AdditionalData?.Remove("llm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm"); else _explicitNullProperties?.Remove("llm"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterSaveProfileRequestLlm? _explicitNullValueLlm = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm Llm { get => _explicitNullValueLlm; set { _explicitNullValueLlm = value; AdditionalData?.Remove("llm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm"); else _explicitNullProperties?.Remove("llm"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm _explicitNullValueLlm = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterSaveProfileRequestLlm Llm { get => _explicitNullValueLlm; set { _explicitNullValueLlm = value; AdditionalData?.Remove("llm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm"); else _explicitNullProperties?.Remove("llm"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterSaveProfileRequestLlm _explicitNullValueLlm = default!;
 #endif
         /// <summary>The preserve_existing_api_key property</summary>
         public bool? PreserveExistingApiKey { get => _explicitNullValuePreserveExistingApiKey; set { _explicitNullValuePreserveExistingApiKey = value; AdditionalData?.Remove("preserve_existing_api_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preserve_existing_api_key"); else _explicitNullProperties?.Remove("preserve_existing_api_key"); } }
@@ -72,7 +72,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "include_secrets", n => { IncludeSecrets = n.GetBoolValue(); } },
-                { "llm", n => { Llm = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm.CreateFromDiscriminatorValue); } },
+                { "llm", n => { Llm = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterSaveProfileRequestLlm>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterSaveProfileRequestLlm.CreateFromDiscriminatorValue); } },
                 { "preserve_existing_api_key", n => { PreserveExistingApiKey = n.GetBoolValue(); } },
             };
         }
@@ -84,7 +84,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("include_secrets", IncludeSecrets);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlm>("llm", Llm);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterSaveProfileRequestLlm>("llm", Llm);
             writer.WriteBoolValue("preserve_existing_api_key", PreserveExistingApiKey);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

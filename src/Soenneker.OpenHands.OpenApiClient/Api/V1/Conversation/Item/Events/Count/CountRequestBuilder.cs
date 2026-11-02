@@ -92,10 +92,19 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Conversation.Item.Events.Coun
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CountRequestBuilderGetQueryParameters 
         {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             #pragma warning disable CS1591
             [QueryParameter("kind__eq")]
-            public global::Soenneker.OpenHands.OpenApiClient.Models.CountEventsApiV1ConversationConversationIdEventsCountGetKindEqParameter? KindEq { get; set; }
+            public string? KindEq { get; set; }
             #pragma warning restore CS1591
+#nullable restore
+#else
+            #pragma warning disable CS1591
+            [QueryParameter("kind__eq")]
+            public string KindEq { get; set; }
+            #pragma warning restore CS1591
+#endif
             #pragma warning disable CS1591
             [QueryParameter("timestamp__gte")]
             public DateTimeOffset? TimestampGte { get; set; }

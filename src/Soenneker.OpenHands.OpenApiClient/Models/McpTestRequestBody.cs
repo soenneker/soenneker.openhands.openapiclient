@@ -56,12 +56,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Optional read-only tool to invoke after listing succeeds; its outcome is reported in `tool_result` without affecting `ok`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallSpec? ToolCall { get => _explicitNullValueToolCall; set { _explicitNullValueToolCall = value; AdditionalData?.Remove("tool_call"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_call"); else _explicitNullProperties?.Remove("tool_call"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallSpec? _explicitNullValueToolCall = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTestRequestBodyToolCall? ToolCall { get => _explicitNullValueToolCall; set { _explicitNullValueToolCall = value; AdditionalData?.Remove("tool_call"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_call"); else _explicitNullProperties?.Remove("tool_call"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpTestRequestBodyToolCall? _explicitNullValueToolCall = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallSpec ToolCall { get => _explicitNullValueToolCall; set { _explicitNullValueToolCall = value; AdditionalData?.Remove("tool_call"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_call"); else _explicitNullProperties?.Remove("tool_call"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallSpec _explicitNullValueToolCall = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTestRequestBodyToolCall ToolCall { get => _explicitNullValueToolCall; set { _explicitNullValueToolCall = value; AdditionalData?.Remove("tool_call"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_call"); else _explicitNullProperties?.Remove("tool_call"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpTestRequestBodyToolCall _explicitNullValueToolCall = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.McpTestRequestBody"/> and sets the default values.
@@ -92,7 +92,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "server", n => { Server = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestRequestBodyServerProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTestRequestBodyServerProperty.CreateFromDiscriminatorValue); } },
                 { "timeout", n => { Timeout = n.GetDoubleValue(); } },
-                { "tool_call", n => { ToolCall = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallSpec>(global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallSpec.CreateFromDiscriminatorValue); } },
+                { "tool_call", n => { ToolCall = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestRequestBodyToolCall>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTestRequestBodyToolCall.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -105,7 +105,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestRequestBodyServerProperty>("server", Server);
             writer.WriteDoubleValue("timeout", Timeout);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallSpec>("tool_call", ToolCall);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestRequestBodyToolCall>("tool_call", ToolCall);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

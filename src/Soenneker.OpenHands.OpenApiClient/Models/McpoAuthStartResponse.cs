@@ -53,8 +53,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         private string _explicitNullValueError = default!;
 #endif
         /// <summary>The error_kind property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStartResponseErrorKind? ErrorKind { get => _explicitNullValueErrorKind; set { _explicitNullValueErrorKind = value; AdditionalData?.Remove("error_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_kind"); else _explicitNullProperties?.Remove("error_kind"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStartResponseErrorKind? _explicitNullValueErrorKind = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStartResponseErrorKind ErrorKind { get => _explicitNullValueErrorKind; set { _explicitNullValueErrorKind = value; AdditionalData?.Remove("error_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_kind"); else _explicitNullProperties?.Remove("error_kind"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStartResponseErrorKind _explicitNullValueErrorKind = default!;
+#endif
         /// <summary>The job_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -95,7 +102,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "authorization_url", n => { AuthorizationUrl = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
-                { "error_kind", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStartResponseErrorKind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueErrorKind = default; _explicitNullProperties?.Remove("error_kind"); AdditionalData["error_kind"] = unknown; } else { ErrorKind = parsed; AdditionalData.Remove("error_kind"); } } },
+                { "error_kind", n => { ErrorKind = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStartResponseErrorKind>(global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStartResponseErrorKind.CreateFromDiscriminatorValue); } },
                 { "job_id", n => { JobId = n.GetStringValue(); } },
                 { "ok", n => { Ok = n.GetBoolValue(); } },
             };
@@ -109,7 +116,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("authorization_url", AuthorizationUrl);
             writer.WriteStringValue("error", Error);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStartResponseErrorKind>("error_kind", ErrorKind);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStartResponseErrorKind>("error_kind", ErrorKind);
             writer.WriteStringValue("job_id", JobId);
             writer.WriteBoolValue("ok", Ok);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

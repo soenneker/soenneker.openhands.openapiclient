@@ -33,12 +33,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Optional MCP-style annotations for the tool. When omitted, the tool is treated conservatively (not read-only), so the agent is asked to predict a security risk before calling it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations? Annotations { get => _explicitNullValueAnnotations; set { _explicitNullValueAnnotations = value; AdditionalData?.Remove("annotations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotations"); else _explicitNullProperties?.Remove("annotations"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations? _explicitNullValueAnnotations = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecOutputAnnotations? Annotations { get => _explicitNullValueAnnotations; set { _explicitNullValueAnnotations = value; AdditionalData?.Remove("annotations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotations"); else _explicitNullProperties?.Remove("annotations"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecOutputAnnotations? _explicitNullValueAnnotations = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations Annotations { get => _explicitNullValueAnnotations; set { _explicitNullValueAnnotations = value; AdditionalData?.Remove("annotations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotations"); else _explicitNullProperties?.Remove("annotations"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations _explicitNullValueAnnotations = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecOutputAnnotations Annotations { get => _explicitNullValueAnnotations; set { _explicitNullValueAnnotations = value; AdditionalData?.Remove("annotations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotations"); else _explicitNullProperties?.Remove("annotations"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecOutputAnnotations _explicitNullValueAnnotations = default!;
 #endif
         /// <summary>Description shown to the LLM explaining when and how to use this tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,7 +95,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations.CreateFromDiscriminatorValue); } },
+                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecOutputAnnotations>(global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecOutputAnnotations.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecOutputParametersProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecOutputParametersProperty.CreateFromDiscriminatorValue); } },
@@ -108,7 +108,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolToolToolAnnotations>("annotations", Annotations);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecOutputAnnotations>("annotations", Annotations);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecOutputParametersProperty>("parameters", Parameters);

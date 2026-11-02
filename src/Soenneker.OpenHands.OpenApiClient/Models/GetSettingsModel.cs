@@ -237,12 +237,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The provider_tokens_set property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelProviderTokensSetAnyOf1? ProviderTokensSet { get => _explicitNullValueProviderTokensSet; set { _explicitNullValueProviderTokensSet = value; AdditionalData?.Remove("provider_tokens_set"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_tokens_set"); else _explicitNullProperties?.Remove("provider_tokens_set"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelProviderTokensSetAnyOf1? _explicitNullValueProviderTokensSet = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelProviderTokensSet? ProviderTokensSet { get => _explicitNullValueProviderTokensSet; set { _explicitNullValueProviderTokensSet = value; AdditionalData?.Remove("provider_tokens_set"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_tokens_set"); else _explicitNullProperties?.Remove("provider_tokens_set"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelProviderTokensSet? _explicitNullValueProviderTokensSet = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelProviderTokensSetAnyOf1 ProviderTokensSet { get => _explicitNullValueProviderTokensSet; set { _explicitNullValueProviderTokensSet = value; AdditionalData?.Remove("provider_tokens_set"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_tokens_set"); else _explicitNullProperties?.Remove("provider_tokens_set"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelProviderTokensSetAnyOf1 _explicitNullValueProviderTokensSet = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelProviderTokensSet ProviderTokensSet { get => _explicitNullValueProviderTokensSet; set { _explicitNullValueProviderTokensSet = value; AdditionalData?.Remove("provider_tokens_set"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_tokens_set"); else _explicitNullProperties?.Remove("provider_tokens_set"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelProviderTokensSet _explicitNullValueProviderTokensSet = default!;
 #endif
         /// <summary>List of marketplace registrations for plugin resolution. Marketplaces with auto_load=True will have their plugins loaded automatically at conversation start. See MarketplaceRegistration for details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -383,7 +383,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "llm_profiles", n => { LlmProfiles = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmProfiles>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmProfiles.CreateFromDiscriminatorValue); } },
                 { "max_budget_per_task", n => { MaxBudgetPerTask = n.GetDoubleValue(); } },
                 { "memory_context", n => { MemoryContext = n.GetStringValue(); } },
-                { "provider_tokens_set", n => { ProviderTokensSet = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelProviderTokensSetAnyOf1>(global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelProviderTokensSetAnyOf1.CreateFromDiscriminatorValue); } },
+                { "provider_tokens_set", n => { ProviderTokensSet = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelProviderTokensSet>(global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelProviderTokensSet.CreateFromDiscriminatorValue); } },
                 { "registered_marketplaces", n => { RegisteredMarketplaces = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "remote_runtime_resource_factor", n => { RemoteRuntimeResourceFactor = n.GetIntValue(); } },
                 { "sandbox_api_key", n => { SandboxApiKey = n.GetStringValue(); } },
@@ -426,7 +426,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmProfiles>("llm_profiles", LlmProfiles);
             writer.WriteDoubleValue("max_budget_per_task", MaxBudgetPerTask);
             writer.WriteStringValue("memory_context", MemoryContext);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelProviderTokensSetAnyOf1>("provider_tokens_set", ProviderTokensSet);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelProviderTokensSet>("provider_tokens_set", ProviderTokensSet);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration>("registered_marketplaces", RegisteredMarketplaces);
             writer.WriteIntValue("remote_runtime_resource_factor", RemoteRuntimeResourceFactor);
             writer.WriteStringValue("sandbox_api_key", SandboxApiKey);

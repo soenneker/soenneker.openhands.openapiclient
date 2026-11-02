@@ -137,10 +137,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Provenance of the Agent Profile that launched this conversation, else None.A typed projection of the ``agentprofileid`` / ``agentprofilerevision``tags (same pattern as ``acp_server``), so it round-trips through the DB``tags`` column for free. Canvas reads exactly``launched_agent_profile { agent_profile_id, revision }``.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile? LaunchedAgentProfile { get; private set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationLaunchedAgentProfile? LaunchedAgentProfile { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile LaunchedAgentProfile { get; private set; }
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationLaunchedAgentProfile LaunchedAgentProfile { get; private set; }
 #endif
         /// <summary>The llm_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -152,15 +152,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string LlmModel { get => _explicitNullValueLlmModel; set { _explicitNullValueLlmModel = value; AdditionalData?.Remove("llm_model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_model"); else _explicitNullProperties?.Remove("llm_model"); } }
         private string _explicitNullValueLlmModel = default!;
 #endif
-        /// <summary>The metrics property</summary>
+        /// <summary>A snapshot of metrics at a point in time.Does not include lists of individual costs, latencies, or token usages.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot? Metrics { get => _explicitNullValueMetrics; set { _explicitNullValueMetrics = value; AdditionalData?.Remove("metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics"); else _explicitNullProperties?.Remove("metrics"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot? _explicitNullValueMetrics = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationMetrics? Metrics { get => _explicitNullValueMetrics; set { _explicitNullValueMetrics = value; AdditionalData?.Remove("metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics"); else _explicitNullProperties?.Remove("metrics"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationMetrics? _explicitNullValueMetrics = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot Metrics { get => _explicitNullValueMetrics; set { _explicitNullValueMetrics = value; AdditionalData?.Remove("metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics"); else _explicitNullProperties?.Remove("metrics"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot _explicitNullValueMetrics = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationMetrics Metrics { get => _explicitNullValueMetrics; set { _explicitNullValueMetrics = value; AdditionalData?.Remove("metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics"); else _explicitNullProperties?.Remove("metrics"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationMetrics _explicitNullValueMetrics = default!;
 #endif
         /// <summary>The parent_conversation_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -300,9 +300,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "execution_status", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationExecutionStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueExecutionStatus = default; _explicitNullProperties?.Remove("execution_status"); AdditionalData["execution_status"] = unknown; } else { ExecutionStatus = parsed; AdditionalData.Remove("execution_status"); } } },
                 { "git_provider", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueGitProvider = default; _explicitNullProperties?.Remove("git_provider"); AdditionalData["git_provider"] = unknown; } else { GitProvider = parsed; AdditionalData.Remove("git_provider"); } } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "launched_agent_profile", n => { LaunchedAgentProfile = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile>(global::Soenneker.OpenHands.OpenApiClient.Models.LaunchedAgentProfile.CreateFromDiscriminatorValue); } },
+                { "launched_agent_profile", n => { LaunchedAgentProfile = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationLaunchedAgentProfile>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationLaunchedAgentProfile.CreateFromDiscriminatorValue); } },
                 { "llm_model", n => { LlmModel = n.GetStringValue(); } },
-                { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot>(global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot.CreateFromDiscriminatorValue); } },
+                { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationMetrics>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationMetrics.CreateFromDiscriminatorValue); } },
                 { "parent_conversation_id", n => { ParentConversationId = n.GetStringValue(); } },
                 { "pr_number", n => { PrNumber = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "public", n => { Public = n.GetBoolValue(); } },
@@ -334,7 +334,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>("git_provider", GitProvider);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("llm_model", LlmModel);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MetricsSnapshot>("metrics", Metrics);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationMetrics>("metrics", Metrics);
             writer.WriteStringValue("parent_conversation_id", ParentConversationId);
             writer.WriteCollectionOfPrimitiveValues<int?>("pr_number", PrNumber);
             writer.WriteBoolValue("public", Public);

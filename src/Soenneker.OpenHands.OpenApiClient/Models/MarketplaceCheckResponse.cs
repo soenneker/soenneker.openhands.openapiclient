@@ -33,14 +33,28 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The layout property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout? Layout { get => _explicitNullValueLayout; set { _explicitNullValueLayout = value; AdditionalData?.Remove("layout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("layout"); else _explicitNullProperties?.Remove("layout"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout? _explicitNullValueLayout = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout Layout { get => _explicitNullValueLayout; set { _explicitNullValueLayout = value; AdditionalData?.Remove("layout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("layout"); else _explicitNullProperties?.Remove("layout"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout _explicitNullValueLayout = default!;
+#endif
         /// <summary>The plugin_count property</summary>
         public int? PluginCount { get => _explicitNullValuePluginCount; set { _explicitNullValuePluginCount = value; AdditionalData?.Remove("plugin_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plugin_count"); else _explicitNullProperties?.Remove("plugin_count"); } }
         private int? _explicitNullValuePluginCount = default!;
         /// <summary>The reason property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; AdditionalData?.Remove("reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason? _explicitNullValueReason = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; AdditionalData?.Remove("reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason _explicitNullValueReason = default!;
+#endif
         /// <summary>The skill_count property</summary>
         public int? SkillCount { get => _explicitNullValueSkillCount; set { _explicitNullValueSkillCount = value; AdditionalData?.Remove("skill_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skill_count"); else _explicitNullProperties?.Remove("skill_count"); } }
         private int? _explicitNullValueSkillCount = default!;
@@ -74,9 +88,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "layout", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLayout = default; _explicitNullProperties?.Remove("layout"); AdditionalData["layout"] = unknown; } else { Layout = parsed; AdditionalData.Remove("layout"); } } },
+                { "layout", n => { Layout = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout>(global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout.CreateFromDiscriminatorValue); } },
                 { "plugin_count", n => { PluginCount = n.GetIntValue(); } },
-                { "reason", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueReason = default; _explicitNullProperties?.Remove("reason"); AdditionalData["reason"] = unknown; } else { Reason = parsed; AdditionalData.Remove("reason"); } } },
+                { "reason", n => { Reason = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason>(global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason.CreateFromDiscriminatorValue); } },
                 { "skill_count", n => { SkillCount = n.GetIntValue(); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
             };
@@ -88,9 +102,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout>("layout", Layout);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout>("layout", Layout);
             writer.WriteIntValue("plugin_count", PluginCount);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason>("reason", Reason);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseReason>("reason", Reason);
             writer.WriteIntValue("skill_count", SkillCount);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseStatus>("status", Status);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

@@ -99,17 +99,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings.Profiles.Item
         /// Save an LLM configuration as a named profile.If ``request.llm`` is supplied, it is saved as the profile&apos;s config.Otherwise the current ``agent_settings.llm`` is snapshotted. Existingprofiles with the same name are overwritten.Runs inside a per-user lock to prevent lost updates between concurrentprofile writes. Returns 409 if the user is already at the profilecap (:data:`MAX_PROFILES_PER_USER`).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Request body for saving a profile.If ``llm`` is provided, it is used as the profile config; otherwise thecurrent ``agent_settings.llm`` is saved. The ``llm`` field is typed as:class:`StrictLLM`, which forbids unknown keys — so a typo like``{&quot;llm&quot;: {&quot;custom_header&quot;: &quot;x&quot;}}`` returns 422 instead of being silentlydropped.**Security note:** when ``llm.api_key`` is included in the request body,it is transmitted in plaintext over the wire and present in any requestlog or error trace that captures request bodies. ``SecretStr`` masks itin Pydantic reprs, but callers and operators should still avoid loggingraw request bodies on this endpoint.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterSaveProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse?> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.SaveProfileApiV1SettingsProfilesNamePostRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterSaveProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterProfileMutationResponse> PostAsync(global::Soenneker.OpenHands.OpenApiClient.Models.SaveProfileApiV1SettingsProfilesNamePostRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -164,15 +164,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Settings.Profiles.Item
         /// Save an LLM configuration as a named profile.If ``request.llm`` is supplied, it is saved as the profile&apos;s config.Otherwise the current ``agent_settings.llm`` is snapshotted. Existingprofiles with the same name are overwritten.Runs inside a per-user lock to prevent lost updates between concurrentprofile writes. Returns 409 if the user is already at the profilecap (:data:`MAX_PROFILES_PER_USER`).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Request body for saving a profile.If ``llm`` is provided, it is used as the profile config; otherwise thecurrent ``agent_settings.llm`` is saved. The ``llm`` field is typed as:class:`StrictLLM`, which forbids unknown keys — so a typo like``{&quot;llm&quot;: {&quot;custom_header&quot;: &quot;x&quot;}}`` returns 422 instead of being silentlydropped.**Security note:** when ``llm.api_key`` is included in the request body,it is transmitted in plaintext over the wire and present in any requestlog or error trace that captures request bodies. ``SecretStr`` masks itin Pydantic reprs, but callers and operators should still avoid loggingraw request bodies on this endpoint.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterSaveProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.SaveProfileApiV1SettingsProfilesNamePostRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsRouterSaveProfileRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenHands.OpenApiClient.Models.SaveProfileApiV1SettingsProfilesNamePostRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

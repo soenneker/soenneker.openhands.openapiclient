@@ -40,15 +40,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The annotations property</summary>
+        /// <summary>Additional properties describing a Tool to clients.NOTE: all properties in ToolAnnotations are **hints**.They are not guaranteed to provide a faithful description oftool behavior (including descriptive properties like `title`).Clients should never make tool use decisions based on ToolAnnotationsreceived from untrusted servers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotations? Annotations { get => _explicitNullValueAnnotations; set { _explicitNullValueAnnotations = value; AdditionalData?.Remove("annotations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotations"); else _explicitNullProperties?.Remove("annotations"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotations? _explicitNullValueAnnotations = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotationsComposed? Annotations { get => _explicitNullValueAnnotations; set { _explicitNullValueAnnotations = value; AdditionalData?.Remove("annotations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotations"); else _explicitNullProperties?.Remove("annotations"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotationsComposed? _explicitNullValueAnnotations = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotations Annotations { get => _explicitNullValueAnnotations; set { _explicitNullValueAnnotations = value; AdditionalData?.Remove("annotations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotations"); else _explicitNullProperties?.Remove("annotations"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotations _explicitNullValueAnnotations = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotationsComposed Annotations { get => _explicitNullValueAnnotations; set { _explicitNullValueAnnotations = value; AdditionalData?.Remove("annotations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotations"); else _explicitNullProperties?.Remove("annotations"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotationsComposed _explicitNullValueAnnotations = default!;
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -60,15 +60,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string _explicitNullValueDescription = default!;
 #endif
-        /// <summary>The execution property</summary>
+        /// <summary>Execution-related properties for a tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecution? Execution { get => _explicitNullValueExecution; set { _explicitNullValueExecution = value; AdditionalData?.Remove("execution"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("execution"); else _explicitNullProperties?.Remove("execution"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecution? _explicitNullValueExecution = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolExecution? Execution { get => _explicitNullValueExecution; set { _explicitNullValueExecution = value; AdditionalData?.Remove("execution"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("execution"); else _explicitNullProperties?.Remove("execution"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolExecution? _explicitNullValueExecution = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecution Execution { get => _explicitNullValueExecution; set { _explicitNullValueExecution = value; AdditionalData?.Remove("execution"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("execution"); else _explicitNullProperties?.Remove("execution"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecution _explicitNullValueExecution = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolExecution Execution { get => _explicitNullValueExecution; set { _explicitNullValueExecution = value; AdditionalData?.Remove("execution"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("execution"); else _explicitNullProperties?.Remove("execution"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolExecution _explicitNullValueExecution = default!;
 #endif
         /// <summary>The icons property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -155,9 +155,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotations>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotations.CreateFromDiscriminatorValue); } },
+                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotationsComposed>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotationsComposed.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "execution", n => { Execution = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecution>(global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecution.CreateFromDiscriminatorValue); } },
+                { "execution", n => { Execution = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolExecution>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolExecution.CreateFromDiscriminatorValue); } },
                 { "icons", n => { Icons = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.Icon>(global::Soenneker.OpenHands.OpenApiClient.Models.Icon.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "inputSchema", n => { InputSchema = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolInputSchemaProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolInputSchemaProperty.CreateFromDiscriminatorValue); } },
                 { "_meta", n => { Meta = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolMetaProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolMetaProperty.CreateFromDiscriminatorValue); } },
@@ -173,9 +173,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotations>("annotations", Annotations);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolAnnotationsComposed>("annotations", Annotations);
             writer.WriteStringValue("description", Description);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ToolExecution>("execution", Execution);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolExecution>("execution", Execution);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.Icon>("icons", Icons);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolInputSchemaProperty>("inputSchema", InputSchema);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesToolMetaProperty>("_meta", Meta);

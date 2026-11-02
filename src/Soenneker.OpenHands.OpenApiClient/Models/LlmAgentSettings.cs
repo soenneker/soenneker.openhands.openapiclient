@@ -121,12 +121,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Inline configuration for the active meta-profile. Cloud runtimes use this field because their ephemeral filesystem does not contain the control plane&apos;s meta-profile store.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfile? MetaProfile { get => _explicitNullValueMetaProfile; set { _explicitNullValueMetaProfile = value; AdditionalData?.Remove("meta_profile"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta_profile"); else _explicitNullProperties?.Remove("meta_profile"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfile? _explicitNullValueMetaProfile = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMetaProfile? MetaProfile { get => _explicitNullValueMetaProfile; set { _explicitNullValueMetaProfile = value; AdditionalData?.Remove("meta_profile"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta_profile"); else _explicitNullProperties?.Remove("meta_profile"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMetaProfile? _explicitNullValueMetaProfile = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfile MetaProfile { get => _explicitNullValueMetaProfile; set { _explicitNullValueMetaProfile = value; AdditionalData?.Remove("meta_profile"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta_profile"); else _explicitNullProperties?.Remove("meta_profile"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfile _explicitNullValueMetaProfile = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMetaProfile MetaProfile { get => _explicitNullValueMetaProfile; set { _explicitNullValueMetaProfile = value; AdditionalData?.Remove("meta_profile"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta_profile"); else _explicitNullProperties?.Remove("meta_profile"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMetaProfile _explicitNullValueMetaProfile = default!;
 #endif
         /// <summary>Resolved LLM configurations referenced by the active meta-profile. Cloud control planes hydrate this map for ephemeral runtimes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -211,7 +211,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "enable_classify_and_switch_llm_tool", n => { EnableClassifyAndSwitchLlmTool = n.GetBoolValue(); } },
                 { "llm", n => { Llm = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput.CreateFromDiscriminatorValue); } },
                 { "mcp_config", n => { McpConfig = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMcpConfigProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMcpConfigProperty.CreateFromDiscriminatorValue); } },
-                { "meta_profile", n => { MetaProfile = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfile>(global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfile.CreateFromDiscriminatorValue); } },
+                { "meta_profile", n => { MetaProfile = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMetaProfile>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMetaProfile.CreateFromDiscriminatorValue); } },
                 { "meta_profile_llms", n => { MetaProfileLlms = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMetaProfileLlmsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMetaProfileLlmsProperty.CreateFromDiscriminatorValue); } },
                 { "persona", n => { Persona = n.GetStringValue(); } },
                 { "schema_version", n => { SchemaVersion = n.GetIntValue(); } },
@@ -235,7 +235,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("enable_classify_and_switch_llm_tool", EnableClassifyAndSwitchLlmTool);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutput>("llm", Llm);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMcpConfigProperty>("mcp_config", McpConfig);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MetaProfile>("meta_profile", MetaProfile);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMetaProfile>("meta_profile", MetaProfile);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmAgentSettingsMetaProfileLlmsProperty>("meta_profile_llms", MetaProfileLlms);
             writer.WriteStringValue("persona", Persona);
             writer.WriteIntValue("schema_version", SchemaVersion);

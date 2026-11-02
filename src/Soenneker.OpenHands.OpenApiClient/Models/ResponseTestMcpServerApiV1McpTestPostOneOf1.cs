@@ -34,12 +34,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Serialized OAuth state acquired or refreshed by the probe. Clients should persist this under the tested server&apos;s auth.state.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput? OauthState { get => _explicitNullValueOauthState; set { _explicitNullValueOauthState = value; AdditionalData?.Remove("oauth_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_state"); else _explicitNullProperties?.Remove("oauth_state"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput? _explicitNullValueOauthState = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessOAuthState? OauthState { get => _explicitNullValueOauthState; set { _explicitNullValueOauthState = value; AdditionalData?.Remove("oauth_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_state"); else _explicitNullProperties?.Remove("oauth_state"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessOAuthState? _explicitNullValueOauthState = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput OauthState { get => _explicitNullValueOauthState; set { _explicitNullValueOauthState = value; AdditionalData?.Remove("oauth_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_state"); else _explicitNullProperties?.Remove("oauth_state"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput _explicitNullValueOauthState = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessOAuthState OauthState { get => _explicitNullValueOauthState; set { _explicitNullValueOauthState = value; AdditionalData?.Remove("oauth_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_state"); else _explicitNullProperties?.Remove("oauth_state"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessOAuthState _explicitNullValueOauthState = default!;
 #endif
         /// <summary>The ok property</summary>
         public bool? Ok { get => _explicitNullValueOk; set { _explicitNullValueOk = value; AdditionalData?.Remove("ok"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ok"); else _explicitNullProperties?.Remove("ok"); } }
@@ -58,12 +58,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Outcome of the requested `tool_call`, when one was supplied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult? ToolResult { get => _explicitNullValueToolResult; set { _explicitNullValueToolResult = value; AdditionalData?.Remove("tool_result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_result"); else _explicitNullProperties?.Remove("tool_result"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult? _explicitNullValueToolResult = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessToolResult? ToolResult { get => _explicitNullValueToolResult; set { _explicitNullValueToolResult = value; AdditionalData?.Remove("tool_result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_result"); else _explicitNullProperties?.Remove("tool_result"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessToolResult? _explicitNullValueToolResult = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult ToolResult { get => _explicitNullValueToolResult; set { _explicitNullValueToolResult = value; AdditionalData?.Remove("tool_result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_result"); else _explicitNullProperties?.Remove("tool_result"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult _explicitNullValueToolResult = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessToolResult ToolResult { get => _explicitNullValueToolResult; set { _explicitNullValueToolResult = value; AdditionalData?.Remove("tool_result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_result"); else _explicitNullProperties?.Remove("tool_result"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessToolResult _explicitNullValueToolResult = default!;
 #endif
         /// <summary>Names of tools advertised by the MCP server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -101,10 +101,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "oauth_state", n => { OauthState = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput.CreateFromDiscriminatorValue); } },
+                { "oauth_state", n => { OauthState = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessOAuthState>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessOAuthState.CreateFromDiscriminatorValue); } },
                 { "ok", n => { Ok = n.GetBoolValue(); } },
                 { "resolved_mcp_servers", n => { ResolvedMcpServers = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessResolvedMcpServersItemProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessResolvedMcpServersItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "tool_result", n => { ToolResult = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult>(global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult.CreateFromDiscriminatorValue); } },
+                { "tool_result", n => { ToolResult = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessToolResult>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessToolResult.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -115,10 +115,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput>("oauth_state", OauthState);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessOAuthState>("oauth_state", OauthState);
             writer.WriteBoolValue("ok", Ok);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessResolvedMcpServersItemProperty>("resolved_mcp_servers", ResolvedMcpServers);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult>("tool_result", ToolResult);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTestSuccessToolResult>("tool_result", ToolResult);
             writer.WriteCollectionOfPrimitiveValues<string>("tools", Tools);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

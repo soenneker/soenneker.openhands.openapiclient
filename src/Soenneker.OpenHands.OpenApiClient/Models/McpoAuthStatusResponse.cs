@@ -66,8 +66,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         private string _explicitNullValueError = default!;
 #endif
         /// <summary>The error_kind property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseErrorKind? ErrorKind { get => _explicitNullValueErrorKind; set { _explicitNullValueErrorKind = value; AdditionalData?.Remove("error_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_kind"); else _explicitNullProperties?.Remove("error_kind"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseErrorKind? _explicitNullValueErrorKind = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseErrorKind ErrorKind { get => _explicitNullValueErrorKind; set { _explicitNullValueErrorKind = value; AdditionalData?.Remove("error_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_kind"); else _explicitNullProperties?.Remove("error_kind"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseErrorKind _explicitNullValueErrorKind = default!;
+#endif
         /// <summary>The job_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,12 +88,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The oauth_state property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput? OauthState { get => _explicitNullValueOauthState; set { _explicitNullValueOauthState = value; AdditionalData?.Remove("oauth_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_state"); else _explicitNullProperties?.Remove("oauth_state"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput? _explicitNullValueOauthState = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseOAuthState? OauthState { get => _explicitNullValueOauthState; set { _explicitNullValueOauthState = value; AdditionalData?.Remove("oauth_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_state"); else _explicitNullProperties?.Remove("oauth_state"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseOAuthState? _explicitNullValueOauthState = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput OauthState { get => _explicitNullValueOauthState; set { _explicitNullValueOauthState = value; AdditionalData?.Remove("oauth_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_state"); else _explicitNullProperties?.Remove("oauth_state"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput _explicitNullValueOauthState = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseOAuthState OauthState { get => _explicitNullValueOauthState; set { _explicitNullValueOauthState = value; AdditionalData?.Remove("oauth_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_state"); else _explicitNullProperties?.Remove("oauth_state"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseOAuthState _explicitNullValueOauthState = default!;
 #endif
         /// <summary>The ok property</summary>
         public bool? Ok { get => _explicitNullValueOk; set { _explicitNullValueOk = value; AdditionalData?.Remove("ok"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ok"); else _explicitNullProperties?.Remove("ok"); } }
@@ -94,15 +101,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The status property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseStatus? _explicitNullValueStatus = default!;
-        /// <summary>The tool_result property</summary>
+        /// <summary>Verbatim outcome of the requested ``tool_call``.The endpoint stays provider-neutral: many servers report upstreamfailures (e.g. Slack&apos;s ``{&quot;ok&quot;: false, &quot;error&quot;: &quot;invalid_auth&quot;}``)as ordinary text content with ``isError`` unset, so interpreting thepayload is the caller&apos;s job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult? ToolResult { get => _explicitNullValueToolResult; set { _explicitNullValueToolResult = value; AdditionalData?.Remove("tool_result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_result"); else _explicitNullProperties?.Remove("tool_result"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult? _explicitNullValueToolResult = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseToolResult? ToolResult { get => _explicitNullValueToolResult; set { _explicitNullValueToolResult = value; AdditionalData?.Remove("tool_result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_result"); else _explicitNullProperties?.Remove("tool_result"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseToolResult? _explicitNullValueToolResult = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult ToolResult { get => _explicitNullValueToolResult; set { _explicitNullValueToolResult = value; AdditionalData?.Remove("tool_result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_result"); else _explicitNullProperties?.Remove("tool_result"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult _explicitNullValueToolResult = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseToolResult ToolResult { get => _explicitNullValueToolResult; set { _explicitNullValueToolResult = value; AdditionalData?.Remove("tool_result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_result"); else _explicitNullProperties?.Remove("tool_result"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseToolResult _explicitNullValueToolResult = default!;
 #endif
         /// <summary>The tools property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -143,12 +150,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "authorization_url", n => { AuthorizationUrl = n.GetStringValue(); } },
                 { "callback_ready", n => { CallbackReady = n.GetBoolValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
-                { "error_kind", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseErrorKind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueErrorKind = default; _explicitNullProperties?.Remove("error_kind"); AdditionalData["error_kind"] = unknown; } else { ErrorKind = parsed; AdditionalData.Remove("error_kind"); } } },
+                { "error_kind", n => { ErrorKind = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseErrorKind>(global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseErrorKind.CreateFromDiscriminatorValue); } },
                 { "job_id", n => { JobId = n.GetStringValue(); } },
-                { "oauth_state", n => { OauthState = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput.CreateFromDiscriminatorValue); } },
+                { "oauth_state", n => { OauthState = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseOAuthState>(global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseOAuthState.CreateFromDiscriminatorValue); } },
                 { "ok", n => { Ok = n.GetBoolValue(); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
-                { "tool_result", n => { ToolResult = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult>(global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult.CreateFromDiscriminatorValue); } },
+                { "tool_result", n => { ToolResult = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseToolResult>(global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseToolResult.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -162,12 +169,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("authorization_url", AuthorizationUrl);
             writer.WriteBoolValue("callback_ready", CallbackReady);
             writer.WriteStringValue("error", Error);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseErrorKind>("error_kind", ErrorKind);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseErrorKind>("error_kind", ErrorKind);
             writer.WriteStringValue("job_id", JobId);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStateResponseOutput>("oauth_state", OauthState);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseOAuthState>("oauth_state", OauthState);
             writer.WriteBoolValue("ok", Ok);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseStatus>("status", Status);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpToolCallResult>("tool_result", ToolResult);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpoAuthStatusResponseToolResult>("tool_result", ToolResult);
             writer.WriteCollectionOfPrimitiveValues<string>("tools", Tools);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

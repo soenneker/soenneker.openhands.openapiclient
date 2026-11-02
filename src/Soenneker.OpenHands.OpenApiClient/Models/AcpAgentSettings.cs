@@ -113,12 +113,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Prompt-only context for the ACP server. ``secrets`` here are advertised to the agent (names/descriptions) and reach the subprocess env through ``state.secret_registry``: ``LocalConversation`` seeds ``agent_context.secrets`` into the registry at conversation init (below ``request.secrets``), so callers that build the request outside Python (e.g. canvas-local) are covered too, not just the ``create_request`` path. Provider credentials belong here (or in ``request.secrets``) keyed by the provider&apos;s env var name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput? AgentContext { get => _explicitNullValueAgentContext; set { _explicitNullValueAgentContext = value; AdditionalData?.Remove("agent_context"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_context"); else _explicitNullProperties?.Remove("agent_context"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput? _explicitNullValueAgentContext = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentContext? AgentContext { get => _explicitNullValueAgentContext; set { _explicitNullValueAgentContext = value; AdditionalData?.Remove("agent_context"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_context"); else _explicitNullProperties?.Remove("agent_context"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentContext? _explicitNullValueAgentContext = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput AgentContext { get => _explicitNullValueAgentContext; set { _explicitNullValueAgentContext = value; AdditionalData?.Remove("agent_context"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_context"); else _explicitNullProperties?.Remove("agent_context"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput _explicitNullValueAgentContext = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentContext AgentContext { get => _explicitNullValueAgentContext; set { _explicitNullValueAgentContext = value; AdditionalData?.Remove("agent_context"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_context"); else _explicitNullProperties?.Remove("agent_context"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentContext _explicitNullValueAgentContext = default!;
 #endif
         /// <summary>Discriminator for the ``AgentSettings`` union. ``&apos;acp&apos;`` selects an ACP-delegating agent.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentKind? AgentKind { get => _explicitNullValueAgentKind; set { _explicitNullValueAgentKind = value; AdditionalData?.Remove("agent_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_kind"); else _explicitNullProperties?.Remove("agent_kind"); } }
@@ -174,7 +174,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "acp_server", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpServer>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAcpServer = default; _explicitNullProperties?.Remove("acp_server"); AdditionalData["acp_server"] = unknown; } else { AcpServer = parsed; AdditionalData.Remove("acp_server"); } } },
                 { "acp_session_mode", n => { AcpSessionMode = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpSessionMode>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpSessionMode.CreateFromDiscriminatorValue); } },
                 { "acp_startup_timeout", n => { AcpStartupTimeout = n.GetDoubleValue(); } },
-                { "agent_context", n => { AgentContext = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput.CreateFromDiscriminatorValue); } },
+                { "agent_context", n => { AgentContext = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentContext>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentContext.CreateFromDiscriminatorValue); } },
                 { "agent_kind", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentKind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAgentKind = default; _explicitNullProperties?.Remove("agent_kind"); AdditionalData["agent_kind"] = unknown; } else { AgentKind = parsed; AdditionalData.Remove("agent_kind"); } } },
                 { "mcp_config", n => { McpConfig = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsMcpConfigProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsMcpConfigProperty.CreateFromDiscriminatorValue); } },
                 { "schema_version", n => { SchemaVersion = n.GetIntValue(); } },
@@ -196,7 +196,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpServer>("acp_server", AcpServer);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAcpSessionMode>("acp_session_mode", AcpSessionMode);
             writer.WriteDoubleValue("acp_startup_timeout", AcpStartupTimeout);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextOutput>("agent_context", AgentContext);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentContext>("agent_context", AgentContext);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentKind>("agent_kind", AgentKind);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsMcpConfigProperty>("mcp_config", McpConfig);
             writer.WriteIntValue("schema_version", SchemaVersion);

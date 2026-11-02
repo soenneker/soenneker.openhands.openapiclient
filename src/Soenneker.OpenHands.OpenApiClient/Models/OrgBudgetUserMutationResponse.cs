@@ -72,8 +72,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         private string _explicitNullValueReconciliationError = default!;
 #endif
         /// <summary>The reconciliation_state property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserMutationResponseReconciliationState? ReconciliationState { get => _explicitNullValueReconciliationState; set { _explicitNullValueReconciliationState = value; AdditionalData?.Remove("reconciliation_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reconciliation_state"); else _explicitNullProperties?.Remove("reconciliation_state"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserMutationResponseReconciliationState? _explicitNullValueReconciliationState = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserMutationResponseReconciliationState ReconciliationState { get => _explicitNullValueReconciliationState; set { _explicitNullValueReconciliationState = value; AdditionalData?.Remove("reconciliation_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reconciliation_state"); else _explicitNullProperties?.Remove("reconciliation_state"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserMutationResponseReconciliationState _explicitNullValueReconciliationState = default!;
+#endif
         /// <summary>The user_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -138,7 +145,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "is_override", n => { IsOverride = n.GetBoolValue(); } },
                 { "monthly_limit", n => { MonthlyLimit = n.GetDoubleValue(); } },
                 { "reconciliation_error", n => { ReconciliationError = n.GetStringValue(); } },
-                { "reconciliation_state", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserMutationResponseReconciliationState>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueReconciliationState = default; _explicitNullProperties?.Remove("reconciliation_state"); AdditionalData["reconciliation_state"] = unknown; } else { ReconciliationState = parsed; AdditionalData.Remove("reconciliation_state"); } } },
+                { "reconciliation_state", n => { ReconciliationState = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserMutationResponseReconciliationState>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserMutationResponseReconciliationState.CreateFromDiscriminatorValue); } },
                 { "user_email", n => { UserEmail = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
                 { "user_name", n => { UserName = n.GetStringValue(); } },
@@ -158,7 +165,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("is_override", IsOverride);
             writer.WriteDoubleValue("monthly_limit", MonthlyLimit);
             writer.WriteStringValue("reconciliation_error", ReconciliationError);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserMutationResponseReconciliationState>("reconciliation_state", ReconciliationState);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgBudgetUserMutationResponseReconciliationState>("reconciliation_state", ReconciliationState);
             writer.WriteStringValue("user_email", UserEmail);
             writer.WriteStringValue("user_id", UserId);
             writer.WriteStringValue("user_name", UserName);

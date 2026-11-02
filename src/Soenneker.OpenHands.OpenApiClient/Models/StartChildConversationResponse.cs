@@ -40,8 +40,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public Guid? ConversationId { get => _explicitNullValueConversationId; set { _explicitNullValueConversationId = value; AdditionalData?.Remove("conversation_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation_id"); else _explicitNullProperties?.Remove("conversation_id"); } }
         private Guid? _explicitNullValueConversationId = default!;
         /// <summary>Workspace isolation actually applied, when known.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationResponseIsolation? Isolation { get => _explicitNullValueIsolation; set { _explicitNullValueIsolation = value; AdditionalData?.Remove("isolation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isolation"); else _explicitNullProperties?.Remove("isolation"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationResponseIsolation? _explicitNullValueIsolation = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationResponseIsolation Isolation { get => _explicitNullValueIsolation; set { _explicitNullValueIsolation = value; AdditionalData?.Remove("isolation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isolation"); else _explicitNullProperties?.Remove("isolation"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationResponseIsolation _explicitNullValueIsolation = default!;
+#endif
         /// <summary>The parent_conversation_id property</summary>
         public Guid? ParentConversationId { get => _explicitNullValueParentConversationId; set { _explicitNullValueParentConversationId = value; AdditionalData?.Remove("parent_conversation_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_conversation_id"); else _explicitNullProperties?.Remove("parent_conversation_id"); } }
         private Guid? _explicitNullValueParentConversationId = default!;
@@ -111,7 +118,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "conversation_id", n => { ConversationId = n.GetGuidValue(); } },
-                { "isolation", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationResponseIsolation>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueIsolation = default; _explicitNullProperties?.Remove("isolation"); AdditionalData["isolation"] = unknown; } else { Isolation = parsed; AdditionalData.Remove("isolation"); } } },
+                { "isolation", n => { Isolation = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationResponseIsolation>(global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationResponseIsolation.CreateFromDiscriminatorValue); } },
                 { "parent_conversation_id", n => { ParentConversationId = n.GetGuidValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
@@ -127,7 +134,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("conversation_id", ConversationId);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationResponseIsolation>("isolation", Isolation);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationResponseIsolation>("isolation", Isolation);
             writer.WriteGuidValue("parent_conversation_id", ParentConversationId);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("title", Title);

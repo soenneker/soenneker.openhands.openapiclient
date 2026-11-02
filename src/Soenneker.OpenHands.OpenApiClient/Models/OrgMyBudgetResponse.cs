@@ -80,8 +80,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public DateTimeOffset? SpendObservedAt { get => _explicitNullValueSpendObservedAt; set { _explicitNullValueSpendObservedAt = value; AdditionalData?.Remove("spend_observed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_observed_at"); else _explicitNullProperties?.Remove("spend_observed_at"); } }
         private DateTimeOffset? _explicitNullValueSpendObservedAt = default!;
         /// <summary>The spend_status property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponseSpendStatus? SpendStatus { get => _explicitNullValueSpendStatus; set { _explicitNullValueSpendStatus = value; AdditionalData?.Remove("spend_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_status"); else _explicitNullProperties?.Remove("spend_status"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponseSpendStatus? _explicitNullValueSpendStatus = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponseSpendStatus SpendStatus { get => _explicitNullValueSpendStatus; set { _explicitNullValueSpendStatus = value; AdditionalData?.Remove("spend_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spend_status"); else _explicitNullProperties?.Remove("spend_status"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponseSpendStatus _explicitNullValueSpendStatus = default!;
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponse"/> and sets the default values.
         /// </summary>
@@ -120,7 +127,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "org_current_spend", n => { OrgCurrentSpend = n.GetDoubleValue(); } },
                 { "org_monthly_limit", n => { OrgMonthlyLimit = n.GetDoubleValue(); } },
                 { "spend_observed_at", n => { SpendObservedAt = n.GetDateTimeOffsetValue(); } },
-                { "spend_status", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponseSpendStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSpendStatus = default; _explicitNullProperties?.Remove("spend_status"); AdditionalData["spend_status"] = unknown; } else { SpendStatus = parsed; AdditionalData.Remove("spend_status"); } } },
+                { "spend_status", n => { SpendStatus = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponseSpendStatus>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponseSpendStatus.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -141,7 +148,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteDoubleValue("org_current_spend", OrgCurrentSpend);
             writer.WriteDoubleValue("org_monthly_limit", OrgMonthlyLimit);
             writer.WriteDateTimeOffsetValue("spend_observed_at", SpendObservedAt);
-            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponseSpendStatus>("spend_status", SpendStatus);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMyBudgetResponseSpendStatus>("spend_status", SpendStatus);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

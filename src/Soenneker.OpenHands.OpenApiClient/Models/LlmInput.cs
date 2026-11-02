@@ -322,12 +322,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Optional fallback strategy for trying alternate LLMs on transient failure. Construct with FallbackStrategy(fallback_llms=[...]).Excluded from serialization; must be reconfigured after load.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy? FallbackStrategy { get => _explicitNullValueFallbackStrategy; set { _explicitNullValueFallbackStrategy = value; AdditionalData?.Remove("fallback_strategy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_strategy"); else _explicitNullProperties?.Remove("fallback_strategy"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy? _explicitNullValueFallbackStrategy = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputFallbackStrategy? FallbackStrategy { get => _explicitNullValueFallbackStrategy; set { _explicitNullValueFallbackStrategy = value; AdditionalData?.Remove("fallback_strategy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_strategy"); else _explicitNullProperties?.Remove("fallback_strategy"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputFallbackStrategy? _explicitNullValueFallbackStrategy = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy FallbackStrategy { get => _explicitNullValueFallbackStrategy; set { _explicitNullValueFallbackStrategy = value; AdditionalData?.Remove("fallback_strategy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_strategy"); else _explicitNullProperties?.Remove("fallback_strategy"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy _explicitNullValueFallbackStrategy = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputFallbackStrategy FallbackStrategy { get => _explicitNullValueFallbackStrategy; set { _explicitNullValueFallbackStrategy = value; AdditionalData?.Remove("fallback_strategy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_strategy"); else _explicitNullProperties?.Remove("fallback_strategy"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputFallbackStrategy _explicitNullValueFallbackStrategy = default!;
 #endif
         /// <summary>Force using string content serializer when sending to LLM API. If None (default), auto-detect based on model. Useful for providers that do not support list content, like HuggingFace and Groq.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -645,7 +645,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "enable_encrypted_reasoning", n => { EnableEncryptedReasoning = n.GetBoolValue(); } },
                 { "extended_thinking_budget", n => { ExtendedThinkingBudget = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputExtendedThinkingBudget>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputExtendedThinkingBudget.CreateFromDiscriminatorValue); } },
                 { "extra_headers", n => { ExtraHeaders = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputExtraHeadersAnyOf1>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputExtraHeadersAnyOf1.CreateFromDiscriminatorValue); } },
-                { "fallback_strategy", n => { FallbackStrategy = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy>(global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy.CreateFromDiscriminatorValue); } },
+                { "fallback_strategy", n => { FallbackStrategy = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputFallbackStrategy>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputFallbackStrategy.CreateFromDiscriminatorValue); } },
                 { "force_string_serializer", n => { ForceStringSerializer = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputForceStringSerializer>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputForceStringSerializer.CreateFromDiscriminatorValue); } },
                 { "inline_image_urls", n => { InlineImageUrls = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInlineImageUrls>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInlineImageUrls.CreateFromDiscriminatorValue); } },
                 { "input_cost_per_token", n => { InputCostPerToken = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInputCostPerToken>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInputCostPerToken.CreateFromDiscriminatorValue); } },
@@ -710,7 +710,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("enable_encrypted_reasoning", EnableEncryptedReasoning);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputExtendedThinkingBudget>("extended_thinking_budget", ExtendedThinkingBudget);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputExtraHeadersAnyOf1>("extra_headers", ExtraHeaders);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.FallbackStrategy>("fallback_strategy", FallbackStrategy);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputFallbackStrategy>("fallback_strategy", FallbackStrategy);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputForceStringSerializer>("force_string_serializer", ForceStringSerializer);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInlineImageUrls>("inline_image_urls", InlineImageUrls);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputInputCostPerToken>("input_cost_per_token", InputCostPerToken);
