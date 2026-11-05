@@ -10433,6 +10433,579 @@
         ]
       }
     },
+    "/api/admin/organizations": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "List Admin Organizations",
+        "description": "List every organization with member counts. Requires \u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060.",
+        "operationId": "ListAdminOrganizationsApiAdminOrganizationsGet",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdminOrgListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/admin/organizations/{orgId}": {
+      "patch": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Update Admin Organization Status",
+        "description": "Suspend or resume an organization. Requires \u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060.",
+        "operationId": "UpdateAdminOrganizationStatusApiAdminOrganizationsOrgIdPatch",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminOrgStatusUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdminOrgResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Delete Admin Organization",
+        "description": "Delete any organization as a super admin.\n\nUses the same cleanup path as owner deletion, but authorization is the\ninstance-level \u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060 permission rather than org ownership.\nPersonal workspaces are refused: deleting one can delete its user.",
+        "operationId": "DeleteAdminOrganizationApiAdminOrganizationsOrgIdDelete",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseDeleteAdminOrganizationApiAdminOrganizationsOrgIdDeleteSchema"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/admin/directory/users": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "List Admin Users",
+        "description": "List every user with org memberships. Requires \u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060.",
+        "operationId": "ListAdminUsersApiAdminDirectoryUsersGet",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdminUserListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/admin/directory/users/{userId}": {
+      "patch": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Update Admin User Status",
+        "description": "Disable or re-enable a user\u0027s sign-in, sessions and API keys.\n\n\u0060\u0060inactive\u0060\u0060 blocks the user whatever organizations they are in;\n\u0060\u0060active\u0060\u0060 restores access. Refuses with \u0060\u0060409\u0060\u0060 to disable the last\nenabled Super Admin. Requires \u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060.",
+        "operationId": "UpdateAdminUserStatusApiAdminDirectoryUsersUserIdPatch",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "User Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminUserStatusUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerRoutesInstanceAdminAdminUserResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Delete Admin User",
+        "description": "Delete a user\u0027s account and the data they own in every organization.\n\nRefuses with \u0060\u0060409\u0060\u0060 if the user is the last owner of any team org or\nthe last Super Admin. The account and its rows go in one transaction.\nThe personal workspace, the LiteLLM user and the Keycloak account are\nthen removed best effort. Requires \u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060.",
+        "operationId": "DeleteAdminUserApiAdminDirectoryUsersUserIdDelete",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "User Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseDeleteAdminUserApiAdminDirectoryUsersUserIdDeleteSchema"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/admin/directory/users/{userId}/groups": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Update Admin User Groups",
+        "description": "Change a user\u0027s membership in one or more organizations.\n\n\u0060\u0060suspend\u0060\u0060 and \u0060\u0060resume\u0060\u0060 update only the selected org rows.\n\u0060\u0060remove\u0060\u0060 drops those memberships and still refuses to remove the\nlast owner of an organization. \u0060\u0060add\u0060\u0060 creates the missing memberships.\n\u0060\u0060set_role\u0060\u0060 changes the role on existing memberships and refuses to\ndemote the last owner.",
+        "operationId": "UpdateAdminUserGroupsApiAdminDirectoryUsersUserIdGroupsPost",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "User Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminUserGroupsUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerRoutesInstanceAdminAdminUserResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/admin/instance-settings": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Get Instance Settings",
+        "description": "Return the instance company name and logo. Any signed-in user can read them.",
+        "operationId": "GetInstanceSettingsApiAdminInstanceSettingsGet",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceSettingsResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Update Instance Settings",
+        "description": "Update the instance company name and logo. Requires \u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060.",
+        "operationId": "UpdateInstanceSettingsApiAdminInstanceSettingsPatch",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InstanceSettingsUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceSettingsResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/admin/setup-state": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Get Setup State",
+        "description": "Return the first-install state for the caller. Any signed-in user can read it.",
+        "operationId": "GetSetupStateApiAdminSetupStateGet",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetupStateResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Update Setup State",
+        "description": "Update the first-install state. Only the first Super Admin can.",
+        "operationId": "UpdateSetupStateApiAdminSetupStatePatch",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetupStateUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetupStateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
     "/api/admin/users": {
       "get": {
         "tags": [
@@ -15052,6 +15625,156 @@
           }
         }
       },
+      "AdminMembershipResponse": {
+        "title": "AdminMembershipResponse",
+        "required": [
+          "org_id",
+          "org_name",
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "org_id": {
+            "title": "Org Id",
+            "type": "string"
+          },
+          "org_name": {
+            "title": "Org Name",
+            "type": "string"
+          },
+          "role": {
+            "title": "Role",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "description": "One org membership for a user in the instance directory."
+      },
+      "AdminOrgListResponse": {
+        "title": "AdminOrgListResponse",
+        "required": [
+          "organizations"
+        ],
+        "type": "object",
+        "properties": {
+          "organizations": {
+            "title": "Organizations",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AdminOrgResponse"
+            }
+          }
+        },
+        "description": "All organizations on the instance."
+      },
+      "AdminOrgResponse": {
+        "title": "AdminOrgResponse",
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "contact_email": {
+            "title": "Contact Email",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "contact_name": {
+            "title": "Contact Name",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "member_count": {
+            "title": "Member Count",
+            "type": "integer",
+            "default": 0
+          },
+          "is_personal": {
+            "title": "Is Personal",
+            "type": "boolean",
+            "default": false
+          },
+          "status": {
+            "$ref": "#/components/schemas/AdminOrgResponseStatus"
+          }
+        },
+        "description": "A single organization in the instance directory."
+      },
+      "AdminOrgStatusUpdate": {
+        "title": "AdminOrgStatusUpdate",
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/AdminOrgStatusUpdateStatus"
+          }
+        },
+        "description": "Suspend or resume an organization."
+      },
+      "AdminUserGroupsUpdate": {
+        "title": "AdminUserGroupsUpdate",
+        "required": [
+          "action",
+          "org_ids"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/AdminUserGroupsUpdateAction"
+          },
+          "org_ids": {
+            "title": "Org Ids",
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "role": {
+            "$ref": "#/components/schemas/AdminUserGroupsUpdateRole"
+          }
+        },
+        "description": "Suspend, resume, remove, or add a user in specific organizations."
+      },
+      "AdminUserListResponse": {
+        "title": "AdminUserListResponse",
+        "required": [
+          "users"
+        ],
+        "type": "object",
+        "properties": {
+          "users": {
+            "title": "Users",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ServerRoutesInstanceAdminAdminUserResponse"
+            }
+          }
+        },
+        "description": "All users on the instance."
+      },
       "AdminUserPage": {
         "title": "AdminUserPage",
         "required": [
@@ -15063,7 +15786,7 @@
             "title": "Items",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AdminUserResponse"
+              "$ref": "#/components/schemas/ServerRoutesSuperAdminsAdminUserResponse"
             }
           },
           "current_page": {
@@ -15079,31 +15802,18 @@
         },
         "description": "Paginated response for \u0060\u0060GET /api/admin/users\u0060\u0060."
       },
-      "AdminUserResponse": {
-        "title": "AdminUserResponse",
+      "AdminUserStatusUpdate": {
+        "title": "AdminUserStatusUpdate",
         "required": [
-          "user_id"
+          "status"
         ],
         "type": "object",
         "properties": {
-          "user_id": {
-            "title": "User Id",
-            "type": "string"
-          },
-          "email": {
-            "title": "Email",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "is_super_admin": {
-            "title": "Is Super Admin",
-            "type": "boolean",
-            "default": false
+          "status": {
+            "$ref": "#/components/schemas/AdminUserStatusUpdateStatus"
           }
         },
-        "description": "A single instance user, for the \u0022no organization selected\u0022 admin view."
+        "description": "Disable (\u0060\u0060inactive\u0060\u0060) or re-enable (\u0060\u0060active\u0060\u0060) a user\u0027s sign-in."
       },
       "AgentBase": {
         "x-client-original-discriminator": {
@@ -19786,6 +20496,49 @@
           }
         },
         "description": "Paginated response for installations.\n\nAttributes:\n    items: List of installation IDs.\n    next_page_id: ID for the next page, or None if there are no more pages."
+      },
+      "InstanceSettingsResponse": {
+        "title": "InstanceSettingsResponse",
+        "type": "object",
+        "properties": {
+          "company_name": {
+            "title": "Company Name",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "logo": {
+            "title": "Logo",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "description": "The company name and logo shown across the instance."
+      },
+      "InstanceSettingsUpdate": {
+        "title": "InstanceSettingsUpdate",
+        "type": "object",
+        "properties": {
+          "company_name": {
+            "title": "Company Name",
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "logo": {
+            "title": "Logo",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "description": "Fields left out are unchanged; \u0060\u0060null\u0060\u0060 clears a field."
       },
       "InvitationCreate": {
         "title": "InvitationCreate",
@@ -25790,6 +26543,58 @@
         },
         "description": "Body for \u0060\u0060POST /api/idp/password\u0060\u0060.\n\n\u0060\u0060current_password\u0060\u0060 is required only when the user already has one set\n(checked server-side against \u0060\u0060User.password_hash\u0060\u0060) \u2014 callers can\u0027t\ndetermine this themselves without \u0060\u0060GET /api/idp/password\u0060\u0060 first, but\nthe server re-validates regardless of what the client believes."
       },
+      "SetupStateResponse": {
+        "title": "SetupStateResponse",
+        "type": "object",
+        "properties": {
+          "wizard_pending": {
+            "title": "Wizard Pending",
+            "type": "boolean",
+            "default": false
+          },
+          "guide_org_id": {
+            "title": "Guide Org Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "guide_dismissed": {
+            "title": "Guide Dismissed",
+            "type": "boolean",
+            "default": false
+          },
+          "guide_steps": {
+            "$ref": "#/components/schemas/SetupStateResponseGuideSteps"
+          }
+        },
+        "description": "First-install wizard and setup-guide state for the signed-in user.\n\nOnly the first Super Admin has a wizard and a guide; everyone else gets\nthe defaults. \u0060\u0060guide_steps\u0060\u0060 is set while the guide has an organization\nand is not dismissed."
+      },
+      "SetupStateUpdate": {
+        "title": "SetupStateUpdate",
+        "type": "object",
+        "properties": {
+          "wizard_completed": {
+            "title": "Wizard Completed",
+            "type": "boolean",
+            "default": false
+          },
+          "guide_org_id": {
+            "title": "Guide Org Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "guide_dismissed": {
+            "title": "Guide Dismissed",
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "description": "Fields left out are unchanged; a \u0060\u0060null\u0060\u0060 \u0060\u0060guide_org_id\u0060\u0060 clears it."
+      },
       "SignupLinkResponse": {
         "title": "SignupLinkResponse",
         "required": [
@@ -28386,6 +29191,47 @@
         },
         "description": "Defines a tool to be initialized for the agent.\n\nThis is only used in agent-sdk for type schema for server use."
       },
+      "ServerRoutesInstanceAdminAdminUserResponse": {
+        "title": "AdminUserResponse",
+        "required": [
+          "user_id"
+        ],
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "title": "User Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "email": {
+            "title": "Email",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "title": "Name",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "memberships": {
+            "title": "Memberships",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AdminMembershipResponse"
+            }
+          },
+          "status": {
+            "$ref": "#/components/schemas/ServerRoutesInstanceAdminAdminUserResponseStatus"
+          }
+        },
+        "description": "A single user in the instance directory.\n\n\u0060\u0060user_id\u0060\u0060 is \u0060\u0060None\u0060\u0060 for someone invited by email who has not signed\nup yet; such a row carries each pending invitation as an \u0060\u0060invited\u0060\u0060\nmembership."
+      },
       "ServerRoutesOrgProfilesActivateProfileResponse": {
         "title": "ActivateProfileResponse",
         "required": [
@@ -28549,6 +29395,32 @@
           }
         },
         "description": "Request body for saving a profile."
+      },
+      "ServerRoutesSuperAdminsAdminUserResponse": {
+        "title": "AdminUserResponse",
+        "required": [
+          "user_id"
+        ],
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "title": "User Id",
+            "type": "string"
+          },
+          "email": {
+            "title": "Email",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "is_super_admin": {
+            "title": "Is Super Admin",
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "description": "A single instance user, for the \u0022no organization selected\u0022 admin view."
       },
       "AcpAgentAgentContext": {
         "title": "AgentContext",
@@ -31589,6 +32461,46 @@
           }
         ]
       },
+      "SetupStateResponseGuideSteps": {
+        "title": "SetupGuideSteps",
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "org_llm": {
+            "title": "Org Llm",
+            "type": "boolean",
+            "default": false
+          },
+          "mcp_server": {
+            "title": "Mcp Server",
+            "type": "boolean",
+            "default": false
+          },
+          "automation": {
+            "title": "Automation",
+            "type": "boolean",
+            "default": false
+          },
+          "invite": {
+            "title": "Invite",
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "description": "Setup-guide steps done in the guide\u0027s organization, read from real data.",
+        "x-client-original-nullable-union": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/SetupGuideSteps"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
       "SharedConversationGitProvider": {
         "title": "Git Provider"
       },
@@ -32808,6 +33720,14 @@
         "type": "object"
       },
       "StopOrgConversationApiOrganizationsOrgIdConversationsConversationIdStopPost200ResponseSchema": {},
+      "ResponseDeleteAdminOrganizationApiAdminOrganizationsOrgIdDeleteSchema": {
+        "title": "Response Delete Admin Organization Api Admin Organizations  Org Id  Delete",
+        "type": "object"
+      },
+      "ResponseDeleteAdminUserApiAdminDirectoryUsersUserIdDeleteSchema": {
+        "title": "Response Delete Admin User Api Admin Directory Users  User Id  Delete",
+        "type": "object"
+      },
       "ResponseCountAllUsersApiAdminUsersCountGetSchema": {
         "title": "Response Count All Users Api Admin Users Count Get",
         "type": "integer"
@@ -34823,6 +35743,144 @@
         ],
         "type": "string",
         "x-client-original-const": "ActionEvent"
+      },
+      "AdminOrgResponseStatus": {
+        "title": "Status",
+        "enum": [
+          "active",
+          "suspended"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "AdminOrgResponseStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "suspended",
+              "name": "Suspended"
+            }
+          ]
+        }
+      },
+      "AdminOrgStatusUpdateStatus": {
+        "title": "Status",
+        "enum": [
+          "active",
+          "suspended"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "AdminOrgStatusUpdateStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "suspended",
+              "name": "Suspended"
+            }
+          ]
+        }
+      },
+      "AdminUserGroupsUpdateAction": {
+        "title": "Action",
+        "enum": [
+          "suspend",
+          "resume",
+          "remove",
+          "add",
+          "set_role"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "AdminUserGroupsUpdateAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "suspend",
+              "name": "Suspend"
+            },
+            {
+              "value": "resume",
+              "name": "Resume"
+            },
+            {
+              "value": "remove",
+              "name": "Remove"
+            },
+            {
+              "value": "add",
+              "name": "Add"
+            },
+            {
+              "value": "set_role",
+              "name": "SetRole"
+            }
+          ]
+        }
+      },
+      "AdminUserGroupsUpdateRole": {
+        "title": "Role",
+        "anyOf": [
+          {
+            "title": "Role",
+            "enum": [
+              "owner",
+              "admin",
+              "member"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "AdminUserGroupsUpdateRole",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "owner",
+                  "name": "Owner"
+                },
+                {
+                  "value": "admin",
+                  "name": "Admin"
+                },
+                {
+                  "value": "member",
+                  "name": "Member"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "AdminUserStatusUpdateStatus": {
+        "title": "Status",
+        "enum": [
+          "active",
+          "inactive"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "AdminUserStatusUpdateStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "inactive",
+              "name": "Inactive"
+            }
+          ]
+        }
       },
       "AgentErrorEventSource": {
         "title": "Source",
@@ -38925,6 +39983,28 @@
         ],
         "type": "string",
         "x-client-original-const": "WriteFileTool"
+      },
+      "ServerRoutesInstanceAdminAdminUserResponseStatus": {
+        "title": "Status",
+        "enum": [
+          "active",
+          "inactive"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ServerRoutesInstanceAdminAdminUserResponseStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "inactive",
+              "name": "Inactive"
+            }
+          ]
+        }
       },
       "ConversationSettingsSecurityAnalyzerAnyOf1": {
         "enum": [
@@ -55601,6 +56681,33 @@
       },
       "description": "Callback processor which sets conversation titles."
     },
+    "SetupGuideSteps": {
+      "title": "SetupGuideSteps",
+      "type": "object",
+      "properties": {
+        "org_llm": {
+          "title": "Org Llm",
+          "type": "boolean",
+          "default": false
+        },
+        "mcp_server": {
+          "title": "Mcp Server",
+          "type": "boolean",
+          "default": false
+        },
+        "automation": {
+          "title": "Automation",
+          "type": "boolean",
+          "default": false
+        },
+        "invite": {
+          "title": "Invite",
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "description": "Setup-guide steps done in the guide\u0027s organization, read from real data."
+    },
     "SharedConversation": {
       "title": "SharedConversation",
       "required": [
@@ -64302,6 +65409,14 @@
       "type": "object"
     },
     "StopOrgConversationApiOrganizationsOrgIdConversationsConversationIdStopPost200Response": {},
+    "ResponseDeleteAdminOrganizationApiAdminOrganizationsOrgIdDelete": {
+      "title": "Response Delete Admin Organization Api Admin Organizations  Org Id  Delete",
+      "type": "object"
+    },
+    "ResponseDeleteAdminUserApiAdminDirectoryUsersUserIdDelete": {
+      "title": "Response Delete Admin User Api Admin Directory Users  User Id  Delete",
+      "type": "object"
+    },
     "ResponseCountAllUsersApiAdminUsersCountGet": {
       "title": "Response Count All Users Api Admin Users Count Get",
       "type": "integer"

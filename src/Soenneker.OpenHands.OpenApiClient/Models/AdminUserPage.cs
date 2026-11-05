@@ -34,12 +34,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AdminUserResponse>? Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; AdditionalData?.Remove("items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
-        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AdminUserResponse>? _explicitNullValueItems = default!;
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesSuperAdminsAdminUserResponse>? Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; AdditionalData?.Remove("items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesSuperAdminsAdminUserResponse>? _explicitNullValueItems = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AdminUserResponse> Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; AdditionalData?.Remove("items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
-        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AdminUserResponse> _explicitNullValueItems = default!;
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesSuperAdminsAdminUserResponse> Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; AdditionalData?.Remove("items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesSuperAdminsAdminUserResponse> _explicitNullValueItems = default!;
 #endif
         /// <summary>The per_page property</summary>
         public int? PerPage { get => _explicitNullValuePerPage; set { _explicitNullValuePerPage = value; AdditionalData?.Remove("per_page"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_page"); else _explicitNullProperties?.Remove("per_page"); } }
@@ -72,7 +72,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "current_page", n => { CurrentPage = n.GetIntValue(); } },
-                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AdminUserResponse>(global::Soenneker.OpenHands.OpenApiClient.Models.AdminUserResponse.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesSuperAdminsAdminUserResponse>(global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesSuperAdminsAdminUserResponse.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "per_page", n => { PerPage = n.GetIntValue(); } },
             };
         }
@@ -84,7 +84,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("current_page", CurrentPage);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AdminUserResponse>("items", Items);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesSuperAdminsAdminUserResponse>("items", Items);
             writer.WriteIntValue("per_page", PerPage);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

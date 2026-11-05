@@ -11,7 +11,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     /// A single instance user, for the &quot;no organization selected&quot; admin view.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AdminUserResponse : IAdditionalDataHolder, IParsable
+    public partial class ServerRoutesSuperAdminsAdminUserResponse : IAdditionalDataHolder, IParsable
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -52,9 +52,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         private string _explicitNullValueUserId = default!;
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AdminUserResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesSuperAdminsAdminUserResponse"/> and sets the default values.
         /// </summary>
-        public AdminUserResponse()
+        public ServerRoutesSuperAdminsAdminUserResponse()
         {
             AdditionalData = new Dictionary<string, object>();
             IsSuperAdmin = false;
@@ -62,12 +62,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AdminUserResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesSuperAdminsAdminUserResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenHands.OpenApiClient.Models.AdminUserResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesSuperAdminsAdminUserResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.AdminUserResponse(), parseNode);
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesSuperAdminsAdminUserResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model

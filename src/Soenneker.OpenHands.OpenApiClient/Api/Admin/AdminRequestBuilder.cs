@@ -2,9 +2,13 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.FeatureFlags;
+using Soenneker.OpenHands.OpenApiClient.Api.Admin.InstanceSettings;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.OauthProviders;
+using Soenneker.OpenHands.OpenApiClient.Api.Admin.Organizations;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.Quota;
+using Soenneker.OpenHands.OpenApiClient.Api.Admin.SetupState;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.Users;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels;
@@ -20,20 +24,40 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AdminRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The directory property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.DirectoryRequestBuilder Directory
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.DirectoryRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The featureFlags property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.FeatureFlags.FeatureFlagsRequestBuilder FeatureFlags
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.FeatureFlags.FeatureFlagsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The instanceSettings property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.InstanceSettings.InstanceSettingsRequestBuilder InstanceSettings
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.InstanceSettings.InstanceSettingsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The oauthProviders property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.OauthProviders.OauthProvidersRequestBuilder OauthProviders
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.OauthProviders.OauthProvidersRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The organizations property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.Organizations.OrganizationsRequestBuilder Organizations
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.Organizations.OrganizationsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The quota property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.Quota.QuotaRequestBuilder Quota
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.Quota.QuotaRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The setupState property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.SetupState.SetupStateRequestBuilder SetupState
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.SetupState.SetupStateRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The superAdmins property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.SuperAdminsRequestBuilder SuperAdmins
