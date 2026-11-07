@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Git.Cha
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ChangesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/{conversationId}/git/changes?path={path}{&ref*}", pathParameters)
+        public ChangesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/{conversationId}/git/changes{?path*,ref*,repository*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Git.Cha
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ChangesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/{conversationId}/git/changes?path={path}{&ref*}", rawUrl)
+        public ChangesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/{conversationId}/git/changes{?path*,ref*,repository*}", rawUrl)
         {
         }
         /// <summary>
@@ -92,7 +92,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Git.Cha
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ChangesRequestBuilderGetQueryParameters 
         {
-            /// <summary>Absolute path to the git repository root (e.g. /workspace/project)</summary>
+            /// <summary>Absolute path to the git repository root (e.g. /workspace/project). Defaults to the selected repository&apos;s folder.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("path")]
@@ -111,6 +111,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Git.Cha
 #else
             [QueryParameter("ref")]
             public string Ref { get; set; }
+#endif
+            /// <summary>Folder name of the repository to read, as returned in the conversation&apos;s ``repositories[].folder``. Defaults to the primary repository, or the working folder when there is none.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("repository")]
+            public string? Repository { get; set; }
+#nullable restore
+#else
+            [QueryParameter("repository")]
+            public string Repository { get; set; }
 #endif
         }
     }

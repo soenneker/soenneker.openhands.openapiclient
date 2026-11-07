@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Activate;
+using Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Deactivate;
 using Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Materialize;
 using Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Rename;
 using Soenneker.OpenHands.OpenApiClient.Models;
@@ -25,6 +26,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Activate.ActivateRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The deactivate property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Deactivate.DeactivateRequestBuilder Deactivate
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Deactivate.DeactivateRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The materialize property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Materialize.MaterializeRequestBuilder Materialize
         {
@@ -40,7 +46,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithNameItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/agent-profiles/{name}{?org_id*}", pathParameters)
+        public WithNameItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/agent-profiles/{name}{?org_id*,scope*}", pathParameters)
         {
         }
         /// <summary>
@@ -48,11 +54,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithNameItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/agent-profiles/{name}{?org_id*}", rawUrl)
+        public WithNameItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/agent-profiles/{name}{?org_id*,scope*}", rawUrl)
         {
         }
         /// <summary>
-        /// Delete a profile (idempotent). Clears every org member&apos;s pointer to it.A missing name resolves 200, matching the ts-client ``AgentProfilesClient``contract and the local agent-server ``delete_profile`` (canvas&apos;s deletemutation has no 404 branch).
+        /// Delete a profile (idempotent).``scope=org`` clears every org member&apos;s pointer to it; ``scope=personal``removes it from the acting member&apos;s collection and clears only their ownpointer. A missing name resolves 200, matching the ts-client``AgentProfilesClient`` contract and the local agent-server``delete_profile`` (canvas&apos;s delete mutation has no 404 branch).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileMutationResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -102,7 +108,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDetailResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDetailResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create or update an agent profile under ``name`` (path name is authoritative).Server-managed id/revision: overwrite keeps the namesake&apos;s id and bumpsrevision; create mints a fresh id (``save_profile_preserving_identity``).Returns 422 on invalid payloads (secret-safe detail) and 409 when creating anew profile would exceed ``MAX_AGENT_PROFILES``.
+        /// Create or update an agent profile under ``name`` (path name is authoritative).Server-managed id/revision: overwrite keeps the namesake&apos;s id and bumpsrevision; create mints a fresh id (``save_profile_preserving_identity``).Returns 422 on invalid payloads (secret-safe detail) and, for ``scope=org``,on a profile that breaks the org-scope constraints (ACP kind, MCP serverreferences, secrets that are not org-shared). 409 when creating a newprofile would exceed ``MAX_AGENT_PROFILES`` (per collection) or when theother side already owns ``name`` (the org collection for a personal save; amember&apos;s personal collection for an org save).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileMutationResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -129,7 +135,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileMutationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileMutationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a profile (idempotent). Clears every org member&apos;s pointer to it.A missing name resolves 200, matching the ts-client ``AgentProfilesClient``contract and the local agent-server ``delete_profile`` (canvas&apos;s deletemutation has no 404 branch).
+        /// Delete a profile (idempotent).``scope=org`` clears every org member&apos;s pointer to it; ``scope=personal``removes it from the acting member&apos;s collection and clears only their ownpointer. A missing name resolves 200, matching the ts-client``AgentProfilesClient`` contract and the local agent-server``delete_profile`` (canvas&apos;s delete mutation has no 404 branch).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -167,7 +173,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item
             return requestInfo;
         }
         /// <summary>
-        /// Create or update an agent profile under ``name`` (path name is authoritative).Server-managed id/revision: overwrite keeps the namesake&apos;s id and bumpsrevision; create mints a fresh id (``save_profile_preserving_identity``).Returns 422 on invalid payloads (secret-safe detail) and 409 when creating anew profile would exceed ``MAX_AGENT_PROFILES``.
+        /// Create or update an agent profile under ``name`` (path name is authoritative).Server-managed id/revision: overwrite keeps the namesake&apos;s id and bumpsrevision; create mints a fresh id (``save_profile_preserving_identity``).Returns 422 on invalid payloads (secret-safe detail) and, for ``scope=org``,on a profile that breaks the org-scope constraints (ACP kind, MCP serverreferences, secrets that are not org-shared). 409 when creating a newprofile would exceed ``MAX_AGENT_PROFILES`` (per collection) or when theother side already owns ``name`` (the org collection for a personal save; amember&apos;s personal collection for an org save).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -198,15 +204,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item
             return new global::Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.WithNameItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Delete a profile (idempotent). Clears every org member&apos;s pointer to it.A missing name resolves 200, matching the ts-client ``AgentProfilesClient``contract and the local agent-server ``delete_profile`` (canvas&apos;s deletemutation has no 404 branch).
+        /// Delete a profile (idempotent).``scope=org`` clears every org member&apos;s pointer to it; ``scope=personal``removes it from the acting member&apos;s collection and clears only their ownpointer. A missing name resolves 200, matching the ts-client``AgentProfilesClient`` contract and the local agent-server``delete_profile`` (canvas&apos;s delete mutation has no 404 branch).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithNameItemRequestBuilderDeleteQueryParameters 
         {
-            #pragma warning disable CS1591
-            [QueryParameter("org_id")]
-            public Guid? OrgId { get; set; }
-            #pragma warning restore CS1591
+            /// <summary>Collection the profile name addresses: &apos;org&apos; (the organization&apos;s shared, admin-managed profiles) or &apos;personal&apos; (the acting member&apos;s own profiles).</summary>
+            [QueryParameter("scope")]
+            public global::Soenneker.OpenHands.OpenApiClient.Models.DeleteAgentProfileApiAgentProfilesNameDeleteScopeParameter? Scope { get; set; }
         }
         /// <summary>
         /// Get a stored profile — secret-free at rest, nothing to mask.Unlike the LLM-profile GET in ``org_profiles``, there is no``X-Expose-Secrets`` handling here at all: the profile carries onlyreferences (``llm_profile_ref``, ``mcp_server_refs``) and a``disabled_skills`` deny-list of names.
@@ -218,17 +223,26 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item
             [QueryParameter("org_id")]
             public Guid? OrgId { get; set; }
             #pragma warning restore CS1591
+            /// <summary>Collection the profile name addresses: &apos;org&apos; or &apos;personal&apos;. Omitted: the organization&apos;s profile of that name, else the acting member&apos;s own.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("scope")]
+            public string? Scope { get; set; }
+#nullable restore
+#else
+            [QueryParameter("scope")]
+            public string Scope { get; set; }
+#endif
         }
         /// <summary>
-        /// Create or update an agent profile under ``name`` (path name is authoritative).Server-managed id/revision: overwrite keeps the namesake&apos;s id and bumpsrevision; create mints a fresh id (``save_profile_preserving_identity``).Returns 422 on invalid payloads (secret-safe detail) and 409 when creating anew profile would exceed ``MAX_AGENT_PROFILES``.
+        /// Create or update an agent profile under ``name`` (path name is authoritative).Server-managed id/revision: overwrite keeps the namesake&apos;s id and bumpsrevision; create mints a fresh id (``save_profile_preserving_identity``).Returns 422 on invalid payloads (secret-safe detail) and, for ``scope=org``,on a profile that breaks the org-scope constraints (ACP kind, MCP serverreferences, secrets that are not org-shared). 409 when creating a newprofile would exceed ``MAX_AGENT_PROFILES`` (per collection) or when theother side already owns ``name`` (the org collection for a personal save; amember&apos;s personal collection for an org save).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithNameItemRequestBuilderPostQueryParameters 
         {
-            #pragma warning disable CS1591
-            [QueryParameter("org_id")]
-            public Guid? OrgId { get; set; }
-            #pragma warning restore CS1591
+            /// <summary>Collection the profile name addresses: &apos;org&apos; (the organization&apos;s shared, admin-managed profiles) or &apos;personal&apos; (the acting member&apos;s own profiles).</summary>
+            [QueryParameter("scope")]
+            public global::Soenneker.OpenHands.OpenApiClient.Models.SaveAgentProfileApiAgentProfilesNamePostScopeParameter? Scope { get; set; }
         }
     }
 }

@@ -30,6 +30,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("enable_classify_and_switch_llm_tool") is { } nullNodeEnableClassifyAndSwitchLlmTool && nullNodeEnableClassifyAndSwitchLlmTool.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableClassifyAndSwitchLlmTool = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("integration_refs") is null) { _explicitNullValueIntegrationRefs = default!; _explicitNullProperties?.Remove("integration_refs"); }
+            else if (parseNode.GetChildNode("integration_refs") is { } nullNodeIntegrationRefs && nullNodeIntegrationRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IntegrationRefs = null;
             if (parseNode.GetChildNode("llm_profile_ref") is null) { _explicitNullValueLlmProfileRef = default!; _explicitNullProperties?.Remove("llm_profile_ref"); }
             else if (parseNode.GetChildNode("llm_profile_ref") is { } nullNodeLlmProfileRef && nullNodeLlmProfileRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmProfileRef = null;
             if (parseNode.GetChildNode("mcp_server_refs") is null) { _explicitNullValueMcpServerRefs = default!; _explicitNullProperties?.Remove("mcp_server_refs"); }
@@ -97,6 +99,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Stable provenance handle for this profile. Conversations record this UUID; it never changes, even when the profile is renamed.</summary>
         public Guid? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private Guid? _explicitNullValueId = default!;
+        /// <summary>Which of the user&apos;s connected built-in integrations to expose to this agent. null = all; [] = none; a non-null list = filter to the named integrations.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? IntegrationRefs { get => _explicitNullValueIntegrationRefs; set { _explicitNullValueIntegrationRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration_refs"); else _explicitNullProperties?.Remove("integration_refs"); } }
+        private List<string>? _explicitNullValueIntegrationRefs = default!;
+#nullable restore
+#else
+        public List<string> IntegrationRefs { get => _explicitNullValueIntegrationRefs; set { _explicitNullValueIntegrationRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration_refs"); else _explicitNullProperties?.Remove("integration_refs"); } }
+        private List<string> _explicitNullValueIntegrationRefs = default!;
+#endif
         /// <summary>Name of the saved LLM profile to resolve for this agent. The profile itself stores no LLM credential — it lives on the referenced LLM profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -241,6 +253,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "disabled_skills", n => { DisabledSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "enable_classify_and_switch_llm_tool", n => { EnableClassifyAndSwitchLlmTool = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
+                { "integration_refs", n => { IntegrationRefs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "llm_profile_ref", n => { LlmProfileRef = n.GetStringValue(); } },
                 { "mcp_server_refs", n => { McpServerRefs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "meta_profile_ref", n => { MetaProfileRef = n.GetStringValue(); } },
@@ -269,6 +282,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("disabled_skills", DisabledSkills);
             writer.WriteBoolValue("enable_classify_and_switch_llm_tool", EnableClassifyAndSwitchLlmTool);
             writer.WriteGuidValue("id", Id);
+            writer.WriteCollectionOfPrimitiveValues<string>("integration_refs", IntegrationRefs);
             writer.WriteStringValue("llm_profile_ref", LlmProfileRef);
             writer.WriteCollectionOfPrimitiveValues<string>("mcp_server_refs", McpServerRefs);
             writer.WriteStringValue("meta_profile_ref", MetaProfileRef);

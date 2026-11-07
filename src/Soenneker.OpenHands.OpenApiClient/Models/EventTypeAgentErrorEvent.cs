@@ -35,6 +35,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("tool_call_id") is { } nullNodeToolCallId && nullNodeToolCallId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolCallId = null;
             if (parseNode.GetChildNode("tool_name") is null) { _explicitNullValueToolName = default!; _explicitNullProperties?.Remove("tool_name"); }
             else if (parseNode.GetChildNode("tool_name") is { } nullNodeToolName && nullNodeToolName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolName = null;
+            if (parseNode.GetChildNode("validation_errors") is null) { _explicitNullValueValidationErrors = default!; _explicitNullProperties?.Remove("validation_errors"); }
+            else if (parseNode.GetChildNode("validation_errors") is { } nullNodeValidationErrors && nullNodeValidationErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValidationErrors = null;
         }
 
         /// <summary>Safe structured error semantics for API consumers.</summary>
@@ -110,6 +112,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string ToolName { get => _explicitNullValueToolName; set { _explicitNullValueToolName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_name"); else _explicitNullProperties?.Remove("tool_name"); } }
         private string _explicitNullValueToolName = default!;
 #endif
+        /// <summary>Validation locations and codes for detecting repeated failures.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ToolValidationError>? ValidationErrors { get => _explicitNullValueValidationErrors; set { _explicitNullValueValidationErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validation_errors"); else _explicitNullProperties?.Remove("validation_errors"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.ToolValidationError>? _explicitNullValueValidationErrors = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ToolValidationError> ValidationErrors { get => _explicitNullValueValidationErrors; set { _explicitNullValueValidationErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validation_errors"); else _explicitNullProperties?.Remove("validation_errors"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.ToolValidationError> _explicitNullValueValidationErrors = default!;
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -136,6 +148,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
                 { "tool_call_id", n => { ToolCallId = n.GetStringValue(); } },
                 { "tool_name", n => { ToolName = n.GetStringValue(); } },
+                { "validation_errors", n => { ValidationErrors = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ToolValidationError>(global::Soenneker.OpenHands.OpenApiClient.Models.ToolValidationError.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -153,7 +166,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventSource>("source", Source);
             writer.WriteStringValue("timestamp", Timestamp);
             writer.WriteStringValue("tool_call_id", ToolCallId);
-            writer.WriteStringValue("tool_name", ToolName);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteStringValue("tool_name", ToolName);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ToolValidationError>("validation_errors", ValidationErrors);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

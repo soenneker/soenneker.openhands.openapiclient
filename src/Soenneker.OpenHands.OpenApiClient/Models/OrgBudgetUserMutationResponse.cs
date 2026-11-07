@@ -17,6 +17,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("account_type") is null) { _explicitNullValueAccountType = default!; _explicitNullProperties?.Remove("account_type"); }
+            else if (parseNode.GetChildNode("account_type") is { } nullNodeAccountType && nullNodeAccountType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountType = null;
             if (parseNode.GetChildNode("applied_at") is null) { _explicitNullValueAppliedAt = default!; _explicitNullProperties?.Remove("applied_at"); }
             else if (parseNode.GetChildNode("applied_at") is { } nullNodeAppliedAt && nullNodeAppliedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppliedAt = null;
             if (parseNode.GetChildNode("current_spend") is null) { _explicitNullValueCurrentSpend = default!; _explicitNullProperties?.Remove("current_spend"); }
@@ -41,6 +43,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("user_name") is { } nullNodeUserName && nullNodeUserName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserName = null;
         }
 
+        /// <summary>The account_type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AccountType { get => _explicitNullValueAccountType; set { _explicitNullValueAccountType = value; AdditionalData?.Remove("account_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_type"); else _explicitNullProperties?.Remove("account_type"); } }
+        private string? _explicitNullValueAccountType = default!;
+#nullable restore
+#else
+        public string AccountType { get => _explicitNullValueAccountType; set { _explicitNullValueAccountType = value; AdditionalData?.Remove("account_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_type"); else _explicitNullProperties?.Remove("account_type"); } }
+        private string _explicitNullValueAccountType = default!;
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The applied_at property</summary>
@@ -117,6 +129,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public OrgBudgetUserMutationResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            AccountType = "human";
             IsDisabled = false;
             IsOverride = false;
         }
@@ -138,6 +151,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "account_type", n => { AccountType = n.GetStringValue(); } },
                 { "applied_at", n => { AppliedAt = n.GetDateTimeOffsetValue(); } },
                 { "current_spend", n => { CurrentSpend = n.GetDoubleValue(); } },
                 { "effective_monthly_limit", n => { EffectiveMonthlyLimit = n.GetDoubleValue(); } },
@@ -158,6 +172,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("account_type", AccountType);
             writer.WriteDateTimeOffsetValue("applied_at", AppliedAt);
             writer.WriteDoubleValue("current_spend", CurrentSpend);
             writer.WriteDoubleValue("effective_monthly_limit", EffectiveMonthlyLimit);

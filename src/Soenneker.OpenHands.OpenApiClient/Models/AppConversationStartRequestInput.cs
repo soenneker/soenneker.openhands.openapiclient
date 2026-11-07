@@ -18,6 +18,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("additional_repositories") is null) { _explicitNullValueAdditionalRepositories = default!; _explicitNullProperties?.Remove("additional_repositories"); }
+            else if (parseNode.GetChildNode("additional_repositories") is { } nullNodeAdditionalRepositories && nullNodeAdditionalRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdditionalRepositories = null;
             if (parseNode.GetChildNode("agent_profile_id") is null) { _explicitNullValueAgentProfileId = default!; _explicitNullProperties?.Remove("agent_profile_id"); }
             else if (parseNode.GetChildNode("agent_profile_id") is { } nullNodeAgentProfileId && nullNodeAgentProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentProfileId = null;
             if (parseNode.GetChildNode("agent_type") is null) { _explicitNullValueAgentType = default!; _explicitNullProperties?.Remove("agent_type"); }
@@ -28,6 +30,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("conversation_id") is { } nullNodeConversationId && nullNodeConversationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConversationId = null;
             if (parseNode.GetChildNode("disabled_skills") is null) { _explicitNullValueDisabledSkills = default!; _explicitNullProperties?.Remove("disabled_skills"); }
             else if (parseNode.GetChildNode("disabled_skills") is { } nullNodeDisabledSkills && nullNodeDisabledSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisabledSkills = null;
+            if (parseNode.GetChildNode("generate_title_on_submit") is null) { _explicitNullValueGenerateTitleOnSubmit = default!; _explicitNullProperties?.Remove("generate_title_on_submit"); }
+            else if (parseNode.GetChildNode("generate_title_on_submit") is { } nullNodeGenerateTitleOnSubmit && nullNodeGenerateTitleOnSubmit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GenerateTitleOnSubmit = null;
             if (parseNode.GetChildNode("git_provider") is null) { _explicitNullValueGitProvider = default!; _explicitNullProperties?.Remove("git_provider"); }
             else if (parseNode.GetChildNode("git_provider") is { } nullNodeGitProvider && nullNodeGitProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitProvider = null;
             if (parseNode.GetChildNode("initial_message") is null) { _explicitNullValueInitialMessage = default!; _explicitNullProperties?.Remove("initial_message"); }
@@ -52,6 +56,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("processors") is { } nullNodeProcessors && nullNodeProcessors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Processors = null;
             if (parseNode.GetChildNode("public") is null) { _explicitNullValuePublic = default!; _explicitNullProperties?.Remove("public"); }
             else if (parseNode.GetChildNode("public") is { } nullNodePublic && nullNodePublic.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Public = null;
+            if (parseNode.GetChildNode("require_all") is null) { _explicitNullValueRequireAll = default!; _explicitNullProperties?.Remove("require_all"); }
+            else if (parseNode.GetChildNode("require_all") is { } nullNodeRequireAll && nullNodeRequireAll.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireAll = null;
             if (parseNode.GetChildNode("sandbox_id") is null) { _explicitNullValueSandboxId = default!; _explicitNullProperties?.Remove("sandbox_id"); }
             else if (parseNode.GetChildNode("sandbox_id") is { } nullNodeSandboxId && nullNodeSandboxId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SandboxId = null;
             if (parseNode.GetChildNode("secrets") is null) { _explicitNullValueSecrets = default!; _explicitNullProperties?.Remove("secrets"); }
@@ -76,6 +82,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Repositories cloned beside the primary (selected) repository, or without one, each in its own folder. A repository that fails to clone is reported on the conversation and does not stop the start unless require_all is set.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AdditionalRepositoryRequest>? AdditionalRepositories { get => _explicitNullValueAdditionalRepositories; set { _explicitNullValueAdditionalRepositories = value; AdditionalData?.Remove("additional_repositories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_repositories"); else _explicitNullProperties?.Remove("additional_repositories"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AdditionalRepositoryRequest>? _explicitNullValueAdditionalRepositories = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AdditionalRepositoryRequest> AdditionalRepositories { get => _explicitNullValueAdditionalRepositories; set { _explicitNullValueAdditionalRepositories = value; AdditionalData?.Remove("additional_repositories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_repositories"); else _explicitNullProperties?.Remove("additional_repositories"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AdditionalRepositoryRequest> _explicitNullValueAdditionalRepositories = default!;
+#endif
         /// <summary>The agent_profile_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -112,6 +128,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public List<string> DisabledSkills { get => _explicitNullValueDisabledSkills; set { _explicitNullValueDisabledSkills = value; AdditionalData?.Remove("disabled_skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled_skills"); else _explicitNullProperties?.Remove("disabled_skills"); } }
         private List<string> _explicitNullValueDisabledSkills = default!;
 #endif
+        /// <summary>The generate_title_on_submit property</summary>
+        public bool? GenerateTitleOnSubmit { get => _explicitNullValueGenerateTitleOnSubmit; set { _explicitNullValueGenerateTitleOnSubmit = value; AdditionalData?.Remove("generate_title_on_submit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generate_title_on_submit"); else _explicitNullProperties?.Remove("generate_title_on_submit"); } }
+        private bool? _explicitNullValueGenerateTitleOnSubmit = default!;
         /// <summary>The git_provider property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? GitProvider { get => _explicitNullValueGitProvider; set { _explicitNullValueGitProvider = value; AdditionalData?.Remove("git_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_provider"); else _explicitNullProperties?.Remove("git_provider"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? _explicitNullValueGitProvider = default!;
@@ -211,6 +230,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The public property</summary>
         public bool? Public { get => _explicitNullValuePublic; set { _explicitNullValuePublic = value; AdditionalData?.Remove("public"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public"); else _explicitNullProperties?.Remove("public"); } }
         private bool? _explicitNullValuePublic = default!;
+        /// <summary>Fail the start when any additional repository cannot be cloned, instead of starting without it.</summary>
+        public bool? RequireAll { get => _explicitNullValueRequireAll; set { _explicitNullValueRequireAll = value; AdditionalData?.Remove("require_all"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_all"); else _explicitNullProperties?.Remove("require_all"); } }
+        private bool? _explicitNullValueRequireAll = default!;
         /// <summary>The sandbox_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -311,6 +333,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             AgentType = global::Soenneker.OpenHands.OpenApiClient.Models.AgentType.DefaultValue;
+            GenerateTitleOnSubmit = false;
+            RequireAll = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -330,11 +354,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "additional_repositories", n => { AdditionalRepositories = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AdditionalRepositoryRequest>(global::Soenneker.OpenHands.OpenApiClient.Models.AdditionalRepositoryRequest.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "agent_profile_id", n => { AgentProfileId = n.GetStringValue(); } },
                 { "agent_type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAgentType = default; _explicitNullProperties?.Remove("agent_type"); AdditionalData["agent_type"] = unknown; } else { AgentType = parsed; AdditionalData.Remove("agent_type"); } } },
                 { "client_tools", n => { ClientTools = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInput>(global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInput.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "conversation_id", n => { ConversationId = n.GetGuidValue(); } },
                 { "disabled_skills", n => { DisabledSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "generate_title_on_submit", n => { GenerateTitleOnSubmit = n.GetBoolValue(); } },
                 { "git_provider", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueGitProvider = default; _explicitNullProperties?.Remove("git_provider"); AdditionalData["git_provider"] = unknown; } else { GitProvider = parsed; AdditionalData.Remove("git_provider"); } } },
                 { "initial_message", n => { InitialMessage = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage.CreateFromDiscriminatorValue); } },
                 { "llm_model", n => { LlmModel = n.GetStringValue(); } },
@@ -347,6 +373,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "pr_number", n => { PrNumber = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "processors", n => { Processors = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInput>(global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInput.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "public", n => { Public = n.GetBoolValue(); } },
+                { "require_all", n => { RequireAll = n.GetBoolValue(); } },
                 { "sandbox_id", n => { SandboxId = n.GetStringValue(); } },
                 { "secrets", n => { Secrets = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSecretsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSecretsProperty.CreateFromDiscriminatorValue); } },
                 { "selected_branch", n => { SelectedBranch = n.GetStringValue(); } },
@@ -366,11 +393,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AdditionalRepositoryRequest>("additional_repositories", AdditionalRepositories);
             writer.WriteStringValue("agent_profile_id", AgentProfileId);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentType>("agent_type", AgentType);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInput>("client_tools", ClientTools);
             writer.WriteGuidValue("conversation_id", ConversationId);
             writer.WriteCollectionOfPrimitiveValues<string>("disabled_skills", DisabledSkills);
+            writer.WriteBoolValue("generate_title_on_submit", GenerateTitleOnSubmit);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>("git_provider", GitProvider);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage>("initial_message", InitialMessage);
             writer.WriteStringValue("llm_model", LlmModel);
@@ -383,6 +412,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<int?>("pr_number", PrNumber);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInput>("processors", Processors);
             writer.WriteBoolValue("public", Public);
+            writer.WriteBoolValue("require_all", RequireAll);
             writer.WriteStringValue("sandbox_id", SandboxId);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputSecretsProperty>("secrets", Secrets);
             writer.WriteStringValue("selected_branch", SelectedBranch);

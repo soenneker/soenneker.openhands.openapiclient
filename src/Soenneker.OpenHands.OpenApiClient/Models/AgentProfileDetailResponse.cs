@@ -21,6 +21,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
             if (parseNode.GetChildNode("profile") is null) { _explicitNullValueProfile = default!; _explicitNullProperties?.Remove("profile"); }
             else if (parseNode.GetChildNode("profile") is { } nullNodeProfile && nullNodeProfile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Profile = null;
+            if (parseNode.GetChildNode("scope") is null) { _explicitNullValueScope = default!; _explicitNullProperties?.Remove("scope"); }
+            else if (parseNode.GetChildNode("scope") is { } nullNodeScope && nullNodeScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scope = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,6 +47,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDetailResponseProfile Profile { get => _explicitNullValueProfile; set { _explicitNullValueProfile = value; AdditionalData?.Remove("profile"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profile"); else _explicitNullProperties?.Remove("profile"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDetailResponseProfile _explicitNullValueProfile = default!;
 #endif
+        /// <summary>The scope property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDetailResponseScope? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; AdditionalData?.Remove("scope"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDetailResponseScope? _explicitNullValueScope = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDetailResponse"/> and sets the default values.
         /// </summary>
@@ -72,6 +77,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "profile", n => { Profile = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDetailResponseProfile>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDetailResponseProfile.CreateFromDiscriminatorValue); } },
+                { "scope", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDetailResponseScope>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueScope = default; _explicitNullProperties?.Remove("scope"); AdditionalData["scope"] = unknown; } else { Scope = parsed; AdditionalData.Remove("scope"); } } },
             };
         }
         /// <summary>
@@ -83,6 +89,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDetailResponseProfile>("profile", Profile);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileDetailResponseScope>("scope", Scope);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

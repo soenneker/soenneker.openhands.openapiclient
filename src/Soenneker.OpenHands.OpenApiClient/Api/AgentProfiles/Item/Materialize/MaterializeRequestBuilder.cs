@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Materialize
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MaterializeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/agent-profiles/{name}/materialize{?org_id*}", pathParameters)
+        public MaterializeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/agent-profiles/{name}/materialize{?org_id*,scope*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Materialize
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MaterializeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/agent-profiles/{name}/materialize{?org_id*}", rawUrl)
+        public MaterializeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/agent-profiles/{name}/materialize{?org_id*,scope*}", rawUrl)
         {
         }
         /// <summary>
@@ -96,6 +96,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Materialize
             [QueryParameter("org_id")]
             public Guid? OrgId { get; set; }
             #pragma warning restore CS1591
+            /// <summary>Collection the profile name addresses: &apos;org&apos; or &apos;personal&apos;. Omitted: the organization&apos;s profile of that name, else the acting member&apos;s own.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("scope")]
+            public string? Scope { get; set; }
+#nullable restore
+#else
+            [QueryParameter("scope")]
+            public string Scope { get; set; }
+#endif
         }
     }
 }

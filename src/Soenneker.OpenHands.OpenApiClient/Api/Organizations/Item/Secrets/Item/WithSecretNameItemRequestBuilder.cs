@@ -3,6 +3,8 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Secrets.Item.Value;
+using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Secrets.Item.VersionNamespace;
 using Soenneker.OpenHands.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +19,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Secrets.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithSecretNameItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The value property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Secrets.Item.Value.ValueRequestBuilder Value
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Secrets.Item.Value.ValueRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The version property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Secrets.Item.VersionNamespace.VersionRequestBuilder Version
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Secrets.Item.VersionNamespace.VersionRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Secrets.Item.WithSecretNameItemRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -62,7 +74,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Secrets.Item
         /// Update an org-shared secret&apos;s name and/or description.The value is never modified. Admin/Owner only.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EditResponse"/></returns>
-        /// <param name="body">Request body for updating an org-shared secret (name/description only).The secret value is never accepted on update — the write-once,never-read guarantee means only metadata can change after creation.To rotate the value, delete and re-create the secret.</param>
+        /// <param name="body">Request body for updating an org-shared secret (name/description only).Only metadata can change through this endpoint. To replace a value,use the dedicated conditional value-replacement endpoint.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
@@ -108,7 +120,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Secrets.Item
         /// Update an org-shared secret&apos;s name and/or description.The value is never modified. Admin/Owner only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Request body for updating an org-shared secret (name/description only).The secret value is never accepted on update — the write-once,never-read guarantee means only metadata can change after creation.To rotate the value, delete and re-create the secret.</param>
+        /// <param name="body">Request body for updating an org-shared secret (name/description only).Only metadata can change through this endpoint. To replace a value,use the dedicated conditional value-replacement endpoint.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Files
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FilesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/{conversationId}/files{?path*}", pathParameters)
+        public FilesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/{conversationId}/files{?path*,repository*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Files
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FilesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/{conversationId}/files{?path*}", rawUrl)
+        public FilesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/{conversationId}/files{?path*,repository*}", rawUrl)
         {
         }
         /// <summary>
@@ -93,7 +93,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Files
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class FilesRequestBuilderGetQueryParameters 
         {
-            /// <summary>Optional absolute path to the workspace directory to list. When omitted, or when it does not match the conversation workspace, the directory is resolved from the sandbox spec and the conversation&apos;s selected repository.</summary>
+            /// <summary>Optional absolute path to the workspace directory to list. When omitted, or when it does not match the selected repository&apos;s folder, that folder is listed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("path")]
@@ -102,6 +102,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Files
 #else
             [QueryParameter("path")]
             public string Path { get; set; }
+#endif
+            /// <summary>Folder name of the repository to read, as returned in the conversation&apos;s ``repositories[].folder``. Defaults to the primary repository, or the working folder when there is none.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("repository")]
+            public string? Repository { get; set; }
+#nullable restore
+#else
+            [QueryParameter("repository")]
+            public string Repository { get; set; }
 #endif
         }
     }

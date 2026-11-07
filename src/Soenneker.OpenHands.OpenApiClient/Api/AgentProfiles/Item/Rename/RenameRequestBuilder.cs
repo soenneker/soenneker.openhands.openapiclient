@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Rename
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RenameRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/agent-profiles/{name}/rename{?org_id*}", pathParameters)
+        public RenameRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/agent-profiles/{name}/rename{?scope*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,11 +30,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Rename
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RenameRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/agent-profiles/{name}/rename{?org_id*}", rawUrl)
+        public RenameRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/agent-profiles/{name}/rename{?scope*}", rawUrl)
         {
         }
         /// <summary>
-        /// Rename a profile atomically.The stable id is preserved, so active pointers (keyed on id) surviveuntouched.
+        /// Rename a profile atomically.The stable id is preserved, so active pointers (keyed on id) surviveuntouched. The new name must not be owned by the other side either (409):the org collection for ``scope=personal``, any member&apos;s personal collectionfor ``scope=org``.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileMutationResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -61,7 +61,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Rename
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileMutationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileMutationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Rename a profile atomically.The stable id is preserved, so active pointers (keyed on id) surviveuntouched.
+        /// Rename a profile atomically.The stable id is preserved, so active pointers (keyed on id) surviveuntouched. The new name must not be owned by the other side either (409):the org collection for ``scope=personal``, any member&apos;s personal collectionfor ``scope=org``.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -92,15 +92,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Rename
             return new global::Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Rename.RenameRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Rename a profile atomically.The stable id is preserved, so active pointers (keyed on id) surviveuntouched.
+        /// Rename a profile atomically.The stable id is preserved, so active pointers (keyed on id) surviveuntouched. The new name must not be owned by the other side either (409):the org collection for ``scope=personal``, any member&apos;s personal collectionfor ``scope=org``.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RenameRequestBuilderPostQueryParameters 
         {
-            #pragma warning disable CS1591
-            [QueryParameter("org_id")]
-            public Guid? OrgId { get; set; }
-            #pragma warning restore CS1591
+            /// <summary>Collection the profile name addresses: &apos;org&apos; (the organization&apos;s shared, admin-managed profiles) or &apos;personal&apos; (the acting member&apos;s own profiles).</summary>
+            [QueryParameter("scope")]
+            public global::Soenneker.OpenHands.OpenApiClient.Models.RenameAgentProfileApiAgentProfilesNameRenamePostScopeParameter? Scope { get; set; }
         }
     }
 }

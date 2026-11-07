@@ -20,6 +20,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("automation") is null) { _explicitNullValueAutomation = default!; _explicitNullProperties?.Remove("automation"); }
             else if (parseNode.GetChildNode("automation") is { } nullNodeAutomation && nullNodeAutomation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Automation = null;
+            if (parseNode.GetChildNode("git_provider") is null) { _explicitNullValueGitProvider = default!; _explicitNullProperties?.Remove("git_provider"); }
+            else if (parseNode.GetChildNode("git_provider") is { } nullNodeGitProvider && nullNodeGitProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitProvider = null;
             if (parseNode.GetChildNode("invite") is null) { _explicitNullValueInvite = default!; _explicitNullProperties?.Remove("invite"); }
             else if (parseNode.GetChildNode("invite") is { } nullNodeInvite && nullNodeInvite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Invite = null;
             if (parseNode.GetChildNode("mcp_server") is null) { _explicitNullValueMcpServer = default!; _explicitNullProperties?.Remove("mcp_server"); }
@@ -33,6 +35,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The automation property</summary>
         public bool? Automation { get => _explicitNullValueAutomation; set { _explicitNullValueAutomation = value; AdditionalData?.Remove("automation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automation"); else _explicitNullProperties?.Remove("automation"); } }
         private bool? _explicitNullValueAutomation = default!;
+        /// <summary>The git_provider property</summary>
+        public bool? GitProvider { get => _explicitNullValueGitProvider; set { _explicitNullValueGitProvider = value; AdditionalData?.Remove("git_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_provider"); else _explicitNullProperties?.Remove("git_provider"); } }
+        private bool? _explicitNullValueGitProvider = default!;
         /// <summary>The invite property</summary>
         public bool? Invite { get => _explicitNullValueInvite; set { _explicitNullValueInvite = value; AdditionalData?.Remove("invite"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invite"); else _explicitNullProperties?.Remove("invite"); } }
         private bool? _explicitNullValueInvite = default!;
@@ -49,6 +54,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             Automation = false;
+            GitProvider = false;
             Invite = false;
             McpServer = false;
             OrgLlm = false;
@@ -74,6 +80,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "automation", n => { Automation = n.GetBoolValue(); } },
+                { "git_provider", n => { GitProvider = n.GetBoolValue(); } },
                 { "invite", n => { Invite = n.GetBoolValue(); } },
                 { "mcp_server", n => { McpServer = n.GetBoolValue(); } },
                 { "org_llm", n => { OrgLlm = n.GetBoolValue(); } },
@@ -87,6 +94,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("automation", Automation);
+            writer.WriteBoolValue("git_provider", GitProvider);
             writer.WriteBoolValue("invite", Invite);
             writer.WriteBoolValue("mcp_server", McpServer);
             writer.WriteBoolValue("org_llm", OrgLlm);

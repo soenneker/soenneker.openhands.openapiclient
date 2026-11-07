@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// The integrated/password IDP (``server.routes.idp``). No externalendpoint to configure -- this row exists purely so the login path has an``auth_providers`` id to carry in the ``openhands_auth`` cookie and toparticipate in ``is_idp`` listings like any other provider.
+    /// The integrated/password IDP (``server.routes.idp``). No externalendpoint to configure -- this row exists purely so the login path has an``auth_providers`` id to carry in the ``openhands_auth`` cookie and toparticipate in ``is_idp`` listings like any other provider.``permitted_email_patterns`` optionally restricts which accounts may usepassword login (e.g. only E2E test users on an SSO-only deployment). Eachentry is a case-insensitive ``fnmatch`` glob matched against the wholeemail (``e2e-*@example.com``). ``None`` -- also what an empty listnormalizes to -- means unrestricted.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AuthProviderDetailsOutputPasswordProviderDetailsOutput : global::Soenneker.OpenHands.OpenApiClient.Models.AuthProviderDetailsOutput, IParsable
@@ -19,8 +19,20 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public override void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
             base.CaptureExplicitNulls(parseNode);
+            if (parseNode.GetChildNode("permitted_email_patterns") is null) { _explicitNullValuePermittedEmailPatterns = default!; _explicitNullProperties?.Remove("permitted_email_patterns"); }
+            else if (parseNode.GetChildNode("permitted_email_patterns") is { } nullNodePermittedEmailPatterns && nullNodePermittedEmailPatterns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PermittedEmailPatterns = null;
         }
 
+        /// <summary>The permitted_email_patterns property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? PermittedEmailPatterns { get => _explicitNullValuePermittedEmailPatterns; set { _explicitNullValuePermittedEmailPatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permitted_email_patterns"); else _explicitNullProperties?.Remove("permitted_email_patterns"); } }
+        private List<string>? _explicitNullValuePermittedEmailPatterns = default!;
+#nullable restore
+#else
+        public List<string> PermittedEmailPatterns { get => _explicitNullValuePermittedEmailPatterns; set { _explicitNullValuePermittedEmailPatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permitted_email_patterns"); else _explicitNullProperties?.Remove("permitted_email_patterns"); } }
+        private List<string> _explicitNullValuePermittedEmailPatterns = default!;
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,6 +51,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "permitted_email_patterns", n => { PermittedEmailPatterns = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -48,7 +61,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public override void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            base.Serialize(writer);
+            writer.WriteCollectionOfPrimitiveValues<string>("permitted_email_patterns", PermittedEmailPatterns);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

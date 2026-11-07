@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Slack.Install;
 using Soenneker.OpenHands.OpenApiClient.Slack.InstallCallback;
 using Soenneker.OpenHands.OpenApiClient.Slack.KeycloakCallback;
+using Soenneker.OpenHands.OpenApiClient.Slack.LinkCallback;
 using Soenneker.OpenHands.OpenApiClient.Slack.OnEvent;
 using Soenneker.OpenHands.OpenApiClient.Slack.OnFormInteraction;
 using Soenneker.OpenHands.OpenApiClient.Slack.OnOptionsLoad;
@@ -35,6 +36,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Slack
         public global::Soenneker.OpenHands.OpenApiClient.Slack.KeycloakCallback.KeycloakCallbackRequestBuilder KeycloakCallback
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Slack.KeycloakCallback.KeycloakCallbackRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The linkCallback property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Slack.LinkCallback.LinkCallbackRequestBuilder LinkCallback
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Slack.LinkCallback.LinkCallbackRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The onEvent property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Slack.OnEvent.OnEventRequestBuilder OnEvent

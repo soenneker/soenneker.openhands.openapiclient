@@ -56,6 +56,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("launched_agent_profile") is { } nullNodeLaunchedAgentProfile && nullNodeLaunchedAgentProfile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LaunchedAgentProfile = null;
             if (parseNode.GetChildNode("leaf_event_id") is null) { _explicitNullValueLeafEventId = default!; _explicitNullProperties?.Remove("leaf_event_id"); }
             else if (parseNode.GetChildNode("leaf_event_id") is { } nullNodeLeafEventId && nullNodeLeafEventId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeafEventId = null;
+            if (parseNode.GetChildNode("max_budget_per_run") is null) { _explicitNullValueMaxBudgetPerRun = default!; _explicitNullProperties?.Remove("max_budget_per_run"); }
+            else if (parseNode.GetChildNode("max_budget_per_run") is { } nullNodeMaxBudgetPerRun && nullNodeMaxBudgetPerRun.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxBudgetPerRun = null;
             if (parseNode.GetChildNode("max_iterations") is null) { _explicitNullValueMaxIterations = default!; _explicitNullProperties?.Remove("max_iterations"); }
             else if (parseNode.GetChildNode("max_iterations") is { } nullNodeMaxIterations && nullNodeMaxIterations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxIterations = null;
             if (parseNode.GetChildNode("metrics") is null) { _explicitNullValueMetrics = default!; _explicitNullProperties?.Remove("metrics"); }
@@ -254,6 +256,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string LeafEventId { get => _explicitNullValueLeafEventId; set { _explicitNullValueLeafEventId = value; AdditionalData?.Remove("leaf_event_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leaf_event_id"); else _explicitNullProperties?.Remove("leaf_event_id"); } }
         private string _explicitNullValueLeafEventId = default!;
 #endif
+        /// <summary>Hard cost ceiling in USD for the conversation&apos;s accumulated LLM cost. `None` means no budget limit.</summary>
+        public double? MaxBudgetPerRun { get => _explicitNullValueMaxBudgetPerRun; set { _explicitNullValueMaxBudgetPerRun = value; AdditionalData?.Remove("max_budget_per_run"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_budget_per_run"); else _explicitNullProperties?.Remove("max_budget_per_run"); } }
+        private double? _explicitNullValueMaxBudgetPerRun = default!;
         /// <summary>Maximum number of iterations the agent can perform in a single run.</summary>
         public int? MaxIterations { get => _explicitNullValueMaxIterations; set { _explicitNullValueMaxIterations = value; AdditionalData?.Remove("max_iterations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_iterations"); else _explicitNullProperties?.Remove("max_iterations"); } }
         private int? _explicitNullValueMaxIterations = default!;
@@ -428,6 +433,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "last_user_message_id", n => { LastUserMessageId = n.GetStringValue(); } },
                 { "launched_agent_profile", n => { LaunchedAgentProfile = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoLaunchedAgentProfile>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoLaunchedAgentProfile.CreateFromDiscriminatorValue); } },
                 { "leaf_event_id", n => { LeafEventId = n.GetStringValue(); } },
+                { "max_budget_per_run", n => { MaxBudgetPerRun = n.GetDoubleValue(); } },
                 { "max_iterations", n => { MaxIterations = n.GetIntValue(); } },
                 { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationMetrics>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationMetrics.CreateFromDiscriminatorValue); } },
                 { "parent_conversation_id", n => { ParentConversationId = n.GetGuidValue(); } },
@@ -472,6 +478,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("last_user_message_id", LastUserMessageId);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoLaunchedAgentProfile>("launched_agent_profile", LaunchedAgentProfile);
             writer.WriteStringValue("leaf_event_id", LeafEventId);
+            writer.WriteDoubleValue("max_budget_per_run", MaxBudgetPerRun);
             writer.WriteIntValue("max_iterations", MaxIterations);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationMetrics>("metrics", Metrics);
             writer.WriteGuidValue("parent_conversation_id", ParentConversationId);

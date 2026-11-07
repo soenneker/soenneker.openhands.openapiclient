@@ -33,7 +33,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Secrets
         {
         }
         /// <summary>
-        /// Given an access token, retrieve a user secret. The access tokenis limited by user and provider type, and may include a timeout, limitingthe damage in the event that a token is ever leaked
+        /// Given an access token, retrieve a user secret. The access tokenis limited by user and either an OAuth provider row (``oauth_provider_id``)or a provider type, and may include a timeout, limiting the damage in theevent that a token is ever leaked.A token from the secret-lookups service route also names an org(``org_id``): the secret is read as a member of that org, and it can nameone of that org&apos;s custom secrets (``secret_name``). Such a reference mustcarry the ``SECRET_LOOKUP`` audience and an expiry, and it resolves onlywhile its principal is an active member of the org.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Webhooks.Secrets
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Given an access token, retrieve a user secret. The access tokenis limited by user and provider type, and may include a timeout, limitingthe damage in the event that a token is ever leaked
+        /// Given an access token, retrieve a user secret. The access tokenis limited by user and either an OAuth provider row (``oauth_provider_id``)or a provider type, and may include a timeout, limiting the damage in theevent that a token is ever leaked.A token from the secret-lookups service route also names an org(``org_id``): the secret is read as a member of that org, and it can nameone of that org&apos;s custom secrets (``secret_name``). Such a reference mustcarry the ``SECRET_LOOKUP`` audience and an expiry, and it resolves onlywhile its principal is an active member of the org.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

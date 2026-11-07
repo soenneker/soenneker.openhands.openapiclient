@@ -47,7 +47,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.Item.Settings.Secre
         {
         }
         /// <summary>
-        /// List available secret names (no raw values).Includes both custom secrets and provider tokens (e.g. github_token).
+        /// List available secret names (no raw values).Includes both custom secrets and provider tokens (e.g. GITHUB_TOKEN).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SecretNamesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Sandboxes.Item.Settings.Secre
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SecretNamesResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SecretNamesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List available secret names (no raw values).Includes both custom secrets and provider tokens (e.g. github_token).
+        /// List available secret names (no raw values).Includes both custom secrets and provider tokens (e.g. GITHUB_TOKEN).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

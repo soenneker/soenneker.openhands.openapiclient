@@ -27,7 +27,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
         }
 
-        /// <summary>&apos;worktree&apos; gives the child its own git worktree and branch when the workspace is a git repository; &apos;shared&apos; runs it in the same directory.</summary>
+        /// <summary>&apos;worktree&apos; gives the child its own git worktree and branch when the workspace has a usable git base commit; otherwise it shares the directory. &apos;shared&apos; always runs it in the same directory.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationActionIsolation? Isolation { get => _explicitNullValueIsolation; set { _explicitNullValueIsolation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isolation"); else _explicitNullProperties?.Remove("isolation"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationActionIsolation? _explicitNullValueIsolation = default!;
         /// <summary>Self-contained brief for the child: the goal, relevant files or paths, constraints, and the expected deliverable. The child cannot see this conversation&apos;s history.</summary>

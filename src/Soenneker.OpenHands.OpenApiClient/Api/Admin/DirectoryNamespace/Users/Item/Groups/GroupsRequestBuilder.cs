@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.I
         {
         }
         /// <summary>
-        /// Change a user&apos;s membership in one or more organizations.``suspend`` and ``resume`` update only the selected org rows.``remove`` drops those memberships and still refuses to remove thelast owner of an organization. ``add`` creates the missing memberships.``set_role`` changes the role on existing memberships and refuses todemote the last owner.
+        /// Change a user&apos;s membership in one or more organizations.``suspend`` and ``resume`` update only the selected org rows.``remove`` drops those memberships and still refuses to remove thelast owner of an organization. ``add`` creates the missing memberships.``set_role`` changes the role on existing memberships and refuses todemote the last owner. ``remove``, ``set_role`` and ``add`` refuse tochange a service account membership, and ``add`` refuses to add aservice account to another org.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesInstanceAdminAdminUserResponse"/></returns>
         /// <param name="body">Suspend, resume, remove, or add a user in specific organizations.</param>
@@ -61,7 +61,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.I
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesInstanceAdminAdminUserResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesInstanceAdminAdminUserResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Change a user&apos;s membership in one or more organizations.``suspend`` and ``resume`` update only the selected org rows.``remove`` drops those memberships and still refuses to remove thelast owner of an organization. ``add`` creates the missing memberships.``set_role`` changes the role on existing memberships and refuses todemote the last owner.
+        /// Change a user&apos;s membership in one or more organizations.``suspend`` and ``resume`` update only the selected org rows.``remove`` drops those memberships and still refuses to remove thelast owner of an organization. ``add`` creates the missing memberships.``set_role`` changes the role on existing memberships and refuses todemote the last owner. ``remove``, ``set_role`` and ``add`` refuse tochange a service account membership, and ``add`` refuses to add aservice account to another org.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Suspend, resume, remove, or add a user in specific organizations.</param>
@@ -92,7 +92,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.I
             return new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.Item.Groups.GroupsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Change a user&apos;s membership in one or more organizations.``suspend`` and ``resume`` update only the selected org rows.``remove`` drops those memberships and still refuses to remove thelast owner of an organization. ``add`` creates the missing memberships.``set_role`` changes the role on existing memberships and refuses todemote the last owner.
+        /// Change a user&apos;s membership in one or more organizations.``suspend`` and ``resume`` update only the selected org rows.``remove`` drops those memberships and still refuses to remove thelast owner of an organization. ``add`` creates the missing memberships.``set_role`` changes the role on existing memberships and refuses todemote the last owner. ``remove``, ``set_role`` and ``add`` refuse tochange a service account membership, and ``add`` refuses to add aservice account to another org.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class GroupsRequestBuilderPostQueryParameters 

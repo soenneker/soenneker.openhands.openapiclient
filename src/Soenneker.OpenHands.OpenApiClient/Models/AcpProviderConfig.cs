@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
+    /// <summary>
+    /// A built-in ACP harness this deployment offers.Carries no model list: which models an ACP agent offers depends on theaccount it runs under, so the agent reports them once a session starts(``AppConversation.acp_available_models``).
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class AcpProviderConfig : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -19,14 +20,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("api_key_env_var") is null) { _explicitNullValueApiKeyEnvVar = default!; _explicitNullProperties?.Remove("api_key_env_var"); }
             else if (parseNode.GetChildNode("api_key_env_var") is { } nullNodeApiKeyEnvVar && nullNodeApiKeyEnvVar.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyEnvVar = null;
-            if (parseNode.GetChildNode("available_models") is null) { _explicitNullValueAvailableModels = default!; _explicitNullProperties?.Remove("available_models"); }
-            else if (parseNode.GetChildNode("available_models") is { } nullNodeAvailableModels && nullNodeAvailableModels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableModels = null;
             if (parseNode.GetChildNode("base_url_env_var") is null) { _explicitNullValueBaseUrlEnvVar = default!; _explicitNullProperties?.Remove("base_url_env_var"); }
             else if (parseNode.GetChildNode("base_url_env_var") is { } nullNodeBaseUrlEnvVar && nullNodeBaseUrlEnvVar.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseUrlEnvVar = null;
             if (parseNode.GetChildNode("default_command") is null) { _explicitNullValueDefaultCommand = default!; _explicitNullProperties?.Remove("default_command"); }
             else if (parseNode.GetChildNode("default_command") is { } nullNodeDefaultCommand && nullNodeDefaultCommand.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultCommand = null;
-            if (parseNode.GetChildNode("default_model") is null) { _explicitNullValueDefaultModel = default!; _explicitNullProperties?.Remove("default_model"); }
-            else if (parseNode.GetChildNode("default_model") is { } nullNodeDefaultModel && nullNodeDefaultModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultModel = null;
             if (parseNode.GetChildNode("display_name") is null) { _explicitNullValueDisplayName = default!; _explicitNullProperties?.Remove("display_name"); }
             else if (parseNode.GetChildNode("display_name") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
             if (parseNode.GetChildNode("key") is null) { _explicitNullValueKey = default!; _explicitNullProperties?.Remove("key"); }
@@ -44,16 +41,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string ApiKeyEnvVar { get => _explicitNullValueApiKeyEnvVar; set { _explicitNullValueApiKeyEnvVar = value; AdditionalData?.Remove("api_key_env_var"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_env_var"); else _explicitNullProperties?.Remove("api_key_env_var"); } }
         private string _explicitNullValueApiKeyEnvVar = default!;
-#endif
-        /// <summary>The available_models property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelOption>? AvailableModels { get => _explicitNullValueAvailableModels; set { _explicitNullValueAvailableModels = value; AdditionalData?.Remove("available_models"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_models"); else _explicitNullProperties?.Remove("available_models"); } }
-        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelOption>? _explicitNullValueAvailableModels = default!;
-#nullable restore
-#else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelOption> AvailableModels { get => _explicitNullValueAvailableModels; set { _explicitNullValueAvailableModels = value; AdditionalData?.Remove("available_models"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_models"); else _explicitNullProperties?.Remove("available_models"); } }
-        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelOption> _explicitNullValueAvailableModels = default!;
 #endif
         /// <summary>The base_url_env_var property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,16 +61,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public List<string> DefaultCommand { get => _explicitNullValueDefaultCommand; set { _explicitNullValueDefaultCommand = value; AdditionalData?.Remove("default_command"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_command"); else _explicitNullProperties?.Remove("default_command"); } }
         private List<string> _explicitNullValueDefaultCommand = default!;
-#endif
-        /// <summary>The default_model property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DefaultModel { get => _explicitNullValueDefaultModel; set { _explicitNullValueDefaultModel = value; AdditionalData?.Remove("default_model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_model"); else _explicitNullProperties?.Remove("default_model"); } }
-        private string? _explicitNullValueDefaultModel = default!;
-#nullable restore
-#else
-        public string DefaultModel { get => _explicitNullValueDefaultModel; set { _explicitNullValueDefaultModel = value; AdditionalData?.Remove("default_model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_model"); else _explicitNullProperties?.Remove("default_model"); } }
-        private string _explicitNullValueDefaultModel = default!;
 #endif
         /// <summary>The display_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -131,10 +108,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "api_key_env_var", n => { ApiKeyEnvVar = n.GetStringValue(); } },
-                { "available_models", n => { AvailableModels = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelOption>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelOption.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "base_url_env_var", n => { BaseUrlEnvVar = n.GetStringValue(); } },
                 { "default_command", n => { DefaultCommand = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "default_model", n => { DefaultModel = n.GetStringValue(); } },
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
             };
@@ -147,10 +122,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_key_env_var", ApiKeyEnvVar);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelOption>("available_models", AvailableModels);
             writer.WriteStringValue("base_url_env_var", BaseUrlEnvVar);
             writer.WriteCollectionOfPrimitiveValues<string>("default_command", DefaultCommand);
-            writer.WriteStringValue("default_model", DefaultModel);
             writer.WriteStringValue("display_name", DisplayName);
             writer.WriteStringValue("key", Key);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

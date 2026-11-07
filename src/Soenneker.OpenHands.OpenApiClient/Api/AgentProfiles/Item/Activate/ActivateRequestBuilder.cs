@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Activate
         {
         }
         /// <summary>
-        /// Activate a profile for the calling member — pointer only.Writes the per-member ``OrgMember.active_agent_profile_id`` and nothing else(no ``agent_settings`` materialization, and the profiles collection itselfis untouched — the transaction helper skips the write-back when nothingmutated; #15044 §3). Member-facing, so it requires only``VIEW_ORG_SETTINGS`` (each member picks their own active profile); profileCRUD requires ``EDIT_ORG_SETTINGS``. 404 if no stored profile has that id.
+        /// Activate a profile for the calling member — pointer only.Writes the per-member ``OrgMember.active_agent_profile_id`` (no``agent_settings`` materialization; neither collection is touched — thetransaction helper skips the write-back when nothing mutated; #15044 §3)and keeps the member&apos;s composed ``agent_kind`` on the profile&apos;s kind(``_sync_member_agent_kind``). The id may belong to the member&apos;s personalcollection or the org&apos;s. Member-facing, so it requires only``VIEW_ORG_SETTINGS`` (each member picks their own active profile). 404 ifno stored profile has that id.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ActivateAgentProfileResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Activate
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ActivateAgentProfileResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ActivateAgentProfileResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Activate a profile for the calling member — pointer only.Writes the per-member ``OrgMember.active_agent_profile_id`` and nothing else(no ``agent_settings`` materialization, and the profiles collection itselfis untouched — the transaction helper skips the write-back when nothingmutated; #15044 §3). Member-facing, so it requires only``VIEW_ORG_SETTINGS`` (each member picks their own active profile); profileCRUD requires ``EDIT_ORG_SETTINGS``. 404 if no stored profile has that id.
+        /// Activate a profile for the calling member — pointer only.Writes the per-member ``OrgMember.active_agent_profile_id`` (no``agent_settings`` materialization; neither collection is touched — thetransaction helper skips the write-back when nothing mutated; #15044 §3)and keeps the member&apos;s composed ``agent_kind`` on the profile&apos;s kind(``_sync_member_agent_kind``). The id may belong to the member&apos;s personalcollection or the org&apos;s. Member-facing, so it requires only``VIEW_ORG_SETTINGS`` (each member picks their own active profile). 404 ifno stored profile has that id.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -87,7 +87,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Activate
             return new global::Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.Item.Activate.ActivateRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Activate a profile for the calling member — pointer only.Writes the per-member ``OrgMember.active_agent_profile_id`` and nothing else(no ``agent_settings`` materialization, and the profiles collection itselfis untouched — the transaction helper skips the write-back when nothingmutated; #15044 §3). Member-facing, so it requires only``VIEW_ORG_SETTINGS`` (each member picks their own active profile); profileCRUD requires ``EDIT_ORG_SETTINGS``. 404 if no stored profile has that id.
+        /// Activate a profile for the calling member — pointer only.Writes the per-member ``OrgMember.active_agent_profile_id`` (no``agent_settings`` materialization; neither collection is touched — thetransaction helper skips the write-back when nothing mutated; #15044 §3)and keeps the member&apos;s composed ``agent_kind`` on the profile&apos;s kind(``_sync_member_agent_kind``). The id may belong to the member&apos;s personalcollection or the org&apos;s. Member-facing, so it requires only``VIEW_ORG_SETTINGS`` (each member picks their own active profile). 404 ifno stored profile has that id.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ActivateRequestBuilderPostQueryParameters 

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
-    /// <summary>&apos;worktree&apos; gives the child its own git worktree and branch when the workspace is a git repository; &apos;shared&apos; runs it in the same directory.</summary>
+    /// <summary>&apos;worktree&apos; gives the child its own git worktree and branch when the workspace has a usable git base commit; otherwise it shares the directory. &apos;shared&apos; always runs it in the same directory.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum StartChildConversationActionIsolation
     {

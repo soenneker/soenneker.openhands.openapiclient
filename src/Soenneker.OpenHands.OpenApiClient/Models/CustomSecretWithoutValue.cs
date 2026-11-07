@@ -24,6 +24,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
             if (parseNode.GetChildNode("scope") is null) { _explicitNullValueScope = default!; _explicitNullProperties?.Remove("scope"); }
             else if (parseNode.GetChildNode("scope") is { } nullNodeScope && nullNodeScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scope = null;
+            if (parseNode.GetChildNode("system_managed") is null) { _explicitNullValueSystemManaged = default!; _explicitNullProperties?.Remove("system_managed"); }
+            else if (parseNode.GetChildNode("system_managed") is { } nullNodeSystemManaged && nullNodeSystemManaged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SystemManaged = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -51,6 +53,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Scope of a custom secret — personal or org-shared.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretScope? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; AdditionalData?.Remove("scope"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretScope? _explicitNullValueScope = default!;
+        /// <summary>The system_managed property</summary>
+        public bool? SystemManaged { get => _explicitNullValueSystemManaged; set { _explicitNullValueSystemManaged = value; AdditionalData?.Remove("system_managed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("system_managed"); else _explicitNullProperties?.Remove("system_managed"); } }
+        private bool? _explicitNullValueSystemManaged = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretWithoutValue"/> and sets the default values.
         /// </summary>
@@ -58,6 +63,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             Scope = global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretScope.Personal;
+            SystemManaged = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -80,6 +86,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "scope", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretScope>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueScope = default; _explicitNullProperties?.Remove("scope"); AdditionalData["scope"] = unknown; } else { Scope = parsed; AdditionalData.Remove("scope"); } } },
+                { "system_managed", n => { SystemManaged = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -92,6 +99,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretScope>("scope", Scope);
+            writer.WriteBoolValue("system_managed", SystemManaged);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

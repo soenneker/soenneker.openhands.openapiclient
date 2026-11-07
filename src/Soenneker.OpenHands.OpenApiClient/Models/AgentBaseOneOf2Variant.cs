@@ -88,7 +88,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string FilterToolsRegex { get => _explicitNullValueFilterToolsRegex; set { _explicitNullValueFilterToolsRegex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter_tools_regex"); else _explicitNullProperties?.Remove("filter_tools_regex"); } }
         private string _explicitNullValueFilterToolsRegex = default!;
 #endif
-        /// <summary>List of default tool class names to include. By default, the agent includes &apos;FinishTool&apos; and &apos;ThinkTool&apos;. Set to an empty list to disable all default tools, or provide a subset to include only specific ones. Example: include_default_tools=[&apos;FinishTool&apos;] to only include FinishTool, or include_default_tools=[] to disable all default tools.</summary>
+        /// <summary>List of default tool class names to include. By default, the agent includes &apos;FinishTool&apos;. Set to an empty list to disable all default tools, or provide a subset to include specific ones. Add &apos;ThinkTool&apos; explicitly to enable the think tool. Example: include_default_tools=[&apos;FinishTool&apos;, &apos;ThinkTool&apos;] to enable the think tool, or include_default_tools=[] to disable all default tools.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? IncludeDefaultTools { get => _explicitNullValueIncludeDefaultTools; set { _explicitNullValueIncludeDefaultTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_default_tools"); else _explicitNullProperties?.Remove("include_default_tools"); } }

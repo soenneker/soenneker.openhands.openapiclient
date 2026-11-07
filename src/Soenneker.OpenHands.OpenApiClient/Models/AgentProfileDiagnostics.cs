@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Side-effect-free report of what :func:`resolve_agent_profile` would do.Consumed by ``POST /{id}/materialize`` (#3719) and the canvas editor. Theverdict (:attr:`valid`) and the dangling-ref lists match exactly what a realresolve produces; :attr:`resolved_settings` is the redacted settings dump(present only when :attr:`valid`).
+    /// Side-effect-free report of what a launch would do.Consumed by ``POST /{id}/materialize`` (#3719) and the canvas editor. Theverdict (:attr:`valid`) and the dangling-ref lists match exactly what a realresolve produces; :attr:`resolved_settings` is the redacted settings dump(present only when :attr:`valid`).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentProfileDiagnostics : IAdditionalDataHolder, IParsable
@@ -36,6 +36,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("disabled_skills") is { } nullNodeDisabledSkills && nullNodeDisabledSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisabledSkills = null;
             if (parseNode.GetChildNode("errors") is null) { _explicitNullValueErrors = default!; _explicitNullProperties?.Remove("errors"); }
             else if (parseNode.GetChildNode("errors") is { } nullNodeErrors && nullNodeErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Errors = null;
+            if (parseNode.GetChildNode("integration_refs") is null) { _explicitNullValueIntegrationRefs = default!; _explicitNullProperties?.Remove("integration_refs"); }
+            else if (parseNode.GetChildNode("integration_refs") is { } nullNodeIntegrationRefs && nullNodeIntegrationRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IntegrationRefs = null;
             if (parseNode.GetChildNode("llm_api_key_set") is null) { _explicitNullValueLlmApiKeySet = default!; _explicitNullProperties?.Remove("llm_api_key_set"); }
             else if (parseNode.GetChildNode("llm_api_key_set") is { } nullNodeLlmApiKeySet && nullNodeLlmApiKeySet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmApiKeySet = null;
             if (parseNode.GetChildNode("llm_profile_ref") is null) { _explicitNullValueLlmProfileRef = default!; _explicitNullProperties?.Remove("llm_profile_ref"); }
@@ -153,6 +155,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public List<string> Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; AdditionalData?.Remove("errors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
         private List<string> _explicitNullValueErrors = default!;
+#endif
+        /// <summary>The integration_refs property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? IntegrationRefs { get => _explicitNullValueIntegrationRefs; set { _explicitNullValueIntegrationRefs = value; AdditionalData?.Remove("integration_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration_refs"); else _explicitNullProperties?.Remove("integration_refs"); } }
+        private List<string>? _explicitNullValueIntegrationRefs = default!;
+#nullable restore
+#else
+        public List<string> IntegrationRefs { get => _explicitNullValueIntegrationRefs; set { _explicitNullValueIntegrationRefs = value; AdditionalData?.Remove("integration_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration_refs"); else _explicitNullProperties?.Remove("integration_refs"); } }
+        private List<string> _explicitNullValueIntegrationRefs = default!;
 #endif
         /// <summary>The llm_api_key_set property</summary>
         public bool? LlmApiKeySet { get => _explicitNullValueLlmApiKeySet; set { _explicitNullValueLlmApiKeySet = value; AdditionalData?.Remove("llm_api_key_set"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("llm_api_key_set"); else _explicitNullProperties?.Remove("llm_api_key_set"); } }
@@ -290,6 +302,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "dangling_meta_profile_ref", n => { DanglingMetaProfileRef = n.GetStringValue(); } },
                 { "disabled_skills", n => { DisabledSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "errors", n => { Errors = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "integration_refs", n => { IntegrationRefs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "llm_api_key_set", n => { LlmApiKeySet = n.GetBoolValue(); } },
                 { "llm_profile_ref", n => { LlmProfileRef = n.GetStringValue(); } },
                 { "llm_profile_resolved", n => { LlmProfileResolved = n.GetBoolValue(); } },
@@ -320,6 +333,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("dangling_meta_profile_ref", DanglingMetaProfileRef);
             writer.WriteCollectionOfPrimitiveValues<string>("disabled_skills", DisabledSkills);
             writer.WriteCollectionOfPrimitiveValues<string>("errors", Errors);
+            writer.WriteCollectionOfPrimitiveValues<string>("integration_refs", IntegrationRefs);
             writer.WriteBoolValue("llm_api_key_set", LlmApiKeySet);
             writer.WriteStringValue("llm_profile_ref", LlmProfileRef);
             writer.WriteBoolValue("llm_profile_resolved", LlmProfileResolved);

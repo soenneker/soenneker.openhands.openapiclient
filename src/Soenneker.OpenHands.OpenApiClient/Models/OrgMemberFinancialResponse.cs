@@ -18,6 +18,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("account_type") is null) { _explicitNullValueAccountType = default!; _explicitNullProperties?.Remove("account_type"); }
+            else if (parseNode.GetChildNode("account_type") is { } nullNodeAccountType && nullNodeAccountType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountType = null;
             if (parseNode.GetChildNode("current_budget") is null) { _explicitNullValueCurrentBudget = default!; _explicitNullProperties?.Remove("current_budget"); }
             else if (parseNode.GetChildNode("current_budget") is { } nullNodeCurrentBudget && nullNodeCurrentBudget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentBudget = null;
             if (parseNode.GetChildNode("email") is null) { _explicitNullValueEmail = default!; _explicitNullProperties?.Remove("email"); }
@@ -30,6 +32,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("user_id") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
         }
 
+        /// <summary>The account_type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AccountType { get => _explicitNullValueAccountType; set { _explicitNullValueAccountType = value; AdditionalData?.Remove("account_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_type"); else _explicitNullProperties?.Remove("account_type"); } }
+        private string? _explicitNullValueAccountType = default!;
+#nullable restore
+#else
+        public string AccountType { get => _explicitNullValueAccountType; set { _explicitNullValueAccountType = value; AdditionalData?.Remove("account_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_type"); else _explicitNullProperties?.Remove("account_type"); } }
+        private string _explicitNullValueAccountType = default!;
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The current_budget property</summary>
@@ -67,6 +79,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public OrgMemberFinancialResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            AccountType = "human";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -86,6 +99,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "account_type", n => { AccountType = n.GetStringValue(); } },
                 { "current_budget", n => { CurrentBudget = n.GetDoubleValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "lifetime_spend", n => { LifetimeSpend = n.GetDoubleValue(); } },
@@ -100,6 +114,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("account_type", AccountType);
             writer.WriteDoubleValue("current_budget", CurrentBudget);
             writer.WriteStringValue("email", Email);
             writer.WriteDoubleValue("lifetime_spend", LifetimeSpend);

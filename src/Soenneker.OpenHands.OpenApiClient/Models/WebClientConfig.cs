@@ -61,6 +61,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("providers_configured") is { } nullNodeProvidersConfigured && nullNodeProvidersConfigured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProvidersConfigured = null;
             if (parseNode.GetChildNode("recaptcha_site_key") is null) { _explicitNullValueRecaptchaSiteKey = default!; _explicitNullProperties?.Remove("recaptcha_site_key"); }
             else if (parseNode.GetChildNode("recaptcha_site_key") is { } nullNodeRecaptchaSiteKey && nullNodeRecaptchaSiteKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecaptchaSiteKey = null;
+            if (parseNode.GetChildNode("require_verified_emails") is null) { _explicitNullValueRequireVerifiedEmails = default!; _explicitNullProperties?.Remove("require_verified_emails"); }
+            else if (parseNode.GetChildNode("require_verified_emails") is { } nullNodeRequireVerifiedEmails && nullNodeRequireVerifiedEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireVerifiedEmails = null;
             if (parseNode.GetChildNode("slack_enabled") is null) { _explicitNullValueSlackEnabled = default!; _explicitNullProperties?.Remove("slack_enabled"); }
             else if (parseNode.GetChildNode("slack_enabled") is { } nullNodeSlackEnabled && nullNodeSlackEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackEnabled = null;
             if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
@@ -235,6 +237,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string RecaptchaSiteKey { get => _explicitNullValueRecaptchaSiteKey; set { _explicitNullValueRecaptchaSiteKey = value; AdditionalData?.Remove("recaptcha_site_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recaptcha_site_key"); else _explicitNullProperties?.Remove("recaptcha_site_key"); } }
         private string _explicitNullValueRecaptchaSiteKey = default!;
 #endif
+        /// <summary>The require_verified_emails property</summary>
+        public bool? RequireVerifiedEmails { get => _explicitNullValueRequireVerifiedEmails; set { _explicitNullValueRequireVerifiedEmails = value; AdditionalData?.Remove("require_verified_emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_verified_emails"); else _explicitNullProperties?.Remove("require_verified_emails"); } }
+        private bool? _explicitNullValueRequireVerifiedEmails = default!;
         /// <summary>The slack_enabled property</summary>
         public bool? SlackEnabled { get => _explicitNullValueSlackEnabled; set { _explicitNullValueSlackEnabled = value; AdditionalData?.Remove("slack_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_enabled"); else _explicitNullProperties?.Remove("slack_enabled"); } }
         private bool? _explicitNullValueSlackEnabled = default!;
@@ -255,6 +260,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             GitlabEnabled = false;
             JiraDcServiceAccountManaged = false;
             JiraOauthEnabled = true;
+            RequireVerifiedEmails = false;
             SlackEnabled = false;
             UserProvisioningEnabled = false;
         }
@@ -298,6 +304,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "provider_default_hosts", n => { ProviderDefaultHosts = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigProviderDefaultHostsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigProviderDefaultHostsProperty.CreateFromDiscriminatorValue); } },
                 { "providers_configured", n => { ProvidersConfigured = n.GetCollectionOfEnumValues<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>()?.AsList(); } },
                 { "recaptcha_site_key", n => { RecaptchaSiteKey = n.GetStringValue(); } },
+                { "require_verified_emails", n => { RequireVerifiedEmails = n.GetBoolValue(); } },
                 { "slack_enabled", n => { SlackEnabled = n.GetBoolValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "user_provisioning_enabled", n => { UserProvisioningEnabled = n.GetBoolValue(); } },
@@ -332,6 +339,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientConfigProviderDefaultHostsProperty>("provider_default_hosts", ProviderDefaultHosts);
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>("providers_configured", ProvidersConfigured);
             writer.WriteStringValue("recaptcha_site_key", RecaptchaSiteKey);
+            writer.WriteBoolValue("require_verified_emails", RequireVerifiedEmails);
             writer.WriteBoolValue("slack_enabled", SlackEnabled);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteBoolValue("user_provisioning_enabled", UserProvisioningEnabled);

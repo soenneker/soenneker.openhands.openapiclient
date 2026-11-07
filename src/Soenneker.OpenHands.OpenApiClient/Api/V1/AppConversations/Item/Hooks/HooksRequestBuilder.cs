@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HooksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/{conversationId}/hooks", pathParameters)
+        public HooksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/{conversationId}/hooks{?repository*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,11 +30,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HooksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/{conversationId}/hooks", rawUrl)
+        public HooksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/{conversationId}/hooks{?repository*}", rawUrl)
         {
         }
         /// <summary>
-        /// Get hooks currently configured in the workspace for this conversation.This endpoint loads hooks from the conversation&apos;s project directory in theworkspace (i.e. `{project_dir}/.openhands/hooks.json`) at request time.Note:    This is intentionally a &quot;live&quot; view of the workspace configuration.    If `.openhands/hooks.json` changes over time, this endpoint reflects the    latest file content and may not match the hooks that were used when the    conversation originally started.Returns:    JSONResponse: A JSON response containing the list of hook event types.    Returns an empty list if the sandbox is not running.
+        /// Get hooks currently configured in the workspace for this conversation.This endpoint loads hooks from the conversation&apos;s project directory in theworkspace (i.e. `{project_dir}/.openhands/hooks.json`) at request time.``repository`` reads another repository&apos;s `.openhands/hooks.json` instead;only the primary repository&apos;s hooks are loaded when a conversation starts.Note:    This is intentionally a &quot;live&quot; view of the workspace configuration.    If `.openhands/hooks.json` changes over time, this endpoint reflects the    latest file content and may not match the hooks that were used when the    conversation originally started.Returns:    JSONResponse: A JSON response containing the list of hook event types.    Returns an empty list if the sandbox is not running.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -42,11 +42,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks
         /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<UntypedNode?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks.HooksRequestBuilder.HooksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<UntypedNode> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks.HooksRequestBuilder.HooksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -59,17 +59,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get hooks currently configured in the workspace for this conversation.This endpoint loads hooks from the conversation&apos;s project directory in theworkspace (i.e. `{project_dir}/.openhands/hooks.json`) at request time.Note:    This is intentionally a &quot;live&quot; view of the workspace configuration.    If `.openhands/hooks.json` changes over time, this endpoint reflects the    latest file content and may not match the hooks that were used when the    conversation originally started.Returns:    JSONResponse: A JSON response containing the list of hook event types.    Returns an empty list if the sandbox is not running.
+        /// Get hooks currently configured in the workspace for this conversation.This endpoint loads hooks from the conversation&apos;s project directory in theworkspace (i.e. `{project_dir}/.openhands/hooks.json`) at request time.``repository`` reads another repository&apos;s `.openhands/hooks.json` instead;only the primary repository&apos;s hooks are loaded when a conversation starts.Note:    This is intentionally a &quot;live&quot; view of the workspace configuration.    If `.openhands/hooks.json` changes over time, this endpoint reflects the    latest file content and may not match the hooks that were used when the    conversation originally started.Returns:    JSONResponse: A JSON response containing the list of hook event types.    Returns an empty list if the sandbox is not running.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks.HooksRequestBuilder.HooksRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks.HooksRequestBuilder.HooksRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -85,6 +85,23 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks
         public global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks.HooksRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks.HooksRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Get hooks currently configured in the workspace for this conversation.This endpoint loads hooks from the conversation&apos;s project directory in theworkspace (i.e. `{project_dir}/.openhands/hooks.json`) at request time.``repository`` reads another repository&apos;s `.openhands/hooks.json` instead;only the primary repository&apos;s hooks are loaded when a conversation starts.Note:    This is intentionally a &quot;live&quot; view of the workspace configuration.    If `.openhands/hooks.json` changes over time, this endpoint reflects the    latest file content and may not match the hooks that were used when the    conversation originally started.Returns:    JSONResponse: A JSON response containing the list of hook event types.    Returns an empty list if the sandbox is not running.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class HooksRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Folder name of the repository to read, as returned in the conversation&apos;s ``repositories[].folder``. Defaults to the primary repository, or the working folder when there is none.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("repository")]
+            public string? Repository { get; set; }
+#nullable restore
+#else
+            [QueryParameter("repository")]
+            public string Repository { get; set; }
+#endif
         }
     }
 }

@@ -26,6 +26,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("icon") is { } nullNodeIcon && nullNodeIcon.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Icon = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("needs_reconnect") is null) { _explicitNullValueNeedsReconnect = default!; _explicitNullProperties?.Remove("needs_reconnect"); }
+            else if (parseNode.GetChildNode("needs_reconnect") is { } nullNodeNeedsReconnect && nullNodeNeedsReconnect.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NeedsReconnect = null;
             if (parseNode.GetChildNode("provider_type") is null) { _explicitNullValueProviderType = default!; _explicitNullProperties?.Remove("provider_type"); }
             else if (parseNode.GetChildNode("provider_type") is { } nullNodeProviderType && nullNodeProviderType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderType = null;
             if (parseNode.GetChildNode("title") is null) { _explicitNullValueTitle = default!; _explicitNullProperties?.Remove("title"); }
@@ -60,6 +62,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The id property</summary>
         public int? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private int? _explicitNullValueId = default!;
+        /// <summary>The needs_reconnect property</summary>
+        public bool? NeedsReconnect { get => _explicitNullValueNeedsReconnect; set { _explicitNullValueNeedsReconnect = value; AdditionalData?.Remove("needs_reconnect"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("needs_reconnect"); else _explicitNullProperties?.Remove("needs_reconnect"); } }
+        private bool? _explicitNullValueNeedsReconnect = default!;
         /// <summary>The provider_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -109,6 +114,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "connected", n => { Connected = n.GetBoolValue(); } },
                 { "icon", n => { Icon = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
+                { "needs_reconnect", n => { NeedsReconnect = n.GetBoolValue(); } },
                 { "provider_type", n => { ProviderType = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
@@ -124,6 +130,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("connected", Connected);
             writer.WriteStringValue("icon", Icon);
             writer.WriteIntValue("id", Id);
+            writer.WriteBoolValue("needs_reconnect", NeedsReconnect);
             writer.WriteStringValue("provider_type", ProviderType);
             writer.WriteStringValue("title", Title);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

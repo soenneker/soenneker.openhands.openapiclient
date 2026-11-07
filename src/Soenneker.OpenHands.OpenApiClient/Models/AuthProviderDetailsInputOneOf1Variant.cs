@@ -18,6 +18,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public override void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
             base.CaptureExplicitNulls(parseNode);
+            if (parseNode.GetChildNode("attribute_mapping") is null) { _explicitNullValueAttributeMapping = default!; _explicitNullProperties?.Remove("attribute_mapping"); }
+            else if (parseNode.GetChildNode("attribute_mapping") is { } nullNodeAttributeMapping && nullNodeAttributeMapping.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttributeMapping = null;
             if (parseNode.GetChildNode("authorization_url") is null) { _explicitNullValueAuthorizationUrl = default!; _explicitNullProperties?.Remove("authorization_url"); }
             else if (parseNode.GetChildNode("authorization_url") is { } nullNodeAuthorizationUrl && nullNodeAuthorizationUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthorizationUrl = null;
             if (parseNode.GetChildNode("client_id") is null) { _explicitNullValueClientId = default!; _explicitNullProperties?.Remove("client_id"); }
@@ -26,6 +28,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("client_secret") is { } nullNodeClientSecret && nullNodeClientSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientSecret = null;
             if (parseNode.GetChildNode("legacy_keycloak_type") is null) { _explicitNullValueLegacyKeycloakType = default!; _explicitNullProperties?.Remove("legacy_keycloak_type"); }
             else if (parseNode.GetChildNode("legacy_keycloak_type") is { } nullNodeLegacyKeycloakType && nullNodeLegacyKeycloakType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LegacyKeycloakType = null;
+            if (parseNode.GetChildNode("named_secret") is null) { _explicitNullValueNamedSecret = default!; _explicitNullProperties?.Remove("named_secret"); }
+            else if (parseNode.GetChildNode("named_secret") is { } nullNodeNamedSecret && nullNodeNamedSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NamedSecret = null;
             if (parseNode.GetChildNode("permitted_drift_seconds") is null) { _explicitNullValuePermittedDriftSeconds = default!; _explicitNullProperties?.Remove("permitted_drift_seconds"); }
             else if (parseNode.GetChildNode("permitted_drift_seconds") is { } nullNodePermittedDriftSeconds && nullNodePermittedDriftSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PermittedDriftSeconds = null;
             if (parseNode.GetChildNode("provider_type") is null) { _explicitNullValueProviderType = default!; _explicitNullProperties?.Remove("provider_type"); }
@@ -38,6 +42,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("userinfo_url") is { } nullNodeUserinfoUrl && nullNodeUserinfoUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserinfoUrl = null;
         }
 
+        /// <summary>The attribute_mapping property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OAuthProviderDetailsInputAttributeMappingProperty? AttributeMapping { get => _explicitNullValueAttributeMapping; set { _explicitNullValueAttributeMapping = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attribute_mapping"); else _explicitNullProperties?.Remove("attribute_mapping"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.OAuthProviderDetailsInputAttributeMappingProperty? _explicitNullValueAttributeMapping = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OAuthProviderDetailsInputAttributeMappingProperty AttributeMapping { get => _explicitNullValueAttributeMapping; set { _explicitNullValueAttributeMapping = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attribute_mapping"); else _explicitNullProperties?.Remove("attribute_mapping"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.OAuthProviderDetailsInputAttributeMappingProperty _explicitNullValueAttributeMapping = default!;
+#endif
         /// <summary>The authorization_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,6 +85,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The legacy_keycloak_type property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? LegacyKeycloakType { get => _explicitNullValueLegacyKeycloakType; set { _explicitNullValueLegacyKeycloakType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("legacy_keycloak_type"); else _explicitNullProperties?.Remove("legacy_keycloak_type"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? _explicitNullValueLegacyKeycloakType = default!;
+        /// <summary>The named_secret property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NamedSecret { get => _explicitNullValueNamedSecret; set { _explicitNullValueNamedSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("named_secret"); else _explicitNullProperties?.Remove("named_secret"); } }
+        private string? _explicitNullValueNamedSecret = default!;
+#nullable restore
+#else
+        public string NamedSecret { get => _explicitNullValueNamedSecret; set { _explicitNullValueNamedSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("named_secret"); else _explicitNullProperties?.Remove("named_secret"); } }
+        private string _explicitNullValueNamedSecret = default!;
+#endif
         /// <summary>The permitted_drift_seconds property</summary>
         public int? PermittedDriftSeconds { get => _explicitNullValuePermittedDriftSeconds; set { _explicitNullValuePermittedDriftSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permitted_drift_seconds"); else _explicitNullProperties?.Remove("permitted_drift_seconds"); } }
         private int? _explicitNullValuePermittedDriftSeconds = default!;
@@ -132,10 +156,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "attribute_mapping", n => { AttributeMapping = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OAuthProviderDetailsInputAttributeMappingProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.OAuthProviderDetailsInputAttributeMappingProperty.CreateFromDiscriminatorValue); } },
                 { "authorization_url", n => { AuthorizationUrl = n.GetStringValue(); } },
                 { "client_id", n => { ClientId = n.GetStringValue(); } },
                 { "client_secret", n => { ClientSecret = n.GetStringValue(); } },
                 { "legacy_keycloak_type", n => { LegacyKeycloakType = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>(); } },
+                { "named_secret", n => { NamedSecret = n.GetStringValue(); } },
                 { "permitted_drift_seconds", n => { PermittedDriftSeconds = n.GetIntValue(); } },
                 { "provider_type", n => { ProviderType = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>(); } },
                 { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -151,10 +177,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OAuthProviderDetailsInputAttributeMappingProperty>("attribute_mapping", AttributeMapping);
             writer.WriteStringValue("authorization_url", AuthorizationUrl);
             writer.WriteStringValue("client_id", ClientId);
             writer.WriteStringValue("client_secret", ClientSecret);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>("legacy_keycloak_type", LegacyKeycloakType);
+            writer.WriteStringValue("named_secret", NamedSecret);
             writer.WriteIntValue("permitted_drift_seconds", PermittedDriftSeconds);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>("provider_type", ProviderType);
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);

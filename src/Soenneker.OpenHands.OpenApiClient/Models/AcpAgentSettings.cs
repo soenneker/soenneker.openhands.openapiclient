@@ -44,6 +44,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("mcp_config") is { } nullNodeMcpConfig && nullNodeMcpConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpConfig = null;
             if (parseNode.GetChildNode("schema_version") is null) { _explicitNullValueSchemaVersion = default!; _explicitNullProperties?.Remove("schema_version"); }
             else if (parseNode.GetChildNode("schema_version") is { } nullNodeSchemaVersion && nullNodeSchemaVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SchemaVersion = null;
+            if (parseNode.GetChildNode("verification") is null) { _explicitNullValueVerification = default!; _explicitNullProperties?.Remove("verification"); }
+            else if (parseNode.GetChildNode("verification") is { } nullNodeVerification && nullNodeVerification.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verification = null;
         }
 
         /// <summary>Additional arguments appended to the ACP server command.</summary>
@@ -136,6 +138,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The schema_version property</summary>
         public int? SchemaVersion { get => _explicitNullValueSchemaVersion; set { _explicitNullValueSchemaVersion = value; AdditionalData?.Remove("schema_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schema_version"); else _explicitNullProperties?.Remove("schema_version"); } }
         private int? _explicitNullValueSchemaVersion = default!;
+        /// <summary>The server-wide part of :class:`VerificationSettings`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpVerificationSettings? Verification { get => _explicitNullValueVerification; set { _explicitNullValueVerification = value; AdditionalData?.Remove("verification"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification"); else _explicitNullProperties?.Remove("verification"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AcpVerificationSettings? _explicitNullValueVerification = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpVerificationSettings Verification { get => _explicitNullValueVerification; set { _explicitNullValueVerification = value; AdditionalData?.Remove("verification"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification"); else _explicitNullProperties?.Remove("verification"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AcpVerificationSettings _explicitNullValueVerification = default!;
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettings"/> and sets the default values.
         /// </summary>
@@ -178,6 +190,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "agent_kind", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentKind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAgentKind = default; _explicitNullProperties?.Remove("agent_kind"); AdditionalData["agent_kind"] = unknown; } else { AgentKind = parsed; AdditionalData.Remove("agent_kind"); } } },
                 { "mcp_config", n => { McpConfig = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsMcpConfigProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsMcpConfigProperty.CreateFromDiscriminatorValue); } },
                 { "schema_version", n => { SchemaVersion = n.GetIntValue(); } },
+                { "verification", n => { Verification = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpVerificationSettings>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpVerificationSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -200,6 +213,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsAgentKind>("agent_kind", AgentKind);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentSettingsMcpConfigProperty>("mcp_config", McpConfig);
             writer.WriteIntValue("schema_version", SchemaVersion);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpVerificationSettings>("verification", Verification);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

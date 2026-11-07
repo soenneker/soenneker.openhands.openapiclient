@@ -13,6 +13,7 @@ using Soenneker.OpenHands.OpenApiClient.Api.Email;
 using Soenneker.OpenHands.OpenApiClient.Api.Idp;
 using Soenneker.OpenHands.OpenApiClient.Api.Keycloak;
 using Soenneker.OpenHands.OpenApiClient.Api.Keys;
+using Soenneker.OpenHands.OpenApiClient.Api.License;
 using Soenneker.OpenHands.OpenApiClient.Api.Logout;
 using Soenneker.OpenHands.OpenApiClient.Api.Onboarding_status;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations;
@@ -20,6 +21,7 @@ using Soenneker.OpenHands.OpenApiClient.Api.Quota;
 using Soenneker.OpenHands.OpenApiClient.Api.Service;
 using Soenneker.OpenHands.OpenApiClient.Api.SharedConversations;
 using Soenneker.OpenHands.OpenApiClient.Api.SharedEvents;
+using Soenneker.OpenHands.OpenApiClient.Api.Tools;
 using Soenneker.OpenHands.OpenApiClient.Api.Users;
 using Soenneker.OpenHands.OpenApiClient.Api.V1;
 using System.Collections.Generic;
@@ -89,6 +91,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Keys.KeysRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The license property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.License.LicenseRequestBuilder License
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.License.LicenseRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The logout property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Logout.LogoutRequestBuilder Logout
         {
@@ -123,6 +130,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api
         public global::Soenneker.OpenHands.OpenApiClient.Api.SharedEvents.SharedEventsRequestBuilder SharedEvents
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.SharedEvents.SharedEventsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The tools property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Tools.ToolsRequestBuilder Tools
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Tools.ToolsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The users property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Users.UsersRequestBuilder Users

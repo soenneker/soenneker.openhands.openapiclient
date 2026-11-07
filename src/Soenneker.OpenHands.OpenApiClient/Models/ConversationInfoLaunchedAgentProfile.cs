@@ -20,6 +20,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("agent_profile_id") is null) { _explicitNullValueAgentProfileId = default!; _explicitNullProperties?.Remove("agent_profile_id"); }
             else if (parseNode.GetChildNode("agent_profile_id") is { } nullNodeAgentProfileId && nullNodeAgentProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentProfileId = null;
+            if (parseNode.GetChildNode("integration_refs") is null) { _explicitNullValueIntegrationRefs = default!; _explicitNullProperties?.Remove("integration_refs"); }
+            else if (parseNode.GetChildNode("integration_refs") is { } nullNodeIntegrationRefs && nullNodeIntegrationRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IntegrationRefs = null;
             if (parseNode.GetChildNode("llm_profile_ref") is null) { _explicitNullValueLlmProfileRef = default!; _explicitNullProperties?.Remove("llm_profile_ref"); }
             else if (parseNode.GetChildNode("llm_profile_ref") is { } nullNodeLlmProfileRef && nullNodeLlmProfileRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LlmProfileRef = null;
             if (parseNode.GetChildNode("revision") is null) { _explicitNullValueRevision = default!; _explicitNullProperties?.Remove("revision"); }
@@ -33,6 +35,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Stable id of the agent profile that launched the conversation.</summary>
         public Guid? AgentProfileId { get => _explicitNullValueAgentProfileId; set { _explicitNullValueAgentProfileId = value; AdditionalData?.Remove("agent_profile_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_profile_id"); else _explicitNullProperties?.Remove("agent_profile_id"); } }
         private Guid? _explicitNullValueAgentProfileId = default!;
+        /// <summary>Built-in integration allow-list captured at launch. null preserves unrestricted behavior for older conversations.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? IntegrationRefs { get => _explicitNullValueIntegrationRefs; set { _explicitNullValueIntegrationRefs = value; AdditionalData?.Remove("integration_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration_refs"); else _explicitNullProperties?.Remove("integration_refs"); } }
+        private List<string>? _explicitNullValueIntegrationRefs = default!;
+#nullable restore
+#else
+        public List<string> IntegrationRefs { get => _explicitNullValueIntegrationRefs; set { _explicitNullValueIntegrationRefs = value; AdditionalData?.Remove("integration_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration_refs"); else _explicitNullProperties?.Remove("integration_refs"); } }
+        private List<string> _explicitNullValueIntegrationRefs = default!;
+#endif
         /// <summary>Per-launch LLM profile override from `agent_launch_additions`. null means the profile&apos;s own `llm_profile_ref` was used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,6 +96,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "agent_profile_id", n => { AgentProfileId = n.GetGuidValue(); } },
+                { "integration_refs", n => { IntegrationRefs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "llm_profile_ref", n => { LlmProfileRef = n.GetStringValue(); } },
                 { "revision", n => { Revision = n.GetIntValue(); } },
                 { "secret_refs", n => { SecretRefs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -97,6 +110,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("agent_profile_id", AgentProfileId);
+            writer.WriteCollectionOfPrimitiveValues<string>("integration_refs", IntegrationRefs);
             writer.WriteStringValue("llm_profile_ref", LlmProfileRef);
             writer.WriteIntValue("revision", Revision);
             writer.WriteCollectionOfPrimitiveValues<string>("secret_refs", SecretRefs);

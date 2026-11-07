@@ -38,7 +38,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Initial value of User.allow_match_by_email for a brand-new user created by a login through this provider -- see server.auth.provider_identity.resolve_or_create_user.</summary>
+        /// <summary>Whether a login through this provider whose subject is not linked yet may be linked to the existing user with the same email, trusting the email this provider asserts.</summary>
         public bool? AllowMatchByEmail { get => _explicitNullValueAllowMatchByEmail; set { _explicitNullValueAllowMatchByEmail = value; AdditionalData?.Remove("allow_match_by_email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_match_by_email"); else _explicitNullProperties?.Remove("allow_match_by_email"); } }
         private bool? _explicitNullValueAllowMatchByEmail = default!;
         /// <summary>Whether a brand-new user may be created the first time someone authenticates through this provider, or only an already-linked account may sign in through it.</summary>
@@ -77,7 +77,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Icon { get => _explicitNullValueIcon; set { _explicitNullValueIcon = value; AdditionalData?.Remove("icon"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icon"); else _explicitNullProperties?.Remove("icon"); } }
         private string _explicitNullValueIcon = default!;
 #endif
-        /// <summary>True for login IDPs, False for git providers.</summary>
+        /// <summary>True to offer this row as a login IDP. Independent of whether it is a git provider (that is set by provider_type).</summary>
         public bool? IsIdp { get => _explicitNullValueIsIdp; set { _explicitNullValueIsIdp = value; AdditionalData?.Remove("is_idp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_idp"); else _explicitNullProperties?.Remove("is_idp"); } }
         private bool? _explicitNullValueIsIdp = default!;
         /// <summary>The title property</summary>

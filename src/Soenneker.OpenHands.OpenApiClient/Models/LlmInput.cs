@@ -497,7 +497,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The level of detail for reasoning summaries. This is a string that can be one of &apos;auto&apos;, &apos;concise&apos;, or &apos;detailed&apos;. Requires verified OpenAI organization. Only sent when explicitly set.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputReasoningSummaryAnyOf1? ReasoningSummary { get => _explicitNullValueReasoningSummary; set { _explicitNullValueReasoningSummary = value; AdditionalData?.Remove("reasoning_summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_summary"); else _explicitNullProperties?.Remove("reasoning_summary"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputReasoningSummaryAnyOf1? _explicitNullValueReasoningSummary = default!;
-        /// <summary>The retry_max_wait property</summary>
+        /// <summary>Maximum retry wait in seconds. A longer provider Retry-After hint stops retries instead of retrying before the requested delay.</summary>
         public int? RetryMaxWait { get => _explicitNullValueRetryMaxWait; set { _explicitNullValueRetryMaxWait = value; AdditionalData?.Remove("retry_max_wait"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retry_max_wait"); else _explicitNullProperties?.Remove("retry_max_wait"); } }
         private int? _explicitNullValueRetryMaxWait = default!;
         /// <summary>The retry_min_wait property</summary>

@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Git.Installations.Search
         {
         }
         /// <summary>
-        /// Get user installations (GitHub apps) or equivalent for other providers.Returns a paginated list of installation IDs or workspace IDs depending on the provider.
+        /// Get user installations (GitHub apps) or equivalent for other providers.Returns a paginated list of installation IDs or workspace IDs depending on the provider.Providers without installations (e.g. GitLab) return an empty page.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.InstallationPage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Git.Installations.Search
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.InstallationPage>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.InstallationPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get user installations (GitHub apps) or equivalent for other providers.Returns a paginated list of installation IDs or workspace IDs depending on the provider.
+        /// Get user installations (GitHub apps) or equivalent for other providers.Returns a paginated list of installation IDs or workspace IDs depending on the provider.Providers without installations (e.g. GitLab) return an empty page.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -87,7 +87,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Git.Installations.Search
             return new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Git.Installations.Search.SearchRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get user installations (GitHub apps) or equivalent for other providers.Returns a paginated list of installation IDs or workspace IDs depending on the provider.
+        /// Get user installations (GitHub apps) or equivalent for other providers.Returns a paginated list of installation IDs or workspace IDs depending on the provider.Providers without installations (e.g. GitLab) return an empty page.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SearchRequestBuilderGetQueryParameters 

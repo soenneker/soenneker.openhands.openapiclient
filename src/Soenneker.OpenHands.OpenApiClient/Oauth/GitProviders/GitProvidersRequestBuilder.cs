@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Models;
+using Soenneker.OpenHands.OpenApiClient.Oauth.GitProviders.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,18 @@ namespace Soenneker.OpenHands.OpenApiClient.Oauth.GitProviders
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GitProvidersRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.oauth.gitProviders.item collection</summary>
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Oauth.GitProviders.Item.WithProviderItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenHands.OpenApiClient.Oauth.GitProviders.Item.WithProviderItemRequestBuilder this[int position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("providerId", position);
+                return new global::Soenneker.OpenHands.OpenApiClient.Oauth.GitProviders.Item.WithProviderItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Oauth.GitProviders.GitProvidersRequestBuilder"/> and sets the default values.
         /// </summary>

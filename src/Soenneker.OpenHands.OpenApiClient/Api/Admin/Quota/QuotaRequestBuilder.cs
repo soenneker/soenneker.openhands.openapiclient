@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.Quota.Orgs;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.Quota.Requests;
+using Soenneker.OpenHands.OpenApiClient.Api.Admin.Quota.Users;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -25,6 +26,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.Quota
         public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.Quota.Requests.RequestsRequestBuilder Requests
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.Quota.Requests.RequestsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The users property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.Quota.Users.UsersRequestBuilder Users
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.Quota.Users.UsersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Admin.Quota.QuotaRequestBuilder"/> and sets the default values.

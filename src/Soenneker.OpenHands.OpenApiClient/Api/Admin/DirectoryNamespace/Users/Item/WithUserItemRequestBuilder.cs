@@ -40,7 +40,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.I
         {
         }
         /// <summary>
-        /// Delete a user&apos;s account and the data they own in every organization.Refuses with ``409`` if the user is the last owner of any team org orthe last Super Admin. The account and its rows go in one transaction.The personal workspace, the LiteLLM user and the Keycloak account arethen removed best effort. Requires ``MANAGE_SUPER_ADMINS``.
+        /// Delete a user&apos;s account and the data they own in every organization.Refuses with ``409`` if the user is the last owner of any team org orthe last Super Admin, and with ``403`` for a service account: it isdeleted with its org. The account and its rows go in one transaction.The personal workspace, the LiteLLM user and the Keycloak account arethen removed best effort. Requires ``MANAGE_SUPER_ADMINS``.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResponseDeleteAdminUserApiAdminDirectoryUsersUserIdDeleteSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -92,7 +92,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.I
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesInstanceAdminAdminUserResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesInstanceAdminAdminUserResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a user&apos;s account and the data they own in every organization.Refuses with ``409`` if the user is the last owner of any team org orthe last Super Admin. The account and its rows go in one transaction.The personal workspace, the LiteLLM user and the Keycloak account arethen removed best effort. Requires ``MANAGE_SUPER_ADMINS``.
+        /// Delete a user&apos;s account and the data they own in every organization.Refuses with ``409`` if the user is the last owner of any team org orthe last Super Admin, and with ``403`` for a service account: it isdeleted with its org. The account and its rows go in one transaction.The personal workspace, the LiteLLM user and the Keycloak account arethen removed best effort. Requires ``MANAGE_SUPER_ADMINS``.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -142,7 +142,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.I
             return new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.Item.WithUserItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Delete a user&apos;s account and the data they own in every organization.Refuses with ``409`` if the user is the last owner of any team org orthe last Super Admin. The account and its rows go in one transaction.The personal workspace, the LiteLLM user and the Keycloak account arethen removed best effort. Requires ``MANAGE_SUPER_ADMINS``.
+        /// Delete a user&apos;s account and the data they own in every organization.Refuses with ``409`` if the user is the last owner of any team org orthe last Super Admin, and with ``403`` for a service account: it isdeleted with its org. The account and its rows go in one transaction.The personal workspace, the LiteLLM user and the Keycloak account arethen removed best effort. Requires ``MANAGE_SUPER_ADMINS``.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithUserItemRequestBuilderDeleteQueryParameters 

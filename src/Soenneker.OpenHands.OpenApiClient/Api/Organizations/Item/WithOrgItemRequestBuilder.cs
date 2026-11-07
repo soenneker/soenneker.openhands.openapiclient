@@ -6,11 +6,14 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Budgets;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims;
+using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.McpServers;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Me;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members;
+using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.MetaProfiles;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.ProviderConnections;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Secrets;
+using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.ServiceAccounts;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Settings;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Switch;
 using Soenneker.OpenHands.OpenApiClient.Models;
@@ -42,6 +45,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims.GitClaimsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The mcpServers property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.McpServers.McpServersRequestBuilder McpServers
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.McpServers.McpServersRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The me property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Me.MeRequestBuilder Me
         {
@@ -51,6 +59,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.MembersRequestBuilder Members
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Members.MembersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The metaProfiles property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.MetaProfiles.MetaProfilesRequestBuilder MetaProfiles
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.MetaProfiles.MetaProfilesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The profiles property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.ProfilesRequestBuilder Profiles
@@ -66,6 +79,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Secrets.SecretsRequestBuilder Secrets
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Secrets.SecretsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The serviceAccounts property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.ServiceAccounts.ServiceAccountsRequestBuilder ServiceAccounts
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.ServiceAccounts.ServiceAccountsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The settings property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Settings.SettingsRequestBuilder Settings

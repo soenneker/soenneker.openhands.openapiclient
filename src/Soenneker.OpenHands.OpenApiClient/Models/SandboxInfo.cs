@@ -22,6 +22,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
             if (parseNode.GetChildNode("created_by_user_id") is null) { _explicitNullValueCreatedByUserId = default!; _explicitNullProperties?.Remove("created_by_user_id"); }
             else if (parseNode.GetChildNode("created_by_user_id") is { } nullNodeCreatedByUserId && nullNodeCreatedByUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedByUserId = null;
+            if (parseNode.GetChildNode("credential_org_id") is null) { _explicitNullValueCredentialOrgId = default!; _explicitNullProperties?.Remove("credential_org_id"); }
+            else if (parseNode.GetChildNode("credential_org_id") is { } nullNodeCredentialOrgId && nullNodeCredentialOrgId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialOrgId = null;
             if (parseNode.GetChildNode("exposed_urls") is null) { _explicitNullValueExposedUrls = default!; _explicitNullProperties?.Remove("exposed_urls"); }
             else if (parseNode.GetChildNode("exposed_urls") is { } nullNodeExposedUrls && nullNodeExposedUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExposedUrls = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
@@ -51,6 +53,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string CreatedByUserId { get => _explicitNullValueCreatedByUserId; set { _explicitNullValueCreatedByUserId = value; AdditionalData?.Remove("created_by_user_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_by_user_id"); else _explicitNullProperties?.Remove("created_by_user_id"); } }
         private string _explicitNullValueCreatedByUserId = default!;
 #endif
+        /// <summary>The credential_org_id property</summary>
+        public Guid? CredentialOrgId { get => _explicitNullValueCredentialOrgId; set { _explicitNullValueCredentialOrgId = value; AdditionalData?.Remove("credential_org_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_org_id"); else _explicitNullProperties?.Remove("credential_org_id"); } }
+        private Guid? _explicitNullValueCredentialOrgId = default!;
         /// <summary>URLs exposed by the sandbox (App server, Vscode, etc...)Sandboxes with a status STARTING / PAUSED / ERROR may not return urls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -131,6 +136,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created_by_user_id", n => { CreatedByUserId = n.GetStringValue(); } },
+                { "credential_org_id", n => { CredentialOrgId = n.GetGuidValue(); } },
                 { "exposed_urls", n => { ExposedUrls = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ExposedUrl>(global::Soenneker.OpenHands.OpenApiClient.Models.ExposedUrl.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "sandbox_spec_id", n => { SandboxSpecId = n.GetStringValue(); } },
@@ -148,6 +154,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("created_by_user_id", CreatedByUserId);
+            writer.WriteGuidValue("credential_org_id", CredentialOrgId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ExposedUrl>("exposed_urls", ExposedUrls);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("sandbox_spec_id", SandboxSpecId);

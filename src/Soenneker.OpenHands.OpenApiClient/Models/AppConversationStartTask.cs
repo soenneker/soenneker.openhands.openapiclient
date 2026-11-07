@@ -36,6 +36,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("sandbox_id") is { } nullNodeSandboxId && nullNodeSandboxId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SandboxId = null;
             if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
             else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("title_generation") is null) { _explicitNullValueTitleGeneration = default!; _explicitNullProperties?.Remove("title_generation"); }
+            else if (parseNode.GetChildNode("title_generation") is { } nullNodeTitleGeneration && nullNodeTitleGeneration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TitleGeneration = null;
             if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
             else if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
         }
@@ -118,6 +120,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The status property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskStatus? _explicitNullValueStatus = default!;
+        /// <summary>The title_generation property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskTitleGeneration? TitleGeneration { get => _explicitNullValueTitleGeneration; set { _explicitNullValueTitleGeneration = value; AdditionalData?.Remove("title_generation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title_generation"); else _explicitNullProperties?.Remove("title_generation"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskTitleGeneration? _explicitNullValueTitleGeneration = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskTitleGeneration TitleGeneration { get => _explicitNullValueTitleGeneration; set { _explicitNullValueTitleGeneration = value; AdditionalData?.Remove("title_generation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title_generation"); else _explicitNullProperties?.Remove("title_generation"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskTitleGeneration _explicitNullValueTitleGeneration = default!;
+#endif
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
         private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
@@ -156,6 +168,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "request", n => { Request = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestOutput.CreateFromDiscriminatorValue); } },
                 { "sandbox_id", n => { SandboxId = n.GetStringValue(); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
+                { "title_generation", n => { TitleGeneration = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskTitleGeneration>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskTitleGeneration.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -175,6 +188,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestOutput>("request", Request);
             writer.WriteStringValue("sandbox_id", SandboxId);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskStatus>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskTitleGeneration>("title_generation", TitleGeneration);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

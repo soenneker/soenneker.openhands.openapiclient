@@ -22,6 +22,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("active_agent_profile_id") is { } nullNodeActiveAgentProfileId && nullNodeActiveAgentProfileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveAgentProfileId = null;
             if (parseNode.GetChildNode("active_agent_profile_revision") is null) { _explicitNullValueActiveAgentProfileRevision = default!; _explicitNullProperties?.Remove("active_agent_profile_revision"); }
             else if (parseNode.GetChildNode("active_agent_profile_revision") is { } nullNodeActiveAgentProfileRevision && nullNodeActiveAgentProfileRevision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveAgentProfileRevision = null;
+            if (parseNode.GetChildNode("active_agent_profile_scope") is null) { _explicitNullValueActiveAgentProfileScope = default!; _explicitNullProperties?.Remove("active_agent_profile_scope"); }
+            else if (parseNode.GetChildNode("active_agent_profile_scope") is { } nullNodeActiveAgentProfileScope && nullNodeActiveAgentProfileScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveAgentProfileScope = null;
+            if (parseNode.GetChildNode("active_agent_profile_secret_refs") is null) { _explicitNullValueActiveAgentProfileSecretRefs = default!; _explicitNullProperties?.Remove("active_agent_profile_secret_refs"); }
+            else if (parseNode.GetChildNode("active_agent_profile_secret_refs") is { } nullNodeActiveAgentProfileSecretRefs && nullNodeActiveAgentProfileSecretRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveAgentProfileSecretRefs = null;
             if (parseNode.GetChildNode("agent_settings") is null) { _explicitNullValueAgentSettings = default!; _explicitNullProperties?.Remove("agent_settings"); }
             else if (parseNode.GetChildNode("agent_settings") is { } nullNodeAgentSettings && nullNodeAgentSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentSettings = null;
             if (parseNode.GetChildNode("conversation_settings") is null) { _explicitNullValueConversationSettings = default!; _explicitNullProperties?.Remove("conversation_settings"); }
@@ -58,6 +62,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("max_budget_per_task") is { } nullNodeMaxBudgetPerTask && nullNodeMaxBudgetPerTask.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxBudgetPerTask = null;
             if (parseNode.GetChildNode("memory_context") is null) { _explicitNullValueMemoryContext = default!; _explicitNullProperties?.Remove("memory_context"); }
             else if (parseNode.GetChildNode("memory_context") is { } nullNodeMemoryContext && nullNodeMemoryContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemoryContext = null;
+            if (parseNode.GetChildNode("org_user_managed_mcp_server_names") is null) { _explicitNullValueOrgUserManagedMcpServerNames = default!; _explicitNullProperties?.Remove("org_user_managed_mcp_server_names"); }
+            else if (parseNode.GetChildNode("org_user_managed_mcp_server_names") is { } nullNodeOrgUserManagedMcpServerNames && nullNodeOrgUserManagedMcpServerNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrgUserManagedMcpServerNames = null;
             if (parseNode.GetChildNode("provider_tokens_set") is null) { _explicitNullValueProviderTokensSet = default!; _explicitNullProperties?.Remove("provider_tokens_set"); }
             else if (parseNode.GetChildNode("provider_tokens_set") is { } nullNodeProviderTokensSet && nullNodeProviderTokensSet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderTokensSet = null;
             if (parseNode.GetChildNode("registered_marketplaces") is null) { _explicitNullValueRegisteredMarketplaces = default!; _explicitNullProperties?.Remove("registered_marketplaces"); }
@@ -101,6 +107,26 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The active_agent_profile_revision property</summary>
         public int? ActiveAgentProfileRevision { get => _explicitNullValueActiveAgentProfileRevision; set { _explicitNullValueActiveAgentProfileRevision = value; AdditionalData?.Remove("active_agent_profile_revision"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_agent_profile_revision"); else _explicitNullProperties?.Remove("active_agent_profile_revision"); } }
         private int? _explicitNullValueActiveAgentProfileRevision = default!;
+        /// <summary>The active_agent_profile_scope property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelActiveAgentProfileScope? ActiveAgentProfileScope { get => _explicitNullValueActiveAgentProfileScope; set { _explicitNullValueActiveAgentProfileScope = value; AdditionalData?.Remove("active_agent_profile_scope"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_agent_profile_scope"); else _explicitNullProperties?.Remove("active_agent_profile_scope"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelActiveAgentProfileScope? _explicitNullValueActiveAgentProfileScope = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelActiveAgentProfileScope ActiveAgentProfileScope { get => _explicitNullValueActiveAgentProfileScope; set { _explicitNullValueActiveAgentProfileScope = value; AdditionalData?.Remove("active_agent_profile_scope"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_agent_profile_scope"); else _explicitNullProperties?.Remove("active_agent_profile_scope"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelActiveAgentProfileScope _explicitNullValueActiveAgentProfileScope = default!;
+#endif
+        /// <summary>The active_agent_profile_secret_refs property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? ActiveAgentProfileSecretRefs { get => _explicitNullValueActiveAgentProfileSecretRefs; set { _explicitNullValueActiveAgentProfileSecretRefs = value; AdditionalData?.Remove("active_agent_profile_secret_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_agent_profile_secret_refs"); else _explicitNullProperties?.Remove("active_agent_profile_secret_refs"); } }
+        private List<string>? _explicitNullValueActiveAgentProfileSecretRefs = default!;
+#nullable restore
+#else
+        public List<string> ActiveAgentProfileSecretRefs { get => _explicitNullValueActiveAgentProfileSecretRefs; set { _explicitNullValueActiveAgentProfileSecretRefs = value; AdditionalData?.Remove("active_agent_profile_secret_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_agent_profile_secret_refs"); else _explicitNullProperties?.Remove("active_agent_profile_secret_refs"); } }
+        private List<string> _explicitNullValueActiveAgentProfileSecretRefs = default!;
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The agent_settings property</summary>
@@ -234,6 +260,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string MemoryContext { get => _explicitNullValueMemoryContext; set { _explicitNullValueMemoryContext = value; AdditionalData?.Remove("memory_context"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_context"); else _explicitNullProperties?.Remove("memory_context"); } }
         private string _explicitNullValueMemoryContext = default!;
 #endif
+        /// <summary>The org_user_managed_mcp_server_names property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? OrgUserManagedMcpServerNames { get => _explicitNullValueOrgUserManagedMcpServerNames; set { _explicitNullValueOrgUserManagedMcpServerNames = value; AdditionalData?.Remove("org_user_managed_mcp_server_names"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_user_managed_mcp_server_names"); else _explicitNullProperties?.Remove("org_user_managed_mcp_server_names"); } }
+        private List<string>? _explicitNullValueOrgUserManagedMcpServerNames = default!;
+#nullable restore
+#else
+        public List<string> OrgUserManagedMcpServerNames { get => _explicitNullValueOrgUserManagedMcpServerNames; set { _explicitNullValueOrgUserManagedMcpServerNames = value; AdditionalData?.Remove("org_user_managed_mcp_server_names"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_user_managed_mcp_server_names"); else _explicitNullProperties?.Remove("org_user_managed_mcp_server_names"); } }
+        private List<string> _explicitNullValueOrgUserManagedMcpServerNames = default!;
+#endif
         /// <summary>The provider_tokens_set property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -365,6 +401,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "active_agent_profile_id", n => { ActiveAgentProfileId = n.GetStringValue(); } },
                 { "active_agent_profile_revision", n => { ActiveAgentProfileRevision = n.GetIntValue(); } },
+                { "active_agent_profile_scope", n => { ActiveAgentProfileScope = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelActiveAgentProfileScope>(global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelActiveAgentProfileScope.CreateFromDiscriminatorValue); } },
+                { "active_agent_profile_secret_refs", n => { ActiveAgentProfileSecretRefs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "agent_settings", n => { AgentSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelAgentSettingsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelAgentSettingsProperty.CreateFromDiscriminatorValue); } },
                 { "conversation_settings", n => { ConversationSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings.CreateFromDiscriminatorValue); } },
                 { "default_sandbox_spec_id", n => { DefaultSandboxSpecId = n.GetStringValue(); } },
@@ -383,6 +421,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "llm_profiles", n => { LlmProfiles = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmProfiles>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmProfiles.CreateFromDiscriminatorValue); } },
                 { "max_budget_per_task", n => { MaxBudgetPerTask = n.GetDoubleValue(); } },
                 { "memory_context", n => { MemoryContext = n.GetStringValue(); } },
+                { "org_user_managed_mcp_server_names", n => { OrgUserManagedMcpServerNames = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "provider_tokens_set", n => { ProviderTokensSet = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelProviderTokensSet>(global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelProviderTokensSet.CreateFromDiscriminatorValue); } },
                 { "registered_marketplaces", n => { RegisteredMarketplaces = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "remote_runtime_resource_factor", n => { RemoteRuntimeResourceFactor = n.GetIntValue(); } },
@@ -408,6 +447,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("active_agent_profile_id", ActiveAgentProfileId);
             writer.WriteIntValue("active_agent_profile_revision", ActiveAgentProfileRevision);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelActiveAgentProfileScope>("active_agent_profile_scope", ActiveAgentProfileScope);
+            writer.WriteCollectionOfPrimitiveValues<string>("active_agent_profile_secret_refs", ActiveAgentProfileSecretRefs);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelAgentSettingsProperty>("agent_settings", AgentSettings);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings>("conversation_settings", ConversationSettings);
             writer.WriteStringValue("default_sandbox_spec_id", DefaultSandboxSpecId);
@@ -426,6 +467,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmProfiles>("llm_profiles", LlmProfiles);
             writer.WriteDoubleValue("max_budget_per_task", MaxBudgetPerTask);
             writer.WriteStringValue("memory_context", MemoryContext);
+            writer.WriteCollectionOfPrimitiveValues<string>("org_user_managed_mcp_server_names", OrgUserManagedMcpServerNames);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GetSettingsModelProviderTokensSet>("provider_tokens_set", ProviderTokensSet);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAppServerSettingsSettingsModelsMarketplaceRegistration>("registered_marketplaces", RegisteredMarketplaces);
             writer.WriteIntValue("remote_runtime_resource_factor", RemoteRuntimeResourceFactor);

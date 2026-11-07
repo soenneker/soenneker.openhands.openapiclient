@@ -3,6 +3,8 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.ApiKeys;
+using Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.Membership;
+using Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.SecretLookups;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +21,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item
         public global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.ApiKeys.ApiKeysRequestBuilder ApiKeys
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.ApiKeys.ApiKeysRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The membership property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.Membership.MembershipRequestBuilder Membership
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.Membership.MembershipRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The secretLookups property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.SecretLookups.SecretLookupsRequestBuilder SecretLookups
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.SecretLookups.SecretLookupsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.Item.Orgs.Item.WithOrgItemRequestBuilder"/> and sets the default values.

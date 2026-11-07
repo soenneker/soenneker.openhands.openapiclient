@@ -17,6 +17,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("acp_available_models") is null) { _explicitNullValueAcpAvailableModels = default!; _explicitNullProperties?.Remove("acp_available_models"); }
+            else if (parseNode.GetChildNode("acp_available_models") is { } nullNodeAcpAvailableModels && nullNodeAcpAvailableModels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpAvailableModels = null;
+            if (parseNode.GetChildNode("acp_supports_runtime_model_switch") is null) { _explicitNullValueAcpSupportsRuntimeModelSwitch = default!; _explicitNullProperties?.Remove("acp_supports_runtime_model_switch"); }
+            else if (parseNode.GetChildNode("acp_supports_runtime_model_switch") is { } nullNodeAcpSupportsRuntimeModelSwitch && nullNodeAcpSupportsRuntimeModelSwitch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpSupportsRuntimeModelSwitch = null;
+            if (parseNode.GetChildNode("additional_repositories") is null) { _explicitNullValueAdditionalRepositories = default!; _explicitNullProperties?.Remove("additional_repositories"); }
+            else if (parseNode.GetChildNode("additional_repositories") is { } nullNodeAdditionalRepositories && nullNodeAdditionalRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdditionalRepositories = null;
             if (parseNode.GetChildNode("agent_kind") is null) { _explicitNullValueAgentKind = default!; _explicitNullProperties?.Remove("agent_kind"); }
             else if (parseNode.GetChildNode("agent_kind") is { } nullNodeAgentKind && nullNodeAgentKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentKind = null;
             if (parseNode.GetChildNode("conversation_ui_url") is null) { _explicitNullValueConversationUiUrl = default!; _explicitNullProperties?.Remove("conversation_ui_url"); }
@@ -43,6 +49,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("pr_number") is { } nullNodePrNumber && nullNodePrNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrNumber = null;
             if (parseNode.GetChildNode("public") is null) { _explicitNullValuePublic = default!; _explicitNullProperties?.Remove("public"); }
             else if (parseNode.GetChildNode("public") is { } nullNodePublic && nullNodePublic.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Public = null;
+            if (parseNode.GetChildNode("pull_requests") is null) { _explicitNullValuePullRequests = default!; _explicitNullProperties?.Remove("pull_requests"); }
+            else if (parseNode.GetChildNode("pull_requests") is { } nullNodePullRequests && nullNodePullRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequests = null;
             if (parseNode.GetChildNode("sandbox_id") is null) { _explicitNullValueSandboxId = default!; _explicitNullProperties?.Remove("sandbox_id"); }
             else if (parseNode.GetChildNode("sandbox_id") is { } nullNodeSandboxId && nullNodeSandboxId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SandboxId = null;
             if (parseNode.GetChildNode("sandbox_status") is null) { _explicitNullValueSandboxStatus = default!; _explicitNullProperties?.Remove("sandbox_status"); }
@@ -59,12 +67,24 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
             if (parseNode.GetChildNode("title") is null) { _explicitNullValueTitle = default!; _explicitNullProperties?.Remove("title"); }
             else if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
+            if (parseNode.GetChildNode("title_generation") is null) { _explicitNullValueTitleGeneration = default!; _explicitNullProperties?.Remove("title_generation"); }
+            else if (parseNode.GetChildNode("title_generation") is { } nullNodeTitleGeneration && nullNodeTitleGeneration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TitleGeneration = null;
             if (parseNode.GetChildNode("trigger") is null) { _explicitNullValueTrigger = default!; _explicitNullProperties?.Remove("trigger"); }
             else if (parseNode.GetChildNode("trigger") is { } nullNodeTrigger && nullNodeTrigger.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Trigger = null;
             if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
             else if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
         }
 
+        /// <summary>Models the ACP session reported it offers under its credentials. Empty for OpenHands agents, while the sandbox is not RUNNING, and until the session has started.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo>? AcpAvailableModels { get => _explicitNullValueAcpAvailableModels; set { _explicitNullValueAcpAvailableModels = value; AdditionalData?.Remove("acp_available_models"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_available_models"); else _explicitNullProperties?.Remove("acp_available_models"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo>? _explicitNullValueAcpAvailableModels = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo> AcpAvailableModels { get => _explicitNullValueAcpAvailableModels; set { _explicitNullValueAcpAvailableModels = value; AdditionalData?.Remove("acp_available_models"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_available_models"); else _explicitNullProperties?.Remove("acp_available_models"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo> _explicitNullValueAcpAvailableModels = default!;
+#endif
         /// <summary>Active ACP provider key (&apos;claude-code&apos;, &apos;codex&apos;, &apos;gemini-cli&apos;), else None.A typed projection of the ``acpserver`` tag (same as agent-canvas) sothe conversation UI can resolve a provider brand label without a dedicatedcolumn. Riding the tag keeps a single source of truth thatround-trips through the DB ``tags`` column for free. Gated on``agent_kind`` so a stray tag never reports a provider for an OpenHandsconversation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,8 +93,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string AcpServer { get; private set; }
 #endif
+        /// <summary>Whether the ACP session accepts a model switch mid-conversation.</summary>
+        public bool? AcpSupportsRuntimeModelSwitch { get => _explicitNullValueAcpSupportsRuntimeModelSwitch; set { _explicitNullValueAcpSupportsRuntimeModelSwitch = value; AdditionalData?.Remove("acp_supports_runtime_model_switch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_supports_runtime_model_switch"); else _explicitNullProperties?.Remove("acp_supports_runtime_model_switch"); } }
+        private bool? _explicitNullValueAcpSupportsRuntimeModelSwitch = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The additional_repositories property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AdditionalRepository>? AdditionalRepositories { get => _explicitNullValueAdditionalRepositories; set { _explicitNullValueAdditionalRepositories = value; AdditionalData?.Remove("additional_repositories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_repositories"); else _explicitNullProperties?.Remove("additional_repositories"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AdditionalRepository>? _explicitNullValueAdditionalRepositories = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AdditionalRepository> AdditionalRepositories { get => _explicitNullValueAdditionalRepositories; set { _explicitNullValueAdditionalRepositories = value; AdditionalData?.Remove("additional_repositories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_repositories"); else _explicitNullProperties?.Remove("additional_repositories"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AdditionalRepository> _explicitNullValueAdditionalRepositories = default!;
+#endif
         /// <summary>The agent_kind property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -185,6 +218,24 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The public property</summary>
         public bool? Public { get => _explicitNullValuePublic; set { _explicitNullValuePublic = value; AdditionalData?.Remove("public"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public"); else _explicitNullProperties?.Remove("public"); } }
         private bool? _explicitNullValuePublic = default!;
+        /// <summary>The pull_requests property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationPullRequest>? PullRequests { get => _explicitNullValuePullRequests; set { _explicitNullValuePullRequests = value; AdditionalData?.Remove("pull_requests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_requests"); else _explicitNullProperties?.Remove("pull_requests"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationPullRequest>? _explicitNullValuePullRequests = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationPullRequest> PullRequests { get => _explicitNullValuePullRequests; set { _explicitNullValuePullRequests = value; AdditionalData?.Remove("pull_requests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_requests"); else _explicitNullProperties?.Remove("pull_requests"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationPullRequest> _explicitNullValuePullRequests = default!;
+#endif
+        /// <summary>Every repository of the conversation in order, the primary first.Read this instead of combining ``selected_repository`` with``additional_repositories``.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRepository>? Repositories { get; private set; }
+#nullable restore
+#else
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRepository> Repositories { get; private set; }
+#endif
         /// <summary>The sandbox_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -258,6 +309,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; AdditionalData?.Remove("title"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
         private string _explicitNullValueTitle = default!;
 #endif
+        /// <summary>The title_generation property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskTitleGeneration? TitleGeneration { get => _explicitNullValueTitleGeneration; set { _explicitNullValueTitleGeneration = value; AdditionalData?.Remove("title_generation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title_generation"); else _explicitNullProperties?.Remove("title_generation"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskTitleGeneration? _explicitNullValueTitleGeneration = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskTitleGeneration TitleGeneration { get => _explicitNullValueTitleGeneration; set { _explicitNullValueTitleGeneration = value; AdditionalData?.Remove("title_generation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title_generation"); else _explicitNullProperties?.Remove("title_generation"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskTitleGeneration _explicitNullValueTitleGeneration = default!;
+#endif
         /// <summary>The trigger property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTrigger? Trigger { get => _explicitNullValueTrigger; set { _explicitNullValueTrigger = value; AdditionalData?.Remove("trigger"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger"); else _explicitNullProperties?.Remove("trigger"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTrigger? _explicitNullValueTrigger = default!;
@@ -270,6 +331,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public ResponseBatchGetAppConversationsApiV1AppConversationsGetItem()
         {
             AdditionalData = new Dictionary<string, object>();
+            AcpSupportsRuntimeModelSwitch = false;
             AgentKind = "openhands";
             SandboxStatus = global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStatus.Missing;
         }
@@ -293,7 +355,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "acp_available_models", n => { AcpAvailableModels = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "acp_server", n => { AcpServer = n.GetStringValue(); } },
+                { "acp_supports_runtime_model_switch", n => { AcpSupportsRuntimeModelSwitch = n.GetBoolValue(); } },
+                { "additional_repositories", n => { AdditionalRepositories = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AdditionalRepository>(global::Soenneker.OpenHands.OpenApiClient.Models.AdditionalRepository.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "agent_kind", n => { AgentKind = n.GetStringValue(); } },
                 { "conversation_ui_url", n => { ConversationUiUrl = n.GetStringValue(); } },
                 { "conversation_url", n => { ConversationUrl = n.GetStringValue(); } },
@@ -308,6 +373,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "parent_conversation_id", n => { ParentConversationId = n.GetStringValue(); } },
                 { "pr_number", n => { PrNumber = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "public", n => { Public = n.GetBoolValue(); } },
+                { "pull_requests", n => { PullRequests = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationPullRequest>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationPullRequest.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "repositories", n => { Repositories = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRepository>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationRepository.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "sandbox_id", n => { SandboxId = n.GetStringValue(); } },
                 { "sandbox_status", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSandboxStatus = default; _explicitNullProperties?.Remove("sandbox_status"); AdditionalData["sandbox_status"] = unknown; } else { SandboxStatus = parsed; AdditionalData.Remove("sandbox_status"); } } },
                 { "selected_branch", n => { SelectedBranch = n.GetStringValue(); } },
@@ -316,6 +383,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "sub_conversation_ids", n => { SubConversationIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationTagsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationTagsProperty.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
+                { "title_generation", n => { TitleGeneration = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskTitleGeneration>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskTitleGeneration.CreateFromDiscriminatorValue); } },
                 { "trigger", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTrigger>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTrigger = default; _explicitNullProperties?.Remove("trigger"); AdditionalData["trigger"] = unknown; } else { Trigger = parsed; AdditionalData.Remove("trigger"); } } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -327,6 +395,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo>("acp_available_models", AcpAvailableModels);
+            writer.WriteBoolValue("acp_supports_runtime_model_switch", AcpSupportsRuntimeModelSwitch);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AdditionalRepository>("additional_repositories", AdditionalRepositories);
             writer.WriteStringValue("agent_kind", AgentKind);
             writer.WriteStringValue("conversation_ui_url", ConversationUiUrl);
             writer.WriteStringValue("conversation_url", ConversationUrl);
@@ -340,6 +411,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("parent_conversation_id", ParentConversationId);
             writer.WriteCollectionOfPrimitiveValues<int?>("pr_number", PrNumber);
             writer.WriteBoolValue("public", Public);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationPullRequest>("pull_requests", PullRequests);
             writer.WriteStringValue("sandbox_id", SandboxId);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStatus>("sandbox_status", SandboxStatus);
             writer.WriteStringValue("selected_branch", SelectedBranch);
@@ -348,6 +420,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("sub_conversation_ids", SubConversationIds);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationTagsProperty>("tags", Tags);
             writer.WriteStringValue("title", Title);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartTaskTitleGeneration>("title_generation", TitleGeneration);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationTrigger>("trigger", Trigger);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

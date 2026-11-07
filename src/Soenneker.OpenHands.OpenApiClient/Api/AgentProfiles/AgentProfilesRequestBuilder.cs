@@ -47,7 +47,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles
         {
         }
         /// <summary>
-        /// List agent profiles and the effective active pointer for this member.No implicit writes: an org with no profiles yet just returns an emptylist. Profile creation is always an explicit ``save_agent_profile`` call(``EDIT_ORG_SETTINGS``).
+        /// List agent profiles and the effective active pointer for this member.Returns the member&apos;s personal profiles followed by the org&apos;s shared ones,each summary tagged with its ``scope``. No implicit writes: an org with noprofiles yet just returns an empty list. Profile creation is always anexplicit ``save_agent_profile`` call.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileListResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.AgentProfileListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List agent profiles and the effective active pointer for this member.No implicit writes: an org with no profiles yet just returns an emptylist. Profile creation is always an explicit ``save_agent_profile`` call(``EDIT_ORG_SETTINGS``).
+        /// List agent profiles and the effective active pointer for this member.Returns the member&apos;s personal profiles followed by the org&apos;s shared ones,each summary tagged with its ``scope``. No implicit writes: an org with noprofiles yet just returns an empty list. Profile creation is always anexplicit ``save_agent_profile`` call.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -100,7 +100,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles
             return new global::Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles.AgentProfilesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List agent profiles and the effective active pointer for this member.No implicit writes: an org with no profiles yet just returns an emptylist. Profile creation is always an explicit ``save_agent_profile`` call(``EDIT_ORG_SETTINGS``).
+        /// List agent profiles and the effective active pointer for this member.Returns the member&apos;s personal profiles followed by the org&apos;s shared ones,each summary tagged with its ``scope``. No implicit writes: an org with noprofiles yet just returns an empty list. Profile creation is always anexplicit ``save_agent_profile`` call.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AgentProfilesRequestBuilderGetQueryParameters 

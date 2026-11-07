@@ -36,6 +36,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("agent_kind") is { } nullNodeAgentKind && nullNodeAgentKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentKind = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("integration_refs") is null) { _explicitNullValueIntegrationRefs = default!; _explicitNullProperties?.Remove("integration_refs"); }
+            else if (parseNode.GetChildNode("integration_refs") is { } nullNodeIntegrationRefs && nullNodeIntegrationRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IntegrationRefs = null;
             if (parseNode.GetChildNode("mcp_server_refs") is null) { _explicitNullValueMcpServerRefs = default!; _explicitNullProperties?.Remove("mcp_server_refs"); }
             else if (parseNode.GetChildNode("mcp_server_refs") is { } nullNodeMcpServerRefs && nullNodeMcpServerRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpServerRefs = null;
             if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
@@ -103,6 +105,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Stable provenance handle for this profile. Conversations record this UUID; it never changes, even when the profile is renamed.</summary>
         public Guid? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private Guid? _explicitNullValueId = default!;
+        /// <summary>Which of the user&apos;s connected built-in integrations to expose to this agent. null = all; [] = none; a non-null list = filter to the named integrations.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? IntegrationRefs { get => _explicitNullValueIntegrationRefs; set { _explicitNullValueIntegrationRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration_refs"); else _explicitNullProperties?.Remove("integration_refs"); } }
+        private List<string>? _explicitNullValueIntegrationRefs = default!;
+#nullable restore
+#else
+        public List<string> IntegrationRefs { get => _explicitNullValueIntegrationRefs; set { _explicitNullValueIntegrationRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration_refs"); else _explicitNullProperties?.Remove("integration_refs"); } }
+        private List<string> _explicitNullValueIntegrationRefs = default!;
+#endif
         /// <summary>Which of the user&apos;s globally configured MCP servers to expose. null = all; [] = none; a non-null list = filter to the named keys.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -176,6 +188,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "acp_startup_timeout", n => { AcpStartupTimeout = n.GetDoubleValue(); } },
                 { "agent_kind", n => { AgentKind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileAgentKind>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
+                { "integration_refs", n => { IntegrationRefs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "mcp_server_refs", n => { McpServerRefs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "revision", n => { Revision = n.GetIntValue(); } },
@@ -199,6 +212,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteDoubleValue("acp_startup_timeout", AcpStartupTimeout);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileAgentKind>("agent_kind", AgentKind);
             writer.WriteGuidValue("id", Id);
+            writer.WriteCollectionOfPrimitiveValues<string>("integration_refs", IntegrationRefs);
             writer.WriteCollectionOfPrimitiveValues<string>("mcp_server_refs", McpServerRefs);
             writer.WriteStringValue("name", Name);
             writer.WriteIntValue("revision", Revision);

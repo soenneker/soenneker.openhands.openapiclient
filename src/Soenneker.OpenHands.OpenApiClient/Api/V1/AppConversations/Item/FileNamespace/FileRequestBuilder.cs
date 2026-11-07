@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.FileNam
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FileRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/{conversationId}/file{?file_path*}", pathParameters)
+        public FileRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/{conversationId}/file{?file_path*,repository*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,11 +30,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.FileNam
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FileRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/{conversationId}/file{?file_path*}", rawUrl)
+        public FileRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/app-conversations/{conversationId}/file{?file_path*,repository*}", rawUrl)
         {
         }
         /// <summary>
-        /// Read a file from a specific conversation&apos;s sandbox workspace.Returns the content of the file at the specified path if it exists, otherwise returns an empty string.Args:    conversation_id: The UUID of the conversation    file_path: Path to the file to read within the sandbox workspaceReturns:    The content of the file or an empty string if the file doesn&apos;t exist
+        /// Read a file from a specific conversation&apos;s sandbox workspace.Returns the content of the file at the specified path if it exists, otherwise returns an empty string.Args:    conversation_id: The UUID of the conversation    file_path: Path to the file to read within the sandbox workspace    repository: Folder name of the repository the path is relative to;        the primary repository by defaultReturns:    The content of the file or an empty string if the file doesn&apos;t exist
         /// </summary>
         /// <returns>A <see cref="string"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.FileNam
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Read a file from a specific conversation&apos;s sandbox workspace.Returns the content of the file at the specified path if it exists, otherwise returns an empty string.Args:    conversation_id: The UUID of the conversation    file_path: Path to the file to read within the sandbox workspaceReturns:    The content of the file or an empty string if the file doesn&apos;t exist
+        /// Read a file from a specific conversation&apos;s sandbox workspace.Returns the content of the file at the specified path if it exists, otherwise returns an empty string.Args:    conversation_id: The UUID of the conversation    file_path: Path to the file to read within the sandbox workspace    repository: Folder name of the repository the path is relative to;        the primary repository by defaultReturns:    The content of the file or an empty string if the file doesn&apos;t exist
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -87,7 +87,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.FileNam
             return new global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.FileNamespace.FileRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Read a file from a specific conversation&apos;s sandbox workspace.Returns the content of the file at the specified path if it exists, otherwise returns an empty string.Args:    conversation_id: The UUID of the conversation    file_path: Path to the file to read within the sandbox workspaceReturns:    The content of the file or an empty string if the file doesn&apos;t exist
+        /// Read a file from a specific conversation&apos;s sandbox workspace.Returns the content of the file at the specified path if it exists, otherwise returns an empty string.Args:    conversation_id: The UUID of the conversation    file_path: Path to the file to read within the sandbox workspace    repository: Folder name of the repository the path is relative to;        the primary repository by defaultReturns:    The content of the file or an empty string if the file doesn&apos;t exist
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class FileRequestBuilderGetQueryParameters 
@@ -104,6 +104,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.FileNam
             [QueryParameter("file_path")]
             public string FilePath { get; set; }
             #pragma warning restore CS1591
+#endif
+            /// <summary>Folder name of the repository to read, as returned in the conversation&apos;s ``repositories[].folder``. Defaults to the primary repository, or the working folder when there is none.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("repository")]
+            public string? Repository { get; set; }
+#nullable restore
+#else
+            [QueryParameter("repository")]
+            public string Repository { get; set; }
 #endif
         }
     }

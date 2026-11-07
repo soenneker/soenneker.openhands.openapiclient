@@ -46,7 +46,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.Item
         {
         }
         /// <summary>
-        /// Delete an LLM profile.Blocked with 409 if any of the org&apos;s Agent Profiles still reference this LLMprofile by ``llm_profile_ref`` (the SDK ``find_referrers`` FK guard) — bothcollections live on the same org row, so the ``SELECT ... FOR UPDATE`` lockmakes the referrer check and the delete atomic.
+        /// Delete an LLM profile.Blocked with 409 if any of the org&apos;s Agent Profiles still reference this LLMprofile by ``llm_profile_ref`` (the SDK ``find_referrers`` FK guard), or ifa Model Router names it as classifier or class target — all collectionslive on the same org row, so the ``SELECT ... FOR UPDATE`` lock makes thereferrer checks and the delete atomic. Members&apos; personal Agent Profiles(``org_member.agent_profiles``) are checked the same way under their rowlocks; the 409 reports only how many members reference it, since an admincannot see or repoint their profiles.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileMutationResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -123,7 +123,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Profiles.Item
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileMutationResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesOrgProfilesProfileMutationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete an LLM profile.Blocked with 409 if any of the org&apos;s Agent Profiles still reference this LLMprofile by ``llm_profile_ref`` (the SDK ``find_referrers`` FK guard) — bothcollections live on the same org row, so the ``SELECT ... FOR UPDATE`` lockmakes the referrer check and the delete atomic.
+        /// Delete an LLM profile.Blocked with 409 if any of the org&apos;s Agent Profiles still reference this LLMprofile by ``llm_profile_ref`` (the SDK ``find_referrers`` FK guard), or ifa Model Router names it as classifier or class target — all collectionslive on the same org row, so the ``SELECT ... FOR UPDATE`` lock makes thereferrer checks and the delete atomic. Members&apos; personal Agent Profiles(``org_member.agent_profiles``) are checked the same way under their rowlocks; the 409 reports only how many members reference it, since an admincannot see or repoint their profiles.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

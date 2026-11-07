@@ -28,7 +28,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Workspace isolation for the child. &apos;worktree&apos; runs it in a git worktree carved from the parent&apos;s workspace when that workspace is a git repository; &apos;shared&apos; runs it in the parent&apos;s directory. Backends that manage workspaces themselves may ignore this.</summary>
+        /// <summary>Workspace isolation for the child. &apos;worktree&apos; runs it in a git worktree carved from the parent&apos;s workspace when that workspace is a git repository with a usable base commit; otherwise it shares the parent&apos;s directory. &apos;shared&apos; always uses the parent&apos;s directory. Backends that manage workspaces themselves may ignore this.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationRequestIsolation? Isolation { get => _explicitNullValueIsolation; set { _explicitNullValueIsolation = value; AdditionalData?.Remove("isolation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isolation"); else _explicitNullProperties?.Remove("isolation"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.StartChildConversationRequestIsolation? _explicitNullValueIsolation = default!;
         /// <summary>Self-contained brief delivered to the child as its first user message.</summary>

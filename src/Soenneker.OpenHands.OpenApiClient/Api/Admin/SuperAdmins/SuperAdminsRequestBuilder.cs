@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.AllowMatchByEmail;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.Item;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.Me;
 using Soenneker.OpenHands.OpenApiClient.Models;
@@ -20,11 +19,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SuperAdminsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The allowMatchByEmail property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.AllowMatchByEmail.AllowMatchByEmailRequestBuilder AllowMatchByEmail
-        {
-            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.AllowMatchByEmail.AllowMatchByEmailRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The me property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.Me.MeRequestBuilder Me
         {
