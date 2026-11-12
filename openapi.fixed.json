@@ -3,7 +3,7 @@
   "info": {
     "title": "OpenHands",
     "description": "OpenHands: Code Less, Make More",
-    "version": "1.87.1"
+    "version": "1.91.0"
   },
   "paths": {
     "/api/v1/conversation/{conversationId}/events/search": {
@@ -7389,7 +7389,7 @@
           "Orgs"
         ],
         "summary": "Create Org",
-        "description": "Create a new organization.\n\nThis endpoint allows authenticated users that hold the\n\u0060\u0060CREATE_ORGANIZATION\u0060\u0060 permission to create a new organization. In\npractice this permission is only granted via the \u0060\u0060superadmin\u0060\u0060\nrole; no regular,\norg-scoped role carries it. When \u0060\u0060owner_user_id\u0060\u0060 is given, that user\n(the caller or an existing user) becomes the organization\u0027s owner.\nOtherwise the creator is not automatically added as a member; a\nsuperadmin can provision the initial org users separately.\n\nArgs:\n    org_data: Organization creation data\n    user_id: Authenticated user ID (injected by \u0060\u0060require_permission\u0060\u0060)\n\nReturns:\n    OrgResponse: The created organization details\n\nRaises:\n    HTTPException: 401 if the user is not authenticated\n    HTTPException: 403 if the user lacks \u0060\u0060CREATE_ORGANIZATION\u0060\u0060\n    HTTPException: 404 if \u0060\u0060owner_user_id\u0060\u0060 does not match an existing user\n    HTTPException: 409 if organization name already exists\n    HTTPException: 500 if creation fails",
+        "description": "Create a new organization.\n\nThis endpoint allows authenticated users that hold the\n\u0060\u0060CREATE_ORGANIZATION\u0060\u0060 permission to create a new organization. In\npractice this permission is only granted via the \u0060\u0060superadmin\u0060\u0060\nrole; no regular,\norg-scoped role carries it. When \u0060\u0060owner_user_id\u0060\u0060 is given, that user\n(the caller or an existing user) becomes the organization\u0027s owner.\nOtherwise the creator is not automatically added as a member; a\nsuperadmin can provision the initial org users separately.\n\nArgs:\n    org_data: Organization creation data\n    user_id: Authenticated user ID (injected by \u0060\u0060require_permission\u0060\u0060)\n\nReturns:\n    OrgResponse: The created organization details\n\nRaises:\n    HTTPException: 401 if the user is not authenticated\n    HTTPException: 403 if the user lacks \u0060\u0060CREATE_ORGANIZATION\u0060\u0060\n    HTTPException: 403 if the install has reached its licensed number of\n        organizations\n    HTTPException: 404 if \u0060\u0060owner_user_id\u0060\u0060 does not match an existing user\n    HTTPException: 409 if organization name already exists\n    HTTPException: 500 if creation fails",
         "operationId": "CreateOrgApiOrganizationsPost",
         "parameters": [
           {
@@ -16687,6 +16687,143 @@
         ]
       }
     },
+    "/api/license/usage": {
+      "get": {
+        "tags": [
+          "License"
+        ],
+        "summary": "Get License Usage",
+        "description": "How much of each licensed limit the install uses.",
+        "operationId": "GetLicenseUsageApiLicenseUsageGet",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseUsageResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/license": {
+      "get": {
+        "tags": [
+          "License"
+        ],
+        "summary": "Get License",
+        "description": "The license this install uses. Requires \u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060.",
+        "operationId": "GetLicenseApiLicenseGet",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfiguredLicenseResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "License"
+        ],
+        "summary": "Save License",
+        "description": "Save a license in place of the one saved before. Requires \u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060.\n\nA license in the environment wins over a saved one, so an install that\nhas one refuses the save.",
+        "operationId": "SaveLicenseApiLicensePut",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LicenseUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfiguredLicenseResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
     "/api/admin/quota/requests": {
       "get": {
         "tags": [
@@ -20433,6 +20570,26 @@
         "required": [
           "kind"
         ]
+      },
+      "ConfiguredLicenseResponse": {
+        "title": "ConfiguredLicenseResponse",
+        "type": "object",
+        "properties": {
+          "source": {
+            "$ref": "#/components/schemas/ConfiguredLicenseResponseSource"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ConfiguredLicenseResponseKind"
+          },
+          "key_hint": {
+            "title": "Key Hint",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "description": "The license this install uses, without its secret parts."
       },
       "ConfirmationPolicyBase": {
         "x-client-original-discriminator": {
@@ -24265,11 +24422,25 @@
         },
         "description": "Settings for the default LLM summarizing condenser."
       },
+      "LicenseFeaturesResponse": {
+        "title": "LicenseFeaturesResponse",
+        "required": [
+          "sso"
+        ],
+        "type": "object",
+        "properties": {
+          "sso": {
+            "title": "Sso",
+            "type": "boolean"
+          }
+        }
+      },
       "LicenseStatusResponse": {
         "title": "LicenseStatusResponse",
         "required": [
           "state",
-          "customer_center_url"
+          "customer_center_url",
+          "features"
         ],
         "type": "object",
         "properties": {
@@ -24283,30 +24454,20 @@
               "string"
             ]
           },
-          "plan": {
-            "title": "Plan",
+          "offline": {
+            "title": "Offline",
+            "type": "boolean",
+            "default": false
+          },
+          "type": {
+            "title": "Type",
             "type": [
               "null",
               "string"
             ]
           },
-          "subscription_state": {
-            "title": "Subscription State",
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "trial_ends_at": {
-            "title": "Trial Ends At",
-            "type": [
-              "null",
-              "string"
-            ],
-            "format": "date-time"
-          },
-          "overdue_since": {
-            "title": "Overdue Since",
+          "license_ends_at": {
+            "title": "License Ends At",
             "type": [
               "null",
               "string"
@@ -24332,6 +24493,74 @@
           "customer_center_url": {
             "title": "Customer Center Url",
             "type": "string"
+          },
+          "features": {
+            "$ref": "#/components/schemas/LicenseFeaturesResponse"
+          }
+        }
+      },
+      "LicenseUpdate": {
+        "title": "LicenseUpdate",
+        "type": "object",
+        "properties": {
+          "license_key": {
+            "title": "License Key",
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "offline_license": {
+            "title": "Offline License",
+            "maxLength": 65536,
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "description": "A license key, or the contents of an offline license file."
+      },
+      "LicenseUsageResponse": {
+        "title": "LicenseUsageResponse",
+        "required": [
+          "users",
+          "orgs",
+          "customer_center_url"
+        ],
+        "type": "object",
+        "properties": {
+          "users": {
+            "$ref": "#/components/schemas/LimitUsage"
+          },
+          "orgs": {
+            "$ref": "#/components/schemas/LimitUsage"
+          },
+          "customer_center_url": {
+            "title": "Customer Center Url",
+            "type": "string"
+          }
+        }
+      },
+      "LimitUsage": {
+        "title": "LimitUsage",
+        "required": [
+          "used",
+          "limit"
+        ],
+        "type": "object",
+        "properties": {
+          "used": {
+            "title": "Used",
+            "type": "integer"
+          },
+          "limit": {
+            "title": "Limit",
+            "type": [
+              "null",
+              "integer"
+            ]
           }
         }
       },
@@ -29180,6 +29409,9 @@
             ],
             "format": "uuid"
           },
+          "started_by": {
+            "$ref": "#/components/schemas/SandboxInfoStartedBy"
+          },
           "sandbox_spec_id": {
             "title": "Sandbox Spec Id",
             "type": "string"
@@ -29304,6 +29536,29 @@
               "string"
             ]
           }
+        }
+      },
+      "SandboxStartedBy": {
+        "title": "SandboxStartedBy",
+        "enum": [
+          "APP_CONVERSATION",
+          "SANDBOX_API"
+        ],
+        "type": "string",
+        "description": "What started a sandbox, recorded on it when it starts.\n\nLater conversations are grouped only into sandboxes the app server\nstarted for a conversation. A sandbox started through the sandbox API\nbelongs to the client that started it (an automation run, the SDK),\nwhich may delete it at any time.",
+        "x-ms-enum": {
+          "name": "SandboxStartedBy",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "APP_CONVERSATION",
+              "name": "AppConversation"
+            },
+            {
+              "value": "SANDBOX_API",
+              "name": "SandboxApi"
+            }
+          ]
         }
       },
       "SandboxStatus": {
@@ -35884,6 +36139,17 @@
           }
         ]
       },
+      "SandboxInfoStartedBy": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/SandboxStartedBy"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "What started the sandbox: the app server for a conversation, or a client through the sandbox API. None for a sandbox that predates this record."
+      },
       "SetupStateResponseGuideSteps": {
         "title": "SetupGuideSteps",
         "type": [
@@ -37554,6 +37820,9 @@
               "string"
             ],
             "format": "uuid"
+          },
+          "started_by": {
+            "$ref": "#/components/schemas/SandboxInfoStartedBy"
           },
           "sandbox_spec_id": {
             "title": "Sandbox Spec Id",
@@ -40077,6 +40346,66 @@
         ],
         "type": "string",
         "x-client-original-const": "CondensationSummaryEvent"
+      },
+      "ConfiguredLicenseResponseSource": {
+        "title": "Source",
+        "anyOf": [
+          {
+            "title": "Source",
+            "enum": [
+              "environment",
+              "saved"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "ConfiguredLicenseResponseSource",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "environment",
+                  "name": "Environment"
+                },
+                {
+                  "value": "saved",
+                  "name": "Saved"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "ConfiguredLicenseResponseKind": {
+        "title": "Kind",
+        "anyOf": [
+          {
+            "title": "Kind",
+            "enum": [
+              "key",
+              "offline"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "ConfiguredLicenseResponseKind",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "key",
+                  "name": "Key"
+                },
+                {
+                  "value": "offline",
+                  "name": "Offline"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
       },
       "ConsultTomActionKind": {
         "title": "Kind",
@@ -70089,6 +70418,9 @@
             "string"
           ],
           "format": "uuid"
+        },
+        "started_by": {
+          "$ref": "#/components/schemas/SandboxInfoStartedBy"
         },
         "sandbox_spec_id": {
           "title": "Sandbox Spec Id",

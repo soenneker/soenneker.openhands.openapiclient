@@ -32,6 +32,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("sandbox_spec_id") is { } nullNodeSandboxSpecId && nullNodeSandboxSpecId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SandboxSpecId = null;
             if (parseNode.GetChildNode("session_api_key") is null) { _explicitNullValueSessionApiKey = default!; _explicitNullProperties?.Remove("session_api_key"); }
             else if (parseNode.GetChildNode("session_api_key") is { } nullNodeSessionApiKey && nullNodeSessionApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionApiKey = null;
+            if (parseNode.GetChildNode("started_by") is null) { _explicitNullValueStartedBy = default!; _explicitNullProperties?.Remove("started_by"); }
+            else if (parseNode.GetChildNode("started_by") is { } nullNodeStartedBy && nullNodeStartedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartedBy = null;
             if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
             else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
             if (parseNode.GetChildNode("status_detail") is null) { _explicitNullValueStatusDetail = default!; _explicitNullProperties?.Remove("status_detail"); }
@@ -96,6 +98,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string SessionApiKey { get => _explicitNullValueSessionApiKey; set { _explicitNullValueSessionApiKey = value; AdditionalData?.Remove("session_api_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_api_key"); else _explicitNullProperties?.Remove("session_api_key"); } }
         private string _explicitNullValueSessionApiKey = default!;
 #endif
+        /// <summary>What started the sandbox: the app server for a conversation, or a client through the sandbox API. None for a sandbox that predates this record.</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStartedBy? StartedBy { get => _explicitNullValueStartedBy; set { _explicitNullValueStartedBy = value; AdditionalData?.Remove("started_by"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("started_by"); else _explicitNullProperties?.Remove("started_by"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStartedBy? _explicitNullValueStartedBy = default!;
         /// <summary>The status property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStatus? _explicitNullValueStatus = default!;
@@ -141,6 +146,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "sandbox_spec_id", n => { SandboxSpecId = n.GetStringValue(); } },
                 { "session_api_key", n => { SessionApiKey = n.GetStringValue(); } },
+                { "started_by", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStartedBy>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStartedBy = default; _explicitNullProperties?.Remove("started_by"); AdditionalData["started_by"] = unknown; } else { StartedBy = parsed; AdditionalData.Remove("started_by"); } } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "status_detail", n => { StatusDetail = n.GetStringValue(); } },
             };
@@ -159,6 +165,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("sandbox_spec_id", SandboxSpecId);
             writer.WriteStringValue("session_api_key", SessionApiKey);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStartedBy>("started_by", StartedBy);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStatus>("status", Status);
             writer.WriteStringValue("status_detail", StatusDetail);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

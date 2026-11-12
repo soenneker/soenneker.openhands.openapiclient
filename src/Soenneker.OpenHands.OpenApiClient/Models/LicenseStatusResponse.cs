@@ -21,20 +21,20 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("customer_center_url") is { } nullNodeCustomerCenterUrl && nullNodeCustomerCenterUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerCenterUrl = null;
             if (parseNode.GetChildNode("expires_at") is null) { _explicitNullValueExpiresAt = default!; _explicitNullProperties?.Remove("expires_at"); }
             else if (parseNode.GetChildNode("expires_at") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
+            if (parseNode.GetChildNode("features") is null) { _explicitNullValueFeatures = default!; _explicitNullProperties?.Remove("features"); }
+            else if (parseNode.GetChildNode("features") is { } nullNodeFeatures && nullNodeFeatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Features = null;
             if (parseNode.GetChildNode("last_checked_at") is null) { _explicitNullValueLastCheckedAt = default!; _explicitNullProperties?.Remove("last_checked_at"); }
             else if (parseNode.GetChildNode("last_checked_at") is { } nullNodeLastCheckedAt && nullNodeLastCheckedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastCheckedAt = null;
-            if (parseNode.GetChildNode("overdue_since") is null) { _explicitNullValueOverdueSince = default!; _explicitNullProperties?.Remove("overdue_since"); }
-            else if (parseNode.GetChildNode("overdue_since") is { } nullNodeOverdueSince && nullNodeOverdueSince.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OverdueSince = null;
-            if (parseNode.GetChildNode("plan") is null) { _explicitNullValuePlan = default!; _explicitNullProperties?.Remove("plan"); }
-            else if (parseNode.GetChildNode("plan") is { } nullNodePlan && nullNodePlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Plan = null;
+            if (parseNode.GetChildNode("license_ends_at") is null) { _explicitNullValueLicenseEndsAt = default!; _explicitNullProperties?.Remove("license_ends_at"); }
+            else if (parseNode.GetChildNode("license_ends_at") is { } nullNodeLicenseEndsAt && nullNodeLicenseEndsAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LicenseEndsAt = null;
+            if (parseNode.GetChildNode("offline") is null) { _explicitNullValueOffline = default!; _explicitNullProperties?.Remove("offline"); }
+            else if (parseNode.GetChildNode("offline") is { } nullNodeOffline && nullNodeOffline.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Offline = null;
             if (parseNode.GetChildNode("reason") is null) { _explicitNullValueReason = default!; _explicitNullProperties?.Remove("reason"); }
             else if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
             if (parseNode.GetChildNode("state") is null) { _explicitNullValueState = default!; _explicitNullProperties?.Remove("state"); }
             else if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
-            if (parseNode.GetChildNode("subscription_state") is null) { _explicitNullValueSubscriptionState = default!; _explicitNullProperties?.Remove("subscription_state"); }
-            else if (parseNode.GetChildNode("subscription_state") is { } nullNodeSubscriptionState && nullNodeSubscriptionState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriptionState = null;
-            if (parseNode.GetChildNode("trial_ends_at") is null) { _explicitNullValueTrialEndsAt = default!; _explicitNullProperties?.Remove("trial_ends_at"); }
-            else if (parseNode.GetChildNode("trial_ends_at") is { } nullNodeTrialEndsAt && nullNodeTrialEndsAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrialEndsAt = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -52,22 +52,25 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The expires_at property</summary>
         public DateTimeOffset? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
         private DateTimeOffset? _explicitNullValueExpiresAt = default!;
+        /// <summary>The features property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LicenseFeaturesResponse? Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; AdditionalData?.Remove("features"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LicenseFeaturesResponse? _explicitNullValueFeatures = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.LicenseFeaturesResponse Features { get => _explicitNullValueFeatures; set { _explicitNullValueFeatures = value; AdditionalData?.Remove("features"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("features"); else _explicitNullProperties?.Remove("features"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.LicenseFeaturesResponse _explicitNullValueFeatures = default!;
+#endif
         /// <summary>The last_checked_at property</summary>
         public DateTimeOffset? LastCheckedAt { get => _explicitNullValueLastCheckedAt; set { _explicitNullValueLastCheckedAt = value; AdditionalData?.Remove("last_checked_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_checked_at"); else _explicitNullProperties?.Remove("last_checked_at"); } }
         private DateTimeOffset? _explicitNullValueLastCheckedAt = default!;
-        /// <summary>The overdue_since property</summary>
-        public DateTimeOffset? OverdueSince { get => _explicitNullValueOverdueSince; set { _explicitNullValueOverdueSince = value; AdditionalData?.Remove("overdue_since"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("overdue_since"); else _explicitNullProperties?.Remove("overdue_since"); } }
-        private DateTimeOffset? _explicitNullValueOverdueSince = default!;
-        /// <summary>The plan property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Plan { get => _explicitNullValuePlan; set { _explicitNullValuePlan = value; AdditionalData?.Remove("plan"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan"); else _explicitNullProperties?.Remove("plan"); } }
-        private string? _explicitNullValuePlan = default!;
-#nullable restore
-#else
-        public string Plan { get => _explicitNullValuePlan; set { _explicitNullValuePlan = value; AdditionalData?.Remove("plan"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan"); else _explicitNullProperties?.Remove("plan"); } }
-        private string _explicitNullValuePlan = default!;
-#endif
+        /// <summary>The license_ends_at property</summary>
+        public DateTimeOffset? LicenseEndsAt { get => _explicitNullValueLicenseEndsAt; set { _explicitNullValueLicenseEndsAt = value; AdditionalData?.Remove("license_ends_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license_ends_at"); else _explicitNullProperties?.Remove("license_ends_at"); } }
+        private DateTimeOffset? _explicitNullValueLicenseEndsAt = default!;
+        /// <summary>The offline property</summary>
+        public bool? Offline { get => _explicitNullValueOffline; set { _explicitNullValueOffline = value; AdditionalData?.Remove("offline"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("offline"); else _explicitNullProperties?.Remove("offline"); } }
+        private bool? _explicitNullValueOffline = default!;
         /// <summary>The reason property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,25 +84,23 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The state property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.LicenseStatusResponseState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; AdditionalData?.Remove("state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.LicenseStatusResponseState? _explicitNullValueState = default!;
-        /// <summary>The subscription_state property</summary>
+        /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubscriptionState { get => _explicitNullValueSubscriptionState; set { _explicitNullValueSubscriptionState = value; AdditionalData?.Remove("subscription_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscription_state"); else _explicitNullProperties?.Remove("subscription_state"); } }
-        private string? _explicitNullValueSubscriptionState = default!;
+        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string? _explicitNullValueType = default!;
 #nullable restore
 #else
-        public string SubscriptionState { get => _explicitNullValueSubscriptionState; set { _explicitNullValueSubscriptionState = value; AdditionalData?.Remove("subscription_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscription_state"); else _explicitNullProperties?.Remove("subscription_state"); } }
-        private string _explicitNullValueSubscriptionState = default!;
+        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string _explicitNullValueType = default!;
 #endif
-        /// <summary>The trial_ends_at property</summary>
-        public DateTimeOffset? TrialEndsAt { get => _explicitNullValueTrialEndsAt; set { _explicitNullValueTrialEndsAt = value; AdditionalData?.Remove("trial_ends_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trial_ends_at"); else _explicitNullProperties?.Remove("trial_ends_at"); } }
-        private DateTimeOffset? _explicitNullValueTrialEndsAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LicenseStatusResponse"/> and sets the default values.
         /// </summary>
         public LicenseStatusResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            Offline = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -121,13 +122,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "customer_center_url", n => { CustomerCenterUrl = n.GetStringValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
+                { "features", n => { Features = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LicenseFeaturesResponse>(global::Soenneker.OpenHands.OpenApiClient.Models.LicenseFeaturesResponse.CreateFromDiscriminatorValue); } },
                 { "last_checked_at", n => { LastCheckedAt = n.GetDateTimeOffsetValue(); } },
-                { "overdue_since", n => { OverdueSince = n.GetDateTimeOffsetValue(); } },
-                { "plan", n => { Plan = n.GetStringValue(); } },
+                { "license_ends_at", n => { LicenseEndsAt = n.GetDateTimeOffsetValue(); } },
+                { "offline", n => { Offline = n.GetBoolValue(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
                 { "state", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LicenseStatusResponseState>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueState = default; _explicitNullProperties?.Remove("state"); AdditionalData["state"] = unknown; } else { State = parsed; AdditionalData.Remove("state"); } } },
-                { "subscription_state", n => { SubscriptionState = n.GetStringValue(); } },
-                { "trial_ends_at", n => { TrialEndsAt = n.GetDateTimeOffsetValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -139,13 +140,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("customer_center_url", CustomerCenterUrl);
             writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LicenseFeaturesResponse>("features", Features);
             writer.WriteDateTimeOffsetValue("last_checked_at", LastCheckedAt);
-            writer.WriteDateTimeOffsetValue("overdue_since", OverdueSince);
-            writer.WriteStringValue("plan", Plan);
+            writer.WriteDateTimeOffsetValue("license_ends_at", LicenseEndsAt);
+            writer.WriteBoolValue("offline", Offline);
             writer.WriteStringValue("reason", Reason);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LicenseStatusResponseState>("state", State);
-            writer.WriteStringValue("subscription_state", SubscriptionState);
-            writer.WriteDateTimeOffsetValue("trial_ends_at", TrialEndsAt);
+            writer.WriteStringValue("type", Type);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
