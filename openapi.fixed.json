@@ -3,7 +3,7 @@
   "info": {
     "title": "OpenHands",
     "description": "OpenHands: Code Less, Make More",
-    "version": "1.91.0"
+    "version": "1.92.0"
   },
   "paths": {
     "/api/v1/conversation/{conversationId}/events/search": {
@@ -929,6 +929,80 @@
           },
           "504": {
             "description": "ACP server did not respond to the model switch in time"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/v1/app-conversations/{conversationId}/switch_acp_effort": {
+      "post": {
+        "tags": [
+          "Conversations"
+        ],
+        "summary": "Switch Conversation Acp Effort",
+        "description": "Switch the reasoning effort of an ACP conversation.\n\nProxies to the agent-server\u0027s \u0060\u0060switch_acp_effort\u0060\u0060 endpoint, which applies\nthe effort to subsequent turns of the live session (or persists it for a\nconversation not yet run). The agent-server reports the session\u0027s effort on\nthe conversation itself, so nothing is stored here.",
+        "operationId": "SwitchConversationAcpEffortApiV1AppConversationsConversationIdSwitchAcpEffortPost",
+        "parameters": [
+          {
+            "name": "conversationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Conversation Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchAcpEffortRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Agent is not ACP, or its current model doesn\u0027t offer the effort"
+          },
+          "404": {
+            "description": "Conversation or sandbox not found"
+          },
+          "409": {
+            "description": "Sandbox is paused; resume it before switching"
+          },
+          "502": {
+            "description": "Agent server returned an error"
+          },
+          "504": {
+            "description": "ACP server did not respond to the switch in time"
           },
           "422": {
             "description": "Validation Error",
@@ -3696,6 +3770,62 @@
         ]
       }
     },
+    "/api/v1/git/repositories/details": {
+      "get": {
+        "tags": [
+          "Git"
+        ],
+        "summary": "Get Repository Details",
+        "description": "Get one repository, including its default branch.\n\nRepository lists leave main_branch empty for providers that need one more\nrequest per repository to read it (e.g. Bitbucket Data Center).",
+        "operationId": "GetRepositoryDetailsApiV1GitRepositoriesDetailsGet",
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ProviderType"
+            }
+          },
+          {
+            "name": "repository",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "title": "Repository name in format owner/repo",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Repository"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
     "/api/v1/git/branches/search": {
       "get": {
         "tags": [
@@ -6403,6 +6533,19 @@
         "summary": "Get Gitlab Resources",
         "description": "Get all GitLab projects and groups where the user has admin access.\n\nReturns a list of resources with their webhook installation status.",
         "operationId": "GetGitlabResourcesIntegrationGitlabResourcesGet",
+        "parameters": [
+          {
+            "name": "provider_id",
+            "in": "query",
+            "schema": {
+              "title": "Provider Id",
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -6410,6 +6553,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GitLabResourcesResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
                 }
               }
             }
@@ -6523,6 +6676,293 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/BitbucketEventsIntegrationBitbucketEventsPost200ResponseSchema"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/integration/azure-devops/organizations": {
+      "get": {
+        "summary": "Get Azure Devops Organizations",
+        "operationId": "GetAzureDevopsOrganizationsIntegrationAzureDevopsOrganizationsGet",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AzureDevOpsOrganizations"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/integration/azure-devops/resources": {
+      "get": {
+        "summary": "Get Azure Devops Resources",
+        "description": "Report org-wide resolver hook installation status.",
+        "operationId": "GetAzureDevopsResourcesIntegrationAzureDevopsResourcesGet",
+        "parameters": [
+          {
+            "name": "organization",
+            "in": "query",
+            "schema": {
+              "title": "Organization",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AzureDevOpsWebhookStatus"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/integration/azure-devops/reinstall-webhook": {
+      "post": {
+        "summary": "Reinstall Azure Devops Webhook",
+        "description": "Install or reinstall the org-wide Azure DevOps Service Hooks.\n\nThese are the resolver\u0027s comment hooks and, when events are forwarded to\nthe automation service, the pull request hooks automations listen to.",
+        "operationId": "ReinstallAzureDevopsWebhookIntegrationAzureDevopsReinstallWebhookPost",
+        "parameters": [
+          {
+            "name": "organization",
+            "in": "query",
+            "schema": {
+              "title": "Organization",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AzureDevOpsWebhookInstallationResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/integration/azure-devops/uninstall-webhook": {
+      "post": {
+        "summary": "Uninstall Azure Devops Webhook",
+        "description": "Delete the org-wide Azure DevOps Service Hooks, including automation ones.",
+        "operationId": "UninstallAzureDevopsWebhookIntegrationAzureDevopsUninstallWebhookPost",
+        "parameters": [
+          {
+            "name": "organization",
+            "in": "query",
+            "schema": {
+              "title": "Organization",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AzureDevOpsWebhookInstallationResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/integration/azure-devops/events": {
+      "post": {
+        "summary": "Azure Devops Events",
+        "operationId": "AzureDevopsEventsIntegrationAzureDevopsEventsPost",
+        "parameters": [
+          {
+            "name": "x-openhands-webhook-secret",
+            "in": "header",
+            "schema": {
+              "title": "X-Openhands-Webhook-Secret",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "title": "Authorization",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "x-openhands-notification-type",
+            "in": "header",
+            "schema": {
+              "title": "X-Openhands-Notification-Type",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AzureDevopsEventsIntegrationAzureDevopsEventsPost200ResponseSchema"
                 }
               }
             }
@@ -16435,6 +16875,358 @@
         }
       }
     },
+    "/integration/bitbucket-dc/resources": {
+      "get": {
+        "summary": "Get Bitbucket Dc Resources",
+        "description": "List Bitbucket DC repositories visible to the user with enrollment status.",
+        "operationId": "GetBitbucketDcResourcesIntegrationBitbucketDcResourcesGet",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BitbucketDcResourcesResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/integration/bitbucket-dc/enroll-webhook": {
+      "post": {
+        "summary": "Enroll Bitbucket Dc Webhook",
+        "description": "Create or rotate the local enrollment state for a BBDC repo webhook.",
+        "operationId": "EnrollBitbucketDcWebhookIntegrationBitbucketDcEnrollWebhookPost",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnrollBitbucketDcWebhookRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BitbucketDcWebhookEnrollmentResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/integration/bitbucket-dc/webhook-id": {
+      "patch": {
+        "summary": "Update Bitbucket Dc Webhook Id",
+        "description": "Record the numeric BBDC webhook id after an admin creates it manually.",
+        "operationId": "UpdateBitbucketDcWebhookIdIntegrationBitbucketDcWebhookIdPatch",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBitbucketDcWebhookIdRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BitbucketDcWebhookIdUpdateResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/integration/bitbucket-dc/reinstall-webhook": {
+      "post": {
+        "summary": "Reinstall Bitbucket Dc Webhook",
+        "description": "Install or reinstall the webhook for a BBDC repo via the REST API.\n\nReplaces the manual paste-the-secret flow with a single call: rotates a\nfresh shared secret, idempotently creates or updates the webhook on\nBBDC, and persists the resulting \u0060\u0060webhook_id\u0060\u0060 \u002B secret. Requires the\ncaller\u0027s BBDC OAuth token to have \u0060\u0060REPO_ADMIN\u0060\u0060 scope (the Keycloak\nBBDC IDP requests this scope once the chart enables webhook lifecycle).",
+        "operationId": "ReinstallBitbucketDcWebhookIntegrationBitbucketDcReinstallWebhookPost",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BitbucketDcWebhookRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BitbucketDcWebhookInstallationResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/integration/bitbucket-dc/uninstall-webhook": {
+      "post": {
+        "summary": "Uninstall Bitbucket Dc Webhook",
+        "description": "Delete the webhook on BBDC and drop the local enrollment row.\n\nLooks up the webhook by URL on BBDC (in case the stored \u0060\u0060webhook_id\u0060\u0060\ndrifted from reality) and calls \u0060\u0060DELETE .../webhooks/{id}\u0060\u0060; then\nremoves the \u0060\u0060bitbucket_dc_webhook\u0060\u0060 row so the resource flips back to\n\u0022not enrolled\u0022 in the UI. If no webhook exists on either side this is\ntreated as a no-op success \u2014 uninstall is idempotent.",
+        "operationId": "UninstallBitbucketDcWebhookIntegrationBitbucketDcUninstallWebhookPost",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BitbucketDcWebhookRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BitbucketDcWebhookInstallationResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/integration/bitbucket-dc/connections/{connectionId}/events": {
+      "post": {
+        "summary": "Bitbucket Dc Connection Events",
+        "operationId": "BitbucketDcConnectionEventsIntegrationBitbucketDcConnectionsConnectionIdEventsPost",
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Connection Id",
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-hub-signature",
+            "in": "header",
+            "schema": {
+              "title": "X-Hub-Signature",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "x-event-key",
+            "in": "header",
+            "schema": {
+              "title": "X-Event-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "x-request-id",
+            "in": "header",
+            "schema": {
+              "title": "X-Request-Id",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BitbucketDcConnectionEventsIntegrationBitbucketDcConnectionsConnectionIdEventsPost200ResponseSchema"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/email": {
       "post": {
         "summary": "Update Email",
@@ -17265,6 +18057,14 @@
             ],
             "description": "Model identifier for the ACP server (e.g. \u0027claude-opus-4-8\u0027). Leave blank to let the server pick its default."
           },
+          "acp_effort": {
+            "title": "Acp Effort",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Reasoning effort for the ACP server (e.g. \u0027high\u0027). Leave blank to let the server pick its default."
+          },
           "acp_session_mode": {
             "title": "Acp Session Mode",
             "type": [
@@ -17318,7 +18118,7 @@
             "title": "Schema Version",
             "minimum": 1.0,
             "type": "integer",
-            "default": 9
+            "default": 10
           },
           "agent_kind": {
             "$ref": "#/components/schemas/AcpAgentSettingsAgentKind"
@@ -17364,6 +18164,9 @@
           },
           "acp_model": {
             "$ref": "#/components/schemas/AcpAgentSettingsAcpModel"
+          },
+          "acp_effort": {
+            "$ref": "#/components/schemas/AcpAgentSettingsAcpEffort"
           },
           "acp_session_mode": {
             "$ref": "#/components/schemas/AcpAgentSettingsAcpSessionMode"
@@ -17427,6 +18230,29 @@
           }
         },
         "description": "Settings for an ACP (Agent Client Protocol) agent.\n\n\u0060\u0060create_agent()\u0060\u0060 returns an :class:\u0060ACPAgent\u0060 that delegates to a\nsubprocess ACP server.  The ACP server manages its own system prompt,\ntools, MCP, and (primary) LLM calls; those fields from\n:class:\u0060OpenHandsAgentSettings\u0060 do not apply here.\n\n:attr:\u0060acp_model\u0060 is the model identity. The created \u0060\u0060ACPAgent\u0060\u0060 keeps its\nown metrics LLM, so title generation can tell it is never callable.\nProvider credentials ride the conversation secrets channel\n(\u0060\u0060request.secrets\u0060\u0060 / \u0060\u0060agent_context.secrets\u0060\u0060 \u2192 \u0060\u0060state.secret_registry\u0060\u0060)\nkeyed by the provider\u0027s env var name (:attr:\u0060api_key_env_var\u0060)."
+      },
+      "AcpEffortOption": {
+        "title": "ACPEffortOption",
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "title": "Value",
+            "type": "string",
+            "description": "Server-assigned effort value (e.g. \u0060\u0060\u0022high\u0022\u0060\u0060). Pass it back to switch to this effort. May be an alias such as claude-agent-acp\u0027s \u0060\u0060\u0022default\u0022\u0060\u0060."
+          },
+          "name": {
+            "title": "Name",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Human-readable label, e.g. \u0060\u0060\u0022High\u0022\u0060\u0060."
+          }
+        },
+        "description": "One reasoning-effort level an ACP server offers for the current model."
       },
       "AcpFileSecretSpec": {
         "title": "ACPFileSecretSpec",
@@ -19849,45 +20675,6 @@
         },
         "description": "Response from sending a message to a conversation."
       },
-      "ArgTransformConfig": {
-        "title": "ArgTransformConfig",
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "Name",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The new name for the argument."
-          },
-          "description": {
-            "title": "Description",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The new description for the argument."
-          },
-          "default": {
-            "$ref": "#/components/schemas/ArgTransformConfigDefault"
-          },
-          "hide": {
-            "title": "Hide",
-            "type": "boolean",
-            "description": "Whether to hide the argument from the tool.",
-            "default": false
-          },
-          "required": {
-            "$ref": "#/components/schemas/ArgTransformConfigRequired"
-          },
-          "examples": {
-            "$ref": "#/components/schemas/ArgTransformConfigExamples"
-          }
-        },
-        "additionalProperties": false,
-        "description": "A model for requesting a single argument transform."
-      },
       "AuthProviderDetailsInput": {
         "x-client-original-discriminator": {
           "propertyName": "kind",
@@ -20152,6 +20939,172 @@
         },
         "description": "One \u0060\u0060auth_provider_users\u0060\u0060 row, joined with the linked \u0060\u0060User\u0060\u0060.\n\nBacks the admin \u0022User Links\u0022 table (\u0060\u0060GET /{provider_id}/users\u0060\u0060).\n\u0060\u0060user_name\u0060\u0060 is the linked account\u0027s display name, so a super admin\npicking the right account to re-point at sees a name rather than only a\nUUID."
       },
+      "AzureDevOpsOrganizations": {
+        "title": "AzureDevOpsOrganizations",
+        "required": [
+          "organizations"
+        ],
+        "type": "object",
+        "properties": {
+          "organizations": {
+            "title": "Organizations",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "AzureDevOpsWebhookInstallationResult": {
+        "title": "AzureDevOpsWebhookInstallationResult",
+        "required": [
+          "organization",
+          "success",
+          "error",
+          "pr_subscription_id",
+          "work_item_subscription_id",
+          "webhook_url"
+        ],
+        "type": "object",
+        "properties": {
+          "organization": {
+            "title": "Organization",
+            "type": "string"
+          },
+          "success": {
+            "title": "Success",
+            "type": "boolean"
+          },
+          "error": {
+            "title": "Error",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "pr_subscription_id": {
+            "title": "Pr Subscription Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "work_item_subscription_id": {
+            "title": "Work Item Subscription Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "webhook_url": {
+            "title": "Webhook Url",
+            "type": "string"
+          },
+          "automation_subscription_ids": {
+            "title": "Automation Subscription Ids",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": []
+          }
+        }
+      },
+      "AzureDevOpsWebhookStatus": {
+        "title": "AzureDevOpsWebhookStatus",
+        "required": [
+          "organization",
+          "webhook_installed",
+          "pr_webhook_installed",
+          "work_item_webhook_installed",
+          "pr_subscription_id",
+          "work_item_subscription_id",
+          "webhook_url",
+          "webhook_secret_set"
+        ],
+        "type": "object",
+        "properties": {
+          "organization": {
+            "title": "Organization",
+            "type": "string"
+          },
+          "webhook_installed": {
+            "title": "Webhook Installed",
+            "type": "boolean"
+          },
+          "pr_webhook_installed": {
+            "title": "Pr Webhook Installed",
+            "type": "boolean"
+          },
+          "work_item_webhook_installed": {
+            "title": "Work Item Webhook Installed",
+            "type": "boolean"
+          },
+          "pr_subscription_id": {
+            "title": "Pr Subscription Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "work_item_subscription_id": {
+            "title": "Work Item Subscription Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "webhook_url": {
+            "title": "Webhook Url",
+            "type": "string"
+          },
+          "webhook_secret_set": {
+            "title": "Webhook Secret Set",
+            "type": "boolean"
+          },
+          "can_view_webhooks": {
+            "title": "Can View Webhooks",
+            "type": "boolean",
+            "default": true
+          },
+          "can_manage_webhooks": {
+            "title": "Can Manage Webhooks",
+            "type": "boolean",
+            "default": true
+          },
+          "install_recorded": {
+            "title": "Install Recorded",
+            "type": "boolean",
+            "default": false
+          },
+          "installed_at": {
+            "title": "Installed At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "last_verified_at": {
+            "title": "Last Verified At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "automation_events_enabled": {
+            "title": "Automation Events Enabled",
+            "type": "boolean",
+            "default": false
+          },
+          "automation_webhooks_installed": {
+            "title": "Automation Webhooks Installed",
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
       "BaseWorkspace": {
         "x-client-original-discriminator": {
           "propertyName": "kind",
@@ -20230,6 +21183,287 @@
           }
         },
         "description": "Response model for batch invitation creation."
+      },
+      "BitbucketDcResourceIdentifier": {
+        "title": "BitbucketDCResourceIdentifier",
+        "required": [
+          "project_key",
+          "repo_slug"
+        ],
+        "type": "object",
+        "properties": {
+          "project_key": {
+            "title": "Project Key",
+            "type": "string"
+          },
+          "repo_slug": {
+            "title": "Repo Slug",
+            "type": "string"
+          }
+        }
+      },
+      "BitbucketDcResourceWithWebhookStatus": {
+        "title": "BitbucketDCResourceWithWebhookStatus",
+        "required": [
+          "project_key",
+          "repo_slug",
+          "name",
+          "full_name",
+          "connection_id",
+          "webhook_enrolled",
+          "webhook_id",
+          "webhook_url",
+          "webhook_secret_set",
+          "installed_by_user_id",
+          "last_synced"
+        ],
+        "type": "object",
+        "properties": {
+          "project_key": {
+            "title": "Project Key",
+            "type": "string"
+          },
+          "repo_slug": {
+            "title": "Repo Slug",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "full_name": {
+            "title": "Full Name",
+            "type": "string"
+          },
+          "type": {
+            "title": "Type",
+            "type": "string",
+            "default": "repository"
+          },
+          "connection_id": {
+            "title": "Connection Id",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "webhook_enrolled": {
+            "title": "Webhook Enrolled",
+            "type": "boolean"
+          },
+          "webhook_id": {
+            "title": "Webhook Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "webhook_url": {
+            "title": "Webhook Url",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "webhook_secret_set": {
+            "title": "Webhook Secret Set",
+            "type": "boolean"
+          },
+          "installed_by_user_id": {
+            "title": "Installed By User Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "last_synced": {
+            "title": "Last Synced",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "BitbucketDcResourcesResponse": {
+        "title": "BitbucketDCResourcesResponse",
+        "required": [
+          "resources"
+        ],
+        "type": "object",
+        "properties": {
+          "resources": {
+            "title": "Resources",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BitbucketDcResourceWithWebhookStatus"
+            }
+          }
+        }
+      },
+      "BitbucketDcWebhookEnrollmentResult": {
+        "title": "BitbucketDCWebhookEnrollmentResult",
+        "required": [
+          "project_key",
+          "repo_slug",
+          "success",
+          "error",
+          "connection_id",
+          "webhook_url",
+          "webhook_secret",
+          "webhook_name",
+          "events"
+        ],
+        "type": "object",
+        "properties": {
+          "project_key": {
+            "title": "Project Key",
+            "type": "string"
+          },
+          "repo_slug": {
+            "title": "Repo Slug",
+            "type": "string"
+          },
+          "success": {
+            "title": "Success",
+            "type": "boolean"
+          },
+          "error": {
+            "title": "Error",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "connection_id": {
+            "title": "Connection Id",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "webhook_url": {
+            "title": "Webhook Url",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "webhook_secret": {
+            "title": "Webhook Secret",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "webhook_name": {
+            "title": "Webhook Name",
+            "type": "string"
+          },
+          "events": {
+            "title": "Events",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "BitbucketDcWebhookIdUpdateResult": {
+        "title": "BitbucketDCWebhookIdUpdateResult",
+        "required": [
+          "project_key",
+          "repo_slug",
+          "success",
+          "error"
+        ],
+        "type": "object",
+        "properties": {
+          "project_key": {
+            "title": "Project Key",
+            "type": "string"
+          },
+          "repo_slug": {
+            "title": "Repo Slug",
+            "type": "string"
+          },
+          "success": {
+            "title": "Success",
+            "type": "boolean"
+          },
+          "error": {
+            "title": "Error",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "BitbucketDcWebhookInstallationResult": {
+        "title": "BitbucketDCWebhookInstallationResult",
+        "required": [
+          "project_key",
+          "repo_slug",
+          "success",
+          "error",
+          "webhook_id"
+        ],
+        "type": "object",
+        "properties": {
+          "project_key": {
+            "title": "Project Key",
+            "type": "string"
+          },
+          "repo_slug": {
+            "title": "Repo Slug",
+            "type": "string"
+          },
+          "success": {
+            "title": "Success",
+            "type": "boolean"
+          },
+          "error": {
+            "title": "Error",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "webhook_id": {
+            "title": "Webhook Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "connection_id": {
+            "title": "Connection Id",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "webhook_url": {
+            "title": "Webhook Url",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "BitbucketDcWebhookRequest": {
+        "title": "BitbucketDCWebhookRequest",
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/BitbucketDcResourceIdentifier"
+          }
+        }
       },
       "BodyDeviceTokenOAuthDeviceTokenPost": {
         "title": "Body_device_token_oauth_device_token_post",
@@ -20889,6 +22123,22 @@
               "$ref": "#/components/schemas/AcpModelInfo"
             },
             "description": "Models the ACP server offers for this session, lifted off \u0060\u0060ACPAgent.available_models\u0060\u0060 (the \u0060\u0060models.availableModels\u0060\u0060 field on the ACP session response). Each entry carries a \u0060\u0060model_id\u0060\u0060 plus an optional \u0060\u0060name\u0060\u0060/\u0060\u0060description\u0060\u0060. Surfaced verbatim so clients can render a model picker and resolve \u0060\u0060current_model_id\u0060\u0060 to a display label themselves \u2014 the server does no name curation. Empty for ACP servers that don\u0027t surface the (UNSTABLE) capability and for native OpenHands agents. Client contract: \u0060\u0060current_model_id\u0060\u0060 is NOT guaranteed to be a member \u2014 a forced \u0060\u0060acp_model\u0060\u0060 override may name a model absent from the list \u2014 so treat a miss as \u0027show the raw id\u0027. Some entries are opaque aliases whose human identity lives in \u0060\u0060description\u0060\u0060 (e.g. claude-agent-acp\u0027s \u0060\u0060\u0022default\u0022\u0060\u0060 -\u003E \u0060\u0060\u0022Opus 4.7 with 1M context \u00B7 ...\u0022\u0060\u0060)."
+          },
+          "current_effort": {
+            "title": "Current Effort",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Reasoning effort the ACP session reports for its current model (the server\u0027s own default when none was requested). \u0060\u0060None\u0060\u0060 when the model offers no effort setting, the server doesn\u0027t report one, or the agent is not ACP."
+          },
+          "available_efforts": {
+            "title": "Available Efforts",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AcpEffortOption"
+            },
+            "description": "Reasoning-effort levels the ACP session offers for its current model, verbatim from the server. Pass a \u0060\u0060value\u0060\u0060 to \u0060\u0060switch_acp_effort\u0060\u0060. Empty when the model offers none."
           },
           "supports_runtime_model_switch": {
             "title": "Supports Runtime Model Switch",
@@ -21808,6 +23058,18 @@
           }
         }
       },
+      "EnrollBitbucketDcWebhookRequest": {
+        "title": "EnrollBitbucketDCWebhookRequest",
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/BitbucketDcResourceIdentifier"
+          }
+        }
+      },
       "EvaluateRequest": {
         "title": "EvaluateRequest",
         "type": "object",
@@ -22035,7 +23297,9 @@
         "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
+            "integrations__azure_devops__azure_devops_v1_callback_processor__AzureDevOpsV1CallbackProcessor-Input__1": "#/components/schemas/AzureDevOpsV1CallbackProcessorInput",
             "integrations__bitbucket__bitbucket_v1_callback_processor__BitbucketV1CallbackProcessor-Input__1": "#/components/schemas/BitbucketV1CallbackProcessorInput",
+            "integrations__bitbucket_data_center__bitbucket_dc_v1_callback_processor__BitbucketDCV1CallbackProcessor-Input__1": "#/components/schemas/BitbucketDcv1CallbackProcessorInput",
             "integrations__github__github_v1_callback_processor__GithubV1CallbackProcessor-Input__1": "#/components/schemas/GithubV1CallbackProcessorInput",
             "integrations__gitlab__gitlab_v1_callback_processor__GitlabV1CallbackProcessor-Input__1": "#/components/schemas/GitlabV1CallbackProcessorInput",
             "integrations__jira__jira_v1_callback_processor__JiraV1CallbackProcessor-Input__1": "#/components/schemas/JiraV1CallbackProcessorInput",
@@ -22049,15 +23313,17 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
-            "BitbucketV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf1Variant",
-            "GithubV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf2Variant",
-            "GitlabV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf3Variant",
-            "JiraV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf4Variant",
-            "JiraDcV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf5Variant",
-            "SlackV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf6Variant",
-            "LoggingCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf7Variant",
-            "MemoryChangeCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf8Variant",
-            "SetTitleCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf9Variant"
+            "AzureDevOpsV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf1Variant",
+            "BitbucketV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf2Variant",
+            "BitbucketDCV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf3Variant",
+            "GithubV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf4Variant",
+            "GitlabV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf5Variant",
+            "JiraV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf6Variant",
+            "JiraDcV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf7Variant",
+            "SlackV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf8Variant",
+            "LoggingCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf9Variant",
+            "MemoryChangeCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf10Variant",
+            "SetTitleCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf11Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -22088,12 +23354,20 @@
             },
             {
               "$ref": "#/components/schemas/EventCallbackProcessorInputOneOf9"
+            },
+            {
+              "$ref": "#/components/schemas/EventCallbackProcessorInputOneOf10"
+            },
+            {
+              "$ref": "#/components/schemas/EventCallbackProcessorInputOneOf11"
             }
           ],
           "x-client-original-discriminator": {
             "propertyName": "kind",
             "mapping": {
+              "integrations__azure_devops__azure_devops_v1_callback_processor__AzureDevOpsV1CallbackProcessor-Input__1": "#/components/schemas/AzureDevOpsV1CallbackProcessorInput",
               "integrations__bitbucket__bitbucket_v1_callback_processor__BitbucketV1CallbackProcessor-Input__1": "#/components/schemas/BitbucketV1CallbackProcessorInput",
+              "integrations__bitbucket_data_center__bitbucket_dc_v1_callback_processor__BitbucketDCV1CallbackProcessor-Input__1": "#/components/schemas/BitbucketDcv1CallbackProcessorInput",
               "integrations__github__github_v1_callback_processor__GithubV1CallbackProcessor-Input__1": "#/components/schemas/GithubV1CallbackProcessorInput",
               "integrations__gitlab__gitlab_v1_callback_processor__GitlabV1CallbackProcessor-Input__1": "#/components/schemas/GitlabV1CallbackProcessorInput",
               "integrations__jira__jira_v1_callback_processor__JiraV1CallbackProcessor-Input__1": "#/components/schemas/JiraV1CallbackProcessorInput",
@@ -22107,15 +23381,17 @@
           "discriminator": {
             "propertyName": "kind",
             "mapping": {
-              "BitbucketV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf1",
-              "GithubV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf2",
-              "GitlabV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf3",
-              "JiraV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf4",
-              "JiraDcV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf5",
-              "SlackV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf6",
-              "LoggingCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf7",
-              "MemoryChangeCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf8",
-              "SetTitleCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf9"
+              "AzureDevOpsV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf1",
+              "BitbucketV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf2",
+              "BitbucketDCV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf3",
+              "GithubV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf4",
+              "GitlabV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf5",
+              "JiraV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf6",
+              "JiraDcV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf7",
+              "SlackV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf8",
+              "LoggingCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf9",
+              "MemoryChangeCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf10",
+              "SetTitleCallbackProcessor": "#/components/schemas/EventCallbackProcessorInputOneOf11"
             }
           }
         },
@@ -22133,7 +23409,9 @@
         "x-client-original-discriminator": {
           "propertyName": "kind",
           "mapping": {
+            "integrations__azure_devops__azure_devops_v1_callback_processor__AzureDevOpsV1CallbackProcessor-Output__1": "#/components/schemas/AzureDevOpsV1CallbackProcessorOutput",
             "integrations__bitbucket__bitbucket_v1_callback_processor__BitbucketV1CallbackProcessor-Output__1": "#/components/schemas/BitbucketV1CallbackProcessorOutput",
+            "integrations__bitbucket_data_center__bitbucket_dc_v1_callback_processor__BitbucketDCV1CallbackProcessor-Output__1": "#/components/schemas/BitbucketDcv1CallbackProcessorOutput",
             "integrations__github__github_v1_callback_processor__GithubV1CallbackProcessor-Output__1": "#/components/schemas/GithubV1CallbackProcessorOutput",
             "integrations__gitlab__gitlab_v1_callback_processor__GitlabV1CallbackProcessor-Output__1": "#/components/schemas/GitlabV1CallbackProcessorOutput",
             "integrations__jira__jira_v1_callback_processor__JiraV1CallbackProcessor-Output__1": "#/components/schemas/JiraV1CallbackProcessorOutput",
@@ -22147,7 +23425,9 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
+            "AzureDevOpsV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorOutputAzureDevOpsV1CallbackProcessorOutput",
             "BitbucketV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorOutputBitbucketV1CallbackProcessorOutput",
+            "BitbucketDCV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorOutputBitbucketDcv1CallbackProcessorOutput",
             "GithubV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorOutputGithubV1CallbackProcessorOutput",
             "GitlabV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorOutputGitlabV1CallbackProcessorOutput",
             "JiraV1CallbackProcessor": "#/components/schemas/EventCallbackProcessorOutputJiraV1CallbackProcessorOutput",
@@ -22161,7 +23441,13 @@
         "x-client-original-tagged-union": {
           "oneOf": [
             {
+              "$ref": "#/components/schemas/AzureDevOpsV1CallbackProcessorOutput"
+            },
+            {
               "$ref": "#/components/schemas/BitbucketV1CallbackProcessorOutput"
+            },
+            {
+              "$ref": "#/components/schemas/BitbucketDcv1CallbackProcessorOutput"
             },
             {
               "$ref": "#/components/schemas/GithubV1CallbackProcessorOutput"
@@ -22191,7 +23477,9 @@
           "x-client-original-discriminator": {
             "propertyName": "kind",
             "mapping": {
+              "integrations__azure_devops__azure_devops_v1_callback_processor__AzureDevOpsV1CallbackProcessor-Output__1": "#/components/schemas/AzureDevOpsV1CallbackProcessorOutput",
               "integrations__bitbucket__bitbucket_v1_callback_processor__BitbucketV1CallbackProcessor-Output__1": "#/components/schemas/BitbucketV1CallbackProcessorOutput",
+              "integrations__bitbucket_data_center__bitbucket_dc_v1_callback_processor__BitbucketDCV1CallbackProcessor-Output__1": "#/components/schemas/BitbucketDcv1CallbackProcessorOutput",
               "integrations__github__github_v1_callback_processor__GithubV1CallbackProcessor-Output__1": "#/components/schemas/GithubV1CallbackProcessorOutput",
               "integrations__gitlab__gitlab_v1_callback_processor__GitlabV1CallbackProcessor-Output__1": "#/components/schemas/GitlabV1CallbackProcessorOutput",
               "integrations__jira__jira_v1_callback_processor__JiraV1CallbackProcessor-Output__1": "#/components/schemas/JiraV1CallbackProcessorOutput",
@@ -22205,7 +23493,9 @@
           "discriminator": {
             "propertyName": "kind",
             "mapping": {
+              "AzureDevOpsV1CallbackProcessor": "#/components/schemas/AzureDevOpsV1CallbackProcessorOutput",
               "BitbucketV1CallbackProcessor": "#/components/schemas/BitbucketV1CallbackProcessorOutput",
+              "BitbucketDCV1CallbackProcessor": "#/components/schemas/BitbucketDcv1CallbackProcessorOutput",
               "GithubV1CallbackProcessor": "#/components/schemas/GithubV1CallbackProcessorOutput",
               "GitlabV1CallbackProcessor": "#/components/schemas/GitlabV1CallbackProcessorOutput",
               "JiraV1CallbackProcessor": "#/components/schemas/JiraV1CallbackProcessorOutput",
@@ -23068,6 +24358,14 @@
             "title": "Async",
             "type": "boolean",
             "default": false
+          },
+          "plugin_root": {
+            "title": "Plugin Root",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Resolved root directory of the plugin that supplied this hook. Set by the plugin loader rather than in hooks.json, and exported to command hooks as the PLUGIN_ROOT environment variable. None for hooks that do not come from a plugin."
           }
         },
         "description": "A single hook definition."
@@ -23146,9 +24444,12 @@
             "items": {
               "type": "string"
             }
+          },
+          "theme": {
+            "$ref": "#/components/schemas/IconTheme"
           }
         },
-        "description": "An icon for display in user interfaces."
+        "description": "An optionally-sized icon for display in a user interface (2025-11-25\u002B)."
       },
       "ImageContent": {
         "title": "ImageContent",
@@ -24147,7 +25448,7 @@
             "title": "Schema Version",
             "minimum": 1.0,
             "type": "integer",
-            "default": 9
+            "default": 10
           },
           "agent_kind": {
             "$ref": "#/components/schemas/LlmAgentKind"
@@ -24923,7 +26224,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "One MCP server in the settings DataModel."
+        "description": "One MCP server in the settings DataModel.\n\nA server needs \u0060\u0060command\u0060\u0060 (stdio) or \u0060\u0060url\u0060\u0060 (remote)."
       },
       "McpServerOutput": {
         "title": "MCPServer",
@@ -25017,7 +26318,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "One MCP server in the settings DataModel."
+        "description": "One MCP server in the settings DataModel.\n\nA server needs \u0060\u0060command\u0060\u0060 (stdio) or \u0060\u0060url\u0060\u0060 (remote)."
       },
       "McpTestRequestBody": {
         "title": "MCPTestRequestBody",
@@ -26127,7 +27428,7 @@
             "title": "Schema Version",
             "minimum": 1.0,
             "type": "integer",
-            "default": 9
+            "default": 10
           },
           "agent_kind": {
             "$ref": "#/components/schemas/OpenHandsAgentSettingsAgentKind"
@@ -27568,6 +28869,11 @@
               "null",
               "string"
             ]
+          },
+          "default_org_fallback_active": {
+            "title": "Default Org Fallback Active",
+            "type": "boolean",
+            "default": false
           }
         },
         "description": "Paginated response model for organization list."
@@ -28742,6 +30048,13 @@
         "properties": {
           "resource": {
             "$ref": "#/components/schemas/ResourceIdentifier"
+          },
+          "provider_id": {
+            "title": "Provider Id",
+            "type": [
+              "null",
+              "integer"
+            ]
           }
         }
       },
@@ -28775,6 +30088,14 @@
               "integer"
             ]
           },
+          "max_sse_event_size": {
+            "title": "Max Sse Event Size",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "default": 1048576
+          },
           "description": {
             "title": "Description",
             "type": [
@@ -28793,7 +30114,7 @@
             "$ref": "#/components/schemas/RemoteMcpServerAuthenticationProperty"
           }
         },
-        "description": "MCP server configuration for HTTP/SSE transport.\n\nThis is the canonical configuration format for MCP servers using remote transports."
+        "description": "MCP server configuration for HTTP/SSE transport.\n\nThis is the canonical configuration format for MCP servers using remote transports.\n\u0060timeout\u0060 sets the per-request timeout in milliseconds when used in an\n\u0060MCPConfig\u0060. It takes precedence over the client timeout; zero disables it."
       },
       "RenameAgentProfileRequest": {
         "title": "RenameAgentProfileRequest",
@@ -30192,7 +31513,7 @@
               "null",
               "string"
             ],
-            "description": "A brief description of what the skill does and when to use it. Descriptions exceeding MAX_DESCRIPTION_LENGTH are truncated with a notice pointing to the skill\u0027s source path."
+            "description": "A brief description of what the skill does and when to use it. Descriptions exceeding MAX_DESCRIPTION_LENGTH are truncated with a notice pointing to invoke_skill for the full skill."
           },
           "license": {
             "title": "License",
@@ -30292,7 +31613,7 @@
               "null",
               "string"
             ],
-            "description": "A brief description of what the skill does and when to use it. Descriptions exceeding MAX_DESCRIPTION_LENGTH are truncated with a notice pointing to the skill\u0027s source path."
+            "description": "A brief description of what the skill does and when to use it. Descriptions exceeding MAX_DESCRIPTION_LENGTH are truncated with a notice pointing to invoke_skill for the full skill."
           },
           "license": {
             "title": "License",
@@ -30632,7 +31953,7 @@
             "$ref": "#/components/schemas/StdioMcpServerAuthenticationProperty"
           }
         },
-        "description": "MCP server configuration for stdio transport.\n\nThis is the canonical configuration format for MCP servers using stdio transport."
+        "description": "MCP server configuration for stdio transport.\n\nThis is the canonical configuration format for MCP servers using stdio transport.\n\u0060timeout\u0060 sets the per-request timeout in milliseconds when used in an\n\u0060MCPConfig\u0060. It takes precedence over the client timeout; zero disables it."
       },
       "Success": {
         "title": "Success",
@@ -30751,6 +32072,22 @@
           }
         },
         "description": "Whether the authenticated caller holds the instance-level super-admin role."
+      },
+      "SwitchAcpEffortRequest": {
+        "title": "SwitchAcpEffortRequest",
+        "required": [
+          "effort"
+        ],
+        "type": "object",
+        "properties": {
+          "effort": {
+            "title": "Effort",
+            "minLength": 1,
+            "type": "string",
+            "description": "Effort to switch to (one of the conversation\u0027s available efforts)."
+          }
+        },
+        "description": "Request to switch an ACP conversation\u0027s reasoning effort."
       },
       "SwitchAcpModelRequest": {
         "title": "SwitchAcpModelRequest",
@@ -31353,67 +32690,6 @@
           "kind"
         ]
       },
-      "ToolTransformConfig": {
-        "title": "ToolTransformConfig",
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "Name",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The new name for the tool."
-          },
-          "version": {
-            "title": "Version",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The new version for the tool."
-          },
-          "title": {
-            "title": "Title",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The new title of the tool."
-          },
-          "description": {
-            "title": "Description",
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The new description of the tool."
-          },
-          "tags": {
-            "title": "Tags",
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The new tags for the tool."
-          },
-          "meta": {
-            "$ref": "#/components/schemas/ToolTransformConfigMetaProperty"
-          },
-          "enabled": {
-            "title": "Enabled",
-            "type": "boolean",
-            "description": "Whether the tool is enabled. If False, the tool will be hidden from clients.",
-            "default": true
-          },
-          "arguments": {
-            "$ref": "#/components/schemas/ToolTransformConfigArgumentsProperty"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Provides a way to transform a tool."
-      },
       "ToolValidationError": {
         "title": "ToolValidationError",
         "required": [
@@ -31497,6 +32773,14 @@
               "null",
               "integer"
             ]
+          },
+          "max_sse_event_size": {
+            "title": "Max Sse Event Size",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "default": 1048576
           },
           "description": {
             "title": "Description",
@@ -31714,6 +32998,23 @@
           }
         },
         "description": "Re-point a link row to a different, already-existing user."
+      },
+      "UpdateBitbucketDcWebhookIdRequest": {
+        "title": "UpdateBitbucketDCWebhookIdRequest",
+        "required": [
+          "resource",
+          "webhook_id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/BitbucketDcResourceIdentifier"
+          },
+          "webhook_id": {
+            "title": "Webhook Id",
+            "type": "string"
+          }
+        }
       },
       "UpdateFlagRequest": {
         "title": "UpdateFlagRequest",
@@ -32499,7 +33800,7 @@
           }
         }
       },
-      "McpTypesTool": {
+      "McpTypesTypesTool": {
         "title": "Tool",
         "required": [
           "name",
@@ -32526,10 +33827,13 @@
             ]
           },
           "inputSchema": {
-            "$ref": "#/components/schemas/McpTypesToolInputSchemaProperty"
+            "$ref": "#/components/schemas/McpTypesTypesToolInputSchemaProperty"
+          },
+          "execution": {
+            "$ref": "#/components/schemas/McpTypesTypesToolExecution"
           },
           "outputSchema": {
-            "$ref": "#/components/schemas/McpTypesToolOutputSchemaProperty"
+            "$ref": "#/components/schemas/McpTypesTypesToolOutputSchemaProperty"
           },
           "icons": {
             "title": "Icons",
@@ -32542,13 +33846,10 @@
             }
           },
           "annotations": {
-            "$ref": "#/components/schemas/McpTypesToolAnnotationsComposed"
+            "$ref": "#/components/schemas/McpTypesTypesToolAnnotationsComposed"
           },
           "_meta": {
-            "$ref": "#/components/schemas/McpTypesToolMetaProperty"
-          },
-          "execution": {
-            "$ref": "#/components/schemas/McpTypesToolExecution"
+            "$ref": "#/components/schemas/McpTypesTypesToolMetaProperty"
           }
         },
         "description": "Definition for a tool the client can call."
@@ -33232,11 +34533,33 @@
             "type": "null"
           }
         ],
-        "description": "Model identifier for the ACP server to use (e.g. \u0060\u0060\u0027sonnet\u0027\u0060\u0060 or \u0060\u0060\u0027gpt-5.5\u0027\u0060\u0060). Applied via the protocol \u2014 set_config_option(model) for configOptions-based servers (codex, claude), else set_session_model. Leave blank to let the server pick its default.",
+        "description": "Model identifier for the ACP server to use (e.g. \u0060\u0060\u0027sonnet\u0027\u0060\u0060 or \u0060\u0060\u0027gpt-5.5\u0027\u0060\u0060). Applied via the protocol \u2014 set_config_option(model) for configOptions-based servers (codex, claude), else set_session_model. Codex and Claude also accept \u0060\u0060\u0027\u003Cmodel\u003E/\u003Ceffort\u003E\u0027\u0060\u0060 (e.g. \u0060\u0060\u0027gpt-5.5/high\u0027\u0060\u0060 or \u0060\u0060\u0027opus[1m]/high\u0027\u0060\u0060); prefer \u0060\u0060acp_effort\u0060\u0060, which wins over the suffix. Leave blank to let the server pick its default.",
         "openhands_settings": {
           "depends_on": [],
           "label": "ACP model",
           "prominence": "critical"
+        },
+        "openhands_settings_section": {
+          "key": "acp",
+          "label": "ACP (Agent Client Protocol)",
+          "variant": "acp"
+        }
+      },
+      "AcpAgentSettingsAcpEffort": {
+        "title": "Acp Effort",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Reasoning effort for the ACP server to use (e.g. \u0060\u0060\u0027high\u0027\u0060\u0060), applied after the model through the session\u0027s reasoning-effort option. Ignored when the model offers no effort setting. Leave blank to let the server pick its default.",
+        "openhands_settings": {
+          "depends_on": [],
+          "label": "ACP reasoning effort",
+          "prominence": "major"
         },
         "openhands_settings_section": {
           "key": "acp",
@@ -34022,42 +35345,6 @@
             }
           ]
         }
-      },
-      "ArgTransformConfigDefault": {
-        "title": "Default",
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "number"
-          },
-          {
-            "type": "boolean"
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "The new default value for the argument."
-      },
-      "ArgTransformConfigRequired": {
-        "title": "Required",
-        "anyOf": [
-          {
-            "type": "boolean",
-            "default": true,
-            "x-client-original-const": true
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "Whether the argument is required."
-      },
-      "ArgTransformConfigExamples": {
-        "title": "Examples",
-        "description": "Examples of the argument."
       },
       "ClientToolSpecInputAnnotations": {
         "title": "openhands.sdk.tool.tool.ToolAnnotations",
@@ -36112,7 +37399,7 @@
             "type": "null"
           }
         ],
-        "description": "Either a string representing a Bearer token, the literal \u0022oauth\u0022 to use OAuth authentication, or an httpx.Auth instance for custom authentication."
+        "description": "Either a string representing a Bearer token, the literal \u0022oauth\u0022 to use OAuth authentication, or an httpx2.Auth instance for custom authentication."
       },
       "RemoteMcpServerSseReadTimeout": {
         "title": "Sse Read Timeout",
@@ -36462,7 +37749,30 @@
           "prominence": "minor"
         }
       },
-      "McpTypesToolAnnotationsComposed": {
+      "McpTypesTypesToolExecution": {
+        "title": "ToolExecution",
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "taskSupport": {
+            "$ref": "#/components/schemas/ToolExecutionTaskSupport"
+          }
+        },
+        "description": "Execution-related properties for a tool (2025-11-25 only).",
+        "x-client-original-nullable-union": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/ToolExecution"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "McpTypesTypesToolAnnotationsComposed": {
         "title": "ToolAnnotations",
         "type": [
           "object",
@@ -36509,30 +37819,7 @@
         "x-client-original-nullable-union": {
           "anyOf": [
             {
-              "$ref": "#/components/schemas/McpTypesToolAnnotations"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        }
-      },
-      "McpTypesToolExecution": {
-        "title": "ToolExecution",
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "taskSupport": {
-            "$ref": "#/components/schemas/ToolExecutionTaskSupport"
-          }
-        },
-        "description": "Execution-related properties for a tool.",
-        "x-client-original-nullable-union": {
-          "anyOf": [
-            {
-              "$ref": "#/components/schemas/ToolExecution"
+              "$ref": "#/components/schemas/McpTypesTypesToolAnnotations"
             },
             {
               "type": "null"
@@ -37379,6 +38666,7 @@
       "GithubEventsIntegrationGithubEventsPost200ResponseSchema": {},
       "GitlabEventsIntegrationGitlabEventsPost200ResponseSchema": {},
       "BitbucketEventsIntegrationBitbucketEventsPost200ResponseSchema": {},
+      "AzureDevopsEventsIntegrationAzureDevopsEventsPost200ResponseSchema": {},
       "ResponseListApiKeysApiKeysGetSchema": {
         "title": "Response List Api Keys Api Keys Get",
         "type": "array",
@@ -37472,6 +38760,7 @@
       "CreateWorkspaceLinkIntegrationJiraWorkspacesLinkPost200ResponseSchema": {},
       "JiraCallbackIntegrationJiraCallbackGet200ResponseSchema": {},
       "UnlinkWorkspaceIntegrationJiraWorkspacesUnlinkPost200ResponseSchema": {},
+      "BitbucketDcConnectionEventsIntegrationBitbucketDcConnectionsConnectionIdEventsPost200ResponseSchema": {},
       "UpdateEmailApiEmailPost200ResponseSchema": {},
       "ResendEmailVerificationApiEmailResendPut200ResponseSchema": {},
       "VerifiedEmailApiEmailVerifiedGet200ResponseSchema": {},
@@ -38228,6 +39517,22 @@
           "null",
           "object"
         ]
+      },
+      "AzureDevOpsV1CallbackProcessorInputAzureDevopsViewDataProperty": {
+        "title": "Azure Devops View Data",
+        "type": "object"
+      },
+      "AzureDevOpsV1CallbackProcessorOutputAzureDevopsViewDataProperty": {
+        "title": "Azure Devops View Data",
+        "type": "object"
+      },
+      "BitbucketDcv1CallbackProcessorInputBitbucketDcViewDataProperty": {
+        "title": "Bitbucket Dc View Data",
+        "type": "object"
+      },
+      "BitbucketDcv1CallbackProcessorOutputBitbucketDcViewDataProperty": {
+        "title": "Bitbucket Dc View Data",
+        "type": "object"
       },
       "BitbucketV1CallbackProcessorInputBitbucketViewDataProperty": {
         "title": "Bitbucket View Data",
@@ -39110,22 +40415,6 @@
         "type": "object",
         "description": "Parameters for the tool\u0027s .create() method, e.g., {\u0027working_dir\u0027: \u0027/app\u0027}"
       },
-      "ToolTransformConfigMetaProperty": {
-        "title": "Meta",
-        "type": [
-          "null",
-          "object"
-        ],
-        "description": "The new meta information for the tool."
-      },
-      "ToolTransformConfigArgumentsProperty": {
-        "title": "Arguments",
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/ArgTransformConfig"
-        },
-        "description": "A dictionary of argument transforms to apply to the tool."
-      },
       "TransformingRemoteMcpServerHeadersProperty": {
         "title": "Headers",
         "type": "object",
@@ -39142,10 +40431,7 @@
       },
       "TransformingRemoteMcpServerToolsProperty": {
         "title": "Tools",
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/ToolTransformConfig"
-        }
+        "type": "object"
       },
       "TransformingStdioMcpServerEnvProperty": {
         "title": "Env",
@@ -39160,10 +40446,7 @@
       },
       "TransformingStdioMcpServerToolsProperty": {
         "title": "Tools",
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/ToolTransformConfig"
-        }
+        "type": "object"
       },
       "UnparsedActionRawPayloadProperty": {
         "title": "Raw Payload",
@@ -39223,18 +40506,18 @@
           "object"
         ]
       },
-      "McpTypesToolInputSchemaProperty": {
+      "McpTypesTypesToolInputSchemaProperty": {
         "title": "Inputschema",
         "type": "object"
       },
-      "McpTypesToolOutputSchemaProperty": {
+      "McpTypesTypesToolOutputSchemaProperty": {
         "title": "Outputschema",
         "type": [
           "null",
           "object"
         ]
       },
-      "McpTypesToolMetaProperty": {
+      "McpTypesTypesToolMetaProperty": {
         "title": "Meta",
         "type": [
           "null",
@@ -39859,6 +41142,32 @@
         ],
         "type": "string",
         "x-client-original-const": "AskOracleTool"
+      },
+      "AzureDevOpsV1CallbackProcessorOutputKind": {
+        "title": "Kind",
+        "enum": [
+          "AzureDevOpsV1CallbackProcessor"
+        ],
+        "type": "string",
+        "x-client-original-const": "AzureDevOpsV1CallbackProcessor"
+      },
+      "BitbucketDcv1CallbackProcessorOutputKind": {
+        "title": "Kind",
+        "enum": [
+          "BitbucketDCV1CallbackProcessor"
+        ],
+        "type": "string",
+        "x-client-original-const": "BitbucketDCV1CallbackProcessor",
+        "x-ms-enum": {
+          "name": "BitbucketDcv1CallbackProcessorOutputKind",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "BitbucketDCV1CallbackProcessor",
+              "name": "BitbucketDcv1CallbackProcessor"
+            }
+          ]
+        }
       },
       "BitbucketV1CallbackProcessorOutputKind": {
         "title": "Kind",
@@ -41115,6 +42424,36 @@
         "type": "string",
         "x-client-original-const": "HookExecutionEvent"
       },
+      "IconTheme": {
+        "title": "Theme",
+        "anyOf": [
+          {
+            "title": "Theme",
+            "enum": [
+              "light",
+              "dark"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "IconTheme",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "light",
+                  "name": "Light"
+                },
+                {
+                  "value": "dark",
+                  "name": "Dark"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
       "ImageType": {
         "title": "Type",
         "enum": [
@@ -41923,8 +43262,8 @@
             "enum": [
               "stdio",
               "http",
-              "sse",
-              "streamable-http"
+              "streamable-http",
+              "sse"
             ],
             "type": "string",
             "x-ms-enum": {
@@ -41940,12 +43279,12 @@
                   "name": "Http"
                 },
                 {
-                  "value": "sse",
-                  "name": "Sse"
-                },
-                {
                   "value": "streamable-http",
                   "name": "StreamableHttp"
+                },
+                {
+                  "value": "sse",
+                  "name": "Sse"
                 }
               ]
             }
@@ -41963,8 +43302,8 @@
             "enum": [
               "stdio",
               "http",
-              "sse",
-              "streamable-http"
+              "streamable-http",
+              "sse"
             ],
             "type": "string",
             "x-ms-enum": {
@@ -41980,12 +43319,12 @@
                   "name": "Http"
                 },
                 {
-                  "value": "sse",
-                  "name": "Sse"
-                },
-                {
                   "value": "streamable-http",
                   "name": "StreamableHttp"
+                },
+                {
+                  "value": "sse",
+                  "name": "Sse"
                 }
               ]
             }
@@ -46078,7 +47417,8 @@
               }
             },
             "additionalProperties": false,
-            "description": "Schema for delegation operations."
+            "description": "Legacy delegation action, deprecated since v1.60.0.\n\nUse TaskAction for new tasks. Retained to read stored events.",
+            "deprecated": true
           }
         ]
       },
@@ -46827,7 +48167,15 @@
                   "null",
                   "string"
                 ],
-                "description": "Model for the ACP server to use (e.g. \u0027sonnet\u0027 or \u0027gpt-5.5\u0027). Applied via the protocol \u2014 set_config_option(model) for configOptions-based servers (codex, claude), else set_session_model. If None, the server picks its default."
+                "description": "Model for the ACP server to use (e.g. \u0027sonnet\u0027 or \u0027gpt-5.5\u0027). Applied via the protocol \u2014 set_config_option(model) for configOptions-based servers (codex, claude), else set_session_model. Codex and Claude also accept \u0027\u003Cmodel\u003E/\u003Ceffort\u003E\u0027 (e.g. \u0027gpt-5.5/high\u0027); prefer acp_effort, which wins over the suffix. If None, the server picks its default."
+              },
+              "acp_effort": {
+                "title": "Acp Effort",
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "description": "Reasoning effort for the ACP server to use (e.g. \u0027high\u0027), applied after the model through the session\u0027s \u0060\u0060thought_level\u0060\u0060 config option. Ignored when the model offers no effort setting. If None, the server keeps its own."
               },
               "acp_resume_session_id": {
                 "title": "Acp Resume Session Id",
@@ -49360,6 +50708,37 @@
           {
             "type": "object",
             "properties": {
+              "azure_devops_view_data": {
+                "$ref": "#/components/schemas/AzureDevOpsV1CallbackProcessorInputAzureDevopsViewDataProperty"
+              },
+              "should_request_summary": {
+                "title": "Should Request Summary",
+                "type": "boolean",
+                "default": true
+              },
+              "kind": {
+                "title": "Kind",
+                "enum": [
+                  "AzureDevOpsV1CallbackProcessor"
+                ],
+                "type": "string",
+                "x-client-original-const": "AzureDevOpsV1CallbackProcessor"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          }
+        ]
+      },
+      "EventCallbackProcessorInputOneOf2Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EventCallbackProcessorInput"
+          },
+          {
+            "type": "object",
+            "properties": {
               "bitbucket_view_data": {
                 "$ref": "#/components/schemas/BitbucketV1CallbackProcessorInputBitbucketViewDataProperty"
               },
@@ -49383,7 +50762,48 @@
           }
         ]
       },
-      "EventCallbackProcessorInputOneOf2Variant": {
+      "EventCallbackProcessorInputOneOf3Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EventCallbackProcessorInput"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "bitbucket_dc_view_data": {
+                "$ref": "#/components/schemas/BitbucketDcv1CallbackProcessorInputBitbucketDcViewDataProperty"
+              },
+              "should_request_summary": {
+                "title": "Should Request Summary",
+                "type": "boolean",
+                "default": true
+              },
+              "kind": {
+                "title": "Kind",
+                "enum": [
+                  "BitbucketDCV1CallbackProcessor"
+                ],
+                "type": "string",
+                "x-client-original-const": "BitbucketDCV1CallbackProcessor",
+                "x-ms-enum": {
+                  "name": "Kind",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "BitbucketDCV1CallbackProcessor",
+                      "name": "BitbucketDcv1CallbackProcessor"
+                    }
+                  ]
+                }
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          }
+        ]
+      },
+      "EventCallbackProcessorInputOneOf4Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventCallbackProcessorInput"
@@ -49419,7 +50839,7 @@
           }
         ]
       },
-      "EventCallbackProcessorInputOneOf3Variant": {
+      "EventCallbackProcessorInputOneOf5Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventCallbackProcessorInput"
@@ -49455,7 +50875,7 @@
           }
         ]
       },
-      "EventCallbackProcessorInputOneOf4Variant": {
+      "EventCallbackProcessorInputOneOf6Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventCallbackProcessorInput"
@@ -49503,7 +50923,7 @@
           }
         ]
       },
-      "EventCallbackProcessorInputOneOf5Variant": {
+      "EventCallbackProcessorInputOneOf7Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventCallbackProcessorInput"
@@ -49546,7 +50966,7 @@
           }
         ]
       },
-      "EventCallbackProcessorInputOneOf6Variant": {
+      "EventCallbackProcessorInputOneOf8Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventCallbackProcessorInput"
@@ -49572,7 +50992,7 @@
           }
         ]
       },
-      "EventCallbackProcessorInputOneOf7Variant": {
+      "EventCallbackProcessorInputOneOf9Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventCallbackProcessorInput"
@@ -49595,7 +51015,7 @@
           }
         ]
       },
-      "EventCallbackProcessorInputOneOf8Variant": {
+      "EventCallbackProcessorInputOneOf10Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventCallbackProcessorInput"
@@ -49618,7 +51038,7 @@
           }
         ]
       },
-      "EventCallbackProcessorInputOneOf9Variant": {
+      "EventCallbackProcessorInputOneOf11Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/EventCallbackProcessorInput"
@@ -49638,6 +51058,33 @@
             "required": [
               "kind"
             ]
+          }
+        ]
+      },
+      "EventCallbackProcessorOutputAzureDevOpsV1CallbackProcessorOutput": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EventCallbackProcessorOutput"
+          },
+          {
+            "title": "AzureDevOpsV1CallbackProcessor",
+            "required": [
+              "kind"
+            ],
+            "type": "object",
+            "properties": {
+              "azure_devops_view_data": {
+                "$ref": "#/components/schemas/AzureDevOpsV1CallbackProcessorOutputAzureDevopsViewDataProperty"
+              },
+              "should_request_summary": {
+                "title": "Should Request Summary",
+                "type": "boolean",
+                "default": true
+              },
+              "kind": {
+                "$ref": "#/components/schemas/AzureDevOpsV1CallbackProcessorOutputKind"
+              }
+            }
           }
         ]
       },
@@ -49666,6 +51113,34 @@
               }
             },
             "description": "V1 callback processor for the Bitbucket Cloud resolver.\n\nPosts a summary comment back to the originating PR when the agent\nfinishes successfully. Mirrors :class:\u0060GitlabV1CallbackProcessor\u0060."
+          }
+        ]
+      },
+      "EventCallbackProcessorOutputBitbucketDcv1CallbackProcessorOutput": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EventCallbackProcessorOutput"
+          },
+          {
+            "title": "BitbucketDCV1CallbackProcessor",
+            "required": [
+              "kind"
+            ],
+            "type": "object",
+            "properties": {
+              "bitbucket_dc_view_data": {
+                "$ref": "#/components/schemas/BitbucketDcv1CallbackProcessorOutputBitbucketDcViewDataProperty"
+              },
+              "should_request_summary": {
+                "title": "Should Request Summary",
+                "type": "boolean",
+                "default": true
+              },
+              "kind": {
+                "$ref": "#/components/schemas/BitbucketDcv1CallbackProcessorOutputKind"
+              }
+            },
+            "description": "V1 callback processor for the Bitbucket Data Center resolver.\n\nPosts a summary comment back to the originating PR when the agent\nfinishes successfully. Mirrors :class:\u0060BitbucketV1CallbackProcessor\u0060."
           }
         ]
       },
@@ -50576,7 +52051,8 @@
               }
             },
             "additionalProperties": false,
-            "description": "Observation from delegation operations."
+            "description": "Legacy delegation observation, deprecated since v1.60.0.\n\nUse TaskObservation for new tasks. Retained to read stored events.",
+            "deprecated": true
           }
         ]
       },
@@ -51448,6 +52924,22 @@
                 ],
                 "description": "Optional description for this secret"
               },
+              "scope": {
+                "title": "Scope",
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "description": "Optional grouping name shown to the agent when rendering the available secrets (e.g. \u0027personal\u0027, \u0027organization\u0027). The SDK attaches no meaning to the value; it only groups by it."
+              },
+              "scope_description": {
+                "title": "Scope Description",
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "description": "Optional guidance shown once above the secret\u0027s scope group when rendering secrets, e.g. who actions are attributed to. Only the first non-empty value within a scope is used; conflicts log a warning."
+              },
               "url": {
                 "title": "Url",
                 "type": "string"
@@ -51486,6 +52978,22 @@
                   "string"
                 ],
                 "description": "Optional description for this secret"
+              },
+              "scope": {
+                "title": "Scope",
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "description": "Optional grouping name shown to the agent when rendering the available secrets (e.g. \u0027personal\u0027, \u0027organization\u0027). The SDK attaches no meaning to the value; it only groups by it."
+              },
+              "scope_description": {
+                "title": "Scope Description",
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "description": "Optional guidance shown once above the secret\u0027s scope group when rendering secrets, e.g. who actions are attributed to. Only the first non-empty value within a scope is used; conflicts log a warning."
               },
               "value": {
                 "title": "Value",
@@ -51887,7 +53395,7 @@
                 "$ref": "#/components/schemas/McpToolDefinitionMetaProperty"
               },
               "mcp_tool": {
-                "$ref": "#/components/schemas/McpTypesTool"
+                "$ref": "#/components/schemas/McpTypesTypesTool"
               },
               "kind": {
                 "$ref": "#/components/schemas/McpToolDefinitionKind"
@@ -54513,7 +56021,15 @@
             "null",
             "string"
           ],
-          "description": "Model for the ACP server to use (e.g. \u0027sonnet\u0027 or \u0027gpt-5.5\u0027). Applied via the protocol \u2014 set_config_option(model) for configOptions-based servers (codex, claude), else set_session_model. If None, the server picks its default."
+          "description": "Model for the ACP server to use (e.g. \u0027sonnet\u0027 or \u0027gpt-5.5\u0027). Applied via the protocol \u2014 set_config_option(model) for configOptions-based servers (codex, claude), else set_session_model. Codex and Claude also accept \u0027\u003Cmodel\u003E/\u003Ceffort\u003E\u0027 (e.g. \u0027gpt-5.5/high\u0027); prefer acp_effort, which wins over the suffix. If None, the server picks its default."
+        },
+        "acp_effort": {
+          "title": "Acp Effort",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Reasoning effort for the ACP server to use (e.g. \u0027high\u0027), applied after the model through the session\u0027s \u0060\u0060thought_level\u0060\u0060 config option. Ignored when the model offers no effort setting. If None, the server keeps its own."
         },
         "acp_resume_session_id": {
           "title": "Acp Resume Session Id",
@@ -55474,6 +56990,82 @@
         }
       },
       "description": "Tool for consulting the Oracle (a saved LLM profile named \u0022oracle\u0022)."
+    },
+    "AzureDevOpsV1CallbackProcessorInput": {
+      "title": "AzureDevOpsV1CallbackProcessor",
+      "type": "object",
+      "properties": {
+        "azure_devops_view_data": {
+          "$ref": "#/components/schemas/AzureDevOpsV1CallbackProcessorInputAzureDevopsViewDataProperty"
+        },
+        "should_request_summary": {
+          "title": "Should Request Summary",
+          "type": "boolean",
+          "default": true
+        },
+        "kind": {
+          "$ref": "#/components/schemas/AzureDevOpsV1CallbackProcessorKind"
+        }
+      }
+    },
+    "AzureDevOpsV1CallbackProcessorOutput": {
+      "title": "AzureDevOpsV1CallbackProcessor",
+      "required": [
+        "kind"
+      ],
+      "type": "object",
+      "properties": {
+        "azure_devops_view_data": {
+          "$ref": "#/components/schemas/AzureDevOpsV1CallbackProcessorOutputAzureDevopsViewDataProperty"
+        },
+        "should_request_summary": {
+          "title": "Should Request Summary",
+          "type": "boolean",
+          "default": true
+        },
+        "kind": {
+          "$ref": "#/components/schemas/AzureDevOpsV1CallbackProcessorOutputKind"
+        }
+      }
+    },
+    "BitbucketDcv1CallbackProcessorInput": {
+      "title": "BitbucketDCV1CallbackProcessor",
+      "type": "object",
+      "properties": {
+        "bitbucket_dc_view_data": {
+          "$ref": "#/components/schemas/BitbucketDcv1CallbackProcessorInputBitbucketDcViewDataProperty"
+        },
+        "should_request_summary": {
+          "title": "Should Request Summary",
+          "type": "boolean",
+          "default": true
+        },
+        "kind": {
+          "$ref": "#/components/schemas/BitbucketDcv1CallbackProcessorKind"
+        }
+      },
+      "description": "V1 callback processor for the Bitbucket Data Center resolver.\n\nPosts a summary comment back to the originating PR when the agent\nfinishes successfully. Mirrors :class:\u0060BitbucketV1CallbackProcessor\u0060."
+    },
+    "BitbucketDcv1CallbackProcessorOutput": {
+      "title": "BitbucketDCV1CallbackProcessor",
+      "required": [
+        "kind"
+      ],
+      "type": "object",
+      "properties": {
+        "bitbucket_dc_view_data": {
+          "$ref": "#/components/schemas/BitbucketDcv1CallbackProcessorOutputBitbucketDcViewDataProperty"
+        },
+        "should_request_summary": {
+          "title": "Should Request Summary",
+          "type": "boolean",
+          "default": true
+        },
+        "kind": {
+          "$ref": "#/components/schemas/BitbucketDcv1CallbackProcessorOutputKind"
+        }
+      },
+      "description": "V1 callback processor for the Bitbucket Data Center resolver.\n\nPosts a summary comment back to the originating PR when the agent\nfinishes successfully. Mirrors :class:\u0060BitbucketV1CallbackProcessor\u0060."
     },
     "BitbucketV1CallbackProcessorInput": {
       "title": "BitbucketV1CallbackProcessor",
@@ -57237,7 +58829,8 @@
         }
       },
       "additionalProperties": false,
-      "description": "Schema for delegation operations."
+      "description": "Legacy delegation action, deprecated since v1.60.0.\n\nUse TaskAction for new tasks. Retained to read stored events.",
+      "deprecated": true
     },
     "DelegateObservation": {
       "title": "DelegateObservation",
@@ -57269,7 +58862,8 @@
         }
       },
       "additionalProperties": false,
-      "description": "Observation from delegation operations."
+      "description": "Legacy delegation observation, deprecated since v1.60.0.\n\nUse TaskObservation for new tasks. Retained to read stored events.",
+      "deprecated": true
     },
     "EditAction": {
       "title": "EditAction",
@@ -59123,6 +60717,22 @@
           ],
           "description": "Optional description for this secret"
         },
+        "scope": {
+          "title": "Scope",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Optional grouping name shown to the agent when rendering the available secrets (e.g. \u0027personal\u0027, \u0027organization\u0027). The SDK attaches no meaning to the value; it only groups by it."
+        },
+        "scope_description": {
+          "title": "Scope Description",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Optional guidance shown once above the secret\u0027s scope group when rendering secrets, e.g. who actions are attributed to. Only the first non-empty value within a scope is used; conflicts log a warning."
+        },
         "url": {
           "title": "Url",
           "type": "string"
@@ -59151,6 +60761,22 @@
             "string"
           ],
           "description": "Optional description for this secret"
+        },
+        "scope": {
+          "title": "Scope",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Optional grouping name shown to the agent when rendering the available secrets (e.g. \u0027personal\u0027, \u0027organization\u0027). The SDK attaches no meaning to the value; it only groups by it."
+        },
+        "scope_description": {
+          "title": "Scope Description",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Optional guidance shown once above the secret\u0027s scope group when rendering secrets, e.g. who actions are attributed to. Only the first non-empty value within a scope is used; conflicts log a warning."
         },
         "url": {
           "title": "Url",
@@ -59621,7 +61247,7 @@
           "$ref": "#/components/schemas/McpToolDefinitionMetaProperty"
         },
         "mcp_tool": {
-          "$ref": "#/components/schemas/McpTypesTool"
+          "$ref": "#/components/schemas/McpTypesTypesTool"
         },
         "kind": {
           "$ref": "#/components/schemas/McpToolDefinitionKind"
@@ -61580,6 +63206,22 @@
           ],
           "description": "Optional description for this secret"
         },
+        "scope": {
+          "title": "Scope",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Optional grouping name shown to the agent when rendering the available secrets (e.g. \u0027personal\u0027, \u0027organization\u0027). The SDK attaches no meaning to the value; it only groups by it."
+        },
+        "scope_description": {
+          "title": "Scope Description",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Optional guidance shown once above the secret\u0027s scope group when rendering secrets, e.g. who actions are attributed to. Only the first non-empty value within a scope is used; conflicts log a warning."
+        },
         "value": {
           "title": "Value",
           "type": [
@@ -61608,6 +63250,22 @@
             "string"
           ],
           "description": "Optional description for this secret"
+        },
+        "scope": {
+          "title": "Scope",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Optional grouping name shown to the agent when rendering the available secrets (e.g. \u0027personal\u0027, \u0027organization\u0027). The SDK attaches no meaning to the value; it only groups by it."
+        },
+        "scope_description": {
+          "title": "Scope Description",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Optional guidance shown once above the secret\u0027s scope group when rendering secrets, e.g. who actions are attributed to. Only the first non-empty value within a scope is used; conflicts log a warning."
         },
         "value": {
           "title": "Value",
@@ -62848,7 +64506,7 @@
           "$ref": "#/components/schemas/ToolExecutionTaskSupport"
         }
       },
-      "description": "Execution-related properties for a tool."
+      "description": "Execution-related properties for a tool (2025-11-25 only)."
     },
     "ToolShieldLlmSecurityAnalyzer": {
       "title": "ToolShieldLLMSecurityAnalyzer",
@@ -63470,7 +65128,7 @@
       },
       "description": "Tool for writing complete file contents."
     },
-    "McpTypesToolAnnotations": {
+    "McpTypesTypesToolAnnotations": {
       "title": "ToolAnnotations",
       "type": "object",
       "properties": {
@@ -67929,7 +69587,7 @@
           "type": "null"
         }
       ],
-      "description": "Either a string representing a Bearer token, the literal \u0022oauth\u0022 to use OAuth authentication, or an httpx.Auth instance for custom authentication."
+      "description": "Either a string representing a Bearer token, the literal \u0022oauth\u0022 to use OAuth authentication, or an httpx2.Auth instance for custom authentication."
     },
     "TransformingRemoteMcpServerSseReadTimeout": {
       "title": "Sse Read Timeout",
@@ -68719,6 +70377,22 @@
         "null",
         "object"
       ]
+    },
+    "AzureDevOpsV1CallbackProcessorInputAzureDevopsViewData": {
+      "title": "Azure Devops View Data",
+      "type": "object"
+    },
+    "AzureDevOpsV1CallbackProcessorOutputAzureDevopsViewData": {
+      "title": "Azure Devops View Data",
+      "type": "object"
+    },
+    "BitbucketDcv1CallbackProcessorInputBitbucketDcViewData": {
+      "title": "Bitbucket Dc View Data",
+      "type": "object"
+    },
+    "BitbucketDcv1CallbackProcessorOutputBitbucketDcViewData": {
+      "title": "Bitbucket Dc View Data",
+      "type": "object"
     },
     "BitbucketV1CallbackProcessorInputBitbucketViewData": {
       "title": "Bitbucket View Data",
@@ -69608,22 +71282,6 @@
       "type": "object",
       "description": "Parameters for the tool\u0027s .create() method, e.g., {\u0027working_dir\u0027: \u0027/app\u0027}"
     },
-    "ToolTransformConfigMeta": {
-      "title": "Meta",
-      "type": [
-        "null",
-        "object"
-      ],
-      "description": "The new meta information for the tool."
-    },
-    "ToolTransformConfigArguments": {
-      "title": "Arguments",
-      "type": "object",
-      "additionalProperties": {
-        "$ref": "#/components/schemas/ArgTransformConfig"
-      },
-      "description": "A dictionary of argument transforms to apply to the tool."
-    },
     "TransformingRemoteMcpServerHeaders": {
       "title": "Headers",
       "type": "object",
@@ -69640,10 +71298,7 @@
     },
     "TransformingRemoteMcpServerTools": {
       "title": "Tools",
-      "type": "object",
-      "additionalProperties": {
-        "$ref": "#/components/schemas/ToolTransformConfig"
-      }
+      "type": "object"
     },
     "TransformingStdioMcpServerEnv": {
       "title": "Env",
@@ -69658,10 +71313,7 @@
     },
     "TransformingStdioMcpServerTools": {
       "title": "Tools",
-      "type": "object",
-      "additionalProperties": {
-        "$ref": "#/components/schemas/ToolTransformConfig"
-      }
+      "type": "object"
     },
     "UnparsedActionRawPayload": {
       "title": "Raw Payload",
@@ -69721,18 +71373,18 @@
         "object"
       ]
     },
-    "McpTypesToolInputSchema": {
+    "McpTypesTypesToolInputSchema": {
       "title": "Inputschema",
       "type": "object"
     },
-    "McpTypesToolOutputSchema": {
+    "McpTypesTypesToolOutputSchema": {
       "title": "Outputschema",
       "type": [
         "null",
         "object"
       ]
     },
-    "McpTypesToolMeta": {
+    "McpTypesTypesToolMeta": {
       "title": "Meta",
       "type": [
         "null",
@@ -69963,6 +71615,7 @@
     "GithubEventsIntegrationGithubEventsPost200Response": {},
     "GitlabEventsIntegrationGitlabEventsPost200Response": {},
     "BitbucketEventsIntegrationBitbucketEventsPost200Response": {},
+    "AzureDevopsEventsIntegrationAzureDevopsEventsPost200Response": {},
     "ResponseListApiKeysApiKeysGet": {
       "title": "Response List Api Keys Api Keys Get",
       "type": "array",
@@ -70056,6 +71709,7 @@
     "CreateWorkspaceLinkIntegrationJiraWorkspacesLinkPost200Response": {},
     "JiraCallbackIntegrationJiraCallbackGet200Response": {},
     "UnlinkWorkspaceIntegrationJiraWorkspacesUnlinkPost200Response": {},
+    "BitbucketDcConnectionEventsIntegrationBitbucketDcConnectionsConnectionIdEventsPost200Response": {},
     "UpdateEmailApiEmailPost200Response": {},
     "ResendEmailVerificationApiEmailResendPut200Response": {},
     "VerifiedEmailApiEmailVerifiedGet200Response": {},
@@ -70787,6 +72441,32 @@
       "type": "string",
       "x-client-original-const": "AlwaysConfirm"
     },
+    "AzureDevOpsV1CallbackProcessorKind": {
+      "title": "Kind",
+      "enum": [
+        "AzureDevOpsV1CallbackProcessor"
+      ],
+      "type": "string",
+      "x-client-original-const": "AzureDevOpsV1CallbackProcessor"
+    },
+    "BitbucketDcv1CallbackProcessorKind": {
+      "title": "Kind",
+      "enum": [
+        "BitbucketDCV1CallbackProcessor"
+      ],
+      "type": "string",
+      "x-client-original-const": "BitbucketDCV1CallbackProcessor",
+      "x-ms-enum": {
+        "name": "BitbucketDcv1CallbackProcessorKind",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "BitbucketDCV1CallbackProcessor",
+            "name": "BitbucketDcv1CallbackProcessor"
+          }
+        ]
+      }
+    },
     "BitbucketV1CallbackProcessorKind": {
       "title": "Kind",
       "enum": [
@@ -71394,7 +73074,15 @@
             "null",
             "string"
           ],
-          "description": "Model for the ACP server to use (e.g. \u0027sonnet\u0027 or \u0027gpt-5.5\u0027). Applied via the protocol \u2014 set_config_option(model) for configOptions-based servers (codex, claude), else set_session_model. If None, the server picks its default."
+          "description": "Model for the ACP server to use (e.g. \u0027sonnet\u0027 or \u0027gpt-5.5\u0027). Applied via the protocol \u2014 set_config_option(model) for configOptions-based servers (codex, claude), else set_session_model. Codex and Claude also accept \u0027\u003Cmodel\u003E/\u003Ceffort\u003E\u0027 (e.g. \u0027gpt-5.5/high\u0027); prefer acp_effort, which wins over the suffix. If None, the server picks its default."
+        },
+        "acp_effort": {
+          "title": "Acp Effort",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Reasoning effort for the ACP server to use (e.g. \u0027high\u0027), applied after the model through the session\u0027s \u0060\u0060thought_level\u0060\u0060 config option. Ignored when the model offers no effort setting. If None, the server keeps its own."
         },
         "acp_resume_session_id": {
           "title": "Acp Resume Session Id",
@@ -72263,6 +73951,30 @@
     "EventCallbackProcessorInputOneOf1": {
       "type": "object",
       "properties": {
+        "azure_devops_view_data": {
+          "$ref": "#/components/schemas/AzureDevOpsV1CallbackProcessorInputAzureDevopsViewDataProperty"
+        },
+        "should_request_summary": {
+          "title": "Should Request Summary",
+          "type": "boolean",
+          "default": true
+        },
+        "kind": {
+          "title": "Kind",
+          "enum": [
+            "AzureDevOpsV1CallbackProcessor"
+          ],
+          "type": "string",
+          "x-client-original-const": "AzureDevOpsV1CallbackProcessor"
+        }
+      },
+      "required": [
+        "kind"
+      ]
+    },
+    "EventCallbackProcessorInputOneOf2": {
+      "type": "object",
+      "properties": {
         "bitbucket_view_data": {
           "$ref": "#/components/schemas/BitbucketV1CallbackProcessorInputBitbucketViewDataProperty"
         },
@@ -72284,7 +73996,41 @@
         "kind"
       ]
     },
-    "EventCallbackProcessorInputOneOf2": {
+    "EventCallbackProcessorInputOneOf3": {
+      "type": "object",
+      "properties": {
+        "bitbucket_dc_view_data": {
+          "$ref": "#/components/schemas/BitbucketDcv1CallbackProcessorInputBitbucketDcViewDataProperty"
+        },
+        "should_request_summary": {
+          "title": "Should Request Summary",
+          "type": "boolean",
+          "default": true
+        },
+        "kind": {
+          "title": "Kind",
+          "enum": [
+            "BitbucketDCV1CallbackProcessor"
+          ],
+          "type": "string",
+          "x-client-original-const": "BitbucketDCV1CallbackProcessor",
+          "x-ms-enum": {
+            "name": "Kind",
+            "modelAsString": false,
+            "values": [
+              {
+                "value": "BitbucketDCV1CallbackProcessor",
+                "name": "BitbucketDcv1CallbackProcessor"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "kind"
+      ]
+    },
+    "EventCallbackProcessorInputOneOf4": {
       "type": "object",
       "properties": {
         "github_view_data": {
@@ -72313,7 +74059,7 @@
         "kind"
       ]
     },
-    "EventCallbackProcessorInputOneOf3": {
+    "EventCallbackProcessorInputOneOf5": {
       "type": "object",
       "properties": {
         "gitlab_view_data": {
@@ -72342,7 +74088,7 @@
         "kind"
       ]
     },
-    "EventCallbackProcessorInputOneOf4": {
+    "EventCallbackProcessorInputOneOf6": {
       "type": "object",
       "properties": {
         "should_request_summary": {
@@ -72383,7 +74129,7 @@
         "kind"
       ]
     },
-    "EventCallbackProcessorInputOneOf5": {
+    "EventCallbackProcessorInputOneOf7": {
       "type": "object",
       "properties": {
         "should_request_summary": {
@@ -72419,7 +74165,7 @@
         "kind"
       ]
     },
-    "EventCallbackProcessorInputOneOf6": {
+    "EventCallbackProcessorInputOneOf8": {
       "type": "object",
       "properties": {
         "slack_view_data": {
@@ -72438,7 +74184,7 @@
         "kind"
       ]
     },
-    "EventCallbackProcessorInputOneOf7": {
+    "EventCallbackProcessorInputOneOf9": {
       "type": "object",
       "properties": {
         "kind": {
@@ -72454,7 +74200,7 @@
         "kind"
       ]
     },
-    "EventCallbackProcessorInputOneOf8": {
+    "EventCallbackProcessorInputOneOf10": {
       "type": "object",
       "properties": {
         "kind": {
@@ -72470,7 +74216,7 @@
         "kind"
       ]
     },
-    "EventCallbackProcessorInputOneOf9": {
+    "EventCallbackProcessorInputOneOf11": {
       "type": "object",
       "properties": {
         "kind": {
@@ -72533,6 +74279,22 @@
           ],
           "description": "Optional description for this secret"
         },
+        "scope": {
+          "title": "Scope",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Optional grouping name shown to the agent when rendering the available secrets (e.g. \u0027personal\u0027, \u0027organization\u0027). The SDK attaches no meaning to the value; it only groups by it."
+        },
+        "scope_description": {
+          "title": "Scope Description",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Optional guidance shown once above the secret\u0027s scope group when rendering secrets, e.g. who actions are attributed to. Only the first non-empty value within a scope is used; conflicts log a warning."
+        },
         "url": {
           "title": "Url",
           "type": "string"
@@ -72564,6 +74326,22 @@
             "string"
           ],
           "description": "Optional description for this secret"
+        },
+        "scope": {
+          "title": "Scope",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Optional grouping name shown to the agent when rendering the available secrets (e.g. \u0027personal\u0027, \u0027organization\u0027). The SDK attaches no meaning to the value; it only groups by it."
+        },
+        "scope_description": {
+          "title": "Scope Description",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Optional guidance shown once above the secret\u0027s scope group when rendering secrets, e.g. who actions are attributed to. Only the first non-empty value within a scope is used; conflicts log a warning."
         },
         "value": {
           "title": "Value",
@@ -73231,6 +75009,22 @@
               ],
               "description": "Optional description for this secret"
             },
+            "scope": {
+              "title": "Scope",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Optional grouping name shown to the agent when rendering the available secrets (e.g. \u0027personal\u0027, \u0027organization\u0027). The SDK attaches no meaning to the value; it only groups by it."
+            },
+            "scope_description": {
+              "title": "Scope Description",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Optional guidance shown once above the secret\u0027s scope group when rendering secrets, e.g. who actions are attributed to. Only the first non-empty value within a scope is used; conflicts log a warning."
+            },
             "url": {
               "title": "Url",
               "type": "string"
@@ -73265,6 +75059,22 @@
                 "string"
               ],
               "description": "Optional description for this secret"
+            },
+            "scope": {
+              "title": "Scope",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Optional grouping name shown to the agent when rendering the available secrets (e.g. \u0027personal\u0027, \u0027organization\u0027). The SDK attaches no meaning to the value; it only groups by it."
+            },
+            "scope_description": {
+              "title": "Scope Description",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Optional guidance shown once above the secret\u0027s scope group when rendering secrets, e.g. who actions are attributed to. Only the first non-empty value within a scope is used; conflicts log a warning."
             },
             "value": {
               "title": "Value",

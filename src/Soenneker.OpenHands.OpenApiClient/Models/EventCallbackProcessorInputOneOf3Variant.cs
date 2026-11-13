@@ -18,27 +18,22 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public override void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
             base.CaptureExplicitNulls(parseNode);
-            if (parseNode.GetChildNode("gitlab_view_data") is null) { _explicitNullValueGitlabViewData = default!; _explicitNullProperties?.Remove("gitlab_view_data"); }
-            else if (parseNode.GetChildNode("gitlab_view_data") is { } nullNodeGitlabViewData && nullNodeGitlabViewData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitlabViewData = null;
-            if (parseNode.GetChildNode("inline_mr_comment") is null) { _explicitNullValueInlineMrComment = default!; _explicitNullProperties?.Remove("inline_mr_comment"); }
-            else if (parseNode.GetChildNode("inline_mr_comment") is { } nullNodeInlineMrComment && nullNodeInlineMrComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InlineMrComment = null;
+            if (parseNode.GetChildNode("bitbucket_dc_view_data") is null) { _explicitNullValueBitbucketDcViewData = default!; _explicitNullProperties?.Remove("bitbucket_dc_view_data"); }
+            else if (parseNode.GetChildNode("bitbucket_dc_view_data") is { } nullNodeBitbucketDcViewData && nullNodeBitbucketDcViewData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BitbucketDcViewData = null;
             if (parseNode.GetChildNode("should_request_summary") is null) { _explicitNullValueShouldRequestSummary = default!; _explicitNullProperties?.Remove("should_request_summary"); }
             else if (parseNode.GetChildNode("should_request_summary") is { } nullNodeShouldRequestSummary && nullNodeShouldRequestSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShouldRequestSummary = null;
         }
 
-        /// <summary>The gitlab_view_data property</summary>
+        /// <summary>The bitbucket_dc_view_data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInputGitlabViewDataProperty? GitlabViewData { get => _explicitNullValueGitlabViewData; set { _explicitNullValueGitlabViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gitlab_view_data"); else _explicitNullProperties?.Remove("gitlab_view_data"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInputGitlabViewDataProperty? _explicitNullValueGitlabViewData = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketDcv1CallbackProcessorInputBitbucketDcViewDataProperty? BitbucketDcViewData { get => _explicitNullValueBitbucketDcViewData; set { _explicitNullValueBitbucketDcViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bitbucket_dc_view_data"); else _explicitNullProperties?.Remove("bitbucket_dc_view_data"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketDcv1CallbackProcessorInputBitbucketDcViewDataProperty? _explicitNullValueBitbucketDcViewData = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInputGitlabViewDataProperty GitlabViewData { get => _explicitNullValueGitlabViewData; set { _explicitNullValueGitlabViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gitlab_view_data"); else _explicitNullProperties?.Remove("gitlab_view_data"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInputGitlabViewDataProperty _explicitNullValueGitlabViewData = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketDcv1CallbackProcessorInputBitbucketDcViewDataProperty BitbucketDcViewData { get => _explicitNullValueBitbucketDcViewData; set { _explicitNullValueBitbucketDcViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bitbucket_dc_view_data"); else _explicitNullProperties?.Remove("bitbucket_dc_view_data"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketDcv1CallbackProcessorInputBitbucketDcViewDataProperty _explicitNullValueBitbucketDcViewData = default!;
 #endif
-        /// <summary>The inline_mr_comment property</summary>
-        public bool? InlineMrComment { get => _explicitNullValueInlineMrComment; set { _explicitNullValueInlineMrComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inline_mr_comment"); else _explicitNullProperties?.Remove("inline_mr_comment"); } }
-        private bool? _explicitNullValueInlineMrComment = default!;
         /// <summary>The should_request_summary property</summary>
         public bool? ShouldRequestSummary { get => _explicitNullValueShouldRequestSummary; set { _explicitNullValueShouldRequestSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("should_request_summary"); else _explicitNullProperties?.Remove("should_request_summary"); } }
         private bool? _explicitNullValueShouldRequestSummary = default!;
@@ -47,7 +42,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// </summary>
         public EventCallbackProcessorInputOneOf3Variant() : base()
         {
-            InlineMrComment = false;
             ShouldRequestSummary = true;
         }
         /// <summary>
@@ -68,8 +62,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "gitlab_view_data", n => { GitlabViewData = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInputGitlabViewDataProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInputGitlabViewDataProperty.CreateFromDiscriminatorValue); } },
-                { "inline_mr_comment", n => { InlineMrComment = n.GetBoolValue(); } },
+                { "bitbucket_dc_view_data", n => { BitbucketDcViewData = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketDcv1CallbackProcessorInputBitbucketDcViewDataProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketDcv1CallbackProcessorInputBitbucketDcViewDataProperty.CreateFromDiscriminatorValue); } },
                 { "should_request_summary", n => { ShouldRequestSummary = n.GetBoolValue(); } },
             };
         }
@@ -81,8 +74,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GitlabV1CallbackProcessorInputGitlabViewDataProperty>("gitlab_view_data", GitlabViewData);
-            writer.WriteBoolValue("inline_mr_comment", InlineMrComment);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketDcv1CallbackProcessorInputBitbucketDcViewDataProperty>("bitbucket_dc_view_data", BitbucketDcViewData);
             writer.WriteBoolValue("should_request_summary", ShouldRequestSummary);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }

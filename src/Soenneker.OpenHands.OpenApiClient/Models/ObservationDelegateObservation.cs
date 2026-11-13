@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Observation from delegation operations.
+    /// Legacy delegation observation, deprecated since v1.60.0.Use TaskObservation for new tasks. Retained to read stored events.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ObservationDelegateObservation : global::Soenneker.OpenHands.OpenApiClient.Models.Observation, IParsable

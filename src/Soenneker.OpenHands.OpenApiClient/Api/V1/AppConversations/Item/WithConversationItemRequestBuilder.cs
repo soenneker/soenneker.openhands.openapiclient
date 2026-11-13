@@ -10,6 +10,7 @@ using Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Git;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Hooks;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.SendMessage;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Skills;
+using Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Switch_acp_effort;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Switch_acp_model;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Switch_profile;
 using Soenneker.OpenHands.OpenApiClient.Models;
@@ -60,6 +61,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item
         public global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Skills.SkillsRequestBuilder Skills
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Skills.SkillsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The switch_acp_effort property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Switch_acp_effort.Switch_acp_effortRequestBuilder Switch_acp_effort
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Switch_acp_effort.Switch_acp_effortRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The switch_acp_model property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.V1.AppConversations.Item.Switch_acp_model.Switch_acp_modelRequestBuilder Switch_acp_model

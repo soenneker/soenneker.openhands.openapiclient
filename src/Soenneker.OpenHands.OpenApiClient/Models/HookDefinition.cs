@@ -26,6 +26,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("max_iterations") is { } nullNodeMaxIterations && nullNodeMaxIterations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxIterations = null;
             if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("plugin_root") is null) { _explicitNullValuePluginRoot = default!; _explicitNullProperties?.Remove("plugin_root"); }
+            else if (parseNode.GetChildNode("plugin_root") is { } nullNodePluginRoot && nullNodePluginRoot.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PluginRoot = null;
             if (parseNode.GetChildNode("prompt") is null) { _explicitNullValuePrompt = default!; _explicitNullProperties?.Remove("prompt"); }
             else if (parseNode.GetChildNode("prompt") is { } nullNodePrompt && nullNodePrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prompt = null;
             if (parseNode.GetChildNode("system_prompt") is null) { _explicitNullValueSystemPrompt = default!; _explicitNullProperties?.Remove("system_prompt"); }
@@ -65,6 +67,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
+#endif
+        /// <summary>Resolved root directory of the plugin that supplied this hook. Set by the plugin loader rather than in hooks.json, and exported to command hooks as the PLUGIN_ROOT environment variable. None for hooks that do not come from a plugin.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PluginRoot { get => _explicitNullValuePluginRoot; set { _explicitNullValuePluginRoot = value; AdditionalData?.Remove("plugin_root"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plugin_root"); else _explicitNullProperties?.Remove("plugin_root"); } }
+        private string? _explicitNullValuePluginRoot = default!;
+#nullable restore
+#else
+        public string PluginRoot { get => _explicitNullValuePluginRoot; set { _explicitNullValuePluginRoot = value; AdditionalData?.Remove("plugin_root"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plugin_root"); else _explicitNullProperties?.Remove("plugin_root"); } }
+        private string _explicitNullValuePluginRoot = default!;
 #endif
         /// <summary>The prompt property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -135,6 +147,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "command", n => { Command = n.GetStringValue(); } },
                 { "max_iterations", n => { MaxIterations = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "plugin_root", n => { PluginRoot = n.GetStringValue(); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
                 { "system_prompt", n => { SystemPrompt = n.GetStringValue(); } },
                 { "timeout", n => { Timeout = n.GetIntValue(); } },
@@ -153,6 +166,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("command", Command);
             writer.WriteIntValue("max_iterations", MaxIterations);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("plugin_root", PluginRoot);
             writer.WriteStringValue("prompt", Prompt);
             writer.WriteStringValue("system_prompt", SystemPrompt);
             writer.WriteIntValue("timeout", Timeout);

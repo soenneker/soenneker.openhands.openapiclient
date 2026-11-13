@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Schema for delegation operations.
+    /// Legacy delegation action, deprecated since v1.60.0.Use TaskAction for new tasks. Retained to read stored events.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ActionDelegateAction : global::Soenneker.OpenHands.OpenApiClient.Models.ActionObject, IParsable

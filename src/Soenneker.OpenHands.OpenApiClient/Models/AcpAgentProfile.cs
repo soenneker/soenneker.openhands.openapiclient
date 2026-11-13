@@ -22,6 +22,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("acp_args") is { } nullNodeAcpArgs && nullNodeAcpArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpArgs = null;
             if (parseNode.GetChildNode("acp_command") is null) { _explicitNullValueAcpCommand = default!; _explicitNullProperties?.Remove("acp_command"); }
             else if (parseNode.GetChildNode("acp_command") is { } nullNodeAcpCommand && nullNodeAcpCommand.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpCommand = null;
+            if (parseNode.GetChildNode("acp_effort") is null) { _explicitNullValueAcpEffort = default!; _explicitNullProperties?.Remove("acp_effort"); }
+            else if (parseNode.GetChildNode("acp_effort") is { } nullNodeAcpEffort && nullNodeAcpEffort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpEffort = null;
             if (parseNode.GetChildNode("acp_model") is null) { _explicitNullValueAcpModel = default!; _explicitNullProperties?.Remove("acp_model"); }
             else if (parseNode.GetChildNode("acp_model") is { } nullNodeAcpModel && nullNodeAcpModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpModel = null;
             if (parseNode.GetChildNode("acp_prompt_timeout") is null) { _explicitNullValueAcpPromptTimeout = default!; _explicitNullProperties?.Remove("acp_prompt_timeout"); }
@@ -69,6 +71,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string AcpCommand { get => _explicitNullValueAcpCommand; set { _explicitNullValueAcpCommand = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_command"); else _explicitNullProperties?.Remove("acp_command"); } }
         private string _explicitNullValueAcpCommand = default!;
+#endif
+        /// <summary>Reasoning effort for the ACP server (e.g. &apos;high&apos;). Leave blank to let the server pick its default.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AcpEffort { get => _explicitNullValueAcpEffort; set { _explicitNullValueAcpEffort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_effort"); else _explicitNullProperties?.Remove("acp_effort"); } }
+        private string? _explicitNullValueAcpEffort = default!;
+#nullable restore
+#else
+        public string AcpEffort { get => _explicitNullValueAcpEffort; set { _explicitNullValueAcpEffort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_effort"); else _explicitNullProperties?.Remove("acp_effort"); } }
+        private string _explicitNullValueAcpEffort = default!;
 #endif
         /// <summary>Model identifier for the ACP server (e.g. &apos;claude-opus-4-8&apos;). Leave blank to let the server pick its default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -181,6 +193,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "acp_args", n => { AcpArgs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "acp_command", n => { AcpCommand = n.GetStringValue(); } },
+                { "acp_effort", n => { AcpEffort = n.GetStringValue(); } },
                 { "acp_model", n => { AcpModel = n.GetStringValue(); } },
                 { "acp_prompt_timeout", n => { AcpPromptTimeout = n.GetDoubleValue(); } },
                 { "acp_server", n => { AcpServer = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileAcpServer>(); } },
@@ -205,6 +218,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("acp_args", AcpArgs);
             writer.WriteStringValue("acp_command", AcpCommand);
+            writer.WriteStringValue("acp_effort", AcpEffort);
             writer.WriteStringValue("acp_model", AcpModel);
             writer.WriteDoubleValue("acp_prompt_timeout", AcpPromptTimeout);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileAcpServer>("acp_server", AcpServer);

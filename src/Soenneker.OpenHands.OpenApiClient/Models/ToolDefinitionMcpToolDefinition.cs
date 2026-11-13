@@ -66,12 +66,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Definition for a tool the client can call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTool? McpTool { get => _explicitNullValueMcpTool; set { _explicitNullValueMcpTool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_tool"); else _explicitNullProperties?.Remove("mcp_tool"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTool? _explicitNullValueMcpTool = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTypesTool? McpTool { get => _explicitNullValueMcpTool; set { _explicitNullValueMcpTool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_tool"); else _explicitNullProperties?.Remove("mcp_tool"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTypesTool? _explicitNullValueMcpTool = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTool McpTool { get => _explicitNullValueMcpTool; set { _explicitNullValueMcpTool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_tool"); else _explicitNullProperties?.Remove("mcp_tool"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTool _explicitNullValueMcpTool = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTypesTool McpTool { get => _explicitNullValueMcpTool; set { _explicitNullValueMcpTool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_tool"); else _explicitNullProperties?.Remove("mcp_tool"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTypesTool _explicitNullValueMcpTool = default!;
 #endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -122,7 +122,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "action_type", n => { ActionType = n.GetStringValue(); } },
                 { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchToolAnnotations>(global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchToolAnnotations.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "mcp_tool", n => { McpTool = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTool>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTool.CreateFromDiscriminatorValue); } },
+                { "mcp_tool", n => { McpTool = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTypesTool>(global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTypesTool.CreateFromDiscriminatorValue); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpToolDefinitionMetaProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.McpToolDefinitionMetaProperty.CreateFromDiscriminatorValue); } },
                 { "observation_type", n => { ObservationType = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
@@ -139,7 +139,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("action_type", ActionType);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ApplyPatchToolAnnotations>("annotations", Annotations);
             writer.WriteStringValue("description", Description);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTool>("mcp_tool", McpTool);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpTypesTypesTool>("mcp_tool", McpTool);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.McpToolDefinitionMetaProperty>("meta", Meta);
             writer.WriteStringValue("observation_type", ObservationType);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             

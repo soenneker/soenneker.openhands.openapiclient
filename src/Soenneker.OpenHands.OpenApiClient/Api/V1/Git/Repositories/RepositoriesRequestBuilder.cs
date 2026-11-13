@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.OpenHands.OpenApiClient.Api.V1.Git.Repositories.Details;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.Git.Repositories.Search;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Git.Repositories
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RepositoriesRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The details property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Git.Repositories.Details.DetailsRequestBuilder Details
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Git.Repositories.Details.DetailsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The search property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Git.Repositories.Search.SearchRequestBuilder Search
         {

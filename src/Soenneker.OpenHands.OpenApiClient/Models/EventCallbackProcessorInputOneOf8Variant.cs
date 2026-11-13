@@ -18,8 +18,20 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public override void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
             base.CaptureExplicitNulls(parseNode);
+            if (parseNode.GetChildNode("slack_view_data") is null) { _explicitNullValueSlackViewData = default!; _explicitNullProperties?.Remove("slack_view_data"); }
+            else if (parseNode.GetChildNode("slack_view_data") is { } nullNodeSlackViewData && nullNodeSlackViewData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackViewData = null;
         }
 
+        /// <summary>The slack_view_data property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInputSlackViewDataProperty? SlackViewData { get => _explicitNullValueSlackViewData; set { _explicitNullValueSlackViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_view_data"); else _explicitNullProperties?.Remove("slack_view_data"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInputSlackViewDataProperty? _explicitNullValueSlackViewData = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInputSlackViewDataProperty SlackViewData { get => _explicitNullValueSlackViewData; set { _explicitNullValueSlackViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_view_data"); else _explicitNullProperties?.Remove("slack_view_data"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInputSlackViewDataProperty _explicitNullValueSlackViewData = default!;
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -38,6 +50,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "slack_view_data", n => { SlackViewData = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInputSlackViewDataProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInputSlackViewDataProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -47,7 +60,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public override void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            base.Serialize(writer);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SlackV1CallbackProcessorInputSlackViewDataProperty>("slack_view_data", SlackViewData);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

@@ -8,9 +8,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     public enum EventCallbackProcessorInputOneOf7Variant_kind
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "LoggingCallbackProcessor")]
+        [EnumMember(Value = "JiraDcV1CallbackProcessor")]
         #pragma warning disable CS1591
-        LoggingCallbackProcessor,
+        JiraDcV1CallbackProcessor,
         #pragma warning restore CS1591
     }
 }

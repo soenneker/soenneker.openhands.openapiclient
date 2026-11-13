@@ -51,6 +51,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
             return mappingValue switch
             {
+                "AzureDevOpsV1CallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorOutputAzureDevOpsV1CallbackProcessorOutput(),
+                "BitbucketDCV1CallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorOutputBitbucketDcv1CallbackProcessorOutput(),
                 "BitbucketV1CallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorOutputBitbucketV1CallbackProcessorOutput(),
                 "GithubV1CallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorOutputGithubV1CallbackProcessorOutput(),
                 "GitlabV1CallbackProcessor" => new global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorOutputGitlabV1CallbackProcessorOutput(),

@@ -18,66 +18,36 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public override void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
             base.CaptureExplicitNulls(parseNode);
-            if (parseNode.GetChildNode("decrypted_api_key") is null) { _explicitNullValueDecryptedApiKey = default!; _explicitNullProperties?.Remove("decrypted_api_key"); }
-            else if (parseNode.GetChildNode("decrypted_api_key") is { } nullNodeDecryptedApiKey && nullNodeDecryptedApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DecryptedApiKey = null;
-            if (parseNode.GetChildNode("issue_key") is null) { _explicitNullValueIssueKey = default!; _explicitNullProperties?.Remove("issue_key"); }
-            else if (parseNode.GetChildNode("issue_key") is { } nullNodeIssueKey && nullNodeIssueKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueKey = null;
-            if (parseNode.GetChildNode("jira_cloud_id") is null) { _explicitNullValueJiraCloudId = default!; _explicitNullProperties?.Remove("jira_cloud_id"); }
-            else if (parseNode.GetChildNode("jira_cloud_id") is { } nullNodeJiraCloudId && nullNodeJiraCloudId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JiraCloudId = null;
+            if (parseNode.GetChildNode("github_view_data") is null) { _explicitNullValueGithubViewData = default!; _explicitNullProperties?.Remove("github_view_data"); }
+            else if (parseNode.GetChildNode("github_view_data") is { } nullNodeGithubViewData && nullNodeGithubViewData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GithubViewData = null;
+            if (parseNode.GetChildNode("inline_pr_comment") is null) { _explicitNullValueInlinePrComment = default!; _explicitNullProperties?.Remove("inline_pr_comment"); }
+            else if (parseNode.GetChildNode("inline_pr_comment") is { } nullNodeInlinePrComment && nullNodeInlinePrComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InlinePrComment = null;
             if (parseNode.GetChildNode("should_request_summary") is null) { _explicitNullValueShouldRequestSummary = default!; _explicitNullProperties?.Remove("should_request_summary"); }
             else if (parseNode.GetChildNode("should_request_summary") is { } nullNodeShouldRequestSummary && nullNodeShouldRequestSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShouldRequestSummary = null;
-            if (parseNode.GetChildNode("svc_acc_email") is null) { _explicitNullValueSvcAccEmail = default!; _explicitNullProperties?.Remove("svc_acc_email"); }
-            else if (parseNode.GetChildNode("svc_acc_email") is { } nullNodeSvcAccEmail && nullNodeSvcAccEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SvcAccEmail = null;
         }
 
-        /// <summary>The decrypted_api_key property</summary>
+        /// <summary>The github_view_data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DecryptedApiKey { get => _explicitNullValueDecryptedApiKey; set { _explicitNullValueDecryptedApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("decrypted_api_key"); else _explicitNullProperties?.Remove("decrypted_api_key"); } }
-        private string? _explicitNullValueDecryptedApiKey = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInputGithubViewDataProperty? GithubViewData { get => _explicitNullValueGithubViewData; set { _explicitNullValueGithubViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github_view_data"); else _explicitNullProperties?.Remove("github_view_data"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInputGithubViewDataProperty? _explicitNullValueGithubViewData = default!;
 #nullable restore
 #else
-        public string DecryptedApiKey { get => _explicitNullValueDecryptedApiKey; set { _explicitNullValueDecryptedApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("decrypted_api_key"); else _explicitNullProperties?.Remove("decrypted_api_key"); } }
-        private string _explicitNullValueDecryptedApiKey = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInputGithubViewDataProperty GithubViewData { get => _explicitNullValueGithubViewData; set { _explicitNullValueGithubViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github_view_data"); else _explicitNullProperties?.Remove("github_view_data"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInputGithubViewDataProperty _explicitNullValueGithubViewData = default!;
 #endif
-        /// <summary>The issue_key property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? IssueKey { get => _explicitNullValueIssueKey; set { _explicitNullValueIssueKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_key"); else _explicitNullProperties?.Remove("issue_key"); } }
-        private string? _explicitNullValueIssueKey = default!;
-#nullable restore
-#else
-        public string IssueKey { get => _explicitNullValueIssueKey; set { _explicitNullValueIssueKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_key"); else _explicitNullProperties?.Remove("issue_key"); } }
-        private string _explicitNullValueIssueKey = default!;
-#endif
-        /// <summary>The jira_cloud_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? JiraCloudId { get => _explicitNullValueJiraCloudId; set { _explicitNullValueJiraCloudId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jira_cloud_id"); else _explicitNullProperties?.Remove("jira_cloud_id"); } }
-        private string? _explicitNullValueJiraCloudId = default!;
-#nullable restore
-#else
-        public string JiraCloudId { get => _explicitNullValueJiraCloudId; set { _explicitNullValueJiraCloudId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jira_cloud_id"); else _explicitNullProperties?.Remove("jira_cloud_id"); } }
-        private string _explicitNullValueJiraCloudId = default!;
-#endif
+        /// <summary>The inline_pr_comment property</summary>
+        public bool? InlinePrComment { get => _explicitNullValueInlinePrComment; set { _explicitNullValueInlinePrComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inline_pr_comment"); else _explicitNullProperties?.Remove("inline_pr_comment"); } }
+        private bool? _explicitNullValueInlinePrComment = default!;
         /// <summary>The should_request_summary property</summary>
         public bool? ShouldRequestSummary { get => _explicitNullValueShouldRequestSummary; set { _explicitNullValueShouldRequestSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("should_request_summary"); else _explicitNullProperties?.Remove("should_request_summary"); } }
         private bool? _explicitNullValueShouldRequestSummary = default!;
-        /// <summary>The svc_acc_email property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SvcAccEmail { get => _explicitNullValueSvcAccEmail; set { _explicitNullValueSvcAccEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svc_acc_email"); else _explicitNullProperties?.Remove("svc_acc_email"); } }
-        private string? _explicitNullValueSvcAccEmail = default!;
-#nullable restore
-#else
-        public string SvcAccEmail { get => _explicitNullValueSvcAccEmail; set { _explicitNullValueSvcAccEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svc_acc_email"); else _explicitNullProperties?.Remove("svc_acc_email"); } }
-        private string _explicitNullValueSvcAccEmail = default!;
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.EventCallbackProcessorInputOneOf4Variant"/> and sets the default values.
         /// </summary>
         public EventCallbackProcessorInputOneOf4Variant() : base()
         {
+            InlinePrComment = false;
             ShouldRequestSummary = true;
         }
         /// <summary>
@@ -98,11 +68,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "decrypted_api_key", n => { DecryptedApiKey = n.GetStringValue(); } },
-                { "issue_key", n => { IssueKey = n.GetStringValue(); } },
-                { "jira_cloud_id", n => { JiraCloudId = n.GetStringValue(); } },
+                { "github_view_data", n => { GithubViewData = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInputGithubViewDataProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInputGithubViewDataProperty.CreateFromDiscriminatorValue); } },
+                { "inline_pr_comment", n => { InlinePrComment = n.GetBoolValue(); } },
                 { "should_request_summary", n => { ShouldRequestSummary = n.GetBoolValue(); } },
-                { "svc_acc_email", n => { SvcAccEmail = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -113,11 +81,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteStringValue("decrypted_api_key", DecryptedApiKey);
-            writer.WriteStringValue("issue_key", IssueKey);
-            writer.WriteStringValue("jira_cloud_id", JiraCloudId);
-            writer.WriteBoolValue("should_request_summary", ShouldRequestSummary);
-            writer.WriteStringValue("svc_acc_email", SvcAccEmail);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.GithubV1CallbackProcessorInputGithubViewDataProperty>("github_view_data", GithubViewData);
+            writer.WriteBoolValue("inline_pr_comment", InlinePrComment);
+            writer.WriteBoolValue("should_request_summary", ShouldRequestSummary);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

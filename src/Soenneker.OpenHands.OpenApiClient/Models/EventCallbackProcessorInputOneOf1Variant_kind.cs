@@ -8,9 +8,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
     public enum EventCallbackProcessorInputOneOf1Variant_kind
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "BitbucketV1CallbackProcessor")]
+        [EnumMember(Value = "AzureDevOpsV1CallbackProcessor")]
         #pragma warning disable CS1591
-        BitbucketV1CallbackProcessor,
+        AzureDevOpsV1CallbackProcessor,
         #pragma warning restore CS1591
     }
 }

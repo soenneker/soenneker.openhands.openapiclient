@@ -20,6 +20,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("current_org_id") is null) { _explicitNullValueCurrentOrgId = default!; _explicitNullProperties?.Remove("current_org_id"); }
             else if (parseNode.GetChildNode("current_org_id") is { } nullNodeCurrentOrgId && nullNodeCurrentOrgId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentOrgId = null;
+            if (parseNode.GetChildNode("default_org_fallback_active") is null) { _explicitNullValueDefaultOrgFallbackActive = default!; _explicitNullProperties?.Remove("default_org_fallback_active"); }
+            else if (parseNode.GetChildNode("default_org_fallback_active") is { } nullNodeDefaultOrgFallbackActive && nullNodeDefaultOrgFallbackActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultOrgFallbackActive = null;
             if (parseNode.GetChildNode("items") is null) { _explicitNullValueItems = default!; _explicitNullProperties?.Remove("items"); }
             else if (parseNode.GetChildNode("items") is { } nullNodeItems && nullNodeItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Items = null;
             if (parseNode.GetChildNode("next_page_id") is null) { _explicitNullValueNextPageId = default!; _explicitNullProperties?.Remove("next_page_id"); }
@@ -38,6 +40,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string CurrentOrgId { get => _explicitNullValueCurrentOrgId; set { _explicitNullValueCurrentOrgId = value; AdditionalData?.Remove("current_org_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_org_id"); else _explicitNullProperties?.Remove("current_org_id"); } }
         private string _explicitNullValueCurrentOrgId = default!;
 #endif
+        /// <summary>The default_org_fallback_active property</summary>
+        public bool? DefaultOrgFallbackActive { get => _explicitNullValueDefaultOrgFallbackActive; set { _explicitNullValueDefaultOrgFallbackActive = value; AdditionalData?.Remove("default_org_fallback_active"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_org_fallback_active"); else _explicitNullProperties?.Remove("default_org_fallback_active"); } }
+        private bool? _explicitNullValueDefaultOrgFallbackActive = default!;
         /// <summary>The items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,6 +69,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public OrgPage()
         {
             AdditionalData = new Dictionary<string, object>();
+            DefaultOrgFallbackActive = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -84,6 +90,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "current_org_id", n => { CurrentOrgId = n.GetStringValue(); } },
+                { "default_org_fallback_active", n => { DefaultOrgFallbackActive = n.GetBoolValue(); } },
                 { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "next_page_id", n => { NextPageId = n.GetStringValue(); } },
             };
@@ -96,6 +103,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("current_org_id", CurrentOrgId);
+            writer.WriteBoolValue("default_org_fallback_active", DefaultOrgFallbackActive);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OrgResponse>("items", Items);
             writer.WriteStringValue("next_page_id", NextPageId);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

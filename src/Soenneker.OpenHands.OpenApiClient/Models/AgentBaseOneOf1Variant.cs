@@ -22,6 +22,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("acp_args") is { } nullNodeAcpArgs && nullNodeAcpArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpArgs = null;
             if (parseNode.GetChildNode("acp_command") is null) { _explicitNullValueAcpCommand = default!; _explicitNullProperties?.Remove("acp_command"); }
             else if (parseNode.GetChildNode("acp_command") is { } nullNodeAcpCommand && nullNodeAcpCommand.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpCommand = null;
+            if (parseNode.GetChildNode("acp_effort") is null) { _explicitNullValueAcpEffort = default!; _explicitNullProperties?.Remove("acp_effort"); }
+            else if (parseNode.GetChildNode("acp_effort") is { } nullNodeAcpEffort && nullNodeAcpEffort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpEffort = null;
             if (parseNode.GetChildNode("acp_file_secrets") is null) { _explicitNullValueAcpFileSecrets = default!; _explicitNullProperties?.Remove("acp_file_secrets"); }
             else if (parseNode.GetChildNode("acp_file_secrets") is { } nullNodeAcpFileSecrets && nullNodeAcpFileSecrets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcpFileSecrets = null;
             if (parseNode.GetChildNode("acp_isolate_data_dir") is null) { _explicitNullValueAcpIsolateDataDir = default!; _explicitNullProperties?.Remove("acp_isolate_data_dir"); }
@@ -86,6 +88,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public List<string> AcpCommand { get => _explicitNullValueAcpCommand; set { _explicitNullValueAcpCommand = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_command"); else _explicitNullProperties?.Remove("acp_command"); } }
         private List<string> _explicitNullValueAcpCommand = default!;
 #endif
+        /// <summary>Reasoning effort for the ACP server to use (e.g. &apos;high&apos;), applied after the model through the session&apos;s ``thought_level`` config option. Ignored when the model offers no effort setting. If None, the server keeps its own.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AcpEffort { get => _explicitNullValueAcpEffort; set { _explicitNullValueAcpEffort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_effort"); else _explicitNullProperties?.Remove("acp_effort"); } }
+        private string? _explicitNullValueAcpEffort = default!;
+#nullable restore
+#else
+        public string AcpEffort { get => _explicitNullValueAcpEffort; set { _explicitNullValueAcpEffort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_effort"); else _explicitNullProperties?.Remove("acp_effort"); } }
+        private string _explicitNullValueAcpEffort = default!;
+#endif
         /// <summary>Reserved &apos;file-content&apos; credential secrets to materialise to disk before launching the subprocess (e.g. Codex auth.json, Gemini Vertex SA JSON). The SDK owns the mechanism (write the file in the runtime pod, set the env var, seed-if-absent); these specs are the policy. Defaults to the built-in supported providers; a downstream application may override or extend this to support other ACP servers with different file-auth schemes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -99,7 +111,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Give the ACP subprocess a per-conversation CLI data/config root instead of the shared user ``HOME``. When True and the provider is recognised, point its data-dir env var (``CODEX_HOME`` / ``CLAUDE_CONFIG_DIR`` / ``HOME``; see ``ACPProviderInfo.data_dir_env_var``) at ``&lt;persistence_dir&gt;/acp/&lt;provider&gt;`` — the same per-conversation tree materialised file-secrets use. Required for correctness when several of a user&apos;s conversations share one sandbox (``SandboxGroupingStrategy != NO_GROUPING``), where they would otherwise race on one set of CLI auth/config/cache/lock files (see #1019). Off by default: with one sandbox per conversation the shared HOME is already private, and relocating it would hide a pre-existing interactive login. Downstream policy decides when to enable it; the SDK owns where the root lives.</summary>
         public bool? AcpIsolateDataDir { get => _explicitNullValueAcpIsolateDataDir; set { _explicitNullValueAcpIsolateDataDir = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_isolate_data_dir"); else _explicitNullProperties?.Remove("acp_isolate_data_dir"); } }
         private bool? _explicitNullValueAcpIsolateDataDir = default!;
-        /// <summary>Model for the ACP server to use (e.g. &apos;sonnet&apos; or &apos;gpt-5.5&apos;). Applied via the protocol — set_config_option(model) for configOptions-based servers (codex, claude), else set_session_model. If None, the server picks its default.</summary>
+        /// <summary>Model for the ACP server to use (e.g. &apos;sonnet&apos; or &apos;gpt-5.5&apos;). Applied via the protocol — set_config_option(model) for configOptions-based servers (codex, claude), else set_session_model. Codex and Claude also accept &apos;&lt;model&gt;/&lt;effort&gt;&apos; (e.g. &apos;gpt-5.5/high&apos;); prefer acp_effort, which wins over the suffix. If None, the server picks its default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AcpModel { get => _explicitNullValueAcpModel; set { _explicitNullValueAcpModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acp_model"); else _explicitNullProperties?.Remove("acp_model"); } }
@@ -300,6 +312,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             {
                 { "acp_args", n => { AcpArgs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "acp_command", n => { AcpCommand = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "acp_effort", n => { AcpEffort = n.GetStringValue(); } },
                 { "acp_file_secrets", n => { AcpFileSecrets = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpec>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpec.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "acp_isolate_data_dir", n => { AcpIsolateDataDir = n.GetBoolValue(); } },
                 { "acp_model", n => { AcpModel = n.GetStringValue(); } },
@@ -333,6 +346,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             base.Serialize(writer);
             writer.WriteCollectionOfPrimitiveValues<string>("acp_args", AcpArgs);
             writer.WriteCollectionOfPrimitiveValues<string>("acp_command", AcpCommand);
+            writer.WriteStringValue("acp_effort", AcpEffort);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpec>("acp_file_secrets", AcpFileSecrets);
             writer.WriteBoolValue("acp_isolate_data_dir", AcpIsolateDataDir);
             writer.WriteStringValue("acp_model", AcpModel);

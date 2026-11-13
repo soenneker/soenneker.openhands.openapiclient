@@ -24,6 +24,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
             if (parseNode.GetChildNode("agent_state") is null) { _explicitNullValueAgentState = default!; _explicitNullProperties?.Remove("agent_state"); }
             else if (parseNode.GetChildNode("agent_state") is { } nullNodeAgentState && nullNodeAgentState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentState = null;
+            if (parseNode.GetChildNode("available_efforts") is null) { _explicitNullValueAvailableEfforts = default!; _explicitNullProperties?.Remove("available_efforts"); }
+            else if (parseNode.GetChildNode("available_efforts") is { } nullNodeAvailableEfforts && nullNodeAvailableEfforts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableEfforts = null;
             if (parseNode.GetChildNode("available_models") is null) { _explicitNullValueAvailableModels = default!; _explicitNullProperties?.Remove("available_models"); }
             else if (parseNode.GetChildNode("available_models") is { } nullNodeAvailableModels && nullNodeAvailableModels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableModels = null;
             if (parseNode.GetChildNode("blocked_actions") is null) { _explicitNullValueBlockedActions = default!; _explicitNullProperties?.Remove("blocked_actions"); }
@@ -36,6 +38,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("confirmation_policy") is { } nullNodeConfirmationPolicy && nullNodeConfirmationPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfirmationPolicy = null;
             if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
             else if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("current_effort") is null) { _explicitNullValueCurrentEffort = default!; _explicitNullProperties?.Remove("current_effort"); }
+            else if (parseNode.GetChildNode("current_effort") is { } nullNodeCurrentEffort && nullNodeCurrentEffort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentEffort = null;
             if (parseNode.GetChildNode("current_model_id") is null) { _explicitNullValueCurrentModelId = default!; _explicitNullProperties?.Remove("current_model_id"); }
             else if (parseNode.GetChildNode("current_model_id") is { } nullNodeCurrentModelId && nullNodeCurrentModelId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentModelId = null;
             if (parseNode.GetChildNode("execution_status") is null) { _explicitNullValueExecutionStatus = default!; _explicitNullProperties?.Remove("execution_status"); }
@@ -124,6 +128,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoAgentStateProperty AgentState { get => _explicitNullValueAgentState; set { _explicitNullValueAgentState = value; AdditionalData?.Remove("agent_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_state"); else _explicitNullProperties?.Remove("agent_state"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoAgentStateProperty _explicitNullValueAgentState = default!;
 #endif
+        /// <summary>Reasoning-effort levels the ACP session offers for its current model, verbatim from the server. Pass a ``value`` to ``switch_acp_effort``. Empty when the model offers none.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpEffortOption>? AvailableEfforts { get => _explicitNullValueAvailableEfforts; set { _explicitNullValueAvailableEfforts = value; AdditionalData?.Remove("available_efforts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_efforts"); else _explicitNullProperties?.Remove("available_efforts"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpEffortOption>? _explicitNullValueAvailableEfforts = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpEffortOption> AvailableEfforts { get => _explicitNullValueAvailableEfforts; set { _explicitNullValueAvailableEfforts = value; AdditionalData?.Remove("available_efforts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_efforts"); else _explicitNullProperties?.Remove("available_efforts"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AcpEffortOption> _explicitNullValueAvailableEfforts = default!;
+#endif
         /// <summary>Models the ACP server offers for this session, lifted off ``ACPAgent.available_models`` (the ``models.availableModels`` field on the ACP session response). Each entry carries a ``model_id`` plus an optional ``name``/``description``. Surfaced verbatim so clients can render a model picker and resolve ``current_model_id`` to a display label themselves — the server does no name curation. Empty for ACP servers that don&apos;t surface the (UNSTABLE) capability and for native OpenHands agents. Client contract: ``current_model_id`` is NOT guaranteed to be a member — a forced ``acp_model`` override may name a model absent from the list — so treat a miss as &apos;show the raw id&apos;. Some entries are opaque aliases whose human identity lives in ``description`` (e.g. claude-agent-acp&apos;s ``&quot;default&quot;`` -&gt; ``&quot;Opus 4.7 with 1M context · ...&quot;``).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -177,6 +191,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
+        /// <summary>Reasoning effort the ACP session reports for its current model (the server&apos;s own default when none was requested). ``None`` when the model offers no effort setting, the server doesn&apos;t report one, or the agent is not ACP.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CurrentEffort { get => _explicitNullValueCurrentEffort; set { _explicitNullValueCurrentEffort = value; AdditionalData?.Remove("current_effort"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_effort"); else _explicitNullProperties?.Remove("current_effort"); } }
+        private string? _explicitNullValueCurrentEffort = default!;
+#nullable restore
+#else
+        public string CurrentEffort { get => _explicitNullValueCurrentEffort; set { _explicitNullValueCurrentEffort = value; AdditionalData?.Remove("current_effort"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_effort"); else _explicitNullProperties?.Remove("current_effort"); } }
+        private string _explicitNullValueCurrentEffort = default!;
+#endif
         /// <summary>Model the agent is actually using for this session. For ACP agents, this is lifted off ``ACPAgent.current_model_id`` (populated from the ``models.currentModelId`` field on the ACP session response, or from ``acp_model`` when the caller forced an override). May be an opaque alias (e.g. claude-agent-acp&apos;s ``&quot;default&quot;``); match it against ``available_models`` to get a display label. ``None`` for older ACP servers that don&apos;t surface the field, or while the agent is still initializing. Native OpenHands agents leave this ``None`` — consumers should read ``agent.llm.model`` for those.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -417,12 +441,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "activated_knowledge_skills", n => { ActivatedKnowledgeSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase.CreateFromDiscriminatorValue); } },
                 { "agent_state", n => { AgentState = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoAgentStateProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoAgentStateProperty.CreateFromDiscriminatorValue); } },
+                { "available_efforts", n => { AvailableEfforts = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpEffortOption>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpEffortOption.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "available_models", n => { AvailableModels = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "blocked_actions", n => { BlockedActions = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedActionsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedActionsProperty.CreateFromDiscriminatorValue); } },
                 { "blocked_messages", n => { BlockedMessages = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedMessagesProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedMessagesProperty.CreateFromDiscriminatorValue); } },
                 { "client_tools", n => { ClientTools = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInput>(global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInput.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "confirmation_policy", n => { ConfirmationPolicy = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBase>(global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBase.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "current_effort", n => { CurrentEffort = n.GetStringValue(); } },
                 { "current_model_id", n => { CurrentModelId = n.GetStringValue(); } },
                 { "execution_status", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationExecutionStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueExecutionStatus = default; _explicitNullProperties?.Remove("execution_status"); AdditionalData["execution_status"] = unknown; } else { ExecutionStatus = parsed; AdditionalData.Remove("execution_status"); } } },
                 { "forked_from_conversation_id", n => { ForkedFromConversationId = n.GetGuidValue(); } },
@@ -462,12 +488,14 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("activated_knowledge_skills", ActivatedKnowledgeSkills);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase>("agent", Agent);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoAgentStateProperty>("agent_state", AgentState);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpEffortOption>("available_efforts", AvailableEfforts);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo>("available_models", AvailableModels);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedActionsProperty>("blocked_actions", BlockedActions);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationInfoBlockedMessagesProperty>("blocked_messages", BlockedMessages);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInput>("client_tools", ClientTools);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConfirmationPolicyBase>("confirmation_policy", ConfirmationPolicy);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteStringValue("current_effort", CurrentEffort);
             writer.WriteStringValue("current_model_id", CurrentModelId);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationExecutionStatus>("execution_status", ExecutionStatus);
             writer.WriteGuidValue("forked_from_conversation_id", ForkedFromConversationId);

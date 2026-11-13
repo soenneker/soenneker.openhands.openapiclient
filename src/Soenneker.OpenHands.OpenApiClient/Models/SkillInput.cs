@@ -82,7 +82,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; AdditionalData?.Remove("content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
         private string _explicitNullValueContent = default!;
 #endif
-        /// <summary>A brief description of what the skill does and when to use it. Descriptions exceeding MAX_DESCRIPTION_LENGTH are truncated with a notice pointing to the skill&apos;s source path.</summary>
+        /// <summary>A brief description of what the skill does and when to use it. Descriptions exceeding MAX_DESCRIPTION_LENGTH are truncated with a notice pointing to invoke_skill for the full skill.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }

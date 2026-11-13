@@ -182,7 +182,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             AdditionalData = new Dictionary<string, object>();
             Agent = "CodeActAgent";
             EnableClassifyAndSwitchLlmTool = false;
-            SchemaVersion = 9;
+            SchemaVersion = 10;
             ToolConcurrencyLimit = 1;
         }
         /// <summary>

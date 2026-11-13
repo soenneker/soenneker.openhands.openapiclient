@@ -18,21 +18,21 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public override void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
             base.CaptureExplicitNulls(parseNode);
-            if (parseNode.GetChildNode("bitbucket_view_data") is null) { _explicitNullValueBitbucketViewData = default!; _explicitNullProperties?.Remove("bitbucket_view_data"); }
-            else if (parseNode.GetChildNode("bitbucket_view_data") is { } nullNodeBitbucketViewData && nullNodeBitbucketViewData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BitbucketViewData = null;
+            if (parseNode.GetChildNode("azure_devops_view_data") is null) { _explicitNullValueAzureDevopsViewData = default!; _explicitNullProperties?.Remove("azure_devops_view_data"); }
+            else if (parseNode.GetChildNode("azure_devops_view_data") is { } nullNodeAzureDevopsViewData && nullNodeAzureDevopsViewData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AzureDevopsViewData = null;
             if (parseNode.GetChildNode("should_request_summary") is null) { _explicitNullValueShouldRequestSummary = default!; _explicitNullProperties?.Remove("should_request_summary"); }
             else if (parseNode.GetChildNode("should_request_summary") is { } nullNodeShouldRequestSummary && nullNodeShouldRequestSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShouldRequestSummary = null;
         }
 
-        /// <summary>The bitbucket_view_data property</summary>
+        /// <summary>The azure_devops_view_data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInputBitbucketViewDataProperty? BitbucketViewData { get => _explicitNullValueBitbucketViewData; set { _explicitNullValueBitbucketViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bitbucket_view_data"); else _explicitNullProperties?.Remove("bitbucket_view_data"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInputBitbucketViewDataProperty? _explicitNullValueBitbucketViewData = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AzureDevOpsV1CallbackProcessorInputAzureDevopsViewDataProperty? AzureDevopsViewData { get => _explicitNullValueAzureDevopsViewData; set { _explicitNullValueAzureDevopsViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_devops_view_data"); else _explicitNullProperties?.Remove("azure_devops_view_data"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AzureDevOpsV1CallbackProcessorInputAzureDevopsViewDataProperty? _explicitNullValueAzureDevopsViewData = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInputBitbucketViewDataProperty BitbucketViewData { get => _explicitNullValueBitbucketViewData; set { _explicitNullValueBitbucketViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bitbucket_view_data"); else _explicitNullProperties?.Remove("bitbucket_view_data"); } }
-        private global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInputBitbucketViewDataProperty _explicitNullValueBitbucketViewData = default!;
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AzureDevOpsV1CallbackProcessorInputAzureDevopsViewDataProperty AzureDevopsViewData { get => _explicitNullValueAzureDevopsViewData; set { _explicitNullValueAzureDevopsViewData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_devops_view_data"); else _explicitNullProperties?.Remove("azure_devops_view_data"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AzureDevOpsV1CallbackProcessorInputAzureDevopsViewDataProperty _explicitNullValueAzureDevopsViewData = default!;
 #endif
         /// <summary>The should_request_summary property</summary>
         public bool? ShouldRequestSummary { get => _explicitNullValueShouldRequestSummary; set { _explicitNullValueShouldRequestSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("should_request_summary"); else _explicitNullProperties?.Remove("should_request_summary"); } }
@@ -62,7 +62,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "bitbucket_view_data", n => { BitbucketViewData = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInputBitbucketViewDataProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInputBitbucketViewDataProperty.CreateFromDiscriminatorValue); } },
+                { "azure_devops_view_data", n => { AzureDevopsViewData = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AzureDevOpsV1CallbackProcessorInputAzureDevopsViewDataProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.AzureDevOpsV1CallbackProcessorInputAzureDevopsViewDataProperty.CreateFromDiscriminatorValue); } },
                 { "should_request_summary", n => { ShouldRequestSummary = n.GetBoolValue(); } },
             };
         }
@@ -74,7 +74,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.BitbucketV1CallbackProcessorInputBitbucketViewDataProperty>("bitbucket_view_data", BitbucketViewData);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AzureDevOpsV1CallbackProcessorInputAzureDevopsViewDataProperty>("azure_devops_view_data", AzureDevopsViewData);
             writer.WriteBoolValue("should_request_summary", ShouldRequestSummary);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }

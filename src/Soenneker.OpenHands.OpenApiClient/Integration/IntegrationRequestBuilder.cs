@@ -2,7 +2,9 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.OpenHands.OpenApiClient.Integration.AzureDevops;
 using Soenneker.OpenHands.OpenApiClient.Integration.Bitbucket;
+using Soenneker.OpenHands.OpenApiClient.Integration.BitbucketDc;
 using Soenneker.OpenHands.OpenApiClient.Integration.Github;
 using Soenneker.OpenHands.OpenApiClient.Integration.Gitlab;
 using Soenneker.OpenHands.OpenApiClient.Integration.Jira;
@@ -18,10 +20,20 @@ namespace Soenneker.OpenHands.OpenApiClient.Integration
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class IntegrationRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The azureDevops property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Integration.AzureDevops.AzureDevopsRequestBuilder AzureDevops
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Integration.AzureDevops.AzureDevopsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The bitbucket property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Integration.Bitbucket.BitbucketRequestBuilder Bitbucket
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Integration.Bitbucket.BitbucketRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The bitbucketDc property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Integration.BitbucketDc.BitbucketDcRequestBuilder BitbucketDc
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Integration.BitbucketDc.BitbucketDcRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The github property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Integration.Github.GithubRequestBuilder Github
