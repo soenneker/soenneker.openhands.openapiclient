@@ -28,7 +28,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.I
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithUserItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/admin/directory/users/{userId}{?org_id*}", pathParameters)
+        public WithUserItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/admin/directory/users/{userId}{?notify*,org_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -36,11 +36,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.I
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithUserItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/admin/directory/users/{userId}{?org_id*}", rawUrl)
+        public WithUserItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/admin/directory/users/{userId}{?notify*,org_id*}", rawUrl)
         {
         }
         /// <summary>
-        /// Delete a user&apos;s account and the data they own in every organization.Refuses with ``409`` if the user is the last owner of any team org orthe last Super Admin, and with ``403`` for a service account: it isdeleted with its org. The account and its rows go in one transaction.The personal workspace, the LiteLLM user and the Keycloak account arethen removed best effort. Requires ``MANAGE_SUPER_ADMINS``.
+        /// Delete a user&apos;s account and the data they own in every organization.Refuses with ``409`` if the user is the last owner of any team org orthe last Super Admin, and with ``403`` for a service account: it isdeleted with its org. The account and its rows go in one transaction.The personal workspace, the LiteLLM user and the Keycloak account arethen removed best effort. Requires ``MANAGE_SUPER_ADMINS``.A best-effort &quot;your account was deleted&quot; email is sent to the userafter the deletion succeeds, on by default; pass ``notify=false`` toskip it (e.g. for bulk/cleanup jobs). The address is captured beforethe row is removed, so the send can run after it. A Resend outage or amissing ``RESEND_API_KEY`` never blocks the deletion.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ResponseDeleteAdminUserApiAdminDirectoryUsersUserIdDeleteSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,6 +63,31 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.I
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ResponseDeleteAdminUserApiAdminDirectoryUsersUserIdDeleteSchema>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ResponseDeleteAdminUserApiAdminDirectoryUsersUserIdDeleteSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Read one user with org memberships. Requires ``MANAGE_SUPER_ADMINS``.
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesInstanceAdminAdminUserResponse"/></returns>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesInstanceAdminAdminUserResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.Item.WithUserItemRequestBuilder.WithUserItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesInstanceAdminAdminUserResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.Item.WithUserItemRequestBuilder.WithUserItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToGetRequestInformation(requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesInstanceAdminAdminUserResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesInstanceAdminAdminUserResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Disable or re-enable a user&apos;s sign-in, sessions and API keys.``inactive`` blocks the user whatever organizations they are in;``active`` restores access. Refuses with ``409`` to disable the lastenabled Super Admin. Requires ``MANAGE_SUPER_ADMINS``.
@@ -92,7 +117,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.I
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesInstanceAdminAdminUserResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesInstanceAdminAdminUserResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a user&apos;s account and the data they own in every organization.Refuses with ``409`` if the user is the last owner of any team org orthe last Super Admin, and with ``403`` for a service account: it isdeleted with its org. The account and its rows go in one transaction.The personal workspace, the LiteLLM user and the Keycloak account arethen removed best effort. Requires ``MANAGE_SUPER_ADMINS``.
+        /// Delete a user&apos;s account and the data they own in every organization.Refuses with ``409`` if the user is the last owner of any team org orthe last Super Admin, and with ``403`` for a service account: it isdeleted with its org. The account and its rows go in one transaction.The personal workspace, the LiteLLM user and the Keycloak account arethen removed best effort. Requires ``MANAGE_SUPER_ADMINS``.A best-effort &quot;your account was deleted&quot; email is sent to the userafter the deletion succeeds, on by default; pass ``notify=false`` toskip it (e.g. for bulk/cleanup jobs). The address is captured beforethe row is removed, so the send can run after it. A Resend outage or amissing ``RESEND_API_KEY`` never blocks the deletion.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -106,6 +131,25 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.I
         {
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
+        /// Read one user with org memberships. Requires ``MANAGE_SUPER_ADMINS``.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.Item.WithUserItemRequestBuilder.WithUserItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.Item.WithUserItemRequestBuilder.WithUserItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -142,10 +186,25 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.I
             return new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.Item.WithUserItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Delete a user&apos;s account and the data they own in every organization.Refuses with ``409`` if the user is the last owner of any team org orthe last Super Admin, and with ``403`` for a service account: it isdeleted with its org. The account and its rows go in one transaction.The personal workspace, the LiteLLM user and the Keycloak account arethen removed best effort. Requires ``MANAGE_SUPER_ADMINS``.
+        /// Delete a user&apos;s account and the data they own in every organization.Refuses with ``409`` if the user is the last owner of any team org orthe last Super Admin, and with ``403`` for a service account: it isdeleted with its org. The account and its rows go in one transaction.The personal workspace, the LiteLLM user and the Keycloak account arethen removed best effort. Requires ``MANAGE_SUPER_ADMINS``.A best-effort &quot;your account was deleted&quot; email is sent to the userafter the deletion succeeds, on by default; pass ``notify=false`` toskip it (e.g. for bulk/cleanup jobs). The address is captured beforethe row is removed, so the send can run after it. A Resend outage or amissing ``RESEND_API_KEY`` never blocks the deletion.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithUserItemRequestBuilderDeleteQueryParameters 
+        {
+            #pragma warning disable CS1591
+            [QueryParameter("notify")]
+            public bool? Notify { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
+            [QueryParameter("org_id")]
+            public Guid? OrgId { get; set; }
+            #pragma warning restore CS1591
+        }
+        /// <summary>
+        /// Read one user with org memberships. Requires ``MANAGE_SUPER_ADMINS``.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithUserItemRequestBuilderGetQueryParameters 
         {
             #pragma warning disable CS1591
             [QueryParameter("org_id")]

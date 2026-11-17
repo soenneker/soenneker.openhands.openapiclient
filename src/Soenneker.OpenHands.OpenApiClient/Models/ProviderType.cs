@@ -36,5 +36,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         #pragma warning disable CS1591
         EnterpriseSso,
         #pragma warning restore CS1591
+        [EnumMember(Value = "jira")]
+        #pragma warning disable CS1591
+        Jira,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "jira_dc")]
+        #pragma warning disable CS1591
+        JiraDc,
+        #pragma warning restore CS1591
     }
 }

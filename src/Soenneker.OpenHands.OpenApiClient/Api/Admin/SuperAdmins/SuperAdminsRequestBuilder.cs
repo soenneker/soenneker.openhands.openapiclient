@@ -41,7 +41,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SuperAdminsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/admin/super-admins{?org_id*}", pathParameters)
+        public SuperAdminsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/admin/super-admins{?limit*,org_id*,page_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,26 +49,33 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SuperAdminsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/admin/super-admins{?org_id*}", rawUrl)
+        public SuperAdminsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/admin/super-admins{?limit*,org_id*,page_id*}", rawUrl)
         {
         }
         /// <summary>
-        /// List all current super admins.Auth is flag-gated (OHE-3196): when ``USER_PROVISIONING_ENABLED`` is on,any authenticated user may call this so non-superadmins can discover theirinstance administrators. Otherwise it requires ``MANAGE_SUPER_ADMINS``(superadmin-only), as before.
+        /// List the current super admins, one page at a time.Auth is flag-gated (OHE-3196): when ``USER_PROVISIONING_ENABLED`` is on,or ``ENABLE_SUPER_ADMIN`` is on in a self-hosted install, any authenticateduser may call this so non-superadmins can discover their instanceadministrators. Otherwise it requires ``MANAGE_SUPER_ADMINS``(superadmin-only), as before.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminListResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminListResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.SuperAdminsRequestBuilder.SuperAdminsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminListResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminListResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.SuperAdminsRequestBuilder.SuperAdminsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminListResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminListResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "422", global::Soenneker.OpenHands.OpenApiClient.Models.HttpValidationError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminListResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Grant the super-admin role to an existing user.Idempotent: granting to a user who is already a super admin succeeds andreturns their record. Requires ``MANAGE_SUPER_ADMINS``.
@@ -98,17 +105,17 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.SuperAdminResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all current super admins.Auth is flag-gated (OHE-3196): when ``USER_PROVISIONING_ENABLED`` is on,any authenticated user may call this so non-superadmins can discover theirinstance administrators. Otherwise it requires ``MANAGE_SUPER_ADMINS``(superadmin-only), as before.
+        /// List the current super admins, one page at a time.Auth is flag-gated (OHE-3196): when ``USER_PROVISIONING_ENABLED`` is on,or ``ENABLE_SUPER_ADMIN`` is on in a self-hosted install, any authenticateduser may call this so non-superadmins can discover their instanceadministrators. Otherwise it requires ``MANAGE_SUPER_ADMINS``(superadmin-only), as before.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.SuperAdminsRequestBuilder.SuperAdminsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.SuperAdminsRequestBuilder.SuperAdminsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -146,6 +153,30 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins
         public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.SuperAdminsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins.SuperAdminsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// List the current super admins, one page at a time.Auth is flag-gated (OHE-3196): when ``USER_PROVISIONING_ENABLED`` is on,or ``ENABLE_SUPER_ADMIN`` is on in a self-hosted install, any authenticateduser may call this so non-superadmins can discover their instanceadministrators. Otherwise it requires ``MANAGE_SUPER_ADMINS``(superadmin-only), as before.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class SuperAdminsRequestBuilderGetQueryParameters 
+        {
+            #pragma warning disable CS1591
+            [QueryParameter("limit")]
+            public int? Limit { get; set; }
+            #pragma warning restore CS1591
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            #pragma warning disable CS1591
+            [QueryParameter("page_id")]
+            public string? PageId { get; set; }
+            #pragma warning restore CS1591
+#nullable restore
+#else
+            #pragma warning disable CS1591
+            [QueryParameter("page_id")]
+            public string PageId { get; set; }
+            #pragma warning restore CS1591
+#endif
         }
         /// <summary>
         /// Grant the super-admin role to an existing user.Idempotent: granting to a user who is already a super admin succeeds andreturns their record. Requires ``MANAGE_SUPER_ADMINS``.

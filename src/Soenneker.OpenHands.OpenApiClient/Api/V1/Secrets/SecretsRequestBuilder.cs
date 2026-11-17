@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.GitProviders;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Item;
+using Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.OauthTokens;
 using Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Search;
 using Soenneker.OpenHands.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -24,6 +25,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets
         public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.GitProviders.GitProvidersRequestBuilder GitProviders
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.GitProviders.GitProvidersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The oauthTokens property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.OauthTokens.OauthTokensRequestBuilder OauthTokens
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.OauthTokens.OauthTokensRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The search property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.V1.Secrets.Search.SearchRequestBuilder Search

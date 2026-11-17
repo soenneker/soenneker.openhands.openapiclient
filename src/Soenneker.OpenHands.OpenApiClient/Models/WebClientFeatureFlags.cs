@@ -49,8 +49,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("enable_model_router") is { } nullNodeEnableModelRouter && nullNodeEnableModelRouter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableModelRouter = null;
             if (parseNode.GetChildNode("enable_oauth_v2_login") is null) { _explicitNullValueEnableOauthV2Login = default!; _explicitNullProperties?.Remove("enable_oauth_v2_login"); }
             else if (parseNode.GetChildNode("enable_oauth_v2_login") is { } nullNodeEnableOauthV2Login && nullNodeEnableOauthV2Login.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableOauthV2Login = null;
-            if (parseNode.GetChildNode("enable_onboarding") is null) { _explicitNullValueEnableOnboarding = default!; _explicitNullProperties?.Remove("enable_onboarding"); }
-            else if (parseNode.GetChildNode("enable_onboarding") is { } nullNodeEnableOnboarding && nullNodeEnableOnboarding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableOnboarding = null;
             if (parseNode.GetChildNode("enable_org_agent_profiles") is null) { _explicitNullValueEnableOrgAgentProfiles = default!; _explicitNullProperties?.Remove("enable_org_agent_profiles"); }
             else if (parseNode.GetChildNode("enable_org_agent_profiles") is { } nullNodeEnableOrgAgentProfiles && nullNodeEnableOrgAgentProfiles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableOrgAgentProfiles = null;
             if (parseNode.GetChildNode("enable_org_mcp_servers") is null) { _explicitNullValueEnableOrgMcpServers = default!; _explicitNullProperties?.Remove("enable_org_mcp_servers"); }
@@ -128,9 +126,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The enable_oauth_v2_login property</summary>
         public bool? EnableOauthV2Login { get => _explicitNullValueEnableOauthV2Login; set { _explicitNullValueEnableOauthV2Login = value; AdditionalData?.Remove("enable_oauth_v2_login"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_oauth_v2_login"); else _explicitNullProperties?.Remove("enable_oauth_v2_login"); } }
         private bool? _explicitNullValueEnableOauthV2Login = default!;
-        /// <summary>The enable_onboarding property</summary>
-        public bool? EnableOnboarding { get => _explicitNullValueEnableOnboarding; set { _explicitNullValueEnableOnboarding = value; AdditionalData?.Remove("enable_onboarding"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_onboarding"); else _explicitNullProperties?.Remove("enable_onboarding"); } }
-        private bool? _explicitNullValueEnableOnboarding = default!;
         /// <summary>The enable_org_agent_profiles property</summary>
         public bool? EnableOrgAgentProfiles { get => _explicitNullValueEnableOrgAgentProfiles; set { _explicitNullValueEnableOrgAgentProfiles = value; AdditionalData?.Remove("enable_org_agent_profiles"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_org_agent_profiles"); else _explicitNullProperties?.Remove("enable_org_agent_profiles"); } }
         private bool? _explicitNullValueEnableOrgAgentProfiles = default!;
@@ -179,7 +174,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             EnableLitellm = true;
             EnableModelRouter = false;
             EnableOauthV2Login = false;
-            EnableOnboarding = false;
             EnableOrgAgentProfiles = false;
             EnableOrgMcpServers = false;
             EnableServiceAccounts = false;
@@ -224,7 +218,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "enable_litellm", n => { EnableLitellm = n.GetBoolValue(); } },
                 { "enable_model_router", n => { EnableModelRouter = n.GetBoolValue(); } },
                 { "enable_oauth_v2_login", n => { EnableOauthV2Login = n.GetBoolValue(); } },
-                { "enable_onboarding", n => { EnableOnboarding = n.GetBoolValue(); } },
                 { "enable_org_agent_profiles", n => { EnableOrgAgentProfiles = n.GetBoolValue(); } },
                 { "enable_org_mcp_servers", n => { EnableOrgMcpServers = n.GetBoolValue(); } },
                 { "enable_service_accounts", n => { EnableServiceAccounts = n.GetBoolValue(); } },
@@ -259,7 +252,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("enable_litellm", EnableLitellm);
             writer.WriteBoolValue("enable_model_router", EnableModelRouter);
             writer.WriteBoolValue("enable_oauth_v2_login", EnableOauthV2Login);
-            writer.WriteBoolValue("enable_onboarding", EnableOnboarding);
             writer.WriteBoolValue("enable_org_agent_profiles", EnableOrgAgentProfiles);
             writer.WriteBoolValue("enable_org_mcp_servers", EnableOrgMcpServers);
             writer.WriteBoolValue("enable_service_accounts", EnableServiceAccounts);

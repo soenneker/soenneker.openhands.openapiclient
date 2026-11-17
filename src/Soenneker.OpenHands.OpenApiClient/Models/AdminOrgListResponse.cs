@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// All organizations on the instance.
+    /// One page of the organizations on the instance.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AdminOrgListResponse : IAdditionalDataHolder, IParsable
@@ -18,22 +18,37 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("organizations") is null) { _explicitNullValueOrganizations = default!; _explicitNullProperties?.Remove("organizations"); }
-            else if (parseNode.GetChildNode("organizations") is { } nullNodeOrganizations && nullNodeOrganizations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Organizations = null;
+            if (parseNode.GetChildNode("current_page") is null) { _explicitNullValueCurrentPage = default!; _explicitNullProperties?.Remove("current_page"); }
+            else if (parseNode.GetChildNode("current_page") is { } nullNodeCurrentPage && nullNodeCurrentPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentPage = null;
+            if (parseNode.GetChildNode("items") is null) { _explicitNullValueItems = default!; _explicitNullProperties?.Remove("items"); }
+            else if (parseNode.GetChildNode("items") is { } nullNodeItems && nullNodeItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Items = null;
+            if (parseNode.GetChildNode("per_page") is null) { _explicitNullValuePerPage = default!; _explicitNullProperties?.Remove("per_page"); }
+            else if (parseNode.GetChildNode("per_page") is { } nullNodePerPage && nullNodePerPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerPage = null;
+            if (parseNode.GetChildNode("total") is null) { _explicitNullValueTotal = default!; _explicitNullProperties?.Remove("total"); }
+            else if (parseNode.GetChildNode("total") is { } nullNodeTotal && nullNodeTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Total = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The organizations property</summary>
+        /// <summary>The current_page property</summary>
+        public int? CurrentPage { get => _explicitNullValueCurrentPage; set { _explicitNullValueCurrentPage = value; AdditionalData?.Remove("current_page"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_page"); else _explicitNullProperties?.Remove("current_page"); } }
+        private int? _explicitNullValueCurrentPage = default!;
+        /// <summary>The items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgResponse>? Organizations { get => _explicitNullValueOrganizations; set { _explicitNullValueOrganizations = value; AdditionalData?.Remove("organizations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organizations"); else _explicitNullProperties?.Remove("organizations"); } }
-        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgResponse>? _explicitNullValueOrganizations = default!;
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgResponse>? Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; AdditionalData?.Remove("items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgResponse>? _explicitNullValueItems = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgResponse> Organizations { get => _explicitNullValueOrganizations; set { _explicitNullValueOrganizations = value; AdditionalData?.Remove("organizations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organizations"); else _explicitNullProperties?.Remove("organizations"); } }
-        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgResponse> _explicitNullValueOrganizations = default!;
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgResponse> Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; AdditionalData?.Remove("items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgResponse> _explicitNullValueItems = default!;
 #endif
+        /// <summary>The per_page property</summary>
+        public int? PerPage { get => _explicitNullValuePerPage; set { _explicitNullValuePerPage = value; AdditionalData?.Remove("per_page"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("per_page"); else _explicitNullProperties?.Remove("per_page"); } }
+        private int? _explicitNullValuePerPage = default!;
+        /// <summary>The total property</summary>
+        public int? Total { get => _explicitNullValueTotal; set { _explicitNullValueTotal = value; AdditionalData?.Remove("total"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total"); else _explicitNullProperties?.Remove("total"); } }
+        private int? _explicitNullValueTotal = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgListResponse"/> and sets the default values.
         /// </summary>
@@ -59,7 +74,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "organizations", n => { Organizations = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgResponse>(global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgResponse.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "current_page", n => { CurrentPage = n.GetIntValue(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgResponse>(global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgResponse.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "per_page", n => { PerPage = n.GetIntValue(); } },
+                { "total", n => { Total = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -69,7 +87,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgResponse>("organizations", Organizations);
+            writer.WriteIntValue("current_page", CurrentPage);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgResponse>("items", Items);
+            writer.WriteIntValue("per_page", PerPage);
+            writer.WriteIntValue("total", Total);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

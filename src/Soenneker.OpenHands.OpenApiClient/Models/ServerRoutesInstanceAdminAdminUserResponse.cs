@@ -20,6 +20,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("email") is null) { _explicitNullValueEmail = default!; _explicitNullProperties?.Remove("email"); }
             else if (parseNode.GetChildNode("email") is { } nullNodeEmail && nullNodeEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Email = null;
+            if (parseNode.GetChildNode("is_super_admin") is null) { _explicitNullValueIsSuperAdmin = default!; _explicitNullProperties?.Remove("is_super_admin"); }
+            else if (parseNode.GetChildNode("is_super_admin") is { } nullNodeIsSuperAdmin && nullNodeIsSuperAdmin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsSuperAdmin = null;
             if (parseNode.GetChildNode("memberships") is null) { _explicitNullValueMemberships = default!; _explicitNullProperties?.Remove("memberships"); }
             else if (parseNode.GetChildNode("memberships") is { } nullNodeMemberships && nullNodeMemberships.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Memberships = null;
             if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
@@ -42,6 +44,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; AdditionalData?.Remove("email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
         private string _explicitNullValueEmail = default!;
 #endif
+        /// <summary>The is_super_admin property</summary>
+        public bool? IsSuperAdmin { get => _explicitNullValueIsSuperAdmin; set { _explicitNullValueIsSuperAdmin = value; AdditionalData?.Remove("is_super_admin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_super_admin"); else _explicitNullProperties?.Remove("is_super_admin"); } }
+        private bool? _explicitNullValueIsSuperAdmin = default!;
         /// <summary>The memberships property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,6 +86,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public ServerRoutesInstanceAdminAdminUserResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            IsSuperAdmin = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -101,6 +107,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "email", n => { Email = n.GetStringValue(); } },
+                { "is_super_admin", n => { IsSuperAdmin = n.GetBoolValue(); } },
                 { "memberships", n => { Memberships = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AdminMembershipResponse>(global::Soenneker.OpenHands.OpenApiClient.Models.AdminMembershipResponse.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesInstanceAdminAdminUserResponseStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
@@ -115,6 +122,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("email", Email);
+            writer.WriteBoolValue("is_super_admin", IsSuperAdmin);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AdminMembershipResponse>("memberships", Memberships);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ServerRoutesInstanceAdminAdminUserResponseStatus>("status", Status);

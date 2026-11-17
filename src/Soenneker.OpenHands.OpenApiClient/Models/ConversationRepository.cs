@@ -26,6 +26,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("folder") is { } nullNodeFolder && nullNodeFolder.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Folder = null;
             if (parseNode.GetChildNode("git_provider") is null) { _explicitNullValueGitProvider = default!; _explicitNullProperties?.Remove("git_provider"); }
             else if (parseNode.GetChildNode("git_provider") is { } nullNodeGitProvider && nullNodeGitProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitProvider = null;
+            if (parseNode.GetChildNode("git_provider_id") is null) { _explicitNullValueGitProviderId = default!; _explicitNullProperties?.Remove("git_provider_id"); }
+            else if (parseNode.GetChildNode("git_provider_id") is { } nullNodeGitProviderId && nullNodeGitProviderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitProviderId = null;
             if (parseNode.GetChildNode("path") is null) { _explicitNullValuePath = default!; _explicitNullProperties?.Remove("path"); }
             else if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
             if (parseNode.GetChildNode("primary") is null) { _explicitNullValuePrimary = default!; _explicitNullProperties?.Remove("primary"); }
@@ -71,6 +73,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The git_provider property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? GitProvider { get => _explicitNullValueGitProvider; set { _explicitNullValueGitProvider = value; AdditionalData?.Remove("git_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_provider"); else _explicitNullProperties?.Remove("git_provider"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? _explicitNullValueGitProvider = default!;
+        /// <summary>The git_provider_id property</summary>
+        public int? GitProviderId { get => _explicitNullValueGitProviderId; set { _explicitNullValueGitProviderId = value; AdditionalData?.Remove("git_provider_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_provider_id"); else _explicitNullProperties?.Remove("git_provider_id"); } }
+        private int? _explicitNullValueGitProviderId = default!;
         /// <summary>Absolute path of the folder in the sandbox</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -127,6 +132,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "folder", n => { Folder = n.GetStringValue(); } },
                 { "git_provider", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueGitProvider = default; _explicitNullProperties?.Remove("git_provider"); AdditionalData["git_provider"] = unknown; } else { GitProvider = parsed; AdditionalData.Remove("git_provider"); } } },
+                { "git_provider_id", n => { GitProviderId = n.GetIntValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "primary", n => { Primary = n.GetBoolValue(); } },
                 { "repository", n => { Repository = n.GetStringValue(); } },
@@ -144,6 +150,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("error", Error);
             writer.WriteStringValue("folder", Folder);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>("git_provider", GitProvider);
+            writer.WriteIntValue("git_provider_id", GitProviderId);
             writer.WriteStringValue("path", Path);
             writer.WriteBoolValue("primary", Primary);
             writer.WriteStringValue("repository", Repository);

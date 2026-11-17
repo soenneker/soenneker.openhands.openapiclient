@@ -19,6 +19,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("git_provider") is null) { _explicitNullValueGitProvider = default!; _explicitNullProperties?.Remove("git_provider"); }
             else if (parseNode.GetChildNode("git_provider") is { } nullNodeGitProvider && nullNodeGitProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitProvider = null;
+            if (parseNode.GetChildNode("git_provider_id") is null) { _explicitNullValueGitProviderId = default!; _explicitNullProperties?.Remove("git_provider_id"); }
+            else if (parseNode.GetChildNode("git_provider_id") is { } nullNodeGitProviderId && nullNodeGitProviderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitProviderId = null;
             if (parseNode.GetChildNode("issue_number") is null) { _explicitNullValueIssueNumber = default!; _explicitNullProperties?.Remove("issue_number"); }
             else if (parseNode.GetChildNode("issue_number") is { } nullNodeIssueNumber && nullNodeIssueNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueNumber = null;
             if (parseNode.GetChildNode("repo") is null) { _explicitNullValueRepo = default!; _explicitNullProperties?.Remove("repo"); }
@@ -34,6 +36,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The git_provider property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? GitProvider { get => _explicitNullValueGitProvider; set { _explicitNullValueGitProvider = value; AdditionalData?.Remove("git_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_provider"); else _explicitNullProperties?.Remove("git_provider"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? _explicitNullValueGitProvider = default!;
+        /// <summary>The git_provider_id property</summary>
+        public int? GitProviderId { get => _explicitNullValueGitProviderId; set { _explicitNullValueGitProviderId = value; AdditionalData?.Remove("git_provider_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_provider_id"); else _explicitNullProperties?.Remove("git_provider_id"); } }
+        private int? _explicitNullValueGitProviderId = default!;
         /// <summary>The issue_number property</summary>
         public int? IssueNumber { get => _explicitNullValueIssueNumber; set { _explicitNullValueIssueNumber = value; AdditionalData?.Remove("issue_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_number"); else _explicitNullProperties?.Remove("issue_number"); } }
         private int? _explicitNullValueIssueNumber = default!;
@@ -88,6 +93,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "git_provider", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueGitProvider = default; _explicitNullProperties?.Remove("git_provider"); AdditionalData["git_provider"] = unknown; } else { GitProvider = parsed; AdditionalData.Remove("git_provider"); } } },
+                { "git_provider_id", n => { GitProviderId = n.GetIntValue(); } },
                 { "issue_number", n => { IssueNumber = n.GetIntValue(); } },
                 { "repo", n => { Repo = n.GetStringValue(); } },
                 { "task_type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TaskType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTaskType = default; _explicitNullProperties?.Remove("task_type"); AdditionalData["task_type"] = unknown; } else { TaskType = parsed; AdditionalData.Remove("task_type"); } } },
@@ -102,6 +108,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>("git_provider", GitProvider);
+            writer.WriteIntValue("git_provider_id", GitProviderId);
             writer.WriteIntValue("issue_number", IssueNumber);
             writer.WriteStringValue("repo", Repo);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.TaskType>("task_type", TaskType);

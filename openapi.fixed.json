@@ -3,7 +3,7 @@
   "info": {
     "title": "OpenHands",
     "description": "OpenHands: Code Less, Make More",
-    "version": "1.92.0"
+    "version": "1.94.0"
   },
   "paths": {
     "/api/v1/conversation/{conversationId}/events/search": {
@@ -2973,6 +2973,33 @@
         ]
       }
     },
+    "/api/v1/secrets/oauth-tokens": {
+      "get": {
+        "tags": [
+          "Secrets"
+        ],
+        "summary": "List Oauth Token Secrets",
+        "description": "List the read-only OAuth access token secrets injected into sandboxes.\n\nNames and descriptions only; token values are never returned. Uses the same\nlogic that builds the sandbox secrets, so the list matches what a new\nsandbox receives.",
+        "operationId": "ListOAuthTokenSecretsApiV1SecretsOAuthTokensGet",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OAuthTokenSecretList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
     "/api/v1/secrets": {
       "post": {
         "tags": [
@@ -3633,6 +3660,17 @@
               "type": "integer",
               "default": 100
             }
+          },
+          {
+            "name": "git_provider_id",
+            "in": "query",
+            "schema": {
+              "title": "The connected git provider (an auth_providers id) to use, when the user connected several of the same type. Ignored unless OAuth v2 login is enabled.",
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
           }
         ],
         "responses": {
@@ -3739,6 +3777,17 @@
                 }
               ]
             }
+          },
+          {
+            "name": "git_provider_id",
+            "in": "query",
+            "schema": {
+              "title": "The connected git provider (an auth_providers id) to use, when the user connected several of the same type. Ignored unless OAuth v2 login is enabled.",
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
           }
         ],
         "responses": {
@@ -3794,6 +3843,17 @@
             "schema": {
               "title": "Repository name in format owner/repo",
               "type": "string"
+            }
+          },
+          {
+            "name": "git_provider_id",
+            "in": "query",
+            "schema": {
+              "title": "The connected git provider (an auth_providers id) to use, when the user connected several of the same type. Ignored unless OAuth v2 login is enabled.",
+              "type": [
+                "null",
+                "integer"
+              ]
             }
           }
         ],
@@ -3882,6 +3942,17 @@
               "type": "integer",
               "default": 30
             }
+          },
+          {
+            "name": "git_provider_id",
+            "in": "query",
+            "schema": {
+              "title": "The connected git provider (an auth_providers id) to use, when the user connected several of the same type. Ignored unless OAuth v2 login is enabled.",
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
           }
         ],
         "responses": {
@@ -3942,6 +4013,17 @@
               "exclusiveMinimum": 0,
               "type": "integer",
               "default": 30
+            }
+          },
+          {
+            "name": "git_provider_id",
+            "in": "query",
+            "schema": {
+              "title": "The connected git provider (an auth_providers id) to use, when the user connected several of the same type. Ignored unless OAuth v2 login is enabled.",
+              "type": [
+                "null",
+                "integer"
+              ]
             }
           }
         ],
@@ -4501,63 +4583,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AcceptTosApiAcceptTosPost200ResponseSchema"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/onboarding_status": {
-      "get": {
-        "summary": "Onboarding Status",
-        "description": "Return whether the current user must still complete onboarding.\n\nKept as a dedicated endpoint instead of riding on \u0060\u0060GET /api/v1/settings\u0060\u0060\n(the natural home for fields like \u0060\u0060email_verified\u0060\u0060) because the settings\nresponse is heavyweight: \u0060\u0060SaasSettingsStore.load\u0060\u0060 joins User, Org, and\nOrgMember rows and deep-merges the org-level and member-level\n\u0060\u0060agent_settings\u0060\u0060 before returning. Onboarding gating runs on every\nprotected-route navigation, so we need a lightweight read of a single\nboolean rather than paying for the full settings aggregation.",
-        "operationId": "OnboardingStatusApiOnboardingStatusGet",
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OnboardingStatusApiOnboardingStatusGet200ResponseSchema"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/complete_onboarding": {
-      "post": {
-        "summary": "Complete Onboarding",
-        "description": "Mark onboarding as completed for the current user and fire analytics.\n\nPersists \u0060\u0060user.onboarding_completed = True\u0060\u0060 and emits the\n\u0060\u0060onboarding completed\u0060\u0060 PostHog event (plus an org \u0060\u0060group_identify\u0060\u0060 to\nstamp \u0060\u0060onboarding_completed_at\u0060\u0060). Analytics failures are swallowed so\nthey never block the user from leaving the onboarding flow.",
-        "operationId": "CompleteOnboardingApiCompleteOnboardingPost",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CompleteOnboardingApiCompleteOnboardingPostRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CompleteOnboardingApiCompleteOnboardingPost200ResponseSchema"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HttpValidationError"
                 }
               }
             }
@@ -10463,6 +10488,78 @@
         ]
       }
     },
+    "/api/organizations/{orgId}/conversations/{conversationId}/usage": {
+      "get": {
+        "tags": [
+          "Orgs"
+        ],
+        "summary": "Get Org Conversation Usage",
+        "description": "Get per-agent, per-task usage of an organization conversation.\n\nRead-only and built from retained history only: it never starts, resumes\nor contacts a runtime. The response is an allowlisted usage DTO without\ntitles, tags, prompts, task descriptions or tool inputs/outputs.\n\n**Access Control**: Requires READ_CONVERSATION_USAGE_DETAIL permission\n(Admin or Owner role) and the organization\u0027s\n\u0060\u0060enable_conversation_usage_detail\u0060\u0060 opt-in, which is off by default.\n\nRaises:\n    HTTPException: 403 if the organization has not opted in (checked\n        before any conversation lookup or history read)\n    HTTPException: 404 if the conversation is missing, deleted or not in\n        the organization (these cases are indistinguishable)",
+        "operationId": "GetOrgConversationUsageApiOrganizationsOrgIdConversationsConversationIdUsageGet",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "conversationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Conversation Id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Org-Id",
+            "in": "header",
+            "schema": {
+              "title": "X-Org-Id",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgConversationUsageResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
     "/api/organizations/{orgId}/conversations/{conversationId}/stop": {
       "post": {
         "tags": [
@@ -12232,8 +12329,32 @@
           "Admin"
         ],
         "summary": "List Super Admins",
-        "description": "List all current super admins.\n\nAuth is flag-gated (OHE-3196): when \u0060\u0060USER_PROVISIONING_ENABLED\u0060\u0060 is on,\nany authenticated user may call this so non-superadmins can discover their\ninstance administrators. Otherwise it requires \u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060\n(superadmin-only), as before.",
+        "description": "List the current super admins, one page at a time.\n\nAuth is flag-gated (OHE-3196): when \u0060\u0060USER_PROVISIONING_ENABLED\u0060\u0060 is on,\nor \u0060\u0060ENABLE_SUPER_ADMIN\u0060\u0060 is on in a self-hosted install, any authenticated\nuser may call this so non-superadmins can discover their instance\nadministrators. Otherwise it requires \u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060\n(superadmin-only), as before.",
         "operationId": "ListSuperAdminsApiAdminSuperAdminsGet",
+        "parameters": [
+          {
+            "name": "page_id",
+            "in": "query",
+            "schema": {
+              "title": "Optional offset (as a string) from a previous page",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "title": "The max number of results in the page",
+              "maximum": 100,
+              "exclusiveMinimum": 0,
+              "type": "integer",
+              "default": 20
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -12241,6 +12362,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SuperAdminListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
                 }
               }
             }
@@ -12389,9 +12520,53 @@
           "Admin"
         ],
         "summary": "List Admin Organizations",
-        "description": "List every organization with member counts. Requires \u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060.",
+        "description": "List one page of organizations with member counts.\n\n\u0060\u0060q\u0060\u0060 matches the organization name or contact email. A personal workspace\nshares its id with the user who owns it; \u0060\u0060include_personal=false\u0060\u0060 leaves\nthose out. Requires \u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060.",
         "operationId": "ListAdminOrganizationsApiAdminOrganizationsGet",
         "parameters": [
+          {
+            "name": "page_id",
+            "in": "query",
+            "schema": {
+              "title": "Optional offset (as a string) from a previous page",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "title": "The max number of results in the page",
+              "maximum": 100,
+              "exclusiveMinimum": 0,
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "schema": {
+              "title": "Filter by partial, case-insensitive match",
+              "maxLength": 255,
+              "minLength": 1,
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "include_personal",
+            "in": "query",
+            "schema": {
+              "title": "Include Personal",
+              "type": "boolean",
+              "default": true
+            }
+          },
           {
             "name": "org_id",
             "in": "query",
@@ -12552,9 +12727,44 @@
           "Admin"
         ],
         "summary": "List Admin Users",
-        "description": "List every user with org memberships. Requires \u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060.",
+        "description": "List one page of users with org memberships.\n\nAccounts come first, ordered by email, followed by the people who were\ninvited by email and have not signed up yet; one offset runs across both.\n\u0060\u0060q\u0060\u0060 matches a user\u0027s name, email or organization name. Requires\n\u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060.",
         "operationId": "ListAdminUsersApiAdminDirectoryUsersGet",
         "parameters": [
+          {
+            "name": "page_id",
+            "in": "query",
+            "schema": {
+              "title": "Optional offset (as a string) from a previous page",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "title": "The max number of results in the page",
+              "maximum": 100,
+              "exclusiveMinimum": 0,
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "schema": {
+              "title": "Filter by partial, case-insensitive match",
+              "maxLength": 255,
+              "minLength": 1,
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
           {
             "name": "org_id",
             "in": "query",
@@ -12598,6 +12808,65 @@
       }
     },
     "/api/admin/directory/users/{userId}": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Get Admin User",
+        "description": "Read one user with org memberships. Requires \u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060.",
+        "operationId": "GetAdminUserApiAdminDirectoryUsersUserIdGet",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "User Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerRoutesInstanceAdminAdminUserResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
       "patch": {
         "tags": [
           "Admin"
@@ -12672,7 +12941,7 @@
           "Admin"
         ],
         "summary": "Delete Admin User",
-        "description": "Delete a user\u0027s account and the data they own in every organization.\n\nRefuses with \u0060\u0060409\u0060\u0060 if the user is the last owner of any team org or\nthe last Super Admin, and with \u0060\u0060403\u0060\u0060 for a service account: it is\ndeleted with its org. The account and its rows go in one transaction.\nThe personal workspace, the LiteLLM user and the Keycloak account are\nthen removed best effort. Requires \u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060.",
+        "description": "Delete a user\u0027s account and the data they own in every organization.\n\nRefuses with \u0060\u0060409\u0060\u0060 if the user is the last owner of any team org or\nthe last Super Admin, and with \u0060\u0060403\u0060\u0060 for a service account: it is\ndeleted with its org. The account and its rows go in one transaction.\nThe personal workspace, the LiteLLM user and the Keycloak account are\nthen removed best effort. Requires \u0060\u0060MANAGE_SUPER_ADMINS\u0060\u0060.\n\nA best-effort \u0022your account was deleted\u0022 email is sent to the user\nafter the deletion succeeds, on by default; pass \u0060\u0060notify=false\u0060\u0060 to\nskip it (e.g. for bulk/cleanup jobs). The address is captured before\nthe row is removed, so the send can run after it. A Resend outage or a\nmissing \u0060\u0060RESEND_API_KEY\u0060\u0060 never blocks the deletion.",
         "operationId": "DeleteAdminUserApiAdminDirectoryUsersUserIdDelete",
         "parameters": [
           {
@@ -12683,6 +12952,15 @@
               "title": "User Id",
               "type": "string",
               "format": "uuid"
+            }
+          },
+          {
+            "name": "notify",
+            "in": "query",
+            "schema": {
+              "title": "Notify",
+              "type": "boolean",
+              "default": true
             }
           },
           {
@@ -18843,6 +19121,13 @@
           "git_provider": {
             "$ref": "#/components/schemas/AdditionalRepositoryGitProvider"
           },
+          "git_provider_id": {
+            "title": "Git Provider Id",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
           "folder": {
             "title": "Folder",
             "type": "string",
@@ -18887,6 +19172,13 @@
           },
           "git_provider": {
             "$ref": "#/components/schemas/ProviderType"
+          },
+          "git_provider_id": {
+            "title": "Git Provider Id",
+            "type": [
+              "null",
+              "integer"
+            ]
           }
         },
         "description": "An additional repository to clone when the conversation starts."
@@ -18947,19 +19239,34 @@
       "AdminOrgListResponse": {
         "title": "AdminOrgListResponse",
         "required": [
-          "organizations"
+          "total",
+          "current_page",
+          "per_page",
+          "items"
         ],
         "type": "object",
         "properties": {
-          "organizations": {
-            "title": "Organizations",
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          },
+          "current_page": {
+            "title": "Current Page",
+            "type": "integer"
+          },
+          "per_page": {
+            "title": "Per Page",
+            "type": "integer"
+          },
+          "items": {
+            "title": "Items",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AdminOrgResponse"
             }
           }
         },
-        "description": "All organizations on the instance."
+        "description": "One page of the organizations on the instance."
       },
       "AdminOrgResponse": {
         "title": "AdminOrgResponse",
@@ -19049,19 +19356,34 @@
       "AdminUserListResponse": {
         "title": "AdminUserListResponse",
         "required": [
-          "users"
+          "total",
+          "current_page",
+          "per_page",
+          "items"
         ],
         "type": "object",
         "properties": {
-          "users": {
-            "title": "Users",
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          },
+          "current_page": {
+            "title": "Current Page",
+            "type": "integer"
+          },
+          "per_page": {
+            "title": "Per Page",
+            "type": "integer"
+          },
+          "items": {
+            "title": "Items",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ServerRoutesInstanceAdminAdminUserResponse"
             }
           }
         },
-        "description": "All users on the instance."
+        "description": "One page of the users on the instance, then of the pending invitees."
       },
       "AdminUserPage": {
         "title": "AdminUserPage",
@@ -19773,6 +20095,13 @@
           "git_provider": {
             "$ref": "#/components/schemas/AdditionalRepositoryGitProvider"
           },
+          "git_provider_id": {
+            "title": "Git Provider Id",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
           "title": {
             "title": "Title",
             "type": [
@@ -20045,6 +20374,14 @@
           "git_provider": {
             "$ref": "#/components/schemas/AdditionalRepositoryGitProvider"
           },
+          "git_provider_id": {
+            "title": "Git Provider Id",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The connected git provider (an auth_providers id) to use for the repository, when the user has connected several providers of the same type (e.g. two GitLab hosts). Only honored with OAuth v2 login enabled; ignored otherwise."
+          },
           "additional_repositories": {
             "title": "Additional Repositories",
             "type": [
@@ -20257,6 +20594,14 @@
           "git_provider": {
             "$ref": "#/components/schemas/AdditionalRepositoryGitProvider"
           },
+          "git_provider_id": {
+            "title": "Git Provider Id",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The connected git provider (an auth_providers id) to use for the repository, when the user has connected several providers of the same type (e.g. two GitLab hosts). Only honored with OAuth v2 login enabled; ignored otherwise."
+          },
           "additional_repositories": {
             "title": "Additional Repositories",
             "type": [
@@ -20428,6 +20773,14 @@
           "title_generation": {
             "$ref": "#/components/schemas/AppConversationStartTaskTitleGeneration"
           },
+          "git_provider_id": {
+            "title": "Git Provider Id",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The git provider the task started with. Cleared when that provider is deleted, so it can differ from request.git_provider_id."
+          },
           "request": {
             "$ref": "#/components/schemas/AppConversationStartRequestOutput"
           },
@@ -20590,6 +20943,13 @@
           },
           "git_provider": {
             "$ref": "#/components/schemas/AdditionalRepositoryGitProvider"
+          },
+          "git_provider_id": {
+            "title": "Git Provider Id",
+            "type": [
+              "null",
+              "integer"
+            ]
           },
           "tags": {
             "$ref": "#/components/schemas/AppConversationUpdateRequestTagsProperty"
@@ -22217,6 +22577,13 @@
           "git_provider": {
             "$ref": "#/components/schemas/AdditionalRepositoryGitProvider"
           },
+          "git_provider_id": {
+            "title": "Git Provider Id",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
           "folder": {
             "title": "Folder",
             "type": "string"
@@ -22387,6 +22754,64 @@
         },
         "description": "Track per-LLM usage metrics observed during conversations."
       },
+      "ConversationTaskCall": {
+        "title": "ConversationTaskCall",
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "title": "Task Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "agent_type": {
+            "title": "Agent Type",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "resumed": {
+            "title": "Resumed",
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/ConversationTaskCallStatus"
+          },
+          "started_at": {
+            "title": "Started At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "ended_at": {
+            "title": "Ended At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "duration_seconds": {
+            "title": "Duration Seconds",
+            "type": [
+              "null",
+              "number"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "description": "One call of the task tool: a sub-agent start or resume."
+      },
       "ConversationTrigger": {
         "title": "ConversationTrigger",
         "enum": [
@@ -22453,6 +22878,96 @@
             }
           ]
         }
+      },
+      "ConversationUsageBucket": {
+        "title": "ConversationUsageBucket",
+        "required": [
+          "kind",
+          "usage"
+        ],
+        "type": "object",
+        "properties": {
+          "usage_id": {
+            "title": "Usage Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ConversationUsageBucketKind"
+          },
+          "task_id": {
+            "title": "Task Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "model": {
+            "title": "Model",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "usage": {
+            "description": "Cumulative usage. \u0060\u0060None\u0060\u0060 means not observed; \u0060\u00600\u0060\u0060 means observed zero.\n\n\u0060\u0060reasoning_tokens\u0060\u0060 may already be part of \u0060\u0060completion_tokens\u0060\u0060.",
+            "$ref": "#/components/schemas/ConversationUsageCounters"
+          }
+        },
+        "additionalProperties": false,
+        "description": "One disjoint usage bucket of the latest retained stats snapshot."
+      },
+      "ConversationUsageCounters": {
+        "title": "ConversationUsageCounters",
+        "type": "object",
+        "properties": {
+          "cost": {
+            "title": "Cost",
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "prompt_tokens": {
+            "title": "Prompt Tokens",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "completion_tokens": {
+            "title": "Completion Tokens",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "cache_read_tokens": {
+            "title": "Cache Read Tokens",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "cache_write_tokens": {
+            "title": "Cache Write Tokens",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "reasoning_tokens": {
+            "title": "Reasoning Tokens",
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "description": "Cumulative usage. \u0060\u0060None\u0060\u0060 means not observed; \u0060\u00600\u0060\u0060 means observed zero.\n\n\u0060\u0060reasoning_tokens\u0060\u0060 may already be part of \u0060\u0060completion_tokens\u0060\u0060."
       },
       "Cost": {
         "title": "Cost",
@@ -27027,6 +27542,44 @@
         },
         "description": "Settings for a condenser that leaves conversation views unchanged."
       },
+      "OAuthTokenSecretList": {
+        "title": "OAuthTokenSecretList",
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "title": "Items",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OAuthTokenSecretWithoutValue"
+            }
+          }
+        }
+      },
+      "OAuthTokenSecretWithoutValue": {
+        "title": "OAuthTokenSecretWithoutValue",
+        "required": [
+          "name",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "provider": {
+            "$ref": "#/components/schemas/AdditionalRepositoryGitProvider"
+          }
+        },
+        "description": "A read-only token secret injected into sandboxes (name only, never a value)."
+      },
       "Observation": {
         "x-client-original-discriminator": {
           "propertyName": "kind",
@@ -28333,6 +28886,59 @@
         },
         "description": "Aggregated statistics for organization conversations."
       },
+      "OrgConversationUsageResponse": {
+        "title": "OrgConversationUsageResponse",
+        "required": [
+          "conversation_id",
+          "totals",
+          "completeness"
+        ],
+        "type": "object",
+        "properties": {
+          "conversation_id": {
+            "title": "Conversation Id",
+            "type": "string"
+          },
+          "totals": {
+            "description": "Cumulative usage. \u0060\u0060None\u0060\u0060 means not observed; \u0060\u00600\u0060\u0060 means observed zero.\n\n\u0060\u0060reasoning_tokens\u0060\u0060 may already be part of \u0060\u0060completion_tokens\u0060\u0060.",
+            "$ref": "#/components/schemas/ConversationUsageCounters"
+          },
+          "completeness": {
+            "$ref": "#/components/schemas/OrgConversationUsageResponseCompleteness"
+          },
+          "incomplete_reasons": {
+            "title": "Incomplete Reasons",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrgConversationUsageResponseIncompleteReasonsItem"
+            }
+          },
+          "latest_snapshot_at": {
+            "title": "Latest Snapshot At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "buckets": {
+            "title": "Buckets",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConversationUsageBucket"
+            }
+          },
+          "task_calls": {
+            "title": "Task Calls",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConversationTaskCall"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "description": "Allowlisted usage detail of an org conversation; no titles, tags,\nprompts, task descriptions, tool inputs/outputs, URLs or credentials."
+      },
       "OrgCreate": {
         "title": "OrgCreate",
         "required": [
@@ -28354,8 +28960,8 @@
           },
           "contact_email": {
             "title": "Contact Email",
-            "type": "string",
-            "x-client-original-format": "email"
+            "pattern": "^[^@\\s]\u002B@[^@\\s]\u002B$",
+            "type": "string"
           },
           "owner_user_id": {
             "title": "Owner User Id",
@@ -28973,6 +29579,11 @@
             "type": "boolean",
             "default": true
           },
+          "enable_conversation_usage_detail": {
+            "title": "Enable Conversation Usage Detail",
+            "type": "boolean",
+            "default": false
+          },
           "sandbox_base_container_image": {
             "title": "Sandbox Base Container Image",
             "type": [
@@ -29198,6 +29809,13 @@
           },
           "enable_proactive_conversation_starters": {
             "title": "Enable Proactive Conversation Starters",
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "enable_conversation_usage_detail": {
+            "title": "Enable Conversation Usage Detail",
             "type": [
               "null",
               "boolean"
@@ -29834,7 +30452,9 @@
           "bitbucket_data_center",
           "forgejo",
           "azure_devops",
-          "enterprise_sso"
+          "enterprise_sso",
+          "jira",
+          "jira_dc"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -29868,6 +30488,14 @@
             {
               "value": "enterprise_sso",
               "name": "EnterpriseSso"
+            },
+            {
+              "value": "jira",
+              "name": "Jira"
+            },
+            {
+              "value": "jira_dc",
+              "name": "JiraDc"
             }
           ]
         }
@@ -31980,6 +32608,13 @@
           "git_provider": {
             "$ref": "#/components/schemas/ProviderType"
           },
+          "git_provider_id": {
+            "title": "Git Provider Id",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
           "task_type": {
             "$ref": "#/components/schemas/TaskType"
           },
@@ -32024,19 +32659,34 @@
       "SuperAdminListResponse": {
         "title": "SuperAdminListResponse",
         "required": [
-          "super_admins"
+          "total",
+          "current_page",
+          "per_page",
+          "items"
         ],
         "type": "object",
         "properties": {
-          "super_admins": {
-            "title": "Super Admins",
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          },
+          "current_page": {
+            "title": "Current Page",
+            "type": "integer"
+          },
+          "per_page": {
+            "title": "Per Page",
+            "type": "integer"
+          },
+          "items": {
+            "title": "Items",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SuperAdminResponse"
             }
           }
         },
-        "description": "The full set of current super admins."
+        "description": "One page of the current super admins."
       },
       "SuperAdminResponse": {
         "title": "SuperAdminResponse",
@@ -33728,11 +34378,6 @@
           "deployment_mode": {
             "$ref": "#/components/schemas/WebClientFeatureFlagsDeploymentMode"
           },
-          "enable_onboarding": {
-            "title": "Enable Onboarding",
-            "type": "boolean",
-            "default": false
-          },
           "enable_automations": {
             "title": "Enable Automations",
             "type": "boolean",
@@ -34149,6 +34794,11 @@
           },
           "status": {
             "$ref": "#/components/schemas/ServerRoutesInstanceAdminAdminUserResponseStatus"
+          },
+          "is_super_admin": {
+            "title": "Is Super Admin",
+            "type": "boolean",
+            "default": false
           }
         },
         "description": "A single user in the instance directory.\n\n\u0060\u0060user_id\u0060\u0060 is \u0060\u0060None\u0060\u0060 for someone invited by email who has not signed\nup yet; such a row carries each pending invitation as an \u0060\u0060invited\u0060\u0060\nmembership."
@@ -35188,6 +35838,13 @@
         "properties": {
           "git_provider": {
             "$ref": "#/components/schemas/ProviderType"
+          },
+          "git_provider_id": {
+            "title": "Git Provider Id",
+            "type": [
+              "null",
+              "integer"
+            ]
           },
           "task_type": {
             "$ref": "#/components/schemas/TaskType"
@@ -37287,19 +37944,6 @@
           "description": "Accumulated token usage across all calls"
         }
       },
-      "OnboardingSubmissionSelectionsAdditionalProperties": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        ]
-      },
       "OpenHandsAgentProfileCondenser": {
         "title": "Condenser",
         "oneOf": [
@@ -38297,30 +38941,6 @@
           }
         }
       },
-      "CompleteOnboardingApiCompleteOnboardingPostRequest": {
-        "title": "Body",
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "selections": {
-            "$ref": "#/components/schemas/OnboardingSubmissionSelectionsProperty"
-          }
-        },
-        "description": "Payload posted from the onboarding form.\n\n\u0060\u0060selections\u0060\u0060 maps onboarding question_id -\u003E selected option(s), e.g.\n\u0060\u0060{\u0022role\u0022: \u0022software_engineer\u0022, \u0022org_size\u0022: \u0022solo\u0022,\n   \u0022use_case\u0022: [\u0022new_features\u0022, \u0022fixing_bugs\u0022]}\u0060\u0060.\n\nThe field is optional so the endpoint stays backwards-compatible with any\nclient that previously called it with an empty body, but the current\nfrontend always submits a populated mapping.",
-        "x-client-original-nullable-union": {
-          "title": "Body",
-          "anyOf": [
-            {
-              "$ref": "#/components/schemas/OnboardingSubmission"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        }
-      },
       "ResponseGetSubscriptionAccessApiBillingSubscriptionAccessGet": {
         "title": "Response Get Subscription Access Api Billing Subscription Access Get",
         "required": [
@@ -38600,8 +39220,6 @@
       "IsSaasSaasGet200ResponseSchema": {},
       "AuthenticateApiAuthenticatePost200ResponseSchema": {},
       "AcceptTosApiAcceptTosPost200ResponseSchema": {},
-      "OnboardingStatusApiOnboardingStatusGet200ResponseSchema": {},
-      "CompleteOnboardingApiCompleteOnboardingPost200ResponseSchema": {},
       "LogoutApiLogoutPost200ResponseSchema": {},
       "KeycloakCallbackOAuthKeycloakCallbackGet200ResponseSchema": {},
       "KeycloakOfflineCallbackOAuthKeycloakOfflineCallbackGet200ResponseSchema": {},
@@ -38829,6 +39447,13 @@
           "git_provider": {
             "$ref": "#/components/schemas/AdditionalRepositoryGitProvider"
           },
+          "git_provider_id": {
+            "title": "Git Provider Id",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
           "title": {
             "title": "Title",
             "type": [
@@ -39050,6 +39675,14 @@
           },
           "title_generation": {
             "$ref": "#/components/schemas/AppConversationStartTaskTitleGeneration"
+          },
+          "git_provider_id": {
+            "title": "Git Provider Id",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The git provider the task started with. Cleared when that provider is deleted, so it can differ from request.git_provider_id."
           },
           "request": {
             "$ref": "#/components/schemas/AppConversationStartRequestOutput"
@@ -40063,13 +40696,6 @@
         "type": "object",
         "additionalProperties": {
           "type": "string"
-        }
-      },
-      "OnboardingSubmissionSelectionsProperty": {
-        "title": "Selections",
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/OnboardingSubmissionSelectionsAdditionalProperties"
         }
       },
       "OpenHandsAgentSettingsMetaProfileLlmsProperty": {
@@ -41889,6 +42515,38 @@
         "type": "string",
         "x-client-original-const": "ConversationStateUpdateEvent"
       },
+      "ConversationTaskCallStatus": {
+        "title": "Status",
+        "enum": [
+          "running",
+          "completed",
+          "error",
+          "unknown"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConversationTaskCallStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "running",
+              "name": "Running"
+            },
+            {
+              "value": "completed",
+              "name": "Completed"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            },
+            {
+              "value": "unknown",
+              "name": "Unknown"
+            }
+          ]
+        }
+      },
       "ConversationTitleGenerationStatus": {
         "title": "Status",
         "enum": [
@@ -41912,6 +42570,38 @@
             {
               "value": "fallback",
               "name": "Fallback"
+            }
+          ]
+        }
+      },
+      "ConversationUsageBucketKind": {
+        "title": "Kind",
+        "enum": [
+          "main_agent",
+          "condenser",
+          "task",
+          "other"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConversationUsageBucketKind",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "main_agent",
+              "name": "MainAgent"
+            },
+            {
+              "value": "condenser",
+              "name": "Condenser"
+            },
+            {
+              "value": "task",
+              "name": "Task"
+            },
+            {
+              "value": "other",
+              "name": "Other"
             }
           ]
         }
@@ -43863,6 +44553,89 @@
             "type": "null"
           }
         ]
+      },
+      "OrgConversationUsageResponseCompleteness": {
+        "title": "Completeness",
+        "enum": [
+          "full",
+          "partial",
+          "totals_only"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "OrgConversationUsageResponseCompleteness",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "full",
+              "name": "Full"
+            },
+            {
+              "value": "partial",
+              "name": "Partial"
+            },
+            {
+              "value": "totals_only",
+              "name": "TotalsOnly"
+            }
+          ]
+        }
+      },
+      "OrgConversationUsageResponseIncompleteReasonsItem": {
+        "enum": [
+          "no_stats_snapshot",
+          "scan_limit_reached",
+          "unknown_counters",
+          "totals_ahead_of_snapshot",
+          "task_usage_pending",
+          "task_usage_missing",
+          "task_result_missing",
+          "task_calls_outside_history",
+          "inconsistent_task_timestamps"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "OrgConversationUsageResponseIncompleteReasonsItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "no_stats_snapshot",
+              "name": "NoStatsSnapshot"
+            },
+            {
+              "value": "scan_limit_reached",
+              "name": "ScanLimitReached"
+            },
+            {
+              "value": "unknown_counters",
+              "name": "UnknownCounters"
+            },
+            {
+              "value": "totals_ahead_of_snapshot",
+              "name": "TotalsAheadOfSnapshot"
+            },
+            {
+              "value": "task_usage_pending",
+              "name": "TaskUsagePending"
+            },
+            {
+              "value": "task_usage_missing",
+              "name": "TaskUsageMissing"
+            },
+            {
+              "value": "task_result_missing",
+              "name": "TaskResultMissing"
+            },
+            {
+              "value": "task_calls_outside_history",
+              "name": "TaskCallsOutsideHistory"
+            },
+            {
+              "value": "inconsistent_task_timestamps",
+              "name": "InconsistentTaskTimestamps"
+            }
+          ]
+        }
       },
       "OrgMcpServerCreateManagedBy": {
         "title": "Managed By",
@@ -61677,16 +62450,6 @@
       },
       "additionalProperties": false
     },
-    "OnboardingSubmission": {
-      "title": "OnboardingSubmission",
-      "type": "object",
-      "properties": {
-        "selections": {
-          "$ref": "#/components/schemas/OnboardingSubmissionSelectionsProperty"
-        }
-      },
-      "description": "Payload posted from the onboarding form.\n\n\u0060\u0060selections\u0060\u0060 maps onboarding question_id -\u003E selected option(s), e.g.\n\u0060\u0060{\u0022role\u0022: \u0022software_engineer\u0022, \u0022org_size\u0022: \u0022solo\u0022,\n   \u0022use_case\u0022: [\u0022new_features\u0022, \u0022fixing_bugs\u0022]}\u0060\u0060.\n\nThe field is optional so the endpoint stays backwards-compatible with any\nclient that previously called it with an empty body, but the current\nfrontend always submits a populated mapping."
-    },
     "PassCritic": {
       "title": "PassCritic",
       "type": "object",
@@ -65713,6 +66476,13 @@
         "git_provider": {
           "$ref": "#/components/schemas/ProviderType"
         },
+        "git_provider_id": {
+          "title": "Git Provider Id",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
         "task_type": {
           "$ref": "#/components/schemas/TaskType"
         },
@@ -68113,6 +68883,16 @@
       ]
     },
     "OAuthProviderDetailsOutputLegacyKeycloakType": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/ProviderType"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "OAuthTokenSecretWithoutValueProvider": {
       "anyOf": [
         {
           "$ref": "#/components/schemas/ProviderType"
@@ -70932,13 +71712,6 @@
         "type": "string"
       }
     },
-    "OnboardingSubmissionSelections": {
-      "title": "Selections",
-      "type": "object",
-      "additionalProperties": {
-        "$ref": "#/components/schemas/OnboardingSubmissionSelectionsAdditionalProperties"
-      }
-    },
     "OpenHandsAgentSettingsMetaProfileLlms": {
       "title": "Meta Profile Llms",
       "type": "object",
@@ -71549,8 +72322,6 @@
     "IsSaasSaasGet200Response": {},
     "AuthenticateApiAuthenticatePost200Response": {},
     "AcceptTosApiAcceptTosPost200Response": {},
-    "OnboardingStatusApiOnboardingStatusGet200Response": {},
-    "CompleteOnboardingApiCompleteOnboardingPost200Response": {},
     "LogoutApiLogoutPost200Response": {},
     "KeycloakCallbackOAuthKeycloakCallbackGet200Response": {},
     "KeycloakOfflineCallbackOAuthKeycloakOfflineCallbackGet200Response": {},
@@ -71792,6 +72563,13 @@
         "git_provider": {
           "$ref": "#/components/schemas/AdditionalRepositoryGitProvider"
         },
+        "git_provider_id": {
+          "title": "Git Provider Id",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
         "title": {
           "title": "Title",
           "type": [
@@ -72013,6 +72791,14 @@
         },
         "title_generation": {
           "$ref": "#/components/schemas/AppConversationStartTaskTitleGeneration"
+        },
+        "git_provider_id": {
+          "title": "Git Provider Id",
+          "type": [
+            "null",
+            "integer"
+          ],
+          "description": "The git provider the task started with. Cleared when that provider is deleted, so it can differ from request.git_provider_id."
         },
         "request": {
           "$ref": "#/components/schemas/AppConversationStartRequestOutput"

@@ -34,6 +34,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("generate_title_on_submit") is { } nullNodeGenerateTitleOnSubmit && nullNodeGenerateTitleOnSubmit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GenerateTitleOnSubmit = null;
             if (parseNode.GetChildNode("git_provider") is null) { _explicitNullValueGitProvider = default!; _explicitNullProperties?.Remove("git_provider"); }
             else if (parseNode.GetChildNode("git_provider") is { } nullNodeGitProvider && nullNodeGitProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitProvider = null;
+            if (parseNode.GetChildNode("git_provider_id") is null) { _explicitNullValueGitProviderId = default!; _explicitNullProperties?.Remove("git_provider_id"); }
+            else if (parseNode.GetChildNode("git_provider_id") is { } nullNodeGitProviderId && nullNodeGitProviderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitProviderId = null;
             if (parseNode.GetChildNode("initial_message") is null) { _explicitNullValueInitialMessage = default!; _explicitNullProperties?.Remove("initial_message"); }
             else if (parseNode.GetChildNode("initial_message") is { } nullNodeInitialMessage && nullNodeInitialMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InitialMessage = null;
             if (parseNode.GetChildNode("llm_model") is null) { _explicitNullValueLlmModel = default!; _explicitNullProperties?.Remove("llm_model"); }
@@ -134,6 +136,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The git_provider property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? GitProvider { get => _explicitNullValueGitProvider; set { _explicitNullValueGitProvider = value; AdditionalData?.Remove("git_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_provider"); else _explicitNullProperties?.Remove("git_provider"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? _explicitNullValueGitProvider = default!;
+        /// <summary>The connected git provider (an auth_providers id) to use for the repository, when the user has connected several providers of the same type (e.g. two GitLab hosts). Only honored with OAuth v2 login enabled; ignored otherwise.</summary>
+        public int? GitProviderId { get => _explicitNullValueGitProviderId; set { _explicitNullValueGitProviderId = value; AdditionalData?.Remove("git_provider_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_provider_id"); else _explicitNullProperties?.Remove("git_provider_id"); } }
+        private int? _explicitNullValueGitProviderId = default!;
         /// <summary>Payload to send a message to the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -369,6 +374,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "disabled_skills", n => { DisabledSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "generate_title_on_submit", n => { GenerateTitleOnSubmit = n.GetBoolValue(); } },
                 { "git_provider", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueGitProvider = default; _explicitNullProperties?.Remove("git_provider"); AdditionalData["git_provider"] = unknown; } else { GitProvider = parsed; AdditionalData.Remove("git_provider"); } } },
+                { "git_provider_id", n => { GitProviderId = n.GetIntValue(); } },
                 { "initial_message", n => { InitialMessage = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage.CreateFromDiscriminatorValue); } },
                 { "llm_model", n => { LlmModel = n.GetStringValue(); } },
                 { "llm_profile", n => { LlmProfile = n.GetStringValue(); } },
@@ -408,6 +414,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("disabled_skills", DisabledSkills);
             writer.WriteBoolValue("generate_title_on_submit", GenerateTitleOnSubmit);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>("git_provider", GitProvider);
+            writer.WriteIntValue("git_provider_id", GitProviderId);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage>("initial_message", InitialMessage);
             writer.WriteStringValue("llm_model", LlmModel);
             writer.WriteStringValue("llm_profile", LlmProfile);

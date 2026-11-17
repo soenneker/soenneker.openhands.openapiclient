@@ -35,7 +35,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.Organizations
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OrganizationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/admin/organizations{?org_id*}", pathParameters)
+        public OrganizationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/admin/organizations{?include_personal*,limit*,org_id*,page_id*,q*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,11 +43,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.Organizations
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OrganizationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/admin/organizations{?org_id*}", rawUrl)
+        public OrganizationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/admin/organizations{?include_personal*,limit*,org_id*,page_id*,q*}", rawUrl)
         {
         }
         /// <summary>
-        /// List every organization with member counts. Requires ``MANAGE_SUPER_ADMINS``.
+        /// List one page of organizations with member counts.``q`` matches the organization name or contact email. A personal workspaceshares its id with the user who owns it; ``include_personal=false`` leavesthose out. Requires ``MANAGE_SUPER_ADMINS``.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.Organizations
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgListResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.AdminOrgListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List every organization with member counts. Requires ``MANAGE_SUPER_ADMINS``.
+        /// List one page of organizations with member counts.``q`` matches the organization name or contact email. A personal workspaceshares its id with the user who owns it; ``include_personal=false`` leavesthose out. Requires ``MANAGE_SUPER_ADMINS``.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -100,15 +100,49 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.Organizations
             return new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.Organizations.OrganizationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List every organization with member counts. Requires ``MANAGE_SUPER_ADMINS``.
+        /// List one page of organizations with member counts.``q`` matches the organization name or contact email. A personal workspaceshares its id with the user who owns it; ``include_personal=false`` leavesthose out. Requires ``MANAGE_SUPER_ADMINS``.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class OrganizationsRequestBuilderGetQueryParameters 
         {
             #pragma warning disable CS1591
+            [QueryParameter("include_personal")]
+            public bool? IncludePersonal { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
+            [QueryParameter("limit")]
+            public int? Limit { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("org_id")]
             public Guid? OrgId { get; set; }
             #pragma warning restore CS1591
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            #pragma warning disable CS1591
+            [QueryParameter("page_id")]
+            public string? PageId { get; set; }
+            #pragma warning restore CS1591
+#nullable restore
+#else
+            #pragma warning disable CS1591
+            [QueryParameter("page_id")]
+            public string PageId { get; set; }
+            #pragma warning restore CS1591
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            #pragma warning disable CS1591
+            [QueryParameter("q")]
+            public string? Q { get; set; }
+            #pragma warning restore CS1591
+#nullable restore
+#else
+            #pragma warning disable CS1591
+            [QueryParameter("q")]
+            public string Q { get; set; }
+            #pragma warning restore CS1591
+#endif
         }
     }
 }

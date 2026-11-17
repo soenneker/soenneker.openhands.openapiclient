@@ -22,7 +22,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Git.Repositories.Details
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DetailsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/git/repositories/details?provider={provider}&repository={repository}", pathParameters)
+        public DetailsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/git/repositories/details?provider={provider}&repository={repository}{&git_provider_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Git.Repositories.Details
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DetailsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/git/repositories/details?provider={provider}&repository={repository}", rawUrl)
+        public DetailsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v1/git/repositories/details?provider={provider}&repository={repository}{&git_provider_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -92,6 +92,10 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.V1.Git.Repositories.Details
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DetailsRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
+            [QueryParameter("git_provider_id")]
+            public int? GitProviderId { get; set; }
+            #pragma warning restore CS1591
             #pragma warning disable CS1591
             [QueryParameter("provider")]
             public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? Provider { get; set; }

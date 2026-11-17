@@ -34,6 +34,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("credits") is { } nullNodeCredits && nullNodeCredits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Credits = null;
             if (parseNode.GetChildNode("credits_available") is null) { _explicitNullValueCreditsAvailable = default!; _explicitNullProperties?.Remove("credits_available"); }
             else if (parseNode.GetChildNode("credits_available") is { } nullNodeCreditsAvailable && nullNodeCreditsAvailable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreditsAvailable = null;
+            if (parseNode.GetChildNode("enable_conversation_usage_detail") is null) { _explicitNullValueEnableConversationUsageDetail = default!; _explicitNullProperties?.Remove("enable_conversation_usage_detail"); }
+            else if (parseNode.GetChildNode("enable_conversation_usage_detail") is { } nullNodeEnableConversationUsageDetail && nullNodeEnableConversationUsageDetail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableConversationUsageDetail = null;
             if (parseNode.GetChildNode("enable_proactive_conversation_starters") is null) { _explicitNullValueEnableProactiveConversationStarters = default!; _explicitNullProperties?.Remove("enable_proactive_conversation_starters"); }
             else if (parseNode.GetChildNode("enable_proactive_conversation_starters") is { } nullNodeEnableProactiveConversationStarters && nullNodeEnableProactiveConversationStarters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableProactiveConversationStarters = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
@@ -116,6 +118,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The credits_available property</summary>
         public bool? CreditsAvailable { get => _explicitNullValueCreditsAvailable; set { _explicitNullValueCreditsAvailable = value; AdditionalData?.Remove("credits_available"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credits_available"); else _explicitNullProperties?.Remove("credits_available"); } }
         private bool? _explicitNullValueCreditsAvailable = default!;
+        /// <summary>The enable_conversation_usage_detail property</summary>
+        public bool? EnableConversationUsageDetail { get => _explicitNullValueEnableConversationUsageDetail; set { _explicitNullValueEnableConversationUsageDetail = value; AdditionalData?.Remove("enable_conversation_usage_detail"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_conversation_usage_detail"); else _explicitNullProperties?.Remove("enable_conversation_usage_detail"); } }
+        private bool? _explicitNullValueEnableConversationUsageDetail = default!;
         /// <summary>The enable_proactive_conversation_starters property</summary>
         public bool? EnableProactiveConversationStarters { get => _explicitNullValueEnableProactiveConversationStarters; set { _explicitNullValueEnableProactiveConversationStarters = value; AdditionalData?.Remove("enable_proactive_conversation_starters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_proactive_conversation_starters"); else _explicitNullProperties?.Remove("enable_proactive_conversation_starters"); } }
         private bool? _explicitNullValueEnableProactiveConversationStarters = default!;
@@ -204,6 +209,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             CreditsAvailable = false;
+            EnableConversationUsageDetail = false;
             EnableProactiveConversationStarters = true;
             IsPersonal = false;
             IsVisible = true;
@@ -235,6 +241,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "conversation_settings", n => { ConversationSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings.CreateFromDiscriminatorValue); } },
                 { "credits", n => { Credits = n.GetDoubleValue(); } },
                 { "credits_available", n => { CreditsAvailable = n.GetBoolValue(); } },
+                { "enable_conversation_usage_detail", n => { EnableConversationUsageDetail = n.GetBoolValue(); } },
                 { "enable_proactive_conversation_starters", n => { EnableProactiveConversationStarters = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_personal", n => { IsPersonal = n.GetBoolValue(); } },
@@ -265,6 +272,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationSettings>("conversation_settings", ConversationSettings);
             writer.WriteDoubleValue("credits", Credits);
             writer.WriteBoolValue("credits_available", CreditsAvailable);
+            writer.WriteBoolValue("enable_conversation_usage_detail", EnableConversationUsageDetail);
             writer.WriteBoolValue("enable_proactive_conversation_starters", EnableProactiveConversationStarters);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_personal", IsPersonal);

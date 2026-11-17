@@ -28,6 +28,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("created_by_user_id") is { } nullNodeCreatedByUserId && nullNodeCreatedByUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedByUserId = null;
             if (parseNode.GetChildNode("detail") is null) { _explicitNullValueDetail = default!; _explicitNullProperties?.Remove("detail"); }
             else if (parseNode.GetChildNode("detail") is { } nullNodeDetail && nullNodeDetail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Detail = null;
+            if (parseNode.GetChildNode("git_provider_id") is null) { _explicitNullValueGitProviderId = default!; _explicitNullProperties?.Remove("git_provider_id"); }
+            else if (parseNode.GetChildNode("git_provider_id") is { } nullNodeGitProviderId && nullNodeGitProviderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitProviderId = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
             if (parseNode.GetChildNode("request") is null) { _explicitNullValueRequest = default!; _explicitNullProperties?.Remove("request"); }
@@ -87,6 +89,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Detail { get => _explicitNullValueDetail; set { _explicitNullValueDetail = value; AdditionalData?.Remove("detail"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detail"); else _explicitNullProperties?.Remove("detail"); } }
         private string _explicitNullValueDetail = default!;
 #endif
+        /// <summary>The git provider the task started with. Cleared when that provider is deleted, so it can differ from request.git_provider_id.</summary>
+        public int? GitProviderId { get => _explicitNullValueGitProviderId; set { _explicitNullValueGitProviderId = value; AdditionalData?.Remove("git_provider_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_provider_id"); else _explicitNullProperties?.Remove("git_provider_id"); } }
+        private int? _explicitNullValueGitProviderId = default!;
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -164,6 +169,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created_by_user_id", n => { CreatedByUserId = n.GetStringValue(); } },
                 { "detail", n => { Detail = n.GetStringValue(); } },
+                { "git_provider_id", n => { GitProviderId = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "request", n => { Request = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestOutput>(global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestOutput.CreateFromDiscriminatorValue); } },
                 { "sandbox_id", n => { SandboxId = n.GetStringValue(); } },
@@ -184,6 +190,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("created_by_user_id", CreatedByUserId);
             writer.WriteStringValue("detail", Detail);
+            writer.WriteIntValue("git_provider_id", GitProviderId);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestOutput>("request", Request);
             writer.WriteStringValue("sandbox_id", SandboxId);

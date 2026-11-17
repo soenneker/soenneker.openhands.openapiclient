@@ -35,7 +35,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UsersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/admin/directory/users{?org_id*}", pathParameters)
+        public UsersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/admin/directory/users{?limit*,org_id*,page_id*,q*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,11 +43,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UsersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/admin/directory/users{?org_id*}", rawUrl)
+        public UsersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/admin/directory/users{?limit*,org_id*,page_id*,q*}", rawUrl)
         {
         }
         /// <summary>
-        /// List every user with org memberships. Requires ``MANAGE_SUPER_ADMINS``.
+        /// List one page of users with org memberships.Accounts come first, ordered by email, followed by the people who wereinvited by email and have not signed up yet; one offset runs across both.``q`` matches a user&apos;s name, email or organization name. Requires``MANAGE_SUPER_ADMINS``.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AdminUserListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users
             return await RequestAdapter.SendAsync<global::Soenneker.OpenHands.OpenApiClient.Models.AdminUserListResponse>(requestInfo, global::Soenneker.OpenHands.OpenApiClient.Models.AdminUserListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List every user with org memberships. Requires ``MANAGE_SUPER_ADMINS``.
+        /// List one page of users with org memberships.Accounts come first, ordered by email, followed by the people who wereinvited by email and have not signed up yet; one offset runs across both.``q`` matches a user&apos;s name, email or organization name. Requires``MANAGE_SUPER_ADMINS``.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -100,15 +100,45 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users
             return new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace.Users.UsersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List every user with org memberships. Requires ``MANAGE_SUPER_ADMINS``.
+        /// List one page of users with org memberships.Accounts come first, ordered by email, followed by the people who wereinvited by email and have not signed up yet; one offset runs across both.``q`` matches a user&apos;s name, email or organization name. Requires``MANAGE_SUPER_ADMINS``.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class UsersRequestBuilderGetQueryParameters 
         {
             #pragma warning disable CS1591
+            [QueryParameter("limit")]
+            public int? Limit { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("org_id")]
             public Guid? OrgId { get; set; }
             #pragma warning restore CS1591
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            #pragma warning disable CS1591
+            [QueryParameter("page_id")]
+            public string? PageId { get; set; }
+            #pragma warning restore CS1591
+#nullable restore
+#else
+            #pragma warning disable CS1591
+            [QueryParameter("page_id")]
+            public string PageId { get; set; }
+            #pragma warning restore CS1591
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            #pragma warning disable CS1591
+            [QueryParameter("q")]
+            public string? Q { get; set; }
+            #pragma warning restore CS1591
+#nullable restore
+#else
+            #pragma warning disable CS1591
+            [QueryParameter("q")]
+            public string Q { get; set; }
+            #pragma warning restore CS1591
+#endif
         }
     }
 }

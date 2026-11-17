@@ -8,14 +8,12 @@ using Soenneker.OpenHands.OpenApiClient.Api.AgentProfiles;
 using Soenneker.OpenHands.OpenApiClient.Api.Analytics;
 using Soenneker.OpenHands.OpenApiClient.Api.Authenticate;
 using Soenneker.OpenHands.OpenApiClient.Api.Billing;
-using Soenneker.OpenHands.OpenApiClient.Api.Complete_onboarding;
 using Soenneker.OpenHands.OpenApiClient.Api.Email;
 using Soenneker.OpenHands.OpenApiClient.Api.Idp;
 using Soenneker.OpenHands.OpenApiClient.Api.Keycloak;
 using Soenneker.OpenHands.OpenApiClient.Api.Keys;
 using Soenneker.OpenHands.OpenApiClient.Api.License;
 using Soenneker.OpenHands.OpenApiClient.Api.Logout;
-using Soenneker.OpenHands.OpenApiClient.Api.Onboarding_status;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations;
 using Soenneker.OpenHands.OpenApiClient.Api.Quota;
 using Soenneker.OpenHands.OpenApiClient.Api.Service;
@@ -66,11 +64,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Api
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Billing.BillingRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The complete_onboarding property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Api.Complete_onboarding.Complete_onboardingRequestBuilder Complete_onboarding
-        {
-            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Complete_onboarding.Complete_onboardingRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The email property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Email.EmailRequestBuilder Email
         {
@@ -100,11 +93,6 @@ namespace Soenneker.OpenHands.OpenApiClient.Api
         public global::Soenneker.OpenHands.OpenApiClient.Api.Logout.LogoutRequestBuilder Logout
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Logout.LogoutRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The onboarding_status property</summary>
-        public global::Soenneker.OpenHands.OpenApiClient.Api.Onboarding_status.Onboarding_statusRequestBuilder Onboarding_status
-        {
-            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Onboarding_status.Onboarding_statusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The organizations property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.OrganizationsRequestBuilder Organizations

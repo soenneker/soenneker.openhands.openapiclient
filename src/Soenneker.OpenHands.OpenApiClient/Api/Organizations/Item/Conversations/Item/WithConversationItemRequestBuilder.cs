@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.Item.Stop;
+using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.Item.Usage;
 using Soenneker.OpenHands.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -22,6 +23,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.Item.Stop.StopRequestBuilder Stop
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.Item.Stop.StopRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The usage property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.Item.Usage.UsageRequestBuilder Usage
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.Item.Usage.UsageRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.Item.WithConversationItemRequestBuilder"/> and sets the default values.
