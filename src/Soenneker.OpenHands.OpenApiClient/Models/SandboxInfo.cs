@@ -28,6 +28,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("exposed_urls") is { } nullNodeExposedUrls && nullNodeExposedUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExposedUrls = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("last_termination") is null) { _explicitNullValueLastTermination = default!; _explicitNullProperties?.Remove("last_termination"); }
+            else if (parseNode.GetChildNode("last_termination") is { } nullNodeLastTermination && nullNodeLastTermination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastTermination = null;
             if (parseNode.GetChildNode("sandbox_spec_id") is null) { _explicitNullValueSandboxSpecId = default!; _explicitNullProperties?.Remove("sandbox_spec_id"); }
             else if (parseNode.GetChildNode("sandbox_spec_id") is { } nullNodeSandboxSpecId && nullNodeSandboxSpecId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SandboxSpecId = null;
             if (parseNode.GetChildNode("session_api_key") is null) { _explicitNullValueSessionApiKey = default!; _explicitNullProperties?.Remove("session_api_key"); }
@@ -77,6 +79,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
+#endif
+        /// <summary>Most recent container termination, retained after an automatic restart.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfoLastTermination? LastTermination { get => _explicitNullValueLastTermination; set { _explicitNullValueLastTermination = value; AdditionalData?.Remove("last_termination"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_termination"); else _explicitNullProperties?.Remove("last_termination"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfoLastTermination? _explicitNullValueLastTermination = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfoLastTermination LastTermination { get => _explicitNullValueLastTermination; set { _explicitNullValueLastTermination = value; AdditionalData?.Remove("last_termination"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_termination"); else _explicitNullProperties?.Remove("last_termination"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfoLastTermination _explicitNullValueLastTermination = default!;
 #endif
         /// <summary>The sandbox_spec_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -144,6 +156,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "credential_org_id", n => { CredentialOrgId = n.GetGuidValue(); } },
                 { "exposed_urls", n => { ExposedUrls = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ExposedUrl>(global::Soenneker.OpenHands.OpenApiClient.Models.ExposedUrl.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "last_termination", n => { LastTermination = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfoLastTermination>(global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfoLastTermination.CreateFromDiscriminatorValue); } },
                 { "sandbox_spec_id", n => { SandboxSpecId = n.GetStringValue(); } },
                 { "session_api_key", n => { SessionApiKey = n.GetStringValue(); } },
                 { "started_by", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStartedBy>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStartedBy = default; _explicitNullProperties?.Remove("started_by"); AdditionalData["started_by"] = unknown; } else { StartedBy = parsed; AdditionalData.Remove("started_by"); } } },
@@ -163,6 +176,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteGuidValue("credential_org_id", CredentialOrgId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ExposedUrl>("exposed_urls", ExposedUrls);
             writer.WriteStringValue("id", Id);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxInfoLastTermination>("last_termination", LastTermination);
             writer.WriteStringValue("sandbox_spec_id", SandboxSpecId);
             writer.WriteStringValue("session_api_key", SessionApiKey);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxStartedBy>("started_by", StartedBy);

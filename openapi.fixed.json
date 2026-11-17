@@ -3,7 +3,7 @@
   "info": {
     "title": "OpenHands",
     "description": "OpenHands: Code Less, Make More",
-    "version": "1.94.0"
+    "version": "1.94.1"
   },
   "paths": {
     "/api/v1/conversation/{conversationId}/events/search": {
@@ -31392,6 +31392,9 @@
             "type": "string",
             "format": "date-time"
           },
+          "last_termination": {
+            "$ref": "#/components/schemas/SandboxInfoLastTermination"
+          },
           "status_detail": {
             "title": "Status Detail",
             "type": [
@@ -38081,6 +38084,45 @@
         ],
         "description": "What started the sandbox: the app server for a conversation, or a client through the sandbox API. None for a sandbox that predates this record."
       },
+      "SandboxInfoLastTermination": {
+        "title": "SandboxTermination",
+        "required": [
+          "reason",
+          "exit_code",
+          "finished_at"
+        ],
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          },
+          "exit_code": {
+            "title": "Exit Code",
+            "type": "integer"
+          },
+          "finished_at": {
+            "title": "Finished At",
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "description": "Most recent container termination, retained after an automatic restart.",
+        "x-client-original-nullable-union": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/SandboxTermination"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Most recent container termination, retained after an automatic restart."
+        }
+      },
       "SetupStateResponseGuideSteps": {
         "title": "SetupGuideSteps",
         "type": [
@@ -39776,6 +39818,9 @@
             "title": "Created At",
             "type": "string",
             "format": "date-time"
+          },
+          "last_termination": {
+            "$ref": "#/components/schemas/SandboxInfoLastTermination"
           },
           "status_detail": {
             "title": "Status Detail",
@@ -63327,6 +63372,30 @@
       },
       "description": "SAML 2.0 IDP configuration.\n\n\u0060\u0060sp_private_key\u0060\u0060/\u0060\u0060sp_x509_cert\u0060\u0060 are never admin-supplied --\n\u0060\u0060generate_sp_keypair\u0060\u0060 auto-generates them as a pair (see\n\u0060\u0060server.routes.oauth_providers_admin._ensure_sp_keypair\u0060\u0060) the first\ntime a row becomes SAML with no key yet, so they can\u0027t be entered\nwrong/mismatched and never need rotating by hand. \u0060\u0060sp_x509_cert\u0060\u0060 is\npublic by construction (it is served back from the unauthenticated SP\nmetadata endpoint), so unlike \u0060\u0060sp_private_key\u0060\u0060 it is stored and\ntransmitted in the clear -- it is also what an admin copies into an IdP\nthat wants the SP cert configured out of band (most read it from our\nmetadata URL instead)."
     },
+    "SandboxTermination": {
+      "title": "SandboxTermination",
+      "required": [
+        "reason",
+        "exit_code",
+        "finished_at"
+      ],
+      "type": "object",
+      "properties": {
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        },
+        "exit_code": {
+          "title": "Exit Code",
+          "type": "integer"
+        },
+        "finished_at": {
+          "title": "Finished At",
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
     "SecretSourceOutput": {
       "x-client-original-discriminator": {
         "propertyName": "kind",
@@ -72892,6 +72961,9 @@
           "title": "Created At",
           "type": "string",
           "format": "date-time"
+        },
+        "last_termination": {
+          "$ref": "#/components/schemas/SandboxInfoLastTermination"
         },
         "status_detail": {
           "title": "Status Detail",
