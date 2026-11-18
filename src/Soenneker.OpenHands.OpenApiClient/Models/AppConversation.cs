@@ -356,7 +356,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(32)
             {
                 { "acp_available_models", n => { AcpAvailableModels = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpModelInfo.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "acp_server", n => { AcpServer = n.GetStringValue(); } },

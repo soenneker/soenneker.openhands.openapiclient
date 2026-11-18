@@ -436,7 +436,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(38)
             {
                 { "activated_knowledge_skills", n => { ActivatedKnowledgeSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentBase.CreateFromDiscriminatorValue); } },

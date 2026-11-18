@@ -611,7 +611,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(56)
             {
                 { "api_key", n => { ApiKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiKey>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiKey.CreateFromDiscriminatorValue); } },
                 { "api_mode", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmOutputApiMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueApiMode = default; _explicitNullProperties?.Remove("api_mode"); AdditionalData["api_mode"] = unknown; } else { ApiMode = parsed; AdditionalData.Remove("api_mode"); } } },

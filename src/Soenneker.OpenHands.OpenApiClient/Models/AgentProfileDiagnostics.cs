@@ -291,7 +291,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(22)
             {
                 { "acp_api_key_secret_name", n => { AcpApiKeySecretName = n.GetStringValue(); } },
                 { "acp_base_url_secret_name", n => { AcpBaseUrlSecretName = n.GetStringValue(); } },

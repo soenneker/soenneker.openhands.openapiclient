@@ -106,7 +106,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "buckets", n => { Buckets = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.ConversationUsageBucket>(global::Soenneker.OpenHands.OpenApiClient.Models.ConversationUsageBucket.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "completeness", n => { Completeness = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgConversationUsageResponseCompleteness>(); } },

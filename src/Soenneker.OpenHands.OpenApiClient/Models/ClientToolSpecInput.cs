@@ -93,7 +93,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInputAnnotations>(global::Soenneker.OpenHands.OpenApiClient.Models.ClientToolSpecInputAnnotations.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },

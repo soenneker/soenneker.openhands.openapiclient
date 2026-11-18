@@ -280,7 +280,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(26)
             {
                 { "acp_providers", n => { AcpProviders = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpProviderConfig.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "app_mode", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AppMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAppMode = default; _explicitNullProperties?.Remove("app_mode"); AdditionalData["app_mode"] = unknown; } else { AppMode = parsed; AdditionalData.Remove("app_mode"); } } },

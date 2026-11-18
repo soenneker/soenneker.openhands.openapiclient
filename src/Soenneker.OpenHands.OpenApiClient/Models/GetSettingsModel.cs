@@ -397,7 +397,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(37)
             {
                 { "active_agent_profile_id", n => { ActiveAgentProfileId = n.GetStringValue(); } },
                 { "active_agent_profile_revision", n => { ActiveAgentProfileRevision = n.GetIntValue(); } },

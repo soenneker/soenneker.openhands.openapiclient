@@ -141,7 +141,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(14)
             {
                 { "budget_is_disabled", n => { BudgetIsDisabled = n.GetBoolValue(); } },
                 { "budget_monthly_limit", n => { BudgetMonthlyLimit = n.GetDoubleValue(); } },

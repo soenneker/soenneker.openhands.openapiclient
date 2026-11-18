@@ -110,7 +110,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "env_points_to", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpFileSecretSpecEnvPointsTo>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEnvPointsTo = default; _explicitNullProperties?.Remove("env_points_to"); AdditionalData["env_points_to"] = unknown; } else { EnvPointsTo = parsed; AdditionalData.Remove("env_points_to"); } } },
                 { "env_var", n => { EnvVar = n.GetStringValue(); } },

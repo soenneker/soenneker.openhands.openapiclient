@@ -165,7 +165,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(12)
             {
                 { "current_datetime", n => { CurrentDatetime = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime>(global::Soenneker.OpenHands.OpenApiClient.Models.AgentContextInputCurrentDatetime.CreateFromDiscriminatorValue); } },
                 { "disabled_skills", n => { DisabledSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },

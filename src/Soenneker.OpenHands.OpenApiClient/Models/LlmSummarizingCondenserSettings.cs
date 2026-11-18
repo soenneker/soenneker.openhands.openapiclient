@@ -98,7 +98,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "condenser_kind", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmSummarizingCondenserSettingsCondenserKind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCondenserKind = default; _explicitNullProperties?.Remove("condenser_kind"); AdditionalData["condenser_kind"] = unknown; } else { CondenserKind = parsed; AdditionalData.Remove("condenser_kind"); } } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },

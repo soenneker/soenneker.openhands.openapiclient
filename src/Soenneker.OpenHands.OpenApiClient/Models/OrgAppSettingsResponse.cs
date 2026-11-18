@@ -73,7 +73,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "enable_proactive_conversation_starters", n => { EnableProactiveConversationStarters = n.GetBoolValue(); } },
                 { "max_budget_per_task", n => { MaxBudgetPerTask = n.GetDoubleValue(); } },

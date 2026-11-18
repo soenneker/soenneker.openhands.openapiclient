@@ -107,7 +107,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "baseline_limit", n => { BaselineLimit = n.GetIntValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },

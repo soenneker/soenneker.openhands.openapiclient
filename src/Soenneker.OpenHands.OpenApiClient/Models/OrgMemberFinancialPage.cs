@@ -86,7 +86,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "current_page", n => { CurrentPage = n.GetIntValue(); } },
                 { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialResponse>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgMemberFinancialResponse.CreateFromDiscriminatorValue)?.AsList(); } },

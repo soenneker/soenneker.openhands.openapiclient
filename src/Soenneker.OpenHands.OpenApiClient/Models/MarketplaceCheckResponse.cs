@@ -91,7 +91,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "layout", n => { Layout = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout>(global::Soenneker.OpenHands.OpenApiClient.Models.MarketplaceCheckResponseLayout.CreateFromDiscriminatorValue); } },
                 { "plugin_count", n => { PluginCount = n.GetIntValue(); } },

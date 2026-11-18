@@ -164,7 +164,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(12)
             {
                 { "agent_server_url", n => { AgentServerUrl = n.GetStringValue(); } },
                 { "app_conversation_id", n => { AppConversationId = n.GetStringValue(); } },

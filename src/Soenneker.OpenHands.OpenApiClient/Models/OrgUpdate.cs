@@ -200,7 +200,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(17)
             {
                 { "agent_settings_diff", n => { AgentSettingsDiff = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateAgentSettingsDiffProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgUpdateAgentSettingsDiffProperty.CreateFromDiscriminatorValue); } },
                 { "billing_margin", n => { BillingMargin = n.GetDoubleValue(); } },

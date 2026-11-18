@@ -200,7 +200,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(25)
             {
                 { "allow_user_llm_configuration", n => { AllowUserLlmConfiguration = n.GetBoolValue(); } },
                 { "deployment_mode", n => { DeploymentMode = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode.CreateFromDiscriminatorValue); } },

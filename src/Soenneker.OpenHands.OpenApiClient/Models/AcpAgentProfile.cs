@@ -189,7 +189,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(16)
             {
                 { "acp_args", n => { AcpArgs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "acp_command", n => { AcpCommand = n.GetStringValue(); } },

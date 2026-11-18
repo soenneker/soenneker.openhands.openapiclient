@@ -98,7 +98,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "critic_enabled", n => { CriticEnabled = n.GetBoolValue(); } },
                 { "critic_mode", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProfileVerificationSettingsCriticMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCriticMode = default; _explicitNullProperties?.Remove("critic_mode"); AdditionalData["critic_mode"] = unknown; } else { CriticMode = parsed; AdditionalData.Remove("critic_mode"); } } },
