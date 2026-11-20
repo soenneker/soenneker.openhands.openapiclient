@@ -27,7 +27,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("question") is { } nullNodeQuestion && nullNodeQuestion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Question = null;
         }
 
-        /// <summary>Zero-based index of the image to inspect from the latest user message.</summary>
+        /// <summary>Zero-based index of the image to inspect. Images are numbered in conversation order across user messages and tool observations, matching the references in the rewritten messages.</summary>
         public int? ImageIndex { get => _explicitNullValueImageIndex; set { _explicitNullValueImageIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_index"); else _explicitNullProperties?.Remove("image_index"); } }
         private int? _explicitNullValueImageIndex = default!;
         /// <summary>Optional saved vision-capable LLM profile name. If omitted, the first available vision profile listed in the tool description is used.</summary>

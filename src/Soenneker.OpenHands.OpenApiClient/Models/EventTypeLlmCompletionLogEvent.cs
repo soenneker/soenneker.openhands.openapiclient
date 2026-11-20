@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
     /// <summary>
-    /// Event containing LLM completion log data.When an LLM is configured with log_completions=True in a remote conversation,this event streams the completion log data back to the client through WebSocketinstead of writing it to a file inside the Docker container.
+    /// Event containing LLM completion log data.When an LLM is configured with log_completions_to_file=True in a remoteconversation, this event streams the completion log data back to the clientthrough WebSocket instead of writing it to a file inside the Docker container.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EventTypeLlmCompletionLogEvent : global::Soenneker.OpenHands.OpenApiClient.Models.EventType, IParsable

@@ -24,6 +24,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("role") is { } nullNodeRole && nullNodeRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Role = null;
             if (parseNode.GetChildNode("run") is null) { _explicitNullValueRun = default!; _explicitNullProperties?.Remove("run"); }
             else if (parseNode.GetChildNode("run") is { } nullNodeRun && nullNodeRun.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Run = null;
+            if (parseNode.GetChildNode("sender_conversation_id") is null) { _explicitNullValueSenderConversationId = default!; _explicitNullProperties?.Remove("sender_conversation_id"); }
+            else if (parseNode.GetChildNode("sender_conversation_id") is { } nullNodeSenderConversationId && nullNodeSenderConversationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SenderConversationId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,6 +46,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Whether the agent loop should automatically run if not running</summary>
         public bool? Run { get => _explicitNullValueRun; set { _explicitNullValueRun = value; AdditionalData?.Remove("run"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run"); else _explicitNullProperties?.Remove("run"); } }
         private bool? _explicitNullValueRun = default!;
+        /// <summary>The conversation sending this message, when an agent rather than the user sends it. The saved message records it as its `sender` (`conversation:&lt;id hex&gt;`) and opens with a line telling the receiving agent which conversation sent it, that the user did not, and that it approves nothing on the user&apos;s behalf. On a new conversation&apos;s `initial_message` it marks the first message the same way. Leave it out for the user&apos;s own messages.</summary>
+        public Guid? SenderConversationId { get => _explicitNullValueSenderConversationId; set { _explicitNullValueSenderConversationId = value; AdditionalData?.Remove("sender_conversation_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sender_conversation_id"); else _explicitNullProperties?.Remove("sender_conversation_id"); } }
+        private Guid? _explicitNullValueSenderConversationId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.AppConversationStartRequestInputInitialMessage"/> and sets the default values.
         /// </summary>
@@ -70,11 +75,12 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequestContentItem>(global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequestContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "role", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SendMessageRequestRole>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRole = default; _explicitNullProperties?.Remove("role"); AdditionalData["role"] = unknown; } else { Role = parsed; AdditionalData.Remove("role"); } } },
                 { "run", n => { Run = n.GetBoolValue(); } },
+                { "sender_conversation_id", n => { SenderConversationId = n.GetGuidValue(); } },
             };
         }
         /// <summary>
@@ -87,6 +93,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.AppSendMessageRequestContentItem>("content", Content);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.SendMessageRequestRole>("role", Role);
             writer.WriteBoolValue("run", Run);
+            writer.WriteGuidValue("sender_conversation_id", SenderConversationId);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

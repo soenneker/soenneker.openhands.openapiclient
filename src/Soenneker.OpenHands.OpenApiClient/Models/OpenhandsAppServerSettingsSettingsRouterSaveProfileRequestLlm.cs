@@ -76,6 +76,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("log_completions") is { } nullNodeLogCompletions && nullNodeLogCompletions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogCompletions = null;
             if (parseNode.GetChildNode("log_completions_folder") is null) { _explicitNullValueLogCompletionsFolder = default!; _explicitNullProperties?.Remove("log_completions_folder"); }
             else if (parseNode.GetChildNode("log_completions_folder") is { } nullNodeLogCompletionsFolder && nullNodeLogCompletionsFolder.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogCompletionsFolder = null;
+            if (parseNode.GetChildNode("log_completions_to_file") is null) { _explicitNullValueLogCompletionsToFile = default!; _explicitNullProperties?.Remove("log_completions_to_file"); }
+            else if (parseNode.GetChildNode("log_completions_to_file") is { } nullNodeLogCompletionsToFile && nullNodeLogCompletionsToFile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogCompletionsToFile = null;
             if (parseNode.GetChildNode("max_input_tokens") is null) { _explicitNullValueMaxInputTokens = default!; _explicitNullProperties?.Remove("max_input_tokens"); }
             else if (parseNode.GetChildNode("max_input_tokens") is { } nullNodeMaxInputTokens && nullNodeMaxInputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxInputTokens = null;
             if (parseNode.GetChildNode("max_message_chars") is null) { _explicitNullValueMaxMessageChars = default!; _explicitNullProperties?.Remove("max_message_chars"); }
@@ -367,10 +369,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmLitellmExtraBodyProperty LitellmExtraBody { get => _explicitNullValueLitellmExtraBody; set { _explicitNullValueLitellmExtraBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("litellm_extra_body"); else _explicitNullProperties?.Remove("litellm_extra_body"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmLitellmExtraBodyProperty _explicitNullValueLitellmExtraBody = default!;
 #endif
-        /// <summary>Enable logging of completions.</summary>
+        /// <summary>Deprecated alias for log_completions_to_file. Deprecated since v1.63.0 and scheduled for removal in v1.68.0.</summary>
+        [Obsolete("")]
         public bool? LogCompletions { get => _explicitNullValueLogCompletions; set { _explicitNullValueLogCompletions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_completions"); else _explicitNullProperties?.Remove("log_completions"); } }
         private bool? _explicitNullValueLogCompletions = default!;
-        /// <summary>The folder to log LLM completions to. Required if log_completions is True.</summary>
+        /// <summary>The folder to log LLM completions to. Required if log_completions_to_file is True.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LogCompletionsFolder { get => _explicitNullValueLogCompletionsFolder; set { _explicitNullValueLogCompletionsFolder = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_completions_folder"); else _explicitNullProperties?.Remove("log_completions_folder"); } }
@@ -380,6 +383,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string LogCompletionsFolder { get => _explicitNullValueLogCompletionsFolder; set { _explicitNullValueLogCompletionsFolder = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_completions_folder"); else _explicitNullProperties?.Remove("log_completions_folder"); } }
         private string _explicitNullValueLogCompletionsFolder = default!;
 #endif
+        /// <summary>Enable completion JSON logging to log_completions_folder or a configured completion-log callback. OpenTelemetry tracing is configured separately and can export LLM message content while completion logging is disabled.</summary>
+        public bool? LogCompletionsToFile { get => _explicitNullValueLogCompletionsToFile; set { _explicitNullValueLogCompletionsToFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_completions_to_file"); else _explicitNullProperties?.Remove("log_completions_to_file"); } }
+        private bool? _explicitNullValueLogCompletionsToFile = default!;
         /// <summary>The maximum number of input tokens. Note that this is currently unused, and the value at runtime is actually the total tokens in OpenAI (e.g. 128,000 tokens for GPT-4).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -590,6 +596,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             EnableEncryptedReasoning = true;
             LogCompletions = false;
             LogCompletionsFolder = "logs/completions";
+            LogCompletionsToFile = false;
             MaxMessageChars = 30000;
             Model = "gpt-5.6";
             NativeToolCalling = true;
@@ -620,7 +627,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(56)
+            return new Dictionary<string, Action<IParseNode>>(57)
             {
                 { "api_key", n => { ApiKey = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiKey>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputApiKey.CreateFromDiscriminatorValue); } },
                 { "api_mode", n => { ApiMode = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmApiMode>(); } },
@@ -651,6 +658,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "litellm_extra_body", n => { LitellmExtraBody = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmLitellmExtraBodyProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmLitellmExtraBodyProperty.CreateFromDiscriminatorValue); } },
                 { "log_completions", n => { LogCompletions = n.GetBoolValue(); } },
                 { "log_completions_folder", n => { LogCompletionsFolder = n.GetStringValue(); } },
+                { "log_completions_to_file", n => { LogCompletionsToFile = n.GetBoolValue(); } },
                 { "max_input_tokens", n => { MaxInputTokens = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxInputTokens>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxInputTokens.CreateFromDiscriminatorValue); } },
                 { "max_message_chars", n => { MaxMessageChars = n.GetIntValue(); } },
                 { "max_output_tokens", n => { MaxOutputTokens = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxOutputTokens>(global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxOutputTokens.CreateFromDiscriminatorValue); } },
@@ -716,6 +724,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.StrictLlmLitellmExtraBodyProperty>("litellm_extra_body", LitellmExtraBody);
             writer.WriteBoolValue("log_completions", LogCompletions);
             writer.WriteStringValue("log_completions_folder", LogCompletionsFolder);
+            writer.WriteBoolValue("log_completions_to_file", LogCompletionsToFile);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxInputTokens>("max_input_tokens", MaxInputTokens);
             writer.WriteIntValue("max_message_chars", MaxMessageChars);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.LlmInputMaxOutputTokens>("max_output_tokens", MaxOutputTokens);

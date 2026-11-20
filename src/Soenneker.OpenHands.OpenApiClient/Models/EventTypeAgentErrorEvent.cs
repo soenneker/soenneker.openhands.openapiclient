@@ -27,6 +27,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
             if (parseNode.GetChildNode("parent_id") is null) { _explicitNullValueParentId = default!; _explicitNullProperties?.Remove("parent_id"); }
             else if (parseNode.GetChildNode("parent_id") is { } nullNodeParentId && nullNodeParentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentId = null;
+            if (parseNode.GetChildNode("recovery_reason") is null) { _explicitNullValueRecoveryReason = default!; _explicitNullProperties?.Remove("recovery_reason"); }
+            else if (parseNode.GetChildNode("recovery_reason") is { } nullNodeRecoveryReason && nullNodeRecoveryReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecoveryReason = null;
             if (parseNode.GetChildNode("source") is null) { _explicitNullValueSource = default!; _explicitNullProperties?.Remove("source"); }
             else if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
             if (parseNode.GetChildNode("timestamp") is null) { _explicitNullValueTimestamp = default!; _explicitNullProperties?.Remove("timestamp"); }
@@ -79,6 +81,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string ParentId { get => _explicitNullValueParentId; set { _explicitNullValueParentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_id"); else _explicitNullProperties?.Remove("parent_id"); } }
         private string _explicitNullValueParentId = default!;
 #endif
+        /// <summary>Why this outcome was synthesized during recovery, when known.</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventRecoveryReasonAnyOf1? RecoveryReason { get => _explicitNullValueRecoveryReason; set { _explicitNullValueRecoveryReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recovery_reason"); else _explicitNullProperties?.Remove("recovery_reason"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventRecoveryReasonAnyOf1? _explicitNullValueRecoveryReason = default!;
         /// <summary>The source property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventSource? _explicitNullValueSource = default!;
@@ -144,6 +149,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "parent_id", n => { ParentId = n.GetStringValue(); } },
+                { "recovery_reason", n => { RecoveryReason = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventRecoveryReasonAnyOf1>(); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventSource>(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
                 { "tool_call_id", n => { ToolCallId = n.GetStringValue(); } },
@@ -163,6 +169,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("error", Error);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("parent_id", ParentId);
+            writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventRecoveryReasonAnyOf1>("recovery_reason", RecoveryReason);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.AgentErrorEventSource>("source", Source);
             writer.WriteStringValue("timestamp", Timestamp);
             writer.WriteStringValue("tool_call_id", ToolCallId);

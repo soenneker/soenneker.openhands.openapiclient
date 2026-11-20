@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.Idp.Password;
+using Soenneker.OpenHands.OpenApiClient.Api.Idp.PasswordUsers;
 using Soenneker.OpenHands.OpenApiClient.Api.Idp.SignupLinks;
 using Soenneker.OpenHands.OpenApiClient.Api.Idp.Status;
 using System.Collections.Generic;
@@ -21,6 +22,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Idp
         public global::Soenneker.OpenHands.OpenApiClient.Api.Idp.Password.PasswordRequestBuilder Password
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Idp.Password.PasswordRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The passwordUsers property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Idp.PasswordUsers.PasswordUsersRequestBuilder PasswordUsers
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Idp.PasswordUsers.PasswordUsersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The signupLinks property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Idp.SignupLinks.SignupLinksRequestBuilder SignupLinks

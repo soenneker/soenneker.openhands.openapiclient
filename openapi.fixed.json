@@ -3,7 +3,7 @@
   "info": {
     "title": "OpenHands",
     "description": "OpenHands: Code Less, Make More",
-    "version": "1.94.1"
+    "version": "1.96.0"
   },
   "paths": {
     "/api/v1/conversation/{conversationId}/events/search": {
@@ -3162,6 +3162,33 @@
         ]
       }
     },
+    "/api/v1/release": {
+      "get": {
+        "tags": [
+          "Release"
+        ],
+        "summary": "Get Release Info",
+        "description": "Get the server\u0027s release/version info.\n\nRequires an authenticated session (unlike \u0060\u0060/server_info\u0060\u0060, which is an\nunauthenticated diagnostics endpoint).",
+        "operationId": "GetReleaseInfoApiV1ReleaseGet",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleaseInfo"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
     "/api/v1/users/git-info": {
       "get": {
         "tags": [
@@ -4868,7 +4895,7 @@
           "IDP"
         ],
         "summary": "Idp Login Form",
-        "description": "Serve the email\u002Bpassword login form.\n\nReturns \u0060\u0060404\u0060\u0060 if this IDP is not available (see \u0060\u0060is_idp_available\u0060\u0060).\nRedirects to the sign-up (bootstrap) page if no super admin can log in\nwith a password yet \u2014 there is nothing to log into until one is created\n(or an existing passwordless super admin claims their account).",
+        "description": "Serve the email\u002Bpassword login form.\n\nReturns \u0060\u0060404\u0060\u0060 if this IDP is not available (see \u0060\u0060is_idp_available\u0060\u0060).\nOn self-hosted installs, redirects to the sign-up (bootstrap) page if no\nsuper admin can log in with a password yet. Cloud always shows login so\nadmin-created password accounts can sign in without exposing admin creation.",
         "operationId": "IdpLoginFormOAuthIdpLoginGet",
         "parameters": [
           {
@@ -4918,7 +4945,7 @@
           "IDP"
         ],
         "summary": "Idp Login",
-        "description": "Verify email \u002B password and complete the login.\n\nReturns \u0060\u0060404\u0060\u0060 if this IDP is not available. Redirects to the sign-up\n(bootstrap) page if no super admin can log in with a password yet. On\ninvalid credentials, redirects back to the login form with an error\ninstead of failing the request outright \u2014 there is nothing sensitive to\nprotect by distinguishing \u0022no such account\u0022 from \u0022wrong password\u0022 here.",
+        "description": "Verify email \u002B password and complete the login.\n\nReturns \u0060\u0060404\u0060\u0060 if this IDP is not available. On self-hosted installs,\nredirects to the sign-up (bootstrap) page if no super admin can log in with\na password yet; cloud still attempts password login for admin-created\naccounts. On invalid credentials, redirects back to the login form with an\nerror\ninstead of failing the request outright \u2014 there is nothing sensitive to\nprotect by distinguishing \u0022no such account\u0022 from \u0022wrong password\u0022 here.",
         "operationId": "IdpLoginOAuthIdpLoginPost",
         "requestBody": {
           "content": {
@@ -5010,7 +5037,7 @@
           "IDP"
         ],
         "summary": "Idp Signup",
-        "description": "Create or finish bootstrapping the super admin (email \u002B password).\n\nReturns \u0060\u0060404\u0060\u0060 if this IDP is not available. This endpoint only ever\nsucceeds while **no super admin can yet log in with a password** \u2014 it is\na one-time bootstrap step, not general self-service sign-up. If a super\nadmin with a password already exists (including one created by a\nrequest that raced this one \u2014 re-checked here, not just by the GET\nform), redirects to the login form instead; every subsequent account\nmust be created by a super admin through the existing user-management\nAPIs. If the email belongs to an existing user with no \u0060\u0060password_hash\u0060\u0060\n\u2014 an OAuth-provisioned account, or a super admin backfilled before\n\u0060\u0060User.password_hash\u0060\u0060 existed (migration 138) \u2014 sign-up sets the\npassword on *that* user and claims the account rather than creating a\nnew one, granting it the super-admin role too if it doesn\u0027t already hold\nit. Redirects back to the sign-up form with an error on a taken email\n(password already set), a too-short password, or a confirm-password\nmismatch.",
+        "description": "Create or finish bootstrapping the super admin (email \u002B password).\n\nReturns \u0060\u0060404\u0060\u0060 if this IDP is not available. This endpoint only ever\nsucceeds while **no super admin can yet log in with a password** \u2014 it is\na one-time bootstrap step, not general self-service sign-up. If a super\nadmin with a password already exists (including one created by a\nrequest that raced this one \u2014 re-checked here, not just by the GET\nform), redirects to the login form instead; every subsequent account\nmust be created by a super admin through the existing user-management\nAPIs. If the email belongs to an existing user with no \u0060\u0060password_hash\u0060\u0060\n\u2014 an OAuth-provisioned account, or a super admin backfilled before\n\u0060\u0060User.password_hash\u0060\u0060 existed (migration 138) \u2014 sign-up sets the\npassword on *that* user and claims the account rather than creating a\nnew one, granting it the super-admin role too if it doesn\u0027t already hold\nit. Redirects back to the sign-up form with an error on a taken email\n(password already set), a too-short password, or a confirm-password\nmismatch. When \u0060\u0060SUPER_ADMIN_EMAILS\u0060\u0060 is set, only a listed email may\ncomplete it.",
         "operationId": "IdpSignupOAuthIdpSignupPost",
         "requestBody": {
           "content": {
@@ -5273,6 +5300,63 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SignupLinkResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/idp/password-users": {
+      "post": {
+        "tags": [
+          "IDP"
+        ],
+        "summary": "Create Password User",
+        "operationId": "CreatePasswordUserApiIdpPasswordUsersPost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePasswordUserRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PasswordUserResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PasswordUserResponse"
                 }
               }
             },
@@ -18252,6 +18336,81 @@
           }
         ]
       }
+    },
+    "/external-mcp/consent": {
+      "get": {
+        "summary": "Consent Page",
+        "operationId": "ConsentPageExternalMcpConsentGet",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "title": "Request",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentPageExternalMcpConsentGet200ResponseSchema"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Submit Consent",
+        "operationId": "SubmitConsentExternalMcpConsentPost",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/BodySubmitConsentExternalMcpConsentPost"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmitConsentExternalMcpConsentPost200ResponseSchema"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -18323,6 +18482,9 @@
               "type": "string"
             },
             "description": "Which of the user\u0027s connected built-in integrations to expose to this agent. null = all; [] = none; a non-null list = filter to the named integrations."
+          },
+          "sandbox": {
+            "$ref": "#/components/schemas/AcpAgentProfileSandbox"
           },
           "acp_server": {
             "$ref": "#/components/schemas/AcpAgentProfileAcpServer"
@@ -18716,6 +18878,7 @@
             "openhands__sdk__tool__builtins__vision_inspect__VisionInspectAction-Output__1": "#/components/schemas/VisionInspectAction",
             "openhands__tools__apply_patch__definition__ApplyPatchAction-Output__1": "#/components/schemas/ApplyPatchAction",
             "openhands__tools__ask_oracle__definition__AskOracleAction-Output__1": "#/components/schemas/AskOracleAction",
+            "openhands__tools__ask_user__definition__AskUserAction-Output__1": "#/components/schemas/AskUserAction",
             "openhands__tools__browser_use__definition__BrowserAction-Output__1": "#/components/schemas/BrowserAction",
             "openhands__tools__browser_use__definition__BrowserClickAction-Output__1": "#/components/schemas/BrowserClickAction",
             "openhands__tools__browser_use__definition__BrowserCloseTabAction-Output__1": "#/components/schemas/BrowserCloseTabAction",
@@ -18732,6 +18895,8 @@
             "openhands__tools__browser_use__definition__BrowserSwitchTabAction-Output__1": "#/components/schemas/BrowserSwitchTabAction",
             "openhands__tools__browser_use__definition__BrowserTypeAction-Output__1": "#/components/schemas/BrowserTypeAction",
             "openhands__tools__child_conversation__definition__StartChildConversationAction-Output__1": "#/components/schemas/StartChildConversationAction",
+            "openhands__tools__conversation_mentions__definition__FindConversationsAction-Output__1": "#/components/schemas/FindConversationsAction",
+            "openhands__tools__conversation_mentions__definition__ReadConversationAction-Output__1": "#/components/schemas/ReadConversationAction",
             "openhands__tools__delegate__definition__DelegateAction-Output__1": "#/components/schemas/DelegateAction",
             "openhands__tools__file_editor__definition__FileEditorAction-Output__1": "#/components/schemas/FileEditorAction",
             "openhands__tools__gemini__edit__definition__EditAction-Output__1": "#/components/schemas/EditAction",
@@ -18740,7 +18905,10 @@
             "openhands__tools__gemini__write_file__definition__WriteFileAction-Output__1": "#/components/schemas/WriteFileAction",
             "openhands__tools__glob__definition__GlobAction-Output__1": "#/components/schemas/GlobAction",
             "openhands__tools__grep__definition__GrepAction-Output__1": "#/components/schemas/GrepAction",
+            "openhands__tools__message_edit__definition__EditMessageAction-Output__1": "#/components/schemas/EditMessageAction",
             "openhands__tools__planning_file_editor__definition__PlanningFileEditorAction-Output__1": "#/components/schemas/PlanningFileEditorAction",
+            "openhands__tools__reaction__definition__ReactAction-Output__1": "#/components/schemas/ReactAction",
+            "openhands__tools__reaction__definition__UnreactAction-Output__1": "#/components/schemas/UnreactAction",
             "openhands__tools__task__definition__TaskAction-Output__1": "#/components/schemas/TaskAction",
             "openhands__tools__task_tracker__definition__TaskTrackerAction-Output__1": "#/components/schemas/TaskTrackerAction",
             "openhands__tools__terminal__definition__TerminalAction-Output__1": "#/components/schemas/TerminalAction",
@@ -18762,6 +18930,7 @@
             "VisionInspectAction": "#/components/schemas/ActionVisionInspectAction",
             "ApplyPatchAction": "#/components/schemas/ActionApplyPatchAction",
             "AskOracleAction": "#/components/schemas/ActionAskOracleAction",
+            "AskUserAction": "#/components/schemas/ActionAskUserAction",
             "BrowserAction": "#/components/schemas/ActionBrowserAction",
             "BrowserClickAction": "#/components/schemas/ActionBrowserClickAction",
             "BrowserCloseTabAction": "#/components/schemas/ActionBrowserCloseTabAction",
@@ -18778,6 +18947,8 @@
             "BrowserSwitchTabAction": "#/components/schemas/ActionBrowserSwitchTabAction",
             "BrowserTypeAction": "#/components/schemas/ActionBrowserTypeAction",
             "StartChildConversationAction": "#/components/schemas/ActionStartChildConversationAction",
+            "FindConversationsAction": "#/components/schemas/ActionFindConversationsAction",
+            "ReadConversationAction": "#/components/schemas/ActionReadConversationAction",
             "DelegateAction": "#/components/schemas/ActionDelegateAction",
             "FileEditorAction": "#/components/schemas/ActionFileEditorAction",
             "EditAction": "#/components/schemas/ActionEditAction",
@@ -18786,7 +18957,10 @@
             "WriteFileAction": "#/components/schemas/ActionWriteFileAction",
             "GlobAction": "#/components/schemas/ActionGlobAction",
             "GrepAction": "#/components/schemas/ActionGrepAction",
+            "EditMessageAction": "#/components/schemas/ActionEditMessageAction",
             "PlanningFileEditorAction": "#/components/schemas/ActionPlanningFileEditorAction",
+            "ReactAction": "#/components/schemas/ActionReactAction",
+            "UnreactAction": "#/components/schemas/ActionUnreactAction",
             "TaskAction": "#/components/schemas/ActionTaskAction",
             "TaskTrackerAction": "#/components/schemas/ActionTaskTrackerAction",
             "TerminalAction": "#/components/schemas/ActionTerminalAction",
@@ -18826,6 +19000,9 @@
             },
             {
               "$ref": "#/components/schemas/AskOracleAction"
+            },
+            {
+              "$ref": "#/components/schemas/AskUserAction"
             },
             {
               "$ref": "#/components/schemas/BrowserAction"
@@ -18876,6 +19053,12 @@
               "$ref": "#/components/schemas/StartChildConversationAction"
             },
             {
+              "$ref": "#/components/schemas/FindConversationsAction"
+            },
+            {
+              "$ref": "#/components/schemas/ReadConversationAction"
+            },
+            {
               "$ref": "#/components/schemas/DelegateAction"
             },
             {
@@ -18900,7 +19083,16 @@
               "$ref": "#/components/schemas/GrepAction"
             },
             {
+              "$ref": "#/components/schemas/EditMessageAction"
+            },
+            {
               "$ref": "#/components/schemas/PlanningFileEditorAction"
+            },
+            {
+              "$ref": "#/components/schemas/ReactAction"
+            },
+            {
+              "$ref": "#/components/schemas/UnreactAction"
             },
             {
               "$ref": "#/components/schemas/TaskAction"
@@ -18934,6 +19126,7 @@
               "openhands__sdk__tool__builtins__vision_inspect__VisionInspectAction-Output__1": "#/components/schemas/VisionInspectAction",
               "openhands__tools__apply_patch__definition__ApplyPatchAction-Output__1": "#/components/schemas/ApplyPatchAction",
               "openhands__tools__ask_oracle__definition__AskOracleAction-Output__1": "#/components/schemas/AskOracleAction",
+              "openhands__tools__ask_user__definition__AskUserAction-Output__1": "#/components/schemas/AskUserAction",
               "openhands__tools__browser_use__definition__BrowserAction-Output__1": "#/components/schemas/BrowserAction",
               "openhands__tools__browser_use__definition__BrowserClickAction-Output__1": "#/components/schemas/BrowserClickAction",
               "openhands__tools__browser_use__definition__BrowserCloseTabAction-Output__1": "#/components/schemas/BrowserCloseTabAction",
@@ -18950,6 +19143,8 @@
               "openhands__tools__browser_use__definition__BrowserSwitchTabAction-Output__1": "#/components/schemas/BrowserSwitchTabAction",
               "openhands__tools__browser_use__definition__BrowserTypeAction-Output__1": "#/components/schemas/BrowserTypeAction",
               "openhands__tools__child_conversation__definition__StartChildConversationAction-Output__1": "#/components/schemas/StartChildConversationAction",
+              "openhands__tools__conversation_mentions__definition__FindConversationsAction-Output__1": "#/components/schemas/FindConversationsAction",
+              "openhands__tools__conversation_mentions__definition__ReadConversationAction-Output__1": "#/components/schemas/ReadConversationAction",
               "openhands__tools__delegate__definition__DelegateAction-Output__1": "#/components/schemas/DelegateAction",
               "openhands__tools__file_editor__definition__FileEditorAction-Output__1": "#/components/schemas/FileEditorAction",
               "openhands__tools__gemini__edit__definition__EditAction-Output__1": "#/components/schemas/EditAction",
@@ -18958,7 +19153,10 @@
               "openhands__tools__gemini__write_file__definition__WriteFileAction-Output__1": "#/components/schemas/WriteFileAction",
               "openhands__tools__glob__definition__GlobAction-Output__1": "#/components/schemas/GlobAction",
               "openhands__tools__grep__definition__GrepAction-Output__1": "#/components/schemas/GrepAction",
+              "openhands__tools__message_edit__definition__EditMessageAction-Output__1": "#/components/schemas/EditMessageAction",
               "openhands__tools__planning_file_editor__definition__PlanningFileEditorAction-Output__1": "#/components/schemas/PlanningFileEditorAction",
+              "openhands__tools__reaction__definition__ReactAction-Output__1": "#/components/schemas/ReactAction",
+              "openhands__tools__reaction__definition__UnreactAction-Output__1": "#/components/schemas/UnreactAction",
               "openhands__tools__task__definition__TaskAction-Output__1": "#/components/schemas/TaskAction",
               "openhands__tools__task_tracker__definition__TaskTrackerAction-Output__1": "#/components/schemas/TaskTrackerAction",
               "openhands__tools__terminal__definition__TerminalAction-Output__1": "#/components/schemas/TerminalAction",
@@ -18980,6 +19178,7 @@
               "VisionInspectAction": "#/components/schemas/VisionInspectAction",
               "ApplyPatchAction": "#/components/schemas/ApplyPatchAction",
               "AskOracleAction": "#/components/schemas/AskOracleAction",
+              "AskUserAction": "#/components/schemas/AskUserAction",
               "BrowserAction": "#/components/schemas/BrowserAction",
               "BrowserClickAction": "#/components/schemas/BrowserClickAction",
               "BrowserCloseTabAction": "#/components/schemas/BrowserCloseTabAction",
@@ -18996,6 +19195,8 @@
               "BrowserSwitchTabAction": "#/components/schemas/BrowserSwitchTabAction",
               "BrowserTypeAction": "#/components/schemas/BrowserTypeAction",
               "StartChildConversationAction": "#/components/schemas/StartChildConversationAction",
+              "FindConversationsAction": "#/components/schemas/FindConversationsAction",
+              "ReadConversationAction": "#/components/schemas/ReadConversationAction",
               "DelegateAction": "#/components/schemas/DelegateAction",
               "FileEditorAction": "#/components/schemas/FileEditorAction",
               "EditAction": "#/components/schemas/EditAction",
@@ -19004,7 +19205,10 @@
               "WriteFileAction": "#/components/schemas/WriteFileAction",
               "GlobAction": "#/components/schemas/GlobAction",
               "GrepAction": "#/components/schemas/GrepAction",
+              "EditMessageAction": "#/components/schemas/EditMessageAction",
               "PlanningFileEditorAction": "#/components/schemas/PlanningFileEditorAction",
+              "ReactAction": "#/components/schemas/ReactAction",
+              "UnreactAction": "#/components/schemas/UnreactAction",
               "TaskAction": "#/components/schemas/TaskAction",
               "TaskTrackerAction": "#/components/schemas/TaskTrackerAction",
               "TerminalAction": "#/components/schemas/TerminalAction",
@@ -21035,6 +21239,30 @@
         },
         "description": "Response from sending a message to a conversation."
       },
+      "AskUserOption": {
+        "title": "AskUserOption",
+        "required": [
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "title": "Label",
+            "maxLength": 60,
+            "minLength": 1,
+            "type": "string",
+            "description": "A few words naming the option, shown on its button."
+          },
+          "consequence": {
+            "title": "Consequence",
+            "maxLength": 240,
+            "type": "string",
+            "description": "One sentence: what happens if the user picks it.",
+            "default": ""
+          }
+        },
+        "description": "One answer the user can pick."
+      },
       "AuthProviderDetailsInput": {
         "x-client-original-discriminator": {
           "propertyName": "kind",
@@ -21922,6 +22150,29 @@
             "title": "Redirect Url",
             "type": "string",
             "default": ""
+          }
+        }
+      },
+      "BodySubmitConsentExternalMcpConsentPost": {
+        "title": "Body_submit_consent_external_mcp_consent_post",
+        "required": [
+          "handle",
+          "csrf",
+          "decision"
+        ],
+        "type": "object",
+        "properties": {
+          "handle": {
+            "title": "Handle",
+            "type": "string"
+          },
+          "csrf": {
+            "title": "Csrf",
+            "type": "string"
+          },
+          "decision": {
+            "title": "Decision",
+            "type": "string"
           }
         }
       },
@@ -23102,6 +23353,33 @@
           }
         }
       },
+      "CreatePasswordUserRequest": {
+        "title": "CreatePasswordUserRequest",
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "title": "Email",
+            "type": "string",
+            "x-client-original-format": "email"
+          },
+          "password": {
+            "title": "Password",
+            "maxLength": 256,
+            "minLength": 8,
+            "type": "string"
+          },
+          "reset": {
+            "title": "Reset",
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "description": "Body for \u0060\u0060POST /api/idp/password-users\u0060\u0060."
+      },
       "CreateRuleRequest": {
         "title": "CreateRuleRequest",
         "required": [
@@ -23351,7 +23629,7 @@
             ]
           },
           "scope": {
-            "description": "Scope of a custom secret \u2014 personal or org-shared.",
+            "description": "Scope of a custom secret \u2014 personal or org-shared.\n\nLives here (rather than in \u0060\u0060secrets.secrets_models\u0060\u0060) so \u0060\u0060CustomSecret\u0060\u0060\ncan carry it without the two modules importing each other;\n\u0060\u0060secrets_models\u0060\u0060 re-exports it for existing callers.",
             "default": "personal",
             "$ref": "#/components/schemas/CustomSecretScope"
           },
@@ -23400,7 +23678,7 @@
           "organization"
         ],
         "type": "string",
-        "description": "Scope of a custom secret \u2014 personal or org-shared.",
+        "description": "Scope of a custom secret \u2014 personal or org-shared.\n\nLives here (rather than in \u0060\u0060secrets.secrets_models\u0060\u0060) so \u0060\u0060CustomSecret\u0060\u0060\ncan carry it without the two modules importing each other;\n\u0060\u0060secrets_models\u0060\u0060 re-exports it for existing callers.",
         "x-ms-enum": {
           "name": "CustomSecretScope",
           "modelAsString": false,
@@ -23435,7 +23713,7 @@
             ]
           },
           "scope": {
-            "description": "Scope of a custom secret \u2014 personal or org-shared.",
+            "description": "Scope of a custom secret \u2014 personal or org-shared.\n\nLives here (rather than in \u0060\u0060secrets.secrets_models\u0060\u0060) so \u0060\u0060CustomSecret\u0060\u0060\ncan carry it without the two modules importing each other;\n\u0060\u0060secrets_models\u0060\u0060 re-exports it for existing callers.",
             "default": "personal",
             "$ref": "#/components/schemas/CustomSecretScope"
           },
@@ -23633,6 +23911,7 @@
             "openhands__agent_server__models__ServerErrorEvent-Output__1": "#/components/schemas/ServerErrorEvent",
             "openhands__app_server__event__event_parsing__UnparsedEvent-Output__1": "#/components/schemas/UnparsedEvent",
             "openhands__sdk__event__acp_tool_call__ACPToolCallEvent-Output__1": "#/components/schemas/AcpToolCallEvent",
+            "openhands__sdk__event__ask_user__AskUserAnswerEvent-Output__1": "#/components/schemas/AskUserAnswerEvent",
             "openhands__sdk__event__condenser__Condensation-Output__1": "#/components/schemas/Condensation",
             "openhands__sdk__event__condenser__CondensationRequest-Output__1": "#/components/schemas/CondensationRequest",
             "openhands__sdk__event__condenser__CondensationSummaryEvent-Output__1": "#/components/schemas/CondensationSummaryEvent",
@@ -23646,6 +23925,8 @@
             "openhands__sdk__event__llm_convertible__observation__ObservationEvent-Output__1": "#/components/schemas/ObservationEvent",
             "openhands__sdk__event__llm_convertible__observation__UserRejectObservation-Output__1": "#/components/schemas/UserRejectObservation",
             "openhands__sdk__event__llm_convertible__system__SystemPromptEvent-Output__1": "#/components/schemas/SystemPromptEvent",
+            "openhands__sdk__event__message_edit__MessageEditEvent-Output__1": "#/components/schemas/MessageEditEvent",
+            "openhands__sdk__event__reaction__ReactionEvent-Output__1": "#/components/schemas/ReactionEvent",
             "openhands__sdk__event__security__SecurityAnalysisEvent-Output__1": "#/components/schemas/SecurityAnalysisEvent",
             "openhands__sdk__event__streaming_delta__StreamingDeltaEvent-Output__1": "#/components/schemas/StreamingDeltaEvent",
             "openhands__sdk__event__token__TokenEvent-Output__1": "#/components/schemas/TokenEvent",
@@ -23659,6 +23940,7 @@
             "ServerErrorEvent": "#/components/schemas/EventTypeServerErrorEvent",
             "UnparsedEvent": "#/components/schemas/EventTypeOneOf2Variant",
             "ACPToolCallEvent": "#/components/schemas/EventTypeAcpToolCallEvent",
+            "AskUserAnswerEvent": "#/components/schemas/EventTypeAskUserAnswerEvent",
             "Condensation": "#/components/schemas/EventTypeCondensation",
             "CondensationRequest": "#/components/schemas/EventTypeCondensationRequest",
             "CondensationSummaryEvent": "#/components/schemas/EventTypeCondensationSummaryEvent",
@@ -23672,6 +23954,8 @@
             "ObservationEvent": "#/components/schemas/EventTypeObservationEvent",
             "UserRejectObservation": "#/components/schemas/EventTypeUserRejectObservation",
             "SystemPromptEvent": "#/components/schemas/EventTypeSystemPromptEvent",
+            "MessageEditEvent": "#/components/schemas/EventTypeMessageEditEvent",
+            "ReactionEvent": "#/components/schemas/EventTypeReactionEvent",
             "SecurityAnalysisEvent": "#/components/schemas/EventTypeSecurityAnalysisEvent",
             "StreamingDeltaEvent": "#/components/schemas/EventTypeStreamingDeltaEvent",
             "TokenEvent": "#/components/schemas/EventTypeTokenEvent",
@@ -23689,6 +23973,9 @@
             },
             {
               "$ref": "#/components/schemas/AcpToolCallEvent"
+            },
+            {
+              "$ref": "#/components/schemas/AskUserAnswerEvent"
             },
             {
               "$ref": "#/components/schemas/Condensation"
@@ -23730,6 +24017,12 @@
               "$ref": "#/components/schemas/SystemPromptEvent"
             },
             {
+              "$ref": "#/components/schemas/MessageEditEvent"
+            },
+            {
+              "$ref": "#/components/schemas/ReactionEvent"
+            },
+            {
               "$ref": "#/components/schemas/SecurityAnalysisEvent"
             },
             {
@@ -23751,6 +24044,7 @@
               "openhands__agent_server__models__ServerErrorEvent-Output__1": "#/components/schemas/ServerErrorEvent",
               "openhands__app_server__event__event_parsing__UnparsedEvent-Output__1": "#/components/schemas/UnparsedEvent",
               "openhands__sdk__event__acp_tool_call__ACPToolCallEvent-Output__1": "#/components/schemas/AcpToolCallEvent",
+              "openhands__sdk__event__ask_user__AskUserAnswerEvent-Output__1": "#/components/schemas/AskUserAnswerEvent",
               "openhands__sdk__event__condenser__Condensation-Output__1": "#/components/schemas/Condensation",
               "openhands__sdk__event__condenser__CondensationRequest-Output__1": "#/components/schemas/CondensationRequest",
               "openhands__sdk__event__condenser__CondensationSummaryEvent-Output__1": "#/components/schemas/CondensationSummaryEvent",
@@ -23764,6 +24058,8 @@
               "openhands__sdk__event__llm_convertible__observation__ObservationEvent-Output__1": "#/components/schemas/ObservationEvent",
               "openhands__sdk__event__llm_convertible__observation__UserRejectObservation-Output__1": "#/components/schemas/UserRejectObservation",
               "openhands__sdk__event__llm_convertible__system__SystemPromptEvent-Output__1": "#/components/schemas/SystemPromptEvent",
+              "openhands__sdk__event__message_edit__MessageEditEvent-Output__1": "#/components/schemas/MessageEditEvent",
+              "openhands__sdk__event__reaction__ReactionEvent-Output__1": "#/components/schemas/ReactionEvent",
               "openhands__sdk__event__security__SecurityAnalysisEvent-Output__1": "#/components/schemas/SecurityAnalysisEvent",
               "openhands__sdk__event__streaming_delta__StreamingDeltaEvent-Output__1": "#/components/schemas/StreamingDeltaEvent",
               "openhands__sdk__event__token__TokenEvent-Output__1": "#/components/schemas/TokenEvent",
@@ -23777,6 +24073,7 @@
               "ServerErrorEvent": "#/components/schemas/ServerErrorEvent",
               "UnparsedEvent": "#/components/schemas/EventTypeOneOf2",
               "ACPToolCallEvent": "#/components/schemas/AcpToolCallEvent",
+              "AskUserAnswerEvent": "#/components/schemas/AskUserAnswerEvent",
               "Condensation": "#/components/schemas/Condensation",
               "CondensationRequest": "#/components/schemas/CondensationRequest",
               "CondensationSummaryEvent": "#/components/schemas/CondensationSummaryEvent",
@@ -23790,6 +24087,8 @@
               "ObservationEvent": "#/components/schemas/ObservationEvent",
               "UserRejectObservation": "#/components/schemas/UserRejectObservation",
               "SystemPromptEvent": "#/components/schemas/SystemPromptEvent",
+              "MessageEditEvent": "#/components/schemas/MessageEditEvent",
+              "ReactionEvent": "#/components/schemas/ReactionEvent",
               "SecurityAnalysisEvent": "#/components/schemas/SecurityAnalysisEvent",
               "StreamingDeltaEvent": "#/components/schemas/StreamingDeltaEvent",
               "TokenEvent": "#/components/schemas/TokenEvent",
@@ -24580,7 +24879,6 @@
         "properties": {
           "credits": {
             "title": "Credits",
-            "pattern": "^(?!^[-\u002B.]*$)[\u002B-]?0*\\d*\\.?\\d*$",
             "type": [
               "null",
               "string"
@@ -24801,6 +25099,27 @@
           }
         },
         "description": "Identify the user to promote to super admin.\n\nProvide exactly one of \u0060\u0060user_id\u0060\u0060 or \u0060\u0060email\u0060\u0060. \u0060\u0060email\u0060\u0060 is a\nconvenience for installers/operators who key on email rather than the\nKeycloak \u0060\u0060sub\u0060\u0060; it is resolved to a user id before the grant."
+      },
+      "GroupOrgMapping": {
+        "title": "GroupOrgMapping",
+        "required": [
+          "group",
+          "org_id"
+        ],
+        "type": "object",
+        "properties": {
+          "group": {
+            "title": "Group",
+            "minLength": 1,
+            "type": "string"
+          },
+          "org_id": {
+            "title": "Org Id",
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "description": "An identity provider group whose members join an organization when they\nlog in -- see \u0060\u0060server.auth.provider_identity.add_user_to_mapped_orgs\u0060\u0060.\n\n\u0060\u0060group\u0060\u0060 is compared, exactly, with each entry of the \u0060\u0060groups\u0060\u0060 claim\n(OAuth2/OIDC) or \u0060\u0060groups\u0060\u0060 attribute (SAML) the provider sends: a group\nname for Okta, a group object id for Microsoft Entra."
       },
       "HttpValidationError": {
         "title": "HTTPValidationError",
@@ -25580,11 +25899,22 @@
               "prominence": "minor"
             }
           },
+          "log_completions_to_file": {
+            "title": "Log Completions To File",
+            "type": "boolean",
+            "description": "Enable completion JSON logging to log_completions_folder or a configured completion-log callback. OpenTelemetry tracing is configured separately and can export LLM message content while completion logging is disabled.",
+            "default": false,
+            "openhands_settings": {
+              "depends_on": [],
+              "prominence": "minor"
+            }
+          },
           "log_completions": {
             "title": "Log Completions",
             "type": "boolean",
-            "description": "Enable logging of completions.",
+            "description": "Deprecated alias for log_completions_to_file. Deprecated since v1.63.0 and scheduled for removal in v1.68.0.",
             "default": false,
+            "deprecated": true,
             "openhands_settings": {
               "depends_on": [],
               "prominence": "minor"
@@ -25593,7 +25923,7 @@
           "log_completions_folder": {
             "title": "Log Completions Folder",
             "type": "string",
-            "description": "The folder to log LLM completions to. Required if log_completions is True.",
+            "description": "The folder to log LLM completions to. Required if log_completions_to_file is True.",
             "default": "logs/completions",
             "openhands_settings": {
               "depends_on": [],
@@ -25869,11 +26199,22 @@
               "prominence": "minor"
             }
           },
+          "log_completions_to_file": {
+            "title": "Log Completions To File",
+            "type": "boolean",
+            "description": "Enable completion JSON logging to log_completions_folder or a configured completion-log callback. OpenTelemetry tracing is configured separately and can export LLM message content while completion logging is disabled.",
+            "default": false,
+            "openhands_settings": {
+              "depends_on": [],
+              "prominence": "minor"
+            }
+          },
           "log_completions": {
             "title": "Log Completions",
             "type": "boolean",
-            "description": "Enable logging of completions.",
+            "description": "Deprecated alias for log_completions_to_file. Deprecated since v1.63.0 and scheduled for removal in v1.68.0.",
             "default": false,
+            "deprecated": true,
             "openhands_settings": {
               "depends_on": [],
               "prominence": "minor"
@@ -25882,7 +26223,7 @@
           "log_completions_folder": {
             "title": "Log Completions Folder",
             "type": "string",
-            "description": "The folder to log LLM completions to. Required if log_completions is True.",
+            "description": "The folder to log LLM completions to. Required if log_completions_to_file is True.",
             "default": "logs/completions",
             "openhands_settings": {
               "depends_on": [],
@@ -27456,7 +27797,7 @@
             "description": "List of token usage records"
           }
         },
-        "description": "Metrics class can record various metrics during running and evaluation.\nWe track:\n  - accumulated_cost and costs\n  - max_budget_per_task (budget limit)\n  - A list of ResponseLatency\n  - A list of TokenUsage (one per call)."
+        "description": "Metrics class can record various metrics during running and evaluation.\nWe track:\n  - accumulated_cost and costs\n  - max_budget_per_task (budget limit)\n  - A list of ResponseLatency\n  - A list of TokenUsage (one per call).\n\nA ledger can roll up into another one (see :meth:\u0060roll_up_into\u0060): what a\nconversation records for a role is also counted on the \u0060\u0060LLM\u0060\u0060 it used."
       },
       "ModelUsageData": {
         "title": "ModelUsageData",
@@ -27595,8 +27936,10 @@
             "openhands__sdk__tool__client_tool__ClientToolObservation-Output__1": "#/components/schemas/ClientToolObservation",
             "openhands__tools__apply_patch__definition__ApplyPatchObservation-Output__1": "#/components/schemas/ApplyPatchObservation",
             "openhands__tools__ask_oracle__definition__AskOracleObservation-Output__1": "#/components/schemas/AskOracleObservation",
+            "openhands__tools__ask_user__definition__AskUserObservation-Output__1": "#/components/schemas/AskUserObservation",
             "openhands__tools__browser_use__definition__BrowserObservation-Output__1": "#/components/schemas/BrowserObservation",
             "openhands__tools__child_conversation__definition__StartChildConversationObservation-Output__1": "#/components/schemas/StartChildConversationObservation",
+            "openhands__tools__conversation_mentions__definition__ConversationMentionsObservation-Output__1": "#/components/schemas/ConversationMentionsObservation",
             "openhands__tools__delegate__definition__DelegateObservation-Output__1": "#/components/schemas/DelegateObservation",
             "openhands__tools__file_editor__definition__FileEditorObservation-Output__1": "#/components/schemas/FileEditorObservation",
             "openhands__tools__gemini__edit__definition__EditObservation-Output__1": "#/components/schemas/EditObservation",
@@ -27605,7 +27948,9 @@
             "openhands__tools__gemini__write_file__definition__WriteFileObservation-Output__1": "#/components/schemas/WriteFileObservation",
             "openhands__tools__glob__definition__GlobObservation-Output__1": "#/components/schemas/GlobObservation",
             "openhands__tools__grep__definition__GrepObservation-Output__1": "#/components/schemas/GrepObservation",
+            "openhands__tools__message_edit__definition__EditMessageObservation-Output__1": "#/components/schemas/EditMessageObservation",
             "openhands__tools__planning_file_editor__definition__PlanningFileEditorObservation-Output__1": "#/components/schemas/PlanningFileEditorObservation",
+            "openhands__tools__reaction__definition__ReactionObservation-Output__1": "#/components/schemas/ReactionObservation",
             "openhands__tools__task__definition__TaskObservation-Output__1": "#/components/schemas/TaskObservation",
             "openhands__tools__task_tracker__definition__TaskTrackerObservation-Output__1": "#/components/schemas/TaskTrackerObservation",
             "openhands__tools__terminal__definition__TerminalObservation-Output__1": "#/components/schemas/TerminalObservation",
@@ -27628,8 +27973,10 @@
             "ClientToolObservation": "#/components/schemas/ObservationClientToolObservation",
             "ApplyPatchObservation": "#/components/schemas/ObservationApplyPatchObservation",
             "AskOracleObservation": "#/components/schemas/ObservationAskOracleObservation",
+            "AskUserObservation": "#/components/schemas/ObservationAskUserObservation",
             "BrowserObservation": "#/components/schemas/ObservationBrowserObservation",
             "StartChildConversationObservation": "#/components/schemas/ObservationStartChildConversationObservation",
+            "ConversationMentionsObservation": "#/components/schemas/ObservationConversationMentionsObservation",
             "DelegateObservation": "#/components/schemas/ObservationDelegateObservation",
             "FileEditorObservation": "#/components/schemas/ObservationFileEditorObservation",
             "EditObservation": "#/components/schemas/ObservationEditObservation",
@@ -27638,7 +27985,9 @@
             "WriteFileObservation": "#/components/schemas/ObservationWriteFileObservation",
             "GlobObservation": "#/components/schemas/ObservationGlobObservation",
             "GrepObservation": "#/components/schemas/ObservationGrepObservation",
+            "EditMessageObservation": "#/components/schemas/ObservationEditMessageObservation",
             "PlanningFileEditorObservation": "#/components/schemas/ObservationPlanningFileEditorObservation",
+            "ReactionObservation": "#/components/schemas/ObservationReactionObservation",
             "TaskObservation": "#/components/schemas/ObservationTaskObservation",
             "TaskTrackerObservation": "#/components/schemas/ObservationTaskTrackerObservation",
             "TerminalObservation": "#/components/schemas/ObservationTerminalObservation",
@@ -27683,10 +28032,16 @@
               "$ref": "#/components/schemas/AskOracleObservation"
             },
             {
+              "$ref": "#/components/schemas/AskUserObservation"
+            },
+            {
               "$ref": "#/components/schemas/BrowserObservation"
             },
             {
               "$ref": "#/components/schemas/StartChildConversationObservation"
+            },
+            {
+              "$ref": "#/components/schemas/ConversationMentionsObservation"
             },
             {
               "$ref": "#/components/schemas/DelegateObservation"
@@ -27713,7 +28068,13 @@
               "$ref": "#/components/schemas/GrepObservation"
             },
             {
+              "$ref": "#/components/schemas/EditMessageObservation"
+            },
+            {
               "$ref": "#/components/schemas/PlanningFileEditorObservation"
+            },
+            {
+              "$ref": "#/components/schemas/ReactionObservation"
             },
             {
               "$ref": "#/components/schemas/TaskObservation"
@@ -27748,8 +28109,10 @@
               "openhands__sdk__tool__client_tool__ClientToolObservation-Output__1": "#/components/schemas/ClientToolObservation",
               "openhands__tools__apply_patch__definition__ApplyPatchObservation-Output__1": "#/components/schemas/ApplyPatchObservation",
               "openhands__tools__ask_oracle__definition__AskOracleObservation-Output__1": "#/components/schemas/AskOracleObservation",
+              "openhands__tools__ask_user__definition__AskUserObservation-Output__1": "#/components/schemas/AskUserObservation",
               "openhands__tools__browser_use__definition__BrowserObservation-Output__1": "#/components/schemas/BrowserObservation",
               "openhands__tools__child_conversation__definition__StartChildConversationObservation-Output__1": "#/components/schemas/StartChildConversationObservation",
+              "openhands__tools__conversation_mentions__definition__ConversationMentionsObservation-Output__1": "#/components/schemas/ConversationMentionsObservation",
               "openhands__tools__delegate__definition__DelegateObservation-Output__1": "#/components/schemas/DelegateObservation",
               "openhands__tools__file_editor__definition__FileEditorObservation-Output__1": "#/components/schemas/FileEditorObservation",
               "openhands__tools__gemini__edit__definition__EditObservation-Output__1": "#/components/schemas/EditObservation",
@@ -27758,7 +28121,9 @@
               "openhands__tools__gemini__write_file__definition__WriteFileObservation-Output__1": "#/components/schemas/WriteFileObservation",
               "openhands__tools__glob__definition__GlobObservation-Output__1": "#/components/schemas/GlobObservation",
               "openhands__tools__grep__definition__GrepObservation-Output__1": "#/components/schemas/GrepObservation",
+              "openhands__tools__message_edit__definition__EditMessageObservation-Output__1": "#/components/schemas/EditMessageObservation",
               "openhands__tools__planning_file_editor__definition__PlanningFileEditorObservation-Output__1": "#/components/schemas/PlanningFileEditorObservation",
+              "openhands__tools__reaction__definition__ReactionObservation-Output__1": "#/components/schemas/ReactionObservation",
               "openhands__tools__task__definition__TaskObservation-Output__1": "#/components/schemas/TaskObservation",
               "openhands__tools__task_tracker__definition__TaskTrackerObservation-Output__1": "#/components/schemas/TaskTrackerObservation",
               "openhands__tools__terminal__definition__TerminalObservation-Output__1": "#/components/schemas/TerminalObservation",
@@ -27781,8 +28146,10 @@
               "ClientToolObservation": "#/components/schemas/ClientToolObservation",
               "ApplyPatchObservation": "#/components/schemas/ApplyPatchObservation",
               "AskOracleObservation": "#/components/schemas/AskOracleObservation",
+              "AskUserObservation": "#/components/schemas/AskUserObservation",
               "BrowserObservation": "#/components/schemas/BrowserObservation",
               "StartChildConversationObservation": "#/components/schemas/StartChildConversationObservation",
+              "ConversationMentionsObservation": "#/components/schemas/ConversationMentionsObservation",
               "DelegateObservation": "#/components/schemas/DelegateObservation",
               "FileEditorObservation": "#/components/schemas/FileEditorObservation",
               "EditObservation": "#/components/schemas/EditObservation",
@@ -27791,7 +28158,9 @@
               "WriteFileObservation": "#/components/schemas/WriteFileObservation",
               "GlobObservation": "#/components/schemas/GlobObservation",
               "GrepObservation": "#/components/schemas/GrepObservation",
+              "EditMessageObservation": "#/components/schemas/EditMessageObservation",
               "PlanningFileEditorObservation": "#/components/schemas/PlanningFileEditorObservation",
+              "ReactionObservation": "#/components/schemas/ReactionObservation",
               "TaskObservation": "#/components/schemas/TaskObservation",
               "TaskTrackerObservation": "#/components/schemas/TaskTrackerObservation",
               "TerminalObservation": "#/components/schemas/TerminalObservation",
@@ -27879,6 +28248,9 @@
               "type": "string"
             },
             "description": "Which of the user\u0027s connected built-in integrations to expose to this agent. null = all; [] = none; a non-null list = filter to the named integrations."
+          },
+          "sandbox": {
+            "$ref": "#/components/schemas/AcpAgentProfileSandbox"
           },
           "llm_profile_ref": {
             "title": "Llm Profile Ref",
@@ -29965,6 +30337,11 @@
               "string"
             ]
           },
+          "account_type": {
+            "title": "Account Type",
+            "type": "string",
+            "default": "human"
+          },
           "conversation_count": {
             "title": "Conversation Count",
             "type": "integer",
@@ -30092,6 +30469,30 @@
           }
         },
         "description": "Settings for POST requests"
+      },
+      "PasswordUserResponse": {
+        "title": "PasswordUserResponse",
+        "required": [
+          "email",
+          "user_id",
+          "created"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "user_id": {
+            "title": "User Id",
+            "type": "string"
+          },
+          "created": {
+            "title": "Created",
+            "type": "boolean"
+          }
+        },
+        "description": "Result of creating or updating an integrated-IDP password user."
       },
       "PendingInvitationsResponse": {
         "title": "PendingInvitationsResponse",
@@ -30685,6 +31086,32 @@
             ]
           }
         }
+      },
+      "ReleaseInfo": {
+        "title": "ReleaseInfo",
+        "required": [
+          "app_version",
+          "sdk_version"
+        ],
+        "type": "object",
+        "properties": {
+          "app_version": {
+            "title": "App Version",
+            "type": "string"
+          },
+          "sdk_version": {
+            "title": "Sdk Version",
+            "type": "string"
+          },
+          "enterprise_release": {
+            "title": "Enterprise Release",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "description": "Allowlisted release/version fields only.\n\nDeliberately excludes host/network details, usernames, org ids, and\ncredentials \u2014 this must not grow to carry anything beyond version\nidentifiers."
       },
       "RemoteMcpServer": {
         "title": "RemoteMCPServer",
@@ -32859,6 +33286,11 @@
               "string"
             ]
           },
+          "account_type": {
+            "title": "Account Type",
+            "type": "string",
+            "default": "human"
+          },
           "conversation_count": {
             "title": "Conversation Count",
             "type": "integer",
@@ -33028,6 +33460,7 @@
             "openhands__sdk__tool__client_tool__ClientTool-Output__1": "#/components/schemas/ClientTool",
             "openhands__tools__apply_patch__definition__ApplyPatchTool-Output__1": "#/components/schemas/ApplyPatchTool",
             "openhands__tools__ask_oracle__definition__AskOracleTool-Output__1": "#/components/schemas/AskOracleTool",
+            "openhands__tools__ask_user__definition__AskUserTool-Output__1": "#/components/schemas/AskUserTool",
             "openhands__tools__browser_use__definition__BrowserClickTool-Output__1": "#/components/schemas/BrowserClickTool",
             "openhands__tools__browser_use__definition__BrowserCloseTabTool-Output__1": "#/components/schemas/BrowserCloseTabTool",
             "openhands__tools__browser_use__definition__BrowserGetContentTool-Output__1": "#/components/schemas/BrowserGetContentTool",
@@ -33044,6 +33477,8 @@
             "openhands__tools__browser_use__definition__BrowserToolSet-Output__1": "#/components/schemas/BrowserToolSet",
             "openhands__tools__browser_use__definition__BrowserTypeTool-Output__1": "#/components/schemas/BrowserTypeTool",
             "openhands__tools__child_conversation__definition__StartChildConversationTool-Output__1": "#/components/schemas/StartChildConversationTool",
+            "openhands__tools__conversation_mentions__definition__FindConversationsTool-Output__1": "#/components/schemas/FindConversationsTool",
+            "openhands__tools__conversation_mentions__definition__ReadConversationTool-Output__1": "#/components/schemas/ReadConversationTool",
             "openhands__tools__file_editor__definition__FileEditorTool-Output__1": "#/components/schemas/FileEditorTool",
             "openhands__tools__gemini__edit__definition__EditTool-Output__1": "#/components/schemas/EditTool",
             "openhands__tools__gemini__list_directory__definition__ListDirectoryTool-Output__1": "#/components/schemas/ListDirectoryTool",
@@ -33051,7 +33486,10 @@
             "openhands__tools__gemini__write_file__definition__WriteFileTool-Output__1": "#/components/schemas/WriteFileTool",
             "openhands__tools__glob__definition__GlobTool-Output__1": "#/components/schemas/GlobTool",
             "openhands__tools__grep__definition__GrepTool-Output__1": "#/components/schemas/GrepTool",
+            "openhands__tools__message_edit__definition__EditMessageTool-Output__1": "#/components/schemas/EditMessageTool",
             "openhands__tools__planning_file_editor__definition__PlanningFileEditorTool-Output__1": "#/components/schemas/PlanningFileEditorTool",
+            "openhands__tools__reaction__definition__ReactTool-Output__1": "#/components/schemas/ReactTool",
+            "openhands__tools__reaction__definition__UnreactTool-Output__1": "#/components/schemas/UnreactTool",
             "openhands__tools__task__definition__TaskTool-Output__1": "#/components/schemas/TaskTool",
             "openhands__tools__task__definition__TaskToolSet-Output__1": "#/components/schemas/TaskToolSet",
             "openhands__tools__task_tracker__definition__TaskTrackerTool-Output__1": "#/components/schemas/TaskTrackerTool",
@@ -33075,6 +33513,7 @@
             "ClientTool": "#/components/schemas/ToolDefinitionClientTool",
             "ApplyPatchTool": "#/components/schemas/ToolDefinitionApplyPatchTool",
             "AskOracleTool": "#/components/schemas/ToolDefinitionAskOracleTool",
+            "AskUserTool": "#/components/schemas/ToolDefinitionAskUserTool",
             "BrowserClickTool": "#/components/schemas/ToolDefinitionBrowserClickTool",
             "BrowserCloseTabTool": "#/components/schemas/ToolDefinitionBrowserCloseTabTool",
             "BrowserGetContentTool": "#/components/schemas/ToolDefinitionBrowserGetContentTool",
@@ -33091,6 +33530,8 @@
             "BrowserToolSet": "#/components/schemas/ToolDefinitionBrowserToolSet",
             "BrowserTypeTool": "#/components/schemas/ToolDefinitionBrowserTypeTool",
             "StartChildConversationTool": "#/components/schemas/ToolDefinitionStartChildConversationTool",
+            "FindConversationsTool": "#/components/schemas/ToolDefinitionFindConversationsTool",
+            "ReadConversationTool": "#/components/schemas/ToolDefinitionReadConversationTool",
             "FileEditorTool": "#/components/schemas/ToolDefinitionFileEditorTool",
             "EditTool": "#/components/schemas/ToolDefinitionEditTool",
             "ListDirectoryTool": "#/components/schemas/ToolDefinitionListDirectoryTool",
@@ -33098,7 +33539,10 @@
             "WriteFileTool": "#/components/schemas/ToolDefinitionWriteFileTool",
             "GlobTool": "#/components/schemas/ToolDefinitionGlobTool",
             "GrepTool": "#/components/schemas/ToolDefinitionGrepTool",
+            "EditMessageTool": "#/components/schemas/ToolDefinitionEditMessageTool",
             "PlanningFileEditorTool": "#/components/schemas/ToolDefinitionPlanningFileEditorTool",
+            "ReactTool": "#/components/schemas/ToolDefinitionReactTool",
+            "UnreactTool": "#/components/schemas/ToolDefinitionUnreactTool",
             "TaskTool": "#/components/schemas/ToolDefinitionTaskTool",
             "TaskToolSet": "#/components/schemas/ToolDefinitionTaskToolSet",
             "TaskTrackerTool": "#/components/schemas/ToolDefinitionTaskTrackerTool",
@@ -33140,6 +33584,9 @@
             },
             {
               "$ref": "#/components/schemas/AskOracleTool"
+            },
+            {
+              "$ref": "#/components/schemas/AskUserTool"
             },
             {
               "$ref": "#/components/schemas/BrowserClickTool"
@@ -33190,6 +33637,12 @@
               "$ref": "#/components/schemas/StartChildConversationTool"
             },
             {
+              "$ref": "#/components/schemas/FindConversationsTool"
+            },
+            {
+              "$ref": "#/components/schemas/ReadConversationTool"
+            },
+            {
               "$ref": "#/components/schemas/FileEditorTool"
             },
             {
@@ -33211,7 +33664,16 @@
               "$ref": "#/components/schemas/GrepTool"
             },
             {
+              "$ref": "#/components/schemas/EditMessageTool"
+            },
+            {
               "$ref": "#/components/schemas/PlanningFileEditorTool"
+            },
+            {
+              "$ref": "#/components/schemas/ReactTool"
+            },
+            {
+              "$ref": "#/components/schemas/UnreactTool"
             },
             {
               "$ref": "#/components/schemas/TaskTool"
@@ -33251,6 +33713,7 @@
               "openhands__sdk__tool__client_tool__ClientTool-Output__1": "#/components/schemas/ClientTool",
               "openhands__tools__apply_patch__definition__ApplyPatchTool-Output__1": "#/components/schemas/ApplyPatchTool",
               "openhands__tools__ask_oracle__definition__AskOracleTool-Output__1": "#/components/schemas/AskOracleTool",
+              "openhands__tools__ask_user__definition__AskUserTool-Output__1": "#/components/schemas/AskUserTool",
               "openhands__tools__browser_use__definition__BrowserClickTool-Output__1": "#/components/schemas/BrowserClickTool",
               "openhands__tools__browser_use__definition__BrowserCloseTabTool-Output__1": "#/components/schemas/BrowserCloseTabTool",
               "openhands__tools__browser_use__definition__BrowserGetContentTool-Output__1": "#/components/schemas/BrowserGetContentTool",
@@ -33267,6 +33730,8 @@
               "openhands__tools__browser_use__definition__BrowserToolSet-Output__1": "#/components/schemas/BrowserToolSet",
               "openhands__tools__browser_use__definition__BrowserTypeTool-Output__1": "#/components/schemas/BrowserTypeTool",
               "openhands__tools__child_conversation__definition__StartChildConversationTool-Output__1": "#/components/schemas/StartChildConversationTool",
+              "openhands__tools__conversation_mentions__definition__FindConversationsTool-Output__1": "#/components/schemas/FindConversationsTool",
+              "openhands__tools__conversation_mentions__definition__ReadConversationTool-Output__1": "#/components/schemas/ReadConversationTool",
               "openhands__tools__file_editor__definition__FileEditorTool-Output__1": "#/components/schemas/FileEditorTool",
               "openhands__tools__gemini__edit__definition__EditTool-Output__1": "#/components/schemas/EditTool",
               "openhands__tools__gemini__list_directory__definition__ListDirectoryTool-Output__1": "#/components/schemas/ListDirectoryTool",
@@ -33274,7 +33739,10 @@
               "openhands__tools__gemini__write_file__definition__WriteFileTool-Output__1": "#/components/schemas/WriteFileTool",
               "openhands__tools__glob__definition__GlobTool-Output__1": "#/components/schemas/GlobTool",
               "openhands__tools__grep__definition__GrepTool-Output__1": "#/components/schemas/GrepTool",
+              "openhands__tools__message_edit__definition__EditMessageTool-Output__1": "#/components/schemas/EditMessageTool",
               "openhands__tools__planning_file_editor__definition__PlanningFileEditorTool-Output__1": "#/components/schemas/PlanningFileEditorTool",
+              "openhands__tools__reaction__definition__ReactTool-Output__1": "#/components/schemas/ReactTool",
+              "openhands__tools__reaction__definition__UnreactTool-Output__1": "#/components/schemas/UnreactTool",
               "openhands__tools__task__definition__TaskTool-Output__1": "#/components/schemas/TaskTool",
               "openhands__tools__task__definition__TaskToolSet-Output__1": "#/components/schemas/TaskToolSet",
               "openhands__tools__task_tracker__definition__TaskTrackerTool-Output__1": "#/components/schemas/TaskTrackerTool",
@@ -33298,6 +33766,7 @@
               "ClientTool": "#/components/schemas/ClientTool",
               "ApplyPatchTool": "#/components/schemas/ApplyPatchTool",
               "AskOracleTool": "#/components/schemas/AskOracleTool",
+              "AskUserTool": "#/components/schemas/AskUserTool",
               "BrowserClickTool": "#/components/schemas/BrowserClickTool",
               "BrowserCloseTabTool": "#/components/schemas/BrowserCloseTabTool",
               "BrowserGetContentTool": "#/components/schemas/BrowserGetContentTool",
@@ -33314,6 +33783,8 @@
               "BrowserToolSet": "#/components/schemas/BrowserToolSet",
               "BrowserTypeTool": "#/components/schemas/BrowserTypeTool",
               "StartChildConversationTool": "#/components/schemas/StartChildConversationTool",
+              "FindConversationsTool": "#/components/schemas/FindConversationsTool",
+              "ReadConversationTool": "#/components/schemas/ReadConversationTool",
               "FileEditorTool": "#/components/schemas/FileEditorTool",
               "EditTool": "#/components/schemas/EditTool",
               "ListDirectoryTool": "#/components/schemas/ListDirectoryTool",
@@ -33321,7 +33792,10 @@
               "WriteFileTool": "#/components/schemas/WriteFileTool",
               "GlobTool": "#/components/schemas/GlobTool",
               "GrepTool": "#/components/schemas/GrepTool",
+              "EditMessageTool": "#/components/schemas/EditMessageTool",
               "PlanningFileEditorTool": "#/components/schemas/PlanningFileEditorTool",
+              "ReactTool": "#/components/schemas/ReactTool",
+              "UnreactTool": "#/components/schemas/UnreactTool",
               "TaskTool": "#/components/schemas/TaskTool",
               "TaskToolSet": "#/components/schemas/TaskToolSet",
               "TaskTrackerTool": "#/components/schemas/TaskTrackerTool",
@@ -35176,6 +35650,37 @@
         ],
         "description": "EXPERIMENTAL: Optional critic to evaluate agent actions and messages in real-time. API and behavior may change without notice. May impact performance, especially in \u0027all_actions\u0027 mode."
       },
+      "AcpAgentProfileSandbox": {
+        "title": "ProfileSandboxSettings",
+        "required": [
+          "spec_id"
+        ],
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "spec_id": {
+            "title": "Spec Id",
+            "minLength": 1,
+            "type": "string",
+            "description": "Id of a sandbox spec (for example an agent-server image) the host advertises. Applies only when a new sandbox is created; the host decides how a spec it no longer offers is handled."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Sandbox to start new conversations with. null = the host\u0027s own default selection.",
+        "x-client-original-nullable-union": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/ProfileSandboxSettings"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Sandbox to start new conversations with. null = the host\u0027s own default selection."
+        }
+      },
       "AcpAgentSettingsAcpModel": {
         "title": "Acp Model",
         "anyOf": [
@@ -35611,6 +36116,18 @@
           "description": "Safe structured error semantics for API consumers."
         }
       },
+      "AgentErrorEventRecoveryReason": {
+        "title": "Recovery Reason",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/AgentErrorEventRecoveryReasonAnyOf1"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Why this outcome was synthesized during recovery, when known."
+      },
       "AgentFinishedCriticIterativeRefinement": {
         "title": "IterativeRefinementConfig",
         "type": [
@@ -35811,6 +36328,15 @@
             "type": "boolean",
             "description": "Whether the agent loop should automatically run if not running",
             "default": false
+          },
+          "sender_conversation_id": {
+            "title": "Sender Conversation Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The conversation sending this message, when an agent rather than the user sends it. The saved message records it as its \u0060sender\u0060 (\u0060conversation:\u003Cid hex\u003E\u0060) and opens with a line telling the receiving agent which conversation sent it, that the user did not, and that it approves nothing on the user\u0027s behalf. On a new conversation\u0027s \u0060initial_message\u0060 it marks the first message the same way. Leave it out for the user\u0027s own messages.",
+            "format": "uuid"
           }
         },
         "description": "Payload to send a message to the agent.",
@@ -38730,11 +39256,22 @@
               "prominence": "minor"
             }
           },
+          "log_completions_to_file": {
+            "title": "Log Completions To File",
+            "type": "boolean",
+            "description": "Enable completion JSON logging to log_completions_folder or a configured completion-log callback. OpenTelemetry tracing is configured separately and can export LLM message content while completion logging is disabled.",
+            "default": false,
+            "openhands_settings": {
+              "depends_on": [],
+              "prominence": "minor"
+            }
+          },
           "log_completions": {
             "title": "Log Completions",
             "type": "boolean",
-            "description": "Enable logging of completions.",
+            "description": "Deprecated alias for log_completions_to_file. Deprecated since v1.63.0 and scheduled for removal in v1.68.0.",
             "default": false,
+            "deprecated": true,
             "openhands_settings": {
               "depends_on": [],
               "prominence": "minor"
@@ -38743,7 +39280,7 @@
           "log_completions_folder": {
             "title": "Log Completions Folder",
             "type": "string",
-            "description": "The folder to log LLM completions to. Required if log_completions is True.",
+            "description": "The folder to log LLM completions to. Required if log_completions_to_file is True.",
             "default": "logs/completions",
             "openhands_settings": {
               "depends_on": [],
@@ -38978,8 +39515,8 @@
         "x-client-original-discriminator": {
           "propertyName": "ok",
           "mapping": {
-            "True": "#/components/schemas/McpTestSuccess",
-            "False": "#/components/schemas/McpTestFailure"
+            "true": "#/components/schemas/McpTestSuccess",
+            "false": "#/components/schemas/McpTestFailure"
           }
         }
       },
@@ -39433,6 +39970,8 @@
           "$ref": "#/components/schemas/QuotaIncreaseRequestResponse"
         }
       },
+      "ConsentPageExternalMcpConsentGet200ResponseSchema": {},
+      "SubmitConsentExternalMcpConsentPost200ResponseSchema": {},
       "ResponseBatchGetEventsApiV1ConversationConversationIdEventsGetItem": {
         "anyOf": [
           {
@@ -40196,6 +40735,13 @@
           "object"
         ]
       },
+      "AskUserToolMetaProperty": {
+        "title": "Meta",
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "AzureDevOpsV1CallbackProcessorInputAzureDevopsViewDataProperty": {
         "title": "Azure Devops View Data",
         "type": "object"
@@ -40430,6 +40976,13 @@
         },
         "description": "Required parameter of \u0060delegate\u0060 command. Dictionary mapping sub-agent identifiers to task descriptions."
       },
+      "EditMessageToolMetaProperty": {
+        "title": "Meta",
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "EditToolMetaProperty": {
         "title": "Meta",
         "type": [
@@ -40438,6 +40991,13 @@
         ]
       },
       "FileEditorToolMetaProperty": {
+        "title": "Meta",
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "FindConversationsToolMetaProperty": {
         "title": "Meta",
         "type": [
           "null",
@@ -40833,6 +41393,20 @@
         ],
         "description": "User-provided values for plugin input parameters"
       },
+      "ReactToolMetaProperty": {
+        "title": "Meta",
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "ReadConversationToolMetaProperty": {
+        "title": "Meta",
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "ReadFileToolMetaProperty": {
         "title": "Meta",
         "type": [
@@ -41130,6 +41704,13 @@
       "UnparsedObservationRawPayloadProperty": {
         "title": "Raw Payload",
         "type": "object"
+      },
+      "UnreactToolMetaProperty": {
+        "title": "Meta",
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "ValidationErrorCtxProperty": {
         "title": "Context",
@@ -41814,6 +42395,70 @@
         "type": "string",
         "x-client-original-const": "AskOracleTool"
       },
+      "AskUserActionKind": {
+        "title": "Kind",
+        "enum": [
+          "AskUserAction"
+        ],
+        "type": "string",
+        "x-client-original-const": "AskUserAction"
+      },
+      "AskUserAnswerEventSource": {
+        "title": "Source",
+        "enum": [
+          "agent",
+          "user",
+          "environment",
+          "hook"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "AskUserAnswerEventSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agent",
+              "name": "Agent"
+            },
+            {
+              "value": "user",
+              "name": "User"
+            },
+            {
+              "value": "environment",
+              "name": "Environment"
+            },
+            {
+              "value": "hook",
+              "name": "Hook"
+            }
+          ]
+        }
+      },
+      "AskUserAnswerEventKind": {
+        "title": "Kind",
+        "enum": [
+          "AskUserAnswerEvent"
+        ],
+        "type": "string",
+        "x-client-original-const": "AskUserAnswerEvent"
+      },
+      "AskUserObservationKind": {
+        "title": "Kind",
+        "enum": [
+          "AskUserObservation"
+        ],
+        "type": "string",
+        "x-client-original-const": "AskUserObservation"
+      },
+      "AskUserToolKind": {
+        "title": "Kind",
+        "enum": [
+          "AskUserTool"
+        ],
+        "type": "string",
+        "x-client-original-const": "AskUserTool"
+      },
       "AzureDevOpsV1CallbackProcessorOutputKind": {
         "title": "Kind",
         "enum": [
@@ -42444,6 +43089,14 @@
         "type": "string",
         "x-client-original-const": "ConversationErrorEvent"
       },
+      "ConversationMentionsObservationKind": {
+        "title": "Kind",
+        "enum": [
+          "ConversationMentionsObservation"
+        ],
+        "type": "string",
+        "x-client-original-const": "ConversationMentionsObservation"
+      },
       "ConversationSettingsDefaultRuntime": {
         "title": "Default Runtime",
         "enum": [
@@ -42794,6 +43447,30 @@
         "type": "string",
         "x-client-original-const": "EditAction"
       },
+      "EditMessageActionKind": {
+        "title": "Kind",
+        "enum": [
+          "EditMessageAction"
+        ],
+        "type": "string",
+        "x-client-original-const": "EditMessageAction"
+      },
+      "EditMessageObservationKind": {
+        "title": "Kind",
+        "enum": [
+          "EditMessageObservation"
+        ],
+        "type": "string",
+        "x-client-original-const": "EditMessageObservation"
+      },
+      "EditMessageToolKind": {
+        "title": "Kind",
+        "enum": [
+          "EditMessageTool"
+        ],
+        "type": "string",
+        "x-client-original-const": "EditMessageTool"
+      },
       "EditObservationKind": {
         "title": "Kind",
         "enum": [
@@ -42959,6 +43636,22 @@
         ],
         "type": "string",
         "x-client-original-const": "FileEditorTool"
+      },
+      "FindConversationsActionKind": {
+        "title": "Kind",
+        "enum": [
+          "FindConversationsAction"
+        ],
+        "type": "string",
+        "x-client-original-const": "FindConversationsAction"
+      },
+      "FindConversationsToolKind": {
+        "title": "Kind",
+        "enum": [
+          "FindConversationsTool"
+        ],
+        "type": "string",
+        "x-client-original-const": "FindConversationsTool"
       },
       "FinishActionKind": {
         "title": "Kind",
@@ -44318,6 +45011,46 @@
           ]
         }
       },
+      "MessageEditEventSource": {
+        "title": "Source",
+        "enum": [
+          "agent",
+          "user",
+          "environment",
+          "hook"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "MessageEditEventSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agent",
+              "name": "Agent"
+            },
+            {
+              "value": "user",
+              "name": "User"
+            },
+            {
+              "value": "environment",
+              "name": "Environment"
+            },
+            {
+              "value": "hook",
+              "name": "Hook"
+            }
+          ]
+        }
+      },
+      "MessageEditEventKind": {
+        "title": "Kind",
+        "enum": [
+          "MessageEditEvent"
+        ],
+        "type": "string",
+        "x-client-original-const": "MessageEditEvent"
+      },
       "MessageEventSource": {
         "title": "Source",
         "enum": [
@@ -45064,6 +45797,222 @@
             }
           ]
         }
+      },
+      "ReactActionEmoji": {
+        "title": "Emoji",
+        "enum": [
+          "eyes",
+          "\u002B1",
+          "white_check_mark",
+          "tada",
+          "thinking_face",
+          "heart"
+        ],
+        "type": "string",
+        "description": "The emoji, as a shortcode.",
+        "x-ms-enum": {
+          "name": "ReactActionEmoji",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "eyes",
+              "name": "Eyes"
+            },
+            {
+              "value": "\u002B1",
+              "name": "Plus1"
+            },
+            {
+              "value": "white_check_mark",
+              "name": "WhiteCheckMark"
+            },
+            {
+              "value": "tada",
+              "name": "Tada"
+            },
+            {
+              "value": "thinking_face",
+              "name": "ThinkingFace"
+            },
+            {
+              "value": "heart",
+              "name": "Heart"
+            }
+          ]
+        }
+      },
+      "ReactActionKind": {
+        "title": "Kind",
+        "enum": [
+          "ReactAction"
+        ],
+        "type": "string",
+        "x-client-original-const": "ReactAction"
+      },
+      "ReactToolKind": {
+        "title": "Kind",
+        "enum": [
+          "ReactTool"
+        ],
+        "type": "string",
+        "x-client-original-const": "ReactTool"
+      },
+      "ReactionEventSource": {
+        "title": "Source",
+        "enum": [
+          "agent",
+          "user",
+          "environment",
+          "hook"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ReactionEventSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agent",
+              "name": "Agent"
+            },
+            {
+              "value": "user",
+              "name": "User"
+            },
+            {
+              "value": "environment",
+              "name": "Environment"
+            },
+            {
+              "value": "hook",
+              "name": "Hook"
+            }
+          ]
+        }
+      },
+      "ReactionEventEmoji": {
+        "title": "Emoji",
+        "enum": [
+          "eyes",
+          "\u002B1",
+          "white_check_mark",
+          "tada",
+          "thinking_face",
+          "heart"
+        ],
+        "type": "string",
+        "description": "The emoji, as a shortcode.",
+        "x-ms-enum": {
+          "name": "ReactionEventEmoji",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "eyes",
+              "name": "Eyes"
+            },
+            {
+              "value": "\u002B1",
+              "name": "Plus1"
+            },
+            {
+              "value": "white_check_mark",
+              "name": "WhiteCheckMark"
+            },
+            {
+              "value": "tada",
+              "name": "Tada"
+            },
+            {
+              "value": "thinking_face",
+              "name": "ThinkingFace"
+            },
+            {
+              "value": "heart",
+              "name": "Heart"
+            }
+          ]
+        }
+      },
+      "ReactionEventKind": {
+        "title": "Kind",
+        "enum": [
+          "ReactionEvent"
+        ],
+        "type": "string",
+        "x-client-original-const": "ReactionEvent"
+      },
+      "ReactionObservationEmoji": {
+        "title": "Emoji",
+        "anyOf": [
+          {
+            "title": "Emoji",
+            "enum": [
+              "eyes",
+              "\u002B1",
+              "white_check_mark",
+              "tada",
+              "thinking_face",
+              "heart"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "ReactionObservationEmoji",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "eyes",
+                  "name": "Eyes"
+                },
+                {
+                  "value": "\u002B1",
+                  "name": "Plus1"
+                },
+                {
+                  "value": "white_check_mark",
+                  "name": "WhiteCheckMark"
+                },
+                {
+                  "value": "tada",
+                  "name": "Tada"
+                },
+                {
+                  "value": "thinking_face",
+                  "name": "ThinkingFace"
+                },
+                {
+                  "value": "heart",
+                  "name": "Heart"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "ReactionObservationKind": {
+        "title": "Kind",
+        "enum": [
+          "ReactionObservation"
+        ],
+        "type": "string",
+        "x-client-original-const": "ReactionObservation"
+      },
+      "ReadConversationActionKind": {
+        "title": "Kind",
+        "enum": [
+          "ReadConversationAction"
+        ],
+        "type": "string",
+        "x-client-original-const": "ReadConversationAction"
+      },
+      "ReadConversationToolKind": {
+        "title": "Kind",
+        "enum": [
+          "ReadConversationTool"
+        ],
+        "type": "string",
+        "x-client-original-const": "ReadConversationTool"
       },
       "ReadFileActionKind": {
         "title": "Kind",
@@ -46131,6 +47080,65 @@
           ]
         }
       },
+      "UnreactActionEmoji": {
+        "title": "Emoji",
+        "enum": [
+          "eyes",
+          "\u002B1",
+          "white_check_mark",
+          "tada",
+          "thinking_face",
+          "heart"
+        ],
+        "type": "string",
+        "description": "The emoji to remove, as a shortcode.",
+        "x-ms-enum": {
+          "name": "UnreactActionEmoji",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "eyes",
+              "name": "Eyes"
+            },
+            {
+              "value": "\u002B1",
+              "name": "Plus1"
+            },
+            {
+              "value": "white_check_mark",
+              "name": "WhiteCheckMark"
+            },
+            {
+              "value": "tada",
+              "name": "Tada"
+            },
+            {
+              "value": "thinking_face",
+              "name": "ThinkingFace"
+            },
+            {
+              "value": "heart",
+              "name": "Heart"
+            }
+          ]
+        }
+      },
+      "UnreactActionKind": {
+        "title": "Kind",
+        "enum": [
+          "UnreactAction"
+        ],
+        "type": "string",
+        "x-client-original-const": "UnreactAction"
+      },
+      "UnreactToolKind": {
+        "title": "Kind",
+        "enum": [
+          "UnreactTool"
+        ],
+        "type": "string",
+        "x-client-original-const": "UnreactTool"
+      },
       "UserRejectObservationSource": {
         "title": "Source",
         "enum": [
@@ -46383,6 +47391,23 @@
             {
               "value": "inactive",
               "name": "Inactive"
+            }
+          ]
+        }
+      },
+      "AgentErrorEventRecoveryReasonAnyOf1": {
+        "enum": [
+          "server_restart"
+        ],
+        "type": "string",
+        "x-client-original-const": "server_restart",
+        "x-ms-enum": {
+          "name": "AgentErrorEventRecoveryReasonAnyOf1",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "server_restart",
+              "name": "ServerRestart"
             }
           ]
         }
@@ -46713,6 +47738,7 @@
             "enum": [
               "ServerErrorEvent",
               "ACPToolCallEvent",
+              "AskUserAnswerEvent",
               "Condensation",
               "CondensationRequest",
               "CondensationSummaryEvent",
@@ -46726,6 +47752,8 @@
               "ObservationEvent",
               "UserRejectObservation",
               "SystemPromptEvent",
+              "MessageEditEvent",
+              "ReactionEvent",
               "SecurityAnalysisEvent",
               "StreamingDeltaEvent",
               "TokenEvent",
@@ -46761,6 +47789,7 @@
             "enum": [
               "ServerErrorEvent",
               "ACPToolCallEvent",
+              "AskUserAnswerEvent",
               "Condensation",
               "CondensationRequest",
               "CondensationSummaryEvent",
@@ -46774,6 +47803,8 @@
               "ObservationEvent",
               "UserRejectObservation",
               "SystemPromptEvent",
+              "MessageEditEvent",
+              "ReactionEvent",
               "SecurityAnalysisEvent",
               "StreamingDeltaEvent",
               "TokenEvent",
@@ -46831,6 +47862,7 @@
             "enum": [
               "ServerErrorEvent",
               "ACPToolCallEvent",
+              "AskUserAnswerEvent",
               "Condensation",
               "CondensationRequest",
               "CondensationSummaryEvent",
@@ -46844,6 +47876,8 @@
               "ObservationEvent",
               "UserRejectObservation",
               "SystemPromptEvent",
+              "MessageEditEvent",
+              "ReactionEvent",
               "SecurityAnalysisEvent",
               "StreamingDeltaEvent",
               "TokenEvent",
@@ -46879,6 +47913,7 @@
             "enum": [
               "ServerErrorEvent",
               "ACPToolCallEvent",
+              "AskUserAnswerEvent",
               "Condensation",
               "CondensationRequest",
               "CondensationSummaryEvent",
@@ -46892,6 +47927,8 @@
               "ObservationEvent",
               "UserRejectObservation",
               "SystemPromptEvent",
+              "MessageEditEvent",
+              "ReactionEvent",
               "SecurityAnalysisEvent",
               "StreamingDeltaEvent",
               "TokenEvent",
@@ -47673,7 +48710,7 @@
                 "title": "Image Index",
                 "minimum": 0.0,
                 "type": "integer",
-                "description": "Zero-based index of the image to inspect from the latest user message."
+                "description": "Zero-based index of the image to inspect. Images are numbered in conversation order across user messages and tool observations, matching the references in the rewritten messages."
               },
               "question": {
                 "title": "Question",
@@ -47757,6 +48794,55 @@
             },
             "additionalProperties": false,
             "description": "Action for asking the Oracle for advice."
+          }
+        ]
+      },
+      "ActionAskUserAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Action"
+          },
+          {
+            "title": "AskUserAction",
+            "required": [
+              "question",
+              "options",
+              "kind"
+            ],
+            "type": "object",
+            "properties": {
+              "question": {
+                "title": "Question",
+                "maxLength": 300,
+                "minLength": 1,
+                "type": "string",
+                "description": "The question, verb first, in about twelve words."
+              },
+              "options": {
+                "title": "Options",
+                "maxItems": 4,
+                "minItems": 2,
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AskUserOption"
+                },
+                "description": "Two to four options, each with what happens if it is picked."
+              },
+              "recommended": {
+                "title": "Recommended",
+                "minimum": 0.0,
+                "type": [
+                  "null",
+                  "integer"
+                ],
+                "description": "Index, from 0, of the option you recommend."
+              },
+              "kind": {
+                "$ref": "#/components/schemas/AskUserActionKind"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Ask the user one question, with two to four options."
           }
         ]
       },
@@ -48189,6 +49275,76 @@
           }
         ]
       },
+      "ActionFindConversationsAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Action"
+          },
+          {
+            "title": "FindConversationsAction",
+            "required": [
+              "kind"
+            ],
+            "type": "object",
+            "properties": {
+              "query": {
+                "title": "Query",
+                "type": "string",
+                "description": "Words to look for in the titles, in any case and order. Leave it empty to list the latest conversations.",
+                "default": ""
+              },
+              "limit": {
+                "title": "Limit",
+                "maximum": 50.0,
+                "minimum": 1.0,
+                "type": "integer",
+                "description": "Most conversations to list.",
+                "default": 10
+              },
+              "kind": {
+                "$ref": "#/components/schemas/FindConversationsActionKind"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Find the user\u0027s conversations by title."
+          }
+        ]
+      },
+      "ActionReadConversationAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Action"
+          },
+          {
+            "title": "ReadConversationAction",
+            "required": [
+              "conversation",
+              "kind"
+            ],
+            "type": "object",
+            "properties": {
+              "conversation": {
+                "title": "Conversation",
+                "type": "string",
+                "description": "The conversation: its mention link ([Title](conversation:\u003Cid\u003E)) or its id."
+              },
+              "limit": {
+                "title": "Limit",
+                "maximum": 100.0,
+                "minimum": 1.0,
+                "type": "integer",
+                "description": "Most messages to read.",
+                "default": 20
+              },
+              "kind": {
+                "$ref": "#/components/schemas/ReadConversationActionKind"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Read the latest messages of another conversation."
+          }
+        ]
+      },
       "ActionDelegateAction": {
         "allOf": [
           {
@@ -48550,6 +49706,39 @@
           }
         ]
       },
+      "ActionEditMessageAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Action"
+          },
+          {
+            "title": "EditMessageAction",
+            "required": [
+              "old_str",
+              "new_str",
+              "kind"
+            ],
+            "type": "object",
+            "properties": {
+              "old_str": {
+                "title": "Old Str",
+                "type": "string",
+                "description": "Text from one of your earlier messages, copied exactly as the message reads now (with any earlier edit). It must occur only once across your messages; include more of the text around it if it does not."
+              },
+              "new_str": {
+                "title": "New Str",
+                "type": "string",
+                "description": "The text to put in its place."
+              },
+              "kind": {
+                "$ref": "#/components/schemas/EditMessageActionKind"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Replace text in one of your earlier messages."
+          }
+        ]
+      },
       "ActionPlanningFileEditorAction": {
         "allOf": [
           {
@@ -48622,6 +49811,72 @@
             },
             "additionalProperties": false,
             "description": "Schema for planning file editor operations.\n\nInherits from FileEditorAction but restricts editing to PLAN.md only.\nAllows viewing any file but only editing PLAN.md."
+          }
+        ]
+      },
+      "ActionReactAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Action"
+          },
+          {
+            "title": "ReactAction",
+            "required": [
+              "emoji",
+              "kind"
+            ],
+            "type": "object",
+            "properties": {
+              "emoji": {
+                "$ref": "#/components/schemas/ReactActionEmoji"
+              },
+              "message_id": {
+                "title": "Message Id",
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "description": "Id of the message to react to. Leave it out to use the user\u0027s latest message, which is almost always the one you mean."
+              },
+              "kind": {
+                "$ref": "#/components/schemas/ReactActionKind"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Put an emoji reaction on a message."
+          }
+        ]
+      },
+      "ActionUnreactAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Action"
+          },
+          {
+            "title": "UnreactAction",
+            "required": [
+              "emoji",
+              "kind"
+            ],
+            "type": "object",
+            "properties": {
+              "emoji": {
+                "$ref": "#/components/schemas/UnreactActionEmoji"
+              },
+              "message_id": {
+                "title": "Message Id",
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "description": "Id of the message to react to. Leave it out to use the user\u0027s latest message, which is almost always the one you mean."
+              },
+              "kind": {
+                "$ref": "#/components/schemas/UnreactActionKind"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Take an emoji reaction off a message."
           }
         ]
       },
@@ -49243,6 +50498,13 @@
               "attribute_mapping": {
                 "$ref": "#/components/schemas/OAuthProviderDetailsInputAttributeMappingProperty"
               },
+              "group_org_mappings": {
+                "title": "Group Org Mappings",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/GroupOrgMapping"
+                }
+              },
               "kind": {
                 "title": "Kind",
                 "enum": [
@@ -49364,6 +50626,13 @@
               "attribute_mapping": {
                 "$ref": "#/components/schemas/SamlProviderDetailsInputAttributeMappingProperty"
               },
+              "group_org_mappings": {
+                "title": "Group Org Mappings",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/GroupOrgMapping"
+                }
+              },
               "kind": {
                 "title": "Kind",
                 "enum": [
@@ -49455,6 +50724,13 @@
               },
               "attribute_mapping": {
                 "$ref": "#/components/schemas/OAuthProviderDetailsOutputAttributeMappingProperty"
+              },
+              "group_org_mappings": {
+                "title": "Group Org Mappings",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/GroupOrgMapping"
+                }
               },
               "kind": {
                 "$ref": "#/components/schemas/OAuthProviderDetailsOutputKind"
@@ -49567,6 +50843,13 @@
               },
               "attribute_mapping": {
                 "$ref": "#/components/schemas/SamlProviderDetailsOutputAttributeMappingProperty"
+              },
+              "group_org_mappings": {
+                "title": "Group Org Mappings",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/GroupOrgMapping"
+                }
               },
               "kind": {
                 "$ref": "#/components/schemas/SamlProviderDetailsOutputKind"
@@ -50317,6 +51600,79 @@
           }
         ]
       },
+      "EventTypeAskUserAnswerEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EventType"
+          },
+          {
+            "title": "AskUserAnswerEvent",
+            "required": [
+              "ask_id",
+              "kind"
+            ],
+            "type": "object",
+            "properties": {
+              "id": {
+                "title": "Id",
+                "type": "string",
+                "description": "Unique event id (ULID/UUID)"
+              },
+              "timestamp": {
+                "title": "Timestamp",
+                "type": "string",
+                "description": "Event timestamp"
+              },
+              "source": {
+                "$ref": "#/components/schemas/AskUserAnswerEventSource"
+              },
+              "parent_id": {
+                "title": "Parent Id",
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "description": "Parent event id in the conversation tree. None for the root, or for legacy events predating the tree (see EventLog\u0027s effective-parent rule). Events sharing a parent_id are sibling branches."
+              },
+              "ask_id": {
+                "title": "Ask Id",
+                "type": "string",
+                "description": "The \u0060ask_user\u0060 call answered."
+              },
+              "option_index": {
+                "title": "Option Index",
+                "minimum": 0.0,
+                "type": [
+                  "null",
+                  "integer"
+                ],
+                "description": "The option picked, counted from 0."
+              },
+              "option_label": {
+                "title": "Option Label",
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "description": "The picked option\u0027s label, as it was shown."
+              },
+              "text": {
+                "title": "Text",
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "description": "The user\u0027s own words, when they added any."
+              },
+              "kind": {
+                "$ref": "#/components/schemas/AskUserAnswerEventKind"
+              }
+            },
+            "additionalProperties": false,
+            "description": "The user picked an option of a pending \u0060\u0060ask_user\u0060\u0060 question.\n\nIt is recorded just before the user message that carries the answer to\nthe agent, so clients can show the question\u0027s card as answered. The LLM\nnever sees this event; it reads that message."
+          }
+        ]
+      },
       "EventTypeCondensation": {
         "allOf": [
           {
@@ -50784,7 +52140,7 @@
               }
             },
             "additionalProperties": false,
-            "description": "Event containing LLM completion log data.\n\nWhen an LLM is configured with log_completions=True in a remote conversation,\nthis event streams the completion log data back to the client through WebSocket\ninstead of writing it to a file inside the Docker container."
+            "description": "Event containing LLM completion log data.\n\nWhen an LLM is configured with log_completions_to_file=True in a remote\nconversation, this event streams the completion log data back to the client\nthrough WebSocket instead of writing it to a file inside the Docker container."
           }
         ]
       },
@@ -51036,6 +52392,9 @@
               "classification": {
                 "$ref": "#/components/schemas/AgentErrorEventClassification"
               },
+              "recovery_reason": {
+                "$ref": "#/components/schemas/AgentErrorEventRecoveryReason"
+              },
               "validation_errors": {
                 "title": "Validation Errors",
                 "type": [
@@ -51253,6 +52612,132 @@
             },
             "additionalProperties": false,
             "description": "System prompt added by the agent.\n\nThe system prompt can optionally include dynamic context that varies between\nconversations. When \u0060\u0060dynamic_context\u0060\u0060 is provided, it is included as a\nsecond content block in the same system message. Cache markers are NOT\napplied here - they are applied by \u0060\u0060LLM._apply_prompt_caching()\u0060\u0060 when\ncaching is enabled, ensuring provider-specific cache control is only added\nwhen appropriate.\n\nAttributes:\n    system_prompt: The static system prompt text (cacheable across conversations)\n    tools: List of available tools\n    dynamic_context: Optional per-conversation context (hosts, repo info, etc.)\n        Sent as a second TextContent block inside the system message."
+          }
+        ]
+      },
+      "EventTypeMessageEditEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EventType"
+          },
+          {
+            "title": "MessageEditEvent",
+            "required": [
+              "target_event_id",
+              "text",
+              "kind"
+            ],
+            "type": "object",
+            "properties": {
+              "id": {
+                "title": "Id",
+                "type": "string",
+                "description": "Unique event id (ULID/UUID)"
+              },
+              "timestamp": {
+                "title": "Timestamp",
+                "type": "string",
+                "description": "Event timestamp"
+              },
+              "source": {
+                "$ref": "#/components/schemas/MessageEditEventSource"
+              },
+              "parent_id": {
+                "title": "Parent Id",
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "description": "Parent event id in the conversation tree. None for the root, or for legacy events predating the tree (see EventLog\u0027s effective-parent rule). Events sharing a parent_id are sibling branches."
+              },
+              "target_event_id": {
+                "title": "Target Event Id",
+                "type": "string",
+                "description": "The edited message: an agent \u0060MessageEvent\u0060, or the agent\u0027s \u0060finish\u0060 \u0060ActionEvent\u0060."
+              },
+              "text": {
+                "title": "Text",
+                "type": "string",
+                "description": "The message\u0027s whole text after the edit."
+              },
+              "kind": {
+                "$ref": "#/components/schemas/MessageEditEventKind"
+              }
+            },
+            "additionalProperties": false,
+            "description": "The agent\u0027s edit of one of its earlier messages.\n\nThe agent edits with the \u0060\u0060edit_message\u0060\u0060 tool, for example to strike a\nquestion that got answered or a claim that became wrong. \u0060\u0060text\u0060\u0060 is the\nwhole message after the edit; the latest edit of a message wins.\n\nThe LLM never sees this event: its \u0060\u0060edit_message\u0060\u0060 call and result are\nalready in its history, and the message itself stays there as first\nwritten."
+          }
+        ]
+      },
+      "EventTypeReactionEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EventType"
+          },
+          {
+            "title": "ReactionEvent",
+            "required": [
+              "target_event_id",
+              "emoji",
+              "kind"
+            ],
+            "type": "object",
+            "properties": {
+              "id": {
+                "title": "Id",
+                "type": "string",
+                "description": "Unique event id (ULID/UUID)"
+              },
+              "timestamp": {
+                "title": "Timestamp",
+                "type": "string",
+                "description": "Event timestamp"
+              },
+              "source": {
+                "$ref": "#/components/schemas/ReactionEventSource"
+              },
+              "parent_id": {
+                "title": "Parent Id",
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "description": "Parent event id in the conversation tree. None for the root, or for legacy events predating the tree (see EventLog\u0027s effective-parent rule). Events sharing a parent_id are sibling branches."
+              },
+              "target_event_id": {
+                "title": "Target Event Id",
+                "type": "string",
+                "description": "The message reacted to: a \u0060MessageEvent\u0060, or the agent\u0027s \u0060finish\u0060 \u0060ActionEvent\u0060."
+              },
+              "emoji": {
+                "$ref": "#/components/schemas/ReactionEventEmoji"
+              },
+              "removed": {
+                "title": "Removed",
+                "type": "boolean",
+                "description": "True when this removes the reaction.",
+                "default": false
+              },
+              "target_text_ending": {
+                "title": "Target Text Ending",
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "description": "The end of the reacted message\u0027s text, at most 500 characters, saved with the user\u0027s reaction so the agent can tell which message it is about."
+              },
+              "target_text_clipped": {
+                "title": "Target Text Clipped",
+                "type": "boolean",
+                "description": "True when the message is longer than \u0060target_text_ending\u0060.",
+                "default": false
+              },
+              "kind": {
+                "$ref": "#/components/schemas/ReactionEventKind"
+              }
+            },
+            "additionalProperties": false,
+            "description": "An emoji reaction added to, or removed from, a message.\n\nThe agent reacts with the \u0060\u0060react\u0060\u0060/\u0060\u0060unreact\u0060\u0060 tools, and a user\nthrough \u0060\u0060POST /api/conversations/{id}/reactions\u0060\u0060. Clients fold these\nevents into each message\u0027s current set of reactions: the latest event for\na (message, emoji, source) wins.\n\nThe agent sees the user\u0027s reactions on its next turn, as one line naming\nthe emoji and the end of the message (\u0060\u0060target_text_ending\u0060\u0060); a reaction\ndoes not start a run. Its own reactions stay out of what it sees\n(\u0060\u0060View\u0060\u0060 skips them): its \u0060\u0060react\u0060\u0060 call is already there. A user\u0027s\nreaction that arrives while tool calls wait for their results (for example\nduring a confirmation) is held back and becomes an event once those calls\nare answered, so it never sits between a call and its result."
           }
         ]
       },
@@ -52703,6 +54188,41 @@
           }
         ]
       },
+      "ObservationAskUserObservation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Observation"
+          },
+          {
+            "title": "AskUserObservation",
+            "required": [
+              "kind"
+            ],
+            "type": "object",
+            "properties": {
+              "content": {
+                "title": "Content",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
+                },
+                "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
+              },
+              "is_error": {
+                "title": "Is Error",
+                "type": "boolean",
+                "description": "Whether the observation indicates an error",
+                "default": false
+              },
+              "kind": {
+                "$ref": "#/components/schemas/AskUserObservationKind"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Confirms the question was shown; the answer comes as a later message."
+          }
+        ]
+      },
       "ObservationBrowserObservation": {
         "allOf": [
           {
@@ -52831,6 +54351,41 @@
             },
             "additionalProperties": false,
             "description": "Result of a child conversation launch."
+          }
+        ]
+      },
+      "ObservationConversationMentionsObservation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Observation"
+          },
+          {
+            "title": "ConversationMentionsObservation",
+            "required": [
+              "kind"
+            ],
+            "type": "object",
+            "properties": {
+              "content": {
+                "title": "Content",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
+                },
+                "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
+              },
+              "is_error": {
+                "title": "Is Error",
+                "type": "boolean",
+                "description": "Whether the observation indicates an error",
+                "default": false
+              },
+              "kind": {
+                "$ref": "#/components/schemas/ConversationMentionsObservationKind"
+              }
+            },
+            "additionalProperties": false,
+            "description": "What \u0060\u0060find_conversations\u0060\u0060 or \u0060\u0060read_conversation\u0060\u0060 found."
           }
         ]
       },
@@ -53338,6 +54893,55 @@
           }
         ]
       },
+      "ObservationEditMessageObservation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Observation"
+          },
+          {
+            "title": "EditMessageObservation",
+            "required": [
+              "kind"
+            ],
+            "type": "object",
+            "properties": {
+              "content": {
+                "title": "Content",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
+                },
+                "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
+              },
+              "is_error": {
+                "title": "Is Error",
+                "type": "boolean",
+                "description": "Whether the observation indicates an error",
+                "default": false
+              },
+              "target_event_id": {
+                "title": "Target Event Id",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "edited_text": {
+                "title": "Edited Text",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "kind": {
+                "$ref": "#/components/schemas/EditMessageObservationKind"
+              }
+            },
+            "additionalProperties": false,
+            "description": "The result of \u0060\u0060edit_message\u0060\u0060.\n\nOn success it carries the edit, which the agent records as a\n:class:\u0060MessageEditEvent\u0060 after this observation, in the same step."
+          }
+        ]
+      },
       "ObservationPlanningFileEditorObservation": {
         "allOf": [
           {
@@ -53404,6 +55008,56 @@
             },
             "additionalProperties": false,
             "description": "Observation from planning file editor operations.\n\nInherits from FileEditorObservation - same structure, just different type."
+          }
+        ]
+      },
+      "ObservationReactionObservation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Observation"
+          },
+          {
+            "title": "ReactionObservation",
+            "required": [
+              "kind"
+            ],
+            "type": "object",
+            "properties": {
+              "content": {
+                "title": "Content",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
+                },
+                "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
+              },
+              "is_error": {
+                "title": "Is Error",
+                "type": "boolean",
+                "description": "Whether the observation indicates an error",
+                "default": false
+              },
+              "target_event_id": {
+                "title": "Target Event Id",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "emoji": {
+                "$ref": "#/components/schemas/ReactionObservationEmoji"
+              },
+              "removed": {
+                "title": "Removed",
+                "type": "boolean",
+                "default": false
+              },
+              "kind": {
+                "$ref": "#/components/schemas/ReactionObservationKind"
+              }
+            },
+            "additionalProperties": false,
+            "description": "The result of \u0060\u0060react\u0060\u0060 or \u0060\u0060unreact\u0060\u0060.\n\nOn success it carries the reaction, which the agent records as a\n:class:\u0060ReactionEvent\u0060 after this observation, in the same step."
           }
         ]
       },
@@ -54679,6 +56333,55 @@
           }
         ]
       },
+      "ToolDefinitionAskUserTool": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ToolDefinition"
+          },
+          {
+            "title": "AskUserTool",
+            "required": [
+              "description",
+              "action_type",
+              "kind",
+              "title"
+            ],
+            "type": "object",
+            "properties": {
+              "description": {
+                "title": "Description",
+                "type": "string"
+              },
+              "action_type": {
+                "title": "Action Type",
+                "type": "string"
+              },
+              "observation_type": {
+                "title": "Observation Type",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "annotations": {
+                "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
+              },
+              "meta": {
+                "$ref": "#/components/schemas/AskUserToolMetaProperty"
+              },
+              "kind": {
+                "$ref": "#/components/schemas/AskUserToolKind"
+              },
+              "title": {
+                "title": "Title",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "description": "Tool that asks the user a question with options and ends the turn."
+          }
+        ]
+      },
       "ToolDefinitionBrowserClickTool": {
         "allOf": [
           {
@@ -55463,6 +57166,104 @@
           }
         ]
       },
+      "ToolDefinitionFindConversationsTool": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ToolDefinition"
+          },
+          {
+            "title": "FindConversationsTool",
+            "required": [
+              "description",
+              "action_type",
+              "kind",
+              "title"
+            ],
+            "type": "object",
+            "properties": {
+              "description": {
+                "title": "Description",
+                "type": "string"
+              },
+              "action_type": {
+                "title": "Action Type",
+                "type": "string"
+              },
+              "observation_type": {
+                "title": "Observation Type",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "annotations": {
+                "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
+              },
+              "meta": {
+                "$ref": "#/components/schemas/FindConversationsToolMetaProperty"
+              },
+              "kind": {
+                "$ref": "#/components/schemas/FindConversationsToolKind"
+              },
+              "title": {
+                "title": "Title",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "description": "Tool that finds the user\u0027s conversations by title."
+          }
+        ]
+      },
+      "ToolDefinitionReadConversationTool": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ToolDefinition"
+          },
+          {
+            "title": "ReadConversationTool",
+            "required": [
+              "description",
+              "action_type",
+              "kind",
+              "title"
+            ],
+            "type": "object",
+            "properties": {
+              "description": {
+                "title": "Description",
+                "type": "string"
+              },
+              "action_type": {
+                "title": "Action Type",
+                "type": "string"
+              },
+              "observation_type": {
+                "title": "Observation Type",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "annotations": {
+                "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
+              },
+              "meta": {
+                "$ref": "#/components/schemas/ReadConversationToolMetaProperty"
+              },
+              "kind": {
+                "$ref": "#/components/schemas/ReadConversationToolKind"
+              },
+              "title": {
+                "title": "Title",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "description": "Tool that reads the latest messages of another conversation."
+          }
+        ]
+      },
       "ToolDefinitionFileEditorTool": {
         "allOf": [
           {
@@ -55806,6 +57607,55 @@
           }
         ]
       },
+      "ToolDefinitionEditMessageTool": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ToolDefinition"
+          },
+          {
+            "title": "EditMessageTool",
+            "required": [
+              "description",
+              "action_type",
+              "kind",
+              "title"
+            ],
+            "type": "object",
+            "properties": {
+              "description": {
+                "title": "Description",
+                "type": "string"
+              },
+              "action_type": {
+                "title": "Action Type",
+                "type": "string"
+              },
+              "observation_type": {
+                "title": "Observation Type",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "annotations": {
+                "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
+              },
+              "meta": {
+                "$ref": "#/components/schemas/EditMessageToolMetaProperty"
+              },
+              "kind": {
+                "$ref": "#/components/schemas/EditMessageToolKind"
+              },
+              "title": {
+                "title": "Title",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "description": "Tool that edits one of the agent\u0027s earlier messages."
+          }
+        ]
+      },
       "ToolDefinitionPlanningFileEditorTool": {
         "allOf": [
           {
@@ -55852,6 +57702,104 @@
               }
             },
             "description": "A planning file editor tool with read-all, edit-PLAN.md-only access."
+          }
+        ]
+      },
+      "ToolDefinitionReactTool": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ToolDefinition"
+          },
+          {
+            "title": "ReactTool",
+            "required": [
+              "description",
+              "action_type",
+              "kind",
+              "title"
+            ],
+            "type": "object",
+            "properties": {
+              "description": {
+                "title": "Description",
+                "type": "string"
+              },
+              "action_type": {
+                "title": "Action Type",
+                "type": "string"
+              },
+              "observation_type": {
+                "title": "Observation Type",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "annotations": {
+                "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
+              },
+              "meta": {
+                "$ref": "#/components/schemas/ReactToolMetaProperty"
+              },
+              "kind": {
+                "$ref": "#/components/schemas/ReactToolKind"
+              },
+              "title": {
+                "title": "Title",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "description": "Tool that puts an emoji reaction on a message."
+          }
+        ]
+      },
+      "ToolDefinitionUnreactTool": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ToolDefinition"
+          },
+          {
+            "title": "UnreactTool",
+            "required": [
+              "description",
+              "action_type",
+              "kind",
+              "title"
+            ],
+            "type": "object",
+            "properties": {
+              "description": {
+                "title": "Description",
+                "type": "string"
+              },
+              "action_type": {
+                "title": "Action Type",
+                "type": "string"
+              },
+              "observation_type": {
+                "title": "Observation Type",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "annotations": {
+                "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
+              },
+              "meta": {
+                "$ref": "#/components/schemas/UnreactToolMetaProperty"
+              },
+              "kind": {
+                "$ref": "#/components/schemas/UnreactToolKind"
+              },
+              "title": {
+                "title": "Title",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "description": "Tool that takes an emoji reaction off a message."
           }
         ]
       },
@@ -57565,6 +59513,9 @@
         "classification": {
           "$ref": "#/components/schemas/AgentErrorEventClassification"
         },
+        "recovery_reason": {
+          "$ref": "#/components/schemas/AgentErrorEventRecoveryReason"
+        },
         "validation_errors": {
           "title": "Validation Errors",
           "type": [
@@ -57808,6 +59759,184 @@
         }
       },
       "description": "Tool for consulting the Oracle (a saved LLM profile named \u0022oracle\u0022)."
+    },
+    "AskUserAction": {
+      "title": "AskUserAction",
+      "required": [
+        "question",
+        "options",
+        "kind"
+      ],
+      "type": "object",
+      "properties": {
+        "question": {
+          "title": "Question",
+          "maxLength": 300,
+          "minLength": 1,
+          "type": "string",
+          "description": "The question, verb first, in about twelve words."
+        },
+        "options": {
+          "title": "Options",
+          "maxItems": 4,
+          "minItems": 2,
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/AskUserOption"
+          },
+          "description": "Two to four options, each with what happens if it is picked."
+        },
+        "recommended": {
+          "title": "Recommended",
+          "minimum": 0.0,
+          "type": [
+            "null",
+            "integer"
+          ],
+          "description": "Index, from 0, of the option you recommend."
+        },
+        "kind": {
+          "$ref": "#/components/schemas/AskUserActionKind"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Ask the user one question, with two to four options."
+    },
+    "AskUserAnswerEvent": {
+      "title": "AskUserAnswerEvent",
+      "required": [
+        "ask_id",
+        "kind"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string",
+          "description": "Unique event id (ULID/UUID)"
+        },
+        "timestamp": {
+          "title": "Timestamp",
+          "type": "string",
+          "description": "Event timestamp"
+        },
+        "source": {
+          "$ref": "#/components/schemas/AskUserAnswerEventSource"
+        },
+        "parent_id": {
+          "title": "Parent Id",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Parent event id in the conversation tree. None for the root, or for legacy events predating the tree (see EventLog\u0027s effective-parent rule). Events sharing a parent_id are sibling branches."
+        },
+        "ask_id": {
+          "title": "Ask Id",
+          "type": "string",
+          "description": "The \u0060ask_user\u0060 call answered."
+        },
+        "option_index": {
+          "title": "Option Index",
+          "minimum": 0.0,
+          "type": [
+            "null",
+            "integer"
+          ],
+          "description": "The option picked, counted from 0."
+        },
+        "option_label": {
+          "title": "Option Label",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "The picked option\u0027s label, as it was shown."
+        },
+        "text": {
+          "title": "Text",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "The user\u0027s own words, when they added any."
+        },
+        "kind": {
+          "$ref": "#/components/schemas/AskUserAnswerEventKind"
+        }
+      },
+      "additionalProperties": false,
+      "description": "The user picked an option of a pending \u0060\u0060ask_user\u0060\u0060 question.\n\nIt is recorded just before the user message that carries the answer to\nthe agent, so clients can show the question\u0027s card as answered. The LLM\nnever sees this event; it reads that message."
+    },
+    "AskUserObservation": {
+      "title": "AskUserObservation",
+      "required": [
+        "kind"
+      ],
+      "type": "object",
+      "properties": {
+        "content": {
+          "title": "Content",
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
+          },
+          "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
+        },
+        "is_error": {
+          "title": "Is Error",
+          "type": "boolean",
+          "description": "Whether the observation indicates an error",
+          "default": false
+        },
+        "kind": {
+          "$ref": "#/components/schemas/AskUserObservationKind"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Confirms the question was shown; the answer comes as a later message."
+    },
+    "AskUserTool": {
+      "title": "AskUserTool",
+      "required": [
+        "description",
+        "action_type",
+        "kind",
+        "title"
+      ],
+      "type": "object",
+      "properties": {
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "action_type": {
+          "title": "Action Type",
+          "type": "string"
+        },
+        "observation_type": {
+          "title": "Observation Type",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "annotations": {
+          "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
+        },
+        "meta": {
+          "$ref": "#/components/schemas/AskUserToolMetaProperty"
+        },
+        "kind": {
+          "$ref": "#/components/schemas/AskUserToolKind"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string",
+          "readOnly": true
+        }
+      },
+      "description": "Tool that asks the user a question with options and ends the turn."
     },
     "AzureDevOpsV1CallbackProcessorInput": {
       "title": "AzureDevOpsV1CallbackProcessor",
@@ -59453,6 +61582,34 @@
       "additionalProperties": false,
       "description": "Conversation-level failure that is NOT sent back to the LLM.\n\nThis event is emitted by the conversation runtime when an unexpected\nexception bubbles up and prevents the run loop from continuing. It is\nintended for client applications (e.g., UIs) to present a top-level error\nstate, and for orchestration to react. It is not an observation and it is\nnot LLM-convertible.\n\nDifferences from AgentErrorEvent:\n- Not tied to any tool_name/tool_call_id (AgentErrorEvent is a tool\n  observation).\n- Typically source=\u0027environment\u0027 and the run loop moves to an ERROR state,\n  while AgentErrorEvent has source=\u0027agent\u0027 and the conversation can\n  continue."
     },
+    "ConversationMentionsObservation": {
+      "title": "ConversationMentionsObservation",
+      "required": [
+        "kind"
+      ],
+      "type": "object",
+      "properties": {
+        "content": {
+          "title": "Content",
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
+          },
+          "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
+        },
+        "is_error": {
+          "title": "Is Error",
+          "type": "boolean",
+          "description": "Whether the observation indicates an error",
+          "default": false
+        },
+        "kind": {
+          "$ref": "#/components/schemas/ConversationMentionsObservationKind"
+        }
+      },
+      "additionalProperties": false,
+      "description": "What \u0060\u0060find_conversations\u0060\u0060 or \u0060\u0060read_conversation\u0060\u0060 found."
+    },
     "ConversationRuntimeError": {
       "title": "ConversationRuntimeError",
       "required": [
@@ -59721,6 +61878,116 @@
       },
       "additionalProperties": false,
       "description": "Schema for edit operation."
+    },
+    "EditMessageAction": {
+      "title": "EditMessageAction",
+      "required": [
+        "old_str",
+        "new_str",
+        "kind"
+      ],
+      "type": "object",
+      "properties": {
+        "old_str": {
+          "title": "Old Str",
+          "type": "string",
+          "description": "Text from one of your earlier messages, copied exactly as the message reads now (with any earlier edit). It must occur only once across your messages; include more of the text around it if it does not."
+        },
+        "new_str": {
+          "title": "New Str",
+          "type": "string",
+          "description": "The text to put in its place."
+        },
+        "kind": {
+          "$ref": "#/components/schemas/EditMessageActionKind"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Replace text in one of your earlier messages."
+    },
+    "EditMessageObservation": {
+      "title": "EditMessageObservation",
+      "required": [
+        "kind"
+      ],
+      "type": "object",
+      "properties": {
+        "content": {
+          "title": "Content",
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
+          },
+          "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
+        },
+        "is_error": {
+          "title": "Is Error",
+          "type": "boolean",
+          "description": "Whether the observation indicates an error",
+          "default": false
+        },
+        "target_event_id": {
+          "title": "Target Event Id",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "edited_text": {
+          "title": "Edited Text",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "kind": {
+          "$ref": "#/components/schemas/EditMessageObservationKind"
+        }
+      },
+      "additionalProperties": false,
+      "description": "The result of \u0060\u0060edit_message\u0060\u0060.\n\nOn success it carries the edit, which the agent records as a\n:class:\u0060MessageEditEvent\u0060 after this observation, in the same step."
+    },
+    "EditMessageTool": {
+      "title": "EditMessageTool",
+      "required": [
+        "description",
+        "action_type",
+        "kind",
+        "title"
+      ],
+      "type": "object",
+      "properties": {
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "action_type": {
+          "title": "Action Type",
+          "type": "string"
+        },
+        "observation_type": {
+          "title": "Observation Type",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "annotations": {
+          "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
+        },
+        "meta": {
+          "$ref": "#/components/schemas/EditMessageToolMetaProperty"
+        },
+        "kind": {
+          "$ref": "#/components/schemas/EditMessageToolKind"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string",
+          "readOnly": true
+        }
+      },
+      "description": "Tool that edits one of the agent\u0027s earlier messages."
     },
     "EditObservation": {
       "title": "EditObservation",
@@ -60093,6 +62360,76 @@
         }
       },
       "description": "A ToolDefinition subclass that automatically initializes a FileEditorExecutor."
+    },
+    "FindConversationsAction": {
+      "title": "FindConversationsAction",
+      "required": [
+        "kind"
+      ],
+      "type": "object",
+      "properties": {
+        "query": {
+          "title": "Query",
+          "type": "string",
+          "description": "Words to look for in the titles, in any case and order. Leave it empty to list the latest conversations.",
+          "default": ""
+        },
+        "limit": {
+          "title": "Limit",
+          "maximum": 50.0,
+          "minimum": 1.0,
+          "type": "integer",
+          "description": "Most conversations to list.",
+          "default": 10
+        },
+        "kind": {
+          "$ref": "#/components/schemas/FindConversationsActionKind"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Find the user\u0027s conversations by title."
+    },
+    "FindConversationsTool": {
+      "title": "FindConversationsTool",
+      "required": [
+        "description",
+        "action_type",
+        "kind",
+        "title"
+      ],
+      "type": "object",
+      "properties": {
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "action_type": {
+          "title": "Action Type",
+          "type": "string"
+        },
+        "observation_type": {
+          "title": "Observation Type",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "annotations": {
+          "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
+        },
+        "meta": {
+          "$ref": "#/components/schemas/FindConversationsToolMetaProperty"
+        },
+        "kind": {
+          "$ref": "#/components/schemas/FindConversationsToolKind"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string",
+          "readOnly": true
+        }
+      },
+      "description": "Tool that finds the user\u0027s conversations by title."
     },
     "FinishAction": {
       "title": "FinishAction",
@@ -61160,7 +63497,7 @@
         }
       },
       "additionalProperties": false,
-      "description": "Event containing LLM completion log data.\n\nWhen an LLM is configured with log_completions=True in a remote conversation,\nthis event streams the completion log data back to the client through WebSocket\ninstead of writing it to a file inside the Docker container."
+      "description": "Event containing LLM completion log data.\n\nWhen an LLM is configured with log_completions_to_file=True in a remote\nconversation, this event streams the completion log data back to the client\nthrough WebSocket instead of writing it to a file inside the Docker container."
     },
     "LlmSecurityAnalyzer": {
       "title": "LLMSecurityAnalyzer",
@@ -62135,6 +64472,53 @@
       },
       "description": "Detect MEMORY.md updates made via the file_editor tool and persist\nthe new content to the user record.\n\nUnlike \u0060\u0060SetTitleCallbackProcessor\u0060\u0060 this processor never self-disables:\na conversation can update its memory multiple times, so the callback must\nstay \u0060\u0060ACTIVE\u0060\u0060 for the lifetime of the conversation."
     },
+    "MessageEditEvent": {
+      "title": "MessageEditEvent",
+      "required": [
+        "target_event_id",
+        "text",
+        "kind"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string",
+          "description": "Unique event id (ULID/UUID)"
+        },
+        "timestamp": {
+          "title": "Timestamp",
+          "type": "string",
+          "description": "Event timestamp"
+        },
+        "source": {
+          "$ref": "#/components/schemas/MessageEditEventSource"
+        },
+        "parent_id": {
+          "title": "Parent Id",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Parent event id in the conversation tree. None for the root, or for legacy events predating the tree (see EventLog\u0027s effective-parent rule). Events sharing a parent_id are sibling branches."
+        },
+        "target_event_id": {
+          "title": "Target Event Id",
+          "type": "string",
+          "description": "The edited message: an agent \u0060MessageEvent\u0060, or the agent\u0027s \u0060finish\u0060 \u0060ActionEvent\u0060."
+        },
+        "text": {
+          "title": "Text",
+          "type": "string",
+          "description": "The message\u0027s whole text after the edit."
+        },
+        "kind": {
+          "$ref": "#/components/schemas/MessageEditEventKind"
+        }
+      },
+      "additionalProperties": false,
+      "description": "The agent\u0027s edit of one of its earlier messages.\n\nThe agent edits with the \u0060\u0060edit_message\u0060\u0060 tool, for example to strike a\nquestion that got answered or a claim that became wrong. \u0060\u0060text\u0060\u0060 is the\nwhole message after the edit; the latest edit of a message wins.\n\nThe LLM never sees this event: its \u0060\u0060edit_message\u0060\u0060 call and result are\nalready in its history, and the message itself stays there as first\nwritten."
+    },
     "MessageEvent": {
       "title": "MessageEvent",
       "required": [
@@ -62346,6 +64730,13 @@
         "attribute_mapping": {
           "$ref": "#/components/schemas/OAuthProviderDetailsInputAttributeMappingProperty"
         },
+        "group_org_mappings": {
+          "title": "Group Org Mappings",
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/GroupOrgMapping"
+          }
+        },
         "kind": {
           "$ref": "#/components/schemas/OAuthProviderDetailsKind"
         }
@@ -62423,6 +64814,13 @@
         },
         "attribute_mapping": {
           "$ref": "#/components/schemas/OAuthProviderDetailsOutputAttributeMappingProperty"
+        },
+        "group_org_mappings": {
+          "title": "Group Org Mappings",
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/GroupOrgMapping"
+          }
         },
         "kind": {
           "$ref": "#/components/schemas/OAuthProviderDetailsOutputKind"
@@ -62969,6 +65367,269 @@
       },
       "description": "Catch threats defined by shell command structure.\n\nNamed rails use shell syntax to detect dangerous operations, such as a\nnetwork fetch piped to a downstream command. Per-segment evaluation keeps\nthe threat model interpretable and prevents text from separate fields from\nforming one match.\n\nEvaluates original executable segments only -- reasoning text is never\nscanned.\n\nReturns \u0060\u0060SecurityRisk.HIGH\u0060\u0060 when a rail fires and \u0060\u0060UNKNOWN\u0060\u0060 when a\nrelevant shell structure cannot be resolved. \u0060\u0060LOW\u0060\u0060 means that no\nconfigured rail matched and no relevant uncertainty remained. It does not\nestablish general safety or authorization. Pair with \u0060\u0060ConfirmRisky\u0060\u0060 and\ncompose via \u0060\u0060EnsembleSecurityAnalyzer\u0060\u0060.\n\nv1 rails: fetch-to-exec, raw-disk-op, catastrophic-delete.\n\nExample::\n\n    from openhands.sdk.security import PolicyRailSecurityAnalyzer\n\n    analyzer = PolicyRailSecurityAnalyzer()\n    # risk = analyzer.security_risk(action)"
     },
+    "ProfileSandboxSettings": {
+      "title": "ProfileSandboxSettings",
+      "required": [
+        "spec_id"
+      ],
+      "type": "object",
+      "properties": {
+        "spec_id": {
+          "title": "Spec Id",
+          "minLength": 1,
+          "type": "string",
+          "description": "Id of a sandbox spec (for example an agent-server image) the host advertises. Applies only when a new sandbox is created; the host decides how a spec it no longer offers is handled."
+        }
+      },
+      "additionalProperties": false,
+      "description": "Sandbox launch metadata for a profile, read by the host that provisions\nsandboxes.\n\nKept apart from the agent configuration: :func:\u0060~openhands.sdk.launch.resolve\u0060\nnever copies it into \u0060\u0060AgentSettings\u0060\u0060, and an agent server that does not\ncreate sandboxes ignores it."
+    },
+    "ReactAction": {
+      "title": "ReactAction",
+      "required": [
+        "emoji",
+        "kind"
+      ],
+      "type": "object",
+      "properties": {
+        "emoji": {
+          "$ref": "#/components/schemas/ReactActionEmoji"
+        },
+        "message_id": {
+          "title": "Message Id",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Id of the message to react to. Leave it out to use the user\u0027s latest message, which is almost always the one you mean."
+        },
+        "kind": {
+          "$ref": "#/components/schemas/ReactActionKind"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Put an emoji reaction on a message."
+    },
+    "ReactTool": {
+      "title": "ReactTool",
+      "required": [
+        "description",
+        "action_type",
+        "kind",
+        "title"
+      ],
+      "type": "object",
+      "properties": {
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "action_type": {
+          "title": "Action Type",
+          "type": "string"
+        },
+        "observation_type": {
+          "title": "Observation Type",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "annotations": {
+          "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
+        },
+        "meta": {
+          "$ref": "#/components/schemas/ReactToolMetaProperty"
+        },
+        "kind": {
+          "$ref": "#/components/schemas/ReactToolKind"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string",
+          "readOnly": true
+        }
+      },
+      "description": "Tool that puts an emoji reaction on a message."
+    },
+    "ReactionEvent": {
+      "title": "ReactionEvent",
+      "required": [
+        "target_event_id",
+        "emoji",
+        "kind"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string",
+          "description": "Unique event id (ULID/UUID)"
+        },
+        "timestamp": {
+          "title": "Timestamp",
+          "type": "string",
+          "description": "Event timestamp"
+        },
+        "source": {
+          "$ref": "#/components/schemas/ReactionEventSource"
+        },
+        "parent_id": {
+          "title": "Parent Id",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Parent event id in the conversation tree. None for the root, or for legacy events predating the tree (see EventLog\u0027s effective-parent rule). Events sharing a parent_id are sibling branches."
+        },
+        "target_event_id": {
+          "title": "Target Event Id",
+          "type": "string",
+          "description": "The message reacted to: a \u0060MessageEvent\u0060, or the agent\u0027s \u0060finish\u0060 \u0060ActionEvent\u0060."
+        },
+        "emoji": {
+          "$ref": "#/components/schemas/ReactionEventEmoji"
+        },
+        "removed": {
+          "title": "Removed",
+          "type": "boolean",
+          "description": "True when this removes the reaction.",
+          "default": false
+        },
+        "target_text_ending": {
+          "title": "Target Text Ending",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "The end of the reacted message\u0027s text, at most 500 characters, saved with the user\u0027s reaction so the agent can tell which message it is about."
+        },
+        "target_text_clipped": {
+          "title": "Target Text Clipped",
+          "type": "boolean",
+          "description": "True when the message is longer than \u0060target_text_ending\u0060.",
+          "default": false
+        },
+        "kind": {
+          "$ref": "#/components/schemas/ReactionEventKind"
+        }
+      },
+      "additionalProperties": false,
+      "description": "An emoji reaction added to, or removed from, a message.\n\nThe agent reacts with the \u0060\u0060react\u0060\u0060/\u0060\u0060unreact\u0060\u0060 tools, and a user\nthrough \u0060\u0060POST /api/conversations/{id}/reactions\u0060\u0060. Clients fold these\nevents into each message\u0027s current set of reactions: the latest event for\na (message, emoji, source) wins.\n\nThe agent sees the user\u0027s reactions on its next turn, as one line naming\nthe emoji and the end of the message (\u0060\u0060target_text_ending\u0060\u0060); a reaction\ndoes not start a run. Its own reactions stay out of what it sees\n(\u0060\u0060View\u0060\u0060 skips them): its \u0060\u0060react\u0060\u0060 call is already there. A user\u0027s\nreaction that arrives while tool calls wait for their results (for example\nduring a confirmation) is held back and becomes an event once those calls\nare answered, so it never sits between a call and its result."
+    },
+    "ReactionObservation": {
+      "title": "ReactionObservation",
+      "required": [
+        "kind"
+      ],
+      "type": "object",
+      "properties": {
+        "content": {
+          "title": "Content",
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/AppSendMessageRequestContentItem"
+          },
+          "description": "Content returned from the tool as a list of TextContent/ImageContent objects. When there is an error, it should be written in this field."
+        },
+        "is_error": {
+          "title": "Is Error",
+          "type": "boolean",
+          "description": "Whether the observation indicates an error",
+          "default": false
+        },
+        "target_event_id": {
+          "title": "Target Event Id",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "emoji": {
+          "$ref": "#/components/schemas/ReactionObservationEmoji"
+        },
+        "removed": {
+          "title": "Removed",
+          "type": "boolean",
+          "default": false
+        },
+        "kind": {
+          "$ref": "#/components/schemas/ReactionObservationKind"
+        }
+      },
+      "additionalProperties": false,
+      "description": "The result of \u0060\u0060react\u0060\u0060 or \u0060\u0060unreact\u0060\u0060.\n\nOn success it carries the reaction, which the agent records as a\n:class:\u0060ReactionEvent\u0060 after this observation, in the same step."
+    },
+    "ReadConversationAction": {
+      "title": "ReadConversationAction",
+      "required": [
+        "conversation",
+        "kind"
+      ],
+      "type": "object",
+      "properties": {
+        "conversation": {
+          "title": "Conversation",
+          "type": "string",
+          "description": "The conversation: its mention link ([Title](conversation:\u003Cid\u003E)) or its id."
+        },
+        "limit": {
+          "title": "Limit",
+          "maximum": 100.0,
+          "minimum": 1.0,
+          "type": "integer",
+          "description": "Most messages to read.",
+          "default": 20
+        },
+        "kind": {
+          "$ref": "#/components/schemas/ReadConversationActionKind"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Read the latest messages of another conversation."
+    },
+    "ReadConversationTool": {
+      "title": "ReadConversationTool",
+      "required": [
+        "description",
+        "action_type",
+        "kind",
+        "title"
+      ],
+      "type": "object",
+      "properties": {
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "action_type": {
+          "title": "Action Type",
+          "type": "string"
+        },
+        "observation_type": {
+          "title": "Observation Type",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "annotations": {
+          "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
+        },
+        "meta": {
+          "$ref": "#/components/schemas/ReadConversationToolMetaProperty"
+        },
+        "kind": {
+          "$ref": "#/components/schemas/ReadConversationToolKind"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string",
+          "readOnly": true
+        }
+      },
+      "description": "Tool that reads the latest messages of another conversation."
+    },
     "ReadFileAction": {
       "title": "ReadFileAction",
       "required": [
@@ -63291,6 +65952,13 @@
         "attribute_mapping": {
           "$ref": "#/components/schemas/SamlProviderDetailsInputAttributeMappingProperty"
         },
+        "group_org_mappings": {
+          "title": "Group Org Mappings",
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/GroupOrgMapping"
+          }
+        },
         "kind": {
           "$ref": "#/components/schemas/SamlProviderDetailsKind"
         }
@@ -63365,6 +66033,13 @@
         },
         "attribute_mapping": {
           "$ref": "#/components/schemas/SamlProviderDetailsOutputAttributeMappingProperty"
+        },
+        "group_org_mappings": {
+          "title": "Group Org Mappings",
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/GroupOrgMapping"
+          }
         },
         "kind": {
           "$ref": "#/components/schemas/SamlProviderDetailsOutputKind"
@@ -63518,6 +66193,15 @@
           "type": "boolean",
           "description": "Whether the agent loop should automatically run if not running",
           "default": false
+        },
+        "sender_conversation_id": {
+          "title": "Sender Conversation Id",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "The conversation sending this message, when an agent rather than the user sends it. The saved message records it as its \u0060sender\u0060 (\u0060conversation:\u003Cid hex\u003E\u0060) and opens with a line telling the receiving agent which conversation sent it, that the user did not, and that it approves nothing on the user\u0027s behalf. On a new conversation\u0027s \u0060initial_message\u0060 it marks the first message the same way. Leave it out for the user\u0027s own messages.",
+          "format": "uuid"
         }
       },
       "description": "Payload to send a message to the agent."
@@ -64365,11 +67049,22 @@
             "prominence": "minor"
           }
         },
+        "log_completions_to_file": {
+          "title": "Log Completions To File",
+          "type": "boolean",
+          "description": "Enable completion JSON logging to log_completions_folder or a configured completion-log callback. OpenTelemetry tracing is configured separately and can export LLM message content while completion logging is disabled.",
+          "default": false,
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        },
         "log_completions": {
           "title": "Log Completions",
           "type": "boolean",
-          "description": "Enable logging of completions.",
+          "description": "Deprecated alias for log_completions_to_file. Deprecated since v1.63.0 and scheduled for removal in v1.68.0.",
           "default": false,
+          "deprecated": true,
           "openhands_settings": {
             "depends_on": [],
             "prominence": "minor"
@@ -64378,7 +67073,7 @@
         "log_completions_folder": {
           "title": "Log Completions Folder",
           "type": "string",
-          "description": "The folder to log LLM completions to. Required if log_completions is True.",
+          "description": "The folder to log LLM completions to. Required if log_completions_to_file is True.",
           "default": "logs/completions",
           "openhands_settings": {
             "depends_on": [],
@@ -65466,6 +68161,74 @@
       "additionalProperties": false,
       "description": "Fallback for observation payloads unknown to this server."
     },
+    "UnreactAction": {
+      "title": "UnreactAction",
+      "required": [
+        "emoji",
+        "kind"
+      ],
+      "type": "object",
+      "properties": {
+        "emoji": {
+          "$ref": "#/components/schemas/UnreactActionEmoji"
+        },
+        "message_id": {
+          "title": "Message Id",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Id of the message to react to. Leave it out to use the user\u0027s latest message, which is almost always the one you mean."
+        },
+        "kind": {
+          "$ref": "#/components/schemas/UnreactActionKind"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Take an emoji reaction off a message."
+    },
+    "UnreactTool": {
+      "title": "UnreactTool",
+      "required": [
+        "description",
+        "action_type",
+        "kind",
+        "title"
+      ],
+      "type": "object",
+      "properties": {
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "action_type": {
+          "title": "Action Type",
+          "type": "string"
+        },
+        "observation_type": {
+          "title": "Observation Type",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "annotations": {
+          "$ref": "#/components/schemas/ApplyPatchToolAnnotations"
+        },
+        "meta": {
+          "$ref": "#/components/schemas/UnreactToolMetaProperty"
+        },
+        "kind": {
+          "$ref": "#/components/schemas/UnreactToolKind"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string",
+          "readOnly": true
+        }
+      },
+      "description": "Tool that takes an emoji reaction off a message."
+    },
     "UserRejectObservation": {
       "title": "UserRejectObservation",
       "required": [
@@ -65541,7 +68304,7 @@
           "title": "Image Index",
           "minimum": 0.0,
           "type": "integer",
-          "description": "Zero-based index of the image to inspect from the latest user message."
+          "description": "Zero-based index of the image to inspect. Images are numbered in conversation order across user messages and tool observations, matching the references in the rewritten messages."
         },
         "question": {
           "title": "Question",
@@ -66504,6 +69267,15 @@
           "type": "boolean",
           "description": "Whether the agent loop should automatically run if not running",
           "default": false
+        },
+        "sender_conversation_id": {
+          "title": "Sender Conversation Id",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "The conversation sending this message, when an agent rather than the user sends it. The saved message records it as its \u0060sender\u0060 (\u0060conversation:\u003Cid hex\u003E\u0060) and opens with a line telling the receiving agent which conversation sent it, that the user did not, and that it approves nothing on the user\u0027s behalf. On a new conversation\u0027s \u0060initial_message\u0060 it marks the first message the same way. Leave it out for the user\u0027s own messages.",
+          "format": "uuid"
         }
       },
       "description": "Payload to send a message to the agent.",
@@ -66620,6 +69392,68 @@
       ]
     },
     "AskOracleToolAnnotations": {
+      "title": "openhands.sdk.tool.tool.ToolAnnotations",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "A human-readable title for the tool."
+        },
+        "readOnlyHint": {
+          "title": "Readonlyhint",
+          "type": "boolean",
+          "description": "If true, the tool does not modify its environment. Default: false",
+          "default": false
+        },
+        "destructiveHint": {
+          "title": "Destructivehint",
+          "type": "boolean",
+          "description": "If true, the tool may perform destructive updates to its environment. If false, the tool performs only additive updates. (This property is meaningful only when \u0060readOnlyHint == false\u0060) Default: true",
+          "default": true
+        },
+        "idempotentHint": {
+          "title": "Idempotenthint",
+          "type": "boolean",
+          "description": "If true, calling the tool repeatedly with the same arguments will have no additional effect on the its environment. (This property is meaningful only when \u0060readOnlyHint == false\u0060) Default: false",
+          "default": false
+        },
+        "openWorldHint": {
+          "title": "Openworldhint",
+          "type": "boolean",
+          "description": "If true, this tool may interact with an \u0027open world\u0027 of external entities. If false, the tool\u0027s domain of interaction is closed. For example, the world of a web search tool is open, whereas that of a memory tool is not. Default: true",
+          "default": true
+        }
+      },
+      "description": "Annotations to provide hints about the tool\u0027s behavior.\n\nBased on Model Context Protocol (MCP) spec:\nhttps://github.com/modelcontextprotocol/modelcontextprotocol/blob/caf3424488b10b4a7b1f8cb634244a450a1f4400/schema/2025-06-18/schema.ts#L838",
+      "x-client-original-nullable-union": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "AskUserObservationContentItem": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/TextContent"
+        },
+        {
+          "$ref": "#/components/schemas/ImageContent"
+        }
+      ]
+    },
+    "AskUserToolAnnotations": {
       "title": "openhands.sdk.tool.tool.ToolAnnotations",
       "type": [
         "object",
@@ -67682,6 +70516,16 @@
         ]
       }
     },
+    "ConversationMentionsObservationContentItem": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/TextContent"
+        },
+        {
+          "$ref": "#/components/schemas/ImageContent"
+        }
+      ]
+    },
     "ConversationPullRequestGitProvider": {
       "anyOf": [
         {
@@ -67711,6 +70555,68 @@
           "$ref": "#/components/schemas/ImageContent"
         }
       ]
+    },
+    "EditMessageObservationContentItem": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/TextContent"
+        },
+        {
+          "$ref": "#/components/schemas/ImageContent"
+        }
+      ]
+    },
+    "EditMessageToolAnnotations": {
+      "title": "openhands.sdk.tool.tool.ToolAnnotations",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "A human-readable title for the tool."
+        },
+        "readOnlyHint": {
+          "title": "Readonlyhint",
+          "type": "boolean",
+          "description": "If true, the tool does not modify its environment. Default: false",
+          "default": false
+        },
+        "destructiveHint": {
+          "title": "Destructivehint",
+          "type": "boolean",
+          "description": "If true, the tool may perform destructive updates to its environment. If false, the tool performs only additive updates. (This property is meaningful only when \u0060readOnlyHint == false\u0060) Default: true",
+          "default": true
+        },
+        "idempotentHint": {
+          "title": "Idempotenthint",
+          "type": "boolean",
+          "description": "If true, calling the tool repeatedly with the same arguments will have no additional effect on the its environment. (This property is meaningful only when \u0060readOnlyHint == false\u0060) Default: false",
+          "default": false
+        },
+        "openWorldHint": {
+          "title": "Openworldhint",
+          "type": "boolean",
+          "description": "If true, this tool may interact with an \u0027open world\u0027 of external entities. If false, the tool\u0027s domain of interaction is closed. For example, the world of a web search tool is open, whereas that of a memory tool is not. Default: true",
+          "default": true
+        }
+      },
+      "description": "Annotations to provide hints about the tool\u0027s behavior.\n\nBased on Model Context Protocol (MCP) spec:\nhttps://github.com/modelcontextprotocol/modelcontextprotocol/blob/caf3424488b10b4a7b1f8cb634244a450a1f4400/schema/2025-06-18/schema.ts#L838",
+      "x-client-original-nullable-union": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
     },
     "EditObservationContentItem": {
       "anyOf": [
@@ -67821,6 +70727,58 @@
       ]
     },
     "FileEditorToolAnnotations": {
+      "title": "openhands.sdk.tool.tool.ToolAnnotations",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "A human-readable title for the tool."
+        },
+        "readOnlyHint": {
+          "title": "Readonlyhint",
+          "type": "boolean",
+          "description": "If true, the tool does not modify its environment. Default: false",
+          "default": false
+        },
+        "destructiveHint": {
+          "title": "Destructivehint",
+          "type": "boolean",
+          "description": "If true, the tool may perform destructive updates to its environment. If false, the tool performs only additive updates. (This property is meaningful only when \u0060readOnlyHint == false\u0060) Default: true",
+          "default": true
+        },
+        "idempotentHint": {
+          "title": "Idempotenthint",
+          "type": "boolean",
+          "description": "If true, calling the tool repeatedly with the same arguments will have no additional effect on the its environment. (This property is meaningful only when \u0060readOnlyHint == false\u0060) Default: false",
+          "default": false
+        },
+        "openWorldHint": {
+          "title": "Openworldhint",
+          "type": "boolean",
+          "description": "If true, this tool may interact with an \u0027open world\u0027 of external entities. If false, the tool\u0027s domain of interaction is closed. For example, the world of a web search tool is open, whereas that of a memory tool is not. Default: true",
+          "default": true
+        }
+      },
+      "description": "Annotations to provide hints about the tool\u0027s behavior.\n\nBased on Model Context Protocol (MCP) spec:\nhttps://github.com/modelcontextprotocol/modelcontextprotocol/blob/caf3424488b10b4a7b1f8cb634244a450a1f4400/schema/2025-06-18/schema.ts#L838",
+      "x-client-original-nullable-union": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "FindConversationsToolAnnotations": {
       "title": "openhands.sdk.tool.tool.ToolAnnotations",
       "type": [
         "object",
@@ -68971,6 +71929,37 @@
         }
       ]
     },
+    "OpenHandsAgentProfileSandbox": {
+      "title": "ProfileSandboxSettings",
+      "required": [
+        "spec_id"
+      ],
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "spec_id": {
+          "title": "Spec Id",
+          "minLength": 1,
+          "type": "string",
+          "description": "Id of a sandbox spec (for example an agent-server image) the host advertises. Applies only when a new sandbox is created; the host decides how a spec it no longer offers is handled."
+        }
+      },
+      "additionalProperties": false,
+      "description": "Sandbox to start new conversations with. null = the host\u0027s own default selection.",
+      "x-client-original-nullable-union": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ProfileSandboxSettings"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Sandbox to start new conversations with. null = the host\u0027s own default selection."
+      }
+    },
     "OpenHandsAgentSettingsTools": {
       "title": "Tools",
       "anyOf": [
@@ -69156,6 +72145,120 @@
       ]
     },
     "PlanningFileEditorToolAnnotations": {
+      "title": "openhands.sdk.tool.tool.ToolAnnotations",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "A human-readable title for the tool."
+        },
+        "readOnlyHint": {
+          "title": "Readonlyhint",
+          "type": "boolean",
+          "description": "If true, the tool does not modify its environment. Default: false",
+          "default": false
+        },
+        "destructiveHint": {
+          "title": "Destructivehint",
+          "type": "boolean",
+          "description": "If true, the tool may perform destructive updates to its environment. If false, the tool performs only additive updates. (This property is meaningful only when \u0060readOnlyHint == false\u0060) Default: true",
+          "default": true
+        },
+        "idempotentHint": {
+          "title": "Idempotenthint",
+          "type": "boolean",
+          "description": "If true, calling the tool repeatedly with the same arguments will have no additional effect on the its environment. (This property is meaningful only when \u0060readOnlyHint == false\u0060) Default: false",
+          "default": false
+        },
+        "openWorldHint": {
+          "title": "Openworldhint",
+          "type": "boolean",
+          "description": "If true, this tool may interact with an \u0027open world\u0027 of external entities. If false, the tool\u0027s domain of interaction is closed. For example, the world of a web search tool is open, whereas that of a memory tool is not. Default: true",
+          "default": true
+        }
+      },
+      "description": "Annotations to provide hints about the tool\u0027s behavior.\n\nBased on Model Context Protocol (MCP) spec:\nhttps://github.com/modelcontextprotocol/modelcontextprotocol/blob/caf3424488b10b4a7b1f8cb634244a450a1f4400/schema/2025-06-18/schema.ts#L838",
+      "x-client-original-nullable-union": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "ReactToolAnnotations": {
+      "title": "openhands.sdk.tool.tool.ToolAnnotations",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "A human-readable title for the tool."
+        },
+        "readOnlyHint": {
+          "title": "Readonlyhint",
+          "type": "boolean",
+          "description": "If true, the tool does not modify its environment. Default: false",
+          "default": false
+        },
+        "destructiveHint": {
+          "title": "Destructivehint",
+          "type": "boolean",
+          "description": "If true, the tool may perform destructive updates to its environment. If false, the tool performs only additive updates. (This property is meaningful only when \u0060readOnlyHint == false\u0060) Default: true",
+          "default": true
+        },
+        "idempotentHint": {
+          "title": "Idempotenthint",
+          "type": "boolean",
+          "description": "If true, calling the tool repeatedly with the same arguments will have no additional effect on the its environment. (This property is meaningful only when \u0060readOnlyHint == false\u0060) Default: false",
+          "default": false
+        },
+        "openWorldHint": {
+          "title": "Openworldhint",
+          "type": "boolean",
+          "description": "If true, this tool may interact with an \u0027open world\u0027 of external entities. If false, the tool\u0027s domain of interaction is closed. For example, the world of a web search tool is open, whereas that of a memory tool is not. Default: true",
+          "default": true
+        }
+      },
+      "description": "Annotations to provide hints about the tool\u0027s behavior.\n\nBased on Model Context Protocol (MCP) spec:\nhttps://github.com/modelcontextprotocol/modelcontextprotocol/blob/caf3424488b10b4a7b1f8cb634244a450a1f4400/schema/2025-06-18/schema.ts#L838",
+      "x-client-original-nullable-union": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "ReactionObservationContentItem": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/TextContent"
+        },
+        {
+          "$ref": "#/components/schemas/ImageContent"
+        }
+      ]
+    },
+    "ReadConversationToolAnnotations": {
       "title": "openhands.sdk.tool.tool.ToolAnnotations",
       "type": [
         "object",
@@ -70453,6 +73556,58 @@
         }
       ]
     },
+    "UnreactToolAnnotations": {
+      "title": "openhands.sdk.tool.tool.ToolAnnotations",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "A human-readable title for the tool."
+        },
+        "readOnlyHint": {
+          "title": "Readonlyhint",
+          "type": "boolean",
+          "description": "If true, the tool does not modify its environment. Default: false",
+          "default": false
+        },
+        "destructiveHint": {
+          "title": "Destructivehint",
+          "type": "boolean",
+          "description": "If true, the tool may perform destructive updates to its environment. If false, the tool performs only additive updates. (This property is meaningful only when \u0060readOnlyHint == false\u0060) Default: true",
+          "default": true
+        },
+        "idempotentHint": {
+          "title": "Idempotenthint",
+          "type": "boolean",
+          "description": "If true, calling the tool repeatedly with the same arguments will have no additional effect on the its environment. (This property is meaningful only when \u0060readOnlyHint == false\u0060) Default: false",
+          "default": false
+        },
+        "openWorldHint": {
+          "title": "Openworldhint",
+          "type": "boolean",
+          "description": "If true, this tool may interact with an \u0027open world\u0027 of external entities. If false, the tool\u0027s domain of interaction is closed. For example, the world of a web search tool is open, whereas that of a memory tool is not. Default: true",
+          "default": true
+        }
+      },
+      "description": "Annotations to provide hints about the tool\u0027s behavior.\n\nBased on Model Context Protocol (MCP) spec:\nhttps://github.com/modelcontextprotocol/modelcontextprotocol/blob/caf3424488b10b4a7b1f8cb634244a450a1f4400/schema/2025-06-18/schema.ts#L838",
+      "x-client-original-nullable-union": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/OpenhandsSdkToolToolToolAnnotations"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
     "ValidationErrorLocItem": {
       "anyOf": [
         {
@@ -70907,11 +74062,22 @@
             "prominence": "minor"
           }
         },
+        "log_completions_to_file": {
+          "title": "Log Completions To File",
+          "type": "boolean",
+          "description": "Enable completion JSON logging to log_completions_folder or a configured completion-log callback. OpenTelemetry tracing is configured separately and can export LLM message content while completion logging is disabled.",
+          "default": false,
+          "openhands_settings": {
+            "depends_on": [],
+            "prominence": "minor"
+          }
+        },
         "log_completions": {
           "title": "Log Completions",
           "type": "boolean",
-          "description": "Enable logging of completions.",
+          "description": "Deprecated alias for log_completions_to_file. Deprecated since v1.63.0 and scheduled for removal in v1.68.0.",
           "default": false,
+          "deprecated": true,
           "openhands_settings": {
             "depends_on": [],
             "prominence": "minor"
@@ -70920,7 +74086,7 @@
         "log_completions_folder": {
           "title": "Log Completions Folder",
           "type": "string",
-          "description": "The folder to log LLM completions to. Required if log_completions is True.",
+          "description": "The folder to log LLM completions to. Required if log_completions_to_file is True.",
           "default": "logs/completions",
           "openhands_settings": {
             "depends_on": [],
@@ -71227,6 +74393,13 @@
         "object"
       ]
     },
+    "AskUserToolMeta": {
+      "title": "Meta",
+      "type": [
+        "null",
+        "object"
+      ]
+    },
     "AzureDevOpsV1CallbackProcessorInputAzureDevopsViewData": {
       "title": "Azure Devops View Data",
       "type": "object"
@@ -71461,6 +74634,13 @@
       },
       "description": "Required parameter of \u0060delegate\u0060 command. Dictionary mapping sub-agent identifiers to task descriptions."
     },
+    "EditMessageToolMeta": {
+      "title": "Meta",
+      "type": [
+        "null",
+        "object"
+      ]
+    },
     "EditToolMeta": {
       "title": "Meta",
       "type": [
@@ -71469,6 +74649,13 @@
       ]
     },
     "FileEditorToolMeta": {
+      "title": "Meta",
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "FindConversationsToolMeta": {
       "title": "Meta",
       "type": [
         "null",
@@ -71871,6 +75058,20 @@
       ],
       "description": "User-provided values for plugin input parameters"
     },
+    "ReactToolMeta": {
+      "title": "Meta",
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "ReadConversationToolMeta": {
+      "title": "Meta",
+      "type": [
+        "null",
+        "object"
+      ]
+    },
     "ReadFileToolMeta": {
       "title": "Meta",
       "type": [
@@ -72168,6 +75369,13 @@
     "UnparsedObservationRawPayload": {
       "title": "Raw Payload",
       "type": "object"
+    },
+    "UnreactToolMeta": {
+      "title": "Meta",
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "ValidationErrorCtx": {
       "title": "Context",
@@ -72562,6 +75770,8 @@
         "$ref": "#/components/schemas/QuotaIncreaseRequestResponse"
       }
     },
+    "ConsentPageExternalMcpConsentGet200Response": {},
+    "SubmitConsentExternalMcpConsentPost200Response": {},
     "ExamplePayload": {
       "type": "object",
       "description": "Placeholder schema for path example refs"
@@ -74176,6 +77386,13 @@
         "attribute_mapping": {
           "$ref": "#/components/schemas/OAuthProviderDetailsInputAttributeMappingProperty"
         },
+        "group_org_mappings": {
+          "title": "Group Org Mappings",
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/GroupOrgMapping"
+          }
+        },
         "kind": {
           "title": "Kind",
           "enum": [
@@ -74282,6 +77499,13 @@
         },
         "attribute_mapping": {
           "$ref": "#/components/schemas/SamlProviderDetailsInputAttributeMappingProperty"
+        },
+        "group_org_mappings": {
+          "title": "Group Org Mappings",
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/GroupOrgMapping"
+          }
         },
         "kind": {
           "title": "Kind",
