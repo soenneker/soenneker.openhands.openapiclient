@@ -26,6 +26,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("client_id") is { } nullNodeClientId && nullNodeClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientId = null;
             if (parseNode.GetChildNode("client_secret") is null) { _explicitNullValueClientSecret = default!; _explicitNullProperties?.Remove("client_secret"); }
             else if (parseNode.GetChildNode("client_secret") is { } nullNodeClientSecret && nullNodeClientSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientSecret = null;
+            if (parseNode.GetChildNode("group_org_mappings") is null) { _explicitNullValueGroupOrgMappings = default!; _explicitNullProperties?.Remove("group_org_mappings"); }
+            else if (parseNode.GetChildNode("group_org_mappings") is { } nullNodeGroupOrgMappings && nullNodeGroupOrgMappings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupOrgMappings = null;
             if (parseNode.GetChildNode("legacy_keycloak_type") is null) { _explicitNullValueLegacyKeycloakType = default!; _explicitNullProperties?.Remove("legacy_keycloak_type"); }
             else if (parseNode.GetChildNode("legacy_keycloak_type") is { } nullNodeLegacyKeycloakType && nullNodeLegacyKeycloakType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LegacyKeycloakType = null;
             if (parseNode.GetChildNode("named_secret") is null) { _explicitNullValueNamedSecret = default!; _explicitNullProperties?.Remove("named_secret"); }
@@ -81,6 +83,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public string ClientSecret { get => _explicitNullValueClientSecret; set { _explicitNullValueClientSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_secret"); else _explicitNullProperties?.Remove("client_secret"); } }
         private string _explicitNullValueClientSecret = default!;
+#endif
+        /// <summary>The group_org_mappings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.GroupOrgMapping>? GroupOrgMappings { get => _explicitNullValueGroupOrgMappings; set { _explicitNullValueGroupOrgMappings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_org_mappings"); else _explicitNullProperties?.Remove("group_org_mappings"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.GroupOrgMapping>? _explicitNullValueGroupOrgMappings = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.GroupOrgMapping> GroupOrgMappings { get => _explicitNullValueGroupOrgMappings; set { _explicitNullValueGroupOrgMappings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_org_mappings"); else _explicitNullProperties?.Remove("group_org_mappings"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.GroupOrgMapping> _explicitNullValueGroupOrgMappings = default!;
 #endif
         /// <summary>The legacy_keycloak_type property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType? LegacyKeycloakType { get => _explicitNullValueLegacyKeycloakType; set { _explicitNullValueLegacyKeycloakType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("legacy_keycloak_type"); else _explicitNullProperties?.Remove("legacy_keycloak_type"); } }
@@ -160,6 +172,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "authorization_url", n => { AuthorizationUrl = n.GetStringValue(); } },
                 { "client_id", n => { ClientId = n.GetStringValue(); } },
                 { "client_secret", n => { ClientSecret = n.GetStringValue(); } },
+                { "group_org_mappings", n => { GroupOrgMappings = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.GroupOrgMapping>(global::Soenneker.OpenHands.OpenApiClient.Models.GroupOrgMapping.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "legacy_keycloak_type", n => { LegacyKeycloakType = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>(); } },
                 { "named_secret", n => { NamedSecret = n.GetStringValue(); } },
                 { "permitted_drift_seconds", n => { PermittedDriftSeconds = n.GetIntValue(); } },
@@ -181,6 +194,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("authorization_url", AuthorizationUrl);
             writer.WriteStringValue("client_id", ClientId);
             writer.WriteStringValue("client_secret", ClientSecret);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.GroupOrgMapping>("group_org_mappings", GroupOrgMappings);
             writer.WriteEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.ProviderType>("legacy_keycloak_type", LegacyKeycloakType);
             writer.WriteStringValue("named_secret", NamedSecret);
             writer.WriteIntValue("permitted_drift_seconds", PermittedDriftSeconds);

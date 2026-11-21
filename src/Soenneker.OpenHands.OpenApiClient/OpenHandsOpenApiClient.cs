@@ -8,6 +8,7 @@ using Microsoft.Kiota.Serialization.Multipart;
 using Microsoft.Kiota.Serialization.Text;
 using Soenneker.OpenHands.OpenApiClient.Alive;
 using Soenneker.OpenHands.OpenApiClient.Api;
+using Soenneker.OpenHands.OpenApiClient.ExternalMcp;
 using Soenneker.OpenHands.OpenApiClient.Health;
 using Soenneker.OpenHands.OpenApiClient.Integration;
 using Soenneker.OpenHands.OpenApiClient.Oauth;
@@ -37,6 +38,11 @@ namespace Soenneker.OpenHands.OpenApiClient
         public global::Soenneker.OpenHands.OpenApiClient.Api.ApiRequestBuilder Api
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.ApiRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The externalMcp property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.ExternalMcp.ExternalMcpRequestBuilder ExternalMcp
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.ExternalMcp.ExternalMcpRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The health property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Health.HealthRequestBuilder Health

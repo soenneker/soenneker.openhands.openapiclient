@@ -34,7 +34,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Oauth.Idp.Login
         {
         }
         /// <summary>
-        /// Serve the email+password login form.Returns ``404`` if this IDP is not available (see ``is_idp_available``).Redirects to the sign-up (bootstrap) page if no super admin can log inwith a password yet — there is nothing to log into until one is created(or an existing passwordless super admin claims their account).
+        /// Serve the email+password login form.Returns ``404`` if this IDP is not available (see ``is_idp_available``).On self-hosted installs, redirects to the sign-up (bootstrap) page if nosuper admin can log in with a password yet. Cloud always shows login soadmin-created password accounts can sign in without exposing admin creation.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Oauth.Idp.Login
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Verify email + password and complete the login.Returns ``404`` if this IDP is not available. Redirects to the sign-up(bootstrap) page if no super admin can log in with a password yet. Oninvalid credentials, redirects back to the login form with an errorinstead of failing the request outright — there is nothing sensitive toprotect by distinguishing &quot;no such account&quot; from &quot;wrong password&quot; here.
+        /// Verify email + password and complete the login.Returns ``404`` if this IDP is not available. On self-hosted installs,redirects to the sign-up (bootstrap) page if no super admin can log in witha password yet; cloud still attempts password login for admin-createdaccounts. On invalid credentials, redirects back to the login form with anerrorinstead of failing the request outright — there is nothing sensitive toprotect by distinguishing &quot;no such account&quot; from &quot;wrong password&quot; here.
         /// </summary>
         /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="body">The request body</param>
@@ -86,7 +86,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Oauth.Idp.Login
             return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Serve the email+password login form.Returns ``404`` if this IDP is not available (see ``is_idp_available``).Redirects to the sign-up (bootstrap) page if no super admin can log inwith a password yet — there is nothing to log into until one is created(or an existing passwordless super admin claims their account).
+        /// Serve the email+password login form.Returns ``404`` if this IDP is not available (see ``is_idp_available``).On self-hosted installs, redirects to the sign-up (bootstrap) page if nosuper admin can log in with a password yet. Cloud always shows login soadmin-created password accounts can sign in without exposing admin creation.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -105,7 +105,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Oauth.Idp.Login
             return requestInfo;
         }
         /// <summary>
-        /// Verify email + password and complete the login.Returns ``404`` if this IDP is not available. Redirects to the sign-up(bootstrap) page if no super admin can log in with a password yet. Oninvalid credentials, redirects back to the login form with an errorinstead of failing the request outright — there is nothing sensitive toprotect by distinguishing &quot;no such account&quot; from &quot;wrong password&quot; here.
+        /// Verify email + password and complete the login.Returns ``404`` if this IDP is not available. On self-hosted installs,redirects to the sign-up (bootstrap) page if no super admin can log in witha password yet; cloud still attempts password login for admin-createdaccounts. On invalid credentials, redirects back to the login form with anerrorinstead of failing the request outright — there is nothing sensitive toprotect by distinguishing &quot;no such account&quot; from &quot;wrong password&quot; here.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -136,7 +136,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Oauth.Idp.Login
             return new global::Soenneker.OpenHands.OpenApiClient.Oauth.Idp.Login.LoginRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Serve the email+password login form.Returns ``404`` if this IDP is not available (see ``is_idp_available``).Redirects to the sign-up (bootstrap) page if no super admin can log inwith a password yet — there is nothing to log into until one is created(or an existing passwordless super admin claims their account).
+        /// Serve the email+password login form.Returns ``404`` if this IDP is not available (see ``is_idp_available``).On self-hosted installs, redirects to the sign-up (bootstrap) page if nosuper admin can log in with a password yet. Cloud always shows login soadmin-created password accounts can sign in without exposing admin creation.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class LoginRequestBuilderGetQueryParameters 

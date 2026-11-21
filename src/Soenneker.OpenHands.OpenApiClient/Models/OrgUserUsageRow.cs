@@ -18,6 +18,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("account_type") is null) { _explicitNullValueAccountType = default!; _explicitNullProperties?.Remove("account_type"); }
+            else if (parseNode.GetChildNode("account_type") is { } nullNodeAccountType && nullNodeAccountType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountType = null;
             if (parseNode.GetChildNode("budget_is_disabled") is null) { _explicitNullValueBudgetIsDisabled = default!; _explicitNullProperties?.Remove("budget_is_disabled"); }
             else if (parseNode.GetChildNode("budget_is_disabled") is { } nullNodeBudgetIsDisabled && nullNodeBudgetIsDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BudgetIsDisabled = null;
             if (parseNode.GetChildNode("budget_monthly_limit") is null) { _explicitNullValueBudgetMonthlyLimit = default!; _explicitNullProperties?.Remove("budget_monthly_limit"); }
@@ -48,6 +50,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("user_name") is { } nullNodeUserName && nullNodeUserName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserName = null;
         }
 
+        /// <summary>The account_type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AccountType { get => _explicitNullValueAccountType; set { _explicitNullValueAccountType = value; AdditionalData?.Remove("account_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_type"); else _explicitNullProperties?.Remove("account_type"); } }
+        private string? _explicitNullValueAccountType = default!;
+#nullable restore
+#else
+        public string AccountType { get => _explicitNullValueAccountType; set { _explicitNullValueAccountType = value; AdditionalData?.Remove("account_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_type"); else _explicitNullProperties?.Remove("account_type"); } }
+        private string _explicitNullValueAccountType = default!;
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The budget_is_disabled property</summary>
@@ -119,6 +131,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public OrgUserUsageRow()
         {
             AdditionalData = new Dictionary<string, object>();
+            AccountType = "human";
             BudgetIsDisabled = false;
             ConversationCount = 0;
             SpendLifetime = 0.0;
@@ -141,8 +154,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(14)
+            return new Dictionary<string, Action<IParseNode>>(15)
             {
+                { "account_type", n => { AccountType = n.GetStringValue(); } },
                 { "budget_is_disabled", n => { BudgetIsDisabled = n.GetBoolValue(); } },
                 { "budget_monthly_limit", n => { BudgetMonthlyLimit = n.GetDoubleValue(); } },
                 { "conversation_count", n => { ConversationCount = n.GetIntValue(); } },
@@ -166,6 +180,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("account_type", AccountType);
             writer.WriteBoolValue("budget_is_disabled", BudgetIsDisabled);
             writer.WriteDoubleValue("budget_monthly_limit", BudgetMonthlyLimit);
             writer.WriteIntValue("conversation_count", ConversationCount);

@@ -52,7 +52,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
-        /// <summary>Scope of a custom secret — personal or org-shared.</summary>
+        /// <summary>Scope of a custom secret — personal or org-shared.Lives here (rather than in ``secrets.secrets_models``) so ``CustomSecret``can carry it without the two modules importing each other;``secrets_models`` re-exports it for existing callers.</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretScope? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; AdditionalData?.Remove("scope"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.CustomSecretScope? _explicitNullValueScope = default!;
         /// <summary>The system_managed property</summary>

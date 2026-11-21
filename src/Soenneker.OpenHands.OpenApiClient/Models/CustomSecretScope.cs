@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
-    /// <summary>Scope of a custom secret — personal or org-shared.</summary>
+    /// <summary>Scope of a custom secret — personal or org-shared.Lives here (rather than in ``secrets.secrets_models``) so ``CustomSecret``can carry it without the two modules importing each other;``secrets_models`` re-exports it for existing callers.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CustomSecretScope
     {

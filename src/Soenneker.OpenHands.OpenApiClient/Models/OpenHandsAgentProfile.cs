@@ -46,6 +46,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("public_skills") is { } nullNodePublicSkills && nullNodePublicSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicSkills = null;
             if (parseNode.GetChildNode("revision") is null) { _explicitNullValueRevision = default!; _explicitNullProperties?.Remove("revision"); }
             else if (parseNode.GetChildNode("revision") is { } nullNodeRevision && nullNodeRevision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Revision = null;
+            if (parseNode.GetChildNode("sandbox") is null) { _explicitNullValueSandbox = default!; _explicitNullProperties?.Remove("sandbox"); }
+            else if (parseNode.GetChildNode("sandbox") is { } nullNodeSandbox && nullNodeSandbox.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sandbox = null;
             if (parseNode.GetChildNode("schema_version") is null) { _explicitNullValueSchemaVersion = default!; _explicitNullProperties?.Remove("schema_version"); }
             else if (parseNode.GetChildNode("schema_version") is { } nullNodeSchemaVersion && nullNodeSchemaVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SchemaVersion = null;
             if (parseNode.GetChildNode("secret_refs") is null) { _explicitNullValueSecretRefs = default!; _explicitNullProperties?.Remove("secret_refs"); }
@@ -172,6 +174,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>Monotonic revision counter, bumped on each saved edit.</summary>
         public int? Revision { get => _explicitNullValueRevision; set { _explicitNullValueRevision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revision"); else _explicitNullProperties?.Remove("revision"); } }
         private int? _explicitNullValueRevision = default!;
+        /// <summary>Sandbox to start new conversations with. null = the host&apos;s own default selection.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileSandbox? Sandbox { get => _explicitNullValueSandbox; set { _explicitNullValueSandbox = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox"); else _explicitNullProperties?.Remove("sandbox"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileSandbox? _explicitNullValueSandbox = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileSandbox Sandbox { get => _explicitNullValueSandbox; set { _explicitNullValueSandbox = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox"); else _explicitNullProperties?.Remove("sandbox"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileSandbox _explicitNullValueSandbox = default!;
+#endif
         /// <summary>The schema_version property</summary>
         public int? SchemaVersion { get => _explicitNullValueSchemaVersion; set { _explicitNullValueSchemaVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schema_version"); else _explicitNullProperties?.Remove("schema_version"); } }
         private int? _explicitNullValueSchemaVersion = default!;
@@ -245,7 +257,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(20)
+            return new Dictionary<string, Action<IParseNode>>(21)
             {
                 { "agent", n => { Agent = n.GetStringValue(); } },
                 { "agent_kind", n => { AgentKind = n.GetEnumValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsAgentKind>(); } },
@@ -261,6 +273,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "persona", n => { Persona = n.GetStringValue(); } },
                 { "public_skills", n => { PublicSkills = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "revision", n => { Revision = n.GetIntValue(); } },
+                { "sandbox", n => { Sandbox = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileSandbox>(global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileSandbox.CreateFromDiscriminatorValue); } },
                 { "schema_version", n => { SchemaVersion = n.GetIntValue(); } },
                 { "secret_refs", n => { SecretRefs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "system_message_suffix", n => { SystemMessageSuffix = n.GetStringValue(); } },
@@ -290,6 +303,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteStringValue("persona", Persona);
             writer.WriteCollectionOfPrimitiveValues<string>("public_skills", PublicSkills);
             writer.WriteIntValue("revision", Revision);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.AcpAgentProfileSandbox>("sandbox", Sandbox);
             writer.WriteIntValue("schema_version", SchemaVersion);
             writer.WriteCollectionOfPrimitiveValues<string>("secret_refs", SecretRefs);
             writer.WriteStringValue("system_message_suffix", SystemMessageSuffix);

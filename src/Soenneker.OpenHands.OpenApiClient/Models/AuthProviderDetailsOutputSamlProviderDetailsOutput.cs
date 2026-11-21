@@ -21,6 +21,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             base.CaptureExplicitNulls(parseNode);
             if (parseNode.GetChildNode("attribute_mapping") is null) { _explicitNullValueAttributeMapping = default!; _explicitNullProperties?.Remove("attribute_mapping"); }
             else if (parseNode.GetChildNode("attribute_mapping") is { } nullNodeAttributeMapping && nullNodeAttributeMapping.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttributeMapping = null;
+            if (parseNode.GetChildNode("group_org_mappings") is null) { _explicitNullValueGroupOrgMappings = default!; _explicitNullProperties?.Remove("group_org_mappings"); }
+            else if (parseNode.GetChildNode("group_org_mappings") is { } nullNodeGroupOrgMappings && nullNodeGroupOrgMappings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupOrgMappings = null;
             if (parseNode.GetChildNode("idp_entity_id") is null) { _explicitNullValueIdpEntityId = default!; _explicitNullProperties?.Remove("idp_entity_id"); }
             else if (parseNode.GetChildNode("idp_entity_id") is { } nullNodeIdpEntityId && nullNodeIdpEntityId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdpEntityId = null;
             if (parseNode.GetChildNode("idp_x509_cert") is null) { _explicitNullValueIdpX509Cert = default!; _explicitNullProperties?.Remove("idp_x509_cert"); }
@@ -50,6 +52,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
 #else
         public global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsOutputAttributeMappingProperty AttributeMapping { get => _explicitNullValueAttributeMapping; set { _explicitNullValueAttributeMapping = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attribute_mapping"); else _explicitNullProperties?.Remove("attribute_mapping"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsOutputAttributeMappingProperty _explicitNullValueAttributeMapping = default!;
+#endif
+        /// <summary>The group_org_mappings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.GroupOrgMapping>? GroupOrgMappings { get => _explicitNullValueGroupOrgMappings; set { _explicitNullValueGroupOrgMappings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_org_mappings"); else _explicitNullProperties?.Remove("group_org_mappings"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.GroupOrgMapping>? _explicitNullValueGroupOrgMappings = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.OpenHands.OpenApiClient.Models.GroupOrgMapping> GroupOrgMappings { get => _explicitNullValueGroupOrgMappings; set { _explicitNullValueGroupOrgMappings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_org_mappings"); else _explicitNullProperties?.Remove("group_org_mappings"); } }
+        private List<global::Soenneker.OpenHands.OpenApiClient.Models.GroupOrgMapping> _explicitNullValueGroupOrgMappings = default!;
 #endif
         /// <summary>The idp_entity_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -153,6 +165,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "attribute_mapping", n => { AttributeMapping = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsOutputAttributeMappingProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsOutputAttributeMappingProperty.CreateFromDiscriminatorValue); } },
+                { "group_org_mappings", n => { GroupOrgMappings = n.GetCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.GroupOrgMapping>(global::Soenneker.OpenHands.OpenApiClient.Models.GroupOrgMapping.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "idp_entity_id", n => { IdpEntityId = n.GetStringValue(); } },
                 { "idp_x509_cert", n => { IdpX509Cert = n.GetStringValue(); } },
                 { "metadata_url", n => { MetadataUrl = n.GetStringValue(); } },
@@ -173,6 +186,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SamlProviderDetailsOutputAttributeMappingProperty>("attribute_mapping", AttributeMapping);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenHands.OpenApiClient.Models.GroupOrgMapping>("group_org_mappings", GroupOrgMappings);
             writer.WriteStringValue("idp_entity_id", IdpEntityId);
             writer.WriteStringValue("idp_x509_cert", IdpX509Cert);
             writer.WriteStringValue("metadata_url", MetadataUrl);
