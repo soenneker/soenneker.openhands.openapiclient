@@ -18,6 +18,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels.Item
         /// <summary>Gets an item from the Soenneker.OpenHands.OpenApiClient.api.admin.verifiedModels.item.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels.Item.Item.WithModelNameItemRequestBuilder"/></returns>
+        [Obsolete("")]
         public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels.Item.Item.WithModelNameItemRequestBuilder this[string position]
         {
             get

@@ -3,7 +3,7 @@
   "info": {
     "title": "OpenHands",
     "description": "OpenHands: Code Less, Make More",
-    "version": "1.96.0"
+    "version": "1.97.1"
   },
   "paths": {
     "/api/v1/conversation/{conversationId}/events/search": {
@@ -7651,6 +7651,1200 @@
         }
       }
     },
+    "/api/service/orgs/{orgId}/factories/{factoryId}/deleted": {
+      "post": {
+        "tags": [
+          "Service"
+        ],
+        "summary": "Factory Deleted",
+        "description": "Remove what Enterprise keeps for a deleted factory (its worklogs and entries).\n\nThe automation service calls this after it deletes a factory. It is\nidempotent and, unlike every worklog route, not license-gated, so cleanup\nalways works.",
+        "operationId": "FactoryDeletedApiServiceOrgsOrgIdFactoriesFactoryIdDeletedPost",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "factoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Factory Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-Service-API-Key",
+            "in": "header",
+            "schema": {
+              "title": "X-Service-Api-Key",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/service/worklog": {
+      "get": {
+        "tags": [
+          "Worklogs"
+        ],
+        "summary": "Run List Worklogs",
+        "description": "The run\u0027s own factory\u0027s worklogs.",
+        "operationId": "RunListWorklogsApiServiceWorklogGet",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "title": "Authorization",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorklogList"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/service/worklog/entries": {
+      "post": {
+        "tags": [
+          "Worklogs"
+        ],
+        "summary": "Run Create Default Entry",
+        "description": "Append an entry to the default worklog, authored by the run\u0027s automation.\n\nThe body is the raw request body (\u0060\u0060text/markdown\u0060\u0060 or \u0060\u0060application/json\u0060\u0060),\nstored as plaintext: never put a secret in an entry.",
+        "operationId": "RunCreateDefaultEntryApiServiceWorklogEntriesPost",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "title": "Authorization",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntryCreated"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntryCreated"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Worklogs"
+        ],
+        "summary": "Run List Default Entries",
+        "operationId": "RunListDefaultEntriesApiServiceWorklogEntriesGet",
+        "parameters": [
+          {
+            "name": "since",
+            "in": "query",
+            "description": "Only entries after this position: a cursor from a previous page, or an ISO 8601 timestamp. With order=asc, pass next_cursor here to read the next page.",
+            "schema": {
+              "title": "Since",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Only entries after this position: a cursor from a previous page, or an ISO 8601 timestamp. With order=asc, pass next_cursor here to read the next page."
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "description": "Only entries before this position: a cursor from a previous page, or an ISO 8601 timestamp. With order=desc, pass next_cursor here to read the next page.",
+            "schema": {
+              "title": "Before",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Only entries before this position: a cursor from a previous page, or an ISO 8601 timestamp. With order=desc, pass next_cursor here to read the next page."
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "asc lists oldest first, desc lists newest first",
+            "schema": {
+              "$ref": "#/components/schemas/RunListDefaultEntriesApiServiceWorklogEntriesGetOrderParameter"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Entries per page",
+            "schema": {
+              "title": "Limit",
+              "maximum": 200,
+              "minimum": 1,
+              "type": "integer",
+              "description": "Entries per page",
+              "default": 50
+            }
+          },
+          {
+            "name": "content_type",
+            "in": "query",
+            "description": "markdown or json",
+            "schema": {
+              "title": "Content Type",
+              "pattern": "^(markdown|json)$",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "markdown or json"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "title": "Authorization",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntryPage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/service/worklog/{worklog}/entries": {
+      "post": {
+        "tags": [
+          "Worklogs"
+        ],
+        "summary": "Run Create Entry",
+        "operationId": "RunCreateEntryApiServiceWorklogWorklogEntriesPost",
+        "parameters": [
+          {
+            "name": "worklog",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Worklog",
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "title": "Authorization",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntryCreated"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntryCreated"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Worklogs"
+        ],
+        "summary": "Run List Entries",
+        "operationId": "RunListEntriesApiServiceWorklogWorklogEntriesGet",
+        "parameters": [
+          {
+            "name": "worklog",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Worklog",
+              "type": "string"
+            }
+          },
+          {
+            "name": "since",
+            "in": "query",
+            "description": "Only entries after this position: a cursor from a previous page, or an ISO 8601 timestamp. With order=asc, pass next_cursor here to read the next page.",
+            "schema": {
+              "title": "Since",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Only entries after this position: a cursor from a previous page, or an ISO 8601 timestamp. With order=asc, pass next_cursor here to read the next page."
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "description": "Only entries before this position: a cursor from a previous page, or an ISO 8601 timestamp. With order=desc, pass next_cursor here to read the next page.",
+            "schema": {
+              "title": "Before",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Only entries before this position: a cursor from a previous page, or an ISO 8601 timestamp. With order=desc, pass next_cursor here to read the next page."
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "asc lists oldest first, desc lists newest first",
+            "schema": {
+              "$ref": "#/components/schemas/RunListEntriesApiServiceWorklogWorklogEntriesGetOrderParameter"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Entries per page",
+            "schema": {
+              "title": "Limit",
+              "maximum": 200,
+              "minimum": 1,
+              "type": "integer",
+              "description": "Entries per page",
+              "default": 50
+            }
+          },
+          {
+            "name": "content_type",
+            "in": "query",
+            "description": "markdown or json",
+            "schema": {
+              "title": "Content Type",
+              "pattern": "^(markdown|json)$",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "markdown or json"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "title": "Authorization",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntryPage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organizations/{orgId}/factories/{factoryId}/worklogs": {
+      "get": {
+        "tags": [
+          "Worklogs"
+        ],
+        "summary": "List Worklogs",
+        "description": "The factory\u0027s worklogs with entry counts, JSON entry counts and the time of\nthe last entry. The first access creates the \u0060\u0060default\u0060\u0060 worklog.",
+        "operationId": "ListWorklogsApiOrganizationsOrgIdFactoriesFactoryIdWorklogsGet",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "factoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Factory Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorklogList"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Worklogs"
+        ],
+        "summary": "Create Worklog",
+        "operationId": "CreateWorklogApiOrganizationsOrgIdFactoriesFactoryIdWorklogsPost",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "factoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Factory Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorklogCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorklogItem"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorklogItem"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/organizations/{orgId}/factories/{factoryId}/worklogs/{worklog}": {
+      "patch": {
+        "tags": [
+          "Worklogs"
+        ],
+        "summary": "Update Worklog",
+        "description": "Rename a worklog, or make it the default (the swap is one transaction).",
+        "operationId": "UpdateWorklogApiOrganizationsOrgIdFactoriesFactoryIdWorklogsWorklogPatch",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "factoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Factory Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "worklog",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Worklog",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorklogUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorklogItem"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Worklogs"
+        ],
+        "summary": "Delete Worklog",
+        "description": "Delete a worklog and its entries. The default worklog cannot be deleted.",
+        "operationId": "DeleteWorklogApiOrganizationsOrgIdFactoriesFactoryIdWorklogsWorklogDelete",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "factoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Factory Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "worklog",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Worklog",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/organizations/{orgId}/factories/{factoryId}/worklogs/{worklog}/entries": {
+      "post": {
+        "tags": [
+          "Worklogs"
+        ],
+        "summary": "Create Entry",
+        "description": "Append an entry. The body is the raw request body, not a JSON envelope:\n\u0060\u0060Content-Type\u0060\u0060 is \u0060\u0060text/markdown\u0060\u0060 or \u0060\u0060application/json\u0060\u0060. Send\n\u0060\u0060X-Worklog-Title\u0060\u0060 to set the title. Bodies are stored as plaintext: never\nput a secret in an entry.",
+        "operationId": "CreateEntryApiOrganizationsOrgIdFactoriesFactoryIdWorklogsWorklogEntriesPost",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "factoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Factory Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "worklog",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Worklog",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntryCreated"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntryCreated"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Worklogs"
+        ],
+        "summary": "List Entries",
+        "operationId": "ListEntriesApiOrganizationsOrgIdFactoriesFactoryIdWorklogsWorklogEntriesGet",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "factoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Factory Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "worklog",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Worklog",
+              "type": "string"
+            }
+          },
+          {
+            "name": "since",
+            "in": "query",
+            "description": "Only entries after this position: a cursor from a previous page, or an ISO 8601 timestamp. With order=asc, pass next_cursor here to read the next page.",
+            "schema": {
+              "title": "Since",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Only entries after this position: a cursor from a previous page, or an ISO 8601 timestamp. With order=asc, pass next_cursor here to read the next page."
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "description": "Only entries before this position: a cursor from a previous page, or an ISO 8601 timestamp. With order=desc, pass next_cursor here to read the next page.",
+            "schema": {
+              "title": "Before",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Only entries before this position: a cursor from a previous page, or an ISO 8601 timestamp. With order=desc, pass next_cursor here to read the next page."
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "asc lists oldest first, desc lists newest first",
+            "schema": {
+              "$ref": "#/components/schemas/ListEntriesApiOrganizationsOrgIdFactoriesFactoryIdWorklogsWorklogEntriesGetOrderParameter"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Entries per page",
+            "schema": {
+              "title": "Limit",
+              "maximum": 200,
+              "minimum": 1,
+              "type": "integer",
+              "description": "Entries per page",
+              "default": 50
+            }
+          },
+          {
+            "name": "content_type",
+            "in": "query",
+            "description": "markdown or json",
+            "schema": {
+              "title": "Content Type",
+              "pattern": "^(markdown|json)$",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "markdown or json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntryPage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/organizations/{orgId}/factories/{factoryId}/entries": {
+      "post": {
+        "tags": [
+          "Worklogs"
+        ],
+        "summary": "Create Default Entry",
+        "description": "Append an entry to the default worklog. See \u0060\u0060create_entry\u0060\u0060.",
+        "operationId": "CreateDefaultEntryApiOrganizationsOrgIdFactoriesFactoryIdEntriesPost",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "factoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Factory Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntryCreated"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntryCreated"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Worklogs"
+        ],
+        "summary": "List Default Entries",
+        "operationId": "ListDefaultEntriesApiOrganizationsOrgIdFactoriesFactoryIdEntriesGet",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "factoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Factory Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "since",
+            "in": "query",
+            "description": "Only entries after this position: a cursor from a previous page, or an ISO 8601 timestamp. With order=asc, pass next_cursor here to read the next page.",
+            "schema": {
+              "title": "Since",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Only entries after this position: a cursor from a previous page, or an ISO 8601 timestamp. With order=asc, pass next_cursor here to read the next page."
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "description": "Only entries before this position: a cursor from a previous page, or an ISO 8601 timestamp. With order=desc, pass next_cursor here to read the next page.",
+            "schema": {
+              "title": "Before",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Only entries before this position: a cursor from a previous page, or an ISO 8601 timestamp. With order=desc, pass next_cursor here to read the next page."
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "asc lists oldest first, desc lists newest first",
+            "schema": {
+              "$ref": "#/components/schemas/ListDefaultEntriesApiOrganizationsOrgIdFactoriesFactoryIdEntriesGetOrderParameter"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Entries per page",
+            "schema": {
+              "title": "Limit",
+              "maximum": 200,
+              "minimum": 1,
+              "type": "integer",
+              "description": "Entries per page",
+              "default": 50
+            }
+          },
+          {
+            "name": "content_type",
+            "in": "query",
+            "description": "markdown or json",
+            "schema": {
+              "title": "Content Type",
+              "pattern": "^(markdown|json)$",
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "markdown or json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntryPage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/organizations/{orgId}/worklog-summaries": {
+      "get": {
+        "tags": [
+          "Worklogs"
+        ],
+        "summary": "Worklog Summaries",
+        "description": "Totals per requested factory, for the factory cards. Reads existing rows\nonly and creates no default worklog, so an unused factory reports zeros.",
+        "operationId": "WorklogSummariesApiOrganizationsOrgIdWorklogSummariesGet",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "factory_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "title": "Factory Id",
+              "maxItems": 100,
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FactorySummaries"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
     "/api/organizations/{orgId}/members/invite": {
       "post": {
         "summary": "Create Invitation",
@@ -14577,6 +15771,246 @@
         ]
       }
     },
+    "/api/admin/warm-runtimes": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "List Warm Runtimes",
+        "operationId": "ListWarmRuntimesApiAdminWarmRuntimesGet",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WarmRuntimeListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Create Warm Runtime",
+        "operationId": "CreateWarmRuntimeApiAdminWarmRuntimesPost",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateWarmRuntimeRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WarmRuntimeResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WarmRuntimeResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/admin/warm-runtimes/{name}": {
+      "put": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Update Warm Runtime",
+        "operationId": "UpdateWarmRuntimeApiAdminWarmRuntimesNamePut",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Name",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,62}$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WarmRuntimeFields"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WarmRuntimeResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Delete Warm Runtime",
+        "operationId": "DeleteWarmRuntimeApiAdminWarmRuntimesNameDelete",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Name",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,62}$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
     "/api/organizations/{orgId}/profiles": {
       "get": {
         "tags": [
@@ -16172,65 +17606,14 @@
         ]
       }
     },
-    "/api/tools/catalog": {
+    "/api/admin/models": {
       "get": {
         "tags": [
-          "Tools"
-        ],
-        "summary": "Get Tool Catalog",
-        "description": "List the tools a cloud agent profile can select.",
-        "operationId": "GetToolCatalogApiToolsCatalogGet",
-        "parameters": [
-          {
-            "name": "org_id",
-            "in": "query",
-            "schema": {
-              "title": "Org Id",
-              "type": [
-                "null",
-                "string"
-              ],
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseGetToolCatalogApiToolsCatalogGetSchema"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HttpValidationError"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "APIKeyHeader": []
-          }
-        ]
-      }
-    },
-    "/api/admin/verified-models": {
-      "get": {
-        "tags": [
-          "Verified Models"
+          "Model Catalog"
         ],
         "summary": "Search Verified Models",
         "description": "List all verified models, optionally filtered by provider.",
-        "operationId": "SearchVerifiedModelsApiAdminVerifiedModelsGet",
+        "operationId": "SearchVerifiedModelsApiAdminModelsGet",
         "parameters": [
           {
             "name": "provider",
@@ -16296,11 +17679,11 @@
       },
       "post": {
         "tags": [
-          "Verified Models"
+          "Model Catalog"
         ],
         "summary": "Create Verified Model",
         "description": "Create a new verified model.",
-        "operationId": "CreateVerifiedModelApiAdminVerifiedModelsPost",
+        "operationId": "CreateVerifiedModelApiAdminModelsPost",
         "requestBody": {
           "content": {
             "application/json": {
@@ -16351,14 +17734,14 @@
         ]
       }
     },
-    "/api/admin/verified-models/{provider}/{modelName}": {
+    "/api/admin/models/{provider}/{modelName}": {
       "put": {
         "tags": [
-          "Verified Models"
+          "Model Catalog"
         ],
         "summary": "Update Verified Model",
         "description": "Update a verified model by provider and model name.",
-        "operationId": "UpdateVerifiedModelApiAdminVerifiedModelsProviderModelNamePut",
+        "operationId": "UpdateVerifiedModelApiAdminModelsProviderModelNamePut",
         "parameters": [
           {
             "name": "provider",
@@ -16419,7 +17802,311 @@
       },
       "delete": {
         "tags": [
-          "Verified Models"
+          "Model Catalog"
+        ],
+        "summary": "Delete Verified Model",
+        "description": "Delete a verified model by provider and model name.",
+        "operationId": "DeleteVerifiedModelApiAdminModelsProviderModelNameDelete",
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Provider",
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Model Name",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseDeleteVerifiedModelApiAdminModelsProviderModelNameDeleteSchema"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/tools/catalog": {
+      "get": {
+        "tags": [
+          "Tools"
+        ],
+        "summary": "Get Tool Catalog",
+        "description": "List the tools a cloud agent profile can select.",
+        "operationId": "GetToolCatalogApiToolsCatalogGet",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "query",
+            "schema": {
+              "title": "Org Id",
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseGetToolCatalogApiToolsCatalogGetSchema"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/admin/verified-models": {
+      "get": {
+        "tags": [
+          "Model Catalog (deprecated)"
+        ],
+        "summary": "Search Verified Models",
+        "description": "List all verified models, optionally filtered by provider.",
+        "operationId": "SearchVerifiedModelsApiAdminVerifiedModelsGet",
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "query",
+            "schema": {
+              "title": "Provider",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "page_id",
+            "in": "query",
+            "schema": {
+              "title": "Optional next_page_id from the previously returned page",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "title": "The max number of results in the page",
+              "maximum": 100,
+              "exclusiveMinimum": 0,
+              "type": "integer",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifiedModelPage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true,
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Model Catalog (deprecated)"
+        ],
+        "summary": "Create Verified Model",
+        "description": "Create a new verified model.",
+        "operationId": "CreateVerifiedModelApiAdminVerifiedModelsPost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifiedModelCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifiedModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifiedModel"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "deprecated": true,
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/api/admin/verified-models/{provider}/{modelName}": {
+      "put": {
+        "tags": [
+          "Model Catalog (deprecated)"
+        ],
+        "summary": "Update Verified Model",
+        "description": "Update a verified model by provider and model name.",
+        "operationId": "UpdateVerifiedModelApiAdminVerifiedModelsProviderModelNamePut",
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Provider",
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Model Name",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifiedModelUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifiedModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true,
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Model Catalog (deprecated)"
         ],
         "summary": "Delete Verified Model",
         "description": "Delete a verified model by provider and model name.",
@@ -16466,6 +18153,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "APIKeyHeader": []
@@ -23501,6 +25189,104 @@
         },
         "description": "Response model for created API key."
       },
+      "CreateWarmRuntimeRequest": {
+        "title": "CreateWarmRuntimeRequest",
+        "required": [
+          "image",
+          "working_dir",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "image": {
+            "title": "Image",
+            "minLength": 1,
+            "type": "string"
+          },
+          "working_dir": {
+            "title": "Working Dir",
+            "minLength": 1,
+            "type": "string"
+          },
+          "command": {
+            "title": "Command",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "args": {
+            "title": "Args",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "environment": {
+            "$ref": "#/components/schemas/CreateWarmRuntimeRequestEnvironmentProperty"
+          },
+          "resources": {
+            "$ref": "#/components/schemas/CreateWarmRuntimeRequestResources"
+          },
+          "idle_seconds": {
+            "title": "Idle Seconds",
+            "exclusiveMinimum": 0.0,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Idle timeout for runtimes started from this config."
+          },
+          "persistent_storage_size": {
+            "title": "Persistent Storage Size",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "count": {
+            "title": "Count",
+            "minimum": 0.0,
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "run_as_user": {
+            "title": "Run As User",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "run_as_group": {
+            "title": "Run As Group",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "fs_group": {
+            "title": "Fs Group",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "fuse_s3_mount": {
+            "title": "Fuse S3 Mount",
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "name": {
+            "title": "Name",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,62}$",
+            "type": "string"
+          }
+        }
+      },
       "CriticBase": {
         "x-client-original-discriminator": {
           "propertyName": "kind",
@@ -23860,6 +25646,154 @@
         "properties": {
           "resource": {
             "$ref": "#/components/schemas/BitbucketDcResourceIdentifier"
+          }
+        }
+      },
+      "EntryAuthorItem": {
+        "title": "EntryAuthorItem",
+        "required": [
+          "kind",
+          "id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "kind": {
+            "title": "Kind",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "title": "Name",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "EntryCreated": {
+        "title": "EntryCreated",
+        "required": [
+          "id",
+          "created_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "EntryItem": {
+        "title": "EntryItem",
+        "required": [
+          "id",
+          "created_at",
+          "content_type",
+          "title",
+          "author",
+          "provenance",
+          "run_id",
+          "body"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string",
+            "format": "date-time"
+          },
+          "content_type": {
+            "title": "Content Type",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "author": {
+            "$ref": "#/components/schemas/EntryAuthorItem"
+          },
+          "provenance": {
+            "$ref": "#/components/schemas/EntryProvenanceItem"
+          },
+          "run_id": {
+            "title": "Run Id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "body": {
+            "title": "Body",
+            "type": "string"
+          }
+        }
+      },
+      "EntryPage": {
+        "title": "EntryPage",
+        "required": [
+          "items",
+          "next_cursor",
+          "has_more"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "title": "Items",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EntryItem"
+            }
+          },
+          "next_cursor": {
+            "title": "Next Cursor",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "has_more": {
+            "title": "Has More",
+            "type": "boolean"
+          }
+        }
+      },
+      "EntryProvenanceItem": {
+        "title": "EntryProvenanceItem",
+        "required": [
+          "label",
+          "details"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "details": {
+            "$ref": "#/components/schemas/EntryProvenanceItemDetailsProperty"
           }
         }
       },
@@ -24400,6 +26334,55 @@
           }
         },
         "description": "URL to access some named service within the container."
+      },
+      "FactorySummaries": {
+        "title": "FactorySummaries",
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "title": "Items",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FactorySummaryItem"
+            }
+          }
+        }
+      },
+      "FactorySummaryItem": {
+        "title": "FactorySummaryItem",
+        "required": [
+          "factory_id",
+          "worklog_count",
+          "entry_count",
+          "last_entry_at"
+        ],
+        "type": "object",
+        "properties": {
+          "factory_id": {
+            "title": "Factory Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "worklog_count": {
+            "title": "Worklog Count",
+            "type": "integer"
+          },
+          "entry_count": {
+            "title": "Entry Count",
+            "type": "integer"
+          },
+          "last_entry_at": {
+            "title": "Last Entry At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          }
+        }
       },
       "FailureKind": {
         "title": "FailureKind",
@@ -26582,12 +28565,17 @@
       "LicenseFeaturesResponse": {
         "title": "LicenseFeaturesResponse",
         "required": [
-          "sso"
+          "sso",
+          "worklogs"
         ],
         "type": "object",
         "properties": {
           "sso": {
             "title": "Sso",
+            "type": "boolean"
+          },
+          "worklogs": {
+            "title": "Worklogs",
             "type": "boolean"
           }
         }
@@ -28637,6 +30625,13 @@
               "string"
             ]
           },
+          "limit_reached_instructions": {
+            "title": "Limit Reached Instructions",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "default_user_monthly_limit": {
             "title": "Default User Monthly Limit",
             "type": [
@@ -28767,6 +30762,14 @@
           },
           "slack_team_id": {
             "title": "Slack Team Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "limit_reached_instructions": {
+            "title": "Limit Reached Instructions",
+            "maxLength": 1000,
             "type": [
               "null",
               "string"
@@ -29777,6 +31780,13 @@
             "type": [
               "null",
               "number"
+            ]
+          },
+          "limit_reached_instructions": {
+            "title": "Limit Reached Instructions",
+            "type": [
+              "null",
+              "string"
             ]
           }
         },
@@ -31867,6 +33877,14 @@
           "id": {
             "title": "Id",
             "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Human readable name of the sandbox spec"
           },
           "command": {
             "title": "Command",
@@ -34628,6 +36646,218 @@
           }
         }
       },
+      "WarmRuntimeFields": {
+        "title": "WarmRuntimeFields",
+        "required": [
+          "image",
+          "working_dir"
+        ],
+        "type": "object",
+        "properties": {
+          "image": {
+            "title": "Image",
+            "minLength": 1,
+            "type": "string"
+          },
+          "working_dir": {
+            "title": "Working Dir",
+            "minLength": 1,
+            "type": "string"
+          },
+          "command": {
+            "title": "Command",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "args": {
+            "title": "Args",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "environment": {
+            "$ref": "#/components/schemas/WarmRuntimeFieldsEnvironmentProperty"
+          },
+          "resources": {
+            "$ref": "#/components/schemas/CreateWarmRuntimeRequestResources"
+          },
+          "idle_seconds": {
+            "title": "Idle Seconds",
+            "exclusiveMinimum": 0.0,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Idle timeout for runtimes started from this config."
+          },
+          "persistent_storage_size": {
+            "title": "Persistent Storage Size",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "count": {
+            "title": "Count",
+            "minimum": 0.0,
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "run_as_user": {
+            "title": "Run As User",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "run_as_group": {
+            "title": "Run As Group",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "fs_group": {
+            "title": "Fs Group",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "fuse_s3_mount": {
+            "title": "Fuse S3 Mount",
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        }
+      },
+      "WarmRuntimeListResponse": {
+        "title": "WarmRuntimeListResponse",
+        "required": [
+          "configs"
+        ],
+        "type": "object",
+        "properties": {
+          "configs": {
+            "title": "Configs",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WarmRuntimeResponse"
+            }
+          }
+        }
+      },
+      "WarmRuntimeResponse": {
+        "title": "WarmRuntimeResponse",
+        "required": [
+          "image",
+          "working_dir",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "image": {
+            "title": "Image",
+            "minLength": 1,
+            "type": "string"
+          },
+          "working_dir": {
+            "title": "Working Dir",
+            "minLength": 1,
+            "type": "string"
+          },
+          "command": {
+            "title": "Command",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "args": {
+            "title": "Args",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "environment": {
+            "$ref": "#/components/schemas/WarmRuntimeResponseEnvironmentProperty"
+          },
+          "resources": {
+            "$ref": "#/components/schemas/CreateWarmRuntimeRequestResources"
+          },
+          "idle_seconds": {
+            "title": "Idle Seconds",
+            "exclusiveMinimum": 0.0,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Idle timeout for runtimes started from this config."
+          },
+          "persistent_storage_size": {
+            "title": "Persistent Storage Size",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "count": {
+            "title": "Count",
+            "minimum": 0.0,
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "run_as_user": {
+            "title": "Run As User",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "run_as_group": {
+            "title": "Run As Group",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "fs_group": {
+            "title": "Fs Group",
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "fuse_s3_mount": {
+            "title": "Fuse S3 Mount",
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "source": {
+            "title": "Source",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
       "WebClientConfig": {
         "title": "WebClientConfig",
         "required": [
@@ -34910,6 +37140,11 @@
             "type": "boolean",
             "default": false
           },
+          "enable_factories": {
+            "title": "Enable Factories",
+            "type": "boolean",
+            "default": false
+          },
           "enable_model_router": {
             "title": "Enable Model Router",
             "type": "boolean",
@@ -34919,8 +37154,138 @@
             "title": "Enable Service Accounts",
             "type": "boolean",
             "default": false
+          },
+          "github_scope_repo_search_to_installations": {
+            "title": "Github Scope Repo Search To Installations",
+            "type": "boolean",
+            "default": false
           }
         }
+      },
+      "WorklogCreate": {
+        "title": "WorklogCreate",
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "slug": {
+            "title": "Slug",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "WorklogItem": {
+        "title": "WorklogItem",
+        "required": [
+          "id",
+          "factory_id",
+          "slug",
+          "name",
+          "is_default",
+          "created_at",
+          "updated_at",
+          "entry_count",
+          "json_entry_count",
+          "last_entry_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "factory_id": {
+            "title": "Factory Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "slug": {
+            "title": "Slug",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "is_default": {
+            "title": "Is Default",
+            "type": "boolean"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": "string",
+            "format": "date-time"
+          },
+          "entry_count": {
+            "title": "Entry Count",
+            "type": "integer"
+          },
+          "json_entry_count": {
+            "title": "Json Entry Count",
+            "type": "integer"
+          },
+          "last_entry_at": {
+            "title": "Last Entry At",
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          }
+        }
+      },
+      "WorklogList": {
+        "title": "WorklogList",
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "title": "Items",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorklogItem"
+            }
+          }
+        }
+      },
+      "WorklogUpdate": {
+        "title": "WorklogUpdate",
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "is_default": {
+            "title": "Is Default",
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "description": "Rename a worklog and/or make it the default. The slug never changes."
       },
       "McpTypesTypesTool": {
         "title": "Tool",
@@ -36950,6 +39315,32 @@
           "label": "Runtime"
         }
       },
+      "CreateWarmRuntimeRequestResources": {
+        "title": "ResourceRequirements",
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "requests": {
+            "$ref": "#/components/schemas/ResourceRequirementsLimits"
+          },
+          "limits": {
+            "$ref": "#/components/schemas/ResourceRequirementsLimits"
+          }
+        },
+        "additionalProperties": false,
+        "x-client-original-nullable-union": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/ResourceRequirements"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
       "FallbackStrategyProfileStoreDir": {
         "title": "Profile Store Dir",
         "anyOf": [
@@ -38599,6 +40990,47 @@
           }
         ]
       },
+      "ResourceRequirementsLimits": {
+        "title": "ResourceValues",
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "cpu": {
+            "title": "Cpu",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "memory": {
+            "title": "Memory",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ephemeral_storage": {
+            "title": "Ephemeral Storage",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "x-client-original-nullable-union": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/ResourceValues"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
       "SandboxInfoStartedBy": {
         "anyOf": [
           {
@@ -39930,6 +42362,10 @@
         "title": "Body",
         "type": "object"
       },
+      "ResponseDeleteVerifiedModelApiAdminModelsProviderModelNameDeleteSchema": {
+        "title": "Response Delete Verified Model Api Admin Models  Provider   Model Name  Delete",
+        "type": "boolean"
+      },
       "ResponseGetToolCatalogApiToolsCatalogGetSchema": {
         "title": "Response Get Tool Catalog Api Tools Catalog Get",
         "type": "object",
@@ -40396,6 +42832,14 @@
           "id": {
             "title": "Id",
             "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Human readable name of the sandbox spec"
           },
           "command": {
             "title": "Command",
@@ -40957,6 +43401,13 @@
         },
         "description": "Active usage metrics tracked by the registry."
       },
+      "CreateWarmRuntimeRequestEnvironmentProperty": {
+        "title": "Environment",
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
       "CriticResultMetadataProperty": {
         "title": "Metadata",
         "type": [
@@ -40989,6 +43440,10 @@
           "null",
           "object"
         ]
+      },
+      "EntryProvenanceItemDetailsProperty": {
+        "title": "Details",
+        "type": "object"
       },
       "FileEditorToolMetaProperty": {
         "title": "Meta",
@@ -41722,6 +44177,20 @@
           "null",
           "object"
         ]
+      },
+      "WarmRuntimeFieldsEnvironmentProperty": {
+        "title": "Environment",
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
+      "WarmRuntimeResponseEnvironmentProperty": {
+        "title": "Environment",
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
       },
       "WebClientConfigDbFeatureFlagsProperty": {
         "title": "Db Feature Flags",
@@ -47955,6 +50424,98 @@
             "type": "null"
           }
         ]
+      },
+      "RunListDefaultEntriesApiServiceWorklogEntriesGetOrderParameter": {
+        "title": "Order",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "description": "asc lists oldest first, desc lists newest first",
+        "x-ms-enum": {
+          "name": "RunListDefaultEntriesApiServiceWorklogEntriesGetOrderParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "asc",
+              "name": "Asc"
+            },
+            {
+              "value": "desc",
+              "name": "Desc"
+            }
+          ]
+        }
+      },
+      "RunListEntriesApiServiceWorklogWorklogEntriesGetOrderParameter": {
+        "title": "Order",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "description": "asc lists oldest first, desc lists newest first",
+        "x-ms-enum": {
+          "name": "RunListEntriesApiServiceWorklogWorklogEntriesGetOrderParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "asc",
+              "name": "Asc"
+            },
+            {
+              "value": "desc",
+              "name": "Desc"
+            }
+          ]
+        }
+      },
+      "ListEntriesApiOrganizationsOrgIdFactoriesFactoryIdWorklogsWorklogEntriesGetOrderParameter": {
+        "title": "Order",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "description": "asc lists oldest first, desc lists newest first",
+        "x-ms-enum": {
+          "name": "ListEntriesApiOrganizationsOrgIdFactoriesFactoryIdWorklogsWorklogEntriesGetOrderParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "asc",
+              "name": "Asc"
+            },
+            {
+              "value": "desc",
+              "name": "Desc"
+            }
+          ]
+        }
+      },
+      "ListDefaultEntriesApiOrganizationsOrgIdFactoriesFactoryIdEntriesGetOrderParameter": {
+        "title": "Order",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "description": "asc lists oldest first, desc lists newest first",
+        "x-ms-enum": {
+          "name": "ListDefaultEntriesApiOrganizationsOrgIdFactoriesFactoryIdEntriesGetOrderParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "asc",
+              "name": "Asc"
+            },
+            {
+              "value": "desc",
+              "name": "Desc"
+            }
+          ]
+        }
       },
       "GetAgentProfileApiAgentProfilesNameGetScopeParameter": {
         "title": "Scope",
@@ -65885,6 +68446,47 @@
         }
       }
     },
+    "ResourceRequirements": {
+      "title": "ResourceRequirements",
+      "type": "object",
+      "properties": {
+        "requests": {
+          "$ref": "#/components/schemas/ResourceRequirementsLimits"
+        },
+        "limits": {
+          "$ref": "#/components/schemas/ResourceRequirementsLimits"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ResourceValues": {
+      "title": "ResourceValues",
+      "type": "object",
+      "properties": {
+        "cpu": {
+          "title": "Cpu",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "memory": {
+          "title": "Memory",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ephemeral_storage": {
+          "title": "Ephemeral Storage",
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
     "SamlProviderDetailsInput": {
       "title": "SamlProviderDetails",
       "type": "object",
@@ -72372,6 +74974,47 @@
         ]
       }
     },
+    "ResourceRequirementsRequests": {
+      "title": "ResourceValues",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "cpu": {
+          "title": "Cpu",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "memory": {
+          "title": "Memory",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ephemeral_storage": {
+          "title": "Ephemeral Storage",
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "x-client-original-nullable-union": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ResourceValues"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
     "SaasUserInfoSandboxGroupingStrategy": {
       "anyOf": [
         {
@@ -73680,6 +76323,58 @@
         ]
       }
     },
+    "WarmRuntimeFieldsResources": {
+      "title": "ResourceRequirements",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "requests": {
+          "$ref": "#/components/schemas/ResourceRequirementsLimits"
+        },
+        "limits": {
+          "$ref": "#/components/schemas/ResourceRequirementsLimits"
+        }
+      },
+      "additionalProperties": false,
+      "x-client-original-nullable-union": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ResourceRequirements"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "WarmRuntimeResponseResources": {
+      "title": "ResourceRequirements",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "requests": {
+          "$ref": "#/components/schemas/ResourceRequirementsLimits"
+        },
+        "limits": {
+          "$ref": "#/components/schemas/ResourceRequirementsLimits"
+        }
+      },
+      "additionalProperties": false,
+      "x-client-original-nullable-union": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ResourceRequirements"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
     "WorkflowObservationContentItem": {
       "anyOf": [
         {
@@ -74615,6 +77310,13 @@
       },
       "description": "Active usage metrics tracked by the registry."
     },
+    "CreateWarmRuntimeRequestEnvironment": {
+      "title": "Environment",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
     "CriticResultMetadata": {
       "title": "Metadata",
       "type": [
@@ -74647,6 +77349,10 @@
         "null",
         "object"
       ]
+    },
+    "EntryProvenanceItemDetails": {
+      "title": "Details",
+      "type": "object"
     },
     "FileEditorToolMeta": {
       "title": "Meta",
@@ -75388,6 +78094,20 @@
         "object"
       ]
     },
+    "WarmRuntimeFieldsEnvironment": {
+      "title": "Environment",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "WarmRuntimeResponseEnvironment": {
+      "title": "Environment",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
     "WebClientConfigDbFeatureFlags": {
       "title": "Db Feature Flags",
       "type": "object",
@@ -75729,6 +78449,10 @@
     "SaveAgentProfileApiAgentProfilesNamePostRequest": {
       "title": "Body",
       "type": "object"
+    },
+    "ResponseDeleteVerifiedModelApiAdminModelsProviderModelNameDelete": {
+      "title": "Response Delete Verified Model Api Admin Models  Provider   Model Name  Delete",
+      "type": "boolean"
     },
     "ResponseGetToolCatalogApiToolsCatalogGet": {
       "title": "Response Get Tool Catalog Api Tools Catalog Get",
@@ -76210,6 +78934,14 @@
         "id": {
           "title": "Id",
           "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Human readable name of the sandbox spec"
         },
         "command": {
           "title": "Command",

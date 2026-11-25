@@ -19,6 +19,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("sso") is null) { _explicitNullValueSso = default!; _explicitNullProperties?.Remove("sso"); }
             else if (parseNode.GetChildNode("sso") is { } nullNodeSso && nullNodeSso.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sso = null;
+            if (parseNode.GetChildNode("worklogs") is null) { _explicitNullValueWorklogs = default!; _explicitNullProperties?.Remove("worklogs"); }
+            else if (parseNode.GetChildNode("worklogs") is { } nullNodeWorklogs && nullNodeWorklogs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Worklogs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,6 +28,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The sso property</summary>
         public bool? Sso { get => _explicitNullValueSso; set { _explicitNullValueSso = value; AdditionalData?.Remove("sso"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sso"); else _explicitNullProperties?.Remove("sso"); } }
         private bool? _explicitNullValueSso = default!;
+        /// <summary>The worklogs property</summary>
+        public bool? Worklogs { get => _explicitNullValueWorklogs; set { _explicitNullValueWorklogs = value; AdditionalData?.Remove("worklogs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("worklogs"); else _explicitNullProperties?.Remove("worklogs"); } }
+        private bool? _explicitNullValueWorklogs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.LicenseFeaturesResponse"/> and sets the default values.
         /// </summary>
@@ -52,6 +57,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "sso", n => { Sso = n.GetBoolValue(); } },
+                { "worklogs", n => { Worklogs = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -62,6 +68,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("sso", Sso);
+            writer.WriteBoolValue("worklogs", Worklogs);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

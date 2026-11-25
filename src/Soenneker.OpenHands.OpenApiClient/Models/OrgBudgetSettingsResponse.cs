@@ -41,6 +41,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("email_alerts_available") is { } nullNodeEmailAlertsAvailable && nullNodeEmailAlertsAvailable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailAlertsAvailable = null;
             if (parseNode.GetChildNode("enabled") is null) { _explicitNullValueEnabled = default!; _explicitNullProperties?.Remove("enabled"); }
             else if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("limit_reached_instructions") is null) { _explicitNullValueLimitReachedInstructions = default!; _explicitNullProperties?.Remove("limit_reached_instructions"); }
+            else if (parseNode.GetChildNode("limit_reached_instructions") is { } nullNodeLimitReachedInstructions && nullNodeLimitReachedInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LimitReachedInstructions = null;
             if (parseNode.GetChildNode("litellm_last_sync_at") is null) { _explicitNullValueLitellmLastSyncAt = default!; _explicitNullProperties?.Remove("litellm_last_sync_at"); }
             else if (parseNode.GetChildNode("litellm_last_sync_at") is { } nullNodeLitellmLastSyncAt && nullNodeLitellmLastSyncAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LitellmLastSyncAt = null;
             if (parseNode.GetChildNode("litellm_last_sync_error") is null) { _explicitNullValueLitellmLastSyncError = default!; _explicitNullProperties?.Remove("litellm_last_sync_error"); }
@@ -121,6 +123,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The enabled property</summary>
         public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; AdditionalData?.Remove("enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
         private bool? _explicitNullValueEnabled = default!;
+        /// <summary>The limit_reached_instructions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LimitReachedInstructions { get => _explicitNullValueLimitReachedInstructions; set { _explicitNullValueLimitReachedInstructions = value; AdditionalData?.Remove("limit_reached_instructions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit_reached_instructions"); else _explicitNullProperties?.Remove("limit_reached_instructions"); } }
+        private string? _explicitNullValueLimitReachedInstructions = default!;
+#nullable restore
+#else
+        public string LimitReachedInstructions { get => _explicitNullValueLimitReachedInstructions; set { _explicitNullValueLimitReachedInstructions = value; AdditionalData?.Remove("limit_reached_instructions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit_reached_instructions"); else _explicitNullProperties?.Remove("limit_reached_instructions"); } }
+        private string _explicitNullValueLimitReachedInstructions = default!;
+#endif
         /// <summary>The litellm_last_sync_at property</summary>
         public DateTimeOffset? LitellmLastSyncAt { get => _explicitNullValueLitellmLastSyncAt; set { _explicitNullValueLitellmLastSyncAt = value; AdditionalData?.Remove("litellm_last_sync_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("litellm_last_sync_at"); else _explicitNullProperties?.Remove("litellm_last_sync_at"); } }
         private DateTimeOffset? _explicitNullValueLitellmLastSyncAt = default!;
@@ -256,7 +268,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(32)
+            return new Dictionary<string, Action<IParseNode>>(33)
             {
                 { "applied_at", n => { AppliedAt = n.GetDateTimeOffsetValue(); } },
                 { "applied_policy_observed_at", n => { AppliedPolicyObservedAt = n.GetDateTimeOffsetValue(); } },
@@ -270,6 +282,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "desired_team_max_budget", n => { DesiredTeamMaxBudget = n.GetDoubleValue(); } },
                 { "email_alerts_available", n => { EmailAlertsAvailable = n.GetBoolValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
+                { "limit_reached_instructions", n => { LimitReachedInstructions = n.GetStringValue(); } },
                 { "litellm_last_sync_at", n => { LitellmLastSyncAt = n.GetDateTimeOffsetValue(); } },
                 { "litellm_last_sync_error", n => { LitellmLastSyncError = n.GetStringValue(); } },
                 { "litellm_last_sync_status", n => { LitellmLastSyncStatus = n.GetStringValue(); } },
@@ -311,6 +324,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteDoubleValue("desired_team_max_budget", DesiredTeamMaxBudget);
             writer.WriteBoolValue("email_alerts_available", EmailAlertsAvailable);
             writer.WriteBoolValue("enabled", Enabled);
+            writer.WriteStringValue("limit_reached_instructions", LimitReachedInstructions);
             writer.WriteDateTimeOffsetValue("litellm_last_sync_at", LitellmLastSyncAt);
             writer.WriteStringValue("litellm_last_sync_error", LitellmLastSyncError);
             writer.WriteStringValue("litellm_last_sync_status", LitellmLastSyncStatus);

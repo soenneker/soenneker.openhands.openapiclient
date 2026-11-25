@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.DirectoryNamespace;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.FeatureFlags;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.InstanceSettings;
+using Soenneker.OpenHands.OpenApiClient.Api.Admin.ModelsRequests;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.OauthProviders;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.Organizations;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.Quota;
@@ -12,6 +13,7 @@ using Soenneker.OpenHands.OpenApiClient.Api.Admin.SetupState;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.SuperAdmins;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.Users;
 using Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels;
+using Soenneker.OpenHands.OpenApiClient.Api.Admin.WarmRuntimes;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -38,6 +40,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin
         public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.InstanceSettings.InstanceSettingsRequestBuilder InstanceSettings
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.InstanceSettings.InstanceSettingsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The models property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.ModelsRequests.ModelsRequestBuilder Models
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.ModelsRequests.ModelsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The oauthProviders property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.OauthProviders.OauthProvidersRequestBuilder OauthProviders
@@ -70,9 +77,15 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Admin
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.Users.UsersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The verifiedModels property</summary>
+        [Obsolete("")]
         public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels.VerifiedModelsRequestBuilder VerifiedModels
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.VerifiedModels.VerifiedModelsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The warmRuntimes property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Admin.WarmRuntimes.WarmRuntimesRequestBuilder WarmRuntimes
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Admin.WarmRuntimes.WarmRuntimesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Admin.AdminRequestBuilder"/> and sets the default values.

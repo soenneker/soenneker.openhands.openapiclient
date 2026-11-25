@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.OpenHands.OpenApiClient.Models
 {
+    /// <summary>
+    /// Defines a tool to be initialized for the agent.This is only used in agent-sdk for type schema for server use.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class OpenhandsSdkToolSpecTool : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -19,20 +20,32 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("params") is null) { _explicitNullValueParamsValue = default!; _explicitNullProperties?.Remove("params"); }
-            else if (parseNode.GetChildNode("params") is { } nullNodeParamsValue && nullNodeParamsValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParamsValue = null;
+            if (parseNode.GetChildNode("params") is null) { _explicitNullValueParams = default!; _explicitNullProperties?.Remove("params"); }
+            else if (parseNode.GetChildNode("params") is { } nullNodeParams && nullNodeParams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Params = null;
         }
-
-        // Restore fields omitted by the generator's model-depth limit.
-#nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
-        private string? _explicitNullValueName = default!;
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? ParamsValue { get => _explicitNullValueParamsValue; set { _explicitNullValueParamsValue = value; AdditionalData?.Remove("params"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("params"); else _explicitNullProperties?.Remove("params"); } }
-        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueParamsValue = default!;
-#nullable restore
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Name of the tool class, e.g., &apos;TerminalTool&apos;. Import it from an `openhands.tools.&lt;module&gt;` subpackage.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
+#nullable restore
+#else
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
+#endif
+        /// <summary>Parameters for the tool&apos;s .create() method, e.g., {&apos;working_dir&apos;: &apos;/app&apos;}</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecToolParamsProperty? Params { get => _explicitNullValueParams; set { _explicitNullValueParams = value; AdditionalData?.Remove("params"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("params"); else _explicitNullProperties?.Remove("params"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecToolParamsProperty? _explicitNullValueParams = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecToolParamsProperty Params { get => _explicitNullValueParams; set { _explicitNullValueParams = value; AdditionalData?.Remove("params"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("params"); else _explicitNullProperties?.Remove("params"); } }
+        private global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecToolParamsProperty _explicitNullValueParams = default!;
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecTool"/> and sets the default values.
         /// </summary>
@@ -59,8 +72,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "params", n => { ParamsValue = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
-
+                { "params", n => { Params = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecToolParamsProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecToolParamsProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -71,7 +83,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("params", ParamsValue);
+            writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OpenhandsSdkToolSpecToolParamsProperty>("params", Params);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

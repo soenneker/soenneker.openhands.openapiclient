@@ -21,6 +21,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("default_user_monthly_limit") is { } nullNodeDefaultUserMonthlyLimit && nullNodeDefaultUserMonthlyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultUserMonthlyLimit = null;
             if (parseNode.GetChildNode("enabled") is null) { _explicitNullValueEnabled = default!; _explicitNullProperties?.Remove("enabled"); }
             else if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("limit_reached_instructions") is null) { _explicitNullValueLimitReachedInstructions = default!; _explicitNullProperties?.Remove("limit_reached_instructions"); }
+            else if (parseNode.GetChildNode("limit_reached_instructions") is { } nullNodeLimitReachedInstructions && nullNodeLimitReachedInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LimitReachedInstructions = null;
             if (parseNode.GetChildNode("monthly_limit") is null) { _explicitNullValueMonthlyLimit = default!; _explicitNullProperties?.Remove("monthly_limit"); }
             else if (parseNode.GetChildNode("monthly_limit") is { } nullNodeMonthlyLimit && nullNodeMonthlyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MonthlyLimit = null;
             if (parseNode.GetChildNode("reset_day") is null) { _explicitNullValueResetDay = default!; _explicitNullProperties?.Remove("reset_day"); }
@@ -41,6 +43,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The enabled property</summary>
         public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; AdditionalData?.Remove("enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
         private bool? _explicitNullValueEnabled = default!;
+        /// <summary>The limit_reached_instructions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LimitReachedInstructions { get => _explicitNullValueLimitReachedInstructions; set { _explicitNullValueLimitReachedInstructions = value; AdditionalData?.Remove("limit_reached_instructions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit_reached_instructions"); else _explicitNullProperties?.Remove("limit_reached_instructions"); } }
+        private string? _explicitNullValueLimitReachedInstructions = default!;
+#nullable restore
+#else
+        public string LimitReachedInstructions { get => _explicitNullValueLimitReachedInstructions; set { _explicitNullValueLimitReachedInstructions = value; AdditionalData?.Remove("limit_reached_instructions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit_reached_instructions"); else _explicitNullProperties?.Remove("limit_reached_instructions"); } }
+        private string _explicitNullValueLimitReachedInstructions = default!;
+#endif
         /// <summary>The monthly_limit property</summary>
         public double? MonthlyLimit { get => _explicitNullValueMonthlyLimit; set { _explicitNullValueMonthlyLimit = value; AdditionalData?.Remove("monthly_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("monthly_limit"); else _explicitNullProperties?.Remove("monthly_limit"); } }
         private double? _explicitNullValueMonthlyLimit = default!;
@@ -100,10 +112,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(7)
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "default_user_monthly_limit", n => { DefaultUserMonthlyLimit = n.GetDoubleValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
+                { "limit_reached_instructions", n => { LimitReachedInstructions = n.GetStringValue(); } },
                 { "monthly_limit", n => { MonthlyLimit = n.GetDoubleValue(); } },
                 { "reset_day", n => { ResetDay = n.GetIntValue(); } },
                 { "slack_channel", n => { SlackChannel = n.GetStringValue(); } },
@@ -120,6 +133,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("default_user_monthly_limit", DefaultUserMonthlyLimit);
             writer.WriteBoolValue("enabled", Enabled);
+            writer.WriteStringValue("limit_reached_instructions", LimitReachedInstructions);
             writer.WriteDoubleValue("monthly_limit", MonthlyLimit);
             writer.WriteIntValue("reset_day", ResetDay);
             writer.WriteStringValue("slack_channel", SlackChannel);

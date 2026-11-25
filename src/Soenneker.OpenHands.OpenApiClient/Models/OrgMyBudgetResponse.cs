@@ -30,6 +30,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("is_disabled") is { } nullNodeIsDisabled && nullNodeIsDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsDisabled = null;
             if (parseNode.GetChildNode("is_override") is null) { _explicitNullValueIsOverride = default!; _explicitNullProperties?.Remove("is_override"); }
             else if (parseNode.GetChildNode("is_override") is { } nullNodeIsOverride && nullNodeIsOverride.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsOverride = null;
+            if (parseNode.GetChildNode("limit_reached_instructions") is null) { _explicitNullValueLimitReachedInstructions = default!; _explicitNullProperties?.Remove("limit_reached_instructions"); }
+            else if (parseNode.GetChildNode("limit_reached_instructions") is { } nullNodeLimitReachedInstructions && nullNodeLimitReachedInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LimitReachedInstructions = null;
             if (parseNode.GetChildNode("limit_updated_at") is null) { _explicitNullValueLimitUpdatedAt = default!; _explicitNullProperties?.Remove("limit_updated_at"); }
             else if (parseNode.GetChildNode("limit_updated_at") is { } nullNodeLimitUpdatedAt && nullNodeLimitUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LimitUpdatedAt = null;
             if (parseNode.GetChildNode("monthly_limit") is null) { _explicitNullValueMonthlyLimit = default!; _explicitNullProperties?.Remove("monthly_limit"); }
@@ -64,6 +66,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The is_override property</summary>
         public bool? IsOverride { get => _explicitNullValueIsOverride; set { _explicitNullValueIsOverride = value; AdditionalData?.Remove("is_override"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_override"); else _explicitNullProperties?.Remove("is_override"); } }
         private bool? _explicitNullValueIsOverride = default!;
+        /// <summary>The limit_reached_instructions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LimitReachedInstructions { get => _explicitNullValueLimitReachedInstructions; set { _explicitNullValueLimitReachedInstructions = value; AdditionalData?.Remove("limit_reached_instructions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit_reached_instructions"); else _explicitNullProperties?.Remove("limit_reached_instructions"); } }
+        private string? _explicitNullValueLimitReachedInstructions = default!;
+#nullable restore
+#else
+        public string LimitReachedInstructions { get => _explicitNullValueLimitReachedInstructions; set { _explicitNullValueLimitReachedInstructions = value; AdditionalData?.Remove("limit_reached_instructions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit_reached_instructions"); else _explicitNullProperties?.Remove("limit_reached_instructions"); } }
+        private string _explicitNullValueLimitReachedInstructions = default!;
+#endif
         /// <summary>The limit_updated_at property</summary>
         public DateTimeOffset? LimitUpdatedAt { get => _explicitNullValueLimitUpdatedAt; set { _explicitNullValueLimitUpdatedAt = value; AdditionalData?.Remove("limit_updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit_updated_at"); else _explicitNullProperties?.Remove("limit_updated_at"); } }
         private DateTimeOffset? _explicitNullValueLimitUpdatedAt = default!;
@@ -114,7 +126,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(12)
+            return new Dictionary<string, Action<IParseNode>>(13)
             {
                 { "current_spend", n => { CurrentSpend = n.GetDoubleValue(); } },
                 { "cycle_end_at", n => { CycleEndAt = n.GetDateTimeOffsetValue(); } },
@@ -122,6 +134,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "is_disabled", n => { IsDisabled = n.GetBoolValue(); } },
                 { "is_override", n => { IsOverride = n.GetBoolValue(); } },
+                { "limit_reached_instructions", n => { LimitReachedInstructions = n.GetStringValue(); } },
                 { "limit_updated_at", n => { LimitUpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "monthly_limit", n => { MonthlyLimit = n.GetDoubleValue(); } },
                 { "org_current_spend", n => { OrgCurrentSpend = n.GetDoubleValue(); } },
@@ -143,6 +156,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteBoolValue("is_disabled", IsDisabled);
             writer.WriteBoolValue("is_override", IsOverride);
+            writer.WriteStringValue("limit_reached_instructions", LimitReachedInstructions);
             writer.WriteDateTimeOffsetValue("limit_updated_at", LimitUpdatedAt);
             writer.WriteDoubleValue("monthly_limit", MonthlyLimit);
             writer.WriteDoubleValue("org_current_spend", OrgCurrentSpend);

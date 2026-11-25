@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Budgets;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations;
+using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Factories;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.McpServers;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Me;
@@ -16,6 +17,7 @@ using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Secrets;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.ServiceAccounts;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Settings;
 using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Switch;
+using Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.WorklogSummaries;
 using Soenneker.OpenHands.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -39,6 +41,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.ConversationsRequestBuilder Conversations
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Conversations.ConversationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The factories property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Factories.FactoriesRequestBuilder Factories
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Factories.FactoriesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The gitClaims property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.GitClaims.GitClaimsRequestBuilder GitClaims
@@ -94,6 +101,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item
         public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Switch.SwitchRequestBuilder Switch
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.Switch.SwitchRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The worklogSummaries property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.WorklogSummaries.WorklogSummariesRequestBuilder WorklogSummaries
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.WorklogSummaries.WorklogSummariesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Organizations.Item.WithOrgItemRequestBuilder"/> and sets the default values.

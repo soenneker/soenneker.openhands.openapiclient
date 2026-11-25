@@ -26,6 +26,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
             if (parseNode.GetChildNode("initial_env") is null) { _explicitNullValueInitialEnv = default!; _explicitNullProperties?.Remove("initial_env"); }
             else if (parseNode.GetChildNode("initial_env") is { } nullNodeInitialEnv && nullNodeInitialEnv.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InitialEnv = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
             if (parseNode.GetChildNode("working_dir") is null) { _explicitNullValueWorkingDir = default!; _explicitNullProperties?.Remove("working_dir"); }
             else if (parseNode.GetChildNode("working_dir") is { } nullNodeWorkingDir && nullNodeWorkingDir.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkingDir = null;
         }
@@ -65,6 +67,16 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         public global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfoInitialEnvProperty InitialEnv { get => _explicitNullValueInitialEnv; set { _explicitNullValueInitialEnv = value; AdditionalData?.Remove("initial_env"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initial_env"); else _explicitNullProperties?.Remove("initial_env"); } }
         private global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfoInitialEnvProperty _explicitNullValueInitialEnv = default!;
 #endif
+        /// <summary>Human readable name of the sandbox spec</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
+#nullable restore
+#else
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
+#endif
         /// <summary>The working_dir property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -101,12 +113,13 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(5)
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "command", n => { Command = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "initial_env", n => { InitialEnv = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfoInitialEnvProperty>(global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfoInitialEnvProperty.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetStringValue(); } },
                 { "working_dir", n => { WorkingDir = n.GetStringValue(); } },
             };
         }
@@ -121,6 +134,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.SandboxSpecInfoInitialEnvProperty>("initial_env", InitialEnv);
+            writer.WriteStringValue("name", Name);
             writer.WriteStringValue("working_dir", WorkingDir);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

@@ -35,6 +35,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("enable_billing") is { } nullNodeEnableBilling && nullNodeEnableBilling.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableBilling = null;
             if (parseNode.GetChildNode("enable_byor_export") is null) { _explicitNullValueEnableByorExport = default!; _explicitNullProperties?.Remove("enable_byor_export"); }
             else if (parseNode.GetChildNode("enable_byor_export") is { } nullNodeEnableByorExport && nullNodeEnableByorExport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableByorExport = null;
+            if (parseNode.GetChildNode("enable_factories") is null) { _explicitNullValueEnableFactories = default!; _explicitNullProperties?.Remove("enable_factories"); }
+            else if (parseNode.GetChildNode("enable_factories") is { } nullNodeEnableFactories && nullNodeEnableFactories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableFactories = null;
             if (parseNode.GetChildNode("enable_integrated_idp") is null) { _explicitNullValueEnableIntegratedIdp = default!; _explicitNullProperties?.Remove("enable_integrated_idp"); }
             else if (parseNode.GetChildNode("enable_integrated_idp") is { } nullNodeEnableIntegratedIdp && nullNodeEnableIntegratedIdp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableIntegratedIdp = null;
             if (parseNode.GetChildNode("enable_jira") is null) { _explicitNullValueEnableJira = default!; _explicitNullProperties?.Remove("enable_jira"); }
@@ -57,6 +59,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("enable_service_accounts") is { } nullNodeEnableServiceAccounts && nullNodeEnableServiceAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableServiceAccounts = null;
             if (parseNode.GetChildNode("enable_super_admin") is null) { _explicitNullValueEnableSuperAdmin = default!; _explicitNullProperties?.Remove("enable_super_admin"); }
             else if (parseNode.GetChildNode("enable_super_admin") is { } nullNodeEnableSuperAdmin && nullNodeEnableSuperAdmin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableSuperAdmin = null;
+            if (parseNode.GetChildNode("github_scope_repo_search_to_installations") is null) { _explicitNullValueGithubScopeRepoSearchToInstallations = default!; _explicitNullProperties?.Remove("github_scope_repo_search_to_installations"); }
+            else if (parseNode.GetChildNode("github_scope_repo_search_to_installations") is { } nullNodeGithubScopeRepoSearchToInstallations && nullNodeGithubScopeRepoSearchToInstallations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GithubScopeRepoSearchToInstallations = null;
             if (parseNode.GetChildNode("hide_billing_page") is null) { _explicitNullValueHideBillingPage = default!; _explicitNullProperties?.Remove("hide_billing_page"); }
             else if (parseNode.GetChildNode("hide_billing_page") is { } nullNodeHideBillingPage && nullNodeHideBillingPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HideBillingPage = null;
             if (parseNode.GetChildNode("hide_integrations_page") is null) { _explicitNullValueHideIntegrationsPage = default!; _explicitNullProperties?.Remove("hide_integrations_page"); }
@@ -105,6 +109,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The enable_byor_export property</summary>
         public bool? EnableByorExport { get => _explicitNullValueEnableByorExport; set { _explicitNullValueEnableByorExport = value; AdditionalData?.Remove("enable_byor_export"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_byor_export"); else _explicitNullProperties?.Remove("enable_byor_export"); } }
         private bool? _explicitNullValueEnableByorExport = default!;
+        /// <summary>The enable_factories property</summary>
+        public bool? EnableFactories { get => _explicitNullValueEnableFactories; set { _explicitNullValueEnableFactories = value; AdditionalData?.Remove("enable_factories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_factories"); else _explicitNullProperties?.Remove("enable_factories"); } }
+        private bool? _explicitNullValueEnableFactories = default!;
         /// <summary>The enable_integrated_idp property</summary>
         public bool? EnableIntegratedIdp { get => _explicitNullValueEnableIntegratedIdp; set { _explicitNullValueEnableIntegratedIdp = value; AdditionalData?.Remove("enable_integrated_idp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_integrated_idp"); else _explicitNullProperties?.Remove("enable_integrated_idp"); } }
         private bool? _explicitNullValueEnableIntegratedIdp = default!;
@@ -138,6 +145,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The enable_super_admin property</summary>
         public bool? EnableSuperAdmin { get => _explicitNullValueEnableSuperAdmin; set { _explicitNullValueEnableSuperAdmin = value; AdditionalData?.Remove("enable_super_admin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_super_admin"); else _explicitNullProperties?.Remove("enable_super_admin"); } }
         private bool? _explicitNullValueEnableSuperAdmin = default!;
+        /// <summary>The github_scope_repo_search_to_installations property</summary>
+        public bool? GithubScopeRepoSearchToInstallations { get => _explicitNullValueGithubScopeRepoSearchToInstallations; set { _explicitNullValueGithubScopeRepoSearchToInstallations = value; AdditionalData?.Remove("github_scope_repo_search_to_installations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github_scope_repo_search_to_installations"); else _explicitNullProperties?.Remove("github_scope_repo_search_to_installations"); } }
+        private bool? _explicitNullValueGithubScopeRepoSearchToInstallations = default!;
         /// <summary>The hide_billing_page property</summary>
         public bool? HideBillingPage { get => _explicitNullValueHideBillingPage; set { _explicitNullValueHideBillingPage = value; AdditionalData?.Remove("hide_billing_page"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hide_billing_page"); else _explicitNullProperties?.Remove("hide_billing_page"); } }
         private bool? _explicitNullValueHideBillingPage = default!;
@@ -167,6 +177,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             EnableAutomations = true;
             EnableBilling = false;
             EnableByorExport = false;
+            EnableFactories = false;
             EnableIntegratedIdp = false;
             EnableJira = false;
             EnableJiraDc = false;
@@ -178,6 +189,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             EnableOrgMcpServers = false;
             EnableServiceAccounts = false;
             EnableSuperAdmin = false;
+            GithubScopeRepoSearchToInstallations = false;
             HideBillingPage = false;
             HideIntegrationsPage = false;
             HideLlmSettings = false;
@@ -200,7 +212,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(25)
+            return new Dictionary<string, Action<IParseNode>>(27)
             {
                 { "allow_user_llm_configuration", n => { AllowUserLlmConfiguration = n.GetBoolValue(); } },
                 { "deployment_mode", n => { DeploymentMode = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode>(global::Soenneker.OpenHands.OpenApiClient.Models.WebClientFeatureFlagsDeploymentMode.CreateFromDiscriminatorValue); } },
@@ -211,6 +223,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "enable_automations", n => { EnableAutomations = n.GetBoolValue(); } },
                 { "enable_billing", n => { EnableBilling = n.GetBoolValue(); } },
                 { "enable_byor_export", n => { EnableByorExport = n.GetBoolValue(); } },
+                { "enable_factories", n => { EnableFactories = n.GetBoolValue(); } },
                 { "enable_integrated_idp", n => { EnableIntegratedIdp = n.GetBoolValue(); } },
                 { "enable_jira", n => { EnableJira = n.GetBoolValue(); } },
                 { "enable_jira_dc", n => { EnableJiraDc = n.GetBoolValue(); } },
@@ -222,6 +235,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "enable_org_mcp_servers", n => { EnableOrgMcpServers = n.GetBoolValue(); } },
                 { "enable_service_accounts", n => { EnableServiceAccounts = n.GetBoolValue(); } },
                 { "enable_super_admin", n => { EnableSuperAdmin = n.GetBoolValue(); } },
+                { "github_scope_repo_search_to_installations", n => { GithubScopeRepoSearchToInstallations = n.GetBoolValue(); } },
                 { "hide_billing_page", n => { HideBillingPage = n.GetBoolValue(); } },
                 { "hide_integrations_page", n => { HideIntegrationsPage = n.GetBoolValue(); } },
                 { "hide_llm_settings", n => { HideLlmSettings = n.GetBoolValue(); } },
@@ -245,6 +259,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("enable_automations", EnableAutomations);
             writer.WriteBoolValue("enable_billing", EnableBilling);
             writer.WriteBoolValue("enable_byor_export", EnableByorExport);
+            writer.WriteBoolValue("enable_factories", EnableFactories);
             writer.WriteBoolValue("enable_integrated_idp", EnableIntegratedIdp);
             writer.WriteBoolValue("enable_jira", EnableJira);
             writer.WriteBoolValue("enable_jira_dc", EnableJiraDc);
@@ -256,6 +271,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("enable_org_mcp_servers", EnableOrgMcpServers);
             writer.WriteBoolValue("enable_service_accounts", EnableServiceAccounts);
             writer.WriteBoolValue("enable_super_admin", EnableSuperAdmin);
+            writer.WriteBoolValue("github_scope_repo_search_to_installations", GithubScopeRepoSearchToInstallations);
             writer.WriteBoolValue("hide_billing_page", HideBillingPage);
             writer.WriteBoolValue("hide_integrations_page", HideIntegrationsPage);
             writer.WriteBoolValue("hide_llm_settings", HideLlmSettings);

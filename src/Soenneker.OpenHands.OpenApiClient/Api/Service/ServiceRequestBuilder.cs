@@ -3,7 +3,9 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenHands.OpenApiClient.Api.Service.Health;
+using Soenneker.OpenHands.OpenApiClient.Api.Service.Orgs;
 using Soenneker.OpenHands.OpenApiClient.Api.Service.Users;
+using Soenneker.OpenHands.OpenApiClient.Api.Service.Worklog;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -21,10 +23,20 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.Service
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Service.Health.HealthRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The orgs property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Service.Orgs.OrgsRequestBuilder Orgs
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Service.Orgs.OrgsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The users property</summary>
         public global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.UsersRequestBuilder Users
         {
             get => new global::Soenneker.OpenHands.OpenApiClient.Api.Service.Users.UsersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The worklog property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.Service.Worklog.WorklogRequestBuilder Worklog
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.Service.Worklog.WorklogRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.Service.ServiceRequestBuilder"/> and sets the default values.
