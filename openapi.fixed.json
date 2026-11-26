@@ -3,7 +3,7 @@
   "info": {
     "title": "OpenHands",
     "description": "OpenHands: Code Less, Make More",
-    "version": "1.97.1"
+    "version": "1.99.0"
   },
   "paths": {
     "/api/v1/conversation/{conversationId}/events/search": {
@@ -6177,6 +6177,62 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CancelCallbackApiBillingCancelGet200ResponseSchema"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/shared-conversations/search": {
+      "get": {
+        "tags": [
+          "Sharing"
+        ],
+        "summary": "Search Shared Conversations",
+        "description": "Search / List the conversations shared with the caller\u0027s effective org.",
+        "operationId": "SearchSharedConversationsApiSharedConversationsSearchGet",
+        "parameters": [
+          {
+            "name": "page_id",
+            "in": "query",
+            "schema": {
+              "title": "Optional next_page_id from the previously returned page",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "title": "The max number of results in the page",
+              "maximum": 100,
+              "exclusiveMinimum": 0,
+              "type": "integer",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SharedConversationPage"
                 }
               }
             }
@@ -31966,6 +32022,11 @@
             "type": "boolean",
             "default": false
           },
+          "enable_shared_conversation_discovery": {
+            "title": "Enable Shared Conversation Discovery",
+            "type": "boolean",
+            "default": true
+          },
           "sandbox_base_container_image": {
             "title": "Sandbox Base Container Image",
             "type": [
@@ -32198,6 +32259,13 @@
           },
           "enable_conversation_usage_detail": {
             "title": "Enable Conversation Usage Detail",
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "enable_shared_conversation_discovery": {
+            "title": "Enable Shared Conversation Discovery",
             "type": [
               "null",
               "boolean"
@@ -34507,6 +34575,120 @@
           }
         },
         "description": "Fields left out are unchanged; a \u0060\u0060null\u0060\u0060 \u0060\u0060guide_org_id\u0060\u0060 clears it."
+      },
+      "SharedConversation": {
+        "title": "SharedConversation",
+        "required": [
+          "created_by_user_id",
+          "sandbox_id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "created_by_user_id": {
+            "title": "Created By User Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sandbox_id": {
+            "title": "Sandbox Id",
+            "type": "string"
+          },
+          "selected_repository": {
+            "title": "Selected Repository",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "selected_branch": {
+            "title": "Selected Branch",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "git_provider": {
+            "$ref": "#/components/schemas/SharedConversationGitProvider"
+          },
+          "title": {
+            "title": "Title",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "pr_number": {
+            "title": "Pr Number",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "llm_model": {
+            "title": "Llm Model",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "metrics": {
+            "$ref": "#/components/schemas/SharedConversationMetrics"
+          },
+          "parent_conversation_id": {
+            "title": "Parent Conversation Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sub_conversation_ids": {
+            "title": "Sub Conversation Ids",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "description": "Shared conversation info model with all fields from AppConversationInfo."
+      },
+      "SharedConversationPage": {
+        "title": "SharedConversationPage",
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "title": "Items",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SharedConversation"
+            }
+          },
+          "next_page_id": {
+            "title": "Next Page Id",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
       },
       "SignupLinkResponse": {
         "title": "SignupLinkResponse",
@@ -68910,97 +69092,6 @@
         }
       },
       "description": "Setup-guide steps done in the guide\u0027s organization, read from real data."
-    },
-    "SharedConversation": {
-      "title": "SharedConversation",
-      "required": [
-        "created_by_user_id",
-        "sandbox_id"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "title": "Id",
-          "type": "string"
-        },
-        "created_by_user_id": {
-          "title": "Created By User Id",
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "sandbox_id": {
-          "title": "Sandbox Id",
-          "type": "string"
-        },
-        "selected_repository": {
-          "title": "Selected Repository",
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "selected_branch": {
-          "title": "Selected Branch",
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "git_provider": {
-          "$ref": "#/components/schemas/SharedConversationGitProvider"
-        },
-        "title": {
-          "title": "Title",
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "pr_number": {
-          "title": "Pr Number",
-          "type": "array",
-          "items": {
-            "type": "integer"
-          }
-        },
-        "llm_model": {
-          "title": "Llm Model",
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "metrics": {
-          "$ref": "#/components/schemas/SharedConversationMetrics"
-        },
-        "parent_conversation_id": {
-          "title": "Parent Conversation Id",
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "sub_conversation_ids": {
-          "title": "Sub Conversation Ids",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "created_at": {
-          "title": "Created At",
-          "type": "string",
-          "format": "date-time"
-        },
-        "updated_at": {
-          "title": "Updated At",
-          "type": "string",
-          "format": "date-time"
-        }
-      },
-      "description": "Shared conversation info model with all fields from AppConversationInfo."
     },
     "SkillResources": {
       "title": "SkillResources",

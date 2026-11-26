@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.OpenHands.OpenApiClient.Api.SharedConversations.Search;
 using Soenneker.OpenHands.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,11 @@ namespace Soenneker.OpenHands.OpenApiClient.Api.SharedConversations
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SharedConversationsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The search property</summary>
+        public global::Soenneker.OpenHands.OpenApiClient.Api.SharedConversations.Search.SearchRequestBuilder Search
+        {
+            get => new global::Soenneker.OpenHands.OpenApiClient.Api.SharedConversations.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenHands.OpenApiClient.Api.SharedConversations.SharedConversationsRequestBuilder"/> and sets the default values.
         /// </summary>

@@ -38,6 +38,8 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             else if (parseNode.GetChildNode("enable_conversation_usage_detail") is { } nullNodeEnableConversationUsageDetail && nullNodeEnableConversationUsageDetail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableConversationUsageDetail = null;
             if (parseNode.GetChildNode("enable_proactive_conversation_starters") is null) { _explicitNullValueEnableProactiveConversationStarters = default!; _explicitNullProperties?.Remove("enable_proactive_conversation_starters"); }
             else if (parseNode.GetChildNode("enable_proactive_conversation_starters") is { } nullNodeEnableProactiveConversationStarters && nullNodeEnableProactiveConversationStarters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableProactiveConversationStarters = null;
+            if (parseNode.GetChildNode("enable_shared_conversation_discovery") is null) { _explicitNullValueEnableSharedConversationDiscovery = default!; _explicitNullProperties?.Remove("enable_shared_conversation_discovery"); }
+            else if (parseNode.GetChildNode("enable_shared_conversation_discovery") is { } nullNodeEnableSharedConversationDiscovery && nullNodeEnableSharedConversationDiscovery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableSharedConversationDiscovery = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
             if (parseNode.GetChildNode("is_personal") is null) { _explicitNullValueIsPersonal = default!; _explicitNullProperties?.Remove("is_personal"); }
@@ -124,6 +126,9 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <summary>The enable_proactive_conversation_starters property</summary>
         public bool? EnableProactiveConversationStarters { get => _explicitNullValueEnableProactiveConversationStarters; set { _explicitNullValueEnableProactiveConversationStarters = value; AdditionalData?.Remove("enable_proactive_conversation_starters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_proactive_conversation_starters"); else _explicitNullProperties?.Remove("enable_proactive_conversation_starters"); } }
         private bool? _explicitNullValueEnableProactiveConversationStarters = default!;
+        /// <summary>The enable_shared_conversation_discovery property</summary>
+        public bool? EnableSharedConversationDiscovery { get => _explicitNullValueEnableSharedConversationDiscovery; set { _explicitNullValueEnableSharedConversationDiscovery = value; AdditionalData?.Remove("enable_shared_conversation_discovery"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_shared_conversation_discovery"); else _explicitNullProperties?.Remove("enable_shared_conversation_discovery"); } }
+        private bool? _explicitNullValueEnableSharedConversationDiscovery = default!;
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -211,6 +216,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             CreditsAvailable = false;
             EnableConversationUsageDetail = false;
             EnableProactiveConversationStarters = true;
+            EnableSharedConversationDiscovery = true;
             IsPersonal = false;
             IsVisible = true;
             OrgVersion = 0;
@@ -231,7 +237,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(22)
+            return new Dictionary<string, Action<IParseNode>>(23)
             {
                 { "agent_settings", n => { AgentSettings = n.GetObjectValue<global::Soenneker.OpenHands.OpenApiClient.Models.OrgDefaultsSettingsResponseAgentSettings>(global::Soenneker.OpenHands.OpenApiClient.Models.OrgDefaultsSettingsResponseAgentSettings.CreateFromDiscriminatorValue); } },
                 { "billing_margin", n => { BillingMargin = n.GetDoubleValue(); } },
@@ -243,6 +249,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
                 { "credits_available", n => { CreditsAvailable = n.GetBoolValue(); } },
                 { "enable_conversation_usage_detail", n => { EnableConversationUsageDetail = n.GetBoolValue(); } },
                 { "enable_proactive_conversation_starters", n => { EnableProactiveConversationStarters = n.GetBoolValue(); } },
+                { "enable_shared_conversation_discovery", n => { EnableSharedConversationDiscovery = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_personal", n => { IsPersonal = n.GetBoolValue(); } },
                 { "is_visible", n => { IsVisible = n.GetBoolValue(); } },
@@ -274,6 +281,7 @@ namespace Soenneker.OpenHands.OpenApiClient.Models
             writer.WriteBoolValue("credits_available", CreditsAvailable);
             writer.WriteBoolValue("enable_conversation_usage_detail", EnableConversationUsageDetail);
             writer.WriteBoolValue("enable_proactive_conversation_starters", EnableProactiveConversationStarters);
+            writer.WriteBoolValue("enable_shared_conversation_discovery", EnableSharedConversationDiscovery);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_personal", IsPersonal);
             writer.WriteBoolValue("is_visible", IsVisible);
